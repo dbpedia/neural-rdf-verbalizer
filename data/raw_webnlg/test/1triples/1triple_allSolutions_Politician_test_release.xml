@@ -1,0 +1,402 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Politician" eid="Id1" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Ab_Klink | placeOfBirth | "Stellendam, Netherlands"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ab_Klink | birthPlace | "Stellendam, Netherlands"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Stellendam, Netherlands is the birthplace of Ab Klink.</lex>
+      <lex comment="good" lid="Id2">Ab Klink was born in Stellendam, Netherlands.</lex>
+    </entry>
+    <entry category="Politician" eid="Id2" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | party | "Parti Bumiputera Sarawak"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | party | "Parti Bumiputera Sarawak"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud belongs to the party of Parti Bumiputera Sarawak.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud is a member of the Parti Bumiputera Sarawak Party.</lex>
+    </entry>
+    <entry category="Politician" eid="Id3" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | activeYearsEndDate | "1999-05-29"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | activeYearsEndDate | 1999-05-29</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar ended his career on 1999-05-29.</lex>
+    </entry>
+    <entry category="Politician" eid="Id4" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Minna</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | birthPlace | Minna</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar was born in Minna.</lex>
+      <lex comment="good" lid="Id2">Minna was the birthplace of Abdulsalami Abubakar.</lex>
+    </entry>
+    <entry category="Politician" eid="Id5" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Niger_State</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | birthPlace | Niger_State</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar's birthplace was Niger State.</lex>
+      <lex comment="good" lid="Id2">Abdulsalami Abubakar was born in Niger State.</lex>
+    </entry>
+    <entry category="Politician" eid="Id6" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | activeYearsEndDate | "1965-01-03"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_W._Sibal | activeYearsEndDate | 1965-01-03</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner W. Sibal ended his military career January 3, 1965.</lex>
+    </entry>
+    <entry category="Politician" eid="Id7" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | deathPlace | Alexandria,_Virginia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_W._Sibal | deathPlace | Alexandria,_Virginia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner W Sibal died in Alexandria, Virginia.</lex>
+      <lex comment="good" lid="Id2">Abner W. Sibal died in Alexandria, Virginia.</lex>
+      <lex comment="good" lid="Id3">Abner W Sibal died in Alexandria, Virginia.</lex>
+    </entry>
+    <entry category="Politician" eid="Id8" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Holloway | birthPlace | Kent</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Holloway | birthPlace | Kent</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Holloway was born in Kent.</lex>
+    </entry>
+    <entry category="Politician" eid="Id9" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Holloway | residence | Gravesend</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Holloway | residence | Gravesend</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Holloway's residence is Gravesend.</lex>
+      <lex comment="good" lid="Id2">Adam Holloway resided in Gravesend.</lex>
+      <lex comment="good" lid="Id3">Adam Holloway lives in Gravesend.</lex>
+    </entry>
+    <entry category="Politician" eid="Id10" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adolf_Schärf | birthPlace | Mikulov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adolf_Schärf | birthPlace | Mikulov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adolf Schärf's place of birth was Mikulov.</lex>
+      <lex comment="good" lid="Id2">Adolf Schärf was born in Mikulov.</lex>
+      <lex comment="good" lid="Id3">Adolf Scharf was born in Mikulov.</lex>
+    </entry>
+    <entry category="Politician" eid="Id11" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeminister | Antonis_Samaras</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeMinister | Antonis_Samaras</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | inOfficeWhilePrimeMinister | Antonis_Samaras</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adonis Georgiadis was in office while Antonis Samaras was Prime Minister.</lex>
+      <lex comment="good" lid="Id2">Adonis Georgiadis was in office under Antonis Samaras, Prime Minister.</lex>
+      <lex comment="good" lid="Id3">Adonis Georgiadis served in office while Antonis Samaras was Prime Minister.</lex>
+    </entry>
+    <entry category="Politician" eid="Id12" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Agnes_Kant | birthPlace | Hessisch_Oldendorf</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agnes_Kant | birthPlace | Hessisch_Oldendorf</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Agnes Kant was born in Hessisch Oldendorf.</lex>
+    </entry>
+    <entry category="Politician" eid="Id13" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Agnes_Ward_White | placeOfBirth | Marietta,_Ohio</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Agnes_Ward_White | birthPlace | Marietta,_Ohio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agnes_Ward_White | birthPlace | Marietta,_Ohio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Marietta, Ohio was the birthplace of Agnes Ward White.</lex>
+      <lex comment="good" lid="Id2">Agnes Ward White was born in Marietta, Ohio.</lex>
+      <lex comment="good" lid="Id3">The birthplace of Agnes Ward White is Marietta, Ohio.</lex>
+    </entry>
+    <entry category="Politician" eid="Id14" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | activeYearsStartDate | "1953-06-30"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Airey_Neave | termStart | "1953-06-30"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | activeYearsStartDate | 1953-06-30</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave started his career on 30th June 1953.</lex>
+    </entry>
+    <entry category="Politician" eid="Id15" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | award | Military_Cross</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | award | Military_Cross</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave was awarded the Military Cross.</lex>
+    </entry>
+    <entry category="Politician" eid="Id16" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | rank | Lieutenant_colonel</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Airey_Neave | militaryRank | Lieutenant_colonel</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | militaryRank | Lieutenant_colonel</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave's military rank is Lieutenant Colonel.</lex>
+      <lex comment="good" lid="Id2">Airey Neave was a Lieutenant Colonel.</lex>
+    </entry>
+    <entry category="Politician" eid="Id17" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albert_B._White | party | Republican_Party_(United_States)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_B._White | party | Republican_Party_(United_States)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert B.White is a member of the Republican Party of the United States.</lex>
+      <lex comment="good" lid="Id2">Albert B. White is a member of the Republican Party in the United States.</lex>
+      <lex comment="good" lid="Id3">Albert B White is a member of the Republican Party in the United States.</lex>
+    </entry>
+    <entry category="Politician" eid="Id18" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albert_B._White | spouse | Agnes_Ward_White</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_B._White | spouse | Agnes_Ward_White</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The spouse of Albert B. White was Agnes Ward White.</lex>
+      <lex comment="good" lid="Id2">Albert B. White is married to Agnes Ward White.</lex>
+      <lex comment="good" lid="Id3">Agnes Ward White was the wife of Albert B. White.</lex>
+    </entry>
+    <entry category="Politician" eid="Id19" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albert_Jennings_Fountain | militaryBranch | Union_Army</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_Jennings_Fountain | militaryBranch | Union_Army</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert Jennings Fountain served in the Union Army.</lex>
+      <lex comment="good" lid="Id2">Albert Jennings Fountain was a member of the Union Army.</lex>
+    </entry>
+    <entry category="Politician" eid="Id20" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alberto_Teisaire | profession | "Rear Admiral in the Argentine Navy"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alberto_Teisaire | profession | "Rear Admiral in the Argentine Navy"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alberto Teisaire was a Rear Admiral in the Argentine Navy.</lex>
+      <lex comment="good" lid="Id2">Alberto Teisaire was Rear Admiral in the Argentine Navy.</lex>
+    </entry>
+    <entry category="Politician" eid="Id21" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | placeOfDeath | Austria</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | deathPlace | Austria</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfons_Gorbach | deathPlace | Austria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfons Gorbach's place of death was in Austria.</lex>
+      <lex comment="good" lid="Id2">Alfons Gorbach died in Austria.</lex>
+    </entry>
+    <entry category="Politician" eid="Id22" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfred_Moore_Scales | activeYearsStartDate | "1875-03-04"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_Moore_Scales | activeYearsStartDate | 1875-03-04</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred Moore Scales started his career on 1875-03-04.</lex>
+    </entry>
+    <entry category="Politician" eid="Id23" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfred_N._Phillips | birthPlace | Darien,_Connecticut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_N._Phillips | birthPlace | Darien,_Connecticut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Darien, Connecticut is the birthplace of Alfred N. Phillips.</lex>
+      <lex comment="good" lid="Id2">Alfred N. Phillips place of birth was Darien Connecticut.</lex>
+      <lex comment="good" lid="Id3">Alfred N. Phillips was born in Darien, Connecticut.</lex>
+    </entry>
+    <entry category="Politician" eid="Id24" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfred_N._Phillips | office | Mayor_of_Stamford,_Connecticut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_N._Phillips | office (workedAt, workedAs) | Mayor_of_Stamford,_Connecticut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred N Phillips was Mayor of Stamford, Connecticut.</lex>
+      <lex comment="good" lid="Id2">Alfred N. Phillips was the Mayor of Stamford Connecticut.</lex>
+      <lex comment="good" lid="Id3">Alfred N. Phillips was Mayor of Stamford, Connecticut.</lex>
+    </entry>
+    <entry category="Politician" eid="Id25" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Allan_Shivers | activeYearsStartDate | "1947-01-21"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allan_Shivers | activeYearsStartDate | 1947-01-21</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allan Shivers started his career from January 21, 1947.</lex>
+    </entry>
+    <entry category="Politician" eid="Id26" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Allan_Shivers | successor | Price_Daniel</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allan_Shivers | successor | Price_Daniel</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allan Shivers had the successor Price Daniel.</lex>
+      <lex comment="good" lid="Id2">Allan Shivers was succeeded by Price Daniel.</lex>
+    </entry>
+    <entry category="Politician" eid="Id27" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | activeYearsStartDate | "1853-03-04"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | activeYearsStartDate | 1853-03-04</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alvah Sabin was an active politician beginning March 4, 1853.</lex>
+      <lex comment="good" lid="Id2">Alvah Sabin started active service on 1853-03-04.</lex>
+    </entry>
+    <entry category="Politician" eid="Id28" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>American_Civil_War | commander | Robert_E._Lee</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Civil_War | commander | Robert_E._Lee</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Robert E Lee was a commander in the American Civil War.</lex>
+      <lex comment="good" lid="Id2">Robert E. Lee was a commander in the American Civil War.</lex>
+      <lex comment="good" lid="Id3">A commander in the American Civil War was Robert E. Lee.</lex>
+    </entry>
+    <entry category="Politician" eid="Id29" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Battle_of_Antietam | commander | Robert_E._Lee</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Battle_of_Antietam | commander | Robert_E._Lee</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Robert E Lee was commander in the Battle of Antietam.</lex>
+      <lex comment="good" lid="Id2">Robert E. Lee was a commander in the Battle of Antietam.</lex>
+      <lex comment="good" lid="Id3">A commander at the Battle of Antietam was Robert. E. Lee.</lex>
+    </entry>
+    <entry category="Politician" eid="Id30" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Battle_of_Cold_Harbor | isPartOfMilitaryConflict | American_Civil_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Battle_of_Cold_Harbor | isPartOfMilitaryConflict | American_Civil_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Battle of Cold Harbor took place during the American Civil War.</lex>
+    </entry>
+    <entry category="Politician" eid="Id31" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Buenos_Aires | leaderName | Gabriela_Michetti</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Buenos_Aires | leaderName | Gabriela_Michetti</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Gabriela Michetti is a leader in Buenos Aires.</lex>
+      <lex comment="good" lid="Id2">The leader of Buenos Aires is called Gabriela Michetti.</lex>
+      <lex comment="good" lid="Id3">The leader of Buenos Aires is Gabriela Michetti.</lex>
+    </entry>
+    <entry category="Politician" eid="Id32" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Gulf_War | commander | Colin_Powell</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Gulf_War | commander | Colin_Powell</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Colin Powell was a commander in the Gulf War.</lex>
+      <lex comment="good" lid="Id2">Colin Powell was the commander in the Gulf War.</lex>
+    </entry>
+    <entry category="Politician" eid="Id33" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>John_F._Kennedy | predecessor | Dwight_D._Eisenhower</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>John_F._Kennedy | predecessor | Dwight_D._Eisenhower</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Dwight D. Eisenhower was the predecessor to John F. Kennedy.</lex>
+      <lex comment="good" lid="Id2">Dwight D. Eisenhower preceded John F. Kennedy as President.</lex>
+      <lex comment="good" lid="Id3">John F. Kennedy's predecessor was Dwight D. Eisenhower.</lex>
+    </entry>
+    <entry category="Politician" eid="Id34" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Juan_Carlos_I_of_Spain | predecessor | Francisco_Franco</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Juan_Carlos_I_of_Spain | predecessor | Francisco_Franco</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Francisco Franco was the predecessor of Juan Carlos I of Spain.</lex>
+      <lex comment="good" lid="Id2">The predecessor of Juan Carlos I f Spain was Francisco Franco.</lex>
+    </entry>
+    <entry category="Politician" eid="Id35" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Netherlands | leader | Mark_Rutte</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Netherlands | leaderName | Mark_Rutte</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Netherlands | leaderName | Mark_Rutte</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of the Netherlands is Mark Rutte.</lex>
+    </entry>
+    <entry category="Politician" eid="Id36" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>United_States_Army | battles | Spanish–American_War</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States_Army | battle | Spanish–American_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States_Army | battles | Spanish–American_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The United States Army was involved in battles in the Spanish-American War.</lex>
+    </entry>
+    <entry category="Politician" eid="Id37" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>William_M._O._Dawson | birthPlace | Bloomington,_Maryland</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>William_M._O._Dawson | placeOfBirth | Bloomington,_Maryland</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>William_M._O._Dawson | birthPlace | Bloomington,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The birthplace of William M. O. Dawson was Bloomington Maryland.</lex>
+      <lex comment="good" lid="Id2">Bloomington, Maryland was the birthplace of William M O Dawson.</lex>
+      <lex comment="good" lid="Id3">William M.O. Dawson was born in Bloomington, Maryland.</lex>
+    </entry>
+    </entries>
+</benchmark>

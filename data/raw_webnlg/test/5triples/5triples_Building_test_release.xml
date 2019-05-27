@@ -1,0 +1,427 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Building" eid="Id1" shape="(X (X) (X (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>200_Public_Square | buildingEndDate | "1985"</otriple>
+        <otriple>Cleveland | subdivisionName | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | isPartOf | Ohio</otriple>
+        <otriple>Cleveland | country | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>200_Public_Square | completionDate | 1985</otriple>
+        <otriple>Cleveland | subdivisionName | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | isPartOf | Ohio</otriple>
+        <otriple>Cleveland | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>200_Public_Square | location | Cleveland</mtriple>
+        <mtriple>200_Public_Square | completionDate | 1985</mtriple>
+        <mtriple>Cleveland | isPartOf | Cuyahoga_County,_Ohio</mtriple>
+        <mtriple>Cleveland | isPartOf | Ohio</mtriple>
+        <mtriple>Cleveland | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The 200 Public Square was completed in 1985 in Cuyahoga County, Cleveland, Ohio, United States.</lex>
+      <lex comment="good" lid="Id2">200 Public Square completed in 1985 is in Cleveland (part of Cuyahoga County) in Ohio, U.S.</lex>
+      <lex comment="good" lid="Id3">200 Public Square was completed in 1985, and is located in Cleveland, Cuyahoga County, Ohio, United States.</lex>
+    </entry>
+    <entry category="Building" eid="Id2" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>250_Delaware_Avenue | location | Buffalo,_New_York</otriple>
+        <otriple>250_Delaware_Avenue | architecturalStyle | Postmodern_architecture</otriple>
+        <otriple>250_Delaware_Avenue | buildingStartDate | "January, 2014"</otriple>
+        <otriple>250_Delaware_Avenue | floorArea | "30843.8"^^xsd:double</otriple>
+        <otriple>250_Delaware_Avenue | floorCount | "12"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>250_Delaware_Avenue | location | Buffalo,_New_York</otriple>
+        <otriple>250_Delaware_Avenue | architecturalStyle | Postmodern_architecture</otriple>
+        <otriple>250_Delaware_Avenue | buildingStartDate | "January, 2014"</otriple>
+        <otriple>250_Delaware_Avenue | floorArea | "30843.8"^^xsd:double</otriple>
+        <otriple>250_Delaware_Avenue | floorCount | 12</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>250_Delaware_Avenue | location | Buffalo,_New_York</mtriple>
+        <mtriple>250_Delaware_Avenue | architecturalStyle | Postmodern_architecture</mtriple>
+        <mtriple>250_Delaware_Avenue | buildingStartDate | "January, 2014"</mtriple>
+        <mtriple>250_Delaware_Avenue | floorArea | 30843.8 (square metres)</mtriple>
+        <mtriple>250_Delaware_Avenue | floorCount | 12</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Construction of 250 Delaware Avenue, Buffalo, New York, began in January 2014 in the postmodernist style of architecture. The building has 12 floors with a total area of 30843.8 square metres.</lex>
+      </entry>
+    <entry category="Building" eid="Id3" shape="(X (X (X) (X) (X (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>300_North_LaSalle | location | Chicago</otriple>
+        <otriple>Chicago | leaderName | Rahm_Emanuel</otriple>
+        <otriple>Chicago | country | United_States</otriple>
+        <otriple>Illinois | capital | Springfield,_Illinois</otriple>
+        <otriple>Chicago | isPartOf | Illinois</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>300_North_LaSalle | location | Chicago</mtriple>
+        <mtriple>Chicago | leaderName | Rahm_Emanuel</mtriple>
+        <mtriple>Chicago | country | United_States</mtriple>
+        <mtriple>Illinois | capital | Springfield,_Illinois</mtriple>
+        <mtriple>Chicago | isPartOf | Illinois</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">300 North LaSalle is located in Chicago, Illinois, United States. The leader of Chicago is Rahm Emanuel and the capital of the state of Illinois is Springfield.</lex>
+      <lex comment="good" lid="Id2">300 North LaSalle is located in Chicago (leader: Rahm Emanuel), which is part of Illinois, United States. The capital of Illinois is Springfield.</lex>
+      <lex comment="good" lid="Id3">300 North LaSalle is located in Chicago, Illinois, in the US. Rahm Emanuel is the leader of Chicago but the capital of the state of Illinois is Springfield.</lex>
+    </entry>
+    <entry category="Building" eid="Id4" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</otriple>
+        <otriple>Denmark | language | Faroese_language</otriple>
+        <otriple>Denmark | leaderName | Margrethe_II_of_Denmark</otriple>
+        <otriple>Marriott_International | foundationPlace | Washington,_D.C.</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</mtriple>
+        <mtriple>Denmark | language | Faroese_language</mtriple>
+        <mtriple>Denmark | leaderName | Margrethe_II_of_Denmark</mtriple>
+        <mtriple>Marriott_International | foundationPlace | Washington,_D.C.</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AC Hotel Bella Sky Copenhagen is located in Denmark, where Faroese is spoken, and the leader is Margrethe II of Denmark. The hotel's current tenant is the Marriott International Hotel, which was founded in Washington, D.C.</lex>
+      <lex comment="good" lid="Id2">Margrethe II of Denmark leads the country where the Faroese language is spoken. The Marriott International, founded in Washington DC, are the current tenants of the AC Hotel Bella Sky in Copenhagen.</lex>
+    </entry>
+    <entry category="Building" eid="Id5" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</otriple>
+        <otriple>Marriott_International | foundationPlace | Washington,_D.C.</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>Marriott_International | keyPerson | Bill_Marriott</otriple>
+        <otriple>Denmark | language | Greenlandic_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</mtriple>
+        <mtriple>Marriott_International | foundationPlace | Washington,_D.C.</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>Marriott_International | keyPerson | Bill_Marriott</mtriple>
+        <mtriple>Denmark | language | Greenlandic_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Marriott International was founded in Washington, D.C. and is the tenant of AC Hotel Bella Sky Copenhagen which is in Denmark where Greenlandic is one of the languages spoken there. Bill Marriott is one of the key employees of Marriott International.</lex>
+      <lex comment="good" lid="Id2">Bill Marriott is the key person of Marriott International which was founded in Washington DC and is the tenant of the AC Hotel Bella Sky in Copenhagen, Denmark. One of the languages spoken in the country is Greenlandic.</lex>
+    </entry>
+    <entry category="Building" eid="Id6" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</otriple>
+        <otriple>Marriott_International | foundationPlace | Washington,_D.C.</otriple>
+        <otriple>Denmark | leaderName | Lars_Løkke_Rasmussen</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>Denmark | language | Greenlandic_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</mtriple>
+        <mtriple>Marriott_International | foundationPlace | Washington,_D.C.</mtriple>
+        <mtriple>Denmark | leaderName | Lars_Løkke_Rasmussen</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>Denmark | language | Greenlandic_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AC Hotel Bella Sky Copenhagen is in Denmark where the leader is Lars Løkke Rasmussen and Greenlandic is one of the languages spoken there. The tenant of the AC Hotel Bella Sky Copenhagen is the Marriott International Hotel which was founded in Washington, D.C.</lex>
+      <lex comment="good" lid="Id2">Marriott International, founded in Washington DC, is a tenant of AC Hotel Bella Sky located in Copenhagen, Denmark (which is led by Lars Lokke Rasmussen and has Greenlandic as a spoken language).</lex>
+    </entry>
+    <entry category="Building" eid="Id7" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Adare_Manor | architect | Augustus_Pugin</otriple>
+        <otriple>Augustus_Pugin | significantBuilding | Palace_of_Westminster</otriple>
+        <otriple>Augustus_Pugin | birthPlace | Bloomsbury</otriple>
+        <otriple>Republic_of_Ireland | leader | Enda_Kenny</otriple>
+        <otriple>Adare_Manor | country | Republic_of_Ireland</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adare_Manor | locationCountry | Republic_of_Ireland</otriple>
+        <otriple>Adare_Manor | architect | Augustus_Pugin</otriple>
+        <otriple>Augustus_Pugin | significantBuilding | Palace_of_Westminster</otriple>
+        <otriple>Augustus_Pugin | birthPlace | Bloomsbury</otriple>
+        <otriple>Republic_of_Ireland | leader | Enda_Kenny</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adare_Manor | country | Republic_of_Ireland</mtriple>
+        <mtriple>Adare_Manor | architect | Augustus_Pugin</mtriple>
+        <mtriple>Augustus_Pugin | significantBuilding | Palace_of_Westminster</mtriple>
+        <mtriple>Augustus_Pugin | birthPlace | Bloomsbury</mtriple>
+        <mtriple>Republic_of_Ireland | leaderName | Enda_Kenny</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Adare Manor is in the Republic of Ireland, which leader is Enda Kenny. The architect is Augustus Pugin, who was born in Bloomsbury. One of the significant buildings designed by Augustus Pugin is the Palace Of Westminster.</lex>
+      <lex comment="good" lid="Id2">Adare Manor is located in the Republic of Ireland, whose leader is Enda Kenny. Its architect was Augustus Pugin, who was born in Bloomsbury. Another significant building designed by Pugin is the Palace of Westminster.</lex>
+      <lex comment="good" lid="Id3">Augustus Pugin was born in Bloomsbury and was the architect of Adare Manor in the Republic of Ireland, where the leader is Enda Kenny. He also designed the significant building of the Palace of Westminster.</lex>
+    </entry>
+    <entry category="Building" eid="Id8" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Addis_Ababa_City_Hall | completionDate | 1964</otriple>
+        <otriple>Addis_Ababa_City_Hall | currentTenants | "Government of Addis Ababa"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | height | "42 m"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | startDate | 1961</otriple>
+        <otriple>Addis_Ababa_City_Hall | floorArea | "140000.0"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Addis_Ababa_City_Hall | completionDate | 1964</otriple>
+        <otriple>Addis_Ababa_City_Hall | currentTenants | "Government of Addis Ababa"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | height | "42 m"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | startDate | 1961</otriple>
+        <otriple>Addis_Ababa_City_Hall | floorArea | "140000.0"^^&lt;http://dbpedia.org/datatype/squareMetre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Addis_Ababa_City_Hall | completionDate | 1964</otriple>
+        <otriple>Addis_Ababa_City_Hall | currentTenants | "Government of Addis Ababa"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | startDate | 1961</otriple>
+        <otriple>Addis_Ababa_City_Hall | floorArea | "140000.0"^^&lt;http://dbpedia.org/datatype/squareMetre&gt;</otriple>
+        <otriple>Addis_Ababa_City_Hall | height | "42.0"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Addis_Ababa_City_Hall | completionDate | 1964</otriple>
+        <otriple>Addis_Ababa_City_Hall | currentTenants | "Government of Addis Ababa"@en</otriple>
+        <otriple>Addis_Ababa_City_Hall | startDate | 1961</otriple>
+        <otriple>Addis_Ababa_City_Hall | floorArea | "140000.0"^^xsd:double</otriple>
+        <otriple>Addis_Ababa_City_Hall | height | "42.0"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Addis_Ababa_City_Hall | completionDate | 1964</mtriple>
+        <mtriple>Addis_Ababa_City_Hall | currentTenants | "Government of Addis Ababa"</mtriple>
+        <mtriple>Addis_Ababa_City_Hall | buildingStartDate | 1961</mtriple>
+        <mtriple>Addis_Ababa_City_Hall | floorArea | 140000.0 (square metres)</mtriple>
+        <mtriple>Addis_Ababa_City_Hall | height | "42 m"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Addis Ababa City Hall is 42m high and has a 140000.0 (square metres) floor area. Construction began in 1961 and it was completed in 1964. The current tenants are the Government of Addis Ababa.</lex>
+      <lex comment="good" lid="Id2">The " Government of Addis Ababa" are the current tenants of Addis Ababa City Hall. The building started in 1961 and was completed in 1964. It has a floor area of 140000.0 square metres and is 42 m high.</lex>
+      <lex comment="good" lid="Id3">Addis Ababa City Hall's was started in 1961 and completed in 1964. It is 42 metres high and has 140000 square metres of floor area. The " Government of Addis Ababa" are the current tenants of that hall.</lex>
+    </entry>
+    <entry category="Building" eid="Id9" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | locationCountry | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | floorCount | 3</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita_Prefecture</otriple>
+        <otriple>Akita_Museum_of_Art | address | "1-4-2 Nakadori"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | locationCountry | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | floorCount | "3"^^xsd:positiveInteger</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita_Prefecture</otriple>
+        <otriple>Akita_Museum_of_Art | address | "1-4-2 Nakadori"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | locationCountry | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | floorCount | "3"^^xsd:positiveInteger</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita,_Akita</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita_Prefecture</otriple>
+        <otriple>Akita_Museum_of_Art | address | "1-4-2 Nakadori"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | floorCount | 3</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita_Prefecture</mtriple>
+        <mtriple>Akita_Museum_of_Art | address | "1-4-2 Nakadori"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akita Museum of Art is an art museum at 1-4-2 Nakadori, Akita, Akita Prefecture, Japan. It was constructed with 3 floors.</lex>
+      <lex comment="good" lid="Id2">The Akita Museum of Art is located in Akita, Akita, which is part of Akita Prefecture, Japan. The museum has 3 floors and its address is 1-4-2 Nakadori.</lex>
+      <lex comment="good" lid="Id3">The Akita Museum of Art, which has 3 floors, is an art museum in the city of Akita, Japan. It's address is 142 Nakadori, which is the Akita Prefecture.</lex>
+    </entry>
+    <entry category="Building" eid="Id10" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita,_Akita | subdivisionName | Akita_Prefecture</otriple>
+        <otriple>Japan | leader | Tarō_Asō</otriple>
+        <otriple>Japan | ethnicGroup | Chinese_people_in_Japan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+        <mtriple>Akita,_Akita | isPartOf | Akita_Prefecture</mtriple>
+        <mtriple>Japan | leaderName | Tarō_Asō</mtriple>
+        <mtriple>Japan | ethnicGroup | Chinese_people_in_Japan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Chinese are one of the ethnic groups in Japan which is led by Taro Aso. The country is the location of the Akita Museum of Art found in Akita, Akita Prefecture.</lex>
+      <lex comment="good" lid="Id2">Tarō Asō is one of the leaders in Japan, A country where there is an ethnic group of Chinese people. Also where the Akita Museum of Art is located, in Akita which is part of Akita Prefecture.</lex>
+      <lex comment="good" lid="Id3">The Chinese people are an ethnic group of Japan which is led by Taro Aso. The country is the location of the Akita Museum of Art in Akita, Akita Prefecture.</lex>
+    </entry>
+    <entry category="Building" eid="Id11" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Alan_B._Miller_Hall | location | Virginia</otriple>
+        <otriple>Alan_B._Miller_Hall | architect | Robert_A._M._Stern</otriple>
+        <otriple>Alan_B._Miller_Hall | owner | College_of_William_&amp;_Mary</otriple>
+        <otriple>Mason_School_of_Business | country | United_States</otriple>
+        <otriple>Alan_B._Miller_Hall | currentTenants | Mason_School_of_Business</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_B._Miller_Hall | location | Virginia</mtriple>
+        <mtriple>Alan_B._Miller_Hall | architect | Robert_A._M._Stern</mtriple>
+        <mtriple>Alan_B._Miller_Hall | owner | College_of_William_&amp;_Mary</mtriple>
+        <mtriple>Mason_School_of_Business | country | United_States</mtriple>
+        <mtriple>Alan_B._Miller_Hall | currentTenants | Mason_School_of_Business</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan B. Miller Hall was designed by Robert A.M. Stern; it is located in Virginia and it is owned by the College of William and Mary. Its current tenants are the Mason School of Business in the US.</lex>
+      <lex comment="good" lid="Id2">The College of William and Mary is the owner of the Alan B. Miller Hall. which was designed by Robert A.M. Stern. Situated in Virginia, it has as its tenants United States based Mason School of Business.</lex>
+      </entry>
+    <entry category="Building" eid="Id12" shape="(X (X (X)) (X (X (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Amdavad_ni_Gufa | location | Ahmedabad</otriple>
+        <otriple>Ahmedabad | country | India</otriple>
+        <otriple>Amdavad_ni_Gufa | locationTown | Gujarat</otriple>
+        <otriple>India | leaderName | Sumitra_Mahajan</otriple>
+        <otriple>Gujarat | leaderTitle | Gujarat_Legislative_Assembly</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amdavad_ni_Gufa | location | Ahmedabad</mtriple>
+        <mtriple>Ahmedabad | country | India</mtriple>
+        <mtriple>Amdavad_ni_Gufa | location | Gujarat</mtriple>
+        <mtriple>India | leaderName | Sumitra_Mahajan</mtriple>
+        <mtriple>Gujarat | leaderTitle | Gujarat_Legislative_Assembly</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Gujarat in India is led by the Gujarat Legislative Assembly and is the location of Amdavad ni Gufa in Ahmedabad. Sumitra Mahajan is known as an Indian leader.</lex>
+      <lex comment="good" lid="Id2">Amdavad ni Gufa is located in Ahmedabad, Gujarat, India. Sumitra Mahajan is an Indian leader and Gujarat is led by the Legislative Assembly.</lex>
+      <lex comment="good" lid="Id3">The location of Amdavad ni Gufa is Ahmedabad, Gujarat, India. Gujarat's leader is known as the Gujarat Legislative Assembly, and the name of the leader in India is Sumitra Mahajan.</lex>
+    </entry>
+    <entry category="Building" eid="Id13" shape="(X (X) (X (X)) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Ampara_Hospital | country | Sri_Lanka</otriple>
+        <otriple>Sri_Lanka | leader | Ranil_Wickremesinghe</otriple>
+        <otriple>Ampara_Hospital | state | Eastern_Province,_Sri_Lanka</otriple>
+        <otriple>Ampara_Hospital | region | Ampara_District</otriple>
+        <otriple>Eastern_Province,_Sri_Lanka | leaderName | Austin_Fernando</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ampara_Hospital | country | Sri_Lanka</mtriple>
+        <mtriple>Sri_Lanka | leaderName | Ranil_Wickremesinghe</mtriple>
+        <mtriple>Ampara_Hospital | state | Eastern_Province,_Sri_Lanka</mtriple>
+        <mtriple>Ampara_Hospital | region | Ampara_District</mtriple>
+        <mtriple>Eastern_Province,_Sri_Lanka | leaderName | Austin_Fernando</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Sri Lanka is Ranil Wickremesinghe, but in the Eastern Province it is Austin Fernando. This is where the Ampara Hospital is located in Ampara District.</lex>
+      <lex comment="good" lid="Id2">Ampara Hospital is in the Ampara district of Eastern Province, Sri Lanka. The leader of Eastern Province is Austin Fernando and the leader of Sri Lanka is Ranil Wickremesinghe.</lex>
+      <lex comment="good" lid="Id3">Ampara Hospital is located in Ampara District, Eastern Province, Sri Lanka which is led by Austin Fernando. Ranil Wickremesinghe is a leader of the country.</lex>
+    </entry>
+    <entry category="Building" eid="Id14" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Ampara_Hospital | country | Sri_Lanka</otriple>
+        <otriple>Sri_Lanka | leaderName | Ranil_Wickremesinghe</otriple>
+        <otriple>Ampara_Hospital | state | Eastern_Province,_Sri_Lanka</otriple>
+        <otriple>Eastern_Province,_Sri_Lanka | governingBody | Eastern_Provincial_Council</otriple>
+        <otriple>Sri_Lanka | capital | Sri_Jayawardenepura_Kotte</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ampara_Hospital | country | Sri_Lanka</mtriple>
+        <mtriple>Sri_Lanka | leaderName | Ranil_Wickremesinghe</mtriple>
+        <mtriple>Ampara_Hospital | state | Eastern_Province,_Sri_Lanka</mtriple>
+        <mtriple>Eastern_Province,_Sri_Lanka | governingBody | Eastern_Provincial_Council</mtriple>
+        <mtriple>Sri_Lanka | capital | Sri_Jayawardenepura_Kotte</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ranil Wickremesinghe is the leader of Sri Lanka whose capital is Sri Jayawardenepura Kotte. Ampara Hospital is in the Eastern Province which is governed by the Eastern Provincial Council.</lex>
+      <lex comment="good" lid="Id2">Ampara Hospital is in the Eastern Province, Sri Lanka. The Eastern Provincial Council is the governing body of Eastern Province. The capital of Sri Lanka is Sri Jayawardenepura Kotte and the leader of the country is Ranil Wickremesinghe.</lex>
+      <lex comment="good" lid="Id3">Ampara Hospital is in the Eastern Province, Sri Lanka and is governed by Eastern Provincial Council. Ranil Wickremesinghe is a leader of Sri Lanka with the capital being Sri Jayawardenepura Kotte.</lex>
+    </entry>
+    <entry category="Building" eid="Id15" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</otriple>
+        <otriple>Julia_Morgan | birthPlace | San_Francisco</otriple>
+        <otriple>Julia_Morgan | significantBuilding | Los_Angeles_Herald-Examiner</otriple>
+        <otriple>Julia_Morgan | significantProject | Hearst_Castle</otriple>
+        <otriple>Julia_Morgan | significantBuildings | Asilomar_State_Beach</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</mtriple>
+        <mtriple>Julia_Morgan | birthPlace | San_Francisco</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Los_Angeles_Herald-Examiner</mtriple>
+        <mtriple>Julia_Morgan | significantProject | Hearst_Castle</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Asilomar_State_Beach</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Julia Morgan, who was born in San Francisco, was the architect of Asilomar Conference Grounds, the Los Angeles Herald examiner building (a landmark in California), Hearst Castle and the Asilomar State Beach.</lex>
+      </entry>
+    <entry category="Building" eid="Id16" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</otriple>
+        <otriple>Julia_Morgan | birthPlace | San_Francisco</otriple>
+        <otriple>Julia_Morgan | significantBuildings | Riverside_Art_Museum</otriple>
+        <otriple>Julia_Morgan | significantProject | Hearst_Castle</otriple>
+        <otriple>Julia_Morgan | significantBuilding | Asilomar_State_Beach</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</otriple>
+        <otriple>Julia_Morgan | birthPlace | San_Francisco</otriple>
+        <otriple>Julia_Morgan | significantBuilding | Riverside_Art_Museum</otriple>
+        <otriple>Julia_Morgan | significantProject | Hearst_Castle</otriple>
+        <otriple>Julia_Morgan | significantBuildings | Asilomar_State_Beach</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</mtriple>
+        <mtriple>Julia_Morgan | birthPlace | San_Francisco</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Riverside_Art_Museum</mtriple>
+        <mtriple>Julia_Morgan | significantProject | Hearst_Castle</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Asilomar_State_Beach</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Julia Morgan, the architect, was born in San Francisco and some of her significant projects include Asilomar Conference Grounds, The Riverside Art Museum, Hearst Castle and Asilomar State Beach.</lex>
+      <lex comment="good" lid="Id2">The architect Julia Morgan was born in San Francisco and designed several significant buildings. These included the grounds of Asilomar Conference, the Riverside Art Museum, Hearst Castle and Asilomar State Beach.</lex>
+      <lex comment="good" lid="Id3">Born in San Francisco, Julia Morgan was an architect mostly known for designing significant buildings such as Asilomar State Beach and the Riverside Art Museum. Other buildings she designed included Asilomar Conference Grounds and Hearst Castle.</lex>
+    </entry>
+    <entry category="Building" eid="Id17" shape="(X (X (X) (X) (X (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>New_York_City | country | United_States</otriple>
+        <otriple>Manhattan | leaderName | Cyrus_Vance,_Jr.</otriple>
+        <otriple>New_York_City | subdivisionName | Manhattan</otriple>
+        <otriple>New_York_City | isPartOf | New_Netherland</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | New_York_City</mtriple>
+        <mtriple>New_York_City | country | United_States</mtriple>
+        <mtriple>Manhattan | leaderName | Cyrus_Vance,_Jr.</mtriple>
+        <mtriple>New_York_City | isPartOf | Manhattan</mtriple>
+        <mtriple>New_York_City | isPartOf | New_Netherland</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Asser Levy Public Baths are in New York City in the U.S. New York City has a leader called Cyrus Vance Jr. and it is part of Manhattan and New Netherland.</lex>
+      <lex comment="good" lid="Id2">The Asser Levy Public Baths are in New York City (part of Manhattan) in the U.S. New York City is part of New Netherland and a leader there is Cyrus Vance Jr.</lex>
+      <lex comment="good" lid="Id3">New York City (former part of New Netherland), is located in the United States, is a part of Manhattan (led by Cyrus Vance Jr.), is the loction of Asser Levy Public Baths.</lex>
+    </entry>
+    <entry category="Building" eid="Id18" shape="(X (X (X (X) (X) (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Birmingham | postalCode | B_postcode_area</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | birthPlace | Birmingham</otriple>
+        <otriple>Birmingham | leaderName | John_Clancy_(Labour_politician)</otriple>
+        <otriple>Birmingham | governingBody | Birmingham_City_Council</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Birmingham | postalCode | B_postcode_area</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | birthPlace | Birmingham</mtriple>
+        <mtriple>Birmingham | leaderName | John_Clancy_(Labour_politician)</mtriple>
+        <mtriple>Birmingham | governingBody | Birmingham_City_Council</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">John Madin, the architect who designed 103 Colmore Row, was born in Birmingham. The postal code of that area is B. and the governing body is the Birmingham City Council. Labour politician, John Clancy is the leader the area.</lex>
+      <lex comment="good" lid="Id2">103 Colmore Row was designed by the architect John Madin, who was born in Birmingham, with the postcode area 'B'. Labour politician, John Clancy is the city's leader, and the local governing body is Birmingham City Council.</lex>
+      <lex comment="good" lid="Id3">The City Council, led by labour politician John Clancy, is the governing body for Birmingham. The city (which uses the B Postcode) is the birthplace of the architect John Madin who designed 103 Colmore Row.</lex>
+    </entry>
+    <entry category="Building" eid="Id19" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | leaderTitle | President_of_the_United_States</otriple>
+        <otriple>United_States | leader | John_Roberts</otriple>
+        <otriple>250_Delaware_Avenue | location | United_States</otriple>
+        <otriple>United_States | leaderName | Barack_Obama</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | leaderTitle | President_of_the_United_States</otriple>
+        <otriple>United_States | leaderName | John_Roberts</otriple>
+        <otriple>250_Delaware_Avenue | location | United_States</otriple>
+        <otriple>United_States | leader | Barack_Obama</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>United_States | leaderTitle | President_of_the_United_States</mtriple>
+        <mtriple>United_States | leaderName | John_Roberts</mtriple>
+        <mtriple>250_Delaware_Avenue | location | United_States</mtriple>
+        <mtriple>United_States | leaderName | Barack_Obama</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">250 Delaware Avenue can be found in the United States, where the leader is Barack Obama and he has the title President of the United States. John Roberts is a leader in the US and the capital of the country is Washington DC.</lex>
+      <lex comment="good" lid="Id2">The title of the leader of the United States is the President of the United States, and the leader was Barack Obama. John Roberts is a leader in the US. The capital of the US is Washington DC, and 250 Delaware Avenue is located in the US.</lex>
+      </entry>
+    </entries>
+</benchmark>

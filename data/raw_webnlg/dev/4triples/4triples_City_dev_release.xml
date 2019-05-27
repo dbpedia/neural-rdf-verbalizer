@@ -1,0 +1,544 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="City" eid="Id1" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Abilene,_Texas | isPartOf | Texas</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Abilene,_Texas | country | United_States</otriple>
+        <otriple>Texas | language | English_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abilene,_Texas | isPartOf | Texas</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>Abilene,_Texas | country | United_States</mtriple>
+        <mtriple>Texas | language | English_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abilene is part of Texas in the United States.Washington, D.C. is the capital of the U.S and English is its official language.</lex>
+      <lex comment="good" lid="Id2">Abilene, Texas, where English is spoken, is in the United States which has Washington D.C. as its capital.</lex>
+      <lex comment="good" lid="Id3">Abilene, Texas (English is one of the languages spoken), is in the United States, where Washington D.C. is the capital.</lex>
+    </entry>
+    <entry category="City" eid="Id2" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Albany,_Georgia | subdivisionName | Georgia_(U.S._state)</otriple>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>Albany,_Georgia | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Georgia | isPartOf | Georgia_(U.S._state)</mtriple>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>Albany,_Georgia | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany, Georgia, is located within the United States where the inhabitants are called Americans.One of the ethnic groups in the United States are the African Americans.</lex>
+      <lex comment="good" lid="Id2">Albany is part of the state of Georgia in the United States. The people living in the US are called Americans and include the ethnic group of African Americans.</lex>
+      <lex comment="good" lid="Id3">Albany is located in the US state of Georgia. Americans are the people occupying the U.S, where one of the ethnic groups is the African Americans.</lex>
+    </entry>
+    <entry category="City" eid="Id3" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Albany,_Georgia | subdivisionName | Georgia_(U.S._state)</otriple>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+        <otriple>United_States | language | English_language</otriple>
+        <otriple>Albany,_Georgia | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Georgia | isPartOf | Georgia_(U.S._state)</mtriple>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+        <mtriple>United_States | language | English_language</mtriple>
+        <mtriple>Albany,_Georgia | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany is part of Georgia, in the United States. the country where English is spoken, and one of the ethnic groups is Asian Americans.</lex>
+      <lex comment="good" lid="Id2">Albany, Georgia, is in the United States, where English is the language, and where Asian Americans are one of the ethnic groups.</lex>
+      <lex comment="good" lid="Id3">Albany, Georgia is in the United States where English is spoken and Asian Americans are among the ethnic groups.</lex>
+    </entry>
+    <entry category="City" eid="Id4" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Albany,_Oregon | subdivisionName | Oregon</otriple>
+        <otriple>Oregon | capital | Salem,_Oregon</otriple>
+        <otriple>Albany,_Oregon | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Oregon | isPartOf | Oregon</mtriple>
+        <mtriple>Oregon | capital | Salem,_Oregon</mtriple>
+        <mtriple>Albany,_Oregon | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany is a city in Oregon, where the capital is Salem. Albany is located in the United States, where there is an ethnic group called African Americans.</lex>
+      <lex comment="good" lid="Id2">Albany is a city in Oregon located in the U.S. Salem is the capital of that state. African Americans are one ethnic group in the U.S.</lex>
+      <lex comment="good" lid="Id3">Albany is part of Oregon (capital is Salem), in the Unite States, where African Americans are one of the ethnic groups.</lex>
+    </entry>
+    <entry category="City" eid="Id5" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Albuquerque,_New_Mexico | areaLand | 4.862e+08</otriple>
+        <otriple>Albuquerque,_New_Mexico | populationDensity | "1142.3"^^xsd:double</otriple>
+        <otriple>Albuquerque,_New_Mexico | areaCode | 505575</otriple>
+        <otriple>Albuquerque,_New_Mexico | areaTotal | "490.9"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Albuquerque,_New_Mexico | areaCode | "505, 575"</otriple>
+        <otriple>Albuquerque,_New_Mexico | areaLand | 4.862e+08</otriple>
+        <otriple>Albuquerque,_New_Mexico | areaTotal | 4.909e+08</otriple>
+        <otriple>Albuquerque,_New_Mexico | populationDensity | "1142.3"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albuquerque,_New_Mexico | areaCode | 505, 575</mtriple>
+        <mtriple>Albuquerque,_New_Mexico | areaOfLand | 486.2 (square kilometres)</mtriple>
+        <mtriple>Albuquerque,_New_Mexico | areaTotal | 490.9 (square kilometres)</mtriple>
+        <mtriple>Albuquerque,_New_Mexico | populationDensity | 1142.3 (inhabitants per square kilometre)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albuquerque, in New Mexico, has a total are of 490.9 square kilometres and a land area of 486.2 square kilometres. It has a population density of 1142.3 people per square kilometers, and the area codes are 505 and 575.</lex>
+      <lex comment="good" lid="Id2">Albuquerque, New Mexico covers a total of 490.0 sq kms which includes a land area of 486.2 sq km. It has the area codes 505 and 575 and a population density of 1142.3 inhabitants per sq km.</lex>
+      </entry>
+    <entry category="City" eid="Id6" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Amarillo,_Texas | isPartOf | Potter_County,_Texas</otriple>
+        <otriple>Potter_County,_Texas | state | Texas</otriple>
+        <otriple>Potter_County,_Texas | country | United_States</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amarillo,_Texas | isPartOf | Potter_County,_Texas</mtriple>
+        <mtriple>Potter_County,_Texas | state | Texas</mtriple>
+        <mtriple>Potter_County,_Texas | country | United_States</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Amarillo is part of Potter County, Texas, in the United States, the capital of which, is Washington, D.C.</lex>
+      <lex comment="good" lid="Id2">Amarillo is located in the United States and comprises part of Potter County in the state of Texas. The capital of the country is found in Washington DC.</lex>
+      <lex comment="good" lid="Id3">Amarillo is part of Potter County, Texas, U.S. Washington D.C. is the capital of the U.S.</lex>
+    </entry>
+    <entry category="City" eid="Id7" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Anaheim,_California | isPartOf | Orange_County,_California</otriple>
+        <otriple>Orange_County,_California | subdivisionName | Greater_Los_Angeles_Area</otriple>
+        <otriple>Anaheim,_California | leaderTitle | California_State_Assembly</otriple>
+        <otriple>Anaheim,_California | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anaheim,_California | isPartOf | Orange_County,_California</mtriple>
+        <mtriple>Orange_County,_California | isPartOf | Greater_Los_Angeles_Area</mtriple>
+        <mtriple>Anaheim,_California | leaderTitle | California_State_Assembly</mtriple>
+        <mtriple>Anaheim,_California | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anaheim, California in the U.S. is led by the California State Assembly and is part of Orange County which forms part of the Greater L.A. area.</lex>
+      <lex comment="good" lid="Id2">Led by the California State Assembly, Anaheim, is in Orange County, California (part of the Greater Los Angeles area), in the United States.</lex>
+      <lex comment="good" lid="Id3">Anaheim is a city in Orange County (part of the Greater Los Angeles area) which is part of California in the U.S. Anaheim is led by the California State Assembly.</lex>
+    </entry>
+    <entry category="City" eid="Id8" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Angola,_Indiana | country | United_States</otriple>
+        <otriple>Angola,_Indiana | subdivisionName | Pleasant_Township,_Steuben_County,_Indiana</otriple>
+        <otriple>Angola,_Indiana | areaTotal | "16.55"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+        <otriple>Angola,_Indiana | isPartOf | Indiana</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Angola,_Indiana | country | United_States</otriple>
+        <otriple>Angola,_Indiana | subdivisionName | Pleasant_Township,_Steuben_County,_Indiana</otriple>
+        <otriple>Angola,_Indiana | areaTotal | "16.55002402504704"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+        <otriple>Angola,_Indiana | isPartOf | Indiana</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Angola,_Indiana | isPartOf | Pleasant_Township,_Steuben_County,_Indiana</otriple>
+        <otriple>Angola,_Indiana | country | United_States</otriple>
+        <otriple>Angola,_Indiana | subdivisionName | Indiana</otriple>
+        <otriple>Angola,_Indiana | areaTotal | "16.55"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Angola,_Indiana | isPartOf | Pleasant_Township,_Steuben_County,_Indiana</mtriple>
+        <mtriple>Angola,_Indiana | country | United_States</mtriple>
+        <mtriple>Angola,_Indiana | isPartOf | Indiana</mtriple>
+        <mtriple>Angola,_Indiana | areaTotal | 16.55 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Angola is part of Pleasant Township in Steuben County, Indiana, in the U.S. and is 16.55 square kilometres in size.</lex>
+      <lex comment="good" lid="Id2">Angola is part of Pleasant Township in Steuben County and covers a total area of 16.55 square kilometres. The city is in Indiana, United States.</lex>
+      <lex comment="good" lid="Id3">Angola is part of Pleasant township, Steuben County in the US. It is located in the state of Indiana and has a total area of 16.55 sq km.</lex>
+    </entry>
+    <entry category="City" eid="Id9" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Angola,_Indiana | subdivisionName | Steuben_County,_Indiana</otriple>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>Angola,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Angola,_Indiana | isPartOf | Steuben_County,_Indiana</mtriple>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>Angola,_Indiana | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Angola is in Steuben County, Indiana and that's in the U.S. where people are known as Americans and is also home to Native Americans.</lex>
+      <lex comment="good" lid="Id2">The people living in the United States are known as Americans and include the ethnic group of Native Americans. The country is the location of Angola which is found in Steuben County, Indiana.</lex>
+      <lex comment="good" lid="Id3">Angola, Indiana is in Steuben County, in the United States, where Native Americans are an ethnic group.</lex>
+    </entry>
+    <entry category="City" eid="Id10" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Antioch,_California | utcOffset | "&amp;minus;7"</otriple>
+        <otriple>Antioch,_California | populationTotal | 102372</otriple>
+        <otriple>Antioch,_California | areaCode | "925"</otriple>
+        <otriple>Antioch,_California | areaTotal | 7.5324e+07</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Antioch,_California | utcOffset | "&amp;minus;7"</otriple>
+        <otriple>Antioch,_California | areaCode | 925</otriple>
+        <otriple>Antioch,_California | populationTotal | 102372</otriple>
+        <otriple>Antioch,_California | areaTotal | "75.324"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Antioch,_California | utcOffset | "&amp;minus;7"</otriple>
+        <otriple>Antioch,_California | populationTotal | 102372</otriple>
+        <otriple>Antioch,_California | areaCode | "925"</otriple>
+        <otriple>Antioch,_California | areaTotal | "75.324"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antioch,_California | UTCOffset | "-7"</mtriple>
+        <mtriple>Antioch,_California | populationTotal | 102372</mtriple>
+        <mtriple>Antioch,_California | areaCode | 925</mtriple>
+        <mtriple>Antioch,_California | areaTotal | 75.324 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The total area of Antioch, California is 75.324 square km and uses UTC offset of -7.It has a total population of 102372 inhabitants and its area code is 925.</lex>
+      <lex comment="good" lid="Id2">The total area of Antioch, California is 75.324 square km., has an UTC offset of -7 and its population is 102372. The area code there is 925.</lex>
+      <lex comment="good" lid="Id3">Antioch, California has a UTC offset of - 7, the population is 102372, the area code is 925, and has a total area of 75.324 square km.</lex>
+    </entry>
+    <entry category="City" eid="Id11" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Attica,_Indiana | areaTotal | 4.14e+06</otriple>
+        <otriple>Attica,_Indiana | isPartOf | Logan_Township,_Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | subdivisionName | Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | populationDensity | "783.1"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Attica,_Indiana | areaTotal | 4.14e+06</otriple>
+        <otriple>Attica,_Indiana | isPartOf | Logan_Township,_Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | subdivisionName | Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | populationDensity | "783.054"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Attica,_Indiana | areaTotal | 4.14 (square kilometres)</mtriple>
+        <mtriple>Attica,_Indiana | isPartOf | Logan_Township,_Fountain_County,_Indiana</mtriple>
+        <mtriple>Attica,_Indiana | isPartOf | Fountain_County,_Indiana</mtriple>
+        <mtriple>Attica,_Indiana | populationDensity | 783.1 (inhabitants per square kilometre)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Attica is part of Logan Township, Fountain County in Indiana. It has a total area of 4.14 sq km and a population density of 783.1 inhabitants per sq km.</lex>
+      <lex comment="good" lid="Id2">Attica, Indiana is part of Logan Township, Fountain County, Indiana and is 4.14 square kilometres large and has a population density of 783.1 people per square kilometre.</lex>
+      <lex comment="good" lid="Id3">The city of Attica is found in Logan Township, part of Fountain County in Indiana. The city has a total area of 4.14 sq km and the population density is 783.1 inhabitants per sq km.</lex>
+    </entry>
+    <entry category="City" eid="Id12" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Attica,_Indiana | subdivisionName | United_States</otriple>
+        <otriple>Attica,_Indiana | areaTotal | 4.14e+06</otriple>
+        <otriple>Attica,_Indiana | isPartOf | Logan_Township,_Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | populationDensity | "783.054"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Attica,_Indiana | isPartOf | United_States</mtriple>
+        <mtriple>Attica,_Indiana | areaTotal | 4.14 (square kilometres)</mtriple>
+        <mtriple>Attica,_Indiana | isPartOf | Logan_Township,_Fountain_County,_Indiana</mtriple>
+        <mtriple>Attica,_Indiana | populationDensity | 783.1 (inhabitants per square kilometre)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Attica is part of Logan Township, Fountain County, Indiana and has 783.1 inhabitants for each of the 4.14 square kilometres it covers.</lex>
+      <lex comment="good" lid="Id2">Attica is part of Logan Township, Fountain County, Indiana in the United States.The area of Attica Indiana is 4.14 Sq Km and it has a 783.1 inhabitants per square kilometres population density.</lex>
+      <lex comment="good" lid="Id3">Attica is part of Logan Township, Fountain County in the United States. It covers a total area of 4.14 sq kms and the population density if 783.1 inhabitants per sq km.</lex>
+    </entry>
+    <entry category="City" eid="Id13" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Attica,_Indiana | subdivisionName | United_States</otriple>
+        <otriple>Attica,_Indiana | populationDensity | "783.1"^^xsd:double</otriple>
+        <otriple>Attica,_Indiana | isPartOf | Fountain_County,_Indiana</otriple>
+        <otriple>Attica,_Indiana | areaTotal | "4.14"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Attica,_Indiana | isPartOf | United_States</mtriple>
+        <mtriple>Attica,_Indiana | populationDensity | 783.1 (inhabitants per square kilometre)</mtriple>
+        <mtriple>Attica,_Indiana | isPartOf | Fountain_County,_Indiana</mtriple>
+        <mtriple>Attica,_Indiana | areaTotal | 4.14 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The population density, of Attica, Fountain County, Indiana in the USA is 783.1 inhabitants per square kilometre. It has an area of 4.14 SqKm.</lex>
+      <lex comment="good" lid="Id2">Attica is located in Fountain County, Indiana in the United States of America. It has a total area of 4.14 sq km with a population density of 783.1 inhabitants per sq km.</lex>
+      <lex comment="good" lid="Id3">Attica is part of Fountain County,Indiana in the United States.Its total area is 4.14 square kilometres and it has a 783.1 inhabitants/sq km population density.</lex>
+    </entry>
+    <entry category="City" eid="Id14" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Auburn,_Alabama | isPartOf | Lee_County,_Alabama</otriple>
+        <otriple>Lee_County,_Alabama | country | United_States</otriple>
+        <otriple>Lee_County,_Alabama | state | Alabama</otriple>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Alabama | isPartOf | Lee_County,_Alabama</mtriple>
+        <mtriple>Lee_County,_Alabama | country | United_States</mtriple>
+        <mtriple>Lee_County,_Alabama | state | Alabama</mtriple>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn is part of Lee County in Alabama which is located in the United States where you can also find asian americans.</lex>
+      <lex comment="good" lid="Id2">The Asian Americans are an ethnic group in the United States where Lee County is located. Auburn is found in this County which is in the state of Alabama.</lex>
+      <lex comment="good" lid="Id3">Auburn is part of Lee County, Alabama, in the United States, where one of the ethnic groups is, Asian American.</lex>
+    </entry>
+    <entry category="City" eid="Id15" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Auburn,_Washington | areaTotal | 7.74147e+07</otriple>
+        <otriple>Auburn,_Washington | country | United_States</otriple>
+        <otriple>Auburn,_Washington | isPartOf | Washington_(state)</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Pierce_County,_Washington</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</otriple>
+        <otriple>Auburn,_Washington | country | United_States</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Washington_(state)</otriple>
+        <otriple>Auburn,_Washington | areaTotal | "77.41"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</otriple>
+        <otriple>Auburn,_Washington | areaTotal | 7.74147e+07</otriple>
+        <otriple>Auburn,_Washington | country | United_States</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Washington_(state)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</mtriple>
+        <mtriple>Auburn,_Washington | country | United_States</mtriple>
+        <mtriple>Auburn,_Washington | isPartOf | Washington_(state)</mtriple>
+        <mtriple>Auburn,_Washington | areaTotal | 77.41 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn is in Pierce County, Washington in the U.S. It's total area is 77.41 sq. km.</lex>
+      <lex comment="good" lid="Id2">With a total area of 77.41 sq kms, Auburn, part of Pierce County, is part of the state of Washington, in the United States.</lex>
+      <lex comment="good" lid="Id3">Auburn, Washington is located within the United States and belong to Pierce County.The total area of Auburn is 77.41 square kilometres.</lex>
+    </entry>
+    <entry category="City" eid="Id16" shape="(X (X) (X (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Washington_(state)</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Washington_(state) | country | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Auburn,_Washington | isPartOf | Washington_(state)</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Pierce_County,_Washington</otriple>
+        <otriple>Washington_(state) | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</mtriple>
+        <mtriple>Auburn,_Washington | isPartOf | Washington_(state)</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>Washington_(state) | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn is located in Pierce County, Washington in the U.S.The capital city of the United States is Washington DC.</lex>
+      <lex comment="good" lid="Id2">Auburn, Pierce County, Washington, which is located in the United States (with its capital as Washington, D.C.).</lex>
+      <lex comment="good" lid="Id3">The capital of the U.S. is Washington, D.C. Washington state, in the United States, is where Austin, part of Pierce County, Washington, is located.</lex>
+    </entry>
+    <entry category="City" eid="Id17" shape="(X (X) (X (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Pierce_County,_Washington | country | United_States</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | King_County,_Washington</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Auburn,_Washington | subdivisionName | Pierce_County,_Washington</otriple>
+        <otriple>Pierce_County,_Washington | country | United_States</otriple>
+        <otriple>Auburn,_Washington | isPartOf | King_County,_Washington</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Washington | isPartOf | Pierce_County,_Washington</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>Pierce_County,_Washington | country | United_States</mtriple>
+        <mtriple>Auburn,_Washington | isPartOf | King_County,_Washington</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Washington DC is the capital of the United States where Auburn is to be found. It is part of both King County and Pierce County in Washington.</lex>
+      <lex comment="good" lid="Id2">Auburn is part of both Pierce County and King County in Washington in the United States. The country's capital city is Washington DC.</lex>
+    </entry>
+    <entry category="City" eid="Id18" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Austin,_Texas | areaTotal | "703.9587683893247"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+        <otriple>Austin,_Texas | populationDensity | "1296.65"^^xsd:double</otriple>
+        <otriple>Austin,_Texas | areaCode | 512</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+        <otriple>Austin,_Texas | areaTotal | 7.03959e+08</otriple>
+        <otriple>Austin,_Texas | populationDensity | "1296.65"^^xsd:double</otriple>
+        <otriple>Austin,_Texas | areaCode | 512</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Austin,_Texas | areaTotal | "703.9587683893247"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+        <otriple>Austin,_Texas | populationDensity | "1296.654601076267"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+        <otriple>Austin,_Texas | areaCode | 512</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Austin,_Texas | populationDensity | "1296.654601076267"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+        <otriple>Austin,_Texas | areaTotal | 7.03959e+08</otriple>
+        <otriple>Austin,_Texas | areaCode | 512</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | populationDensity | 1296.65 (inhabitants per square kilometre)</mtriple>
+        <mtriple>Austin,_Texas | areaOfLand | 686.0 (square kilometres)</mtriple>
+        <mtriple>Austin,_Texas | areaTotal | 703.95 (square kilometres)</mtriple>
+        <mtriple>Austin,_Texas | areaCode | 512</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Austin in Texas has a population of 1296.65 people per square kilometer, a land area of 686 square kilometres, a total area of 703.95 square kilometres and the area code of Austin (Texas), is 512.</lex>
+      <lex comment="good" lid="Id2">Austin, Texas covers 686.0 square kilometres of land and has a total area of 703.95 square kilometres. The population is 1296.65 inhabitants per square kilometre and the area code is 512.</lex>
+      <lex comment="good" lid="Id3">Austin, Texas has a population of 1296.65 people per square kilometer and covers 686 sq. km. of land. The area code there is 512 and its area is 703.95 sq. km.</lex>
+    </entry>
+    <entry category="City" eid="Id19" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Antioch,_California | isPartOf | Contra_Costa_County,_California</otriple>
+        <otriple>Antioch,_California | settlementType | California</otriple>
+        <otriple>Contra_Costa_County,_California | subdivisionName | San_Francisco_Bay_Area</otriple>
+        <otriple>California | language | Spanish_language</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Contra_Costa_County,_California | isPartOf | San_Francisco_Bay_Area</otriple>
+        <otriple>Antioch,_California | settlementType | California</otriple>
+        <otriple>Antioch,_California | subdivisionName | Contra_Costa_County,_California</otriple>
+        <otriple>California | language | Spanish_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Contra_Costa_County,_California | isPartOf | San_Francisco_Bay_Area</mtriple>
+        <mtriple>Antioch,_California | isPartOf | California</mtriple>
+        <mtriple>Antioch,_California | isPartOf | Contra_Costa_County,_California</mtriple>
+        <mtriple>California | language | Spanish_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Antioch, Contra Costa County is part of the San Francisco Bay region of, spanish speaking, California.</lex>
+      <lex comment="good" lid="Id2">The city of Antioch is located within California, where the Spanish language is spoken. Antioch, is part of Contra Costa County in California, which is part of the San Francisco Bay area.</lex>
+      <lex comment="good" lid="Id3">Antioch, is part of Contra Costa County and part of the San Francisco Bay Area in California. Spanish is spoken in California.</lex>
+    </entry>
+    <entry category="City" eid="Id20" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Indiana | capital | Indianapolis</otriple>
+        <otriple>Anderson,_Indiana | isPartOf | Adams_Township,_Madison_County,_Indiana</otriple>
+        <otriple>Indiana | country | United_States</otriple>
+        <otriple>Anderson,_Indiana | subdivisionName | Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Indiana | capital | Indianapolis</mtriple>
+        <mtriple>Anderson,_Indiana | isPartOf | Adams_Township,_Madison_County,_Indiana</mtriple>
+        <mtriple>Indiana | country | United_States</mtriple>
+        <mtriple>Anderson,_Indiana | isPartOf | Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson (United States), is located in Adams Township, Madison County, Indiana, the capital of which is, Indianapolis.</lex>
+      <lex comment="good" lid="Id2">Indianapolis is the capital of Indiana, United States. Anderson is a city in Indiana and is located within Adams Township, Madison County.</lex>
+      <lex comment="good" lid="Id3">Anderson is part of Adams Township, Madison County, Indiana (U.S.), where the state's capital is Indianapolis.</lex>
+    </entry>
+    <entry category="City" eid="Id21" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Indiana | capital | Indianapolis</otriple>
+        <otriple>Indiana | country | United_States</otriple>
+        <otriple>Anderson,_Indiana | isPartOf | Lafayette_Township,_Madison_County,_Indiana</otriple>
+        <otriple>Anderson,_Indiana | subdivisionName | Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Indiana | capital | Indianapolis</mtriple>
+        <mtriple>Indiana | country | United_States</mtriple>
+        <mtriple>Anderson,_Indiana | isPartOf | Lafayette_Township,_Madison_County,_Indiana</mtriple>
+        <mtriple>Anderson,_Indiana | isPartOf | Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Indianapolis is the capital of Indiana, United States. Anderson, Indiana is part of Lafayette Township, Madison County, Indiana.</lex>
+      <lex comment="good" lid="Id2">Anderson is part of Lafayette Township, Madison County, in the United States. It is located in the state of Indiana which has the capital city of Indianapolis.</lex>
+      <lex comment="good" lid="Id3">Anderson is in Lafayette township, Madison County, Indiana, US, where the capital is Indianapolis.</lex>
+    </entry>
+    <entry category="City" eid="Id22" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>Albany,_Oregon | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>Albany,_Oregon | subdivisionName | Linn_County,_Oregon</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>Albany,_Oregon | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>Albany,_Oregon | isPartOf | Linn_County,_Oregon</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany is part of Linn County in Oregon, United States. The capital of the US is Washington DC and Native Americans are among the ethnic groups of the country.</lex>
+      <lex comment="good" lid="Id2">Albany is part of Linn County, Oregon, United States. The Native Americans are an ethnic group within the United States, where Washington DC is the capital.</lex>
+    </entry>
+    <entry category="City" eid="Id23" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>Akron,_Ohio | country | United_States</otriple>
+        <otriple>Akron,_Ohio | subdivisionName | Summit_County,_Ohio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>Akron,_Ohio | country | United_States</mtriple>
+        <mtriple>Akron,_Ohio | isPartOf | Summit_County,_Ohio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Native Americans are one of the ethnic groups in the United States of America. The capital of which, is Washington, D.C. Also in the U.S., is Akron, which is located within Summit County, Ohio.</lex>
+      <lex comment="good" lid="Id2">Akron is a part of Summit County, Ohio in the United States. Native Americans are an ethnic group that occupy the U.S. and that country's capital is Washington, D.C.</lex>
+      <lex comment="good" lid="Id3">Washington DC is the capital of the United States where the Native Americans form one of the ethnic groups. The country is the location of Akron, Summit County, Ohio.</lex>
+    </entry>
+    <entry category="City" eid="Id24" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>Albany,_Georgia | subdivisionName | Dougherty_County,_Georgia</otriple>
+        <otriple>Albany,_Georgia | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>Albany,_Georgia | isPartOf | Dougherty_County,_Georgia</mtriple>
+        <mtriple>Albany,_Georgia | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The people inhabiting the United States are known as Americans and include the ethnic group of Native Americans. The country is the location of Albany, a city in Dougherty County, Georgia.</lex>
+      <lex comment="good" lid="Id2">The Native Americans are an ethnic group within the United States, where Americans live. Albany is located in Dougherty County, Georgia, United States.</lex>
+      <lex comment="good" lid="Id3">Albany is a city in Dougherty County, Georgia, United States. Americans and Native Americans are an ethnic group within the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id25" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>Akron,_Ohio | country | United_States</otriple>
+        <otriple>Akron,_Ohio | subdivisionName | Summit_County,_Ohio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>Akron,_Ohio | country | United_States</mtriple>
+        <mtriple>Akron,_Ohio | isPartOf | Summit_County,_Ohio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akron is located in the United States in Summit County, Ohio. The inhabitants of the country are known as Americans and include the ethnic group of Asian Americans.</lex>
+      <lex comment="good" lid="Id2">One ethnic group that lives in Akron, Ohio are Asians Americans.</lex>
+      <lex comment="good" lid="Id3">Akron in Summit County, Ohio is part of the U.S. where Asian Americans are one of several ethnic groups among all Americans.</lex>
+    </entry>
+    <entry category="City" eid="Id26" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | language | English_language</otriple>
+        <otriple>Angola,_Indiana | subdivisionName | Steuben_County,_Indiana</otriple>
+        <otriple>Angola,_Indiana | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | language | English_language</mtriple>
+        <mtriple>Angola,_Indiana | isPartOf | Steuben_County,_Indiana</mtriple>
+        <mtriple>Angola,_Indiana | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">English is the language of the United States, where Asian Americans are an ethnic group and where Angola, Steuben County, Indiana is located.</lex>
+      <lex comment="good" lid="Id2">Angola is part of Steuben County, Indiana, United States. English is the language spoken in the United States and some Asian Americans live there.</lex>
+      <lex comment="good" lid="Id3">The Asian Americans are an ethnic group in the United States which uses the English language. The country is the location of Angola, part of Steuben County in Indiana.</lex>
+    </entry>
+    <entry category="City" eid="Id27" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | language | English_language</otriple>
+        <otriple>United_States_House_of_Representatives | location | United_States</otriple>
+        <otriple>United_States_House_of_Representatives | isPartOf | United_States_Congress</otriple>
+        <otriple>Anaheim,_California | leaderTitle | United_States_House_of_Representatives</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | language | English_language</mtriple>
+        <mtriple>United_States_House_of_Representatives | location | United_States</mtriple>
+        <mtriple>United_States_House_of_Representatives | isPartOf | United_States_Congress</mtriple>
+        <mtriple>Anaheim,_California | leaderTitle | United_States_House_of_Representatives</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The United States House of Representatives is part of the United States Congress and leads Anaheim, California. It is located within the US where the English language is spoken.</lex>
+      <lex comment="good" lid="Id2">Anaheim in California is led by the United States House of Representatives, part of the United States Congress. English is spoken in the US, which is where the House of Representatives is located.</lex>
+    </entry>
+    </entries>
+</benchmark>

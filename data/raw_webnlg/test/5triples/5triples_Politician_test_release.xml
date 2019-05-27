@@ -1,0 +1,389 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Politician" eid="Id1" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</otriple>
+        <otriple>Abdul_Taib_Mahmud | region | Asajaya</otriple>
+        <otriple>Abdul_Taib_Mahmud | residence | Kuching</otriple>
+        <otriple>Abdul_Taib_Mahmud | birthPlace | Miri,_Malaysia</otriple>
+        <otriple>Abdul_Taib_Mahmud | birthDate | "1936-05-21"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | region | Asajaya</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | residence | Kuching</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | birthPlace | Miri,_Malaysia</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | birthDate | 1936-05-21</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud was born on 21 May 1936 in Miri, Malaysia, and lives in Kuching. His party was the Parti Pesaka Bumiputera Bersatu and he represented the Asajaya region.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud was born in Miri, Malaysia, on May 21st 1936 and lives in Kuching. He represented Asajaya and was a member of the Parti Pesaka Bumiputera Bersatu.</lex>
+      <lex comment="good" lid="Id3">Born on 1936-05-21, in Miri, Malaysia, Abdul Taib Mahmud, lives in Kuching. His party is Parti Pesaka Bumiputera Bersatu and he represented the Asajaya region.</lex>
+    </entry>
+    <entry category="Politician" eid="Id2" shape="(X (X) (X (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | vicePresident | Mike_Akhigbe</otriple>
+        <otriple>Abdulsalami_Abubakar | activeYearsEndDate | "1999-05-29"^^xsd:date</otriple>
+        <otriple>Mike_Akhigbe | predecessor | Oladipo_Diya</otriple>
+        <otriple>Mike_Akhigbe | militaryBranch | Nigerian_Navy</otriple>
+        <otriple>Mike_Akhigbe | successor | Atiku_Abubakar</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | inOfficeWhileVicePresident | Mike_Akhigbe</mtriple>
+        <mtriple>Abdulsalami_Abubakar | activeYearsEndDate | 1999-05-29</mtriple>
+        <mtriple>Mike_Akhigbe | predecessor | Oladipo_Diya</mtriple>
+        <mtriple>Mike_Akhigbe | militaryBranch | Nigerian_Navy</mtriple>
+        <mtriple>Mike_Akhigbe | successor | Atiku_Abubakar</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar who ended his career on May 29th, 1999, served in office while Mike Akhigbe was Vice President. Akhigbe served in the Nigerian Navy and succeeded Oladipo Diya as V.P. before Atiku Abubakar took over from Akhigbe.</lex>
+      <lex comment="good" lid="Id2">Abdulsalami Abubakar ended his career on 1999-05-29, having been in office while Mike Akhigbe was the Vice President. Oladipo Diya was predecessor to Mike Akhigbe, who belonged to the Nigerian Navy branch of the Military and his successor was Atiku Abubakar.</lex>
+      <lex comment="good" lid="Id3">Abdulsalami Abubakar served office during Mike Akhigbe's Vice Presidenacy and began his career 05/29/1999. Nigerian Navy veteran Mike Akhigbe preceded Oladipo Diya and succeeded Atiku Abubakar.</lex>
+    </entry>
+    <entry category="Politician" eid="Id3" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | deathPlace | United_States</otriple>
+        <otriple>Abraham_A._Ribicoff | party | Democratic_Party_(United_States)</otriple>
+        <otriple>Abraham_A._Ribicoff | birthPlace | Connecticut</otriple>
+        <otriple>Abraham_A._Ribicoff | nationality | "American"@en</otriple>
+        <otriple>Abraham_A._Ribicoff | office | "Governor of Connecticut"</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | deathPlace | United_States</otriple>
+        <otriple>Abraham_A._Ribicoff | party | Democratic_Party_(United_States)</otriple>
+        <otriple>Abraham_A._Ribicoff | birthPlace | Connecticut</otriple>
+        <otriple>Abraham_A._Ribicoff | nationality | "American"@en</otriple>
+        <otriple>Abraham_A._Ribicoff | office | "Governor of Connecticut"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abraham_A._Ribicoff | deathPlace | United_States</mtriple>
+        <mtriple>Abraham_A._Ribicoff | party | Democratic_Party_(United_States)</mtriple>
+        <mtriple>Abraham_A._Ribicoff | birthPlace | Connecticut</mtriple>
+        <mtriple>Abraham_A._Ribicoff | nationality | American</mtriple>
+        <mtriple>Abraham_A._Ribicoff | office (workedAt, workedAs) | "Governor of Connecticut"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abraham A. Ribicoff was born in Connecticut, United States,where he became governor. He was a member of the Democratic party in the United States. He died in the United States.</lex>
+      <lex comment="good" lid="Id2">Abraham A Ribicoff was an American National born in Connecticut. He was a member of the United States Democratic Party and held the office of Governor of Connecticut before he died in the US.</lex>
+      <lex comment="good" lid="Id3">American Abraham A. Ribicoff born in Connecticut was a member of United States Democratic Party and worked as a governor of Connecticut. He passed away in United Staes.</lex>
+    </entry>
+    <entry category="Politician" eid="Id4" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | spouse | Casey_Ribicoff</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>Abraham_A._Ribicoff | birthPlace | Connecticut</otriple>
+        <otriple>Abraham_A._Ribicoff | nationality | United_States</otriple>
+        <otriple>Abraham_A._Ribicoff | deathPlace | New_York</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abraham_A._Ribicoff | spouse | Casey_Ribicoff</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>Abraham_A._Ribicoff | birthPlace | Connecticut</mtriple>
+        <mtriple>Abraham_A._Ribicoff | nationality | United_States</mtriple>
+        <mtriple>Abraham_A._Ribicoff | deathPlace | New_York</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Native Americans are an ethnic group in the U.S., the country Abraham A. Ribicoff was a national of. Abraham A. Ribicoff; was born in Connecticut, married to Casey Ribicoff, and died in New York.</lex>
+      <lex comment="good" lid="Id2">Abraham A. Ribicoff was born in Connecticut. He was married to Casey Ribicoff. He was also a national to the United States and he died in New York. The Native Americans are an ethnic group in the U.S.</lex>
+      <lex comment="good" lid="Id3">Native Americans are an ethnic group in the U.S. one of the citizens of that country was, Abraham A Ribicoff. He born in Connecticut. married to Casey Ribicoff and died in New York.</lex>
+    </entry>
+    <entry category="Politician" eid="Id5" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Adam_Holloway | party | Conservative_Party_(UK)</otriple>
+        <otriple>Adam_Holloway | birthPlace | "Faversham, Kent, England"@en</otriple>
+        <otriple>Adam_Holloway | activeYearsStartDate | "2005-05-05"^^xsd:date</otriple>
+        <otriple>Adam_Holloway | branch | Grenadier_Guards</otriple>
+        <otriple>Adam_Holloway | almaMater | Magdalene_College,_Cambridge</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Holloway | party | Conservative_Party_(UK)</mtriple>
+        <mtriple>Adam_Holloway | birthPlace | "Faversham, Kent, England"</mtriple>
+        <mtriple>Adam_Holloway | activeYearsStartDate | 2005-05-05</mtriple>
+        <mtriple>Adam_Holloway | militaryBranch | Grenadier_Guards</mtriple>
+        <mtriple>Adam_Holloway | almaMater | Magdalene_College,_Cambridge</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Holloway, who was born in Faversham, Kent, England, is a member of the Conservative Party in the UK. He studied at Magdalene College Cambridge before joining the Grenadier Guards and later starting his political career on 5th May 2005.</lex>
+      <lex comment="good" lid="Id2">Englishman Adam Holloway, born in Faversham, Kent and having attended Magdalene College in Cambridge, then joined the Grenadier Guards. He is a member of the UK Conservative Party and began his political career on 5th May 2005.</lex>
+      <lex comment="good" lid="Id3">Adam Holloway was born in Faversham, Kent, England and he went to Magdalene College, Cambridge and joined the Grenadier Guards in the military before joining the Tories.</lex>
+    </entry>
+    <entry category="Politician" eid="Id6" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeMinister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeminister | Konstantinos_Mitsotakis</otriple>
+        <otriple>Adonis_Georgiadis | birthPlace | Greece</otriple>
+        <otriple>Adonis_Georgiadis | placeOfBirth | Athens</otriple>
+        <otriple>Adonis_Georgiadis | successor | Makis_Voridis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeminister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeMinister | Konstantinos_Mitsotakis</otriple>
+        <otriple>Adonis_Georgiadis | birthPlace | Greece</otriple>
+        <otriple>Adonis_Georgiadis | placeOfBirth | Athens</otriple>
+        <otriple>Adonis_Georgiadis | successor | Makis_Voridis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeMinister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeminister | Konstantinos_Mitsotakis</otriple>
+        <otriple>Adonis_Georgiadis | birthPlace | Athens</otriple>
+        <otriple>Adonis_Georgiadis | placeOfBirth | Greece</otriple>
+        <otriple>Adonis_Georgiadis | successor | Makis_Voridis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeminister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeMinister | Konstantinos_Mitsotakis</otriple>
+        <otriple>Adonis_Georgiadis | birthPlace | Athens</otriple>
+        <otriple>Adonis_Georgiadis | placeOfBirth | Greece</otriple>
+        <otriple>Adonis_Georgiadis | successor | Makis_Voridis</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | inOfficeWhilePrimeMinister | Antonis_Samaras</mtriple>
+        <mtriple>Antonis_Samaras | inOfficeWhilePrimeMinister | Konstantinos_Mitsotakis</mtriple>
+        <mtriple>Adonis_Georgiadis | birthPlace | Greece</mtriple>
+        <mtriple>Adonis_Georgiadis | birthPlace | Athens</mtriple>
+        <mtriple>Adonis_Georgiadis | successor | Makis_Voridis</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adonis Georgiadis (who was succeeded by Makis Voridis), was born in Athens, Greece and was in office under Antonis Samaras, Prime Minister. Antonis Samaras was in office while Konstantinos Mitsotakis was Prime Minister.</lex>
+      <lex comment="good" lid="Id2">Adonis Georgiadis, was born in Athens, Greece and was succeeded by Makis Voridis. Adonis Georgiadis, was in office while Antonis Samaras was Prime Minister. Antonis Samaras was in office while Konstantinos Mitsotakis was Prime Minister.</lex>
+      <lex comment="good" lid="Id3">Makis Voridis was the successor of Adonis Georgiadis, who was birth in Athens (Greece). Adonis Georgiadis served in office while the Prime Minister was Antonis Samaras, who himelf, had served in office while Konstantinos Mitsotakis was Prime Minister.</lex>
+    </entry>
+    <entry category="Politician" eid="Id7" shape="(X (X) (X (X)) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Agnes_Kant | nationality | Netherlands</otriple>
+        <otriple>Netherlands | leaderName | Mark_Rutte</otriple>
+        <otriple>Agnes_Kant | office | House_of_Representatives_(Netherlands)</otriple>
+        <otriple>House_of_Representatives_(Netherlands) | leader | Khadija_Arib</otriple>
+        <otriple>Agnes_Kant | party | Socialist_Party_(Netherlands)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agnes_Kant | nationality | Netherlands</mtriple>
+        <mtriple>Netherlands | leaderName | Mark_Rutte</mtriple>
+        <mtriple>Agnes_Kant | office (workedAt, workedAs) | House_of_Representatives_(Netherlands)</mtriple>
+        <mtriple>House_of_Representatives_(Netherlands) | leaderName | Khadija_Arib</mtriple>
+        <mtriple>Agnes_Kant | party | Socialist_Party_(Netherlands)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Socialist Party member Agnes Kant is from the Netherlands, where the leader is Mark Rutte. She worked at the House of Representatives in the Netherlands, which is led by Khadija Arib.</lex>
+      <lex comment="good" lid="Id2">Agnes Kant is a national of the Netherlands which is led by Mark Rutte. She is a member of the Socialist Party and worked at the House of Representatives which is led by Khadija Arib.</lex>
+      <lex comment="good" lid="Id3">Socialist Party member Agnes Kant, from the Netherlands, worked at the House of Representatives, where the leader is Khadija Arib. Mark Rutte leads the country.</lex>
+    </entry>
+    <entry category="Politician" eid="Id8" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Albert_B._White | spouse | Agnes_Ward_White</otriple>
+        <otriple>Agnes_Ward_White | birthPlace | Marietta,_Ohio</otriple>
+        <otriple>Albert_B._White | successor | William_M._O._Dawson</otriple>
+        <otriple>William_M._O._Dawson | deathPlace | Charleston,_West_Virginia</otriple>
+        <otriple>William_M._O._Dawson | placeOfBirth | Bloomington,_Maryland</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_B._White | spouse | Agnes_Ward_White</mtriple>
+        <mtriple>Agnes_Ward_White | birthPlace | Marietta,_Ohio</mtriple>
+        <mtriple>Albert_B._White | successor | William_M._O._Dawson</mtriple>
+        <mtriple>William_M._O._Dawson | deathPlace | Charleston,_West_Virginia</mtriple>
+        <mtriple>William_M._O._Dawson | birthPlace | Bloomington,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert B. White was married to Agnes Ward White who was born in Marietta, Ohio. He was succeeded by William M O Dawson who was born in Bloomington, Maryland and died in Charleston, West Virginia.</lex>
+      <lex comment="good" lid="Id2">Albert B White was married to Agnes Ward White (who was born in Marietta, Ohio) and was succeeded by William M O Dawson. Mr Dawson was born in Bloomington Maryland and died in Charleston, West Virginia.</lex>
+      <lex comment="good" lid="Id3">The spouse of Albert B. White was Agnes Ward White, who was born in Marietta, Ohio. Albert B White was succeeded by William M O Dawson; who was born in Bloomington, Maryland and died in Charleston, West Virginia.</lex>
+    </entry>
+    <entry category="Politician" eid="Id9" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Albert_B._White | spouse | Agnes_Ward_White</otriple>
+        <otriple>Albert_B._White | successor | William_M._O._Dawson</otriple>
+        <otriple>Albert_B._White | office | "Governor of West Virginia"@en</otriple>
+        <otriple>Albert_B._White | birthPlace | Cleveland</otriple>
+        <otriple>Albert_B._White | activeYearsEndDate | "1905-03-04"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_B._White | spouse | Agnes_Ward_White</mtriple>
+        <mtriple>Albert_B._White | successor | William_M._O._Dawson</mtriple>
+        <mtriple>Albert_B._White | office (workedAt, workedAs) | "Governor of West Virginia"</mtriple>
+        <mtriple>Albert_B._White | birthPlace | Cleveland</mtriple>
+        <mtriple>Albert_B._White | activeYearsEndDate | 1905-03-04</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Cleveland born Albert B White, who was married to Agnes Ward White, served as the Governor of West Virginia and finished his career on March 4th 1905. He was succeeded by William M O Dawson.</lex>
+      <lex comment="good" lid="Id2">Albert B White was born in Cleveland and was married to Agnes Ward White. He worked as the Governor of West Virginia and finished his career on 4 March 1905 being succeeded by William M O Dawson.</lex>
+      <lex comment="good" lid="Id3">Cleveland born Albert B White, married to Agnes Ward White, was the Governor of West Virginia, ending his career on March 4th 1905. He was succeeded by William M O Dawson.</lex>
+    </entry>
+    <entry category="Politician" eid="Id10" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Albert_Jennings_Fountain | deathPlace | Doña_Ana_County,_New_Mexico</otriple>
+        <otriple>Albert_Jennings_Fountain | birthPlace | New_York_City</otriple>
+        <otriple>Albert_Jennings_Fountain | placeOfDeath | United_States</otriple>
+        <otriple>Albert_Jennings_Fountain | dateOfDeath | "1896-02-01"^^xsd:date</otriple>
+        <otriple>Albert_Jennings_Fountain | placeOfBirth | Staten_Island</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_Jennings_Fountain | deathPlace | Doña_Ana_County,_New_Mexico</mtriple>
+        <mtriple>Albert_Jennings_Fountain | birthPlace | New_York_City</mtriple>
+        <mtriple>Albert_Jennings_Fountain | deathPlace | United_States</mtriple>
+        <mtriple>Albert_Jennings_Fountain | dateOfDeath | 1896-02-01</mtriple>
+        <mtriple>Albert_Jennings_Fountain | birthPlace | Staten_Island</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert Jennings Fountain was born in Staten Island, New York City. He died on 1 February 1896 in Dona Ana County, New Mexico, US.</lex>
+      <lex comment="good" lid="Id2">Albert Jennings Fountain was born in New York City on Staten Island. He died on February 1st, 1896 in Dona Ana County, New Mexico.</lex>
+      <lex comment="good" lid="Id3">Albert Jennings Fountain was born in Staten Island, New York City and died 1896-02-01 in Dona Ana County, New Mexico, United States.</lex>
+    </entry>
+    <entry category="Politician" eid="Id11" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Albert_Jennings_Fountain | deathPlace | New_Mexico_Territory</otriple>
+        <otriple>Albert_Jennings_Fountain | birthPlace | New_York_City</otriple>
+        <otriple>Albert_Jennings_Fountain | dateOfDeath | "1896-02-01"^^xsd:date</otriple>
+        <otriple>Albert_Jennings_Fountain | placeOfBirth | Staten_Island</otriple>
+        <otriple>Albert_Jennings_Fountain | placeOfDeath | Doña_Ana_County,_New_Mexico</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Albert_Jennings_Fountain | placeOfDeath | New_Mexico_Territory</otriple>
+        <otriple>Albert_Jennings_Fountain | deathPlace | Doña_Ana_County,_New_Mexico</otriple>
+        <otriple>Albert_Jennings_Fountain | birthPlace | New_York_City</otriple>
+        <otriple>Albert_Jennings_Fountain | dateOfDeath | "1896-02-01"^^xsd:date</otriple>
+        <otriple>Albert_Jennings_Fountain | placeOfBirth | Staten_Island</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_Jennings_Fountain | deathPlace | New_Mexico_Territory</mtriple>
+        <mtriple>Albert_Jennings_Fountain | deathPlace | Doña_Ana_County,_New_Mexico</mtriple>
+        <mtriple>Albert_Jennings_Fountain | birthPlace | New_York_City</mtriple>
+        <mtriple>Albert_Jennings_Fountain | dateOfDeath | 1896-02-01</mtriple>
+        <mtriple>Albert_Jennings_Fountain | birthPlace | Staten_Island</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">New York City (Staten Island) was the birthplace of Albert Jennnings, who died in Dona Ana County, New Mexico Territory, on 1896-02-01.</lex>
+      <lex comment="good" lid="Id2">Albert Jennings Fountain was born in Staten Island, New York City. He died in Dona Ana County, New Mexico on 1896-02-01.</lex>
+      <lex comment="good" lid="Id3">Albert Jennings Fountain was born in New York City on Staten Island and died in Dona Ana County, New Mexico on February 1st, 1896.</lex>
+    </entry>
+    <entry category="Politician" eid="Id12" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | placeOfDeath | Styria</otriple>
+        <otriple>Alfons_Gorbach | party | Austrian_People's_Party</otriple>
+        <otriple>Alfons_Gorbach | deathPlace | Graz</otriple>
+        <otriple>Alfons_Gorbach | placeOfBirth | Austria</otriple>
+        <otriple>Alfons_Gorbach | birthPlace | Austria-Hungary</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfons_Gorbach | deathPlace | Styria</mtriple>
+        <mtriple>Alfons_Gorbach | party | Austrian_People's_Party</mtriple>
+        <mtriple>Alfons_Gorbach | deathPlace | Graz</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria-Hungary</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfons Gorbach was born in Austria, Austria-Hungary and was a member of the Austrian People's Party. He died in Graz, Styria.</lex>
+      <lex comment="good" lid="Id2">Alfons Gorbach was born in Austria-Hungary and died in Styria, Graz. Gorbach was a politician with the Austrian People's Party.</lex>
+      <lex comment="good" lid="Id3">Born in Austria, Hungary, Alfons Gorbach was a member of the Austrian People's Party, and died in Styria, in Graz.</lex>
+    </entry>
+    <entry category="Politician" eid="Id13" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | placeOfDeath | Styria</otriple>
+        <otriple>Alfons_Gorbach | party | Austrian_People's_Party</otriple>
+        <otriple>Alfons_Gorbach | deathPlace | Graz</otriple>
+        <otriple>Alfons_Gorbach | birthPlace | Tyrol_(state)</otriple>
+        <otriple>Alfons_Gorbach | placeOfBirth | Austria</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfons_Gorbach | deathPlace | Styria</mtriple>
+        <mtriple>Alfons_Gorbach | party | Austrian_People's_Party</mtriple>
+        <mtriple>Alfons_Gorbach | deathPlace | Graz</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Tyrol_(state)</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfons Gorbach was born in Austria, in the state, Tyrol. Alfons Gorbach was a member of the Austrian People's Party and died in Graz, in Styria.</lex>
+      <lex comment="good" lid="Id2">Alfons Gorbach's place of birth was the state, Tyrol, in Austria. He was a politician from the Austrian People's Party, who died in Graz, in Styria.</lex>
+      <lex comment="good" lid="Id3">Alfons Gorbach, who was a member of the Austrian People's Party, was born in the state of Tyrol in Austria and died in Graz, Styria.</lex>
+    </entry>
+    <entry category="Politician" eid="Id14" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | activeYearsEndDate | "1857-03-03"^^xsd:date</otriple>
+        <otriple>Alvah_Sabin | activeYearsStartDate | "1853-03-04"^^xsd:date</otriple>
+        <otriple>Alvah_Sabin | region | Vermont's_3rd_congressional_district</otriple>
+        <otriple>Vermont | largestCity | Burlington,_Vermont</otriple>
+        <otriple>Alvah_Sabin | state | Vermont</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | activeYearsEndDate | 1857-03-03</mtriple>
+        <mtriple>Alvah_Sabin | activeYearsStartDate | 1853-03-04</mtriple>
+        <mtriple>Alvah_Sabin | region | Vermont's_3rd_congressional_district</mtriple>
+        <mtriple>Vermont | largestCity | Burlington,_Vermont</mtriple>
+        <mtriple>Alvah_Sabin | state | Vermont</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Burlington is the largest city in Vermont, which was Alvah Sabin's state. Alvah Sabin; was an active politician beginning March 4, 1853, represented Vermont's 3rd Congressional District and ended his career on 1857-03-03.</lex>
+      <lex comment="good" lid="Id2">Alvah Sabin's political career began on March 4th 1853 and ended on March 3rd 1857. Coming from Vermont, where the largest city is Burlington, he represented Vermont's 3rd Congressional District.</lex>
+      <lex comment="good" lid="Id3">Alvah Sabin, started active service on 1853-03-04 and represented Vermont's 3rd Congressional District. From Vermont , where the largest city is Burlington, Alvah Sabin, ended his career 1857-03-03.</lex>
+    </entry>
+    <entry category="Politician" eid="Id15" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | activeYearsEndDate | "1857-03-03"^^xsd:date</otriple>
+        <otriple>Alvah_Sabin | region | Vermont's_3rd_congressional_district</otriple>
+        <otriple>Alvah_Sabin | office | Secretary_of_State_of_Vermont</otriple>
+        <otriple>Vermont | largestCity | Burlington,_Vermont</otriple>
+        <otriple>Alvah_Sabin | state | Vermont</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alvah_Sabin | activeYearsEndDate | "1857-03-03"^^xsd:date</otriple>
+        <otriple>Alvah_Sabin | office | "Secretary of State of Vermont"</otriple>
+        <otriple>Alvah_Sabin | region | Vermont's_3rd_congressional_district</otriple>
+        <otriple>Vermont | largestCity | Burlington,_Vermont</otriple>
+        <otriple>Alvah_Sabin | state | Vermont</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | activeYearsEndDate | 1857-03-03</mtriple>
+        <mtriple>Alvah_Sabin | office (workedAt, workedAs) | Secretary_of_State_of_Vermont</mtriple>
+        <mtriple>Alvah_Sabin | region | Vermont's_3rd_congressional_district</mtriple>
+        <mtriple>Vermont | largestCity | Burlington,_Vermont</mtriple>
+        <mtriple>Alvah_Sabin | state | Vermont</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alvah Sabin, who was from Vermont, represented the state's 3rd Congressional District and he worked as the Secretary of State of Vermont. Sabin ended his career on March 3rd, 1857 and as a point of interest, the largest city in the state is Burlington.</lex>
+      <lex comment="good" lid="Id2">Burlington is the largest city in Vermont, the state Alvah Sabin was from. Alvah Sabin; represented Vermont's 3rd Congressional District, worked as the Secretary of State of Vermont and ended his career, 1857-03-03.</lex>
+      <lex comment="good" lid="Id3">Alvah Sabin worked as the Secretary of the State of Vermont, the state where he was born and his home to Burlington, the state' largest city. He represented Vermont's 3rd Congressional District and ended his career on March 3rd, 1857.</lex>
+    </entry>
+    <entry category="Politician" eid="Id16" shape="(X (X (X)) (X (X (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>American_Civil_War | commander | Jefferson_Davis</otriple>
+        <otriple>Alfred_Moore_Scales | country | United_States</otriple>
+        <otriple>Alfred_Moore_Scales | battles | Battle_of_Gettysburg</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>Battle_of_Gettysburg | isPartOfMilitaryConflict | American_Civil_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Civil_War | commander | Jefferson_Davis</mtriple>
+        <mtriple>Alfred_Moore_Scales | country | United_States</mtriple>
+        <mtriple>Alfred_Moore_Scales | battles | Battle_of_Gettysburg</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>Battle_of_Gettysburg | isPartOfMilitaryConflict | American_Civil_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">American Alfred Moore Scales fought at the Battle of Gettysburg during the American Civil War. Jefferson Davis was one of the war's commanders and one of several ethnic groups in the U.S. are the Native Americans.</lex>
+      <lex comment="good" lid="Id2">Native Americans are the ethnic group in the United States. Alfred Moore Scales lived in the United States and involved in was the Battle of Gettysburg. The Battle of Gettysburg was part of the American Civil War conflict, during which, one of the commanders was Jefferson Davis.</lex>
+      <lex comment="good" lid="Id3">Native Americans are an ethnic group in the United States, the country where Alfred Moore Scales lived. He had fought in the Battle of Gettysburg which took place during the American Civil War. A commander in the American Civil War was Jefferson Davis.</lex>
+    </entry>
+    <entry category="Politician" eid="Id17" shape="(X (X) (X) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Austria | leaderName | Doris_Bures</otriple>
+        <otriple>Alfons_Gorbach | birthPlace | Austria-Hungary</otriple>
+        <otriple>Alfons_Gorbach | deathPlace | Styria</otriple>
+        <otriple>Austria | language | Austrian_German</otriple>
+        <otriple>Alfons_Gorbach | placeOfBirth | Austria</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austria | leaderName | Doris_Bures</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria-Hungary</mtriple>
+        <mtriple>Alfons_Gorbach | deathPlace | Styria</mtriple>
+        <mtriple>Austria | language | Austrian_German</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Doris Bures is a leader of Austria, where the language is, Austrian German. Alfons Gorbach was born in Austria, Hungary, and died in Styria.</lex>
+      <lex comment="good" lid="Id2">Doris Bures is a leader of Austria, where they speak Austrian German. Alfons Gorbach was born in Austria, Hungary and died in Styria.</lex>
+      <lex comment="good" lid="Id3">Alfons Gorbach was born in Austria, Hungary and died in Styria. Austrian German is the spoken language and he country is led by Doris Bures.</lex>
+    </entry>
+    <entry category="Politician" eid="Id18" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Juan_Perón | spouse | Eva_Perón</otriple>
+        <otriple>Juan_Perón | party | Labour_Party_(Argentina)</otriple>
+        <otriple>Alberto_Teisaire | nationality | Argentina</otriple>
+        <otriple>Argentina | language | Spanish_language</otriple>
+        <otriple>Alberto_Teisaire | president | Juan_Perón</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Juan_Perón | spouse | Eva_Perón</mtriple>
+        <mtriple>Juan_Perón | party | Labour_Party_(Argentina)</mtriple>
+        <mtriple>Alberto_Teisaire | nationality | Argentina</mtriple>
+        <mtriple>Argentina | language | Spanish_language</mtriple>
+        <mtriple>Alberto_Teisaire | inOfficeWhilePresident | Juan_Perón</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alberto Teisaire is a national of Argentina where the Spanish language is spoken. He was in office during the Presidency of Labour party member Juan Peron, who was married to Eva Peron.</lex>
+      <lex comment="good" lid="Id2">Argentina's Labour Party President Juan Peron was married to Eva Peron. Argentina is Spanish speaking and home to Alberto Teisaire (in office during Peron's leadership).</lex>
+      <lex comment="good" lid="Id3">They speak Spanish in Argentina where Alberto Teisaire was from. Alberto Teisaire was in office while Juan Perón was president. Juan Perón was a member of the Labour Party in Argentina and was married to Eva Perón.</lex>
+    </entry>
+    </entries>
+</benchmark>
