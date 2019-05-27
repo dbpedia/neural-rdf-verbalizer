@@ -109,6 +109,6 @@ if __name__ == "__main__":
 
     dataset = tf.data.Dataset.from_tensor_slices(target_tensor).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(args.batch_size, drop_remainder=True)
-    print(convert(targ_lang, target_tensor[1]))
+    
 
     
