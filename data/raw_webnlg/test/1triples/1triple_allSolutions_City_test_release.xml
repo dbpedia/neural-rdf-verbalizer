@@ -1,0 +1,329 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="City" eid="Id1" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albany,_Georgia | areaCode | "229"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Georgia | areaCode | 229</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The area code for Albany, Georgia is 229.</lex>
+      <lex comment="good" lid="Id2">The area code for Albany, Georgia, is 229.</lex>
+      <lex comment="good" lid="Id3">The area code of Albany in Georgia is 229.</lex>
+    </entry>
+    <entry category="City" eid="Id2" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albany,_Oregon | subdivisionName | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Oregon | isPartOf | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany Oregon is part of the U.S.</lex>
+      <lex comment="good" lid="Id2">Albany, Oregon is part of the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id3" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albuquerque,_New_Mexico | leaderTitle | "Mayor"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albuquerque,_New_Mexico | leaderTitle | Mayor</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Mayor is the leader in Albuquerque, N.M.</lex>
+      <lex comment="good" lid="Id2">The Mayor leads Albuquerque, New Mexico.</lex>
+      <lex comment="good" lid="Id3">The leader title of Albuquerque, New Mexico, is Mayor.</lex>
+    </entry>
+    <entry category="City" eid="Id4" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albuquerque,_New_Mexico | leaderTitle | New_Mexico_House_of_Representatives</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albuquerque,_New_Mexico | leaderTitle | New_Mexico_House_of_Representatives</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The New Mexico House of Representatives, is what the leader in Albuquerque (New Mexico), is called.</lex>
+      <lex comment="good" lid="Id2">Albuquerque, New Mexico is led by the New Mexico house of representatives.</lex>
+    </entry>
+    <entry category="City" eid="Id5" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Albuquerque,_New_Mexico | leaderTitle | New_Mexico_Senate</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albuquerque,_New_Mexico | leaderTitle | New_Mexico_Senate</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The New Mexico Senate leads Albuquerque in New Mexico.</lex>
+      <lex comment="good" lid="Id2">Albuquerque, New Mexico is led by the New Mexico Senate.</lex>
+    </entry>
+    <entry category="City" eid="Id6" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Amarillo,_Texas | areaTotal | "233.8759263633408"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amarillo,_Texas | areaTotal | 233.9 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The total area of Amarillo Texas is 233.9 SqKm.</lex>
+      <lex comment="good" lid="Id2">The Area of Amarillo, Texas is 233.9 (square kilometers).</lex>
+      <lex comment="good" lid="Id3">Amarillo, Texas has a total area of 233.9 square kilometres.</lex>
+    </entry>
+    <entry category="City" eid="Id7" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Amarillo,_Texas | isPartOf | Randall_County,_Texas</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Amarillo,_Texas | subdivisionName | Randall_County,_Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amarillo,_Texas | isPartOf | Randall_County,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Amarillo Texas is part of Randall County, Texas.</lex>
+      <lex comment="good" lid="Id2">Amarillo, Texas is part of Randall County, Texas.</lex>
+      <lex comment="good" lid="Id3">Amarillo, Texas is part of Randall County.</lex>
+    </entry>
+    <entry category="City" eid="Id8" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Anderson,_Indiana | isPartOf | Richland_Township,_Madison_County,_Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anderson,_Indiana | isPartOf | Richland_Township,_Madison_County,_Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson is within Richland Township, Madison County, Indiana.</lex>
+      <lex comment="good" lid="Id2">Anderson is part of Richland Township, Madison County, Indiana.</lex>
+    </entry>
+    <entry category="City" eid="Id9" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Angola,_Indiana | elevation | "324.0"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Angola,_Indiana | elevationAboveTheSeaLevel | 324.0</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Angola, in Indiana, has an elevation of 324.0 metres above sea level.</lex>
+      <lex comment="good" lid="Id2">The elevation above the sea level in Angola, Indiana, is 324.0.</lex>
+    </entry>
+    <entry category="City" eid="Id10" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Antioch,_California | areaCode | "925"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antioch,_California | areaCode | 925</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">925 is the area code of Antioch, in California.</lex>
+      <lex comment="good" lid="Id2">The area code for Antioch, California is 925.</lex>
+      <lex comment="good" lid="Id3">Antioch, California has the area code 925.</lex>
+    </entry>
+    <entry category="City" eid="Id11" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Antioch,_California | subdivisionName | Contra_Costa_County,_California</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Antioch,_California | isPartOf | Contra_Costa_County,_California</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antioch,_California | isPartOf | Contra_Costa_County,_California</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Antioch, is part of Contra Costa County in California.</lex>
+      <lex comment="good" lid="Id2">Antioch, California is a part of Contra Costa County California.</lex>
+      <lex comment="good" lid="Id3">Antioch is part of Contra Costa County in California.</lex>
+    </entry>
+    <entry category="City" eid="Id12" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Arlington,_Texas | populationDensity | "1472.0"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Arlington,_Texas | populationDensity | 1472.0 (inhabitants per square kilometre)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Arlington, Texas, has a population density, of 1472.0 inhabitants per square kilometre.</lex>
+      <lex comment="good" lid="Id2">There are 1472 people per square kilometer in Arlington, Texas.</lex>
+      <lex comment="good" lid="Id3">The population density of Arlington, Texas is 1472 inhabitants per square kilometre.</lex>
+    </entry>
+    <entry category="City" eid="Id13" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Atlanta | leaderName | Kasim_Reed</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlanta | leader | Kasim_Reed</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Kasim Reed is the leader in Atlanta.</lex>
+      <lex comment="good" lid="Id2">Kasim Reed is the leader of Atlanta.</lex>
+    </entry>
+    <entry category="City" eid="Id14" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Atlantic_City,_New_Jersey | areaTotal | "44.125"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlantic_City,_New_Jersey | areaTotal | 44.125 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Atlantic City, New Jersey has a total area of 44.125 (square kilometres).</lex>
+      <lex comment="good" lid="Id2">The total area of Atlantic City, New Jersey is 44.125 square kilometres.</lex>
+      <lex comment="good" lid="Id3">The total area of Atlantic City, New Jersey, is 44.125 square kilometres.</lex>
+    </entry>
+    <entry category="City" eid="Id15" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Atlantic_City,_New_Jersey | isPartOf | New_Jersey</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlantic_City,_New_Jersey | isPartOf | New_Jersey</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Atlantic City is part of New Jersey.</lex>
+      <lex comment="good" lid="Id2">Atlantic City, is a part of New Jersey.</lex>
+    </entry>
+    <entry category="City" eid="Id16" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Attica,_Indiana | elevation | "166.0"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Attica,_Indiana | elevationAboveTheSeaLevel | 166.0</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Attica, in Indiana is 166.0 above sea level.</lex>
+      <lex comment="good" lid="Id2">Attica, Indiana is 166 above sea level.</lex>
+    </entry>
+    <entry category="City" eid="Id17" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Auburn,_Alabama | isPartOf | Lee_County,_Alabama</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Auburn,_Alabama | subdivisionName | Lee_County,_Alabama</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Alabama | isPartOf | Lee_County,_Alabama</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn is part of Lee County in Alabama.</lex>
+      <lex comment="good" lid="Id2">Auburn, Alabama is part of Lee County.</lex>
+      <lex comment="good" lid="Id3">Auburn is part of Lee County, Alabama.</lex>
+    </entry>
+    <entry category="City" eid="Id18" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Auburn,_Washington | areaTotal | "77.41"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Washington | areaTotal | 77.41 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn (Washington) has a total area of 77.4 square kilometres.</lex>
+      <lex comment="good" lid="Id2">The total area of Auburn, Washington is 77.41 sq kms.</lex>
+      <lex comment="good" lid="Id3">The total area in Auburn, Washington, is 77.41 (square kilometres).</lex>
+    </entry>
+    <entry category="City" eid="Id19" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Austin,_Texas | isPartOf | Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | isPartOf | Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Austin is located in Texas.</lex>
+      <lex comment="good" lid="Id2">Austin is a part of Texas.</lex>
+      <lex comment="good" lid="Id3">Austin is part of the state of Texas.</lex>
+    </entry>
+    <entry category="City" eid="Id20" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>California | language | Spanish_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>California | language | Spanish_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Spanish is spoken in California.</lex>
+      <lex comment="good" lid="Id2">The Spanish language is spoken in California.</lex>
+    </entry>
+    <entry category="City" eid="Id21" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>DeKalb_County,_Georgia | largestCity | Dunwoody,_Georgia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>DeKalb_County,_Georgia | largestCity | Dunwoody,_Georgia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Dunwoody is the largest city in DeKalb County, Georgia.</lex>
+    </entry>
+    <entry category="City" eid="Id22" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Fulton_County,_Georgia | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Fulton_County,_Georgia | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Fulton County is in Georgia, in the United States.</lex>
+      <lex comment="good" lid="Id2">Fulton County, in Georgia is part of the U.S.</lex>
+    </entry>
+    <entry category="City" eid="Id23" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Madison_County,_Indiana | countySeat | Anderson,_Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Madison_County,_Indiana | countySeat | Anderson,_Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson is the county seat of Madison County, which is in Indiana.</lex>
+      <lex comment="good" lid="Id2">The county seat of Madison County, Indiana is Anderson.</lex>
+    </entry>
+    <entry category="City" eid="Id24" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Michigan | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Michigan | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Michigan is in the United states.</lex>
+      <lex comment="good" lid="Id2">Michigan is in the U.S.</lex>
+      <lex comment="good" lid="Id3">Michigan is found within the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id25" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Michigan | largestCity | Detroit</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Michigan | largestCity | Detroit</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Detroit is the largest city in Michigan.</lex>
+    </entry>
+    <entry category="City" eid="Id26" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Orange_County,_California | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Orange_County,_California | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Orange County is in California, in the United States.</lex>
+      <lex comment="good" lid="Id2">Orange County, California is located in the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id27" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Oregon | largestCity | Portland,_Oregon</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Oregon | largestCity | Portland,_Oregon</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Portland is the largest city in Oregon.</lex>
+      <lex comment="good" lid="Id2">Oregon 's largest city is Portland.</lex>
+    </entry>
+    <entry category="City" eid="Id28" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Tarrant_County,_Texas | largestCity | Fort_Worth,_Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Tarrant_County,_Texas | largestCity | Fort_Worth,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Fort Worth, Tarrant County is the largest city in Texas.</lex>
+      <lex comment="good" lid="Id2">The largest city in Tarrant County, Texas, is Fort Worth.</lex>
+    </entry>
+    <entry category="City" eid="Id29" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>United_States | leader | Barack_Obama</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States | leaderName | Barack_Obama</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | leader | Barack_Obama</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Barack Obama is the leader of the United States.</lex>
+      <lex comment="good" lid="Id2">The leader of the United States is Barack Obama.</lex>
+      <lex comment="good" lid="Id3">Barack Obama is a leader of the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id30" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>United_States_House_of_Representatives | location | United_States_Capitol</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States_House_of_Representatives | location | United_States_Capitol</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The United States House of representatives, is located in the United States Capitol.</lex>
+      <lex comment="good" lid="Id2">The U.S. House of Representatives is in the U.S. Capitol.</lex>
+      <lex comment="good" lid="Id3">The United States House of Representatives is located at the United States Capitol.</lex>
+    </entry>
+    </entries>
+</benchmark>

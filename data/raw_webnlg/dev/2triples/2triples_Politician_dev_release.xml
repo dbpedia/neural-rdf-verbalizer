@@ -1,0 +1,448 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Politician" eid="Id1" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aaron_S._Daggett | award | Purple_Heart</otriple>
+        <otriple>Aaron_S._Daggett | battles | Battle_of_Fredericksburg</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_S._Daggett | award | Purple_Heart</mtriple>
+        <mtriple>Aaron_S._Daggett | battles | Battle_of_Fredericksburg</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron S. Daggett fought in the Battle of Fredericksburg and received the Purple Heart.</lex>
+      <lex comment="good" lid="Id2">Aaron S Daggett, fought in battles, most notably the Battle of Fredericksburg, he was awarded the Purple Heart.</lex>
+      <lex comment="good" lid="Id3">Aaron S Daggett was awarded the Purple Heart and fought in the Battle of Fredericksburg.</lex>
+    </entry>
+    <entry category="Politician" eid="Id2" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aaron_S._Daggett | battles | Battle_of_Gettysburg</otriple>
+        <otriple>Aaron_S._Daggett | award | Purple_Heart</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_S._Daggett | battles | Battle_of_Gettysburg</mtriple>
+        <mtriple>Aaron_S._Daggett | award | Purple_Heart</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron S Daggett fought at the Battle of Gettysburg and was awarded the Purple Heart.</lex>
+      <lex comment="good" lid="Id2">Aaron S. Daggett fought in the Battle of Gettysburg and was awarded the Purple Heart.</lex>
+      <lex comment="good" lid="Id3">Aaron S. Daggett, who fought in the Battle of Gettysburg, was awarded the Purple Heart.</lex>
+    </entry>
+    <entry category="Politician" eid="Id3" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</otriple>
+        <otriple>Abdul_Taib_Mahmud | birthPlace | Kingdom_of_Sarawak</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | birthPlace | Kingdom_of_Sarawak</otriple>
+        <otriple>Abdul_Taib_Mahmud | party | "Parti Pesaka Bumiputera Bersatu"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | birthPlace | Kingdom_of_Sarawak</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taid Mahmud was born in Sarawak and is part of the Parti Pesaka Bumiputera Bersatu.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud was born in the Kingdom of Sarawak and his party is the Parti Pesaka Bumiputera Bersatu.</lex>
+      <lex comment="good" lid="Id3">Abdul Taib Mahmud, who was born in Sarawak, belongs to the Parti Pesaka Bumiputera Bersatu.</lex>
+    </entry>
+    <entry category="Politician" eid="Id4" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</otriple>
+        <otriple>Abdul_Taib_Mahmud | birthPlace | Miri,_Malaysia</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | birthPlace | Miri,_Malaysia</otriple>
+        <otriple>Abdul_Taib_Mahmud | party | "Parti Pesaka Bumiputera Bersatu"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | party | Parti_Pesaka_Bumiputera_Bersatu</mtriple>
+        <mtriple>Abdul_Taib_Mahmud | birthPlace | Miri,_Malaysia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Miri, Malaysia, is the birthplace of Abdul Taib Mahmud, whose party is the Parti Pesaka Bumiputera Bersatu.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud, was born in Miri, Malaysia, and is part of the Parti Pesaka Bumiputera Bersatu.</lex>
+      <lex comment="good" lid="Id3">Abdul Taib Mahmud, who was born in Miri, Malaysia, belongs to the Party Pesaka Bumiputera Bersatu.</lex>
+    </entry>
+    <entry category="Politician" eid="Id5" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | vicePresident | Mike_Akhigbe</otriple>
+        <otriple>Abdulsalami_Abubakar | militaryBranch | Nigerian_Army</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | inOfficeWhileVicePresident | Mike_Akhigbe</mtriple>
+        <mtriple>Abdulsalami_Abubakar | militaryBranch | Nigerian_Army</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar, who served in the Nigerian Army was in office while Mike Akhigbe was Vice President.</lex>
+      <lex comment="good" lid="Id2">Abdulsalami Abubakar, who served in the NIgerian Army, was in office whilst Mike Akhigbe was Vice President.</lex>
+      <lex comment="good" lid="Id3">Abdulsalami Abubakar, served in the Nigerian Army, and was in office while Mike Akhigbe was the Vice President.</lex>
+    </entry>
+    <entry category="Politician" eid="Id6" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Minna</otriple>
+        <otriple>Abdulsalami_Abubakar | office | Chief_of_the_Defence_Staff_(Nigeria)</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | office | "Chief of Defence Staff"</otriple>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Minna</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | office (workedAt, workedAs) | Chief_of_the_Defence_Staff_(Nigeria)</mtriple>
+        <mtriple>Abdulsalami_Abubakar | birthPlace | Minna</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar, born in Minna, was The Nigerian Chief of Defense Staff.</lex>
+      <lex comment="good" lid="Id2">Minna was the birthplace of Abdulsalami Abubakar, who worked as the Nigerian Chief of the Defence Staff.</lex>
+      <lex comment="good" lid="Id3">Abdulsalami Abubakar who was born in Minna, was the Chief of the Defence Staff in Nigeria.</lex>
+    </entry>
+    <entry category="Politician" eid="Id7" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | office | "Chief of Defence Staff"</otriple>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Niger_State</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | birthPlace | Niger_State</otriple>
+        <otriple>Abdulsalami_Abubakar | office | Chief_of_the_Defence_Staff_(Nigeria)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | office (workedAt, workedAs) | Chief_of_the_Defence_Staff_(Nigeria)</mtriple>
+        <mtriple>Abdulsalami_Abubakar | birthPlace | Niger_State</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar was born in Niger State and was the Chief of the Defence Staff in Nigeria.</lex>
+      <lex comment="good" lid="Id2">Abdulsalami Abubakar, who was born in Niger State, was the Chief of the Defence Staff in Nigeria.</lex>
+    </entry>
+    <entry category="Politician" eid="Id8" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abel_Caballero | birthPlace | Ponteareas</otriple>
+        <otriple>Abel_Caballero | placeOfBirth | Galicia_(Spain)</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abel_Caballero | birthPlace | Galicia_(Spain)</otriple>
+        <otriple>Abel_Caballero | placeOfBirth | Ponteareas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Caballero | birthPlace | Galicia_(Spain)</mtriple>
+        <mtriple>Abel_Caballero | birthPlace | Ponteareas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Caballero came from Ponteareas in Spain.</lex>
+      <lex comment="good" lid="Id2">Abel Caballero was born in Ponteareas, in Galicia in Spain.</lex>
+      <lex comment="good" lid="Id3">Abel Caballero was born in Ponteareas, in Galicia, Spain.</lex>
+    </entry>
+    <entry category="Politician" eid="Id9" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | militaryBranch | United_States_Army</otriple>
+        <otriple>Abner_W._Sibal | battles | World_War_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_W._Sibal | militaryBranch | United_States_Army</mtriple>
+        <mtriple>Abner_W._Sibal | battles | World_War_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner W. Sibal was in the U.S. Army during WWII.</lex>
+      <lex comment="good" lid="Id2">Abner W Sibal served in the United States Army and fought in World War II.</lex>
+      <lex comment="good" lid="Id3">Abner W. Sibal, served in the United States Army, and fought during WWII.</lex>
+    </entry>
+    <entry category="Politician" eid="Id10" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | militaryBranch | United_States_Army</otriple>
+        <otriple>United_States_Army | battles | American_Revolutionary_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_W._Sibal | militaryBranch | United_States_Army</mtriple>
+        <mtriple>United_States_Army | battles | American_Revolutionary_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner W. Sibal served in the United States Army which was involved in the American Revolutionary War.</lex>
+      <lex comment="good" lid="Id2">Abner W. Sibal served in the United States Army, which was involved in the American Revolutionary War.</lex>
+      <lex comment="good" lid="Id3">The United States Army was involved in battles of the American Revolutionary War and one of the men who was part of the army was Abner W. Sibal.</lex>
+    </entry>
+    <entry category="Politician" eid="Id11" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | birthPlace | United_States</otriple>
+        <otriple>Abraham_A._Ribicoff | spouse | "Ruth Ribicoff"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abraham_A._Ribicoff | birthPlace | United_States</mtriple>
+        <mtriple>Abraham_A._Ribicoff | spouse | "Ruth Ribicoff"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abraham A Ribicoff, born in the U.S., was married to Ruth Ribicoff.</lex>
+      <lex comment="good" lid="Id2">Abraham A. Ribicoff, who was born in the U.S., is married to Ruth Ribicoff.</lex>
+      <lex comment="good" lid="Id3">Abraham A. Ribicoff was born in the U.S and his spouse is Ruth Ribicoff.</lex>
+    </entry>
+    <entry category="Politician" eid="Id12" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | spouse | Casey_Ribicoff</otriple>
+        <otriple>Casey_Ribicoff | birthPlace | Chicago</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abraham_A._Ribicoff | spouse | Casey_Ribicoff</mtriple>
+        <mtriple>Casey_Ribicoff | birthPlace | Chicago</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abraham A. Ribicoff's spouse was Casey Ribicoff, who was born in Chicago.</lex>
+      <lex comment="good" lid="Id2">Abraham A. Ribicoff's wife was Casey Ribicoff and she was born in Chicago.</lex>
+      <lex comment="good" lid="Id3">Casey Ribicoff, born in Chicago, was married to Abraham A. Ribicoff.</lex>
+    </entry>
+    <entry category="Politician" eid="Id13" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Adam_Koc | battles | Polish–Soviet_War</otriple>
+        <otriple>Adam_Koc | award | Cross_of_Valour_(Poland)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Koc | battles | Polish–Soviet_War</mtriple>
+        <mtriple>Adam_Koc | award | Cross_of_Valour_(Poland)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Koc, who fought in the Polish–Soviet War, has been awarded the Cross of Valour for Poland.</lex>
+      <lex comment="good" lid="Id2">Adam Koc fought in the Polish-Soviet War battles and has been awarded the Cross of Valour for Poland.</lex>
+      <lex comment="good" lid="Id3">Adam Koc, who fought in the Polish-Soviet War, was awarded the Cross of Valour (Poland).</lex>
+    </entry>
+    <entry category="Politician" eid="Id14" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Adam_Koc | battles | World_War_I</otriple>
+        <otriple>Adam_Koc | award | Officer's_Star_%22Parasol%22</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Koc | battles | World_War_I</mtriple>
+        <mtriple>Adam_Koc | award | Officer's_Star_"Parasol"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Koc fought in World War One and was awarded the Officer's Star, Parasol.</lex>
+      <lex comment="good" lid="Id2">Adam Koc fought in World War I and received the award Officer's Star Parasol.</lex>
+      <lex comment="good" lid="Id3">Having fought in WWI, Adam Koc, received the award Officer's Star Parasol.</lex>
+    </entry>
+    <entry category="Politician" eid="Id15" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Adam_Koc | battles | World_War_I</otriple>
+        <otriple>Adam_Koc | award | Virtuti_Militari</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Koc | battles | World_War_I</mtriple>
+        <mtriple>Adam_Koc | award | Virtuti_Militari</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Koc, who won the Virtuti Militari award, fought in World War I.</lex>
+      <lex comment="good" lid="Id2">Adam Koc fought in WWI and he was awarded the Virtuti Militari award.</lex>
+      <lex comment="good" lid="Id3">Adam Koc fought in WW1 and received the Virtuti Militari award.</lex>
+    </entry>
+    <entry category="Politician" eid="Id16" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | birthPlace | Greece</otriple>
+        <otriple>Adonis_Georgiadis | office | "Deputy Parliamentary Spokesman of Popular Orthodox Rally"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | birthPlace | Greece</mtriple>
+        <mtriple>Adonis_Georgiadis | office (workedAt, workedAs) | "Deputy Parliamentary Spokesman of Popular Orthodox Rally"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Born in Greece, Adonis Georgiadis, worked as the Deputy Parliamentary Spokesman of Popular Orthodox Rally.</lex>
+      <lex comment="good" lid="Id2">Greek born Adonis Georgiadis he has worked as the Deputy Parliamentary Spokesman of Popular Orthodox Rally.</lex>
+      </entry>
+    <entry category="Politician" eid="Id17" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeminister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeMinister | Konstantinos_Mitsotakis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeMinister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | primeminister | Konstantinos_Mitsotakis</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | inOfficeWhilePrimeMinister | Antonis_Samaras</mtriple>
+        <mtriple>Antonis_Samaras | inOfficeWhilePrimeMinister | Konstantinos_Mitsotakis</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adonis Georgiadis was in office while Antonis Samaras was Prime Minister. Antonis Samaras was in office under Konstantinos Mitsotakis, Prime Minister.</lex>
+      <lex comment="good" lid="Id2">Antonis Samaras, was in office while Konstantinos Mitsotakis was Prime Minister, he was then Prime Minister, when Adonis Georgiadis served in office.</lex>
+    </entry>
+    <entry category="Politician" eid="Id18" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeminister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | successor | Konstantinos_Mitsotakis</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | primeMinister | Antonis_Samaras</otriple>
+        <otriple>Antonis_Samaras | successor | Konstantinos_Mitsotakis</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | inOfficeWhilePrimeMinister | Antonis_Samaras</mtriple>
+        <mtriple>Antonis_Samaras | successor | Konstantinos_Mitsotakis</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adonis Georgiadis was in office under Prime Minister Antonis Samaras who was succeeded by Konstantinos Mitsotakis.</lex>
+      <lex comment="good" lid="Id2">Adonis Georgiadis was in office under Prime Minister, Antonis Samaras, who was succeeded by, Konstantionos Mitsotakis.</lex>
+      <lex comment="good" lid="Id3">Adonis Georgiadis was in office while Antonis Samaras, later succeeded by Konstantinos Mitsotakis, was Prime Minister.</lex>
+    </entry>
+    <entry category="Politician" eid="Id19" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Airey_Neave | termStart | "1953-06-30"^^xsd:date</otriple>
+        <otriple>Airey_Neave | activeYearsEndDate | "1979-03-30"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | activeYearsStartDate | 1953-06-30</mtriple>
+        <mtriple>Airey_Neave | activeYearsEndDate | 1979-03-30</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave started his career on the 30th June 1953, and ended it on the 30th March 1979.</lex>
+      <lex comment="good" lid="Id2">Airey Neave began his career on 30th June 1953 and ended it on March 30, 1979.</lex>
+      <lex comment="good" lid="Id3">Airey Neave started his career on 30th June 1953 and ended it on 30th March 1979.</lex>
+    </entry>
+    <entry category="Politician" eid="Id20" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Airey_Neave | battles | World_War_II</otriple>
+        <otriple>Airey_Neave | activeYearsStartDate | "1953-06-30"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | battles | World_War_II</mtriple>
+        <mtriple>Airey_Neave | activeYearsStartDate | 1953-06-30</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave started his career on 30th June 1953, and was in World War II.</lex>
+      <lex comment="good" lid="Id2">Airey Neave, who fought in World War Two, started his political career on June 30th, 1953.</lex>
+      <lex comment="good" lid="Id3">Airey Neave, started his career on 30th June 1953, and fought in World War II.</lex>
+    </entry>
+    <entry category="Politician" eid="Id21" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Airey_Neave | battles | World_War_II</otriple>
+        <otriple>Airey_Neave | birthPlace | Knightsbridge</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | battles | World_War_II</mtriple>
+        <mtriple>Airey_Neave | birthPlace | Knightsbridge</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave, who was born in Kinightsbridge, fought in World War II.</lex>
+      <lex comment="good" lid="Id2">Born in Kinightsbridge, Airey Neave fought in World War II.</lex>
+      <lex comment="good" lid="Id3">Airey Neave was born in Knightsbridge and fought in World War II.</lex>
+    </entry>
+    <entry category="Politician" eid="Id22" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Airey_Neave | battles | World_War_II</otriple>
+        <otriple>World_War_II | commander | Joseph_Stalin</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | battles | World_War_II</mtriple>
+        <mtriple>World_War_II | commander | Joseph_Stalin</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave fought in World War II during which Joseph Stalin was a commander.</lex>
+      <lex comment="good" lid="Id2">Joseph Stalin was a commander in World War II, the war Airey Neave was involved in.</lex>
+      <lex comment="good" lid="Id3">Airey Neave fought in World War II, where one of the commanders was, joseph Stalin.</lex>
+    </entry>
+    <entry category="Politician" eid="Id23" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Albert_B._White | placeOfDeath | Parkersburg,_West_Virginia</otriple>
+        <otriple>Albert_B._White | successor | William_M._O._Dawson</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Albert_B._White | deathPlace | Parkersburg,_West_Virginia</otriple>
+        <otriple>Albert_B._White | successor | William_M._O._Dawson</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_B._White | deathPlace | Parkersburg,_West_Virginia</mtriple>
+        <mtriple>Albert_B._White | successor | William_M._O._Dawson</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert B White died at Parkersburg, West Virginia and his successor was William M. O. Dawson.</lex>
+      <lex comment="good" lid="Id2">Albert B White died at Parkersbury, West Virginia and he was succeeded by William M.O. Dawson.</lex>
+      <lex comment="good" lid="Id3">William M.O. Dawson was the successor to Albert B. White, who died in Parkersburg, West Virginia.</lex>
+    </entry>
+    <entry category="Politician" eid="Id24" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Albert_Jennings_Fountain | governor | Edmund_J._Davis</otriple>
+        <otriple>Albert_Jennings_Fountain | deathPlace | New_Mexico_Territory</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albert_Jennings_Fountain | inOfficeWhileVicePresident | Edmund_J._Davis</mtriple>
+        <mtriple>Albert_Jennings_Fountain | deathPlace | New_Mexico_Territory</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albert Jennings Fountain passed away in the New Mexico Territory. He was in office while Edmund J. Davis was Vice President.</lex>
+      <lex comment="good" lid="Id2">Albert Jennings Fountain, who died in the New Mexico territory, was in office whilst Edmund J. Davis was Vice President.</lex>
+      <lex comment="good" lid="Id3">Albert Jennings Fountain, who was a politician while Vice President Edmund J. Davis was in office later died in New Mexico Territory.</lex>
+    </entry>
+    <entry category="Politician" eid="Id25" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Alberto_Teisaire | deathPlace | Buenos_Aires</otriple>
+        <otriple>Buenos_Aires | leaderName | Diego_Santilli</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Buenos_Aires | leaderName | Diego_Santilli</otriple>
+        <otriple>Alberto_Teisaire | placeOfDeath | Buenos_Aires</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alberto_Teisaire | deathPlace | Buenos_Aires</mtriple>
+        <mtriple>Buenos_Aires | leaderName | Diego_Santilli</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alberto Teisaire died in Buonos Aires whose leader is Diego Santilli.</lex>
+      <lex comment="good" lid="Id2">The leader of Buenos Aires is Diego Santilli, which is the place where Alberto Teisaire died.</lex>
+    </entry>
+    <entry category="Politician" eid="Id26" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | birthPlace | Tyrol_(state)</otriple>
+        <otriple>Alfons_Gorbach | placeOfBirth | Austria</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfons_Gorbach | birthPlace | Tyrol_(state)</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfons Gorbach was born in the state of Tyrol, in Austria.</lex>
+      <lex comment="good" lid="Id2">Alfons Gorbach was born in Tyrol state in Austria.</lex>
+      <lex comment="good" lid="Id3">Alfons Gorbach was born in the state of Tyrol in Austria.</lex>
+    </entry>
+    <entry category="Politician" eid="Id27" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfons_Gorbach | president | Adolf_Schärf</otriple>
+        <otriple>Alfons_Gorbach | birthPlace | Austria</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfons_Gorbach | inOfficeWhilePresident | Adolf_Schärf</mtriple>
+        <mtriple>Alfons_Gorbach | birthPlace | Austria</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfons Gorbach, born in Austria, was in office while Adolf Scharf was President.</lex>
+      <lex comment="good" lid="Id2">The Austrian Alfons Gorback was in office during the reign of President Adolf Scharf.</lex>
+      <lex comment="good" lid="Id3">Alfons Gorbach, who was born in Austria,was in office while Adolf Scharf was President.</lex>
+    </entry>
+    <entry category="Politician" eid="Id28" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfred_N._Phillips | birthPlace | Darien,_Connecticut</otriple>
+        <otriple>Alfred_N._Phillips | office | Mayor_of_Stamford,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfred_N._Phillips | office | "Mayor of Stamford, Connecticut"</otriple>
+        <otriple>Alfred_N._Phillips | birthPlace | Darien,_Connecticut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_N._Phillips | birthPlace | Darien,_Connecticut</mtriple>
+        <mtriple>Alfred_N._Phillips | office (workedAt, workedAs) | Mayor_of_Stamford,_Connecticut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Born in Darien, Connecticut, Alfred N. Phillips, was the Mayor of Stamford Connecticut.</lex>
+      <lex comment="good" lid="Id2">Alfred N. Phillips, Mayor of Stamford, Connecticut, was born in Darien, Connecticut.</lex>
+      <lex comment="good" lid="Id3">Darien, Connecticut is the birthplace of Alfred N. Phillips, who was the Mayor of Stamford Connecticut.</lex>
+    </entry>
+    <entry category="Politician" eid="Id29" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Alfred_N._Phillips | militaryBranch | United_States_Army</otriple>
+        <otriple>United_States_Army | battles | American_Civil_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_N._Phillips | militaryBranch | United_States_Army</mtriple>
+        <mtriple>United_States_Army | battles | American_Civil_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred N. Phillips served in the United States Army which fought in the American Civil War.</lex>
+      <lex comment="good" lid="Id2">Alfred N. Phillip was a member of the US Army that fought in the American Civil War.</lex>
+      <lex comment="good" lid="Id3">Alfred N. Phillips served in the United States, Army, which battled in the American Civil War.</lex>
+    </entry>
+    <entry category="Politician" eid="Id30" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Allan_Shivers | office | "Member of theTexas State SenatefromDistrict 4(Port Arthur)"</otriple>
+        <otriple>Allan_Shivers | successor | Ben_Ramsey</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allan_Shivers | office (workedAt, workedAs) | "Member of the Texas State Senate from District 4 (Port Arthur)"</mtriple>
+        <mtriple>Allan_Shivers | successor | Ben_Ramsey</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allan Shivers was part of the Texas State Senate District 4 for Port Arthur. Ben Ramsey succeeded him.</lex>
+      <lex comment="good" lid="Id2">Allan Shivers worked as a member of the Texas State Senate from District 4 (Port Arthur) he was succeed by Ben Ramsey.</lex>
+      <lex comment="good" lid="Id3">Allan Shivers was a member of the Texas State Senate District 4 for Port Arthur and Ben Ramsey succeeded him.</lex>
+    </entry>
+    <entry category="Politician" eid="Id31" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | office | "Secretary of State of Vermont"</otriple>
+        <otriple>Alvah_Sabin | successor | Homer_Elihu_Royce</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alvah_Sabin | successor | Homer_Elihu_Royce</otriple>
+        <otriple>Alvah_Sabin | office | Secretary_of_State_of_Vermont</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | office (workedAt, workedAs) | Secretary_of_State_of_Vermont</mtriple>
+        <mtriple>Alvah_Sabin | successor | Homer_Elihu_Royce</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alvah Sabin was the Secretary of State of Vermont before Homer Elihu Royce.</lex>
+      <lex comment="good" lid="Id2">Alvah Sabin worked as the Secretary of State of Vermont and was succeeded by Homer Elihu Royce.</lex>
+      <lex comment="good" lid="Id3">Alvah Sabin was the Secretary of the State of Vermont he was succeeded by Homer Elihu Royce.</lex>
+    </entry>
+    </entries>
+</benchmark>

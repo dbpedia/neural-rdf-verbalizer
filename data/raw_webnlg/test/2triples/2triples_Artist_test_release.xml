@@ -1,0 +1,418 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Artist" eid="Id1" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Deer | hometown | United_States</otriple>
+        <otriple>Aaron_Deer | origin | Indiana</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aaron_Deer | hometown | Indiana</otriple>
+        <otriple>Aaron_Deer | origin | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Deer | origin | United_States</mtriple>
+        <mtriple>Aaron_Deer | origin | Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Deer is from Indiana in the United States.</lex>
+      <lex comment="good" lid="Id2">Aaron Deer is from the United States, specifically Indiana.</lex>
+      <lex comment="good" lid="Id3">Aaron Deer was born in Indiana in the United states.</lex>
+    </entry>
+    <entry category="Artist" eid="Id2" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Turner | associatedMusicalArtist | Twilight_(band)</otriple>
+        <otriple>Aaron_Turner | genre | Electroacoustic_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Twilight_(band)</mtriple>
+        <mtriple>Aaron_Turner | genre | Electroacoustic_music</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Turner performs electroacoustic music and played with the band Twilight.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner performs electroacoustic music and he played with the band Twilight.</lex>
+      <lex comment="good" lid="Id3">Aaron Turner was with the band Twilight and plays electroacoustic music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id3" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aaron_Turner | instrument | Singing</otriple>
+        <otriple>Aaron_Turner | genre | Avant-garde_metal</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Turner | instrument | Singing</mtriple>
+        <mtriple>Aaron_Turner | genre | Avant-garde_metal</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Turner sings for a living and uses the musical genre Avant-garde metal.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner is an avant-garde metal music singer.</lex>
+      <lex comment="good" lid="Id3">Singer Aaron Turner plays Avant-Garde Metal music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id4" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abradab | associatedBand | Magik_(rapper)</otriple>
+        <otriple>Abradab | associatedMusicalArtist | Kaliber_44</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abradab | associatedBand | Kaliber_44</otriple>
+        <otriple>Abradab | associatedMusicalArtist | Magik_(rapper)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abradab | associatedBand/associatedMusicalArtist | Magik_(rapper)</mtriple>
+        <mtriple>Abradab | associatedBand/associatedMusicalArtist | Kaliber_44</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abradab, an artist for the band Kaliber 44, is associated with Magik (rapper).</lex>
+      <lex comment="good" lid="Id2">Abradab played with the band Kaliber 44 and is associated with the rapper Magik.</lex>
+      <lex comment="good" lid="Id3">Abradab is an artist for the band Kaliber 44 and he is associated with the rapper Magik.</lex>
+    </entry>
+    <entry category="Artist" eid="Id5" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Abradab | dateOfBirth | "1978-11-12"^^xsd:date</otriple>
+        <otriple>Abradab | placeOfBirth | Katowice</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abradab | birthPlace | Katowice</otriple>
+        <otriple>Abradab | dateOfBirth | "1978-11-12"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abradab | birthDate | 1978-11-12</mtriple>
+        <mtriple>Abradab | birthPlace | Katowice</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abradab was born on November 12, 1978 in Katowice.</lex>
+      <lex comment="good" lid="Id2">Abradab was born in Katowice on 12th November 1978.</lex>
+    </entry>
+    <entry category="Artist" eid="Id6" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Ace_Wilder | recordLabel | Warner_Music_Group</otriple>
+        <otriple>Ace_Wilder | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ace_Wilder | recordLabel | Warner_Music_Group</mtriple>
+        <mtriple>Ace_Wilder | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ace Wilder has a background as a solo singer and is signed to the record label Warner Music Group.</lex>
+      <lex comment="good" lid="Id2">Ace Wilder is a solo singer who uses the record label Warner Music group.</lex>
+      <lex comment="good" lid="Id3">Ace Wilder is a solo singer with the record label Warner Music Group.</lex>
+    </entry>
+    <entry category="Artist" eid="Id7" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Agustín_Barboza | birthPlace | Paraguay</otriple>
+        <otriple>Agustín_Barboza | recordLabel | Philips_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agustín_Barboza | birthPlace | Paraguay</mtriple>
+        <mtriple>Agustín_Barboza | recordLabel | Philips_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Born in Paraguay, Agustin Barboza is signed to Philips Records.</lex>
+      <lex comment="good" lid="Id2">Paraguay born Agustin Barboza is signed to Philips Records.</lex>
+      <lex comment="good" lid="Id3">Agustin Barboza was born in Paraguay and is signed to Philips Records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id8" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Alan_Frew | genre | Rock_music</otriple>
+        <otriple>Rock_music | musicFusionGenre | Bhangra_(music)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Frew | genre | Rock_music</mtriple>
+        <mtriple>Rock_music | musicFusionGenre | Bhangra_(music)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Frew is a rock musician, which includes fusion and Bhangra styles.</lex>
+      <lex comment="good" lid="Id2">Alan Frew's genre is Rock music of which bhangra is a fusion of rock.</lex>
+      <lex comment="good" lid="Id3">Alan Frews' musical genre is rock music and a type of rock music fusion is Bhangra.</lex>
+    </entry>
+    <entry category="Artist" eid="Id9" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Aleksandra_Kovač | genre | Pop_music</otriple>
+        <otriple>Aleksandra_Kovač | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandra_Kovač | background | "solo_singer"</otriple>
+        <otriple>Aleksandra_Kovač | genre | Pop_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandra_Kovač | genre | Pop_music</mtriple>
+        <mtriple>Aleksandra_Kovač | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandra Kovac has been a solo singer , and a performer in the pop music genre.</lex>
+      <lex comment="good" lid="Id2">With a background in solo singing, Aleksandra Kovač, belongs to the musical genre of Pop.</lex>
+      <lex comment="good" lid="Id3">Aleksandra Kovač is a solo pop musician singer.</lex>
+    </entry>
+    <entry category="Artist" eid="Id10" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Aleksandra_Kovač | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandra_Kovač | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigins | Blues</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandra_Kovač | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Rhythm_and_blues | stylisticOrigin | Blues</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandra Kovac plays rhythm and blues, which originated from blues music.</lex>
+      <lex comment="good" lid="Id2">Aleksandra Kovac is an exponent of Rhythm and blues, the music that originated from the blues.</lex>
+      <lex comment="good" lid="Id3">Aleksandra Kovac plays rhythm and blues which originated from blues music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id11" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfred_Garth_Jones | birthPlace | England</otriple>
+        <otriple>Alfred_Garth_Jones | birthYear | "1872"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_Garth_Jones | birthPlace | England</mtriple>
+        <mtriple>Alfred_Garth_Jones | birthYear | 1872</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred Garth Jones was in England in 1872.</lex>
+      <lex comment="good" lid="Id2">Alfred Garth Jones was born in England in 1872.</lex>
+      <lex comment="good" lid="Id3">Alfred Garth Jones was born in 1872 in England.</lex>
+    </entry>
+    <entry category="Artist" eid="Id12" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | genre | Milonga_(music)</otriple>
+        <otriple>Alfredo_Zitarrosa | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | background | "solo_singer"</otriple>
+        <otriple>Alfredo_Zitarrosa | genre | Milonga_(music)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | background | "solo_singer"</mtriple>
+        <mtriple>Alfredo_Zitarrosa | genre | Milonga_(music)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The musical genre of Alfredo Zitarrosa, who started out as a solo singer, is Milonga.</lex>
+      <lex comment="good" lid="Id2">Solo singer Alfredo Zitarrosa is a Milonga stylist.</lex>
+      <lex comment="good" lid="Id3">Alfredo Zitarrosa is a Milonga musician, who started out as a solo singer.</lex>
+    </entry>
+    <entry category="Artist" eid="Id13" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | genre | Taquirari</otriple>
+        <otriple>Alfredo_Zitarrosa | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | background | "solo_singer"</otriple>
+        <otriple>Alfredo_Zitarrosa | genre | Taquirari</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | background | "solo_singer"</mtriple>
+        <mtriple>Alfredo_Zitarrosa | genre | Taquirari</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfredo Zitarrosa, whose background was as a solo singer, is a performer of Taquirari.</lex>
+      <lex comment="good" lid="Id2">Alfredo Zitarrosa started out as a solo singer and is an exponent of Taquirari.</lex>
+      <lex comment="good" lid="Id3">Singer Alfredo Zitarrosa's musical genre is Taquirari.</lex>
+    </entry>
+    <entry category="Artist" eid="Id14" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | birthPlace | Uruguay</otriple>
+        <otriple>Alfredo_Zitarrosa | deathPlace | Montevideo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | birthPlace | Uruguay</mtriple>
+        <mtriple>Alfredo_Zitarrosa | deathPlace | Montevideo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfredo Zitarrosa, was born in Uruguay and died in Montevideo.</lex>
+      <lex comment="good" lid="Id2">Born in Uruguay, Alfredo Zitarrosa died in Montevideo.</lex>
+      <lex comment="good" lid="Id3">Alfredo Zitarrosa was born in Uruguay and he died in Montevideo.</lex>
+    </entry>
+    <entry category="Artist" eid="Id15" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | deathPlace | Uruguay</otriple>
+        <otriple>Alfredo_Zitarrosa | birthPlace | Montevideo</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | deathPlace | Uruguay</mtriple>
+        <mtriple>Alfredo_Zitarrosa | birthPlace | Montevideo</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfredo Zitarrosa was born in Montevideo and died in Uruguay.</lex>
+    </entry>
+    <entry category="Artist" eid="Id16" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | associatedBand | Plastik_Mak</otriple>
+        <otriple>Alison_O'Donnell | associatedMusicalArtist | Bajik</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alison_O'Donnell | associatedBand/associatedMusicalArtist | Plastik_Mak</mtriple>
+        <mtriple>Alison_O'Donnell | associatedBand/associatedMusicalArtist | Bajik</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alison O'Donnell is a musician associated with the Plastik Mak and was also associated with the band Bajik.</lex>
+      <lex comment="good" lid="Id2">Alison O'Donnell was with the bands Bajik and Plastik Mak.</lex>
+      <lex comment="good" lid="Id3">Plastik Mak and Bajik are acts associated with Alison O'Donnell.</lex>
+    </entry>
+    <entry category="Artist" eid="Id17" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | genre | Folk_rock</otriple>
+        <otriple>Alison_O'Donnell | recordLabel | Floating_World_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alison_O'Donnell | genre | Folk_rock</mtriple>
+        <mtriple>Alison_O'Donnell | recordLabel | Floating_World_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alison O'Donnell is a folk rock musician signed to Floating World Records.</lex>
+      <lex comment="good" lid="Id2">Alison O'Donnell's musical genre is folk rock and her recording label is Floating World Records.</lex>
+      <lex comment="good" lid="Id3">Alison O'Donnell, a folk rock artist, signed to the record label, Floating World Records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id18" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | genre | Jazz</otriple>
+        <otriple>Alison_O'Donnell | instrument | "Voice, bodhrán, percussion, autoharp"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alison_O'Donnell | genre | Jazz</mtriple>
+        <mtriple>Alison_O'Donnell | instrument | "Voice, bodhrán, percussion, autoharp"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alison O'Donnell is a jazz musician who sings and also plays the bodhran, percussion and the autoharp.</lex>
+      <lex comment="good" lid="Id2">Alison O'Donnell performs jazz music, she plays the bodhran, perscussion, and autoharp in addition to singing.</lex>
+      <lex comment="good" lid="Id3">Alison O'Donnell performs jazz music and is a singer and also plays the bodhran, percussion and autoharp.</lex>
+    </entry>
+    <entry category="Artist" eid="Id19" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Allen_Forrest | genre | Hip_hop_music</otriple>
+        <otriple>Allen_Forrest | background | "solo_singer"</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Allen_Forrest | genre | Hip_hop_music</otriple>
+        <otriple>Allen_Forrest | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allen_Forrest | genre | Hip_hop_music</mtriple>
+        <mtriple>Allen_Forrest | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Hip Hop artist Allen Forrest is a solo singer.</lex>
+      <lex comment="good" lid="Id2">Allen Forrest is a solo singer whose genre is Hip Hop music.</lex>
+      <lex comment="good" lid="Id3">Allen Forrest is a solo singer whose musical genre is hip hop.</lex>
+    </entry>
+    <entry category="Artist" eid="Id20" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Alternative_rock | musicSubgenre | Christian_alternative_rock</otriple>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alternative_rock | musicSubgenre | Christian_alternative_rock</mtriple>
+        <mtriple>Andrew_White_(musician) | genre | Alternative_rock</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The musician Andrew White's genre is alternative rock, the genre which has the sub genre Christian alternative rock.</lex>
+      <lex comment="good" lid="Id2">The musician Andrew White's genre is alternative rock which has the subgenre of Christian alternative rock.</lex>
+      <lex comment="good" lid="Id3">Andrew White performs alternative rock music. A sub genre or alternative rock is Christian alternative rock.</lex>
+    </entry>
+    <entry category="Artist" eid="Id21" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Anders_Osborne | associatedBand | Phil_Lesh_and_Friends</otriple>
+        <otriple>Anders_Osborne | associatedMusicalArtist | Tab_Benoit</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anders_Osborne | associatedBand/associatedMusicalArtist | Phil_Lesh_and_Friends</mtriple>
+        <mtriple>Anders_Osborne | associatedBand/associatedMusicalArtist | Tab_Benoit</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anders Osborne is associated with Phil Lesh and Friends and he has worked with Tab Benoit.</lex>
+      <lex comment="good" lid="Id2">Anders Osborne is associated with Phil Lesh and Friends as well as Tab Benoit.</lex>
+      <lex comment="good" lid="Id3">Anders Osborne has worked with Tab Benoit and is associated with Phil Lesh and Friends.</lex>
+    </entry>
+    <entry category="Artist" eid="Id22" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Anders_Osborne | genre | Rhythm_and_blues</otriple>
+        <otriple>Anders_Osborne | recordLabel | Shanachie_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anders_Osborne | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Anders_Osborne | recordLabel | Shanachie_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Rhythm and blues artist Anders Osborne performs under the Shanachie Records label.</lex>
+      <lex comment="good" lid="Id2">Anders Osborne performs rhythm and blues music and is signed to Shanachie Records.</lex>
+      <lex comment="good" lid="Id3">Anders Osborne performs rhythm and blues music and his record label is Shanachie Records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id23" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigins | Blues</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andra_(singer) | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Rhythm_and_blues | stylisticOrigin | Blues</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Andra sings rhythm and blues, which originated from blues.</lex>
+      <lex comment="good" lid="Id2">Andra performs rhythm and blues music, a style that originated from blues.</lex>
+      <lex comment="good" lid="Id3">Andra is a singer of rhythm and blues which originated from the blues.</lex>
+    </entry>
+    <entry category="Artist" eid="Id24" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Andrew_Rayel | associatedMusicalArtist | Jonathan_Mendelsohn</otriple>
+        <otriple>Andrew_Rayel | associatedBand | Christian_Burns</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andrew_Rayel | associatedMusicalArtist | Christian_Burns</otriple>
+        <otriple>Andrew_Rayel | associatedBand | Jonathan_Mendelsohn</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Christian_Burns</mtriple>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Jonathan_Mendelsohn</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Andrew Rayel, is associated with musical artist Jonathan Mendelsohn and Christian Burns.</lex>
+      <lex comment="good" lid="Id2">Andrew Rayel is associated with Christian Burns and the musical artist Jonathan Mendelsohn.</lex>
+      <lex comment="good" lid="Id3">Andrew Rayel is musically associated with Christian Burns and Jonathan Mendelsohn.</lex>
+    </entry>
+    <entry category="Artist" eid="Id25" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Andrew_Rayel | associatedMusicalArtist | Jwaydan_Moyine</otriple>
+        <otriple>Andrew_Rayel | associatedBand | Armin_van_Buuren</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andrew_Rayel | associatedMusicalArtist | Armin_van_Buuren</otriple>
+        <otriple>Andrew_Rayel | associatedBand | Jwaydan_Moyine</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Jwaydan_Moyine</mtriple>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Armin_van_Buuren</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Andrew Rayel is associated with both the musician Jwaydan Moyine and Armin van Buuren.</lex>
+      <lex comment="good" lid="Id2">Andrew Rayel is associated with the musician Jwaydan Moyine and the musical artist Armin van Buuren.</lex>
+      <lex comment="good" lid="Id3">Andrew Rayel is associated with the musicians Jwaydan Moyine and Armin van Buuren.</lex>
+    </entry>
+    <entry category="Artist" eid="Id26" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+        <otriple>Alternative_rock | stylisticOrigins | New_wave_music</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+        <otriple>Alternative_rock | stylisticOrigin | New_wave_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_White_(musician) | genre | Alternative_rock</mtriple>
+        <mtriple>Alternative_rock | stylisticOrigin | New_wave_music</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The musician Andrew White's genre is alternative rock which has origins in New wave music.</lex>
+      <lex comment="good" lid="Id2">New wave music is the origin of Alternative rock, which is the genre of Andrew White.</lex>
+      <lex comment="good" lid="Id3">Andrew White is an alternative rock musician . New Wave music was the origin of Alternative rock.</lex>
+    </entry>
+    <entry category="Artist" eid="Id27" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Country_music | instrument | Banjo</otriple>
+        <otriple>Al_Anderson_(NRBQ) | genre | Country_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Country_music | instrument | Banjo</mtriple>
+        <mtriple>Al_Anderson_(NRBQ band) | genre | Country_music</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Al Anderson of NRBQ is a country musician in which genre the banjo features.</lex>
+      <lex comment="good" lid="Id2">Al Anderson of NRBQ performs country music which is a genre of music which uses the banjo.</lex>
+      <lex comment="good" lid="Id3">Al Anderson (NRBQ band) performs country music, in which the banjo is one of the instruments.</lex>
+    </entry>
+    <entry category="Artist" eid="Id28" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Polydor_Records | location | London</otriple>
+        <otriple>Andrew_White_(musician) | label | Polydor_Records</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Polydor_Records | location | London</otriple>
+        <otriple>Andrew_White_(musician) | recordLabel | Polydor_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Polydor_Records | location | London</mtriple>
+        <mtriple>Andrew_White_(musician) | recordLabel | Polydor_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Andrew White records under label Polydor Records, who are based in London.</lex>
+      <lex comment="good" lid="Id2">Andrew White is a musician signed to the record label Polydor Records which is located in London.</lex>
+      <lex comment="good" lid="Id3">Andrew White is a musician signed to Polydor Records which are based in London.</lex>
+    </entry>
+    </entries>
+</benchmark>

@@ -1,0 +1,607 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="MeanOfTransportation" eid="Id1" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>1955_Dodge | engine | 1955_Dodge__5</otriple>
+        <otriple>1955_Dodge | manufacturer | Dodge</otriple>
+        <otriple>1955_Dodge | transmission | "3-speed automatic"</otriple>
+        <otriple>1955_Dodge | wheelbase | "120.0"^^&lt;http://dbpedia.org/datatype/inch&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>1955_Dodge | engine | 1955_Dodge__5</otriple>
+        <otriple>1955_Dodge | manufacturer | Dodge</otriple>
+        <otriple>1955_Dodge | transmission | "3-speed automatic"</otriple>
+        <otriple>1955_Dodge | wheelbase | "3.048"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1955_Dodge | engine | V8_engine</mtriple>
+        <mtriple>1955_Dodge | manufacturer | Dodge</mtriple>
+        <mtriple>1955_Dodge | transmission | "3-speed automatic"</mtriple>
+        <mtriple>1955_Dodge | wheelbase | 120.0 (inches)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The 1955 Dodge is made by the Dodge company and has a V8 engine, a 3-speed automatic transmission and a wheelbase of 120 inches.</lex>
+      <lex comment="good" lid="Id2">The 1955 Dodge is manufactured by Dodge and it has a V8 engine. It has a wheelbase of 120 inches and has a 3 speed automatic transmission.</lex>
+      <lex comment="good" lid="Id3">Dodge is the manufacturer of the 1955 Dodge which has a V8 engine, a 3 speed automatic transmission and a wheelbase of 120 inches.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id2" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>1955_Dodge | related | DeSoto_Custom</otriple>
+        <otriple>DeSoto_Custom | relatedMeanOfTransportation | Chrysler_Newport</otriple>
+        <otriple>DeSoto_Custom | successor | DeSoto_Firedome</otriple>
+        <otriple>DeSoto_Custom | manufacturer | DeSoto_(automobile)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1955_Dodge | relatedMeanOfTransportation | DeSoto_Custom</mtriple>
+        <mtriple>DeSoto_Custom | relatedMeanOfTransportation | Chrysler_Newport</mtriple>
+        <mtriple>DeSoto_Custom | successor | DeSoto_Firedome</mtriple>
+        <mtriple>DeSoto_Custom | manufacturer | DeSoto_(automobile)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The 1955 Dodge, the Chrysler Newport and the DeSoto Custom are related means of transportation. DeSoto are the manufacturers of the DeSoto Custom, the successor of which, is the DeSoto Firedome.</lex>
+      <lex comment="good" lid="Id2">The 1955 Dodge is related to the Chrysler Newport and the DeSoto Custom which was made by DeSoto and succeeded by the DeSoto Firedome.</lex>
+      <lex comment="good" lid="Id3">The 1955 Dodge is related to the Chrysler Newport and the DeSoto Custom. The DeSoto Firedome succeeded the Desoto Custom which is manufactured by DeSoto .</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id3" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AIDAluna | maidenVoyage | "2009-03-22"^^xsd:date</otriple>
+        <otriple>AIDAluna | shipBeam | "32.2"^^xsd:double</otriple>
+        <otriple>AIDAluna | MeanOfTransportation/length | "252000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAluna | maidenVoyage | 2009-03-22</mtriple>
+        <mtriple>AIDAluna | shipBeam | 32.2</mtriple>
+        <mtriple>AIDAluna | length | 252000.0 (millimetres)</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The length of the AIDAluna ship beam is 32.2 and it is 252000.0 millimetres long. It is powered by Caterpillar Inc. and had its maiden voyage on the 22nd of March, 2009.</lex>
+      <lex comment="good" lid="Id2">The AIDAluna, powered by a Caterpillar Inc. engine, has a 32.2 long ship beam and is 252000.0mm long. Its maiden voyage was March 22,2009.</lex>
+      <lex comment="good" lid="Id3">The AIDAluna has a ship beam of 32.2 and is 252000.0 millimetres long. It is powered by Caterpillar Inc. and made the maiden voyage on 22 March 2009.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id4" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AIDAstella | length | "253.26"^^xsd:double</otriple>
+        <otriple>AIDAstella | shipBeam | "32.2"^^xsd:double</otriple>
+        <otriple>AIDAstella | builder | Meyer_Werft</otriple>
+        <otriple>AIDAstella | shipOwner | Costa_Crociere</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | length | 253260.0 (millimetres)</mtriple>
+        <mtriple>AIDAstella | shipBeam | 32.2</mtriple>
+        <mtriple>AIDAstella | builder | Meyer_Werft</mtriple>
+        <mtriple>AIDAstella | owner | Costa_Crociere</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIDAstella is 253260.0 millimetres long and has a beam of 32.2 metres. AIDAstella was built by Meyer Werft and is owned by Costa Crociere.</lex>
+      <lex comment="good" lid="Id2">AIDAstella is 253260.0 millimetres in length and has a beam of 32.2 metres. It is owned by Costa Crociere and was built by Meyer Werft.</lex>
+      </entry>
+    <entry category="MeanOfTransportation" eid="Id5" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AIDAstella | shipOperator | AIDA_Cruises</otriple>
+        <otriple>AIDAstella | length | "253.26"^^xsd:double</otriple>
+        <otriple>AIDAstella | builder | Meyer_Werft</otriple>
+        <otriple>AIDAstella | shipOwner | Costa_Crociere</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | operator | AIDA_Cruises</mtriple>
+        <mtriple>AIDAstella | length | 253260.0 (millimetres)</mtriple>
+        <mtriple>AIDAstella | builder | Meyer_Werft</mtriple>
+        <mtriple>AIDAstella | owner | Costa_Crociere</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Costa Crociere is the owner of the AIDAstella which is 25326.0 millimetres long. It was built by Meyer Werft and operated by AIDA Cruise Line.</lex>
+      <lex comment="good" lid="Id2">AIDAstella is 253260.0 millimetres long and was built by Meyer Werft. It is owned by Costa Crociere and operated by AIDA Cruises.</lex>
+      <lex comment="good" lid="Id3">The AIDAstella was built by Meyer Werft and is 253260.0 millimetres in length. It is owned by Costa Crociere and operated by AIDA cruises.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id6" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AIDAstella | shipOperator | AIDA_Cruises</otriple>
+        <otriple>AIDAstella | length | "253.26"^^xsd:double</otriple>
+        <otriple>AIDAstella | status | "In service"</otriple>
+        <otriple>AIDAstella | builder | Meyer_Werft</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | operator | AIDA_Cruises</mtriple>
+        <mtriple>AIDAstella | length | 253260.0 (millimetres)</mtriple>
+        <mtriple>AIDAstella | status | "In service"</mtriple>
+        <mtriple>AIDAstella | builder | Meyer_Werft</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AIDAstella was built by Meyer Werft and is 253260.0 millimetres long. It is still in service and operated by the AIDA Cruise Line.</lex>
+      <lex comment="good" lid="Id2">The AIDAstella is operated by AIDA Cruise Line and is still in service to this date. The AIDAstella was built by Meyer Werft and is 253260.0 millimetres in length.</lex>
+      <lex comment="good" lid="Id3">AIDstella, a ship built by Meyer Werft is still in service till date. The ship is operated by AIDA Cruises and is 253260mm long.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id7" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>ALCO_RS-3 | builder | American_Locomotive_Company</otriple>
+        <otriple>ALCO_RS-3 | MeanOfTransportation/length | "17068.8"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>ALCO_RS-3 | enginetype | V12_engine</otriple>
+        <otriple>ALCO_RS-3 | builddate | "May 1950 &amp;ndash; August 1956"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ALCO_RS-3 | builder | American_Locomotive_Company</mtriple>
+        <mtriple>ALCO_RS-3 | length | 17068.8 (millimetres)</mtriple>
+        <mtriple>ALCO_RS-3 | engine | V12_engine</mtriple>
+        <mtriple>ALCO_RS-3 | buildDate | "May 1950 - August 1956"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The American Locomotive Company built the ALCO RS-3 and it was produced between May 1950 and August 1956. It's length is 17068.8 millimetres and it has a V12 engine.</lex>
+      <lex comment="good" lid="Id2">The ALCO RS-3 has a V12 engine and a length of 17068.8 millimetres. It was produced between May 1950 and August 1956 by the American Locomotive Company.</lex>
+      <lex comment="good" lid="Id3">The ALCO RS-3 which was built by the American Locomotive Company, was produced between May 1950 and August 1956. It has a V12 engine and is 17068.8 (millimetres) in length.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id8" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AMC_Matador | aka | "American Motors Matador"@en</otriple>
+        <otriple>AMC_Matador | assembly | Thames,_New_Zealand</otriple>
+        <otriple>AMC_Matador | bodyStyle | Station_wagon</otriple>
+        <otriple>AMC_Matador | engine | "V8"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AMC_Matador | alternativeName | "American Motors Matador"</mtriple>
+        <mtriple>AMC_Matador | assembly | Thames,_New_Zealand</mtriple>
+        <mtriple>AMC_Matador | bodyStyle | Station_wagon</mtriple>
+        <mtriple>AMC_Matador | engine | AMC_V8_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AMC Matador is also known as American Motors Matador and is assembled in Thames,New Zealand. It's body style is station wagon and it's equipped with an AMC V8 engine.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador is alternatively known as the American Motors Matador and is assembled in Thames,New Zealand. It's body style is a station wagon and it has an AMC V8 engine.</lex>
+      <lex comment="good" lid="Id3">The AMC Matador is a station wagon equipped with an AMC V8 engine. It is also known as American Motors Matador and is assembled in Thames,New Zealand.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id9" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AMC_Matador | aka | "American Motors Matador"@en</otriple>
+        <otriple>AMC_Matador | assembly | Thames,_New_Zealand</otriple>
+        <otriple>AMC_Matador | class | Mid-size_car</otriple>
+        <otriple>AMC_Matador | engine | "I6"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AMC_Matador | alternativeName | "American Motors Matador"</mtriple>
+        <mtriple>AMC_Matador | assembly | Thames,_New_Zealand</mtriple>
+        <mtriple>AMC_Matador | class | Mid-size_car</mtriple>
+        <mtriple>AMC_Matador | engine | AMC_straight-6_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AMC Matador is a mid-size car also known as American Motors Matador, and was assembled in Thames, New Zealand with an AMC straight-6 engine.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador is also known as American Motors Matador and is a mid-size car. It is assembled in Thames, New Zealand and has an AMC straight-6 engine.</lex>
+      <lex comment="good" lid="Id3">AMC Matador is also known as American Motors Matador and is assembled in Thames, New Zealand. It is classed as a mid-size car and it has an AMC straight-6 engine.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id10" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AMC_Matador | aka | "VAM Classic"@en</otriple>
+        <otriple>AMC_Matador | assembly | Port_Melbourne,_Victoria</otriple>
+        <otriple>AMC_Matador | class | Full-size_car</otriple>
+        <otriple>AMC_Matador | engine | "I6"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AMC_Matador | alternativeName | "VAM Classic"</mtriple>
+        <mtriple>AMC_Matador | assembly | Port_Melbourne,_Victoria</mtriple>
+        <mtriple>AMC_Matador | class | Full-size_car</mtriple>
+        <mtriple>AMC_Matador | engine | AMC_straight-6_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AMC Matador is considered a full-size car and has the alternative name of VAM Classic. It is assembled in Port Melbourne, Victoria and has an AMC straight-6 engine.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador is a Full-size car and is assembled in Port Melbourne, Victoria. The alternative name for AMC Matador is VAM Classic and it has an AMC straight-6 engine.</lex>
+      <lex comment="good" lid="Id3">The AMC Matador is a Full-size car assembled in Port Melbourne, Victoria. It has an AMC straight-6 engine and the alternative name the VAM Classic.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id11" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AMC_Matador | aka | "VAM Classic"@en</otriple>
+        <otriple>AMC_Matador | assembly | Thames,_New_Zealand</otriple>
+        <otriple>AMC_Matador | bodyStyle | Station_wagon</otriple>
+        <otriple>AMC_Matador | engine | "V8"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AMC_Matador | alternativeName | "VAM Classic"</mtriple>
+        <mtriple>AMC_Matador | assembly | Thames,_New_Zealand</mtriple>
+        <mtriple>AMC_Matador | bodyStyle | Station_wagon</mtriple>
+        <mtriple>AMC_Matador | engine | AMC_V8_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AMC Matador has a station wagon style body and is equipped with an AMC V8 engine. Its alternative name is VAM Classic and it is assembled in Thames, New Zealand.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador, alternatively known as the VAM Classic, is assembled in Thames, New Zealand. It has a station wagon body style and is equipped with an AMC V8 engine.</lex>
+      <lex comment="good" lid="Id3">The AMC Matador has a AMC V8 engine and a station wagon style body. It has an alternative name of the VAM Classic and was assembled in Thames, New Zealand.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id12" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Abarth_1000_GT_Coupé | productionEndYear | "1958"^^xsd:gYear</otriple>
+        <otriple>Abarth_1000_GT_Coupé | wheelbase | "2.16"^^xsd:double</otriple>
+        <otriple>Abarth_1000_GT_Coupé | bodyStyle | "Two door coupé"@en</otriple>
+        <otriple>Abarth_1000_GT_Coupé | engine | Abarth_1000_GT_Coupé__1</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abarth_1000_GT_Coupé | productionEndYear | 1958</mtriple>
+        <mtriple>Abarth_1000_GT_Coupé | wheelbase | 2160.0 (millimetres)</mtriple>
+        <mtriple>Abarth_1000_GT_Coupé | bodyStyle | "Two door coupé"</mtriple>
+        <mtriple>Abarth_1000_GT_Coupé | engine | Straight-four_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Abarth 1000 GT Coupe is a 2 door coupe which has a wheelbase of 2160 millimetres and contains a straight four engine. The car was last manufactured in 1958.</lex>
+      <lex comment="good" lid="Id2">The Abarth 1000 GT Coupe is a two door model with a straight four engine and a wheelbase of 2160 millimetres. It rolled off the production line in 1958.</lex>
+      <lex comment="good" lid="Id3">The Abarth 1000 GT Coupe has a wheelbase of 2160 mm, it's two doors and has a straight four engine. It's final year of production was 1959.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id13" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Acura_TLX | assembly | Marysville_Auto_Plant</otriple>
+        <otriple>Acura_TLX | layout | Front-engine_design</otriple>
+        <otriple>Acura_TLX | class | Luxury_vehicle</otriple>
+        <otriple>Acura_TLX | engine | Honda_K_engine</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Acura_TLX | assembly | Marysville_Auto_Plant</mtriple>
+        <mtriple>Acura_TLX | layout | Front-engine_design</mtriple>
+        <mtriple>Acura_TLX | class | Luxury_vehicle</mtriple>
+        <mtriple>Acura_TLX | engine | Honda_K_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Acura TLX is assembled at the Marysville Auto Plant, has a front engine design with a Honda K engine and is a luxury vehicle.</lex>
+      <lex comment="good" lid="Id2">The Luxury Class Acura TLX, assembled at Marysville Auto Plant, has a Honda K front engine.</lex>
+      <lex comment="good" lid="Id3">The Acura TLX is made at the Marysville Auto Plant. It is classed as a luxury vehicle with a Honda K engine located at the front.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id14" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | length | "99.83"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBeam | "21.2"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Arctech_Helsinki_Shipyard</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | length | "99.83"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBeam | "21.2"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Arctech_Helsinki_Shipyard</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | length | 99.83</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | shipBeam | 21.2</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Arctech_Helsinki_Shipyard</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The icebreaker ship Aleksey Chirikov was built by the Archtech Helsinki Shipyard in Finland with a length of 99.83 and a ship beam of 21.2.</lex>
+      <lex comment="good" lid="Id2">The icebreaker Aleksey Chirikov is 99.83 long and has a ship beam of 21.2 m. It was built in Finland at the Arctech Helsinki Shipyard.</lex>
+      <lex comment="good" lid="Id3">The icebreaker Aleksy Chirikov, having a ship beam of 21.2 m. and a length of 99.83 metres, was built in Finland at the Arctech Helsinki Shipyard.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id15" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBeam | "21.2"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | status | "In service"</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Arctech_Helsinki_Shipyard</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | shipBeam | 21.2</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | status | "In service"</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Arctech_Helsinki_Shipyard</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The in service icebreaker Aleksey Chirikov was built at the Arctech Helsinki Shipyard. in Finland. It has a ship beam of 21.2 m.</lex>
+      <lex comment="good" lid="Id2">The Finnish built Aleksey Chirikov is an icebreaker and currently in service. It was built by the Archtech Helsinki Shipyard and has a ship beam of 21.2m.</lex>
+      <lex comment="good" lid="Id3">Arctech Helsinki Shipyard built the icebreaker Aleksey Chirikov in Finland. It has a 21.2 m long shipbeam and is in service.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id16" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBeam | "21.2"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | status | "In service"</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Helsinki</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBeam | "21.2"^^xsd:double</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | status | "In service"</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Helsinki</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | shipBeam | 21.2</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | status | "In service"</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Helsinki</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Finland built the Aleksey Chirikov, icebreaker which has a 21.2 ship beam and was made in Helsinki. It is currently working.</lex>
+      <lex comment="good" lid="Id2">The icebreaker Aleksey Chirikov was built in Helsinki, in Finland. It is in service and has a ship beam of 21.2 m.</lex>
+      <lex comment="good" lid="Id3">The icebreaker ship Aleksey Chirikov was built in Finland by Aleksey Chirikov who is in Helsinki. The ship's beam is 21.2m and is currently in service.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id17" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Finland</otriple>
+        <otriple>Finland | leader | Sauli_Niinistö</otriple>
+        <otriple>Finland | leaderName | Juha_Sipilä</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Helsinki</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</mtriple>
+        <mtriple>Finland | leaderName | Sauli_Niinistö</mtriple>
+        <mtriple>Finland | leaderName | Juha_Sipilä</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Helsinki</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The icebreaker Aleksey Chirikov was built in Helsinki, Finland. The leaders of the country are Sauli Niinisto and Juha Sipila.</lex>
+      <lex comment="good" lid="Id2">Aleksey Chirikov icebreaker is from Helsinki in Finland whose leaders are Juha Sipila and Sauli Niinistö.</lex>
+      <lex comment="good" lid="Id3">The icebreaker, Aleksey Chirikov, was built in Helsinki, Finland, which hails leaders Sauli Niinistö and Juha Sipila.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id18" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alfa_Romeo_164 | assembly | Italy</otriple>
+        <otriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Saab_9000</otriple>
+        <otriple>Alfa_Romeo_164 | engine | Alfa_Romeo_164__5</otriple>
+        <otriple>Alfa_Romeo_164 | related | Lancia_Thema</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfa_Romeo_164 | assembly | Italy</mtriple>
+        <mtriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Saab_9000</mtriple>
+        <mtriple>Alfa_Romeo_164 | engine | Straight-four_engine</mtriple>
+        <mtriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Lancia_Thema</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alfa Romeo 164, which is assembled in Italy and similar to the Saab 9000 and the Lancia Thema, has a straight-four engine.</lex>
+      <lex comment="good" lid="Id2">The Alfa Romeo 164 is related to the Lancia Thema and the to the Saab 9000 and in that they are both cars. The Alfa Romeo 164 has a Straight four engine and was assembled in Italy.</lex>
+      <lex comment="good" lid="Id3">The Alfa Romeo 164, assembled in Italy, has a straight four engine and is relative to the Saab 9000 and Lancia Thema.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id19" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alfa_Romeo_164 | related | Fiat_Croma</otriple>
+        <otriple>Alfa_Romeo_164 | assembly | Italy</otriple>
+        <otriple>Alfa_Romeo_164 | engine | Alfa_Romeo_164__1</otriple>
+        <otriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Lancia_Thema</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Fiat_Croma</mtriple>
+        <mtriple>Alfa_Romeo_164 | assembly | Italy</mtriple>
+        <mtriple>Alfa_Romeo_164 | engine | Straight-four_engine</mtriple>
+        <mtriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Lancia_Thema</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alfa Romeo 164, assembled in Italy, has a straight-four engine; the Alfa Romeo 164 is similar to the Fiat Croma and is related to Lancia Thema.</lex>
+      <lex comment="good" lid="Id2">The Alfa Romeo 164, Lancia Thema and Fiat Croma are related means of transportation. The Alfa Romeo 164 has a Straight four engine and was assembled in Italy.</lex>
+      <lex comment="good" lid="Id3">The Alfa Romeo 164, Lancia Thema and Fiat Croma are similar means of transport. The Alfa Romeo 164 has a straight-four engine and is assembled in Italy.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id20" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>American_Motors | successor | Eagle_(automobile)</otriple>
+        <otriple>AMC_Matador | manufacturer | American_Motors</otriple>
+        <otriple>American_Motors | fate | Chrysler</otriple>
+        <otriple>American_Motors | keyPeople | Roy_D._Chapin,_Jr.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_Motors | successor | Eagle_(automobile)</otriple>
+        <otriple>AMC_Matador | manufacturer | American_Motors</otriple>
+        <otriple>American_Motors | fate | Chrysler</otriple>
+        <otriple>American_Motors | keyPerson | Roy_D._Chapin,_Jr.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Motors | successor | Eagle_(automobile)</mtriple>
+        <mtriple>AMC_Matador | manufacturer | American_Motors</mtriple>
+        <mtriple>American_Motors | fate | Chrysler</mtriple>
+        <mtriple>American_Motors | keyPerson | Roy_D._Chapin,_Jr.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">American motors was acquired by Chrysler. It was succeed by Eagle, and manufactures AMC Matador.</lex>
+      <lex comment="good" lid="Id2">American Motors was succeeded by Eagle and acquired by Chrysler, it includes figure Roy D. Chapin Jr. The AMC Matador is made by American Motors.</lex>
+      <lex comment="good" lid="Id3">Eagle succeeded American Motors, who manufacture the AMC Matador, were acquired by Chrysler and have Roy D Chapin Jr as a keyperson.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id21" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "3.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "4.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "*\n* at stern stabilizers."@en</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_submarine_NR-1 | shipLaunch | 1969-01-25</mtriple>
+        <mtriple>American_submarine_NR-1 | topSpeed | 8.334</mtriple>
+        <mtriple>American_submarine_NR-1 | length | 45000.0 (millimetres)</mtriple>
+        <mtriple>American_submarine_NR-1 | shipBeam | 3.8 m</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The American submarine NR-1 was launched on The 25th of January 1969. It has a top speed of 8.334 km/h, a ship beam of 3.8 m., and is 45000.0 (millimetres) long.</lex>
+      <lex comment="good" lid="Id2">The American submarine NR-1, which was launched on The 25th of January 1969, has a top speed of 9.334 km/hr, a ship beam of 3.8m and a length of 45000.0 mms.</lex>
+      <lex comment="good" lid="Id3">The American sub NR-1 was launched on January 25, 1969 and it's top speed is 8.344. It is 45000.0 millimetres long and has a ship beam of 3.8 m.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id22" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Antares_(rocket) | manufacturer | Yuzhnoye_Design_Office</otriple>
+        <otriple>Antares_(rocket) | finalFlight | "2014-10-28"^^xsd:date</otriple>
+        <otriple>Antares_(rocket) | maidenFlight | "2013-04-21"^^xsd:date</otriple>
+        <otriple>Antares_(rocket) | sites | Mid-Atlantic_Regional_Spaceport</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antares_(rocket) | manufacturer | Yuzhnoye_Design_Office</mtriple>
+        <mtriple>Antares_(rocket) | finalFlight | 2014-10-28</mtriple>
+        <mtriple>Antares_(rocket) | maidenFlight | 2013-04-21</mtriple>
+        <mtriple>Antares_(rocket) | launchSite | Mid-Atlantic_Regional_Spaceport</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Yuzhnoye Design Office made the Antares Rocket which was launched from the Mid-Atlantic Regional Spaceport made its first flight on the 21st of April, 2013 and its last on the 28th of October of the following year.</lex>
+      <lex comment="good" lid="Id2">Made by the Yuzhnoye Design Office, the Antares Rocket made its first flight on April 21, 2013 from the Mid-Atlantic Regional Spaceport. Its last flight took place Oct. 28, 2014.</lex>
+      <lex comment="good" lid="Id3">The Antares rocket is manufactured by the Yuzhnoye Design Office and it was launched at the Mid Atlantic Regional Spaceport. The maiden flight was on April 21st, 2013 and the final flight was on October 28, 2014.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id23" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</otriple>
+        <otriple>Aston_Martin_V8 | engine | "5.3"^^xsd:double</otriple>
+        <otriple>Aston_Martin_V8 | assembly | United_Kingdom</otriple>
+        <otriple>Aston_Martin_V8 | related | Aston_Martin_RHAM/1</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aston_Martin_V8 | related | Aston_Martin_DBS</otriple>
+        <otriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_RHAM/1</otriple>
+        <otriple>Aston_Martin_V8 | engine | "5.3"^^xsd:double</otriple>
+        <otriple>Aston_Martin_V8 | assembly | United_Kingdom</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</mtriple>
+        <mtriple>Aston_Martin_V8 | engine | 5.3 (litres)</mtriple>
+        <mtriple>Aston_Martin_V8 | assembly | United_Kingdom</mtriple>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_RHAM/1</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Aston Martin V8 is related to the Aston Martin DBS and the Aston Martin RHAM/1. The Aston Martin V8 has a 5.3 litre engine and is assembled in the United Kingdom.</lex>
+      <lex comment="good" lid="Id2">The Aston Martin RHAM/1, Aston Martin V8 and Aston Martin DBS are a related means of transport. It is assembled in the United Kingdom and has a 5.3 litre engine.</lex>
+      <lex comment="good" lid="Id3">The Aston Martin RHAM/1, Aston Martin V8 and Aston Martin DBS are a related means of transport. The Aston Martin V8 is assembled in the U.K. and the engine volume is 5.3 litres.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id24" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Audi_A1 | engine | Audi_A1__3</otriple>
+        <otriple>Audi_A1 | transmission | "5-speedmanual"</otriple>
+        <otriple>Audi_A1 | assembly | Audi_Brussels</otriple>
+        <otriple>Audi_A1 | bodyStyle | Hatchback</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Audi_A1 | engine | 1.2 (litres)</mtriple>
+        <mtriple>Audi_A1 | transmission | "5-speed manual"</mtriple>
+        <mtriple>Audi_A1 | assembly | Audi_Brussels</mtriple>
+        <mtriple>Audi_A1 | bodyStyle | Hatchback</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Audi A1 is assembled at Audi Brussels and has the hatchback style of body. It has a 1.2 litre engine and a 5 speed manual transmission.</lex>
+      <lex comment="good" lid="Id2">The Audi A1 is assembled by Audi Brussels and is a hatchback. It has a 1.2 litre engine and has a 5-speed manual transmission.</lex>
+      </entry>
+    <entry category="MeanOfTransportation" eid="Id25" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Audi_A1 | manufacturer | Audi</otriple>
+        <otriple>Audi | foundedBy | August_Horch</otriple>
+        <otriple>Audi | division | Audi_e-tron</otriple>
+        <otriple>Audi | subsidiary | Ducati</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Audi_A1 | manufacturer | Audi</mtriple>
+        <mtriple>Audi | foundedBy | August_Horch</mtriple>
+        <mtriple>Audi | division | Audi_e-tron</mtriple>
+        <mtriple>Audi | subsidiary | Ducati</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Audi, owned by Ducati, was founded by August Horch and includes Audi e-tron. It makes the Audi A1.</lex>
+      <lex comment="good" lid="Id2">August Horch founded Audi, which makes the Audi A1. Audi e-tron is a division of Audi and the company Ducati is owned by them.</lex>
+      <lex comment="good" lid="Id3">August Horch founded the Audi company who make the Audi A1. The company own Ducati and have a sub-division known as Audi e-tron.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id26" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | foundationPlace | California</otriple>
+        <otriple>AIDA_Cruises | location | Rostock</otriple>
+        <otriple>AIDAluna | shipOwner | AIDA_Cruises</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | foundationPlace | California</mtriple>
+        <mtriple>AIDA_Cruises | location | Rostock</mtriple>
+        <mtriple>AIDAluna | owner | AIDA_Cruises</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The owner of AIDAluna is Rostock based AIDA Cruises. AIDAluna is powered by Caterpillar Inc, which was founded in California.</lex>
+      <lex comment="good" lid="Id2">AIDAluna is powered by Caterpillar Inc. which was founded in California. The location of AIDA Cruises is Rostock and they own AIDAluna.</lex>
+      <lex comment="good" lid="Id3">The Caterpillar Inc company was founded in California and powers the AIDAluna which is owned by the Rostock based AIDA Cruises.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id27" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</otriple>
+        <otriple>Caterpillar_Inc. | location | Illinois</otriple>
+        <otriple>Caterpillar_Inc. | foundation | United_States</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</mtriple>
+        <mtriple>Caterpillar_Inc. | location | Illinois</mtriple>
+        <mtriple>Caterpillar_Inc. | foundationPlace | United_States</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The power type of the AIDAluna is the Caterpillar Inc. engine. Caterpillar, Inc. was founded in Illinois in the U.S. and Douglas R Oberhelman is a key person there.</lex>
+      <lex comment="good" lid="Id2">Douglas R Oberhelman is a key person at Caterpillar Inc. which was founded in the US. The company is located in Illinois and provides the power to the AIDAluna.</lex>
+      <lex comment="good" lid="Id3">Douglas R Oberhelman is a key person at Caterpillar Inc which was founded in the US and, is located in Illinois. AIDALuna is powered by Caterpillar Inc.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id28" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Delta_II | sites | Vandenberg_AFB_Space_Launch_Complex_2</otriple>
+        <otriple>Delta_II | launchSite | Cape_Canaveral_Air_Force_Station</otriple>
+        <otriple>Antares_(rocket) | comparable | Delta_II</otriple>
+        <otriple>Delta_II | countryOrigin | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Delta_II | launchSite | Vandenberg_AFB_Space_Launch_Complex_2</mtriple>
+        <mtriple>Delta_II | launchSite | Cape_Canaveral_Air_Force_Station</mtriple>
+        <mtriple>Antares_(rocket) | comparable | Delta_II</mtriple>
+        <mtriple>Delta_II | countryOrigin | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The launch site of the Delta II was at the Vandenberg AFB Space Launch Complex 2, based at Cape Canaveral Air Force Station. The Antares rocket is comparable to Delta 11 which originated in the US&gt;.</lex>
+      <lex comment="good" lid="Id2">Launched at Cape Canaveral Air Force Station and the Vandenberg AFB Space Launch Complex 2 was the Delta II US rocket. The Antares rocket is similar to the Delta.</lex>
+      <lex comment="good" lid="Id3">The Delta II, from the United States, was launched at Cape Canaveral Air Force Station, Vandenberg AFB Space Launch Complex 2. It is similar to the Antares rocket.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id29" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>General_Dynamics_Electric_Boat | parentCompany | General_Dynamics</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "*\n* at stern stabilizers."@en</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>General_Dynamics_Electric_Boat | parentCompany | General_Dynamics</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "3.8"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>General_Dynamics_Electric_Boat | parentCompany | General_Dynamics</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "4.8"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipBeam | "4.8"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | parent | General_Dynamics</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipBeam | "*\n* at stern stabilizers."@en</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | parent | General_Dynamics</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipBeam | "3.8"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBuilder | General_Dynamics_Electric_Boat</otriple>
+        <otriple>General_Dynamics_Electric_Boat | parent | General_Dynamics</otriple>
+        <otriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>General_Dynamics_Electric_Boat | parentCompany | General_Dynamics</mtriple>
+        <mtriple>American_submarine_NR-1 | shipBeam | 3.8 m</mtriple>
+        <mtriple>American_submarine_NR-1 | builder | General_Dynamics_Electric_Boat</mtriple>
+        <mtriple>General_Dynamics_Electric_Boat | locationCity | Groton,_Connecticut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The American Submarine NR-1 has a ship beam of 3.8 m and was built by General Dynamics Electric Boat. General Dynamics is the parent company of the General Dynamics Electric Boat Co which is located in the city of Groton, Connecticut.</lex>
+      <lex comment="good" lid="Id2">General Dynamics is the parent company of the General Dynamics Electric Boat Co. out of Groton, CT. The GD Electric Boat Co built the American sub called NR-1 which has a 3.8 m beam.</lex>
+      <lex comment="good" lid="Id3">General Dynamics is the parent company of General Dynamics Electric Boat who are located in the city of Groton, Connecticut and built the American submarine NR-1 with a ship beam of 3.8 m.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id30" shape="(X (X (X (X (X)))))" shape_type="chain" size="4">
+      <originaltripleset>
+        <otriple>Germany | leaderName | Andreas_Voßkuhle</otriple>
+        <otriple>Neptun_Werft | locationCity | Rostock</otriple>
+        <otriple>Rostock | country | Germany</otriple>
+        <otriple>A-Rosa_Luna | builder | Neptun_Werft</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Germany | leader | Andreas_Voßkuhle</otriple>
+        <otriple>Neptun_Werft | locationCity | Rostock</otriple>
+        <otriple>Rostock | country | Germany</otriple>
+        <otriple>A-Rosa_Luna | builder | Neptun_Werft</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Germany | leaderName | Andreas_Voßkuhle</mtriple>
+        <mtriple>Neptun_Werft | locationCity | Rostock</mtriple>
+        <mtriple>Rostock | country | Germany</mtriple>
+        <mtriple>A-Rosa_Luna | builder | Neptun_Werft</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Neptun Werft built the A-Rosa Luna and is located in Rostock in Germany. Andreas Voßkuhle is a leader of Germany.</lex>
+      <lex comment="good" lid="Id2">A-Rosa Luna was built by Neptun Werft, the headquarters of which, are in Rostock, Germany, where the leader is, Andreas Vosskuhle.</lex>
+      <lex comment="good" lid="Id3">The builder of the A-Rosa is Neptun Werft, who are located in Rostock, Germany. Andreas Vosskuhle is a leader in Germany.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id31" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | White_Americans</otriple>
+        <otriple>ALV_X-1 | countryOrigin | United_States</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | anthem | The_Star-Spangled_Banner</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | White_Americans</mtriple>
+        <mtriple>ALV_X-1 | countryOrigin | United_States</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>United_States | anthem | The_Star-Spangled_Banner</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ALV X-1 came from United States. The capital city of the country is Washington D.C. and its national anthem is the Star Spangled Banner. White Americans are an ethnic group in the U.S.</lex>
+      <lex comment="good" lid="Id2">The United States, which is where the ALV X-1 originated, has the capital city of Washington DC. The country's national anthem is the Star Spangled Banner and there is an ethnic group of White Americans.</lex>
+    </entry>
+    </entries>
+</benchmark>

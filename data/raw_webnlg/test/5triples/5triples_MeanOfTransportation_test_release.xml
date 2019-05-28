@@ -1,0 +1,434 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="MeanOfTransportation" eid="Id1" shape="(X (X) (X (X)) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>AIDA_Cruises | location | Germany</otriple>
+        <otriple>Costa_Crociere | parent | Carnival_Corporation_&amp;_plc</otriple>
+        <otriple>AIDAstella | shipOperator | AIDA_Cruises</otriple>
+        <otriple>AIDAstella | shipBuilder | Meyer_Werft</otriple>
+        <otriple>AIDAstella | shipOwner | Costa_Crociere</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AIDA_Cruises | location | Germany</otriple>
+        <otriple>Costa_Crociere | parentCompany | Carnival_Corporation_&amp;_plc</otriple>
+        <otriple>AIDAstella | shipOperator | AIDA_Cruises</otriple>
+        <otriple>AIDAstella | shipBuilder | Meyer_Werft</otriple>
+        <otriple>AIDAstella | shipOwner | Costa_Crociere</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDA_Cruises | location | Germany</mtriple>
+        <mtriple>Costa_Crociere | parentCompany | Carnival_Corporation_&amp;_plc</mtriple>
+        <mtriple>AIDAstella | operator | AIDA_Cruises</mtriple>
+        <mtriple>AIDAstella | builder | Meyer_Werft</mtriple>
+        <mtriple>AIDAstella | owner | Costa_Crociere</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIDAstella was built by Meyer Werft, owned by Costa Crociere, the parent company of which is, Carnival Corporation &amp; plc. AIDAstella is operated by AIDA Cruises which is located in Germany.</lex>
+      <lex comment="good" lid="Id2">Carnival Corporation &amp; plc is the parent company of Costa Crociere which is the owner of the AIDAstella. The AIDAstella was built by Meyer Werft and is operated by AIDA Cruises which is based in Germany.</lex>
+      <lex comment="good" lid="Id3">Carnival Corporation &amp; plc is the parent company of Costa Crociere, who own the AIDAstella. AIDAstella was built by Meyer Werft and is operated by AIDA Cruise Line, located in Germany . .</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id2" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>ALCO_RS-3 | builder | American_Locomotive_Company</otriple>
+        <otriple>ALCO_RS-3 | MeanOfTransportation/length | "17068.8"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>ALCO_RS-3 | cylindercount | 12</otriple>
+        <otriple>ALCO_RS-3 | builddate | "May 1950 &amp;ndash; August 1956"@en</otriple>
+        <otriple>ALCO_RS-3 | enginetype | Four-stroke_engine</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ALCO_RS-3 | builder | American_Locomotive_Company</mtriple>
+        <mtriple>ALCO_RS-3 | length | 17068.8 (millimetres)</mtriple>
+        <mtriple>ALCO_RS-3 | cylinderCount | 12</mtriple>
+        <mtriple>ALCO_RS-3 | buildDate | "May 1950 - August 1956"</mtriple>
+        <mtriple>ALCO_RS-3 | engine | Four-stroke_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ALCO RS-3, built by the American Locomotive Company, was produced Between May 1950 and August 1956. It has 12 cylinders, a four-stroke engine and is 17068.8 millimetres.</lex>
+      <lex comment="good" lid="Id2">The ALCO RS-3 was built by the American Locomotive Company and was produced between May 1950 and August 1956. It has a cylinder count of 12, is 17068.8 (millimetres) in length, and has a four-stroke engine.</lex>
+      <lex comment="good" lid="Id3">The ALCO RS-3 was made from May 1950 until August 1956 by the American Locomotive Company. It is 17068.8mm long, has a four-stroke engine and 12 cyclinders.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id3" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>ALV_X-1 | countryOrigin | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | anthem | The_Star-Spangled_Banner</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ALV_X-1 | countryOrigin | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>United_States | anthem | The_Star-Spangled_Banner</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The inhabitants of the United States, from where ALV X-1 hails, are called Americans. The Star Spangled Banner is the national anthem of the united States, Washington D.C. is its capital city and Native Americans one of its ethnic groups .</lex>
+      <lex comment="good" lid="Id2">The ALV X-1 originated in the United States where the inhabitants are known as Americans and include the ethnic group of Native Americans. The capital city is Washington DC and the national anthem is the Star Spangled Banner.</lex>
+      <lex comment="good" lid="Id3">The United States, has its capital at Washington D.C. and the national anthem as The Star Spangled Banner. It is home to Americans, Native Americans and the ALV X-1.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id4" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Alhambra_(1855) | shipOwner | P&amp;O_(company)</otriple>
+        <otriple>P&amp;O_(company) | location | London</otriple>
+        <otriple>Alhambra_(1855) | shipBeam | "8.3"^^xsd:double</otriple>
+        <otriple>Alhambra_(1855) | powerType | Humphrys,_Tennant_and_Dykes</otriple>
+        <otriple>Alhambra_(1855) | builder | Samuda_Brothers</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alhambra | owner | P&amp;O_(company)</mtriple>
+        <mtriple>P&amp;O_(company) | location | London</mtriple>
+        <mtriple>Alhambra | shipBeam | 8.3 m</mtriple>
+        <mtriple>Alhambra | powerType | Humphrys,_Tennant_and_Dykes</mtriple>
+        <mtriple>Alhambra | builder | Samuda_Brothers</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">P&amp;O company is located in London and owns the Alhambra which was built by, the Samuda Brothers. The Alhambra has an 8.3m ship beam and is powered by a Humphrys, Tennant and Dykes engine.</lex>
+      <lex comment="good" lid="Id2">A transport London company called P&amp;O owns the Alhambra ship which contains a Humphrys, Tennant and Dykes power type and has a ship beam of 8.3 m. The ship was built by the Samuda Brothers.</lex>
+      <lex comment="good" lid="Id3">The Alhambra, with an 8.3m ship beam, is powered by a a Humphrys, Tennant and Dykes. It is owned by London based, P&amp;O and built by the Samuda Brothers.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id5" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>American_Motors | successor | Eagle_(automobile)</otriple>
+        <otriple>American_Motors | subsidiary | Wheel_Horse</otriple>
+        <otriple>AMC_Matador | manufacturer | American_Motors</otriple>
+        <otriple>American_Motors | fate | Chrysler</otriple>
+        <otriple>American_Motors | keyPeople | Roy_D._Chapin,_Jr.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_Motors | successor | Eagle_(automobile)</otriple>
+        <otriple>American_Motors | subsidiary | Wheel_Horse</otriple>
+        <otriple>AMC_Matador | manufacturer | American_Motors</otriple>
+        <otriple>American_Motors | fate | Chrysler</otriple>
+        <otriple>American_Motors | keyPerson | Roy_D._Chapin,_Jr.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Motors | successor | Eagle_(automobile)</mtriple>
+        <mtriple>American_Motors | subsidiary | Wheel_Horse</mtriple>
+        <mtriple>AMC_Matador | manufacturer | American_Motors</mtriple>
+        <mtriple>American_Motors | fate | Chrysler</mtriple>
+        <mtriple>American_Motors | keyPerson | Roy_D._Chapin,_Jr.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AMC Matador is manufactured by American Motors, a key person of the company is Roy D Chapin Jr. The Wheel Horse is a subsidiary of American Motors which was succeeded by Eagle and acquired by Chrysler.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador is manufactured by American Motors, whose subsidiary is The Wheel Horse and successor is Eagle. American Motors was acquired by Chrysler and Roy D Chapin Jr is a key person there.</lex>
+      <lex comment="good" lid="Id3">Roy D Chapin Jr is a key person at American Motors who manufactured the AMC Matador. The company was acquired by Chrysler, was succeeded by Eagle ad has a subsidiary known as The Wheel Horse.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id6" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "*\n* at stern stabilizers."@en</otriple>
+        <otriple>American_submarine_NR-1 | shipDraft | "*\n*Box keel depth :"@en</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipDraft | "4.6"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "*\n* at stern stabilizers."@en</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipDraft | "*\n*Box keel depth :"@en</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "3.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipDraft | "4.6"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "3.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipDraft | "4.6"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "4.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_submarine_NR-1 | shipLaunch | "1969-01-25"^^xsd:date</otriple>
+        <otriple>American_submarine_NR-1 | topSpeed | "8.334"^^xsd:double</otriple>
+        <otriple>American_submarine_NR-1 | shipDraft | "*\n*Box keel depth :"@en</otriple>
+        <otriple>American_submarine_NR-1 | MeanOfTransportation/length | "45000.0"^^&lt;http://dbpedia.org/datatype/millimetre&gt;</otriple>
+        <otriple>American_submarine_NR-1 | shipBeam | "4.8"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_submarine_NR-1 | shipLaunch | 1969-01-25</mtriple>
+        <mtriple>American_submarine_NR-1 | topSpeed | 8.334</mtriple>
+        <mtriple>American_submarine_NR-1 | shipDraft | 4.6 m</mtriple>
+        <mtriple>American_submarine_NR-1 | length | 45000.0 (millimetres)</mtriple>
+        <mtriple>American_submarine_NR-1 | shipBeam | 3.8 m</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The American Submarine NR-1 has a ship beam of 3.8 m, a ship draft of 4.6m, is 45000.0 (millimetres) long and has a top speed of 8.334 km/h. It was launched on The 25th of January 1969.</lex>
+      <lex comment="good" lid="Id2">The American submarine NR-1 which was launched on January 25th 1969 has a top speed of 8.334 km/h. It has a 3.8m ship beam, a draft of 4.6m and measures 45000 mms in length.</lex>
+      <lex comment="good" lid="Id3">The American submarine NR-1 that was launched on 25th of January 1969 has a top speed of 8.334 km/h. It has a draft of 4.6m, a ship beam of 3.8m and has a total length of 45000 mms.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id7" shape="(X (X) (X (X)) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Antares_(rocket) | launchSite | Mid-Atlantic_Regional_Spaceport</otriple>
+        <otriple>Antares_(rocket) | comparable | Delta_II</otriple>
+        <otriple>Delta_II | countryOrigin | United_States</otriple>
+        <otriple>Antares_(rocket) | sites | Mid-Atlantic_Regional_Spaceport_Launch_Pad_0</otriple>
+        <otriple>Mid-Atlantic_Regional_Spaceport_Launch_Pad_0 | rockets | Minotaur_IV</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antares_(rocket) | launchSite | Mid-Atlantic_Regional_Spaceport</mtriple>
+        <mtriple>Antares_(rocket) | comparable | Delta_II</mtriple>
+        <mtriple>Delta_II | countryOrigin | United_States</mtriple>
+        <mtriple>Antares_(rocket) | launchSite | Mid-Atlantic_Regional_Spaceport_Launch_Pad_0</mtriple>
+        <mtriple>Mid-Atlantic_Regional_Spaceport_Launch_Pad_0 | associatedRocket | Minotaur_IV</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Minotaur IV rocket was launched from the Mid-Atlantic Regional Spaceport Launch Pad 0, the same launch site that the Antares rocket was launched from. The rocket Antares is comparable to Delta II which is from the United States.</lex>
+      <lex comment="good" lid="Id2">The Antares rocket is comparable to the Delta II, which originates from the United States. The launch site of the Antares was the Mid Atlantic Regional Spaceport Launch Pad 0, which is also associated with the rocket Minotaur IV.</lex>
+      <lex comment="good" lid="Id3">The Minotaur IV rocket is associated with the Mid-Atlantic Regional Spaceport Launch Pad 0 which is also the launch site of the Antares Rocket. The rocket is comparable to the Delta II from the United States.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id8" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Antares_(rocket) | manufacturer | Yuzhnoye_Design_Office</otriple>
+        <otriple>Antares_(rocket) | finalFlight | "2014-07-13"^^xsd:date</otriple>
+        <otriple>Antares_(rocket) | maidenFlight | "2014-10-28"^^xsd:date</otriple>
+        <otriple>Antares_(rocket) | sites | Mid-Atlantic_Regional_Spaceport_Launch_Pad_0</otriple>
+        <otriple>Antares_(rocket) | MeanOfTransportation/diameter | "3.9"^^&lt;http://dbpedia.org/datatype/metre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antares_(rocket) | manufacturer | Yuzhnoye_Design_Office</mtriple>
+        <mtriple>Antares_(rocket) | finalFlight | 2014-07-13</mtriple>
+        <mtriple>Antares_(rocket) | maidenFlight | 2014-10-28</mtriple>
+        <mtriple>Antares_(rocket) | launchSite | Mid-Atlantic_Regional_Spaceport_Launch_Pad_0</mtriple>
+        <mtriple>Antares_(rocket) | diameter | 3.9 (metres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Yuzhnoye Design Office created the Antares rocket whose initial flight took place July 13, 2014 at the Mid-Atlantic Regional Spaceport Launch Pad 0. The rocket is 3.9 m in diameter and took its last trip on Oct. 28, 2014.</lex>
+      <lex comment="good" lid="Id2">The Antares rocket's maiden flight was on the 28th October 2014 and its last flight on 2014-07-13. Its launch site was the Mid-Atlantic Regional Spaceport Launch Pad 0. It is manufactured at the Yuzhnoye Design Office and is 3.9 m in diameter.</lex>
+      <lex comment="good" lid="Id3">The Antares rocket was made by the Yuzhnoye Design Office and is 3.9 m in diameter. It launched at the Mid-Atlantic Regional Spaceport Launch Pad 0 making the first flight on 28 October 2014 and the final flight on 13 July 2014.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id9" shape="(X (X (X (X)) (X (X))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Arianespace | locationCity | Courcouronnes</otriple>
+        <otriple>Guiana_Space_Centre | headquarters | French_Guiana</otriple>
+        <otriple>ELA-3 | site | Guiana_Space_Centre</otriple>
+        <otriple>Ariane_5 | sites | ELA-3</otriple>
+        <otriple>ELA-3 | operator | Arianespace</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Arianespace | locationCity | Courcouronnes</otriple>
+        <otriple>Guiana_Space_Centre | headquarter | French_Guiana</otriple>
+        <otriple>ELA-3 | site | Guiana_Space_Centre</otriple>
+        <otriple>Ariane_5 | sites | ELA-3</otriple>
+        <otriple>ELA-3 | operator | Arianespace</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Arianespace | locationCity | Courcouronnes</mtriple>
+        <mtriple>Guiana_Space_Centre | headquarter | French_Guiana</mtriple>
+        <mtriple>ELA-3 | site | Guiana_Space_Centre</mtriple>
+        <mtriple>Ariane_5 | launchSite | ELA-3</mtriple>
+        <mtriple>ELA-3 | operator | Arianespace</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Ariane 5 was launched at the ELA-3, which is located at the Guiana Space Centre, which has its own HQ in French Guiana. The ELA-3 is operated by Arianespace, which is located in Courcouronnes.</lex>
+      <lex comment="good" lid="Id2">The Guiana Space Centre's headquarters are located in French Guiana, it is the location of the ELA-3 launchpad where the Ariane 5 was launched. ELA-3 is operated by Arianespace, which is located in Courcouronnes.</lex>
+      <lex comment="good" lid="Id3">The ELA-3 is located at the Guiana Space Centre (headquarters: French Guiana), is operated by, the Courcouronnes area, Arianespace and is the launch place of the Ariane 5.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id10" shape="(X (X) (X) (X) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Aston_Martin_V8 | related | Aston_Martin_DBS</otriple>
+        <otriple>Aston_Martin_DBS | successor | Aston_Martin_Vantage</otriple>
+        <otriple>Aston_Martin_V8 | assembly | Newport_Pagnell</otriple>
+        <otriple>Aston_Martin_V8 | engine | Aston_Martin_V8__1</otriple>
+        <otriple>Aston_Martin_V8 | manufacturer | Aston_Martin</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</mtriple>
+        <mtriple>Aston_Martin_DBS | successor | Aston_Martin_Vantage</mtriple>
+        <mtriple>Aston_Martin_V8 | assembly | Newport_Pagnell</mtriple>
+        <mtriple>Aston_Martin_V8 | engine | 5.3 (litres)</mtriple>
+        <mtriple>Aston_Martin_V8 | manufacturer | Aston_Martin</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Aston Martin V8, manufactured by Aston Martin, is related to the Aston Martin DBS and was succeeded by the Aston Martin Vantage. Its engine volume is 5.3 litres. and it is assembled at Newport Pagnell.</lex>
+      <lex comment="good" lid="Id2">The Aston Martin DBS (later succeeded by the AM Vantage) and the Aston Martin V8 are related means of transport. The latter is assembled at Newport Pagnell by Aston Martin and has a 5.3 litre engine volume.</lex>
+      <lex comment="good" lid="Id3">The Aston Martin Vantage succeeded the Aston Martin DBS which is a related means of transport to the Aston Martin V8. The latter car was made by Aston Martin, has a 5.3 litre engine and is assembled at Newport Pagnell.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id11" shape="(X (X) (X) (X) (X) (X))" shape_type="sibling" size="5">
+      <originaltripleset>
+        <otriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</otriple>
+        <otriple>Aston_Martin_V8 | bodyStyle | Coupé</otriple>
+        <otriple>Aston_Martin_V8 | engine | "5.3"^^xsd:double</otriple>
+        <otriple>Aston_Martin_V8 | related | Aston_Martin_RHAM/1</otriple>
+        <otriple>Aston_Martin_V8 | assembly | Newport_Pagnell</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</mtriple>
+        <mtriple>Aston_Martin_V8 | bodyStyle | Coupé</mtriple>
+        <mtriple>Aston_Martin_V8 | engine | 5.3 (litres)</mtriple>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_RHAM/1</mtriple>
+        <mtriple>Aston_Martin_V8 | assembly | Newport_Pagnell</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Aston Martin V8, related to the Aston Martin DBS and the Aston Martin RHAM/1 , is a Coupe with an engine volume of 5.3 litres. It is assembled in Newport Pagnell.</lex>
+      <lex comment="good" lid="Id2">The Aston Martin RHAM/1, and the Aston Martin DBS are related means of transport to the Aston Martin V8. The latter vehicle is a coupe with a 5.3 litre engine and is assembled at Newport Pagnell.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id12" shape="(X (X) (X (X)) (X (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Aston_Martin_V8 | related | Aston_Martin_DBS</otriple>
+        <otriple>United_Kingdom | leader | Elizabeth_II</otriple>
+        <otriple>Aston_Martin_V8 | assembly | United_Kingdom</otriple>
+        <otriple>Aston_Martin_V8 | successor | Aston_Martin_Virage</otriple>
+        <otriple>Aston_Martin_Virage | manufacturer | Aston_Martin</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aston_Martin_V8 | relatedMeanOfTransportation | Aston_Martin_DBS</mtriple>
+        <mtriple>United_Kingdom | leaderName | Elizabeth_II</mtriple>
+        <mtriple>Aston_Martin_V8 | assembly | United_Kingdom</mtriple>
+        <mtriple>Aston_Martin_V8 | successor | Aston_Martin_Virage</mtriple>
+        <mtriple>Aston_Martin_Virage | manufacturer | Aston_Martin</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Aston Martin V8, assembled in the United Kingdom (leader:Elizabeth II), was succeeded by the Aston Martin Virage which was manufactured by Aston Martin. The V8 and the Virage are relative means of transport with the Aston MArtin DBS.</lex>
+      <lex comment="good" lid="Id2">The Aston Martin V8, suceeded by the the Aston Martin Virage and made n the United Kingdom, led by Elizabeth II. The Vs, the Virage (made by Aston Martin) and the Aston Martin DBS, are related modes of transportation.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id13" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Audi_A1 | manufacturer | Audi</otriple>
+        <otriple>Audi | foundedBy | August_Horch</otriple>
+        <otriple>Audi | subsid | Ducati</otriple>
+        <otriple>Audi | division | Audi_e-tron</otriple>
+        <otriple>Audi | subsidiary | Lamborghini</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Audi_A1 | manufacturer | Audi</mtriple>
+        <mtriple>Audi | foundedBy | August_Horch</mtriple>
+        <mtriple>Audi | subsidiary | Ducati</mtriple>
+        <mtriple>Audi | division | Audi_e-tron</mtriple>
+        <mtriple>Audi | subsidiary | Lamborghini</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Audi A1 is made by Audi, the company which was founded by August Horch. Audi e-tron is a division of Audi which has Lamborghini and Ducati as subsidiaries.</lex>
+      <lex comment="good" lid="Id2">Made by Audi, whose founder is August Horch, is the Audi A1. Subsidiaries of Audi are the Ducati, Audi e-tron and Lamborghini.</lex>
+      <lex comment="good" lid="Id3">Audi, which was founded by August Horch, owns the company Ducati and manufactures the Audi A1. It also has a sub-division known as Audi e-tron and the subsidiary company Lamborghini.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id14" shape="(X (X) (X (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | foundation | California</otriple>
+        <otriple>Caterpillar_Inc. | foundationPlace | United_States</otriple>
+        <otriple>Caterpillar_Inc. | location | Peoria,_Illinois</otriple>
+        <otriple>AIDAluna | shipOwner | AIDA_Cruises</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | foundationPlace | California</otriple>
+        <otriple>Caterpillar_Inc. | foundation | United_States</otriple>
+        <otriple>Caterpillar_Inc. | location | Peoria,_Illinois</otriple>
+        <otriple>AIDAluna | shipOwner | AIDA_Cruises</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | foundationPlace | California</mtriple>
+        <mtriple>Caterpillar_Inc. | foundationPlace | United_States</mtriple>
+        <mtriple>Caterpillar_Inc. | location | Peoria,_Illinois</mtriple>
+        <mtriple>AIDAluna | owner | AIDA_Cruises</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Caterpillar Inc. founded in California in the U.S. is now in Peoria, Ill. That company powered the AIDAluna craft and is owned by AIDA Cruises.</lex>
+      <lex comment="good" lid="Id2">The power type of the AIDAluna, owned by AIDA Cruises, is the Caterpillar Inc. engine. Caterpillar, Inc. was founded in California in the U.S. and is located in Peoria, Illinois.</lex>
+      <lex comment="good" lid="Id3">Caterpillar Inc. was founded in California, United States, and is located in Peoria, Illinois. The company provide the engine to power the AIDAluna which is owned by AIDA Cruises.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id15" shape="(X (X (X)) (X (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</otriple>
+        <otriple>Caterpillar_Inc. | foundationPlace | United_States</otriple>
+        <otriple>AIDA_Cruises | location | Rostock</otriple>
+        <otriple>AIDAluna | shipOwner | AIDA_Cruises</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</mtriple>
+        <mtriple>Caterpillar_Inc. | foundationPlace | United_States</mtriple>
+        <mtriple>AIDA_Cruises | location | Rostock</mtriple>
+        <mtriple>AIDAluna | owner | AIDA_Cruises</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIDA Cruises, located at Rostock, is owned by AIDAluna. AIDAluna is powered by Caterpillar Inc., which was founded in the U.S. and is led by Douglas R. Oberhelman.</lex>
+      <lex comment="good" lid="Id2">Douglas R. Oberhelman is the key person at Caterpillar Inc which was founded in the United states. The company powers the AIDAluna which is owned by AIDA Cruises located in Rostock.</lex>
+      <lex comment="good" lid="Id3">AIDAluna is powered by the United States' Caterpillar Inc., with key figure, Douglas R. Oberhelman. AIDAluna is owned by Rostock area, AIDA Cruises.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id16" shape="(X (X) (X (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</otriple>
+        <otriple>Caterpillar_Inc. | foundationPlace | United_States</otriple>
+        <otriple>Caterpillar_Inc. | location | Peoria,_Illinois</otriple>
+        <otriple>AIDAluna | shipOwner | AIDA_Cruises</otriple>
+        <otriple>AIDAluna | powerType | Caterpillar_Inc.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</mtriple>
+        <mtriple>Caterpillar_Inc. | foundationPlace | United_States</mtriple>
+        <mtriple>Caterpillar_Inc. | location | Peoria,_Illinois</mtriple>
+        <mtriple>AIDAluna | owner | AIDA_Cruises</mtriple>
+        <mtriple>AIDAluna | powerType | Caterpillar_Inc.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIDAluna, owned by AIDA Cruises, is powered by Caterpillar Inc., where Douglas R. Oberhelman is a key person. Caterpillar Inc. was founded in the United States and is in Peoria, Illinois.</lex>
+      <lex comment="good" lid="Id2">Douglas R. Oberhelman is a key person at Caterpillar Inc. who provide the power type for the AIDAluna owned by AIDA Cruises. The company was founded in the United States and located in Peoria, Illinois.</lex>
+      <lex comment="good" lid="Id3">Douglas R Oberhelman is a key person at Caterpillar Inc. which was founded in the United States and located in Peoria, Illinois. The AIDAluna, which is owned by AIDA Cruises is powered by the company.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id17" shape="(X (X) (X (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Finland | demonym | Finns</otriple>
+        <otriple>Finland | language | Sami_languages</otriple>
+        <otriple>Finland | leaderName | Juha_Sipilä</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Arctech_Helsinki_Shipyard</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksey_Chirikov_(icebreaker) | shipBuilder | Finland</otriple>
+        <otriple>Finland | demonym | Finns</otriple>
+        <otriple>Finland | language | Sami_languages</otriple>
+        <otriple>Finland | leader | Juha_Sipilä</otriple>
+        <otriple>Aleksey_Chirikov_(icebreaker) | builder | Arctech_Helsinki_Shipyard</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Finland | demonym | Finns</mtriple>
+        <mtriple>Finland | language | Sami_languages</mtriple>
+        <mtriple>Finland | leaderName | Juha_Sipilä</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Finland</mtriple>
+        <mtriple>Aleksey_Chirikov_(icebreaker) | builder | Arctech_Helsinki_Shipyard</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Finland's Arctech Helsinki Shipyard built the icebreaker, Aleksey Chirikov. Juha Sipila leads Finland, where the people are known as Finns and Sami languages are spoken.</lex>
+      <lex comment="good" lid="Id2">Finland is led by Juha Sipila and is home to the Finns. Sami languages are spoken there and the icebreaker ship, Aleksey Chirikov, was built there in the Arctech Helsinki Shipyard.</lex>
+      <lex comment="good" lid="Id3">The icebreaker Aleksey Chirikov was built at the Arctech Helsinki Shipyard in Finland. The country is led by Juha Sipila, uses the Sami language and the inhabitants are known as Finns.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id18" shape="(X (X (X (X (X) (X)))))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>Germany | leader | Andreas_Voßkuhle</otriple>
+        <otriple>Germany | capital | Berlin</otriple>
+        <otriple>Neptun_Werft | locationCity | Rostock</otriple>
+        <otriple>Rostock | country | Germany</otriple>
+        <otriple>A-Rosa_Luna | builder | Neptun_Werft</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Germany | leaderName | Andreas_Voßkuhle</mtriple>
+        <mtriple>Germany | capital | Berlin</mtriple>
+        <mtriple>Neptun_Werft | locationCity | Rostock</mtriple>
+        <mtriple>Rostock | country | Germany</mtriple>
+        <mtriple>A-Rosa_Luna | builder | Neptun_Werft</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Neptun Werft of Rostock, Germany made the A-Rosa Luna. Berlin is the capital of Germany and Andreas Voßkuhle is a leader there.</lex>
+      <lex comment="good" lid="Id2">The A Rosa Luna was built on the Neptun Werft which is found in Rostock, Germany. Berlin is its capital and Andreas Vosskuhle is one leader there.</lex>
+      <lex comment="good" lid="Id3">The A Rosa Luna was built on the Neptun Werft which is headquartered in Rostock, Germany. Andreas Vosskuhle is a leader in Germany and Berlin is the capital. .</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id19" shape="(X (X (X) (X) (X) (X)))" shape_type="mixed" size="5">
+      <originaltripleset>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>United_States | language | English_language</otriple>
+        <otriple>Atlas_II | countryOrigin | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>United_States | language | English_language</mtriple>
+        <mtriple>Atlas_II | countryOrigin | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Native_Americans_in_the_United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Atlas II is from the United States, whose capital is Washington, D.C. Inhabitants of the United States are called Americans, and english is a spoken language there. An ethnic group called Native Americans is also located in the United States.</lex>
+      <lex comment="good" lid="Id2">The United States, has a capital city of Washington D.C., it's inhabitants are known as Americans and an ethnic group that lives there are Native Americans. The language of the US is English and it is the creator of the Atlas II.</lex>
+      <lex comment="good" lid="Id3">The, English speaking, United States, with its capital in Washington D.C., is home to American, Native Americans and the Atlas II.</lex>
+    </entry>
+    </entries>
+</benchmark>

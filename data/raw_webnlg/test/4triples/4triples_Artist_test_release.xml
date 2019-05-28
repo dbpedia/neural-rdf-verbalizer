@@ -1,0 +1,634 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Artist" eid="Id1" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aaron_Turner | associatedBand | Isis_(band)</otriple>
+        <otriple>Aaron_Turner | associatedMusicalArtist | Sumac_(band)</otriple>
+        <otriple>Aaron_Turner | genre | Electroacoustic_music</otriple>
+        <otriple>Aaron_Turner | instrument | Singing</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Isis_(band)</mtriple>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Sumac_(band)</mtriple>
+        <mtriple>Aaron_Turner | genre | Electroacoustic_music</mtriple>
+        <mtriple>Aaron_Turner | instrument | Singing</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Electroacoustic singer Aaron Turner is associated with the bands Sumac and Isis.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner, a singer who performs electroacoustic music, is with the band Isis and has performed with the group Sumac.</lex>
+      <lex comment="good" lid="Id3">Singer Aaron Turner plays electro-acoustic music and has played with the bands Isis and Sumac.</lex>
+    </entry>
+    <entry category="Artist" eid="Id2" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Aaron_Turner | genre | Black_metal</otriple>
+        <otriple>Aaron_Turner | associatedMusicalArtist | Sumac_(band)</otriple>
+        <otriple>Aaron_Turner | instrument | Electric_guitar</otriple>
+        <otriple>Black_metal | musicFusionGenre | Death_metal</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Turner | genre | Black_metal</mtriple>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Sumac_(band)</mtriple>
+        <mtriple>Aaron_Turner | instrument | Electric_guitar</mtriple>
+        <mtriple>Black_metal | musicFusionGenre | Death_metal</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Black metal musician Aaron Turner is a member of Sumac and plays Electric guitar. Death metal is a black metal fusion.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner plays electric guitar and his genre is Black Metal music in which Death metal is a fusion. He performed with the band Sumac.</lex>
+      <lex comment="good" lid="Id3">Electric guitar player Aaron Turner is a Black metal musician who performed with the band Sumac. Death metal is a fusion of black metal music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id3" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Ace_Wilder | background | "solo_singer"</otriple>
+        <otriple>Ace_Wilder | birthYear | "1982"^^xsd:gYear</otriple>
+        <otriple>Ace_Wilder | birthPlace | Sweden</otriple>
+        <otriple>Ace_Wilder | birthDate | "1982-07-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ace_Wilder | birthYear | "1982"^^xsd:gYear</otriple>
+        <otriple>Ace_Wilder | birthPlace | Sweden</otriple>
+        <otriple>Ace_Wilder | birthDate | "1982-07-23"^^xsd:date</otriple>
+        <otriple>Ace_Wilder | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ace_Wilder | background | "solo_singer"</mtriple>
+        <mtriple>Ace_Wilder | birthYear | 1982</mtriple>
+        <mtriple>Ace_Wilder | birthPlace | Sweden</mtriple>
+        <mtriple>Ace_Wilder | birthDate | 1982-07-23</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ace Wilder, born in Sweden on July 23, 1982 is a solo singer.</lex>
+      <lex comment="good" lid="Id2">Singer Ace Wilder was born July 23, 1982 in Sweden.</lex>
+      <lex comment="good" lid="Id3">Solo singer Ace Wilder was born in Sweden on 1982. His birthday is the 23rd July.</lex>
+    </entry>
+    <entry category="Artist" eid="Id4" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Ace_Wilder | background | "solo_singer"</otriple>
+        <otriple>Ace_Wilder | birthYear | "1982"^^xsd:gYear</otriple>
+        <otriple>Ace_Wilder | occupation | Songwriter</otriple>
+        <otriple>Ace_Wilder | birthPlace | Stockholm</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ace_Wilder | birthYear | "1982"^^xsd:gYear</otriple>
+        <otriple>Ace_Wilder | occupation | Songwriter</otriple>
+        <otriple>Ace_Wilder | birthPlace | Stockholm</otriple>
+        <otriple>Ace_Wilder | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ace_Wilder | background | "solo_singer"</mtriple>
+        <mtriple>Ace_Wilder | birthYear | 1982</mtriple>
+        <mtriple>Ace_Wilder | occupation | Songwriter</mtriple>
+        <mtriple>Ace_Wilder | birthPlace | Stockholm</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Songwriter and solo singer Ace Wilder was born in Stockholm in 1982.</lex>
+      <lex comment="good" lid="Id2">Solo singer Ace Wilder was born in Stockholm in 1982. He is also a songwriter.</lex>
+      <lex comment="good" lid="Id3">Songwriter, Ace Wilder, who has a background as a solo singer, was born in Stockholm, in 1982.</lex>
+    </entry>
+    <entry category="Artist" eid="Id5" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Ace_Wilder | background | "solo_singer"</otriple>
+        <otriple>Ace_Wilder | birthYear | "1982"^^xsd:gYear</otriple>
+        <otriple>Ace_Wilder | occupation | Songwriter</otriple>
+        <otriple>Ace_Wilder | birthPlace | Sweden</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ace_Wilder | background | "solo_singer"</mtriple>
+        <mtriple>Ace_Wilder | birthYear | 1982</mtriple>
+        <mtriple>Ace_Wilder | occupation | Songwriter</mtriple>
+        <mtriple>Ace_Wilder | birthPlace | Sweden</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The songwriter Ace Wilder was born in Sweden in 1982. He has a background as a solo singer.</lex>
+      <lex comment="good" lid="Id2">Born in 1982 in Sweden, Ace Wilder is a solo singer and songwriter.</lex>
+      <lex comment="good" lid="Id3">Ace Wilder was born in Sweden in 1982. He is a solo singer and songwriter.</lex>
+    </entry>
+    <entry category="Artist" eid="Id6" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rhythm_and_blues</otriple>
+        <otriple>Ahmet_Ertegun | hometown | United_States</otriple>
+        <otriple>Ahmet_Ertegun | background | "non_performing_personnel"@en</otriple>
+        <otriple>Ahmet_Ertegun | origin | Washington,_D.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rhythm_and_blues</otriple>
+        <otriple>Ahmet_Ertegun | hometown | Washington,_D.C.</otriple>
+        <otriple>Ahmet_Ertegun | background | "non_performing_personnel"@en</otriple>
+        <otriple>Ahmet_Ertegun | origin | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rhythm_and_blues</otriple>
+        <otriple>Ahmet_Ertegun | hometown | Washington,_D.C.</otriple>
+        <otriple>Ahmet_Ertegun | origin | United_States</otriple>
+        <otriple>Ahmet_Ertegun | background | "non_performing_personnel"</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rhythm_and_blues</otriple>
+        <otriple>Ahmet_Ertegun | hometown | United_States</otriple>
+        <otriple>Ahmet_Ertegun | origin | Washington,_D.C.</otriple>
+        <otriple>Ahmet_Ertegun | background | "non_performing_personnel"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmet_Ertegun | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Ahmet_Ertegun | origin | Washington,_D.C.</mtriple>
+        <mtriple>Ahmet_Ertegun | background | "non_performing_personnel"</mtriple>
+        <mtriple>Ahmet_Ertegun | origin | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Rhythm and blues performer Ahmet Ertegun was born in Washington D.C. He is considered non-performing personnel.</lex>
+      <lex comment="good" lid="Id2">Ahmet Ertegun originates from Washington D.C,United States.He started out as a non performing personnel in the rhythm and blues.</lex>
+      <lex comment="good" lid="Id3">Ahmet Ertegun from Washington, D.C., U.S. plays rhythm and blues music. His background is as a non-performing person.</lex>
+    </entry>
+    <entry category="Artist" eid="Id7" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rock_and_roll</otriple>
+        <otriple>Ahmet_Ertegun | origin | United_States</otriple>
+        <otriple>Rock_and_roll | stylisticOrigin | Blues</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmet_Ertegun | genre | Rock_and_roll</otriple>
+        <otriple>Rock_and_roll | stylisticOrigin | Blues</otriple>
+        <otriple>Ahmet_Ertegun | hometown | United_States</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmet_Ertegun | genre | Rock_and_roll</mtriple>
+        <mtriple>Ahmet_Ertegun | origin | United_States</mtriple>
+        <mtriple>Rock_and_roll | stylisticOrigin | Blues</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">African Americans are an ethnic group in the U.S., the country Ahmet Ertegun was from. He played rock and roll music which stylistic origins come from Blues.</lex>
+      <lex comment="good" lid="Id2">Ahmet Ertegun is from the United States, where African Americans are an ethnic group. His genre is Rock and roll, which has its stylistic origin in the Blues.</lex>
+      <lex comment="good" lid="Id3">African Americans are an ethnic group in the United States, the country Ahmet Ertegun is from. He plays rock and roll music which has its stylistic origin in the Blues.</lex>
+    </entry>
+    <entry category="Artist" eid="Id8" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Albennie_Jones | activeYearsEndYear | "1950"^^xsd:gYear</otriple>
+        <otriple>Albennie_Jones | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+        <otriple>Rhythm_and_blues | derivative | Disco</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albennie_Jones | activeYearsEndYear | 1950</mtriple>
+        <mtriple>Albennie_Jones | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Rhythm_and_blues | stylisticOrigin | Blues</mtriple>
+        <mtriple>Rhythm_and_blues | derivative | Disco</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albennie Jones, performed in the rhythm and blues genre and ended his career in 1950. Rhythm and blues originated from blues music and has disco as a derivative.</lex>
+      <lex comment="good" lid="Id2">Ending his career in 1950, Albennie Jones was a performer of rhythm and blues. This genre originated from the blues and has disco as a derivative.</lex>
+      <lex comment="good" lid="Id3">The musical genre of Albennie Jones is rhythm and blues and he started his career in 1950.Rhythm and blues music originated from the blues and disco is its derivative.</lex>
+    </entry>
+    <entry category="Artist" eid="Id9" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Albennie_Jones | genre | Jazz</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Jazz | stylisticOrigins | Blues</otriple>
+        <otriple>Albennie_Jones | birthPlace | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Albennie_Jones | genre | Jazz</otriple>
+        <otriple>Jazz | stylisticOrigin | Blues</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Albennie_Jones | placeOfBirth | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Albennie_Jones | genre | Jazz</otriple>
+        <otriple>Jazz | stylisticOrigin | Blues</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Albennie_Jones | birthPlace | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albennie_Jones | genre | Jazz</mtriple>
+        <mtriple>Jazz | stylisticOrigin | Blues</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+        <mtriple>Albennie_Jones | birthPlace | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">African Americans are one of the ethnic groups in the United States, the country where Albennie Jones was born. Musician, Albennie Jones is a performer of Jazz, the genre which originated its style from Blues music.</lex>
+      <lex comment="good" lid="Id2">Albennie Jones performs jazz music which originated its style from Blues music. Albennie Jones was born in the U.S.A, where on of the ethnic groups, is African Americans.</lex>
+      <lex comment="good" lid="Id3">African Americans are an ethnic group in the U.S., the country where Albennie Jones was born. Albennie Jones is a Jazz musician, a music style that originates from the Blues.</lex>
+    </entry>
+    <entry category="Artist" eid="Id10" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Aleksandra_Kovač | genre | Rhythm_and_blues</otriple>
+        <otriple>Aleksandra_Kovač | background | "solo_singer"</otriple>
+        <otriple>Aleksandra_Kovač | birthYear | "1972"^^xsd:gYear</otriple>
+        <otriple>Aleksandra_Kovač | birthPlace | Socialist_Republic_of_Serbia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandra_Kovač | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Aleksandra_Kovač | background | "solo_singer"</mtriple>
+        <mtriple>Aleksandra_Kovač | birthYear | 1972</mtriple>
+        <mtriple>Aleksandra_Kovač | birthPlace | Socialist_Republic_of_Serbia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Rhythm and blues singer Aleksandra Kovac was born 1972 in the Socialist Republic of Serbia.</lex>
+      <lex comment="good" lid="Id2">Born in the Socialist Republic of Serbia (1972), Aleksandra Kovac, a solo singer, is an exponent of Rhythm and blues.</lex>
+      <lex comment="good" lid="Id3">Aleksandra Kovac, who sang rhythm and blues, was born in the Socialist Republic of Serbia in 1972.</lex>
+    </entry>
+    <entry category="Artist" eid="Id11" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alex_Day | associatedBand | Chameleon_Circuit_(band)</otriple>
+        <otriple>Alex_Day | genre | Acoustic_music</otriple>
+        <otriple>Alex_Day | associatedMusicalArtist | Charlie_McDonnell</otriple>
+        <otriple>Alex_Day | activeYearsStartYear | "2006"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alex_Day | associatedMusicalArtist | Chameleon_Circuit_(band)</otriple>
+        <otriple>Alex_Day | genre | Acoustic_music</otriple>
+        <otriple>Alex_Day | associatedBand | Charlie_McDonnell</otriple>
+        <otriple>Alex_Day | activeYearsStartYear | "2006"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Day | associatedBand/associatedMusicalArtist | Chameleon_Circuit_(band)</mtriple>
+        <mtriple>Alex_Day | genre | Acoustic_music</mtriple>
+        <mtriple>Alex_Day | associatedBand/associatedMusicalArtist | Charlie_McDonnell</mtriple>
+        <mtriple>Alex_Day | activeYearsStartYear | 2006</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Day plays acoustic music with the Chameleon Circuit band. He started actively in music in 2006 and is associated with Charlie McDonnell.</lex>
+      <lex comment="good" lid="Id2">Acoustic musician Alex Day began in 2006 and is associated with the Chameleon Circuit and Charlie McDonnell.</lex>
+      <lex comment="good" lid="Id3">Acoustic musician Alex Day plays with the bands Chameleon Circuit and the musician Charlie McDonnell. His active years in music began in 2006.</lex>
+    </entry>
+    <entry category="Artist" eid="Id12" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alfred_Garth_Jones | deathPlace | London</otriple>
+        <otriple>Alfred_Garth_Jones | birthPlace | Manchester</otriple>
+        <otriple>Alfred_Garth_Jones | placeOfBirth | England</otriple>
+        <otriple>Alfred_Garth_Jones | birthYear | "1872"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfred_Garth_Jones | deathPlace | London</otriple>
+        <otriple>Alfred_Garth_Jones | birthPlace | England</otriple>
+        <otriple>Alfred_Garth_Jones | placeOfBirth | Manchester</otriple>
+        <otriple>Alfred_Garth_Jones | birthYear | "1872"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_Garth_Jones | deathPlace | London</mtriple>
+        <mtriple>Alfred_Garth_Jones | birthPlace | England</mtriple>
+        <mtriple>Alfred_Garth_Jones | birthPlace | Manchester</mtriple>
+        <mtriple>Alfred_Garth_Jones | birthYear | 1872</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred Garth Jones was born in Manchester, England in 1872 and died in London.</lex>
+      <lex comment="good" lid="Id2">Alfred Garth Jones was born in 1872 in Manchester, England and died in London.</lex>
+      <lex comment="good" lid="Id3">Alfred Garth Jones was born in 1872, in Manchester (England) and died in London.</lex>
+    </entry>
+    <entry category="Artist" eid="Id13" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | deathPlace | Montevideo</otriple>
+        <otriple>Montevideo | country | Uruguay</otriple>
+        <otriple>Uruguay | demonym | Uruguayans</otriple>
+        <otriple>Montevideo | leaderName | Daniel_Martínez_(politician)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | deathPlace | Montevideo</mtriple>
+        <mtriple>Montevideo | country | Uruguay</mtriple>
+        <mtriple>Uruguay | demonym | Uruguayans</mtriple>
+        <mtriple>Montevideo | leaderName | Daniel_Martínez_(politician)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfredo Zitarrosa died in Montevideo, Uruguay where the natives are known as Uruguayans. The city's leader is Daniel Martinez.</lex>
+      <lex comment="good" lid="Id2">Alfredo Zitarrosa died in Montevideo, Uruguay. The city's leader is Daniel Martinez and the country's inhabitants are known as Uruguayans.</lex>
+      <lex comment="good" lid="Id3">Alfredo Zitarrosa died in Montevideo, Uruguay, where Daniel Martinez is a political leader. Uruguayans is a demonym for Uruguay.</lex>
+    </entry>
+    <entry category="Artist" eid="Id14" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alfredo_Zitarrosa | recordLabel | RCA_Records</otriple>
+        <otriple>Alfredo_Zitarrosa | birthPlace | Uruguay</otriple>
+        <otriple>Alfredo_Zitarrosa | genre | Candombe</otriple>
+        <otriple>Alfredo_Zitarrosa | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfredo_Zitarrosa | recordLabel | RCA_Records</mtriple>
+        <mtriple>Alfredo_Zitarrosa | birthPlace | Uruguay</mtriple>
+        <mtriple>Alfredo_Zitarrosa | genre | Candombe</mtriple>
+        <mtriple>Alfredo_Zitarrosa | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfredo Zitarrosa was born in Uruguay and has a background as a solo singer. His musical genre is Candombe and his record label is RCA Records.</lex>
+      <lex comment="good" lid="Id2">With a background as a solo singer, Uruguay born Alfredo Zitarrosa was signed to the RCA Records label and performed in the musical genre of Candombe.</lex>
+      <lex comment="good" lid="Id3">Alfredo Zitarrosa's birth place was Uruguay and has a recording label in RCA Records.He started out as a solo singer and plays Candombe musical genre.</lex>
+    </entry>
+    <entry category="Artist" eid="Id15" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | associatedBand | Flibbertigibbet</otriple>
+        <otriple>Alison_O'Donnell | associatedMusicalArtist | Bajik</otriple>
+        <otriple>Alison_O'Donnell | genre | Folk_music</otriple>
+        <otriple>Alison_O'Donnell | activeYearsStartYear | "1963"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | associatedBand | Bajik</otriple>
+        <otriple>Alison_O'Donnell | associatedMusicalArtist | Flibbertigibbet</otriple>
+        <otriple>Alison_O'Donnell | genre | Folk_music</otriple>
+        <otriple>Alison_O'Donnell | activeYearsStartYear | "1963"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alison_O'Donnell | associatedBand/associatedMusicalArtist | Bajik</mtriple>
+        <mtriple>Alison_O'Donnell | associatedBand/associatedMusicalArtist | Flibbertigibbet</mtriple>
+        <mtriple>Alison_O'Donnell | genre | Folk_music</mtriple>
+        <mtriple>Alison_O'Donnell | activeYearsStartYear | 1963</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alison O'Donnell's career began 1963 and she performs folk music. She was a member of the Flibbertigibbet band and she is associated with Bajik.</lex>
+      <lex comment="good" lid="Id2">Folk musician, Alison O'Donnell; started performing in 1963, was with the band Bajik and was a member of the Flibbertigibbet band.</lex>
+      <lex comment="good" lid="Id3">Flibbertigibbet band member, Bajik associate and folk artist, Alison O'Donnell, became active in 1963.</lex>
+    </entry>
+    <entry category="Artist" eid="Id16" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Alison_O'Donnell | genre | Jazz</otriple>
+        <otriple>Alison_O'Donnell | recordLabel | Deram_Records</otriple>
+        <otriple>Deram_Records | location | London</otriple>
+        <otriple>Alison_O'Donnell | label | Floating_World_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alison_O'Donnell | genre | Jazz</mtriple>
+        <mtriple>Alison_O'Donnell | recordLabel | Deram_Records</mtriple>
+        <mtriple>Deram_Records | location | London</mtriple>
+        <mtriple>Alison_O'Donnell | recordLabel | Floating_World_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">London Jazz musician Alison O'Donnell records with the Floating World Records label. She is signed to Deram Records.</lex>
+      <lex comment="good" lid="Id2">Alison O'Donnell is a jazz musician whose record label is the London-based Deram Records. She is signed to the record label "Floating World Records.".</lex>
+      <lex comment="good" lid="Id3">Alison O'Donnell was once signed to London based, Deram Records. A jazz musician, Alison O'Donnell is signed with the label, Floating World Records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id17" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Allen_Forrest | birthYear | "1981"^^xsd:gYear</otriple>
+        <otriple>Allen_Forrest | genre | Acoustic_music</otriple>
+        <otriple>Allen_Forrest | birthPlace | Fort_Campbell</otriple>
+        <otriple>Allen_Forrest | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allen_Forrest | birthYear | 1981</mtriple>
+        <mtriple>Allen_Forrest | genre | Acoustic_music</mtriple>
+        <mtriple>Allen_Forrest | birthPlace | Fort_Campbell</mtriple>
+        <mtriple>Allen_Forrest | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allen Forrest was born in Fort Campbell. in1981. He is an acoustic solo singer.</lex>
+      <lex comment="good" lid="Id2">Fort Campbell is the birth place of Allen Forrest, who was born in the year 1981. He is a solo singer who plays acoustic music.</lex>
+      <lex comment="good" lid="Id3">Allen Forrest was born in Fort Campbell, in 1981. Allen Forrest is a solo singer who plays acoustic music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id18" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Allen_Forrest | genre | Hip_hop_music</otriple>
+        <otriple>Allen_Forrest | birthYear | "1981"^^xsd:gYear</otriple>
+        <otriple>Allen_Forrest | birthPlace | "Fort Campbell, KY, raised in Dothan, AL"@en</otriple>
+        <otriple>Allen_Forrest | background | "solo_singer"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allen_Forrest | genre | Hip_hop_music</mtriple>
+        <mtriple>Allen_Forrest | birthYear | 1981</mtriple>
+        <mtriple>Allen_Forrest | birthPlace | "Fort Campbell, KY, raised in Dothan, AL"</mtriple>
+        <mtriple>Allen_Forrest | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Solo hip hop performer Allen Forrest was born in Fort Campbell, Kentucky in 1981 and raised in Dothan, Alabama.</lex>
+      <lex comment="good" lid="Id2">Allen Forrest was born in 1981 in Fort Campbell, KY and raised in Dothan, AL.He was originally a solo singer and performs hip hop music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id19" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Alternative_rock | musicFusionGenre | Nu_metal</otriple>
+        <otriple>Alternative_rock | stylisticOrigin | Punk_rock</otriple>
+        <otriple>Andrew_White_(musician) | associatedBand | Marry_Banilow</otriple>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alternative_rock | musicFusionGenre | Nu_metal</mtriple>
+        <mtriple>Alternative_rock | stylisticOrigin | Punk_rock</mtriple>
+        <mtriple>Andrew_White_(musician) | associatedBand/associatedMusicalArtist | Marry_Banilow</mtriple>
+        <mtriple>Andrew_White_(musician) | genre | Alternative_rock</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alternative rock musician Andrew White is associated with Marry Banilow. Alternative rock originates from punk rock and is fused into Nu metal.</lex>
+      <lex comment="good" lid="Id2">Andrew White is associated with the musical artist Marry Banilow and he plays alternative rock. That type of music originated from punk rock. Nu metal music is a fusion of alternative rock music.</lex>
+      <lex comment="good" lid="Id3">The musician Andrew White, who has worked with Marry Banilow, performs alternative rock. Nu metal is a fusion genre of alternative rock, which has its stylistic origins in punk.</lex>
+    </entry>
+    <entry category="Artist" eid="Id20" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Alligator_Records | genre | Blues</otriple>
+        <otriple>Alligator_Records | location | Chicago</otriple>
+        <otriple>Anders_Osborne | label | Alligator_Records</otriple>
+        <otriple>Anders_Osborne | recordLabel | Shanachie_Records</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anders_Osborne | recordLabel | Alligator_Records</otriple>
+        <otriple>Alligator_Records | genre | Blues</otriple>
+        <otriple>Alligator_Records | location | Chicago</otriple>
+        <otriple>Anders_Osborne | label | Shanachie_Records</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anders_Osborne | recordLabel | Alligator_Records</mtriple>
+        <mtriple>Alligator_Records | genre | Blues</mtriple>
+        <mtriple>Alligator_Records | location | Chicago</mtriple>
+        <mtriple>Anders_Osborne | recordLabel | Shanachie_Records</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anders Osborne was signed to the Shanachie Records label. Anders Osborne was signed to Chicago based,record label,Alligator Records which is associated with the Blues.</lex>
+      <lex comment="good" lid="Id2">Alligator records is based in Chicago and the main genre they deal with is blues. Anders Osborne's record labels are Alligator Records and Shanachie Records.</lex>
+      <lex comment="good" lid="Id3">Anders Osborne was signed to the Shanachie Records label as well as Chicago-based blues label Alligator Records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id21" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Dance-pop</otriple>
+        <otriple>Andra_(singer) | occupation | Singing</otriple>
+        <otriple>Andra_(singer) | birthPlace | Romania</otriple>
+        <otriple>Andra_(singer) | background | "solo_singer"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andra_(singer) | genre | Dance-pop</mtriple>
+        <mtriple>Andra_(singer) | occupation | Singing</mtriple>
+        <mtriple>Andra_(singer) | birthPlace | Romania</mtriple>
+        <mtriple>Andra_(singer) | background | "solo_singer"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Solo singer Andra was born in Romania and her genre is Dance-pop music.</lex>
+      <lex comment="good" lid="Id2">Anders is a professional Dance-pop music singer.She is a solo singer and was born in Romania.</lex>
+      <lex comment="good" lid="Id3">Andra was born in Romania. She is a solo singer whose music genre is Dance-pop.</lex>
+    </entry>
+    <entry category="Artist" eid="Id22" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | derivatives | Funk</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigins | Blues</otriple>
+        <otriple>Rhythm_and_blues | derivative | Disco</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | derivatives | Funk</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+        <otriple>Rhythm_and_blues | derivative | Disco</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | derivative | Funk</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigins | Blues</otriple>
+        <otriple>Rhythm_and_blues | derivatives | Disco</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andra_(singer) | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | derivative | Funk</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+        <otriple>Rhythm_and_blues | derivatives | Disco</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andra_(singer) | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Rhythm_and_blues | derivative | Funk</mtriple>
+        <mtriple>Rhythm_and_blues | stylisticOrigin | Blues</mtriple>
+        <mtriple>Rhythm_and_blues | derivative | Disco</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The singer Andra's genre is Rhythm and blue which originated from the blues. Both Funk and Disco are derivatives of rhythm and blues.</lex>
+      <lex comment="good" lid="Id2">Andra is a rhythm and blues singer. Originating from blues music, rhythm and blues has funk and disco as derivatives.</lex>
+      <lex comment="good" lid="Id3">Rhythm and blues originates from the blues and lends itself to disco and funk. Andra is an R &amp; B singer.</lex>
+    </entry>
+    <entry category="Artist" eid="Id23" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Andrew_Rayel | associatedMusicalArtist | Jwaydan_Moyine</otriple>
+        <otriple>Trance_music | stylisticOrigin | House_music</otriple>
+        <otriple>Andrew_Rayel | associatedBand | Christian_Burns</otriple>
+        <otriple>Andrew_Rayel | genre | Trance_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Jwaydan_Moyine</mtriple>
+        <mtriple>Trance_music | stylisticOrigin | House_music</mtriple>
+        <mtriple>Andrew_Rayel | associatedBand/associatedMusicalArtist | Christian_Burns</mtriple>
+        <mtriple>Andrew_Rayel | genre | Trance_music</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Trance musician Andrew Rayel is associated with artists Christian Burns and Jwaydan Moyine. Trance comes from house music.</lex>
+      <lex comment="good" lid="Id2">Musicians Jwaydan Moyine and Christian Burns are associated with Andrew Rayel, whose musical genre is trance music, which has its origins in House music.</lex>
+      <lex comment="good" lid="Id3">Andrew Rayel performs trance music, a style that originated from house music. He is associates with Christian Burns and is associated with Jwaydan Moyine.</lex>
+    </entry>
+    <entry category="Artist" eid="Id24" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | associatedBand | Kaiser_Chiefs</otriple>
+        <otriple>Andrew_White_(musician) | associatedMusicalArtist | Marry_Banilow</otriple>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+        <otriple>Andrew_White_(musician) | activeYearsStartYear | "2003"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | associatedBand | Marry_Banilow</otriple>
+        <otriple>Andrew_White_(musician) | associatedMusicalArtist | Kaiser_Chiefs</otriple>
+        <otriple>Andrew_White_(musician) | genre | Alternative_rock</otriple>
+        <otriple>Andrew_White_(musician) | activeYearsStartYear | "2003"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_White_(musician) | associatedBand/associatedMusicalArtist | Kaiser_Chiefs</mtriple>
+        <mtriple>Andrew_White_(musician) | associatedBand/associatedMusicalArtist | Marry_Banilow</mtriple>
+        <mtriple>Andrew_White_(musician) | genre | Alternative_rock</mtriple>
+        <mtriple>Andrew_White_(musician) | activeYearsStartYear | 2003</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Andrew White started his musical career in 2003 and his genre is alternative rock. He is a member of the band Kaiser Chiefs and he is associated with the musical artist Marry Banilow.</lex>
+      <lex comment="good" lid="Id2">Andrew White started his musical career in 2003 and is associated with the musical artist, Marry Banilow. He plays for the band Kaiser Chiefs and his genre is alternative rock.</lex>
+      <lex comment="good" lid="Id3">Alternative rock performer Andrew White started his musical career in 2003. He plays for the band Kaiser Chiefs and is associated with musical artist Marry Banilow.</lex>
+    </entry>
+    <entry category="Artist" eid="Id25" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | associatedBand | Kaiser_Chiefs</otriple>
+        <otriple>Andrew_White_(musician) | associatedMusicalArtist | Marry_Banilow</otriple>
+        <otriple>Andrew_White_(musician) | recordLabel | Universal_Records_(defunct_record_label)</otriple>
+        <otriple>Andrew_White_(musician) | activeYearsStartYear | "2003"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Andrew_White_(musician) | associatedBand | Marry_Banilow</otriple>
+        <otriple>Andrew_White_(musician) | associatedMusicalArtist | Kaiser_Chiefs</otriple>
+        <otriple>Andrew_White_(musician) | recordLabel | Universal_Records_(defunct_record_label)</otriple>
+        <otriple>Andrew_White_(musician) | activeYearsStartYear | "2003"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Andrew_White_(musician) | associatedBand/associatedMusicalArtist | Kaiser_Chiefs</mtriple>
+        <mtriple>Andrew_White_(musician) | associatedBand/associatedMusicalArtist | Marry_Banilow</mtriple>
+        <mtriple>Andrew_White_(musician) | recordLabel | Universal_Records_(defunct_record_label)</mtriple>
+        <mtriple>Andrew_White_(musician) | activeYearsStartYear | 2003</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Kaiser Chiefs band member, Andrew White, started his musical career in 2003. Andrew White, who is associated with the musical artist Marry Banilow, used to be with the record label Universal records which is now a defunct label.</lex>
+      <lex comment="good" lid="Id2">Andrew White, who began his musical career in 2003 and was associated with Marry Banilow, was signed to the now defunct record label Universal Records. He was a member of the band The Kaiser Chiefs.</lex>
+      <lex comment="good" lid="Id3">Musician Andrew White began in 2003 and is associated with artists Marry Banilow and the Kaiser Chiefs. He was signed to the defunct Universal records.</lex>
+    </entry>
+    <entry category="Artist" eid="Id26" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Country_music | instrument | Banjo</otriple>
+        <otriple>Al_Anderson_(NRBQ) | associatedBand | NRBQ</otriple>
+        <otriple>Al_Anderson_(NRBQ) | associatedMusicalArtist | The_Wildweeds</otriple>
+        <otriple>Al_Anderson_(NRBQ) | genre | Country_music</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Country_music | instrument | Banjo</mtriple>
+        <mtriple>Al_Anderson_(NRBQ band) | associatedBand/associatedMusicalArtist | NRBQ</mtriple>
+        <mtriple>Al_Anderson_(NRBQ band) | associatedBand/associatedMusicalArtist | The_Wildweeds</mtriple>
+        <mtriple>Al_Anderson_(NRBQ band) | genre | Country_music</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Al Anderson is a member of the NRBQ band and his musical genre is country music, in which banjo is an instrument. He also played once with The Wildweeds.</lex>
+      <lex comment="good" lid="Id2">Al Anderson (NRBQ band) performs country music and also was a member of the Wildweeds. Banjo is used for Country Music.</lex>
+      <lex comment="good" lid="Id3">Country musician Al Anderson, twho plays with the band NRBQ, played once with The Wildweeds. The Banjo instrument is closely associated with country music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id27" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Hip_hop_music | stylisticOrigins | Disco</otriple>
+        <otriple>Allen_Forrest | genre | Hip_hop_music</otriple>
+        <otriple>Hip_hop_music | stylisticOrigin | Funk</otriple>
+        <otriple>Hip_hop_music | derivatives | Drum_and_bass</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Hip_hop_music | stylisticOrigins | Disco</otriple>
+        <otriple>Allen_Forrest | genre | Hip_hop_music</otriple>
+        <otriple>Hip_hop_music | stylisticOrigin | Funk</otriple>
+        <otriple>Hip_hop_music | derivative | Drum_and_bass</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Hip_hop_music | stylisticOrigin | Disco</mtriple>
+        <mtriple>Allen_Forrest | genre | Hip_hop_music</mtriple>
+        <mtriple>Hip_hop_music | stylisticOrigin | Funk</mtriple>
+        <mtriple>Hip_hop_music | derivative | Drum_and_bass</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allen Forrest performs hip hop music which comes from disco and funk. Drums and bass get their sounds from hip hop music.</lex>
+      <lex comment="good" lid="Id2">Allen Forrest performs hip hop music, which has its stylistic origins in disco and funk. Drum and bass is a derivative of hip hop.</lex>
+      <lex comment="good" lid="Id3">The musical genre of Allen Forrest is hip hop music which has its origins in Disco and its stylistic origins in funk. Drum and bass is a derivative of Hip hop music.</lex>
+    </entry>
+    <entry category="Artist" eid="Id28" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Post-metal | instrument | Cello</otriple>
+        <otriple>Aaron_Turner | associatedMusicalArtist | Twilight_(band)</otriple>
+        <otriple>Aaron_Turner | associatedBand | House_of_Low_Culture</otriple>
+        <otriple>Aaron_Turner | genre | Post-metal</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Post-metal | instrument | Cello</mtriple>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Twilight_(band)</mtriple>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | House_of_Low_Culture</mtriple>
+        <mtriple>Aaron_Turner | genre | Post-metal</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Post-metal cellist, Aaron Turner, played with both Twilight and House of Low Culture.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner played post-metal music with the Twilight band. He also played with the House of Low Culture. Cello is a post-metal instrument.</lex>
+      <lex comment="good" lid="Id3">Aaron Turner is a performer of the musical genre Post metal,which uses cello as a musical instrument.He played with Twilight and House of Low Culture bands.</lex>
+    </entry>
+    <entry category="Artist" eid="Id29" shape="(X (X) (X (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Twilight_(band) | genre | Black_metal</otriple>
+        <otriple>Aaron_Turner | associatedMusicalArtist | Twilight_(band)</otriple>
+        <otriple>Aaron_Turner | instrument | Electric_guitar</otriple>
+        <otriple>Black_metal | musicFusionGenre | Death_metal</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Twilight_(band) | genre | Black_metal</mtriple>
+        <mtriple>Aaron_Turner | associatedBand/associatedMusicalArtist | Twilight_(band)</mtriple>
+        <mtriple>Aaron_Turner | instrument | Electric_guitar</mtriple>
+        <mtriple>Black_metal | musicFusionGenre | Death_metal</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Electric guitarist Aaron Turner was a member of black metal band Twilight. Death metal is a black metal fusion.</lex>
+      <lex comment="good" lid="Id2">Aaron Turner plays electric guitar and played with the band Twilight. Twilight performs black metal music which when part of a musical fusion is called death metal.</lex>
+      <lex comment="good" lid="Id3">Black metal electric guitarist Aaron Turner was a member of Twilight. Black metal is the basis for death metal fusion.</lex>
+    </entry>
+    <entry category="Artist" eid="Id30" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Albennie_Jones | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+        <otriple>Albennie_Jones | birthPlace | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Albennie_Jones | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigins | Blues</otriple>
+        <otriple>Albennie_Jones | birthPlace | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>Albennie_Jones | placeOfBirth | United_States</otriple>
+        <otriple>Albennie_Jones | genre | Rhythm_and_blues</otriple>
+        <otriple>Rhythm_and_blues | stylisticOrigin | Blues</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+        <mtriple>Albennie_Jones | genre | Rhythm_and_blues</mtriple>
+        <mtriple>Rhythm_and_blues | stylisticOrigin | Blues</mtriple>
+        <mtriple>Albennie_Jones | birthPlace | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Rhythm and blues artist Albennie Jones was born in the U.S., home to African Americans. R &amp; B has its roots in blues.</lex>
+      <lex comment="good" lid="Id2">Rhythm and blues artist Albennie Jones was born in the United States. R and B originated from the blues and among the ethnic groups in the U.S. are African Americans.</lex>
+      <lex comment="good" lid="Id3">African Americans are an ethnic group in the United States, where Albennie Jones was born. Albennie Jones performs in the rhythm and blues genre which originated from blues music.</lex>
+    </entry>
+    </entries>
+</benchmark>

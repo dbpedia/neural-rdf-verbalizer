@@ -1,0 +1,514 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Building" eid="Id1" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>103_Colmore_Row | location | Birmingham</otriple>
+        <otriple>103_Colmore_Row | buildingEndDate | "1976"</otriple>
+        <otriple>103_Colmore_Row | buildingStartDate | "1973"</otriple>
+        <otriple>103_Colmore_Row | floorCount | 23</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>103_Colmore_Row | location | Birmingham</otriple>
+        <otriple>103_Colmore_Row | buildingEndDate | "1976"</otriple>
+        <otriple>103_Colmore_Row | buildingStartDate | "1973"</otriple>
+        <otriple>103_Colmore_Row | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>103_Colmore_Row | location | Birmingham</mtriple>
+        <mtriple>103_Colmore_Row | completionDate | 1976</mtriple>
+        <mtriple>103_Colmore_Row | buildingStartDate | "1973"</mtriple>
+        <mtriple>103_Colmore_Row | floorCount | 23</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The building of 103 Colmore Row began in 1973 and it was completed in 1976. It is located at 103 Colmore Row, Birmingham and it has 23 floors.</lex>
+    </entry>
+    <entry category="Building" eid="Id2" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>11_Diagonal_Street | location | South_Africa</otriple>
+        <otriple>South_Africa | capital | Cape_Town</otriple>
+        <otriple>South_Africa | ethnicGroups | Coloured</otriple>
+        <otriple>South_Africa | ethnicGroup | Asian_South_Africans</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>11_Diagonal_Street | location | South_Africa</otriple>
+        <otriple>South_Africa | ethnicGroups | Asian_South_Africans</otriple>
+        <otriple>South_Africa | capital | Cape_Town</otriple>
+        <otriple>South_Africa | ethnicGroup | Coloured</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>11_Diagonal_Street | location | South_Africa</mtriple>
+        <mtriple>South_Africa | ethnicGroup | Asian_South_Africans</mtriple>
+        <mtriple>South_Africa | capital | Cape_Town</mtriple>
+        <mtriple>South_Africa | ethnicGroup | Coloured</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">11 Diagonal Street is in South Africa, the capital of which is Cape Town. Two of the ethnic groups within South Africa are coloured people and Asian South Africans.</lex>
+      </entry>
+    <entry category="Building" eid="Id3" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>Cleveland | subdivisionName | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | country | United_States</otriple>
+        <otriple>Cleveland | governingBody | Cleveland_City_Council</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>Cleveland | isPartOf | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | country | United_States</otriple>
+        <otriple>Cleveland | governingBody | Cleveland_City_Council</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>200_Public_Square | location | Cleveland</mtriple>
+        <mtriple>Cleveland | isPartOf | Cuyahoga_County,_Ohio</mtriple>
+        <mtriple>Cleveland | country | United_States</mtriple>
+        <mtriple>Cleveland | governingBody | Cleveland_City_Council</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Cleveland City Council govern Cleveland, Cuyahoga County, Ohio, United States where 200 Public Square is located.</lex>
+      <lex comment="good" lid="Id2">200 Public square is in Cleveland, part of Cuyahoga County, Ohio in the United States and the governing body is the Cleveland City Council.</lex>
+      </entry>
+    <entry category="Building" eid="Id4" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>250_Delaware_Avenue | location | Buffalo,_New_York</otriple>
+        <otriple>250_Delaware_Avenue | cost | "1.1E8"^^&lt;http://dbpedia.org/datatype/usDollar&gt;</otriple>
+        <otriple>250_Delaware_Avenue | floorArea | "30843.8"^^xsd:double</otriple>
+        <otriple>250_Delaware_Avenue | floorCount | "12"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>250_Delaware_Avenue | location | Buffalo,_New_York</mtriple>
+        <mtriple>250_Delaware_Avenue | cost | "110 million (dollars)"</mtriple>
+        <mtriple>250_Delaware_Avenue | floorArea | 30843.8 (square metres)</mtriple>
+        <mtriple>250_Delaware_Avenue | floorCount | 12</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">250 Delaware Avenue is located in Buffalo, New York and was built at a cost of 110 million (dollars). It has 12 floors with a total area of 30843.8 (square metres).</lex>
+      <lex comment="good" lid="Id2">250 Delaware Avenue in Buffalo, New York cost 110 million dollars and has 12 floors with a total area of 30843.8 square metres.</lex>
+    </entry>
+    <entry category="Building" eid="Id5" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>300_North_LaSalle | location | Chicago</otriple>
+        <otriple>Chicago | leaderName | Rahm_Emanuel</otriple>
+        <otriple>Chicago | isPartOf | Cook_County,_Illinois</otriple>
+        <otriple>Chicago | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>300_North_LaSalle | location | Chicago</mtriple>
+        <mtriple>Chicago | leaderName | Rahm_Emanuel</mtriple>
+        <mtriple>Chicago | isPartOf | Cook_County,_Illinois</mtriple>
+        <mtriple>Chicago | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">300 North LaSalle is in Chicago, Cook County, Illinois, USA. Rahm Emanuel is the leader of the aforementioned city.</lex>
+      <lex comment="good" lid="Id2">300 North LaSalle is located in Chicago, which is a part of Cook County in Illinois, United States. Rahm Emanuel is a leader in Chicago.</lex>
+      <lex comment="good" lid="Id3">Rahm Emanuel is the leader of Chicago, Cook County, Illinois, United States which is the location of 300 North LaSalle.</lex>
+    </entry>
+    <entry category="Building" eid="Id6" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>300_North_LaSalle | location | Illinois</otriple>
+        <otriple>300_North_LaSalle | Building/floorArea | "120770.0"^^&lt;http://dbpedia.org/datatype/squareMetre&gt;</otriple>
+        <otriple>300_North_LaSalle | buildingEndDate | "2009"</otriple>
+        <otriple>300_North_LaSalle | floorCount | 60</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>300_North_LaSalle | location | Illinois</otriple>
+        <otriple>300_North_LaSalle | Building/floorArea | "120770.0"^^&lt;http://dbpedia.org/datatype/squareMetre&gt;</otriple>
+        <otriple>300_North_LaSalle | buildingEndDate | "2009"</otriple>
+        <otriple>300_North_LaSalle | floorCount | "60"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>300_North_LaSalle | location | Illinois</mtriple>
+        <mtriple>300_North_LaSalle | floorArea | 120770.0 (square metres)</mtriple>
+        <mtriple>300_North_LaSalle | completionDate | 2009</mtriple>
+        <mtriple>300_North_LaSalle | floorCount | 60</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The building at 300 North LaSalle, Illinois, completed in 2009, has 60 floors covering an area of 120770.0 square metres.</lex>
+      <lex comment="good" lid="Id2">300 North LaSalle, a 120770.0 square metre 60 floor building in Illinois, was completed in 2009.</lex>
+      <lex comment="good" lid="Id3">300 North LaSalle in Illinois was completed in 2009 and has 60 floors with a total area of 120770.0 square metres.</lex>
+    </entry>
+    <entry category="Building" eid="Id7" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>3Arena | owner | Live_Nation_Entertainment</otriple>
+        <otriple>Dublin | subdivisionName | Republic_of_Ireland</otriple>
+        <otriple>3Arena | location | Dublin</otriple>
+        <otriple>Dublin | isPartOf | Leinster</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>3Arena | owner | Live_Nation_Entertainment</mtriple>
+        <mtriple>Dublin | isPartOf | Republic_of_Ireland</mtriple>
+        <mtriple>3Arena | location | Dublin</mtriple>
+        <mtriple>Dublin | isPartOf | Leinster</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The owner of 3Arena, Dublin, Leinster, Republic of Ireland is Live Nation Entertainment.</lex>
+      <lex comment="good" lid="Id2">Dublin is part of Leinster and a city in the Republic of Ireland. Dublin is also home to the 3Arena which is currently owned by Live Nation Entertainment.</lex>
+    </entry>
+    <entry category="Building" eid="Id8" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Copenhagen</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Copenhagen</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | location | Copenhagen</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | 23</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Marriott International is the tenant of AC Hotel Bella Sky in Copenhagen which has 23 floors was designed by the architects 3XN.</lex>
+      <lex comment="good" lid="Id2">The AC Hotel Bella Sky is located in Copenhagen and has 23 floors. The hotel was designed by the architects of the 3XN firm and the current tenant is Marriott International.</lex>
+    </entry>
+    <entry category="Building" eid="Id9" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Adare_Manor | locationTown | Adare</otriple>
+        <otriple>Adare_Manor | location | County_Limerick</otriple>
+        <otriple>County_Limerick | subdivisionName | Munster</otriple>
+        <otriple>County_Limerick | governmentType | Limerick_City_and_County_Council</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adare_Manor | location | Adare</otriple>
+        <otriple>County_Limerick | isPartOf | Munster</otriple>
+        <otriple>Adare_Manor | locationTown | County_Limerick</otriple>
+        <otriple>County_Limerick | governmentType | Limerick_City_and_County_Council</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adare_Manor | location | Adare</otriple>
+        <otriple>Adare_Manor | locationTown | County_Limerick</otriple>
+        <otriple>County_Limerick | subdivisionName | Munster</otriple>
+        <otriple>County_Limerick | governmentType | Limerick_City_and_County_Council</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adare_Manor | locationTown | Adare</otriple>
+        <otriple>Adare_Manor | location | County_Limerick</otriple>
+        <otriple>County_Limerick | isPartOf | Munster</otriple>
+        <otriple>County_Limerick | governmentType | Limerick_City_and_County_Council</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adare_Manor | location | Adare</mtriple>
+        <mtriple>County_Limerick | isPartOf | Munster</mtriple>
+        <mtriple>Adare_Manor | location | County_Limerick</mtriple>
+        <mtriple>County_Limerick | governmentType | Limerick_City_and_County_Council</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adare Manor is located in Adare, County Limerick, Munster, which is governed by the Limerick City and County Council.</lex>
+      <lex comment="good" lid="Id2">Adare Manor is located in Adare County Limerick, Munster which is governed by Limerick City and County Council.</lex>
+      <lex comment="good" lid="Id3">Adare Manor is located in Adare, County Limerick, Munster. The County is governed by Limerick City and County Council.</lex>
+    </entry>
+    <entry category="Building" eid="Id10" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita,_Akita | subdivisionName | Akita_Prefecture</otriple>
+        <otriple>Japan | ethnicGroup | Brazilians_in_Japan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+        <mtriple>Akita,_Akita | isPartOf | Akita_Prefecture</mtriple>
+        <mtriple>Japan | ethnicGroup | Brazilians_in_Japan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akita Museum of Art, located in Akita, Akita, part of Akita Prefecture, Japan displays art from Brazilians, one of the ethnic groups in that country.</lex>
+      <lex comment="good" lid="Id2">The Akita Museum of Art is located in Akita, Akita, of the Akita Prefecture in Japan. Brazilians are one of the Japanese ethnic groups.</lex>
+      <lex comment="good" lid="Id3">The Akita Museum of Art is an art museum in the city of Akita, in Japan. Akita, Akita is part of the Akita Prefecture. Many Brazilian people live in Japan.</lex>
+    </entry>
+    <entry category="Building" eid="Id11" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita,_Akita | subdivisionName | Akita_Prefecture</otriple>
+        <otriple>Japan | ethnicGroup | Filipinos_in_Japan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+        <mtriple>Akita,_Akita | isPartOf | Akita_Prefecture</mtriple>
+        <mtriple>Japan | ethnicGroup | Filipinos_in_Japan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akita Museum of Art is an art museum in the Japanese city of Akita on the Akita Prefecture. Japan is diverse with a number of ethnic groups including Filipinos.</lex>
+      <lex comment="good" lid="Id2">The Akita Museum of Art is located in Akita, Akita (in Japan), part of the Akita Prefecture, where one of the ethnic groups is the Filipinos.</lex>
+      <lex comment="good" lid="Id3">Japan, home to many Filipinos, is home to the Akita Museum of Art in Akita Prefecture.</lex>
+    </entry>
+    <entry category="Building" eid="Id12" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita_Prefecture</otriple>
+        <otriple>Japan | ethnicGroup | Vietnamese_people_in_Japan</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita_Prefecture</otriple>
+        <otriple>Japan | ethnicGroup | Vietnamese_people_in_Japan</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita,_Akita</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita_Prefecture</mtriple>
+        <mtriple>Japan | ethnicGroup | Vietnamese_people_in_Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Akita Museum of Art is located in the Akita Prefecture of Japan, in Akita, Akita. One ethnic group of Japan is the Vietnamese People.</lex>
+      <lex comment="good" lid="Id2">Akita Museum of Art is located in Akita Prefecture, in Akita, Akita, Japan, a country with the ethnic group of Vietnamese people.</lex>
+      <lex comment="good" lid="Id3">Akita Museum of Art is located in Akita, Akita, Akita Prefecture, Japan. Vietnamese people in Japan are an ethnic group from Japan.</lex>
+    </entry>
+    <entry category="Building" eid="Id13" shape="(X (X) (X) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Japan | ethnicGroup | Brazilians_in_Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita_Prefecture</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita,_Akita</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akita_Museum_of_Art | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita,_Akita</otriple>
+        <otriple>Japan | ethnicGroup | Brazilians_in_Japan</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita_Prefecture</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akita_Museum_of_Art | country | Japan</mtriple>
+        <mtriple>Japan | ethnicGroup | Brazilians_in_Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita_Prefecture</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Akita Museum of Art is located in Akita, which is part of the Akita Prefecture in Japan. The Brazilians in Japan are an ethnic group found in this country.</lex>
+      <lex comment="good" lid="Id2">The Brazilians are one of the ethnic groups of Japan where the Akita Museum of Art is located in Akita, Akita Prefecture.</lex>
+    </entry>
+    <entry category="Building" eid="Id14" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Alan_B._Miller_Hall | owner | College_of_William_&amp;_Mary</otriple>
+        <otriple>Alan_B._Miller_Hall | completionDate | "2009-06-01"^^xsd:date</otriple>
+        <otriple>Alan_B._Miller_Hall | address | "101 Ukrop Way"@en</otriple>
+        <otriple>Alan_B._Miller_Hall | location | Williamsburg,_Virginia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_B._Miller_Hall | owner | College_of_William_&amp;_Mary</mtriple>
+        <mtriple>Alan_B._Miller_Hall | completionDate | "1 June 2009"</mtriple>
+        <mtriple>Alan_B._Miller_Hall | address | "101 Ukrop Way"</mtriple>
+        <mtriple>Alan_B._Miller_Hall | location | Williamsburg,_Virginia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The College of William and Mary own Alan B Miller Hall which was completed on 1 June 2009 at 101 Ukrop Way, Williamsburg, Virginia.</lex>
+      <lex comment="good" lid="Id2">Alan B Miller Hall, 101 Ukrop Way, Williamsburg, Virginia was completed on 1st June 2009 and is owned by the College of William and Mary.</lex>
+      <lex comment="good" lid="Id3">The Alan B.Miller Hall is located on 101 Ukrop Way, Williamsburg, Virginia and it was completed on the 1st June, 2009. It is owned by the College of William and Mary.</lex>
+    </entry>
+    <entry category="Building" eid="Id15" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Amdavad_ni_Gufa | locationTown | Gujarat</otriple>
+        <otriple>Amdavad_ni_Gufa | locationCountry | India</otriple>
+        <otriple>India | leaderName | Narendra_Modi</otriple>
+        <otriple>India | leader | Sumitra_Mahajan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amdavad_ni_Gufa | location | Gujarat</mtriple>
+        <mtriple>Amdavad_ni_Gufa | country | India</mtriple>
+        <mtriple>India | leaderName | Narendra_Modi</mtriple>
+        <mtriple>India | leaderName | Sumitra_Mahajan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Sumitra Mahajan and Narendra Modi are leaders of India where Amdavad ni Gufa is located in Gujarat.</lex>
+      <lex comment="good" lid="Id2">Amdavad ni Gufa is located in Gujarat, India where Narendra Modi is the prime minister and one of the leaders is Sumitra Mahajan.</lex>
+    </entry>
+    <entry category="Building" eid="Id16" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | location | Pacific_Grove,_California</otriple>
+        <otriple>Asilomar_Conference_Grounds | added | "1987-02-27"^^xsd:date</otriple>
+        <otriple>Asilomar_Conference_Grounds | nrhpReferenceNumber | "87000823"</otriple>
+        <otriple>Asilomar_Conference_Grounds | built | 1913</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | location | Pacific_Grove,_California</otriple>
+        <otriple>Asilomar_Conference_Grounds | added | "1987-02-27"^^xsd:date</otriple>
+        <otriple>Asilomar_Conference_Grounds | nrhpReferenceNumber | "87000823"</otriple>
+        <otriple>Asilomar_Conference_Grounds | yearOfConstruction | "1913"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | location | Pacific_Grove,_California</mtriple>
+        <mtriple>Asilomar_Conference_Grounds | added to the National Register of Historic Places | "1987-02-27"</mtriple>
+        <mtriple>Asilomar_Conference_Grounds | ReferenceNumber in the National Register of Historic Places | "87000823"</mtriple>
+        <mtriple>Asilomar_Conference_Grounds | yearOfConstruction | 1913</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Added to National Register of Historic Places on February the 27nd, 1987 (reference number 87000823), the Asilomar Conference Grounds was built in 1913 and are located in Pacific Grove, California.</lex>
+      <lex comment="good" lid="Id2">The Asilomar Conference Grounds were constructed in 1913 in Pacific Grove, California, and were added to the National Register of Historic Places on February the 27nd 1987 with reference number 87000823.</lex>
+      <lex comment="good" lid="Id3">The Asilomar Conference Grounds constructed in 1913 is located at Pacific Grove, California. It was added to the National Register of Historic Places on 27 February 1987 with the reference number 87000823.</lex>
+    </entry>
+    <entry category="Building" eid="Id17" shape="(X (X) (X) (X) (X))" shape_type="sibling" size="4">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</otriple>
+        <otriple>Asser_Levy_Public_Baths | nrhpReferenceNumber | "80002709"</otriple>
+        <otriple>Asser_Levy_Public_Baths | yearOfConstruction | "1904"^^xsd:gYear</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | built | 1904</otriple>
+        <otriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</otriple>
+        <otriple>Asser_Levy_Public_Baths | nrhpReferenceNumber | "80002709"</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | ReferenceNumber in the National Register of Historic Places | "80002709"</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | yearOfConstruction | 1904</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | added to the National Register of Historic Places | "1980-04-23"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Located in Avenue A in Manhatten, Asser Levy Public Baths was built in 1904 and was added to the National Register of Historic Places on 1980/04/23 with the reference number of 80002709.</lex>
+      <lex comment="good" lid="Id2">Built in 1904 and located in Avenue A, Manhattan, Asser Levy Public Baths was added to the National Register of the Historic places on 1980/04/23 (reference number 80002709).</lex>
+    </entry>
+    <entry category="Building" eid="Id18" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>Manhattan | leaderName | Cyrus_Vance,_Jr.</otriple>
+        <otriple>New_York_City | isPartOf | Manhattan</otriple>
+        <otriple>New_York_City | subdivisionName | Brooklyn</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>Manhattan | leaderName | Cyrus_Vance,_Jr.</otriple>
+        <otriple>New_York_City | subdivisionName | Manhattan</otriple>
+        <otriple>New_York_City | isPartOf | Brooklyn</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | New_York_City</mtriple>
+        <mtriple>Manhattan | leaderName | Cyrus_Vance,_Jr.</mtriple>
+        <mtriple>New_York_City | isPartOf | Manhattan</mtriple>
+        <mtriple>New_York_City | isPartOf | Brooklyn</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Asser Levy Public Baths are located in Brooklyn, Manhattan, New York City where Cyrus Vance Jr. is one of the leaders.</lex>
+      <lex comment="good" lid="Id2">The Asser Levy Public baths are located in New York City which has sections known as Brooklyn and Manhattan. Cyrus Vance Jr is the leader of Manhattan.</lex>
+      <lex comment="good" lid="Id3">Manhattan (leader: Cyrus Vance Jr.) and Brooklyn are parts of New York City, which is home to the Asser Levy Public Baths.</lex>
+    </entry>
+    <entry category="Building" eid="Id19" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>New_York_City | country | United_States</otriple>
+        <otriple>Manhattan | leaderName | Gale_Brewer</otriple>
+        <otriple>New_York_City | subdivisionName | Manhattan</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>New_York_City | country | United_States</otriple>
+        <otriple>Manhattan | leaderName | Gale_Brewer</otriple>
+        <otriple>New_York_City | isPartOf | Manhattan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | New_York_City</mtriple>
+        <mtriple>New_York_City | country | United_States</mtriple>
+        <mtriple>Manhattan | leaderName | Gale_Brewer</mtriple>
+        <mtriple>New_York_City | isPartOf | Manhattan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Asser Levy Public Baths are in New York, USA. Gale Brewer is the leader of Manhattan, which is a part of New York.</lex>
+      <lex comment="good" lid="Id2">Gale Brewer is the leader of Manhattan, New York City, United States where the Asser Levy Public baths are located.</lex>
+    </entry>
+    <entry category="Building" eid="Id20" shape="(X (X (X (X) (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Birmingham | postalCode | B_postcode_area</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | birthPlace | Birmingham</otriple>
+        <otriple>Birmingham | leaderName | Andrew_Mitchell</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Birmingham | postalCode | B_postcode_area</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | birthPlace | Birmingham</mtriple>
+        <mtriple>Birmingham | leaderName | Andrew_Mitchell</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">103 Colmore Row was designed by the architect John Madin, who was born in Birmingham. The B postcode area is the postal code of Birmingham and the city's leader is Andrew Mitchell.</lex>
+      <lex comment="good" lid="Id2">Led by Andrew Mitchell, Birmingham has postcode area 'B' and is the birthplace of the 103 Colmore Row architect, John Madin.</lex>
+    </entry>
+    <entry category="Building" eid="Id21" shape="(X (X (X (X) (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Birmingham | postalCode | B_postcode_area</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | birthPlace | Birmingham</otriple>
+        <otriple>Birmingham | leaderName | Labour_Party_(UK)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Birmingham | postalCode | B_postcode_area</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | birthPlace | Birmingham</mtriple>
+        <mtriple>Birmingham | leaderName | Labour_Party_(UK)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Birmingham has the B postcode, is led by the Labour party and is the birthplace of architect John Madin who designed 103 Colmore Row.</lex>
+      <lex comment="good" lid="Id2">103 Colmore Row was designed by the architect, John Madin who was born in Birmingham. Birmingham Council is led by the Labour party and has a B postal code.</lex>
+    </entry>
+    <entry category="Building" eid="Id22" shape="(X (X (X)) (X (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Gujarat | leaderName | Anandiben_Patel</otriple>
+        <otriple>Amdavad_ni_Gufa | locationTown | Gujarat</otriple>
+        <otriple>Amdavad_ni_Gufa | locationCountry | India</otriple>
+        <otriple>India | leader | Sumitra_Mahajan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Gujarat | leaderName | Anandiben_Patel</mtriple>
+        <mtriple>Amdavad_ni_Gufa | location | Gujarat</mtriple>
+        <mtriple>Amdavad_ni_Gufa | country | India</mtriple>
+        <mtriple>India | leaderName | Sumitra_Mahajan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anandiben Patel was the leader of Gujarat, India, where Amdavad ni Gufa is located. The leader of India's name is Sumitra Mahajan.</lex>
+      <lex comment="good" lid="Id2">Anandiben Patel is a leader in Gujarat, India where Amdavad ni Gufa is located. Sumitra Mahajan is also an Indian leader.</lex>
+    </entry>
+    <entry category="Building" eid="Id23" shape="(X (X) (X (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>India | leader | T._S._Thakur</otriple>
+        <otriple>Amdavad_ni_Gufa | locationTown | Gujarat</otriple>
+        <otriple>Amdavad_ni_Gufa | locationCountry | India</otriple>
+        <otriple>India | leaderName | Narendra_Modi</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>India | leaderName | T._S._Thakur</mtriple>
+        <mtriple>Amdavad_ni_Gufa | location | Gujarat</mtriple>
+        <mtriple>Amdavad_ni_Gufa | country | India</mtriple>
+        <mtriple>India | leaderName | Narendra_Modi</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">T. S. Thakur was an Indian leader but the current leader of India is Narendra Modi. Amdavad ni Gufa is located in Gujarat, India.</lex>
+      <lex comment="good" lid="Id2">The Prime Minister of India is Narendra Modi, and T S Thakur is another leader. The country is the location of Amdavad ni Gufa in Gujarat.</lex>
+      </entry>
+    <entry category="Building" eid="Id24" shape="(X (X) (X (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>Japan | ethnicGroup | Brazilians_in_Japan</otriple>
+        <otriple>Akita_Prefecture | country | Japan</otriple>
+        <otriple>Akita_Museum_of_Art | locationTown | Akita_Prefecture</otriple>
+        <otriple>Akita_Museum_of_Art | location | Akita,_Akita</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Japan | ethnicGroup | Brazilians_in_Japan</mtriple>
+        <mtriple>Akita_Prefecture | country | Japan</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita_Prefecture</mtriple>
+        <mtriple>Akita_Museum_of_Art | location | Akita,_Akita</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Brazilians are one of the ethnic groups found in Japan which is the location of the Akita Museum of Art, Akita, Akita Prefecture.</lex>
+      <lex comment="good" lid="Id2">The Brazilians are one of the ethnic groups of Japan where the Akita Museum of Art is located in Akita, Akita Prefecture.</lex>
+      <lex comment="good" lid="Id3">The Akita Musuem of Art is located in Akita Prefecture (Akita) which is located in Japan. One of the ethnic groups in Japan is Brazillian.</lex>
+    </entry>
+    <entry category="Building" eid="Id25" shape="(X (X (X) (X (X))))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>London | leaderTitle | Parliament_of_the_United_Kingdom</otriple>
+        <otriple>20_Fenchurch_Street | location | United_Kingdom</otriple>
+        <otriple>United_Kingdom | capital | London</otriple>
+        <otriple>United_Kingdom | leaderName | Elizabeth_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>London | leaderTitle | Parliament_of_the_United_Kingdom</mtriple>
+        <mtriple>20_Fenchurch_Street | location | United_Kingdom</mtriple>
+        <mtriple>United_Kingdom | capital | London</mtriple>
+        <mtriple>United_Kingdom | leaderName | Elizabeth_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Parliament of the United Kingdom is the leader of London, the capital city. Elizabeth II is also a leader and 20 Fenchurch Street is located in the country .</lex>
+      <lex comment="good" lid="Id2">London is the capital of the United Kingdom, which is governed by Parliament and has Elizabeth II as its leader. 20 Fenchurch Street is located in the UK.</lex>
+      <lex comment="good" lid="Id3">20 Fenchurch Street is located in the United Kingdom, which has London is its capital, and is ruled by the Parliament of the United Kingdom and Queen Elizabeth II.</lex>
+    </entry>
+    <entry category="Building" eid="Id26" shape="(X (X (X) (X) (X)))" shape_type="mixed" size="4">
+      <originaltripleset>
+        <otriple>United_States | language | English_language</otriple>
+        <otriple>United_States | leaderTitle | President_of_the_United_States</otriple>
+        <otriple>United_States | leaderName | Joe_Biden</otriple>
+        <otriple>250_Delaware_Avenue | location | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | language | English_language</mtriple>
+        <mtriple>United_States | leaderTitle | President_of_the_United_States</mtriple>
+        <mtriple>United_States | leaderName | Joe_Biden</mtriple>
+        <mtriple>250_Delaware_Avenue | location | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">250 Delaware Avenue is located in the United States, where English is spoken and the leader has the title President. Joe Biden is one of the leaders.</lex>
+      <lex comment="good" lid="Id2">250 Delaware Avenue is located in the United States where the leader is known as the President of the United States, they speak English and Joe Biden is also a leader.</lex>
+      </entry>
+    </entries>
+</benchmark>

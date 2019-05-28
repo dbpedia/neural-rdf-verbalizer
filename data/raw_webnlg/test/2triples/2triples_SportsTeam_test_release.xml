@@ -1,0 +1,312 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="SportsTeam" eid="Id1" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>1._FC_Magdeburg | capacity | "27250"^^xsd:nonNegativeInteger</otriple>
+        <otriple>1._FC_Magdeburg | season | 2014–15_Regionalliga</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1._FC_Magdeburg | numberOfMembers | 27250</mtriple>
+        <mtriple>1._FC_Magdeburg | season | 2014–15_Regionalliga</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">FC Magedburg has 27250 members and was in Regionalliga in 2014.</lex>
+      <lex comment="good" lid="Id2">FC Magdeburg played in the Regionalliga in 2014-15 season and has 27250 members.</lex>
+      <lex comment="good" lid="Id3">1.FC Magdeburg has 27250 members and in the 2014-15 season they played in the Regionalliga.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id2" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A.C._Chievo_Verona | ground | "Verona, Italy"@en</otriple>
+        <otriple>A.C._Chievo_Verona | capacity | 39371</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A.C._Chievo_Verona | ground | "Verona, Italy"@en</otriple>
+        <otriple>A.C._Chievo_Verona | capacity | "39371"^^xsd:nonNegativeInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.C._Chievo_Verona | ground | "Verona, Italy"</mtriple>
+        <mtriple>A.C._Chievo_Verona | numberOfMembers | 39371</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Verona, Italy is the home to A.C. Chievo Verona which has 39371 members.</lex>
+      <lex comment="good" lid="Id2">Verona, Italy is the home to A.C. Chievo Verona who have 39371 members.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id3" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A.C._Chievo_Verona | manager | Rolando_Maran</otriple>
+        <otriple>Rolando_Maran | placeOfBirth | Italy</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.C._Chievo_Verona | manager | Rolando_Maran</mtriple>
+        <mtriple>Rolando_Maran | placeOfBirth | Italy</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Rolando Maran, who has managed AC Chievo Verona, was born in Italy.</lex>
+      <lex comment="good" lid="Id2">Associazione Calcio ChievoVerona is managed by Italian born Rolando Maran.</lex>
+      <lex comment="good" lid="Id3">The manager of A.C. Chievo Verona is Rolando Maran, who was born in Italy.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id4" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A.D._Isidro_Metapán | manager | Jorge_Humberto_Rodríguez</otriple>
+        <otriple>Jorge_Humberto_Rodríguez | team | FC_Dallas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.D._Isidro_Metapán | manager | Jorge_Humberto_Rodríguez</mtriple>
+        <mtriple>Jorge_Humberto_Rodríguez | club | FC_Dallas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Jorge Humberto Rodriguez manages A.D. Isidro Metapan. He plays for FC Dallas.</lex>
+      <lex comment="good" lid="Id2">Jorge Humberto Rodriguez, manager of A D Isidro Metapan, plays for FC Dallas.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id5" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A.E_Dimitra_Efxeinoupolis | capacity | 1500</otriple>
+        <otriple>A.E_Dimitra_Efxeinoupolis | season | 2014–15_A_EPSTH,_Greece</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A.E_Dimitra_Efxeinoupolis | capacity | "1500"^^xsd:nonNegativeInteger</otriple>
+        <otriple>A.E_Dimitra_Efxeinoupolis | season | 2014–15_A_EPSTH,_Greece</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.E_Dimitra_Efxeinoupolis | numberOfMembers | 1500</mtriple>
+        <mtriple>A.E_Dimitra_Efxeinoupolis | season | 2014–15_A_EPSTH,_Greece</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">With 1500 members, A.E Dimitra Efxeinoupolis, were in the 2014-15 A EPSTH, Greece.</lex>
+      <lex comment="good" lid="Id2">A.E Dimitra Efxeinoupolis were in the 2014–15 A EPSTH. Greece season, and have 1500 members.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id6" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A.F.C._Blackpool | manager | Stuart_Parker_(footballer)</otriple>
+        <otriple>Stuart_Parker_(footballer) | team | Blackburn_Rovers_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.F.C._Blackpool | manager | Stuart_Parker_(footballer)</mtriple>
+        <mtriple>Stuart_Parker_(footballer) | club | Blackburn_Rovers_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Stuart Parker (footballer) was at Blackburn Rovers FC and has also managed AFC Blackpool.</lex>
+      <lex comment="good" lid="Id2">The manager of A.F.C. Blackpool is Stuart Parker who played for Blackburn Rovers FC.</lex>
+      <lex comment="good" lid="Id3">Stuart Parker is the manager of A.F.C. Blackpool, and plays for Blackburn Rovers F.C.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id7" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A.F.C._Blackpool | manager | Stuart_Parker_(footballer)</otriple>
+        <otriple>Stuart_Parker_(footballer) | team | Irlam_Town_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.F.C._Blackpool | manager | Stuart_Parker_(footballer)</mtriple>
+        <mtriple>Stuart_Parker_(footballer) | club | Irlam_Town_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AFC Blackpool have had Stuart Parker as their manager, and he is attached to Irlam Town Football Club.</lex>
+      <lex comment="good" lid="Id2">The manager of A.F.C. Blackpool is Stuart Parker (footballer) who is a member of the Irlam Town F.C.</lex>
+      <lex comment="good" lid="Id3">Footballer Stuart Parker, attached to Irlam Town Football Club, also manages A.F.C. Blackpool.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id8" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A.F.C._Fylde | ground | Lancashire</otriple>
+        <otriple>A.F.C._Fylde | capacity | 3180</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A.F.C._Fylde | capacity | "3180"^^xsd:nonNegativeInteger</otriple>
+        <otriple>A.F.C._Fylde | ground | Lancashire</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.F.C._Fylde | numberOfMembers | 3180</mtriple>
+        <mtriple>A.F.C._Fylde | ground | Lancashire</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ground of AFC Fylde can be found in the county of Lancashire, it has 3180 members.</lex>
+      <lex comment="good" lid="Id2">The ground of AFC Fylde, which holds 3180 fans, can be found in the county of Lancashire.</lex>
+      <lex comment="good" lid="Id3">The ground of AFC Fylde can be found in the county of Lancashire and they have 3180 members.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id9" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A.S._Gubbio_1910 | capacity | "5300"^^xsd:nonNegativeInteger</otriple>
+        <otriple>A.S._Gubbio_1910 | ground | Gubbio</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A.S._Gubbio_1910 | ground | Gubbio</otriple>
+        <otriple>A.S._Gubbio_1910 | capacity | 5300</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.S._Gubbio_1910 | numberOfMembers | 5300</mtriple>
+        <mtriple>A.S._Gubbio_1910 | ground | Gubbio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The A.S. Gubbio 1910 has 5300 members and has a ground in Gubbio.</lex>
+      <lex comment="good" lid="Id2">A.S. Gubbio 1910, which has its ground in Gubbio, has 5300 members.</lex>
+      <lex comment="good" lid="Id3">A.S. Gubbio 1910 has 5300 members and a ground in Gubbio.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id10" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A.S._Livorno_Calcio | ground | Livorno</otriple>
+        <otriple>A.S._Livorno_Calcio | league | Serie_B</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.S._Livorno_Calcio | ground | Livorno</mtriple>
+        <mtriple>A.S._Livorno_Calcio | league | Serie_B</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A.S Livorno Calcio ground is in Livorno and the club plays in Serie B.</lex>
+      <lex comment="good" lid="Id2">AS Livorno Calcio play in Serie B, and their grounds are in Livorno.</lex>
+      <lex comment="good" lid="Id3">The AS Livorno club in Serie B plays in Livorno.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id11" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A.S._Livorno_Calcio | manager | Christian_Panucci</otriple>
+        <otriple>Christian_Panucci | team | A.S._Roma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.S._Livorno_Calcio | manager | Christian_Panucci</mtriple>
+        <mtriple>Christian_Panucci | club | A.S._Roma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Christian Panucci plays at A.S. Roma. He also manages A.S. Livorno Calcio .</lex>
+      <lex comment="good" lid="Id2">A.S Livorno Calcio is managed by Christian Panucci, who plays for A S Roma.</lex>
+      <lex comment="good" lid="Id3">A.S. Livorno Calcio is managed by Christian Panucci who plays at the A.S. Roma.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id12" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>ACF_Fiorentina | manager | Paulo_Sousa</otriple>
+        <otriple>Paulo_Sousa | team | Juventus_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ACF_Fiorentina | manager | Paulo_Sousa</mtriple>
+        <mtriple>Paulo_Sousa | club | Juventus_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The manager of ACF Fiorentina is Paulo Sousa, his club is Juventus.</lex>
+      <lex comment="good" lid="Id2">Paulo Sousa is the manager of the ACF Fiorentina and his club is Juventus.</lex>
+      </entry>
+    <entry category="SportsTeam" eid="Id13" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>ACF_Fiorentina | capacity | 47290</otriple>
+        <otriple>ACF_Fiorentina | fullname | "ACF Fiorentina S.p.A."@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>ACF_Fiorentina | fullname | "ACF Fiorentina S.p.A."@en</otriple>
+        <otriple>ACF_Fiorentina | capacity | "47290"^^xsd:nonNegativeInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ACF_Fiorentina | numberOfMembers | 47290</mtriple>
+        <mtriple>ACF_Fiorentina | fullname | "ACF Fiorentina S.p.A."</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">ACF Fiorentina has 47290 members and their full name is ACF Fiorentina S.p.A.</lex>
+      <lex comment="good" lid="Id2">The full name of ACF Fiorentia is "ACF Fiorentina S.p.A." and they have 47290 members.</lex>
+      <lex comment="good" lid="Id3">ACF Fiorentina (with full name being ACF Fiorentina S.p.A.) has 47290 members.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id14" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>AEK_Athens_F.C. | ground | Greece</otriple>
+        <otriple>AEK_Athens_F.C. | capacity | "69618"^^xsd:nonNegativeInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AEK_Athens_F.C. | ground | Greece</mtriple>
+        <mtriple>AEK_Athens_F.C. | numberOfMembers | 69618</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AEK Athens F.C. has 69618 members and its ground is in Greece.</lex>
+      <lex comment="good" lid="Id2">AEK Athens's ground is in Greece and the club has 69618 members.</lex>
+      <lex comment="good" lid="Id3">AEK Athen's ground is in Greece and has 69618 members.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id15" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>AEK_Athens_F.C. | ground | Olympic_Stadium_(Athens)</otriple>
+        <otriple>AEK_Athens_F.C. | league | Superleague_Greece</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AEK_Athens_F.C. | ground | Olympic_Stadium_(Athens)</mtriple>
+        <mtriple>AEK_Athens_F.C. | league | Superleague_Greece</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ground for AEK Athens FC, who are in the Superleague of Greece is the Olympic Stadium (Athens).</lex>
+      <lex comment="good" lid="Id2">The Olympic Stadium, in Athens, is the home ground of AEK Athens FC which is in the Superleague of Greece.</lex>
+      <lex comment="good" lid="Id3">AEK Athens F.C. play in the Superleague Greece and have the Olympic Stadium (Athens) as their home ground.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id16" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>AFC_Ajax_(amateurs) | ground | Sportpark_De_Toekomst</otriple>
+        <otriple>Sportpark_De_Toekomst | tenants | Jong_Ajax</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AFC_Ajax_(amateurs) | ground | Sportpark_De_Toekomst</otriple>
+        <otriple>Sportpark_De_Toekomst | tenant | Jong_Ajax</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AFC_Ajax_(amateurs) | ground | Sportpark_De_Toekomst</mtriple>
+        <mtriple>Sportpark_De_Toekomst | tenant | Jong_Ajax</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AFC Ajax (amateurs)'s ground is Sportpark De Toekomst where the tenant is Jong Ajax.</lex>
+      <lex comment="good" lid="Id2">Jong Ajax is the tenant of Sportpark De Toekomst which is the ground for AFC Ajac (amateurs).</lex>
+      <lex comment="good" lid="Id3">Jong Ajax are the tenants of the De Toekomst Sportpark which is the ground of AFC Ajax (amateurs).</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id17" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>AZAL_PFK | ground | AZAL_Arena</otriple>
+        <otriple>AZAL_PFK | location | "Shuvalan, Baku, Azerbaijan"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AZAL_PFK | ground | AZAL_Arena</mtriple>
+        <mtriple>AZAL_PFK | location | "Shuvalan, Baku, Azerbaijan"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AZAL Arena is the ground of AZAL PFK which is located in Shuvalan, Baku, Azerbaijan.</lex>
+      <lex comment="good" lid="Id2">AZAL Arena, Shuvalan, Baku, Azerbaijan, is the ground of AZAL PFK.</lex>
+      <lex comment="good" lid="Id3">AZAL PFK play their home matches at the AZAL Arena in Shuvalan, Baku, Azerbaijan.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id18" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Akron_Summit_Assault | capacity | "3000"^^xsd:nonNegativeInteger</otriple>
+        <otriple>Akron_Summit_Assault | season | 2011_PDL_season</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akron_Summit_Assault | season | 2011_PDL_season</otriple>
+        <otriple>Akron_Summit_Assault | capacity | 3000</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akron_Summit_Assault | season | 2011_PDL_season</mtriple>
+        <mtriple>Akron_Summit_Assault | numberOfMembers | 3000</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akron Summit Assault, 3000 members strong, play in the 2011 PDL season.</lex>
+      <lex comment="good" lid="Id2">Akron Summit Assault; has 3000 members and plays in the 2011 PDL season.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id19" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Gubbio | region | Umbria</otriple>
+        <otriple>A.S._Gubbio_1910 | ground | Gubbio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Gubbio | region | Umbria</mtriple>
+        <mtriple>A.S._Gubbio_1910 | ground | Gubbio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A.S. Gubbio 1910 has a ground in Gubbio which is a region of Umbria.</lex>
+      <lex comment="good" lid="Id2">The ground of A.S. Gubbio 1910 is in Gubbio in the region of Umbria.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id20" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Italy | leaderName | Pietro_Grasso</otriple>
+        <otriple>A.S._Gubbio_1910 | ground | Italy</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Italy | leader | Pietro_Grasso</otriple>
+        <otriple>A.S._Gubbio_1910 | ground | Italy</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Italy | leader | Pietro_Grasso</mtriple>
+        <mtriple>A.S._Gubbio_1910 | ground | Italy</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Pietro Grasso is the leader in Italy where the ground of A.S. Gubbio 1910 is located.</lex>
+      <lex comment="good" lid="Id2">The ground of A.S. Gubbio 1910 is located in Italy where Pietro Grasso is the leader.</lex>
+      <lex comment="good" lid="Id3">Pietro Grasso is the leader of Italy where the ground of A S Gubbio is located.</lex>
+    </entry>
+    <entry category="SportsTeam" eid="Id21" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Luciano_Spalletti | clubs | Empoli_F.C.</otriple>
+        <otriple>A.S._Roma | manager | Luciano_Spalletti</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Luciano_Spalletti | managerClub | Empoli_F.C.</otriple>
+        <otriple>A.S._Roma | manager | Luciano_Spalletti</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Luciano_Spalletti | team | Empoli_F.C.</otriple>
+        <otriple>A.S._Roma | manager | Luciano_Spalletti</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Luciano_Spalletti | club | Empoli_F.C.</mtriple>
+        <mtriple>A.S._Roma | manager | Luciano_Spalletti</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Luciano Spalletti, manager of AS Roma, plays for Empoli F.C.</lex>
+      <lex comment="good" lid="Id2">The manager of A.S. Roma is Luciano Spalletti who plays for Empoli F.C.</lex>
+      <lex comment="good" lid="Id3">Luciano Spalletti plays for Empoli F.C.. and manages A.S. Roma.</lex>
+    </entry>
+    </entries>
+</benchmark>

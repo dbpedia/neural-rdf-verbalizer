@@ -1,0 +1,441 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Building" eid="Id1" shape="(X (X) (X (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>103_Colmore_Row | location | Colmore_Row</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | birthPlace | Birmingham</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>103_Colmore_Row | location | Colmore_Row</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | birthPlace | Birmingham</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">103 Colmore Row was designed by John Madin who was born in Birmingham.</lex>
+      <lex comment="good" lid="Id2">103 Colmore Row was designed by Birmingham born architect John Madin.</lex>
+      <lex comment="good" lid="Id3">103 Colmore Row was designed by the architect, John Madin from Birmingham.</lex>
+    </entry>
+    <entry category="Building" eid="Id2" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>Cleveland | isPartOf | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | leaderName | Frank_G._Jackson</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>200_Public_Square | location | Cleveland</otriple>
+        <otriple>Cleveland | subdivisionName | Cuyahoga_County,_Ohio</otriple>
+        <otriple>Cleveland | leaderName | Frank_G._Jackson</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>200_Public_Square | location | Cleveland</mtriple>
+        <mtriple>Cleveland | isPartOf | Cuyahoga_County,_Ohio</mtriple>
+        <mtriple>Cleveland | leaderName | Frank_G._Jackson</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">200 Public Square is located in Cleveland, part of Cuyahoga County, Ohio which is led by Frank G Jackson.</lex>
+      <lex comment="good" lid="Id2">200 Public square is in Cleveland which is part of Cuyahoga County, Ohio. The leader in Cleveland is Frank G Jackson.</lex>
+      <lex comment="good" lid="Id3">Frank G Jackson leads Cleveland, part of Cuyahoga County in Ohio where 200 Public Square is located.</lex>
+    </entry>
+    <entry category="Building" eid="Id3" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>250_Delaware_Avenue | location | United_States</otriple>
+        <otriple>250_Delaware_Avenue | floorArea | "30843.8"^^xsd:double</otriple>
+        <otriple>250_Delaware_Avenue | floorCount | 12</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>250_Delaware_Avenue | location | United_States</otriple>
+        <otriple>250_Delaware_Avenue | floorArea | "30843.8"^^xsd:double</otriple>
+        <otriple>250_Delaware_Avenue | floorCount | "12"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>250_Delaware_Avenue | location | United_States</mtriple>
+        <mtriple>250_Delaware_Avenue | floorArea | 30843.8 (square metres)</mtriple>
+        <mtriple>250_Delaware_Avenue | floorCount | 12</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">250 Delaware Avenue in the United States has 12 floors that cover 30843.8 square metres.</lex>
+      <lex comment="good" lid="Id2">250 Delaware Avenue in the United States has 12 floors with a total floor area of 30843.8 square metres.</lex>
+      <lex comment="good" lid="Id3">250 Delaware Avenue is located in the United States. It has a floor area of 30843.8 square metres and a floor count of 12.</lex>
+    </entry>
+    <entry category="Building" eid="Id4" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>300_North_LaSalle | location | Chicago</otriple>
+        <otriple>Chicago | leaderName | Rahm_Emanuel</otriple>
+        <otriple>Chicago | isPartOf | DuPage_County,_Illinois</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>300_North_LaSalle | location | Chicago</mtriple>
+        <mtriple>Chicago | leaderName | Rahm_Emanuel</mtriple>
+        <mtriple>Chicago | isPartOf | DuPage_County,_Illinois</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">300 North LaSalle is located in Chicago, DuPage County in Illinois, where Rahm Emanuel is the leader.</lex>
+      <lex comment="good" lid="Id2">300 North LaSalle is located in Chicago, part of DuPage County, Illinois where Rahm Emanuel is a leader.</lex>
+      <lex comment="good" lid="Id3">Rahm Emanuel is the leader of Chicago, which is a part of Dupage County Illinois and the location of 300 North LaSalle.</lex>
+    </entry>
+    <entry category="Building" eid="Id5" shape="(X (X) (X (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>320_South_Boston_Building | architect | George_Winkler</otriple>
+        <otriple>George_Winkler | country | United_States</otriple>
+        <otriple>320_South_Boston_Building | floorCount | "22"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>320_South_Boston_Building | architect | George_Winkler</otriple>
+        <otriple>George_Winkler | country | United_States</otriple>
+        <otriple>320_South_Boston_Building | floorCount | 22</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>320_South_Boston_Building | architect | George_Winkler</mtriple>
+        <mtriple>George_Winkler | country | United_States</mtriple>
+        <mtriple>320_South_Boston_Building | floorCount | 22</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">George Winkler, United States, is the architect of the 22 floor 320 South Boston Building.</lex>
+      <lex comment="good" lid="Id2">George Winkler from the United States was the architect of 320 South Boston Building. 320 South Boston Street has 22 floors.</lex>
+    </entry>
+    <entry category="Building" eid="Id6" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>3Arena | location | "North Wall Quay"@en</otriple>
+        <otriple>3Arena | architect | "HOK SVE"@en</otriple>
+        <otriple>3Arena | completionDate | "December 2008"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>3Arena | location | "North Wall Quay"@en</otriple>
+        <otriple>3Arena | buildingEndDate | "December 2008"</otriple>
+        <otriple>3Arena | architect | "HOK SVE"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>3Arena | location | "North Wall Quay"</mtriple>
+        <mtriple>3Arena | architect | "HOK SVE"</mtriple>
+        <mtriple>3Arena | completionDate | "December 2008"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">HOK SVE was the architect of the 3Arena which was completed in December 2008 and located on North Wall Quay.</lex>
+      <lex comment="good" lid="Id2">Arcitect HOK SVE, completed the 3Arena on North Wall Quay in December 2008.</lex>
+    </entry>
+    <entry category="Building" eid="Id7" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | location | Denmark</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | 23</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AC Hotel Bella Sky Copenhagen has 23 floors and is located in Denmark. The tenant is Marriott International.</lex>
+      <lex comment="good" lid="Id2">AC Hotel Bella Sky Copenhagen, whose tenant is Marriott International, has 23 floors and is located in Copenhagen Denmark.</lex>
+    </entry>
+    <entry category="Building" eid="Id8" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | "23"^^xsd:positiveInteger</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | architect | 3XN</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | floorCount | 23</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The tenant of the AC Hotel Bella Sky Copenhagen, which has 23 floors and was designed by 3XN, is the Marriott International.</lex>
+      <lex comment="good" lid="Id2">Marriott International is the tenant of AC Hotel Bella Sky Copenhagen, that was designed by the architects of the 3XN firm and has 23 floors.</lex>
+    </entry>
+    <entry category="Building" eid="Id9" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Adare_Manor | architect | Augustus_Pugin</otriple>
+        <otriple>Augustus_Pugin | significantBuildings | Palace_of_Westminster</otriple>
+        <otriple>Augustus_Pugin | birthPlace | Bloomsbury</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adare_Manor | architect | Augustus_Pugin</otriple>
+        <otriple>Augustus_Pugin | significantBuilding | Palace_of_Westminster</otriple>
+        <otriple>Augustus_Pugin | birthPlace | Bloomsbury</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adare_Manor | architect | Augustus_Pugin</mtriple>
+        <mtriple>Augustus_Pugin | significantBuilding | Palace_of_Westminster</mtriple>
+        <mtriple>Augustus_Pugin | birthPlace | Bloomsbury</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Augustus Pugin who was born in Bloomsbury is the architect of Adare Manor. Another of his significant buildings is the Palace of Westminster.</lex>
+      <lex comment="good" lid="Id2">Augustus Pugin, born in Bloomsbury, designed Adare Manor and Palace Of Westminster.</lex>
+    </entry>
+    <entry category="Building" eid="Id10" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Adare_Manor | architect | Philip_Charles_Hardwick</otriple>
+        <otriple>Adare_Manor | completionDate | 1862</otriple>
+        <otriple>Adare_Manor | owner | J._P._McManus</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adare_Manor | architect | Philip_Charles_Hardwick</mtriple>
+        <mtriple>Adare_Manor | completionDate | 1862</mtriple>
+        <mtriple>Adare_Manor | owner | J._P._McManus</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adare Manor was designed by architect Philip Charles Hardwick and construction finished in 1862. The Manor is owned by J P McManus.</lex>
+      <lex comment="good" lid="Id2">Adare Manor's architect was Philip Charles Hardwick and it was completed in 1862. JP McManus owns Adare Manor.</lex>
+      <lex comment="good" lid="Id3">Designed by architect Philip Charles Hardwick, The Adare Manor was completed in 1862 and is now owned by J P McManus.</lex>
+    </entry>
+    <entry category="Building" eid="Id11" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"@en</otriple>
+        <otriple>Adisham_Hall | completionDate | 1931</otriple>
+        <otriple>Adisham_Hall | location | Haputale</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"@en</otriple>
+        <otriple>Adisham_Hall | buildingEndDate | "1931"</otriple>
+        <otriple>Adisham_Hall | location | Haputale</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"</mtriple>
+        <mtriple>Adisham_Hall | completionDate | 1931</mtriple>
+        <mtriple>Adisham_Hall | location | Haputale</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adisham Hall is located in Haputale and was completed in the Tudor and Jacobean style in 1931.</lex>
+      <lex comment="good" lid="Id2">Adisham Hall, in the Tudor and Jacobean architectural style, completed in 1931 and located in Haputale.</lex>
+      <lex comment="good" lid="Id3">Adisham Hall in Haputale was finished in 1931 in the Tudor and Jacobean style.</lex>
+    </entry>
+    <entry category="Building" eid="Id12" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"@en</otriple>
+        <otriple>Adisham_Hall | completionDate | 1931</otriple>
+        <otriple>Adisham_Hall | location | Sri_Lanka</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"@en</otriple>
+        <otriple>Adisham_Hall | location | Sri_Lanka</otriple>
+        <otriple>Adisham_Hall | buildingEndDate | "1931"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adisham_Hall | architecturalStyle | "Tudor and Jacabian"</mtriple>
+        <mtriple>Adisham_Hall | location | Sri_Lanka</mtriple>
+        <mtriple>Adisham_Hall | completionDate | 1931</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adisham Hall, which was finished in 1931, is located in Sri Lanka and has an architectural style known as Tudor and Jacabian.</lex>
+      <lex comment="good" lid="Id2">Adisham Hall, Sri Lanka was finished in 1931 and is in the architectural style of "Tudor and Jacobean".</lex>
+    </entry>
+    <entry category="Building" eid="Id13" shape="(X (X) (X (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Adisham_Hall | locationCountry | Sri_Lanka</otriple>
+        <otriple>Sri_Lanka | leader | Ranil_Wickremesinghe</otriple>
+        <otriple>Adisham_Hall | location | Haputale</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adisham_Hall | locationCountry | Sri_Lanka</otriple>
+        <otriple>Adisham_Hall | location | Haputale</otriple>
+        <otriple>Sri_Lanka | leaderName | Ranil_Wickremesinghe</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adisham_Hall | country | Sri_Lanka</mtriple>
+        <mtriple>Adisham_Hall | location | Haputale</mtriple>
+        <mtriple>Sri_Lanka | leaderName | Ranil_Wickremesinghe</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adisham Hall is located in Haputale, Sri Lanka where the leader is Ranil Wickremesinghe.</lex>
+      <lex comment="good" lid="Id2">Adisham Hall is located in Haputale, Sri Lanka, whose leader is Ranil Wickremesinghe.</lex>
+    </entry>
+    <entry category="Building" eid="Id14" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Adisham_Hall | locationCountry | Sri_Lanka</otriple>
+        <otriple>Sri_Lanka | capital | Sri_Jayawardenepura_Kotte</otriple>
+        <otriple>Sri_Lanka | currency | Sri_Lankan_rupee</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adisham_Hall | country | Sri_Lanka</mtriple>
+        <mtriple>Sri_Lanka | capital | Sri_Jayawardenepura_Kotte</mtriple>
+        <mtriple>Sri_Lanka | currency | Sri_Lankan_rupee</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Sri Jayawardenepura Kotte is the capital of Sri Lanka, whose currency is the rupee. Adisham Hall is located in Sri Lanka.</lex>
+      <lex comment="good" lid="Id2">Sri Jayawardenepura Kotte is the capital of Sri Lanka, which uses the Sri Lankan rupee as its currency and is the location of Adisham Hall.</lex>
+    </entry>
+    <entry category="Building" eid="Id15" shape="(X (X) (X (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Alan_B._Miller_Hall | startDate | "2007-03-30"^^xsd:date</otriple>
+        <otriple>Mason_School_of_Business | country | United_States</otriple>
+        <otriple>Alan_B._Miller_Hall | currentTenants | Mason_School_of_Business</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alan_B._Miller_Hall | buildingStartDate | "30 March 2007"</otriple>
+        <otriple>Mason_School_of_Business | country | United_States</otriple>
+        <otriple>Alan_B._Miller_Hall | currentTenants | Mason_School_of_Business</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_B._Miller_Hall | buildingStartDate | "30 March 2007"</mtriple>
+        <mtriple>Mason_School_of_Business | country | United_States</mtriple>
+        <mtriple>Alan_B._Miller_Hall | currentTenants | Mason_School_of_Business</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan B. Miller Hall was started on March 30,2007 and has The Mason School of Business in the U.S. as a tenant.</lex>
+      <lex comment="good" lid="Id2">Alan B. Miller Hall's building opened in 30th March 2007. The Mason School of Business in the United States are the current tenants of Alan B Miller Hall.</lex>
+    </entry>
+    <entry category="Building" eid="Id16" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</otriple>
+        <otriple>Julia_Morgan | birthPlace | San_Francisco</otriple>
+        <otriple>Julia_Morgan | significantBuilding | Riverside_Art_Museum</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</mtriple>
+        <mtriple>Julia_Morgan | birthPlace | San_Francisco</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Riverside_Art_Museum</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Julia Morgan was born in San Francisco and is the architect of the grounds of Asilomar Conference at the Riverside Art Museum.</lex>
+      <lex comment="good" lid="Id2">San Francisco born Julia Morgan was the architect of the Asilomar Conference Grounds and she also designed other significant buildings including the Riverside Art Museum.</lex>
+      <lex comment="good" lid="Id3">Julia Morgan, born in San Francisco, designed the significant Riverside Art Museum and the Asilomar Conference Grounds.</lex>
+    </entry>
+    <entry category="Building" eid="Id17" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</otriple>
+        <otriple>Julia_Morgan | significantBuilding | Chinatown,_San_Francisco</otriple>
+        <otriple>Julia_Morgan | birthPlace | California</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | architect | Julia_Morgan</mtriple>
+        <mtriple>Julia_Morgan | significantBuilding | Chinatown,_San_Francisco</mtriple>
+        <mtriple>Julia_Morgan | birthPlace | California</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Julia Morgan who was born in California, is the architect behind Chinatown in San Francisco and designed the Asilomar Conference Grounds.</lex>
+      <lex comment="good" lid="Id2">Julia Morgan, who was born in California, was the architect of the Asilomar Conference Grounds and designed many significant buildings in Chinatown, San Francisco.</lex>
+      <lex comment="good" lid="Id3">Californian born Julia Morgan designed significant buildings in Chinatown, San Francisco and also the Asilomar Conference Grounds.</lex>
+    </entry>
+    <entry category="Building" eid="Id18" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Asilomar_Conference_Grounds | location | "Asilomar Blvd., Pacific Grove, California"@en</otriple>
+        <otriple>Asilomar_Conference_Grounds | added | "1987-02-27"^^xsd:date</otriple>
+        <otriple>Asilomar_Conference_Grounds | nrhpReferenceNumber | "87000823"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asilomar_Conference_Grounds | location | "Asilomar Blvd., Pacific Grove, California"</mtriple>
+        <mtriple>Asilomar_Conference_Grounds | added to the National Register of Historic Places | "1987-02-27"</mtriple>
+        <mtriple>Asilomar_Conference_Grounds | ReferenceNumber in the National Register of Historic Places | "87000823"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Asilomar Conference Grounds, located at Asilomar Blvd., Pacific Grove, California, was added to the National Register of Historis Places February 27, 1987 and has the reference number 87000823.</lex>
+      <lex comment="good" lid="Id2">Asilomar Conference Grounds are located at Asilomar Blvd, Pacific Grove California and given the reference of 87000823 in the National Register of Historic Places on 27 February 1987.</lex>
+    </entry>
+    <entry category="Building" eid="Id19" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | built | 1904</otriple>
+        <otriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</otriple>
+        <otriple>Asser_Levy_Public_Baths | yearOfConstruction | "1904"^^xsd:gYear</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | Avenue_A_(Manhattan)</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | yearOfConstruction | 1904</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | added to the National Register of Historic Places | "1980-04-23"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Asser Levy Public Baths were built in 1904 at Avenue A, Manhattan. They were added to the National Register of Historic Places on "1980-04-23".</lex>
+      <lex comment="good" lid="Id2">Asser Levy Public Baths were constructed in 1904 at Avenue A, Manhattan. They were added to the National Register of Historic Places on 23rd April 1980.</lex>
+      <lex comment="good" lid="Id3">Asser Levy Public Baths in Avenue A, Manhattan. was constructed in 1904 and added to the National Register of Historic Places on 1980-04-23.</lex>
+    </entry>
+    <entry category="Building" eid="Id20" shape="(X (X) (X) (X))" shape_type="sibling" size="3">
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>Asser_Levy_Public_Baths | yearOfConstruction | "1904"^^xsd:gYear</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Asser_Levy_Public_Baths | location | New_York_City</otriple>
+        <otriple>Asser_Levy_Public_Baths | built | 1904</otriple>
+        <otriple>Asser_Levy_Public_Baths | added | "1980-04-23"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Asser_Levy_Public_Baths | location | New_York_City</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | yearOfConstruction | 1904</mtriple>
+        <mtriple>Asser_Levy_Public_Baths | added to the National Register of Historic Places | "1980-04-23"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Asser Levy Public Baths was built in 1904 and are in New York City. They were added to the National Register of Historic Places on "1980-04-23".</lex>
+      <lex comment="good" lid="Id2">The Asser Levy Public Baths in New York City were built in 1904 and added to the National Register of Historic Places on "1980-04-23".</lex>
+      <lex comment="good" lid="Id3">Asser Levy Public Baths located in New York City were constructed in 1904 and added to the National Register of Historic Places on 1980-04-23.</lex>
+    </entry>
+    <entry category="Building" eid="Id21" shape="(X (X (X (X))))" shape_type="chain" size="3">
+      <originaltripleset>
+        <otriple>Birmingham | leaderName | Conservative_Party_(UK)</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | hometown | Birmingham</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Birmingham | leaderName | Conservative_Party_(UK)</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | hometown | Birmingham</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Birmingham is the Conservative Party (UK), this city is the home town of John Madin who was the architect that designed 103 Colmore Row.</lex>
+    </entry>
+    <entry category="Building" eid="Id22" shape="(X (X (X (X))))" shape_type="chain" size="3">
+      <originaltripleset>
+        <otriple>Birmingham | leaderName | Liberal_Democrats</otriple>
+        <otriple>103_Colmore_Row | architect | John_Madin</otriple>
+        <otriple>John_Madin | birthPlace | Birmingham</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Birmingham | leaderName | Liberal_Democrats</mtriple>
+        <mtriple>103_Colmore_Row | architect | John_Madin</mtriple>
+        <mtriple>John_Madin | birthPlace | Birmingham</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Birmingham is led by the Liberal Democrats and is the birthplace of the architect John Madin who designed 103 Colmore Row.</lex>
+      <lex comment="good" lid="Id2">Architect John Madin, born in Birmingham (led by the Liberal Democrats), designed 103 Colmore Row.</lex>
+      <lex comment="good" lid="Id3">John Madin, designer of 103 Colmore Row , was born in Birmingham, currently led by the Liberal Democrats.</lex>
+    </entry>
+    <entry category="Building" eid="Id23" shape="(X (X (X (X))))" shape_type="chain" size="3">
+      <originaltripleset>
+        <otriple>Ethiopia | leaderName | Hailemariam_Desalegn</otriple>
+        <otriple>Addis_Ababa_City_Hall | location | Addis_Ababa</otriple>
+        <otriple>Addis_Ababa | country | Ethiopia</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ethiopia | leader | Hailemariam_Desalegn</otriple>
+        <otriple>Addis_Ababa_City_Hall | location | Addis_Ababa</otriple>
+        <otriple>Addis_Ababa | country | Ethiopia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ethiopia | leaderName | Hailemariam_Desalegn</mtriple>
+        <mtriple>Addis_Ababa_City_Hall | location | Addis_Ababa</mtriple>
+        <mtriple>Addis_Ababa | country | Ethiopia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Ethiopia is Hailemariam Desalegn and Addis Ababa City Hall is located in Addis Ababa located in Ethiopia.</lex>
+      <lex comment="good" lid="Id2">Addis Ababa City Hall is located in Addis Ababa, Ethiopia, which is led by Hailemariam Desalegn.</lex>
+    </entry>
+    <entry category="Building" eid="Id24" shape="(X (X) (X (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Gujarat | leaderName | Anandiben_Patel</otriple>
+        <otriple>Amdavad_ni_Gufa | location | Ahmedabad</otriple>
+        <otriple>Amdavad_ni_Gufa | locationTown | Gujarat</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Amdavad_ni_Gufa | location | Gujarat</otriple>
+        <otriple>Gujarat | leaderName | Anandiben_Patel</otriple>
+        <otriple>Amdavad_ni_Gufa | locationTown | Ahmedabad</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Gujarat | leaderName | Anandiben_Patel</mtriple>
+        <mtriple>Amdavad_ni_Gufa | location | Ahmedabad</mtriple>
+        <mtriple>Amdavad_ni_Gufa | location | Gujarat</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anandiben Patel is the leader of Gujarat, the location of Amdavad ni Gufa in Ahmedabad.</lex>
+      <lex comment="good" lid="Id2">Amdavad ni Gufa is located in Ahmedebad, Gujarat. The leader of Gujurat was Anandiben Patel.</lex>
+      <lex comment="good" lid="Id3">Amdavad ni Gufa is located in Ahmedabad, Gujarat. The leader of Gujarat is Anandiben Patel.</lex>
+    </entry>
+    <entry category="Building" eid="Id25" shape="(X (X (X) (X)))" shape_type="mixed" size="3">
+      <originaltripleset>
+        <otriple>Marriott_International | location | Bethesda,_Maryland</otriple>
+        <otriple>AC_Hotel_Bella_Sky_Copenhagen | operator | Marriott_International</otriple>
+        <otriple>Marriott_International | keyPerson | Bill_Marriott</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Marriott_International | location | Bethesda,_Maryland</mtriple>
+        <mtriple>AC_Hotel_Bella_Sky_Copenhagen | tenant | Marriott_International</mtriple>
+        <mtriple>Marriott_International | keyPerson | Bill_Marriott</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Bill Marriott is one of the key people at the Marriott International based in Bethesda, Maryland and which is a tenant of AC Hotel Bella Sky Copenhagen.</lex>
+      <lex comment="good" lid="Id2">Marriott International, where Bill Marriott is one of the key people, is located in Bethesda Maryland and is the tenant of AC Hotel Bella Sky Copenhagen.</lex>
+    </entry>
+    </entries>
+</benchmark>
