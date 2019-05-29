@@ -3,11 +3,8 @@ as tf.data files
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
 import tensorflow as tf 
-from bert_embedding import BertEmbedding 
-
 
 tf.enable_eager_execution()
-
 
 import matplotlib.pyplot as plt 
 from sklearn.model_selection import train_test_split
@@ -22,7 +19,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
-'--path', type=str, required=True, help='Path to source.lex file')
+'--src_path', type=str, required=True, help='Path to source.triple file')
+parser.add_argument(
+'--tgt_path', type=str, required=True, help='Path to target.lex file')
 parser.add_argument(
 '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
@@ -35,9 +34,8 @@ def unicode_to_ascii(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s)
         if unicodedata.category(c) != 'Mn')
 
-
 def preprocess_sentence(w):
-    w = unicode_to_ascii(w.strip())
+    w = unicode_to_ascii(w.lower().strip())
 
     # creating a space between a word and the punctuation following it
     # eg: "he is a boy." => "he is a boy ."
@@ -55,64 +53,62 @@ def preprocess_sentence(w):
     w = '<start> ' + w + ' <end>'
     return w
 
+def create_dataset(src_path, tgt_path, num_examples):
+    src_lines = io.open(src_path, encoding='UTF-8').read().strip().split('\n')
+    tgt_lines = io.open(tgt_path, encoding='UTF-8').read().strip().split('\n')
+
+    src_lines = [preprocess_sentence(w) for w in src_lines]
+    tgt_lines = [preprocess_sentence(w) for w in tgt_lines]
+
+    return (src_lines, tgt_lines)
+
 def max_length(tensor):
     return max(len(t) for t in tensor)
 
 def tokenize(lang):
-    lang_tokenizer = tf.keras.preprocessing.text.Tokenizer(
-        filters='')
-    lang_tokenizer.fit_on_texts(lang)
+  lang_tokenizer = tf.keras.preprocessing.text.Tokenizer(
+      filters='')
+  lang_tokenizer.fit_on_texts(lang)
 
-    tensor = lang_tokenizer.texts_to_sequences(lang)
+  tensor = lang_tokenizer.texts_to_sequences(lang)
 
-    tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
-                                                            padding='post')
+  tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
+                                                         padding='post')
 
-    return tensor, lang_tokenizer
+  return tensor, lang_tokenizer
 
-def create_dataset(path, num_examples):
-    lines = io.open(path, encoding='UTF-8').read().strip().split('\n')
-    lines = [preprocess_sentence(w) for w in lines]
-
-    return lines
-
-
-def load_dataset(path, num_examples=None):
+def load_dataset(src_path, tgt_path, num_examples=None):
     # creating cleaned input, output pairs
-    targ_lang, inp_lang = create_dataset(path, num_examples)
+    inp_lang, targ_lang = create_dataset(src_path, tgt_path, num_examples)
 
     input_tensor, inp_lang_tokenizer = tokenize(inp_lang)
     target_tensor, targ_lang_tokenizer = tokenize(targ_lang)
 
     return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
 
-def load_dataset(path, num_examples=None):
-    # creating cleaned input, output pairs
-    targ_lang = create_dataset(path, num_examples)
-    target_tensor, targ_lang_tokenizer = tokenize(targ_lang)
-
-    return target_tensor, targ_lang_tokenizer
-
 def convert(lang, tensor):
   for t in tensor:
     if t!=0:
       print ("%d ----> %s" % (t, lang.index_word[t]))
 
+def get_dataset(src_path, tgt_path, num_examples=None):
+  input_tensor, target_tensor, input_lang, target_lang = load_dataset(src_path, tgt_path, num_examples)
 
-def get_dataset(args):
-    path = args.path 
-    dest = create_dataset(path, None)
-    target_tensor, targ_lang = load_dataset(path, None)
-    max_length_target = max_length(target_tensor)
-    BUFFER_SIZE = len(target_tensor)
-    steps_per_epoch = BUFFER_SIZE//args.batch_size
-    embedding_dim = args.emb_dim 
-    vocab_tar_size = len(targ_lang.word_index) + 1
+  BUFFER_SIZE = len(input_tensor)
+  BATCH_SIZE = args.batch_size 
+  steps_per_epoch = len(input_tensor)//BATCH_SIZE
+  vocab_inp_size = len(input_lang.word_index)+1
+  vocab_tgt_size = len(target_lang.word_index)+1
 
-    dataset = tf.data.Dataset.from_tensor_slices(target_tensor).shuffle(BUFFER_SIZE)
-    dataset = dataset.batch(args.batch_size, drop_remainder=True)
+  dataset = tf.data.Dataset.from_tensor_slices((input_tensor, target_tensor)).shuffle(BUFFER_SIZE)
+  dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-    return dataset
+  return dataset
+
+
+
+
+
     
 
     
