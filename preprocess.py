@@ -1,6 +1,17 @@
 """ Script to preprocess the .triple files to 
 create graphs using the networkx library, and
 save the adjacency matrix as numpy array 
+
+ Takes in the .triple file which has each RDF triple 
+ from the dataset in <subject | predicate | object>
+ form. Also uses networkx library to represent each 
+ example instance s a graph and get the adjacency matrix 
+ as a numpy array or a tf.Tensor 
+
+ Then creates a dataset file with each entry being the 
+ adjacency matrix of that graph, combined with nodes of 
+ the graph whose embeddings are used as node features 
+ are used as inputs to the Graph Neural Network encoder. 
 """
 import tensorflow as tf 
 from bert_embedding import BertEmbedding 
@@ -11,11 +22,10 @@ import argparse
 
 parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
-'--path', type=str, required=False, help='Path to source.lex file')
+'--path', type=str, required=False, help='Path to source.triple file')
 parser.add_argument(
-'--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix, feat -> feature matrix')
-parser.add_argument(
-'--emb', type=int, required=True, help='Embedding size')
+'--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix')
+
 args = parser.parse_args()
 
 def pre_process(path):
