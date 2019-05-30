@@ -486,7 +486,7 @@ def _unflatten_beam_dim(tensor, batch_size, beam_size):
   return tf.reshape(tensor, new_shape)
 
 
-def _gather_beams(nested, beam_indices, batch_size, new_beam_size):
+def _gather_beams(nested: object, beam_indices: object, batch_size: object, new_beam_size: object) -> object:
   """Gather beams from nested structure of tensors.
 
   Each tensor in nested represents a batch of beams, where beam refers to a
