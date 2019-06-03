@@ -16,6 +16,7 @@ import os
 import io
 import time
 import argparse
+import pickle
 
 # Converts the unicode file to ascii
 def unicode_to_ascii(s):
@@ -52,6 +53,12 @@ def create_dataset(src_path, tgt_path, num_examples):
 
     return (src_lines, tgt_lines)
 
+def create_gat_dataset(tgt_path, num_examples):
+    tgt_lines = io.open(tgt_path, encoding='UTF-8').read().strip().split('\n')
+    tgt_lines = [preprocess_sentence(w) for w in tgt_lines]
+
+    return tgt_lines  
+
 
 def max_length(tensor):
     return max(len(t) for t in tensor)
@@ -79,6 +86,15 @@ def load_dataset(src_path, tgt_path, num_examples=None):
 
     return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
 
+def load_gat_dataset(adj_path, nodes_path, tgt_path, num_examples=None):
+    targ_lang = create_gat_dataset(tgt_path, num_examples)
+    targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
+    graph_adj = np.load(adj_path) 
+    with open(nodes_path, 'rb') as f:
+        graph_nodes = pickle.load(f) 
+
+    return graph_adj, graph_nodes, targ_tensor, targ_lang_tokenizer
+
 
 def convert(lang, tensor):
     for t in tensor:
@@ -87,6 +103,7 @@ def convert(lang, tensor):
 
 
 def get_dataset(args):
+
     input_tensor, target_tensor, input_lang, target_lang = load_dataset(args.src_path, args.tgt_path, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
@@ -95,10 +112,24 @@ def get_dataset(args):
     vocab_inp_size = len(input_lang.word_index) + 1
     vocab_tgt_size = len(target_lang.word_index) + 1
 
+    print(len(input_tensor))
     dataset = tf.data.Dataset.from_tensor_slices((input_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
     return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size
+
+def get_gat_dataset(args):
+
+    target_tensor, target_lang = load_gat_dataset(args)
+
+    BUFFER_SIZE = len(target_tensor)
+    BATCH_SIZE = args.batch_size
+    steps_per_epoch = len(target_tensor) // BATCH_SIZE
+    vocab_tgt_size = len(target_lang.word_index) + 1
+
+    print(BUFFER_SIZE)
+
+
 
 
 

@@ -18,6 +18,7 @@ import tensorflow as tf
 import numpy as np
 import networkx as nx
 import argparse
+import pickle
 
 parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
@@ -95,7 +96,8 @@ if __name__ == '__main__':
         tensor = np.array(tensor)
         print(tensor.shape)
         np.save('data/graph_adj', tensor)
-        np.save('data/graph_nodes', nodes)
+        with open('data/graph_nodes', 'wb') as fp:
+            pickle.dump(nodes, fp)
     else:
         if args.emb != 768:
             model = "bert_24_1024_16"
