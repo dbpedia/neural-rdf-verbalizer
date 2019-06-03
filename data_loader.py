@@ -120,14 +120,20 @@ def get_dataset(args):
 
 def get_gat_dataset(args):
 
-    target_tensor, target_lang = load_gat_dataset(args)
+    graph_adj, graph_nodes, target_tensor, target_lang = load_gat_dataset(args.graph_adj, args.graph_nodes,
+                                                                            args.tgt_path, args.num_examples)
 
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(target_tensor) // BATCH_SIZE
     vocab_tgt_size = len(target_lang.word_index) + 1
 
-    print(BUFFER_SIZE)
+    dataset = tf.data.Dataset.from_tensor_slices((graph_adj, target_tensor)).shuffle(BUFFER_SIZE)
+    dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
+    print(graph_adj[-1])
+    convert(target_lang, target_tensor[-1])
+
+    return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size
 
 
 

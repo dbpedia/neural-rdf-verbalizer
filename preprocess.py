@@ -34,12 +34,14 @@ def pre_process(path):
     count = 0
     for line in dest:
         g = nx.MultiDiGraph()
-
+        temp_edge = []
         triple_list = line.split('< TSP >')
         for l in triple_list:
             l = l.strip().split(' | ')
             print(l)
             g.add_edge(l[0], l[2], label=l[1])
+            temp_edge.append(l[1])
+        edges.append(temp_edge)
         nodes.append(list(g.nodes))
         array = nx.to_numpy_array(g)
         print(array)
@@ -92,12 +94,15 @@ if __name__ == '__main__':
     if args.opt == 'adj':
         tensor = []
         nodes = []
+        edges = []
         pre_process(args.path)
         tensor = np.array(tensor)
         print(tensor.shape)
         np.save('data/graph_adj', tensor)
         with open('data/graph_nodes', 'wb') as fp:
             pickle.dump(nodes, fp)
+        with open('data/graph_edges', 'wb') as fp:
+            pickle.dump(edges, fp)
     else:
         if args.emb != 768:
             model = "bert_24_1024_16"

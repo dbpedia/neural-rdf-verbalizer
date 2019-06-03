@@ -12,7 +12,7 @@ from six.moves import xrange
 from absl import app as absl_app
 from absl import flags
 
-from data_loader import get_dataset, gat_gat_dataset
+from data_loader import get_dataset, get_gat_dataset, convert
 from src.models import model_params
 from src.layers.encoders import Encoder
 from src.models import transformer
@@ -36,6 +36,10 @@ parser.add_argument(
 parser.add_argument(
     '--tgt_path', type=str, required=True, help='Path to target.lex file')
 parser.add_argument(
+    '--graph_adj', type=str, required=True, help='Path to adj matrices of examples')
+parser.add_argument(
+    '--graph_nodes', type=str, required=True, help='Path to nodes list of each example')
+parser.add_argument(
     '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
     '--emb_dim', type=int, required=True, help='Embedding dimension')
@@ -49,7 +53,9 @@ parser.add_argument(
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.enc_type == 'gat':
-        dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_gat_dataset(args)
+        dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size = get_gat_dataset(args)
+        example_input_batch, example_target_batch= next(iter(dataset))
+        
 
     else:
         dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
