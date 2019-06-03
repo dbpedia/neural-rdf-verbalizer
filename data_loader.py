@@ -1,4 +1,4 @@
-"""Script to load the target sentences annd process, save them
+"""Script to load the target sentences and process, save them
 as tf.data files
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
@@ -16,18 +16,6 @@ import os
 import io
 import time
 import argparse
-
-parser = argparse.ArgumentParser(description="preprocessor parser")
-parser.add_argument(
-    '--src_path', type=str, required=True, help='Path to source.triple file')
-parser.add_argument(
-    '--tgt_path', type=str, required=True, help='Path to target.lex file')
-parser.add_argument(
-    '--batch_size', type=int, required=True, help='Batch size')
-parser.add_argument(
-    '--emb_dim', type=int, required=True, help='Embedding dimension')
-args = parser.parse_args()
-
 
 # Converts the unicode file to ascii
 def unicode_to_ascii(s):
@@ -98,8 +86,8 @@ def convert(lang, tensor):
             print("%d ----> %s" % (t, lang.index_word[t]))
 
 
-def get_dataset(src_path, tgt_path, num_examples=None):
-    input_tensor, target_tensor, input_lang, target_lang = load_dataset(src_path, tgt_path, num_examples)
+def get_dataset(args):
+    input_tensor, target_tensor, input_lang, target_lang = load_dataset(args.src_path, args.tgt_path, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
@@ -110,7 +98,7 @@ def get_dataset(src_path, tgt_path, num_examples=None):
     dataset = tf.data.Dataset.from_tensor_slices((input_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-    return dataset
+    return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size
 
 
 
