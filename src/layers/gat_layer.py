@@ -3,6 +3,7 @@
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
+from src.layers.attention_layer import SelfAttention
 
 import numpy as np
 import tensorflow as tf
@@ -13,7 +14,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
     Graph Attention Network Layer, takes input and returns embedded
     node features with self attention applied on the feature matrix
     """
-    def __init__(self, in_dim, out_dim, dropout=0.2,
+    def __init__(self, in_dim, out_dim, num_heads,dropout=0.2,
                  bias=False, edges=True, train=True):
         """
         Initialises Graph Attention Layer
@@ -30,17 +31,23 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         :param train: in training mode or eval mode
         :type train: Bool
         """
-        in_dim = self.in_dim
-        out_dim = self.out_dim
-        dropout = self.dropout
-        bias = self.bias
-        edges = self.edges
-        train = self.train
 
-        #Initialise q, k, and v weights 
-        wQ = tf.get_variable("Q_matrix", shape=[])
+        self.in_dim = in_dim
+        self.out_dim = out_dim
+        self.dropout = dropout
+        self.bias = bias
+        self.edges = edges
+        self.train = train
+        self.num_heads = num_heads
 
-    def call(self, inputs, adj, num_heads):
+        self.w1_layer = tf.keras.layers.Dense(
+            self.out_dim, use_bias=True, name="Weights_1", kernel_initializer='glorot_normal',
+            bias_initializer='zeros'
+        )
+        self.self_attention = SelfAttention(out_dim, num_heads, dropout)
+
+
+    def __call__(self, inputs, adj, num_heads):
         """
         Propagates the adjacency matrix and node feature matrix through
         the layer and calculates the attention coefficients.
@@ -51,20 +58,30 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         eij =  softmax(h') 
         
         :param inputs: node feature matrix 
-        :type inputs: tf.tensor 
+        :type inputs: tf.tensor  [batchsize, nodes, in_features]
         :param adj:adjacency matrix 
         :type adj:tf.tensor 
         :return: encoded node representations 
         :rtype:tf.tensor 
         """
-        nodes = adj.get_shape().as_list()[0]
-        identity = tf.eye(nodes, dtype=tf.float32) 
-        adj = tf.add(adj, identity) #add self-loops to the adjascency matrix 
+        self.num_heads = num_heads
+        batch_size = inputs.get_shape().as_list()[0]
+        nodes = adj.get_shape().as_list()[1]
+        inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
+         
+        hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
 
-        W = tf.get_variable("weights", shape=[self.input_dim, self.output_dim],
-                            dtype=tf.float32,initializer=tf.contrib.layers.xavier_initializer())
-        inputs = tf.matmul(adj, inputs) 
-        hidden_state = tf.matmul(inputs, W) 
+        #Apply attention mechanism now
+
+        output = self.self_attention(hidden_state, bias=False, training=True)
+
+        return output
+
+
+
+
+
+
         
 
 

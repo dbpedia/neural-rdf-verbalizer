@@ -7,6 +7,8 @@ from __future__ import division
 import tensorflow as tf
 import argparse
 import os
+import time
+import io
 import tempfile
 from six.moves import xrange
 from absl import app as absl_app
@@ -14,7 +16,9 @@ from absl import flags
 
 from data_loader import get_dataset, get_gat_dataset, convert
 from src.models import model_params
+from src.layers.attention_layer import BahdanauAttention
 from src.layers.encoders import Encoder
+from src.layers.decoders import Decoder
 from src.models import transformer
 
 PARAMS_MAP = {
@@ -36,9 +40,9 @@ parser.add_argument(
 parser.add_argument(
     '--tgt_path', type=str, required=True, help='Path to target.lex file')
 parser.add_argument(
-    '--graph_adj', type=str, required=True, help='Path to adj matrices of examples')
+    '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
 parser.add_argument(
-    '--graph_nodes', type=str, required=True, help='Path to nodes list of each example')
+    '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')
 parser.add_argument(
     '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
@@ -60,5 +64,20 @@ if __name__ == "__main__":
     else:
         dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
         example_input_batch, example_target_batch= next(iter(dataset))
-        print(example_input_batch)
+        encoder = Encoder(vocab_inp_size, args.emb_dim, args.enc_units, BATCH_SIZE)
+        sample_hidden = encoder.initialize_hidden_state()
+        sample_output, sample_hidden = encoder(example_input_batch, sample_hidden)
+
+        attention_layer = BahdanauAttention(10)
+        attention_result, attention_weights = attention_layer(sample_hidden, sample_output)
+
+        decoder = Decoder(vocab_tgt_size, args.emb_dim, args.enc_units, BATCH_SIZE)
+
+        sample_decoder_output, _, _ = decoder(tf.random.uniform((32, 1)),
+                                              sample_hidden, sample_output)
+
+
+
+
+
 
