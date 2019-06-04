@@ -17,7 +17,7 @@ from absl import flags
 from data_loader import get_dataset, get_gat_dataset, convert
 from src.models import model_params
 from src.layers.attention_layer import BahdanauAttention
-from src.layers.encoders import Encoder
+from src.layers.encoders import GraphEncoder
 from src.layers.decoders import Decoder
 from src.models import transformer
 
@@ -48,7 +48,19 @@ parser.add_argument(
 parser.add_argument(
     '--emb_dim', type=int, required=True, help='Embedding dimension')
 parser.add_argument(
-    '--enc_units', type=int, required=True, help='Number of encoder units')
+    '--hidden_size', type=int, required=True, help='Size of hidden layer output')
+parser.add_argument(
+    '--num_layers', type=int, required=True, help='Number of layers in encoder')
+parser.add_argument(
+    '--num_heads', type=int, required=True, help='Number of heads in self-attention')
+parser.add_argument(
+    '--use_bias', type=bool, required=False, help='Add bias or not')
+parser.add_argument(
+    '--use_edges', type=bool, required=False, help='Add edges to embeddings')
+parser.add_argument(
+    '--dropout', type=float, required=False, help='Dropout rate')
+parser.add_argument(
+    '--enc_units', type=int, required=False, help='Number of encoder units')
 parser.add_argument(
     '--num_examples', default=None, type=int, required=False,
     help='Number of examples to be processed')
@@ -57,24 +69,15 @@ parser.add_argument(
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.enc_type == 'gat':
-        dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size = get_gat_dataset(args)
-        example_input_batch, example_target_batch= next(iter(dataset))
-        
-
+        #dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size = get_gat_dataset(args)
+        #example_input_batch, example_target_batch= next(iter(dataset))
+        encoder = GraphEncoder(args, train=True)
+        inputs = tf.random.uniform(shape=[32, 16, 512])
+        adj = tf.random.uniform(shape=[32, 16, 16])
+        outputs = encoder(inputs, adj)
     else:
         dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
         example_input_batch, example_target_batch= next(iter(dataset))
-        encoder = Encoder(vocab_inp_size, args.emb_dim, args.enc_units, BATCH_SIZE)
-        sample_hidden = encoder.initialize_hidden_state()
-        sample_output, sample_hidden = encoder(example_input_batch, sample_hidden)
-
-        attention_layer = BahdanauAttention(10)
-        attention_result, attention_weights = attention_layer(sample_hidden, sample_output)
-
-        decoder = Decoder(vocab_tgt_size, args.emb_dim, args.enc_units, BATCH_SIZE)
-
-        sample_decoder_output, _, _ = decoder(tf.random.uniform((32, 1)),
-                                              sample_hidden, sample_output)
 
 
 

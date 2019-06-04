@@ -5,28 +5,64 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 import tensorflow as tf
+from src.layers.gat_layer import GraphAttentionLayer
 import abc
 from collections import namedtuple
 import six
 
-class Encoder(tf.keras.Model):
-  def __init__(self, vocab_size, embedding_dim, enc_units, batch_sz):
-    super(Encoder, self).__init__()
-    self.batch_sz = batch_sz
-    self.enc_units = enc_units
-    self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)
-    self.gru = tf.keras.layers.GRU(self.enc_units,
-                                   return_sequences=True,
-                                   return_state=True,
-                                   recurrent_initializer='glorot_uniform')
+class GraphEncoder(tf.keras.layers.Layer):
+    """
+    Class the defines and initializes graph Encoder stack 
+    """
+    def __init__(self, args, train):
+        super(GraphEncoder, self).__init__()
+        in_dim = args.emb_dim
+        out_dim = args.hidden_size
+        num_heads = args.num_heads
+        self.num_heads = num_heads
+        dropout = args.dropout 
+        bias = args.use_bias
+        edges = args.use_edges
+        num_layers = args.num_layers  
+        self.layers = [] 
 
-  def call(self, x, hidden):
-    x = self.embedding(x)
-    output, state = self.gru(x, initial_state = hidden)
-    return output, state
+        for i in range(num_layers):
+            if i==0:
+                gat_layer = GraphAttentionLayer(in_dim, out_dim, num_heads,
+                                                dropout, bias, edges, train)
+            else:
+                gat_layer = GraphAttentionLayer(out_dim, out_dim, num_heads,
+                                                dropout, bias, edges, train) 
+            self.layers.append(gat_layer)
 
-  def initialize_hidden_state(self):
-    return tf.zeros((self.batch_sz, self.enc_units))
+    def __call__(self, inputs, adj):
+        with tf.variable_scope("encoding"):
+            for i in range(self.num_heads):
+                if i==0:
+                    outputs = self.layers[i](inputs, adj, self.num_heads)
+                else:
+                    shortcut = outputs
+                    outputs = self.layers[i](outputs, adj, self.num_heads)
+                    outputs += shortcut
+            
+        return outputs
+
+
+    
+
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/src/layers/encoders.py" line="49" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="4dac99c7-2f37-4f93-b034-4fb796c6dfe0" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layers/attention_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/attention_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layers/decoders.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/decoders.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/layers/encoders.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/encoders.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layers/gat_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/gat_layer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
@@ -19,8 +21,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
-              <caret line="76" column="75" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
+            <state relative-caret-position="656">
+              <caret line="77" selection-start-line="77" selection-end-line="77" />
               <folding>
                 <element signature="e#44#81#0" expanded="true" />
               </folding>
@@ -40,29 +42,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/data_loader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2424">
-              <caret line="102" selection-start-line="102" selection-end-line="102" />
+            <state relative-caret-position="2456">
+              <caret line="135" column="76" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="48">
-              <caret line="2" selection-start-line="2" selection-end-line="9" selection-end-column="10" />
-              <folding>
-                <element signature="e#34#66#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/layers/gat_layer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
+            <state relative-caret-position="632">
+              <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
               <folding>
                 <element signature="e#39#76#0" expanded="true" />
               </folding>
@@ -82,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1176">
-              <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="63" selection-end-column="9" />
+            <state relative-caret-position="-16">
+              <caret line="147" column="73" lean-forward="true" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
               <folding>
                 <element signature="e#56#94#0" expanded="true" />
               </folding>
@@ -94,8 +84,23 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-6384">
-              <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
+            <state relative-caret-position="216">
+              <caret line="299" column="73" lean-forward="true" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
+              <folding>
+                <element signature="e#201#239#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+              <folding>
+                <element signature="e#34#66#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,20 +132,20 @@
         <option value="$PROJECT_DIR$/src/models/model_params.py" />
         <option value="$PROJECT_DIR$/src/utils/model_utils.py" />
         <option value="$PROJECT_DIR$/src/layers/embedding_layer.py" />
-        <option value="$PROJECT_DIR$/src/layers/encoders.py" />
         <option value="$PROJECT_DIR$/data_loader.py" />
         <option value="$PROJECT_DIR$/src/models/transformer.py" />
         <option value="$PROJECT_DIR$/src/layers/decoders.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/src/layers/attention_layer.py" />
         <option value="$PROJECT_DIR$/src/layers/gat_layer.py" />
+        <option value="$PROJECT_DIR$/train.py" />
+        <option value="$PROJECT_DIR$/src/layers/encoders.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="31" />
     <option name="width" value="960" />
-    <option name="height" value="1048" />
+    <option name="height" value="1049" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -149,37 +154,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="gsoc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gsoc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gsoc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gsoc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gsoc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gsoc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="layers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="gsoc" type="b2602c69:ProjectViewProjectNode" />
-              <item name="gsoc" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -221,7 +196,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ffn_layer" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="encoders" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="gsoc" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,7 +208,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/layers/ffn_layer.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/layers/encoders.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -308,10 +283,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.gat_layer" />
+        <item itemvalue="Python.encoders" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.embedding_layer" />
         <item itemvalue="Python.transformer" />
-        <item itemvalue="Python.ffn_layer" />
       </list>
     </recent_temporary>
   </component>
@@ -332,12 +307,12 @@
     <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17252396" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.1721959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24920128" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32930845" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32491767" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32527474" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -451,13 +426,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="76" column="75" selection-start-line="76" selection-start-column="75" selection-end-line="76" selection-end-column="75" />
-          <folding>
-            <element signature="e#44#81#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="2456">
+          <caret line="135" column="76" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
         </state>
       </provider>
     </entry>
@@ -468,10 +440,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_loader.py">
+    <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
+        <state relative-caret-position="-16">
+          <caret line="147" column="73" lean-forward="true" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
+          <folding>
+            <element signature="e#56#94#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -482,39 +457,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6384">
-          <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" selection-start-line="2" selection-end-line="9" selection-end-column="10" />
+        <state relative-caret-position="656">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
-            <element signature="e#34#66#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1176">
-          <caret line="58" column="4" lean-forward="true" selection-start-line="58" selection-start-column="4" selection-end-line="63" selection-end-column="9" />
-          <folding>
-            <element signature="e#56#94#0" expanded="true" />
+            <element signature="e#44#81#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/layers/gat_layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="632">
+          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
           <folding>
             <element signature="e#39#76#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="299" column="73" lean-forward="true" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
+          <folding>
+            <element signature="e#201#239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+          <folding>
+            <element signature="e#34#66#0" expanded="true" />
           </folding>
         </state>
       </provider>

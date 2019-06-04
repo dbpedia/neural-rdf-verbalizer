@@ -44,7 +44,11 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
             self.out_dim, use_bias=True, name="Weights_1", kernel_initializer='glorot_normal',
             bias_initializer='zeros'
         )
-        self.self_attention = SelfAttention(out_dim, num_heads, dropout)
+        self.w2_layer = tf.keras.layers.Dense(
+            self.out_dim, use_bias=True, name="weights_2", kernel_initializer='glorot_normal',
+            bias_initializer='zeros'
+        )
+        self.self_attention = SelfAttention(out_dim, num_heads, self.dropout)
 
 
     def __call__(self, inputs, adj, num_heads):
@@ -70,12 +74,13 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
          
         hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
-
+        hidden_state = self.w2_layer(hidden_state)
         #Apply attention mechanism now
 
-        output = self.self_attention(hidden_state, bias=False, training=True)
+        output = self.self_attention(hidden_state, bias=False, training=False)
 
         return output
+
 
 
 
