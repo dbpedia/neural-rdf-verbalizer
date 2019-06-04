@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4dac99c7-2f37-4f93-b034-4fb796c6dfe0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layers/encoders.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/encoders.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layers/gat_layer.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/layers/gat_layer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,10 +15,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
+            <state relative-caret-position="488">
               <caret line="77" selection-start-line="77" selection-end-line="77" />
               <folding>
                 <element signature="e#44#81#0" expanded="true" />
@@ -51,7 +48,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layers/gat_layer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="632">
+            <state relative-caret-position="1896">
               <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
               <folding>
                 <element signature="e#39#76#0" expanded="true" />
@@ -73,7 +70,7 @@
         <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-16">
-              <caret line="147" column="73" lean-forward="true" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
+              <caret line="147" column="73" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
               <folding>
                 <element signature="e#56#94#0" expanded="true" />
               </folding>
@@ -85,7 +82,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="299" column="73" lean-forward="true" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
+              <caret line="299" column="73" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
               <folding>
                 <element signature="e#201#239#0" expanded="true" />
               </folding>
@@ -93,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="656">
-              <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
+            <state relative-caret-position="1176">
+              <caret line="49" selection-start-line="49" selection-end-line="49" />
               <folding>
                 <element signature="e#34#66#0" expanded="true" />
               </folding>
@@ -305,7 +302,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="31" width="1920" height="1049" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.1721959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.24920128" />
@@ -426,10 +422,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_loader.py">
+    <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2456">
-          <caret line="135" column="76" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
+        <state relative-caret-position="-16">
+          <caret line="147" column="73" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
+          <folding>
+            <element signature="e#56#94#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="299" column="73" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
+          <folding>
+            <element signature="e#201#239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1176">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#34#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -440,12 +459,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers/attention_layer.py">
+    <entry file="file://$PROJECT_DIR$/data_loader.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="147" column="73" lean-forward="true" selection-start-line="147" selection-start-column="73" selection-end-line="147" selection-end-column="73" />
+        <state relative-caret-position="2456">
+          <caret line="135" column="76" selection-start-line="135" selection-start-column="76" selection-end-line="135" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/layers/gat_layer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1896">
+          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
           <folding>
-            <element signature="e#56#94#0" expanded="true" />
+            <element signature="e#39#76#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -459,40 +485,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
+        <state relative-caret-position="488">
           <caret line="77" selection-start-line="77" selection-end-line="77" />
           <folding>
             <element signature="e#44#81#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers/gat_layer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="632">
-          <caret line="79" column="77" selection-start-line="79" selection-start-column="77" selection-end-line="79" selection-end-column="77" />
-          <folding>
-            <element signature="e#39#76#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/transformer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="299" column="73" lean-forward="true" selection-start-line="299" selection-start-column="73" selection-end-line="299" selection-end-column="73" />
-          <folding>
-            <element signature="e#201#239#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/layers/encoders.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="656">
-          <caret line="46" column="12" lean-forward="true" selection-start-line="46" selection-start-column="12" selection-end-line="46" selection-end-column="12" />
-          <folding>
-            <element signature="e#34#66#0" expanded="true" />
           </folding>
         </state>
       </provider>

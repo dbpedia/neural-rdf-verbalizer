@@ -41,10 +41,11 @@ class GraphEncoder(tf.keras.layers.Layer):
                 if i==0:
                     outputs = self.layers[i](inputs, adj, self.num_heads)
                 else:
+                    # Skip connections
                     shortcut = outputs
                     outputs = self.layers[i](outputs, adj, self.num_heads)
                     outputs += shortcut
-            
+
         return outputs
 
 

@@ -86,14 +86,28 @@ def load_dataset(src_path, tgt_path, num_examples=None):
 
     return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
 
-def load_gat_dataset(adj_path, nodes_path, tgt_path, num_examples=None):
+def load_gat_dataset(adj_path, nodes_path, edges_path, tgt_path, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, num_examples)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
     graph_adj = np.load(adj_path) 
-    with open(nodes_path, 'rb') as f:
-        graph_nodes = pickle.load(f) 
 
-    return graph_adj, graph_nodes, targ_tensor, targ_lang_tokenizer
+    with open(nodes_path, 'rb') as f:
+        graph_nodes = pickle.load(f)
+
+    with open(edges_path, 'rb') as edge_f:
+        graph_edges = pickle.load(edge_f) 
+    
+    nodes_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
+    nodes_tokenizer.fit_on_texts(graph_nodes) 
+    node_tensor = nodes_tokenizer.texts_to_sequences(graph_nodes)
+    node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor,padding='post') 
+    
+    edges_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
+    edges_tokenizer.fit_on_texts(graph_edges) 
+    edge_tensor = nodes_tokenizer.texts_to_sequences(graph_edges)
+    edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
+
+    return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor, edges_tokenizer, targ_tensor, targ_lang_tokenizer)
 
 
 def convert(lang, tensor):
@@ -120,20 +134,26 @@ def get_dataset(args):
 
 def get_gat_dataset(args):
 
-    graph_adj, graph_nodes, target_tensor, target_lang = load_gat_dataset(args.graph_adj, args.graph_nodes,
-                                                                            args.tgt_path, args.num_examples)
+    (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang,
+    target_tensor, target_lang )= load_gat_dataset(args.graph_adj, args.graph_nodes,
+                                                    args.graph_edges, args.tgt_path, args.num_examples)
+
+    # Pad the node tensors tp 16 size 
+    paddings = tf.constant([[0, 0], [0, 8]])
+    node_tensor = tf.pad(node_tensor, paddings)
 
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(target_tensor) // BATCH_SIZE
     vocab_tgt_size = len(target_lang.word_index) + 1
+    vocab_nodes_size = len(nodes_lang.word_index) + 1
+    vocab_edge_size = len(edges_lang.word_index) + 1 
 
-    dataset = tf.data.Dataset.from_tensor_slices((graph_adj, target_tensor)).shuffle(BUFFER_SIZE)
+    dataset = tf.data.Dataset.from_tensor_slices((graph_adj, node_tensor, 
+                                                    edge_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
-    print(graph_adj[-1])
-    convert(target_lang, target_tensor[-1])
 
-    return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size
+    return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size, vocab_nodes_size
 
 
 

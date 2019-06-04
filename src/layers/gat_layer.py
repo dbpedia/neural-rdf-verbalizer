@@ -60,6 +60,8 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         h' = W*inputs 
         h' = h'*(A + I) 
         eij =  softmax(h') 
+        This makes sure the features of a node are sum of all first order neighbour's 
+        features and it's own features 
         
         :param inputs: node feature matrix 
         :type inputs: tf.tensor  [batchsize, nodes, in_features]
