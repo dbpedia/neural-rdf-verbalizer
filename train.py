@@ -100,7 +100,7 @@ parser.add_argument(
 parser.add_argument(
     '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
-def printm():
+def print_stats():
     process = psutil.Process(os.getpid())
     print("Gen RAM Free: " + humanize.naturalsize( psutil.virtual_memory().available ), " | Proc size: " + humanize.naturalsize( process.memory_info().rss))
     print("GPU RAM Free: {0:.0f}MB | Used: {1:.0f}MB | Util {2:3.0f}% | Total {3:.0f}MB".format(gpu.memoryFree, gpu.memoryUsed, gpu.memoryUtil*100, gpu.memoryTotal))
@@ -157,8 +157,7 @@ if __name__ == "__main__":
                     loss += loss_function(targ[:, t], predictions, loss_object) 
                     #using teacher forcing 
                     dec_input = tf.expand_dims(targ[:, t], 1) 
-                    printm()
-
+                    
             batch_loss = (loss / int(targ.shape[1]))
             variables = encoder.trainable_variables + decoder.trainable_variables
             gradients = tape.gradient(loss, variables) 
@@ -184,6 +183,7 @@ if __name__ == "__main__":
             
             print('Step {} Loss{:.4f}'.format(batch,
                                                 batch_loss.numpy()))
+            print_stats()
             
          #   if batch % args.checkpoint == 0:
           #      checkpoint.save(file_prefix = checkpoint_prefix)
