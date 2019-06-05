@@ -52,6 +52,13 @@ parser.add_argument(
 
 # training parameters 
 parser.add_argument(
+    '--steps', type=int, required=False, help='Number of training steps')
+parser.add_argument(
+    '--checkpoint', type=int, required=False, help='Save checkpoint every these steps')
+parser.add_argument(
+    '--epochs', type=int, default=None,
+        required=False, help='Number of epochs (deprecated)')
+parser.add_argument(
     '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
     '--emb_dim', type=int, required=True, help='Embedding dimension')
@@ -79,25 +86,94 @@ parser.add_argument(
 
 # hyper-parameters 
 parser.add_argument(
-    '--optimizer', type=str, required=True, help='Optimizer that will be used')
+    '--optimizer', type=str, required=False, help='Optimizer that will be used')
 parser.add_argument(
     '--loss', type=str, required=False, help='Loss function to calculate loss')
+parser.add_argument(
+    '--learning_rate', type=float, required=False, help='Learning rate')
+parser.add_argument(
+    '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
+def loss_function(real, pred, loss_object):
+
+    mask = tf.math.logical_not(tf.math.equal(real, 0))
+    loss_ = loss_object(real, pred)
+    mask = tf.cast(mask, dtype=loss_.dtype)
+    loss_ *= mask 
+
+    return tf.reduce_mean(loss_)
 
 if __name__ == "__main__":
     args = parser.parse_args()
     if args.enc_type == 'gat':
-        dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size, vocab_nodes_size = get_gat_dataset(args)
-        example_adj, example_nodes, example_edges, example_target_batch= next(iter(dataset))
-        embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
-        example_nodes = embedding(example_nodes)
+        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
+        vocab_tgt_size, vocab_nodes_size, target_lang) = get_gat_dataset(args)
 
-        example_nodes = tf.cast(example_nodes, tf.float32) 
-        example_adj = tf.cast(example_adj, tf.float32)
-        print(example_nodes.shape) 
-        gat_encoder = GraphEncoder(args, train=True)
-        output = gat_encoder(example_nodes, example_adj)
-        print(output.shape)
+        embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
+        
+        encoder = GraphEncoder(args, train=True)
+        decoder = Decoder(vocab_tgt_size, args.emb_dim, 512, BATCH_SIZE) 
+
+        optimizer = tf.keras.optimizers.Adam()
+        loss_object = tf.keras.losses.CategoricalCrossentropy()
+        
+        #checkpoint_dir = './training_checkpoints'
+        #checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
+        #checkpoint = tf.train.Checkpoint( optimizer=optimizer,
+        #                                    encoder= encoder,
+        #                                    decoder= decoder)
+        if args.epochs is not None:
+            steps = args.epochs * steps_per_epoch
+        else:
+            steps = args.steps
+
+        def train_step(adj, nodes, edges, targ):
+            loss = 0
+
+            with tf.GradientTape() as tape:
+                enc_output = encoder(nodes, adj) 
+                dec_input=tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
+
+                # Apply teacher forcing 
+                for t in range(1, targ.shape[1]):
+                    # pass encoder output to decoder
+                    # TO-DO: figure out a way to get graph attention network hidden state
+                    predictions, dec_hidden, _ = decoder(dec_input, tf.random.uniform(shape=[32, 1024]),enc_output)
+
+                    loss += loss_function(targ[:, t], predictions, loss_object) 
+
+                    #using teacher forcing 
+                    dec_input = tf.expand_dims(targ[:, t], 1) 
+
+            batch_loss = (loss / int(targ.shape[1]))
+            variables = encoder.trainable_variables + decoder.trainable_variables
+            gradients = tape.gradient(loss, variables) 
+
+            optimizer.apply_gradients(zip(gradients, variables))
+            
+
+            return batch_loss
+        
+        total_loss =0
+        for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
+            start = time.time()
+
+            # type cast all tensors for uniformity 
+            adj = tf.cast(adj, tf.float32)
+            nodes = tf.cast(nodes, tf.float32) 
+            edges = tf.cast(edges, tf.float32) 
+            targ = tf.cast(targ, tf.float32)
+
+            #embed nodes 
+            nodes = embedding(nodes)    
+            batch_loss = train_step(adj, nodes, edges, targ) 
+            if batch%100 == 0:
+                print('Step {} Loss{:.4f}'.format(batch,
+                                                  batch_loss.numpy()))
+            
+         #   if batch % args.checkpoint == 0:
+          #      checkpoint.save(file_prefix = checkpoint_prefix)
+            print('Time {} \n'.format(time.time() - start))
 
     else:
         dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
