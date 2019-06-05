@@ -23,7 +23,9 @@ class GraphEncoder(tf.keras.layers.Layer):
         dropout = args.dropout 
         bias = args.use_bias
         edges = args.use_edges
-        num_layers = args.num_layers  
+        num_layers = args.num_layers
+        units = args.enc_units
+
         self.layers = [] 
 
         for i in range(num_layers):
@@ -35,6 +37,12 @@ class GraphEncoder(tf.keras.layers.Layer):
                                                 dropout, bias, edges, train) 
             self.layers.append(gat_layer)
 
+        self.gru = tf.keras.layers.GRU(units, return_sequences=True,
+                                       return_state=True, recurrent_initializer='glorot_uniform')
+        self.hidden = tf.zeros((args.batch_size, args.enc_units))
+
+
+
     def __call__(self, inputs, adj):
         with tf.variable_scope("encoding"):
             for i in range(self.num_heads):
@@ -45,8 +53,8 @@ class GraphEncoder(tf.keras.layers.Layer):
                     shortcut = outputs
                     outputs = self.layers[i](outputs, adj, self.num_heads)
                     outputs += shortcut
-
-        return outputs
+            outputs, state = self.gru(outputs, initial_state=self.hidden)
+        return outputs, state
 
 
     

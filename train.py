@@ -112,9 +112,9 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
         
         encoder = GraphEncoder(args, train=True)
-        decoder = Decoder(vocab_tgt_size, args.emb_dim, 512, BATCH_SIZE) 
+        decoder = Decoder(vocab_tgt_size, args.emb_dim, 512, BATCH_SIZE)
 
-        optimizer = tf.keras.optimizers.Adam()
+        optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
         
         #checkpoint_dir = './training_checkpoints'
@@ -131,14 +131,16 @@ if __name__ == "__main__":
             loss = 0
 
             with tf.GradientTape() as tape:
-                enc_output = encoder(nodes, adj) 
+                enc_output, enc_hidden = encoder(nodes, adj)
                 dec_input=tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
 
                 # Apply teacher forcing 
                 for t in range(1, targ.shape[1]):
                     # pass encoder output to decoder
                     # TO-DO: figure out a way to get graph attention network hidden state
-                    predictions, dec_hidden, _ = decoder(dec_input, tf.random.uniform(shape=[32, 1024]),enc_output)
+                    #dec_hidden = tf.random.uniform(shape=(BATCH_SIZE, args.enc_units))
+                    #print(dec_hidden.shape, enc_hidden.shape)
+                    predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
 
                     loss += loss_function(targ[:, t], predictions, loss_object) 
 
@@ -166,7 +168,7 @@ if __name__ == "__main__":
 
             #embed nodes 
             nodes = embedding(nodes)    
-            batch_loss = train_step(adj, nodes, edges, targ) 
+            batch_loss = train_step(adj, nodes, edges, targ)
             if batch%100 == 0:
                 print('Step {} Loss{:.4f}'.format(batch,
                                                   batch_loss.numpy()))
