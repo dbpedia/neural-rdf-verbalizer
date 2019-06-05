@@ -112,7 +112,7 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
         
         encoder = GraphEncoder(args, train=True)
-        decoder = Decoder(vocab_tgt_size, args.emb_dim, 512, BATCH_SIZE)
+        decoder = Decoder(vocab_tgt_size, args.emb_dim, args.enc_units, BATCH_SIZE)
 
         optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
@@ -169,9 +169,9 @@ if __name__ == "__main__":
             #embed nodes 
             nodes = embedding(nodes)    
             batch_loss = train_step(adj, nodes, edges, targ)
-            if batch%100 == 0:
-                print('Step {} Loss{:.4f}'.format(batch,
-                                                  batch_loss.numpy()))
+            
+            print('Step {} Loss{:.4f}'.format(batch,
+                                                batch_loss.numpy()))
             
          #   if batch % args.checkpoint == 0:
           #      checkpoint.save(file_prefix = checkpoint_prefix)
