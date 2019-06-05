@@ -13,6 +13,12 @@ import tempfile
 from six.moves import xrange
 from absl import app as absl_app
 from absl import flags
+import psutil
+import humanize
+import os
+import GPUtil as GPU
+GPUs = GPU.getGPUs()
+gpu = GPUs[0]
 
 from data_loader import get_dataset, get_gat_dataset, convert
 from src.models import model_params
@@ -94,6 +100,12 @@ parser.add_argument(
 parser.add_argument(
     '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
+def printm():
+    process = psutil.Process(os.getpid())
+    print("Gen RAM Free: " + humanize.naturalsize( psutil.virtual_memory().available ), " | Proc size: " + humanize.naturalsize( process.memory_info().rss))
+    print("GPU RAM Free: {0:.0f}MB | Used: {1:.0f}MB | Util {2:3.0f}% | Total {3:.0f}MB".format(gpu.memoryFree, gpu.memoryUsed, gpu.memoryUtil*100, gpu.memoryTotal))
+
+
 def loss_function(real, pred, loss_object):
 
     mask = tf.math.logical_not(tf.math.equal(real, 0))
@@ -143,9 +155,9 @@ if __name__ == "__main__":
                     predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
 
                     loss += loss_function(targ[:, t], predictions, loss_object) 
-
                     #using teacher forcing 
                     dec_input = tf.expand_dims(targ[:, t], 1) 
+                    printm()
 
             batch_loss = (loss / int(targ.shape[1]))
             variables = encoder.trainable_variables + decoder.trainable_variables
