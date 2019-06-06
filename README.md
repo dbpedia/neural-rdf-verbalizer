@@ -19,7 +19,7 @@ The dataset in use is **WebNLG** challenge's dataset.
  - To preprocess the dataset and save graph nodes, edges and adjacency matrices 
  
 
-        python preprocess.py --path "path_to_triples" --opt adj
+        python preprocess.py --path "path_to_triples" --opt adj --train True
  
 
  - To start training with Graph Attention Network encoder and decoder. The preprocessed files are stored in data folder, use the path in the below code snippet. Please use the hyper-parameters as you see fit, and provide the necessary arguments 
