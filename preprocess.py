@@ -24,10 +24,11 @@ parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
     '--path', type=str, required=False, help='Path to source.triple file')
 parser.add_argument(
+    '--train', type=str, required=True, help='Preprocess train files or eval files')
+parser.add_argument(
     '--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix')
 
 args = parser.parse_args()
-
 
 def pre_process(path):
     dest = open(path, 'r')
@@ -51,7 +52,6 @@ def pre_process(path):
 
     dest.close()
 
-
 def find_embedding(embedding, str):
     """Function to look up the BERT embeddings of words
 
@@ -67,7 +67,6 @@ def find_embedding(embedding, str):
     result = tf.math.accumulate_n(emb)
 
     return result
-
 
 def node_tensors(nodes, embedding):
     """Function to create feature matrix for each graph
@@ -98,11 +97,18 @@ if __name__ == '__main__':
         pre_process(args.path)
         tensor = np.array(tensor)
         print(tensor.shape)
-        np.save('data/graph_adj', tensor)
-        with open('data/graph_nodes', 'wb') as fp:
-            pickle.dump(nodes, fp)
-        with open('data/graph_edges', 'wb') as fp:
-            pickle.dump(edges, fp)
+        if args.train is True:
+            np.save('data/train_graph_adj', tensor)
+            with open('data/train_graph_nodes', 'wb') as fp:
+                pickle.dump(nodes, fp)
+            with open('data/train_graph_edges', 'wb') as fp:
+                pickle.dump(edges, fp)
+        else:
+            np.save('data/eval_graph_adj', tensor)
+            with open('data/eval_graph_nodes', 'wb') as fp:
+                pickle.dump(nodes, fp)
+            with open('data/eval_graph_edges', 'wb') as fp:
+                pickle.dump(edges, fp)
     else:
         if args.emb != 768:
             model = "bert_24_1024_16"

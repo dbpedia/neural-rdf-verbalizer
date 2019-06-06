@@ -20,7 +20,7 @@ import GPUtil as GPU
 GPUs = GPU.getGPUs()
 gpu = GPUs[0]
 
-from data_loader import get_dataset, get_gat_dataset, convert
+from data_loader import get_dataset, get_gat_dataset, convert, preprocess_sentence
 from src.models import model_params
 from src.layers.attention_layer import BahdanauAttention
 from src.layers.encoders import GraphEncoder
@@ -59,6 +59,8 @@ parser.add_argument(
 # training parameters 
 parser.add_argument(
     '--steps', type=int, required=False, help='Number of training steps')
+parser.add_argument(
+    '--eval_steps', type=int, required=False, help='Evaluate every x steps')
 parser.add_argument(
     '--checkpoint', type=int, required=False, help='Save checkpoint every these steps')
 parser.add_argument(
@@ -119,7 +121,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
     if args.enc_type == 'gat':
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
-        vocab_tgt_size, vocab_nodes_size, target_lang) = get_gat_dataset(args)
+        vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
         
@@ -129,11 +131,11 @@ if __name__ == "__main__":
         optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
         
-        #checkpoint_dir = './training_checkpoints'
-        #checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
-        #checkpoint = tf.train.Checkpoint( optimizer=optimizer,
-        #                                    encoder= encoder,
-        #                                    decoder= decoder)
+        checkpoint_dir = './training_checkpoints'
+        checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
+        checkpoint = tf.train.Checkpoint( optimizer=optimizer,
+                                            encoder= encoder,
+                                            decoder= decoder)
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
         else:
@@ -157,16 +159,41 @@ if __name__ == "__main__":
                     loss += loss_function(targ[:, t], predictions, loss_object) 
                     #using teacher forcing 
                     dec_input = tf.expand_dims(targ[:, t], 1) 
-                    printm()
 
             batch_loss = (loss / int(targ.shape[1]))
             variables = encoder.trainable_variables + decoder.trainable_variables
             gradients = tape.gradient(loss, variables) 
 
             optimizer.apply_gradients(zip(gradients, variables))
-            
-
             return batch_loss
+
+        def evaluate(adj, nodes, edges, targ):
+            result =''
+            hidden = [tf.zeros((args.batch_size, args.enc_units))]
+
+            enc_output, enc_hidden = encoder(nodes, adj) 
+            dec_input = tf.expand_dims([target_lang.word_index['<start>']], 0)
+            for t in range(max_length_targ):
+                predictions, dec_hidden, attention_weights =  decoder(dec_input,
+                                                                        enc_hidden,
+                                                                        enc_output)
+                attention_weights = tf.reshape(attention_weights, (-1, ))
+                attention_plot[t] = attention_weights.numpy()
+                predicted_id = tf.argmax(predictions[0]).numpy()
+
+                result += target_lang.index_word[predicted_id] + ' '
+
+                if target_lang.index_word[predicted_id] == '<end>':
+                    loss += loss_function(targ[:, t], result, loss_object)
+                    eval_loss = (loss / int(targ.shape[0]))
+
+                    return eval_loss
+
+                # the predicted ID is fed back into the model
+                dec_input = tf.expand_dims([predicted_id], 0)
+
+            eval_loss = (loss / int(targ.shape[0])) 
+            return eval_loss            
         
         total_loss =0
         for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
@@ -181,12 +208,17 @@ if __name__ == "__main__":
             #embed nodes 
             nodes = embedding(nodes)    
             batch_loss = train_step(adj, nodes, edges, targ)
-            
-            print('Step {} Loss{:.4f}'.format(batch,
+            if batch % args.eval_step == 0:
+                eval_loss = evaluate(adj, nodes, edges, targ)
+                print('Step {} Train Loss{:.4f}'.format(batch,
                                                 batch_loss.numpy()))
+            else:
+                print('Step {} Train Loss{:.4f}'.format(batch,
+                                                    batch_loss.numpy()))
+            printm()
             
-         #   if batch % args.checkpoint == 0:
-          #      checkpoint.save(file_prefix = checkpoint_prefix)
+            if batch % args.checkpoint == 0:
+                checkpoint.save(file_prefix = checkpoint_prefix)
             print('Time {} \n'.format(time.time() - start))
 
     else:
