@@ -1,6 +1,7 @@
 ﻿# Multilingual RDF verbalizer - GSoC/2019 
 
 ##Abstract : 
+
 This project aims to create a deep-learning based natural language generation framework that verbalizes 
 RDF triples. 
 
@@ -12,9 +13,11 @@ For ex :
 output: 
 **Dwarak was born in Chennai, and lives in India**
 The model must be capable of doing of in multiple languages. 
+
 ##Model : 
 We use an attention based encoder-deocder architecture with **Graph Attention Networks** encoder and **Transformer** decoder with changeable modules. 
-The dataset in use is **WebNLG** challenge's dataset. 
+The dataset in use is **WebNLG** challenge's dataset.
+
 ##Usage : 
  - To preprocess the dataset and save graph nodes, edges and adjacency matrices 
  
@@ -32,7 +35,8 @@ The dataset in use is **WebNLG** challenge's dataset.
 				 --batch_size --enc_type --dec_type 	 	\
 				 --emb_dim --units --hidden_size 	 	\ 
 				 --use_bias --num_layers --num_heads 	 	\
-				 --use_edges --steps --learning_rate 	 
+				 --use_edges --steps --learning_rate 
+				 --checkpoint --alpha 				\
 
 
 
