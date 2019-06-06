@@ -104,7 +104,7 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, tgt_path, num_examples=No
     
     edges_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
     edges_tokenizer.fit_on_texts(graph_edges) 
-    edge_tensor = nodes_tokenizer.texts_to_sequences(graph_edges)
+    edge_tensor = edges_tokenizer.texts_to_sequences(graph_edges)
     edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
 
     return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,
@@ -139,10 +139,12 @@ def get_gat_dataset(args):
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.tgt_path, args.num_examples)
 
-    # Pad the node tensors tp 16 size 
+    # Pad the node tensors tp 16 size
     paddings = tf.constant([[0, 0], [0, 8]])
     node_tensor = tf.pad(node_tensor, paddings)
-
+    # Pad the edge tensor to 16 size
+    edge_paddings = tf.constant([[0,0], [0,9]])
+    edge_tensor = tf.pad(edge_tensor, edge_paddings)
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(target_tensor) // BATCH_SIZE

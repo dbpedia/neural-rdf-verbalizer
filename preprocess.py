@@ -24,7 +24,7 @@ parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
     '--path', type=str, required=False, help='Path to source.triple file')
 parser.add_argument(
-    '--train', type=str, required=True, help='Preprocess train files or eval files')
+    '--train', type=bool, required=True, help='Preprocess train files or eval files')
 parser.add_argument(
     '--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix')
 

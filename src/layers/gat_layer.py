@@ -14,8 +14,8 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
     Graph Attention Network Layer, takes input and returns embedded
     node features with self attention applied on the feature matrix
     """
-    def __init__(self, in_dim, out_dim, num_heads,dropout=0.2,
-                 bias=False, edges=True, train=True):
+    def __init__(self, in_dim, out_dim, num_heads, alpha, dropout=0.2,
+                 bias=False):
         """
         Initialises Graph Attention Layer
         :param in_dim: input dimensions
@@ -36,8 +36,6 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         self.out_dim = out_dim
         self.dropout = dropout
         self.bias = bias
-        self.edges = edges
-        self.train = train
         self.num_heads = num_heads
 
         self.w1_layer = tf.keras.layers.Dense(
@@ -49,9 +47,13 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
             bias_initializer='zeros'
         )
         self.self_attention = SelfAttention(out_dim, num_heads, self.dropout)
+        self.Dropout = tf.keras.layers.Dropout(
+            self.dropout
+        )
+        self.lrelu = tf.keras.layers.LeakyReLU(alpha)
 
 
-    def __call__(self, inputs, adj, num_heads):
+    def __call__(self, inputs, adj, num_heads, train):
         """
         Propagates the adjacency matrix and node feature matrix through
         the layer and calculates the attention coefficients.
@@ -76,7 +78,14 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
          
         hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
+        if train == True:
+            hidden_state = self.Dropout(hidden_state)
+
+        hidden_state = self.lrelu(hidden_state)
         hidden_state = self.w2_layer(hidden_state)
+        if train == True:
+            hidden_state = self.Dropout(hidden_state)
+        hidden_state = self.lrelu(hidden_state)
         #Apply attention mechanism now
 
         output = self.self_attention(hidden_state, bias=False, training=False)

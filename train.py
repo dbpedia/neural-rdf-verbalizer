@@ -26,81 +26,13 @@ from src.layers.attention_layer import BahdanauAttention
 from src.layers.encoders import GraphEncoder
 from src.layers.decoders import Decoder
 from src.models import transformer
+from arguments import get_args
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
     "base": model_params.BASE_PARAMS,
     "big": model_params.BIG_PARAMS,
 }
-
-# data arguments
-parser = argparse.ArgumentParser(description="Main Arguments")
-
-# model paramteres 
-parser.add_argument(
-    '--enc_type', default='rnn', type=str, required=True,
-    help='Type of encoder Transformer | gat | rnn')
-parser.add_argument(
-    '--dec_type', default='rnn', type=str, required=True,
-    help='Type of decoder Transformer | rnn')
-
-# preprocess arguments 
-parser.add_argument(
-    '--src_path', type=str, required=True, help='Path to source.triple file')
-parser.add_argument(
-    '--tgt_path', type=str, required=True, help='Path to target.lex file')
-parser.add_argument(
-    '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
-parser.add_argument(
-    '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')
-parser.add_argument(
-    '--graph_edges', type=str, required=False, help='Path to edge list of each example')
-
-# training parameters 
-parser.add_argument(
-    '--steps', type=int, required=False, help='Number of training steps')
-parser.add_argument(
-    '--eval_steps', type=int, required=False, help='Evaluate every x steps')
-parser.add_argument(
-    '--checkpoint', type=int, required=False, help='Save checkpoint every these steps')
-parser.add_argument(
-    '--epochs', type=int, default=None,
-        required=False, help='Number of epochs (deprecated)')
-parser.add_argument(
-    '--batch_size', type=int, required=True, help='Batch size')
-parser.add_argument(
-    '--emb_dim', type=int, required=True, help='Embedding dimension')
-parser.add_argument(
-    '--hidden_size', type=int, required=True, help='Size of hidden layer output')
-parser.add_argument(
-    '--num_layers', type=int, required=True, help='Number of layers in encoder')
-parser.add_argument(
-    '--num_heads', type=int, required=True, help='Number of heads in self-attention')
-parser.add_argument(
-    '--use_bias', type=bool, required=False, help='Add bias or not')
-parser.add_argument(
-    '--use_edges', type=bool, required=False, help='Add edges to embeddings')
-parser.add_argument(
-    '--dropout', type=float, required=False, help='Dropout rate')
-parser.add_argument(
-    '--enc_units', type=int, required=False, help='Number of encoder units')
-parser.add_argument(
-    '--num_examples', default=None, type=int, required=False,
-    help='Number of examples to be processed')
-parser.add_argument(
-    '--tensorboard', type=bool, required=False, help='Use tensorboard or not')
-parser.add_argument(
-    '--colab', type=bool, required=False, help='Use Google-Colab')
-
-# hyper-parameters 
-parser.add_argument(
-    '--optimizer', type=str, required=False, help='Optimizer that will be used')
-parser.add_argument(
-    '--loss', type=str, required=False, help='Loss function to calculate loss')
-parser.add_argument(
-    '--learning_rate', type=float, required=False, help='Learning rate')
-parser.add_argument(
-    '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
 def printm():
     process = psutil.Process(os.getpid())
@@ -118,20 +50,35 @@ def loss_function(real, pred, loss_object):
     return tf.reduce_mean(loss_)
 
 if __name__ == "__main__":
-    args = parser.parse_args()
+    args = get_args()
+
+    #set up dirs
+    if args.use_colab == False:
+        args.checkpoint_dir = 'ckpts/' if args.checkpoint_dir is None else args.checkpoint_dir
+        output_file = 'results.txt'
+        if args.output_dir is None and not os.path.isdir('ckpts'):
+            os.mkdir('ckpts')
+    else:
+        from google.colab import drive
+        drive.mount('/content/gdrive')
+        OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
+        args.checkpoint_dir = OUTPUT_DIR
+        output_file = OUTPUT_DIR + '/results.txt'
+        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
     if args.enc_type == 'gat':
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
         
-        encoder = GraphEncoder(args, train=True)
+        encoder = GraphEncoder(args)
         decoder = Decoder(vocab_tgt_size, args.emb_dim, args.enc_units, BATCH_SIZE)
 
         optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
-        
-        checkpoint_dir = './training_checkpoints'
+
+        checkpoint_dir = args.checkpoint_dir
         checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
         checkpoint = tf.train.Checkpoint( optimizer=optimizer,
                                             encoder= encoder,
@@ -141,22 +88,19 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, edges, targ):
+        def train_step(adj, nodes, targ):
             loss = 0
 
             with tf.GradientTape() as tape:
-                enc_output, enc_hidden = encoder(nodes, adj)
+                enc_output, enc_hidden = encoder(nodes, adj, encoder.trainable)
                 dec_input=tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
 
                 # Apply teacher forcing 
                 for t in range(1, targ.shape[1]):
                     # pass encoder output to decoder
-                    # TO-DO: figure out a way to get graph attention network hidden state
-                    #dec_hidden = tf.random.uniform(shape=(BATCH_SIZE, args.enc_units))
-                    #print(dec_hidden.shape, enc_hidden.shape)
                     predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
+                    loss += loss_function(targ[:, t], predictions, loss_object)
 
-                    loss += loss_function(targ[:, t], predictions, loss_object) 
                     #using teacher forcing 
                     dec_input = tf.expand_dims(targ[:, t], 1) 
 
@@ -165,36 +109,29 @@ if __name__ == "__main__":
             gradients = tape.gradient(loss, variables) 
 
             optimizer.apply_gradients(zip(gradients, variables))
-            return batch_loss
+            return batch_loss   
 
-        def evaluate(adj, nodes, edges, targ):
-            result =''
-            hidden = [tf.zeros((args.batch_size, args.enc_units))]
+        # Eval function
+        def eval_step(adj, nodes, targ):
+            # set encoder and decoder to eval state
+            encoder.trainable = False
+            decoder.trainable = False
 
-            enc_output, enc_hidden = encoder(nodes, adj) 
-            dec_input = tf.expand_dims([target_lang.word_index['<start>']], 0)
-            for t in range(max_length_targ):
-                predictions, dec_hidden, attention_weights =  decoder(dec_input,
-                                                                        enc_hidden,
-                                                                        enc_output)
-                attention_weights = tf.reshape(attention_weights, (-1, ))
-                attention_plot[t] = attention_weights.numpy()
-                predicted_id = tf.argmax(predictions[0]).numpy()
+            eval_loss = 0
+            enc_output, enc_hidden = encoder(nodes, adj, encoder.trainable)
+            dec_input = tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
+            for t in range(1, targ.shape[1]):
+                predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
+                eval_loss += loss_function(targ[:, t], predictions, loss_object)
+                dec_input = tf.expand_dims(targ[:, t], 1)
 
-                result += target_lang.index_word[predicted_id] + ' '
+            eval_loss = (eval_loss / int(targ.shape[1]))
 
-                if target_lang.index_word[predicted_id] == '<end>':
-                    loss += loss_function(targ[:, t], result, loss_object)
-                    eval_loss = (loss / int(targ.shape[0]))
+            encoder.trainable = True
+            decoder.trainable = True
 
-                    return eval_loss
+            return eval_loss
 
-                # the predicted ID is fed back into the model
-                dec_input = tf.expand_dims([predicted_id], 0)
-
-            eval_loss = (loss / int(targ.shape[0])) 
-            return eval_loss            
-        
         total_loss =0
         for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
             start = time.time()
@@ -206,20 +143,25 @@ if __name__ == "__main__":
             targ = tf.cast(targ, tf.float32)
 
             #embed nodes 
-            nodes = embedding(nodes)    
-            batch_loss = train_step(adj, nodes, edges, targ)
+            nodes = embedding(nodes)
+            edges = embedding(edges)
+            nodes = tf.add(nodes, edges)
+
             if batch % args.eval_steps == 0:
-                eval_loss = evaluate(adj, nodes, edges, targ)
-                print('Step {} Train Loss{:.4f}'.format(batch,
-                                                batch_loss.numpy()))
+                eval_loss = eval_step(adj, nodes, targ)
+                print('Step {} Eval Loss{:.4f}'.format(batch,
+                                                        eval_loss.numpy()))
             else:
+                batch_loss = train_step(adj, nodes, targ)
                 print('Step {} Train Loss{:.4f}'.format(batch,
-                                                    batch_loss.numpy()))
-            printm()
-            
+                                                        batch_loss.numpy()))
+            #printm()
+
             if batch % args.checkpoint == 0:
                 checkpoint.save(file_prefix = checkpoint_prefix)
-            print('Time {} \n'.format(time.time() - start))
+                print('Time {} \n'.format(time.time() - start))
+
+
 
     else:
         dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
