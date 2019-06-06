@@ -208,7 +208,7 @@ if __name__ == "__main__":
             #embed nodes 
             nodes = embedding(nodes)    
             batch_loss = train_step(adj, nodes, edges, targ)
-            if batch % args.eval_step == 0:
+            if batch % args.eval_steps == 0:
                 eval_loss = evaluate(adj, nodes, edges, targ)
                 print('Step {} Train Loss{:.4f}'.format(batch,
                                                 batch_loss.numpy()))
