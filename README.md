@@ -39,6 +39,8 @@ The dataset in use is [**WebNLG** challenge's](http://webnlg.loria.fr/pages/chal
 				 --learning_rate --use_colab			\
 				 --checkpoint "path_to_checkpoint_dir"		
 				 
+
+- If you want to train an RNN or Transformer model, Input of the model us .triple and Target is .lex file. 
 				 
 - To use Google-Colab, set the argument 'use_colab' to True run the following command first then above commands with '!' in front. 
 	
