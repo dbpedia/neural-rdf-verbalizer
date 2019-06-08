@@ -131,7 +131,8 @@ def get_dataset(args):
     dataset = tf.data.Dataset.from_tensor_slices((input_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-    return dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size
+    return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+           vocab_inp_size, vocab_tgt_size, target_lang)
 
 def get_gat_dataset(args):
 
@@ -150,7 +151,7 @@ def get_gat_dataset(args):
     steps_per_epoch = len(target_tensor) // BATCH_SIZE
     vocab_tgt_size = len(target_lang.word_index) + 1
     vocab_nodes_size = len(nodes_lang.word_index) + 1
-    vocab_edge_size = len(edges_lang.word_index) + 1 
+    vocab_edge_size = len(edges_lang.word_index) + 1
 
     dataset = tf.data.Dataset.from_tensor_slices((graph_adj, node_tensor, 
                                                     edge_tensor, target_tensor)).shuffle(BUFFER_SIZE)

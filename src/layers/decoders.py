@@ -10,9 +10,9 @@ import abc
 from collections import namedtuple
 import six
 
-class Decoder(tf.keras.Model):
+class RNNDecoder(tf.keras.Model):
   def __init__(self, vocab_size, embedding_dim, dec_units, batch_sz):
-    super(Decoder, self).__init__()
+    super(RNNDecoder, self).__init__()
     self.batch_sz = batch_sz
     self.dec_units = dec_units
     self.embedding = tf.keras.layers.Embedding(vocab_size, embedding_dim)

@@ -6,9 +6,20 @@ from __future__ import print_function
 
 import math
 import tensorflow as tf
+import tensorflow.contrib.slim as slim
 
 _NEG_INF = -1e9
 
+def model_summary(model):
+    """
+    Gives summary of model and its params
+    :param model: the model
+    :type model: tf.keras.model object
+    :return: summary text
+    :rtype: write obj
+    """
+    model_vars = model.trainable_variables
+    slim.model_analyzer.analyze_vars(model_vars, print_info=True)
 
 def get_position_encoding(length, hidden_size, min_timescale=1.0,
                             max_timescale=1.0e4):
@@ -87,3 +98,12 @@ def get_padding_bias(x):
             tf.expand_dims(attention_bias, axis=1), axis=1)
 
         return attention_bias
+
+def loss_function(real, pred, loss_object):
+
+    mask = tf.math.logical_not(tf.math.equal(real, 0))
+    loss_ = loss_object(real, pred)
+    mask = tf.cast(mask, dtype=loss_.dtype)
+    loss_ *= mask
+
+    return tf.reduce_mean(loss_)

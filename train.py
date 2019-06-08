@@ -1,4 +1,6 @@
-""" Script to train the selected model """
+""" Script to train the selected model
+    Used to train a single language model ( Teacher model ) 
+"""
 
 from __future__ import print_function
 from __future__ import absolute_import
@@ -21,10 +23,11 @@ GPUs = GPU.getGPUs()
 gpu = GPUs[0]
 
 from data_loader import get_dataset, get_gat_dataset, convert, preprocess_sentence
-from src.models import model_params
+from src.models import model_params, transformer, graph_attention_model, rnn_model
+from src.utils.model_utils import loss_function, model_summary
 from src.layers.attention_layer import BahdanauAttention
-from src.layers.encoders import GraphEncoder
-from src.layers.decoders import Decoder
+from src.layers.encoders import GraphEncoder, RNNEncoder
+from src.layers.decoders import RNNDecoder
 from src.models import transformer
 from arguments import get_args
 
@@ -39,19 +42,9 @@ def printm():
     print("Gen RAM Free: " + humanize.naturalsize( psutil.virtual_memory().available ), " | Proc size: " + humanize.naturalsize( process.memory_info().rss))
     print("GPU RAM Free: {0:.0f}MB | Used: {1:.0f}MB | Util {2:3.0f}% | Total {3:.0f}MB".format(gpu.memoryFree, gpu.memoryUsed, gpu.memoryUtil*100, gpu.memoryTotal))
 
-
-def loss_function(real, pred, loss_object):
-
-    mask = tf.math.logical_not(tf.math.equal(real, 0))
-    loss_ = loss_object(real, pred)
-    mask = tf.cast(mask, dtype=loss_.dtype)
-    loss_ *= mask 
-
-    return tf.reduce_mean(loss_)
-
 if __name__ == "__main__":
     args = get_args()
-
+    '''
     #set up dirs
     if args.use_colab == False:
         args.checkpoint_dir = 'ckpts/' if args.checkpoint_dir is None else args.checkpoint_dir
@@ -64,25 +57,24 @@ if __name__ == "__main__":
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
         args.checkpoint_dir = OUTPUT_DIR
         output_file = OUTPUT_DIR + '/results.txt'
-        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)'''
 
     if args.enc_type == 'gat':
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
-        
-        encoder = GraphEncoder(args)
-        decoder = Decoder(vocab_tgt_size, args.emb_dim, args.enc_units, BATCH_SIZE)
+        model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
         optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
-
+        """
         checkpoint_dir = args.checkpoint_dir
         checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
         checkpoint = tf.train.Checkpoint( optimizer=optimizer,
                                             encoder= encoder,
                                             decoder= decoder)
+        """
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
         else:
@@ -90,46 +82,23 @@ if __name__ == "__main__":
 
         def train_step(adj, nodes, targ):
             loss = 0
-
             with tf.GradientTape() as tape:
-                enc_output, enc_hidden = encoder(nodes, adj, encoder.trainable)
-                dec_input=tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
-
-                # Apply teacher forcing 
-                for t in range(1, targ.shape[1]):
-                    # pass encoder output to decoder
-                    predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
-                    loss += loss_function(targ[:, t], predictions, loss_object)
-
-                    #using teacher forcing 
-                    dec_input = tf.expand_dims(targ[:, t], 1) 
-
-            batch_loss = (loss / int(targ.shape[1]))
-            variables = encoder.trainable_variables + decoder.trainable_variables
-            gradients = tape.gradient(loss, variables) 
+                predictions, dec_hidden, loss = model(adj, nodes, targ)
+            batch_loss =(loss / int(targ.shape[1]))
+            variables = model.trainable_variables
+            gradients = tape.gradient(loss, variables)
 
             optimizer.apply_gradients(zip(gradients, variables))
-            return batch_loss   
+            return batch_loss
 
         # Eval function
         def eval_step(adj, nodes, targ):
-            # set encoder and decoder to eval state
-            encoder.trainable = False
-            decoder.trainable = False
-
+            model.trainable = False
             eval_loss = 0
-            enc_output, enc_hidden = encoder(nodes, adj, encoder.trainable)
-            dec_input = tf.expand_dims([target_lang.word_index['<start>']] * BATCH_SIZE, 1)
-            for t in range(1, targ.shape[1]):
-                predictions, dec_hidden, _ = decoder(dec_input, enc_hidden, enc_output)
-                eval_loss += loss_function(targ[:, t], predictions, loss_object)
-                dec_input = tf.expand_dims(targ[:, t], 1)
-
-            eval_loss = (eval_loss / int(targ.shape[1]))
-
-            encoder.trainable = True
-            decoder.trainable = True
-
+            predictions, dec_hidden, loss = model(adj, nodes, targ)
+            eval_loss = (loss / int(targ.shape[1]))
+            model.trainable = True
+            
             return eval_loss
 
         total_loss =0
@@ -149,26 +118,77 @@ if __name__ == "__main__":
 
             if batch % args.eval_steps == 0:
                 eval_loss = eval_step(adj, nodes, targ)
-                print('Step {} Eval Loss{:.4f}'.format(batch,
+                print('Step {} Eval Loss{:.4f} \n'.format(batch,
                                                         eval_loss.numpy()))
             else:
                 batch_loss = train_step(adj, nodes, targ)
-                print('Step {} Train Loss{:.4f}'.format(batch,
+                print('Step {} Train Loss{:.4f} \n'.format(batch,
                                                         batch_loss.numpy()))
-            #printm()
-
+            printm()
+            """
             if batch % args.checkpoint == 0:
                 checkpoint.save(file_prefix = checkpoint_prefix)
-                print('Time {} \n'.format(time.time() - start))
-
-
-
+            print('Time {} \n'.format(time.time() - start))
+            """
     else:
-        dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_inp_size, vocab_tgt_size = get_dataset(args)
-        example_input_batch, example_target_batch= next(iter(dataset))
+        dataset, BUFFER_SIZE, BATCH_SIZE,\
+        steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
+
+        optimizer = tf.train.AdamOptimizer()
+        loss_object = tf.keras.losses.CategoricalCrossentropy()
+        model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
+        enc_hidden = model.encoder.initialize_hidden_state()
+        """
+        checkpoint_dir = args.checkpoint_dir
+        checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
+        checkpoint = tf.train.Checkpoint(optimizer=optimizer,
+                                         encoder=encoder,
+                                         decoder=decoder)
+        """
+        def loss_function(real, pred):
+            mask = tf.math.logical_not(tf.math.equal(real, 0))
+            loss_ = loss_object(real, pred)
+
+            mask = tf.cast(mask, dtype=loss_.dtype)
+            loss_ *= mask
+
+            return tf.reduce_mean(loss_)
+
+        def train_step(inp, targ, enc_hidden):
+            loss = 0
+
+            with tf.GradientTape() as tape:
+                predictions, dec_hidden, loss = model(inp, targ, enc_hidden)
+
+            batch_loss = (loss / int(targ.shape[1]))
+            variables = model.trainable_variables 
+            gradients = tape.gradient(loss, variables)
+            optimizer.apply_gradients(zip(gradients, variables))
+
+            return batch_loss
 
 
+        def eval_step(inp, trg, enc_hidden):
+            eval_loss = 0 
+            model.trainable = False
 
+            predictions, dec_hidden, eval_loss = model(inp, trg, enc_hidden)
+            eval_loss = (eval_loss / int(targ.shape[1]))
+            
+            model.trainable = True 
 
+            return eval_loss
 
-
+        for (batch, (inp, targ)) in enumerate(dataset.take(args.steps)):
+            start = time.time()
+            if batch % args.eval_steps == 0:
+                eval_loss = eval_step(inp, targ, enc_hidden)
+                print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
+            else:
+                batch_loss = train_step(inp, targ, enc_hidden)
+                print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
+            """
+            if batch % args.checkpoint == 0:
+                checkpoint.save(file_prefix = checkpoint_prefix)
+            print('Time {} \n'.format(time.time() - start))
+            """
