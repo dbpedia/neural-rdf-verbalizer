@@ -14,6 +14,7 @@ import io
 import tempfile
 from six.moves import xrange
 import os
+from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, transformer, graph_attention_model, rnn_model
@@ -85,36 +86,39 @@ if __name__ == "__main__":
             return eval_loss
 
         total_loss =0
-        for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
-            start = time.time()
+        for epoch in args.epochs:
+            with tqdm(total=34352) as pbar:
+                for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
+                    start = time.time()
 
-            if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
-            # type cast all tensors for uniformity
-            adj = tf.cast(adj, tf.float32)
-            nodes = tf.cast(nodes, tf.float32) 
-            edges = tf.cast(edges, tf.float32) 
-            targ = tf.cast(targ, tf.float32)
+                    if args.decay is not None:
+                        optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
+                    # type cast all tensors for uniformity
+                    adj = tf.cast(adj, tf.float32)
+                    nodes = tf.cast(nodes, tf.float32) 
+                    edges = tf.cast(edges, tf.float32) 
+                    targ = tf.cast(targ, tf.float32)
 
-            #embed nodes 
-            nodes = embedding(nodes)
-            edges = embedding(edges)
-            nodes = tf.add(nodes, edges)
+                    #embed nodes 
+                    nodes = embedding(nodes)
+                    edges = embedding(edges)
+                    nodes = tf.add(nodes, edges)
 
-            if batch % args.eval_steps == 0:
-                eval_loss = eval_step(adj, nodes, targ)
-                print('Step {} Eval Loss{:.4f} \n'.format(batch,
-                                                        eval_loss.numpy()))
-            else:
-                batch_loss = train_step(adj, nodes, targ)
-                print('Step {} Train Loss{:.4f} \n'.format(batch,
-                                                        batch_loss.numpy()))
+                    if batch % args.eval_steps == 0:
+                        eval_loss = eval_step(adj, nodes, targ)
+                        print('Batch {} Eval Loss{:.4f} \n'.format(batch,
+                                                                eval_loss.numpy()))
+                    else:
+                        batch_loss = train_step(adj, nodes, targ)
+                        print('Batch {} Train Loss{:.4f} \n'.format(batch,
+                                                                batch_loss.numpy()))
 
-            if batch % args.checkpoint == 0:
-                print("Saving checkpoint \n")
-                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                checkpoint.save(file_prefix=checkpoint_prefix)
-            print('Time {} \n'.format(time.time() - start))
+                    if batch % args.checkpoint == 0:
+                        print("Saving checkpoint \n")
+                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                        checkpoint.save(file_prefix=checkpoint_prefix)
+                    print('Time {} \n'.format(time.time() - start))
+                    pbar.update(1)
 
     elif args.enc_type == 'rnn':
         OUTPUT_DIR += '/'+args.enc_type
@@ -161,24 +165,27 @@ if __name__ == "__main__":
             model.trainable = True
 
             return eval_loss
+        
+        for epoch in args.epochs:
+            with tqdm(total=34352) as pbar:
+                for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
+                    start = time.time()
+                    if args.decay is not None:
+                        optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
 
-        for (batch, (inp, targ)) in enumerate(dataset.take(args.steps)):
-            start = time.time()
-            if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
+                    if batch % args.eval_steps == 0:
+                        eval_loss = eval_step(inp, targ, enc_hidden)
+                        print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
+                    else:
+                        batch_loss = train_step(inp, targ, enc_hidden)
+                        print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
 
-            if batch % args.eval_steps == 0:
-                eval_loss = eval_step(inp, targ, enc_hidden)
-                print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
-            else:
-                batch_loss = train_step(inp, targ, enc_hidden)
-                print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
-
-            if batch % args.checkpoint == 0:
-                print("Saving checkpoint \n")
-                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                checkpoint.save(file_prefix=checkpoint_prefix)
-            print('Time {} \n'.format(time.time() - start))
+                    if batch % args.checkpoint == 0:
+                        print("Saving checkpoint \n")
+                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                        checkpoint.save(file_prefix=checkpoint_prefix)
+                    print('Time {} \n'.format(time.time() - start))
+                pbar.update(1)
 
     elif args.enc_type == 'transformer':
         OUTPUT_DIR += '/'+args.enc_type
@@ -229,13 +236,15 @@ if __name__ == "__main__":
 
         for epoch in range(epochs):
             start = time.time()
-            for (batch, (inp, tar)) in enumerate(dataset):
-                batch_loss = train_step(inp, tar)
-                if args.decay is not None:
-                    optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
+            with tqdm(total=34352) as pbar:
+                for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
+                    batch_loss = train_step(inp, tar)
+                    if args.decay is not None:
+                        optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
+                    pbar.update(1)
 
-                print('Step {} Loss {:.4f}'.format(
-                        (epoch*steps_per_epoch+batch), batch_loss))
+                print('Batch {} Loss {:.4f}'.format(
+                        (epoch), batch_loss))
                 print('Time taken for 1 step: {} secs\n'.format(time.time() - start))
 
                 if ((epoch*steps_per_epoch+batch) % args.checkpoint == 0):

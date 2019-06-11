@@ -50,6 +50,7 @@ def pre_process(path):
         array = nx.to_numpy_array(g)
         print(array)
         result = np.zeros((16, 16))
+
         result[:array.shape[0], :array.shape[1]] = array
         tensor.append(result)
 
