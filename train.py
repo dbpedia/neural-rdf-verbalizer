@@ -231,6 +231,8 @@ if __name__ == "__main__":
             start = time.time()
             for (batch, (inp, tar)) in enumerate(dataset):
                 batch_loss = train_step(inp, tar)
+                if args.decay is not None:
+                    optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
 
                 print('Step {} Loss {:.4f}'.format(
                         (epoch*steps_per_epoch+batch), batch_loss))
