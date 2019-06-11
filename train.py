@@ -86,7 +86,7 @@ if __name__ == "__main__":
             return eval_loss
 
         total_loss =0
-        for epoch in args.epochs:
+        for epoch in range(args.epochs):
             with tqdm(total=34352) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
@@ -106,11 +106,11 @@ if __name__ == "__main__":
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, targ)
-                        print('Batch {} Eval Loss{:.4f} \n'.format(batch,
+                        print('Batch {} Eval Loss{:.4f} '.format(batch,
                                                                 eval_loss.numpy()))
                     else:
                         batch_loss = train_step(adj, nodes, targ)
-                        print('Batch {} Train Loss{:.4f} \n'.format(batch,
+                        print('Batch {} Train Loss{:.4f} '.format(batch,
                                                                 batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
@@ -166,7 +166,7 @@ if __name__ == "__main__":
 
             return eval_loss
         
-        for epoch in args.epochs:
+        for epoch in range(args.epochs):
             with tqdm(total=34352) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
@@ -175,17 +175,17 @@ if __name__ == "__main__":
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(inp, targ, enc_hidden)
-                        print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
+                        print('Step {} Eval Loss {:.4f} '.format(batch,eval_loss.numpy()))
                     else:
                         batch_loss = train_step(inp, targ, enc_hidden)
-                        print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
+                        print('Step {} Batch Loss {:.4f} '.format(batch,batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
                         print("Saving checkpoint \n")
                         checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
                         checkpoint.save(file_prefix=checkpoint_prefix)
-                    print('Time {} \n'.format(time.time() - start))
-                pbar.update(1)
+                    print('Time {} '.format(time.time() - start))
+                    pbar.update(1)
 
     elif args.enc_type == 'transformer':
         OUTPUT_DIR += '/'+args.enc_type
@@ -197,7 +197,6 @@ if __name__ == "__main__":
         dff = args.hidden_size
         dropout_rate = args.dropout
         epochs = args.steps // steps_per_epoch
-        global step
 
         learning_rate = args.learning_rate
         optimizer = tf.train.AdamOptimizer(learning_rate)
@@ -243,7 +242,7 @@ if __name__ == "__main__":
                         optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
                     pbar.update(1)
 
-                print('Batch {} Loss {:.4f}'.format(
+                print('Epoch {} Loss {:.4f}'.format(
                         (epoch), batch_loss))
                 print('Time taken for 1 step: {} secs\n'.format(time.time() - start))
 
