@@ -13,6 +13,8 @@ parser.add_argument(
 parser.add_argument(
     '--dec_type', default='rnn', type=str, required=True,
     help='Type of decoder Transformer | rnn')
+parser.add_argument(
+    '--train', type=bool, required=False, help='In training mode or eval mode')
 
 # Colab options
 parser.add_argument(
@@ -86,6 +88,8 @@ parser.add_argument(
     '--decay_steps', type=int, required=False, help='Decay every this steps ')
 parser.add_argument(
     '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
+
+#inference parameters
 
 def get_args():
     args = parser.parse_args()

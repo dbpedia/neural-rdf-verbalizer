@@ -13,18 +13,12 @@ import time
 import io
 import tempfile
 from six.moves import xrange
-from absl import app as absl_app
-from absl import flags
-import psutil
-import humanize
 import os
 
-from data_loader import get_dataset, get_gat_dataset, convert, preprocess_sentence
+from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, transformer, graph_attention_model, rnn_model
+from src.utils.model_utils import create_masks
 from src.utils.model_utils import loss_function, model_summary
-from src.layers.attention_layer import BahdanauAttention
-from src.layers.encoders import GraphEncoder, RNNEncoder
-from src.layers.decoders import RNNDecoder
 from src.models import transformer
 from arguments import get_args
 
@@ -122,7 +116,7 @@ if __name__ == "__main__":
                 checkpoint.save(file_prefix=checkpoint_prefix)
             print('Time {} \n'.format(time.time() - start))
 
-    else:
+    elif args.enc_type == 'rnn':
         OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
@@ -186,3 +180,63 @@ if __name__ == "__main__":
                 checkpoint.save(file_prefix=checkpoint_prefix)
             print('Time {} \n'.format(time.time() - start))
 
+    elif args.enc_type == 'transformer':
+        OUTPUT_DIR += '/'+args.enc_type
+        dataset, BUFFER_SIZE, BATCH_SIZE,\
+        steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
+        num_layers = args.num_layers
+        num_heads = args.num_heads
+        d_model = args.emb_dim
+        dff = args.hidden_size
+        dropout_rate = args.dropout
+        epochs = args.steps // steps_per_epoch
+        global step
+
+        learning_rate = args.learning_rate
+        optimizer = tf.train.AdamOptimizer(learning_rate)
+
+        loss_object = tf.keras.losses.CategoricalCrossentropy()
+        model = transformer.Transformer(num_layers, d_model, num_heads, dff,
+                          vocab_inp_size, vocab_tgt_size, dropout_rate)
+
+        ckpt = tf.train.Checkpoint(
+            model = model,
+            optimizer = optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
+
+        def train_step(inp, tar):
+            tar_inp = tar[:, :-1]
+            tar_real = tar[:, 1:]
+
+            enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
+
+            with tf.GradientTape() as tape:
+                predictions, _ = model(inp, tar_inp,
+                                             True,
+                                             enc_padding_mask,
+                                             combined_mask,
+                                             dec_padding_mask)
+                loss = loss_function(tar_real, predictions, loss_object)
+
+            gradients = tape.gradient(loss, model.trainable_variables)
+            optimizer.apply_gradients(zip(gradients, model.trainable_variables))
+
+            return loss
+
+        for epoch in range(epochs):
+            start = time.time()
+            for (batch, (inp, tar)) in enumerate(dataset):
+                batch_loss = train_step(inp, tar)
+
+                print('Step {} Loss {:.4f}'.format(
+                        (epoch*steps_per_epoch+batch), batch_loss))
+                print('Time taken for 1 step: {} secs\n'.format(time.time() - start))
+
+                if ((epoch*steps_per_epoch+batch) % args.checkpoint == 0):
+                    ckpt_save_path = ckpt_manager.save()
+                    print("Saving checkpoint \n")
+        
