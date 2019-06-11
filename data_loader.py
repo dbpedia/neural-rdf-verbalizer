@@ -159,13 +159,3 @@ def get_gat_dataset(args):
 
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
             vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ)
-
-
-
-
-
-
-
-
-
-
