@@ -6,6 +6,8 @@ from __future__ import absolute_import
 
 import tensorflow as tf
 from src.layers.gat_layer import GraphAttentionLayer
+from src.layers.attention_layer import MultiHeadAttention
+from src.utils.model_utils import point_wise_feed_forward_network
 import abc
 from collections import namedtuple
 import six
@@ -71,7 +73,7 @@ class RNNEncoder(tf.keras.layers.Layer):
         self.batch_size = batch_size
         self.enc_units = enc_units
         self.embedding = tf.keras.layers.Embedding(vocab_size, emb_dim)
-        self.gru = tf.keras.layers.GRU(self.enc_units,
+        self.gru = tf.keras.layers.CuDNNGRU(self.enc_units,
                                        return_sequences=True,
                                        return_state=True,
                                        recurrent_initializer='glorot_uniform')
@@ -84,23 +86,26 @@ class RNNEncoder(tf.keras.layers.Layer):
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_size, self.enc_units))
 
+class TransformerEncoder(tf.keras.layers.Layer):
+    def __init__(self, d_model, num_heads, dff, rate=0.1):
+        super(TransformerEncoder, self).__init__()
 
+        self.mha = MultiHeadAttention(d_model, num_heads)
+        self.ffn = point_wise_feed_forward_network(d_model, dff)
 
-    
+        self.layernorm1 = tf.contrib.layers.layer_norm
+        self.layernorm2 = tf.contrib.layers.layer_norm
 
-            
+        self.dropout1 = tf.keras.layers.Dropout(rate)
+        self.dropout2 = tf.keras.layers.Dropout(rate)
 
+    def call(self, x, training, mask):
+        attn_output, _ = self.mha(x, x, x, mask)  # (batch_size, input_seq_len, d_model)
+        attn_output = self.dropout1(attn_output, training=training)
+        out1 = self.layernorm1(x + attn_output)  # (batch_size, input_seq_len, d_model)
 
+        ffn_output = self.ffn(out1)  # (batch_size, input_seq_len, d_model)
+        ffn_output = self.dropout2(ffn_output, training=training)
+        out2 = self.layernorm2(out1 + ffn_output)  # (batch_size, input_seq_len, d_model)
 
-
-
-
-
-
-
-
-
-
-
-
-
+        return out2
