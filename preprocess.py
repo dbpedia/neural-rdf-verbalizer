@@ -19,6 +19,7 @@ import numpy as np
 import networkx as nx
 import argparse
 import pickle
+import os
 
 parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
@@ -27,6 +28,8 @@ parser.add_argument(
     '--train', type=bool, required=True, help='Preprocess train files or eval files')
 parser.add_argument(
     '--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix')
+parser.add_argument(
+    '--use_colab', type=bool, required=False, help='Use colab or not')
 
 args = parser.parse_args()
 
@@ -98,28 +101,44 @@ if __name__ == '__main__':
         tensor = np.array(tensor)
         print(tensor.shape)
         if args.train is True:
-            np.save('data/train_graph_adj', tensor)
-            with open('data/train_graph_nodes', 'wb') as fp:
-                pickle.dump(nodes, fp)
-            with open('data/train_graph_edges', 'wb') as fp:
-                pickle.dump(edges, fp)
+            if args.use_colab is not None:
+                from google.colab import drive
+
+                drive.mount('/content/gdrive')
+                OUTPUT_DIR = '/content/gdrive/My Drive/data'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
+                np.save('/content/gdrive/My Drive/data/train_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/train_graph_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('/content/gdrive/My Drive/data/train_graph_edges', 'wb') as fp:
+                    pickle.dump(edges, fp)
+            else:
+                np.save('data/train_graph_adj', tensor)
+                with open('data/train_graph_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('data/train_graph_edges', 'wb') as fp:
+                    pickle.dump(edges, fp)
         else:
-            np.save('data/eval_graph_adj', tensor)
-            with open('data/eval_graph_nodes', 'wb') as fp:
-                pickle.dump(nodes, fp)
-            with open('data/eval_graph_edges', 'wb') as fp:
-                pickle.dump(edges, fp)
-    else:
-        if args.emb != 768:
-            model = "bert_24_1024_16"
-            dataset_name = 'book_corpus_wiki_en_cased'
-            # initialize the embedding model
-            embedding = BertEmbedding(model=model, dataset_name=dataset_name)
-        else:
-            embedding = BertEmbedding()
-        nodes = np.load('data/graph_nodes.npy')
-        result = node_tensors(nodes, embedding)
-        np.save('data/graph_features.npy', result)
+            if args.use_colab is not None:
+                from google.colab import drive
+
+                drive.mount('/content/gdrive')
+                OUTPUT_DIR = '/content/gdrive/My Drive/data'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
+                np.save('/content/gdrive/My Drive/data/eval_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/eval_graph_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('/content/gdrive/My Drive/data/eval_graph_edges', 'wb') as fp:
+                    pickle.dump(edges, fp)
+            else:
+                np.save('data/eval_graph_adj', tensor)
+                with open('data/eval_graph_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('data/eval_graph_edges', 'wb') as fp:
+                    pickle.dump(edges, fp)
+ 
 
 
 

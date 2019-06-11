@@ -38,32 +38,29 @@ if __name__ == "__main__":
     args = get_args()
 
     #set up dirs
-    if args.use_colab != False:
-        args.checkpoint_dir = 'ckpts/' if args.checkpoint_dir is None else args.checkpoint_dir
+    if args.use_colab is None:
         output_file = 'results.txt'
-        if args.checkpoint_dir is None and not os.path.isdir('ckpts'):
-            os.mkdir('ckpts')
+        OUTPUT_DIR = 'ckpts'
+        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
-        args.checkpoint_dir = OUTPUT_DIR
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
     if args.enc_type == 'gat':
+        OUTPUT_DIR += '/'+args.enc_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
-
         model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
-        optimizer = tf.train.AdamOptimizer()
+        optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
         loss_object = tf.keras.losses.CategoricalCrossentropy()
 
         checkpoint_dir = args.checkpoint_dir
-        checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
         checkpoint = tf.train.Checkpoint( optimizer=optimizer,
                                             model=model)
 
@@ -97,7 +94,9 @@ if __name__ == "__main__":
         for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
             start = time.time()
 
-            # type cast all tensors for uniformity 
+            if args.decay is not None:
+                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
+            # type cast all tensors for uniformity
             adj = tf.cast(adj, tf.float32)
             nodes = tf.cast(nodes, tf.float32) 
             edges = tf.cast(edges, tf.float32) 
@@ -118,20 +117,23 @@ if __name__ == "__main__":
                                                         batch_loss.numpy()))
 
             if batch % args.checkpoint == 0:
-                checkpoint.save(file_prefix = checkpoint_prefix)
+                print("Saving checkpoint \n")
+                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                checkpoint.save(file_prefix=checkpoint_prefix)
             print('Time {} \n'.format(time.time() - start))
 
     else:
+        OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
-        optimizer = tf.train.AdamOptimizer()
+        optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
         loss_object = tf.keras.losses.CategoricalCrossentropy()
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
         checkpoint_dir = args.checkpoint_dir
-        checkpoint_prefix = os.path.join(checkpoint_dir, "ckpt")
+        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
         checkpoint = tf.train.Checkpoint(optimizer=optimizer,
                                          model=model)
 
@@ -168,6 +170,9 @@ if __name__ == "__main__":
 
         for (batch, (inp, targ)) in enumerate(dataset.take(args.steps)):
             start = time.time()
+            if args.decay is not None:
+                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
+
             if batch % args.eval_steps == 0:
                 eval_loss = eval_step(inp, targ, enc_hidden)
                 print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
@@ -176,6 +181,8 @@ if __name__ == "__main__":
                 print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
 
             if batch % args.checkpoint == 0:
-                checkpoint.save(file_prefix = checkpoint_prefix)
+                print("Saving checkpoint \n")
+                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                checkpoint.save(file_prefix=checkpoint_prefix)
             print('Time {} \n'.format(time.time() - start))
 

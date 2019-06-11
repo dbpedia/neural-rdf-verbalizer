@@ -79,6 +79,12 @@ parser.add_argument(
 parser.add_argument(
     '--learning_rate', type=float, required=False, help='Learning rate')
 parser.add_argument(
+    '--decay', type=bool, required=False, help='Use learning rate decay')
+parser.add_argument(
+    '--decay_rate', type=float, required=False, help='Decay rate ')
+parser.add_argument(
+    '--decay_steps', type=int, required=False, help='Decay every this steps ')
+parser.add_argument(
     '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
 def get_args():
