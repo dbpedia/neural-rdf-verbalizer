@@ -14,6 +14,7 @@ import io
 import tempfile
 from six.moves import xrange
 import os
+from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, transformer, graph_attention_model, rnn_model
@@ -51,7 +52,10 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim) 
         model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
-        optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+        if args.decay is not None:
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+        else:
+            optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.CategoricalCrossentropy()
 
         checkpoint_dir = args.checkpoint_dir
@@ -85,43 +89,49 @@ if __name__ == "__main__":
             return eval_loss
 
         total_loss =0
-        for (batch, (adj, nodes, edges, targ)) in enumerate(dataset.take(steps)):
-            start = time.time()
+        for epoch in range(args.epochs):
+            with tqdm(total=34352) as pbar:
+                for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
+                    start = time.time()
+                    # type cast all tensors for uniformity
+                    adj = tf.cast(adj, tf.float32)
+                    nodes = tf.cast(nodes, tf.float32) 
+                    edges = tf.cast(edges, tf.float32) 
+                    targ = tf.cast(targ, tf.float32)
 
+                    #embed nodes 
+                    nodes = embedding(nodes)
+                    edges = embedding(edges)
+                    nodes = tf.add(nodes, edges)
+
+                    if batch % args.eval_steps == 0:
+                        eval_loss = eval_step(adj, nodes, targ)
+                        print('Batch {} Eval Loss{:.4f} '.format(batch,
+                                                                eval_loss.numpy()))
+                    else:
+                        batch_loss = train_step(adj, nodes, targ)
+                        print('Batch {} Train Loss{:.4f} '.format(batch,
+                                                                batch_loss.numpy()))
+
+                    if batch % args.checkpoint == 0:
+                        print("Saving checkpoint \n")
+                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                        checkpoint.save(file_prefix=checkpoint_prefix)
+                    print('Time {} \n'.format(time.time() - start))
+                    pbar.update(1)
             if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
-            # type cast all tensors for uniformity
-            adj = tf.cast(adj, tf.float32)
-            nodes = tf.cast(nodes, tf.float32) 
-            edges = tf.cast(edges, tf.float32) 
-            targ = tf.cast(targ, tf.float32)
-
-            #embed nodes 
-            nodes = embedding(nodes)
-            edges = embedding(edges)
-            nodes = tf.add(nodes, edges)
-
-            if batch % args.eval_steps == 0:
-                eval_loss = eval_step(adj, nodes, targ)
-                print('Step {} Eval Loss{:.4f} \n'.format(batch,
-                                                        eval_loss.numpy()))
-            else:
-                batch_loss = train_step(adj, nodes, targ)
-                print('Step {} Train Loss{:.4f} \n'.format(batch,
-                                                        batch_loss.numpy()))
-
-            if batch % args.checkpoint == 0:
-                print("Saving checkpoint \n")
-                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                checkpoint.save(file_prefix=checkpoint_prefix)
-            print('Time {} \n'.format(time.time() - start))
+                optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
     elif args.enc_type == 'rnn':
         OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
-        optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+        if args.decay is not None:
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+        else:
+            optimizer = tf.train.AdamOptimizer()
+
         loss_object = tf.keras.losses.CategoricalCrossentropy()
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
@@ -161,24 +171,27 @@ if __name__ == "__main__":
             model.trainable = True
 
             return eval_loss
+        
+        for epoch in range(args.epochs):
+            with tqdm(total=34352) as pbar:
+                for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
+                    start = time.time()
 
-        for (batch, (inp, targ)) in enumerate(dataset.take(args.steps)):
-            start = time.time()
+                    if batch % args.eval_steps == 0:
+                        eval_loss = eval_step(inp, targ, enc_hidden)
+                        print('Step {} Eval Loss {:.4f} '.format(batch,eval_loss.numpy()))
+                    else:
+                        batch_loss = train_step(inp, targ, enc_hidden)
+                        print('Step {} Batch Loss {:.4f} '.format(batch,batch_loss.numpy()))
+
+                    if batch % args.checkpoint == 0:
+                        print("Saving checkpoint \n")
+                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
+                        checkpoint.save(file_prefix=checkpoint_prefix)
+                    print('Time {} '.format(time.time() - start))
+                    pbar.update(1)
             if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate **(batch // args.decay_steps)
-
-            if batch % args.eval_steps == 0:
-                eval_loss = eval_step(inp, targ, enc_hidden)
-                print('Step {} Eval Loss {:.4f} \n'.format(batch,eval_loss.numpy()))
-            else:
-                batch_loss = train_step(inp, targ, enc_hidden)
-                print('Step {} Batch Loss {:.4f} \n'.format(batch,batch_loss.numpy()))
-
-            if batch % args.checkpoint == 0:
-                print("Saving checkpoint \n")
-                checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                checkpoint.save(file_prefix=checkpoint_prefix)
-            print('Time {} \n'.format(time.time() - start))
+                optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
     elif args.enc_type == 'transformer':
         OUTPUT_DIR += '/'+args.enc_type
@@ -189,8 +202,10 @@ if __name__ == "__main__":
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        epochs = args.steps // steps_per_epoch
-        global step
+        if args.epochs is None :
+            epochs = args.steps // steps_per_epoch
+        else:
+            epochs = args.epochs
 
         learning_rate = args.learning_rate
         optimizer = tf.train.AdamOptimizer(learning_rate)
@@ -227,16 +242,42 @@ if __name__ == "__main__":
 
             return loss
 
+        def eval_step(inp, tar):
+            model.trainable = False
+            tar_inp = tar[:, :-1]
+            tar_real = tar[:, 1:]
+
+            enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
+
+
+            predictions, _ = model(inp, tar_inp,
+                                             True,
+                                             enc_padding_mask,
+                                             combined_mask,
+                                             dec_padding_mask)
+            loss = loss_function(tar_real, predictions, loss_object)
+            return loss
+
         for epoch in range(epochs):
             start = time.time()
-            for (batch, (inp, tar)) in enumerate(dataset):
-                batch_loss = train_step(inp, tar)
+            print("Learning rate "+str(optimizer._lr))
 
-                print('Step {} Loss {:.4f}'.format(
-                        (epoch*steps_per_epoch+batch), batch_loss))
-                print('Time taken for 1 step: {} secs\n'.format(time.time() - start))
+            with tqdm(total=34352) as pbar:
+                for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
+                    if (batch % args.eval_step == 0):
+                        batch_loss = train_step(inp, tar)
+                        print('Step {} Batch Loss {:.4f}'.format(
+                            (batch), batch_loss))
+                    else:
+                        eval_loss = eval_step(inp, tar)
+                        print('Step {} Eval Loss {:.4f}'.format(
+                            (batch), eval_loss))
+                    pbar.update(1)
 
-                if ((epoch*steps_per_epoch+batch) % args.checkpoint == 0):
-                    ckpt_save_path = ckpt_manager.save()
-                    print("Saving checkpoint \n")
+            print('Epoch {} Loss {:.4f}'.format(
+                        (epoch), batch_loss))
+            print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
+            optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
+            ckpt_save_path = ckpt_manager.save()
+            print("Saving checkpoint \n")
         
