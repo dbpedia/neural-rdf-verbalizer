@@ -25,6 +25,7 @@ class RNNDecoder(tf.keras.Model):
 
     # used for attention
     self.attention = BahdanauAttention(self.dec_units)
+    self.layernorm = tf.contrib.layers.layer_norm
 
   def call(self, x, hidden, enc_output):
     # enc_output shape == (batch_size, max_length, hidden_size)
@@ -41,6 +42,7 @@ class RNNDecoder(tf.keras.Model):
 
     # output shape == (batch_size * 1, hidden_size)
     output = tf.reshape(output, (-1, output.shape[2]))
+    output = self.layernorm(output)
 
     # output shape == (batch_size, vocab)
     x = self.fc(output)
