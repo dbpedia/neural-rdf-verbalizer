@@ -264,7 +264,7 @@ if __name__ == "__main__":
 
             with tqdm(total=34352) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
-                    if (batch % args.eval_step == 0):
+                    if (batch % args.eval_steps == 0):
                         batch_loss = train_step(inp, tar)
                         print('Step {} Batch Loss {:.4f}'.format(
                             (batch), batch_loss))
