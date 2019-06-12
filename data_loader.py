@@ -140,11 +140,10 @@ def get_gat_dataset(args):
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.tgt_path, args.num_examples)
 
-    # Pad the node tensors tp 16 size
-    paddings = tf.constant([[0, 0], [0, 8]])
-    node_tensor = tf.pad(node_tensor, paddings, mode='CONSTANT')
     # Pad the edge tensor to 16 size
-    edge_paddings = tf.constant([[0,0], [0,9]])
+    node_paddings = tf.constant([[0, 0], [0, 0]])
+    node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
+    edge_paddings = tf.constant([[0,0], [0,1]])
     edge_tensor = tf.pad(edge_tensor, edge_paddings, mode='CONSTANT')
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
@@ -152,6 +151,7 @@ def get_gat_dataset(args):
     vocab_tgt_size = len(target_lang.word_index) + 1
     vocab_nodes_size = len(nodes_lang.word_index) + 1
     vocab_edge_size = len(edges_lang.word_index) + 1
+    print(graph_adj.shape, edge_tensor.shape, node_tensor.shape)
 
     dataset = tf.data.Dataset.from_tensor_slices((graph_adj, node_tensor, 
                                                     edge_tensor, target_tensor)).shuffle(BUFFER_SIZE)
