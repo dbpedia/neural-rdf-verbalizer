@@ -48,9 +48,9 @@ def pre_process(path):
         edges.append(temp_edge)
         nodes.append(list(g.nodes))
         array = nx.to_numpy_array(g)
-        array = array + np.identity(16)
         print(array)
         result = np.zeros((16, 16))
+        result = result + np.identity(16)
 
         result[:array.shape[0], :array.shape[1]] = array
         tensor.append(result)
