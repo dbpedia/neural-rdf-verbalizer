@@ -51,6 +51,9 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
             self.dropout
         )
         self.lrelu = tf.keras.layers.LeakyReLU(alpha)
+        self.layernorm1 = tf.contrib.layers.layer_norm
+        self.layernorm2 = tf.contrib.layers.layer_norm
+        self.layernorm3 = tf.contrib.layers.layer_norm
 
 
     def __call__(self, inputs, adj, num_heads, train):
@@ -76,6 +79,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         batch_size = inputs.get_shape().as_list()[0]
         nodes = adj.get_shape().as_list()[1]
         inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
+        inputs = self.layernorm1(inputs)
          
         hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
         if train == True:
@@ -85,11 +89,14 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         hidden_state = self.w2_layer(hidden_state)
         if train == True:
             hidden_state = self.Dropout(hidden_state)
+
+        hidden_state = self.layernorm2(hidden_state)
         hidden_state = self.lrelu(hidden_state)
         #Apply attention mechanism now
 
         output = self.self_attention(hidden_state, bias=False, training=False)
-
+        output = self.layernorm3(output)
+        
         return output
 
 

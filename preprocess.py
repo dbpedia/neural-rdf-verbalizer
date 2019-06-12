@@ -50,9 +50,9 @@ def pre_process(path):
         array = nx.to_numpy_array(g)
         print(array)
         result = np.zeros((16, 16))
-        result = result + np.identity(16)
 
         result[:array.shape[0], :array.shape[1]] = array
+        result += np.identity(16)
         tensor.append(result)
 
     dest.close()
