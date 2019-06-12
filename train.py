@@ -238,6 +238,8 @@ if __name__ == "__main__":
 
         for epoch in range(epochs):
             start = time.time()
+            print("Learning rate "+str(optimizer._lr))
+
             with tqdm(total=34352) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     batch_loss = train_step(inp, tar)
@@ -248,7 +250,7 @@ if __name__ == "__main__":
             print('Epoch {} Loss {:.4f}'.format(
                         (epoch), batch_loss))
             print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
-
+            optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
             ckpt_save_path = ckpt_manager.save()
             print("Saving checkpoint \n")
         
