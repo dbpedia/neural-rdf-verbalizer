@@ -48,6 +48,7 @@ def pre_process(path):
         edges.append(temp_edge)
         nodes.append(list(g.nodes))
         array = nx.to_numpy_array(g)
+        array = array + np.identity(16)
         print(array)
         result = np.zeros((16, 16))
 

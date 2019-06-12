@@ -142,10 +142,10 @@ def get_gat_dataset(args):
 
     # Pad the node tensors tp 16 size
     paddings = tf.constant([[0, 0], [0, 8]])
-    node_tensor = tf.pad(node_tensor, paddings)
+    node_tensor = tf.pad(node_tensor, paddings, mode='CONSTANT')
     # Pad the edge tensor to 16 size
     edge_paddings = tf.constant([[0,0], [0,9]])
-    edge_tensor = tf.pad(edge_tensor, edge_paddings)
+    edge_tensor = tf.pad(edge_tensor, edge_paddings, mode='CONSTANT')
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(target_tensor) // BATCH_SIZE
