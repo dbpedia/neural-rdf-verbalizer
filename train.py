@@ -241,8 +241,8 @@ if __name__ == "__main__":
             with tqdm(total=34352) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     batch_loss = train_step(inp, tar)
-                    if args.decay is not None:
-                        optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
+                    print('Step {} Loss {:.4f}'.format(
+                        (batch), batch_loss))
                     pbar.update(1)
 
             print('Epoch {} Loss {:.4f}'.format(
