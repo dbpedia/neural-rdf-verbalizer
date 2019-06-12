@@ -196,7 +196,10 @@ if __name__ == "__main__":
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        epochs = args.steps // steps_per_epoch
+        if args.epochs is None :
+            epochs = args.steps // steps_per_epoch
+        else:
+            epochs = args.epochs
 
         learning_rate = args.learning_rate
         optimizer = tf.train.AdamOptimizer(learning_rate)
