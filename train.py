@@ -242,11 +242,10 @@ if __name__ == "__main__":
                         optimizer._lr = optimizer._lr * args.decay_rate ** ((epoch*steps_per_epoch+batch) // args.decay_steps)
                     pbar.update(1)
 
-                print('Epoch {} Loss {:.4f}'.format(
+            print('Epoch {} Loss {:.4f}'.format(
                         (epoch), batch_loss))
-                print('Time taken for 1 step: {} secs\n'.format(time.time() - start))
+            print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
 
-                if ((epoch*steps_per_epoch+batch) % args.checkpoint == 0):
-                    ckpt_save_path = ckpt_manager.save()
-                    print("Saving checkpoint \n")
+            ckpt_save_path = ckpt_manager.save()
+            print("Saving checkpoint \n")
         
