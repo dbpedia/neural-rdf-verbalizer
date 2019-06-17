@@ -21,7 +21,7 @@ class GATModel (tf.keras.Model):
         self.vocab_tgt_size = vocab_tgt_size 
         self.target_lang = target_lang
         self.args = args
-        self.loss_object = tf.keras.losses.CategoricalCrossentropy()
+        self.loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
     def __call__(self, adj, nodes, targ):
         """

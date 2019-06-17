@@ -25,7 +25,7 @@ class RNNModel (tf.keras.Model):
                                   args.enc_units, args.batch_size) 
         self.decoder = RNNDecoder(self.vocab_tgt_size, args.emb_dim, 
                                   args.enc_units, args.batch_size) 
-        self.loss_object = tf.keras.losses.CategoricalCrossentropy()
+        self.loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
     def __call__ (self, inp, targ, enc_hidden):
         loss = 0 
