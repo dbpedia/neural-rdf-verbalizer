@@ -261,7 +261,6 @@ if __name__ == "__main__":
         for epoch in range(epochs):
             start = time.time()
             print("Learning rate "+str(optimizer._lr))
-
             with tqdm(total=1074) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
