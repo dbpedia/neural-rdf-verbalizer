@@ -31,6 +31,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         :param train: in training mode or eval mode
         :type train: Bool
         """
+        super(GraphAttentionLayer, self).__init__()
 
         self.in_dim = in_dim
         self.out_dim = out_dim
@@ -96,19 +97,3 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         output = self.layernorm3(output)
 
         return output
-
-
-
-
-
-
-
-        
-
-
-
-         
-        
-        
-
-
