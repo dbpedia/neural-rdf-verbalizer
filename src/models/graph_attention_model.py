@@ -21,9 +21,11 @@ class GATModel (tf.keras.Model):
         self.vocab_tgt_size = vocab_tgt_size 
         self.target_lang = target_lang
         self.args = args
+        self.edge_layer_1 = tf.keras.layers.Dense(args.emb_dim)
+        self.edge_layer_2 = tf.keras.layers.Dense(args.emb_dim)
         self.loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
-    def __call__(self, adj, nodes, targ):
+    def __call__(self, adj, nodes, edges, targ):
         """
         Puts the tensors through encoders and decoders
         :param adj: Adjacency matrices of input example
@@ -35,6 +37,10 @@ class GATModel (tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
+        edges = self.edge_layer_1(edges)
+        edges = self.edge_layer_2(edges)
+        nodes += edges
+
         enc_output, enc_hidden = self.encoder(nodes, adj, self.encoder.trainable)
         dec_input=tf.expand_dims([self.target_lang.word_index['<start>']] * self.args.batch_size, 1)
         loss = 0

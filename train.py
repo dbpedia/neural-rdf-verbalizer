@@ -66,10 +66,10 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, targ):
+        def train_step(adj, nodes, edges, targ):
             loss = 0
             with tf.GradientTape() as tape:
-                predictions, dec_hidden, loss = model(adj, nodes, targ)
+                predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
             gradients = tape.gradient(loss, variables)
@@ -78,10 +78,10 @@ if __name__ == "__main__":
             return batch_loss
 
         # Eval function
-        def eval_step(adj, nodes, targ):
+        def eval_step(adj, nodes, edges, targ):
             model.trainable = False
             eval_loss = 0
-            predictions, dec_hidden, loss = model(adj, nodes, targ)
+            predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
             eval_loss = (loss / int(targ.shape[1]))
             model.trainable = True
 
@@ -101,14 +101,13 @@ if __name__ == "__main__":
                     #embed nodes 
                     nodes = embedding(nodes)
                     edges = embedding(edges)
-                    nodes = tf.add(nodes, edges)
 
                     if batch % args.eval_steps == 0:
-                        eval_loss = eval_step(adj, nodes, targ)
+                        eval_loss = eval_step(adj, nodes, edges, targ)
                         print('Batch {} Eval Loss{:.4f} '.format(batch,
                                                                 eval_loss.numpy()))
                     else:
-                        batch_loss = train_step(adj, nodes, targ)
+                        batch_loss = train_step(adj, nodes, edges, targ)
                         print('Batch {} Train Loss{:.4f} '.format(batch,
                                                                 batch_loss.numpy()))
 
