@@ -56,8 +56,7 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
         else:
             optimizer = tf.train.AdamOptimizer()
-        loss_object = tf.keras.backend.categorical_crossentropy
-
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
         checkpoint_dir = args.checkpoint_dir
         checkpoint = tf.train.Checkpoint( optimizer=optimizer,
                                             model=model)
@@ -132,7 +131,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer()
 
-        loss_object = tf.keras.backend.categorical_crossentropy
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
@@ -210,7 +209,7 @@ if __name__ == "__main__":
         learning_rate = args.learning_rate
         optimizer = tf.train.AdamOptimizer(learning_rate)
 
-        loss_object = tf.keras.backend.categorical_crossentropy
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
                           vocab_inp_size, vocab_tgt_size, dropout_rate)
 
