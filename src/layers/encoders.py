@@ -37,9 +37,9 @@ class GraphEncoder(tf.keras.layers.Layer):
                                                 alpha, dropout, bias)
                 self.layers.append(gat_layer)
             else:
-
-                dense_layer = tf.keras.layers.Dense(out_dim)
-                self.layers.append(dense_layer)
+                gat_layer = GraphAttentionLayer(out_dim, out_dim, num_heads,
+                                                alpha, dropout, bias)
+                self.layers.append(gat_layer)
 
         self.gru = tf.keras.layers.GRU(units, return_sequences=True,
                                        return_state=True, recurrent_initializer='glorot_uniform')
@@ -49,14 +49,14 @@ class GraphEncoder(tf.keras.layers.Layer):
 
     def __call__(self, inputs, adj, train):
         with tf.variable_scope("encoding"):
-            for i in range(self.num_heads):
+            for i in range(self.num_layers):
                 if i==0:
                     outputs = self.layers[i](inputs, adj, self.num_heads, train)
                 else:
                     # Skip connections
                     shortcut = outputs
-                    #outputs = self.graph_layers[i](outputs, adj, self.num_heads, train)
-                    outputs = self.layers[i](outputs)
+                    outputs = self.graph_layers[i](outputs, adj, self.num_heads, train)
+                    #outputs = self.layers[i](outputs)
                     outputs += shortcut
             outputs, state = self.gru(outputs, initial_state=self.hidden)
         return outputs, state
