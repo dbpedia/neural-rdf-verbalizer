@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
         total_loss =0
         for epoch in range(args.epochs):
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     # type cast all tensors for uniformity
@@ -171,7 +171,7 @@ if __name__ == "__main__":
             return eval_loss
         
         for epoch in range(args.epochs):
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
 
@@ -259,7 +259,7 @@ if __name__ == "__main__":
         for epoch in range(epochs):
             start = time.time()
             print("Learning rate "+str(optimizer._lr))
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
                         batch_loss = train_step(inp, tar)
