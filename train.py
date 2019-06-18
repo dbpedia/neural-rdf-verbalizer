@@ -254,6 +254,8 @@ if __name__ == "__main__":
                                              combined_mask,
                                              dec_padding_mask)
             loss = loss_function(tar_real, predictions, loss_object)
+            model.trainable = True
+            
             return loss
 
         for epoch in range(epochs):
