@@ -25,13 +25,13 @@ class GraphEncoder(tf.keras.layers.Layer):
         dropout = args.dropout 
         bias = args.use_bias
         edges = args.use_edges
-        num_layers = args.num_layers
+        self.num_layers = args.num_layers
         units = args.enc_units
         alpha = args.alpha
 
         self.layers = []
 
-        for i in range(num_layers):
+        for i in range(self.num_layers):
             if i==0:
                 gat_layer = GraphAttentionLayer(in_dim, out_dim, num_heads,
                                                 alpha, dropout, bias)
