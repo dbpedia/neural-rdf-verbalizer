@@ -48,6 +48,8 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
             bias_initializer='zeros'
         )
         self.self_attention = SelfAttention(out_dim, num_heads, self.dropout)
+        self.dense = tf.keras.layers.Dense
+        self.multi_head_dense = tf.keras.layers.Dense
         self.Dropout = tf.keras.layers.Dropout(
             self.dropout
         )
@@ -76,6 +78,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         :return: encoded node representations 
         :rtype:tf.tensor 
         """
+        """
         self.num_heads = num_heads
         batch_size = inputs.get_shape().as_list()[0]
         nodes = adj.get_shape().as_list()[1]
@@ -95,5 +98,25 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
 
         output = self.self_attention(hidden_state, bias=False, training=False)
         output = self.layernorm3(output)
+        """
+        self.num_heads = num_heads
+        batch_size = inputs.get_shape().as_list()[0]
+        nodes = adj.get_shape().as_list()[1]
+
+        inputs = self.w1_layer(inputs)
+        inputs = self.w2_layer(inputs)
+        inputs = self.layernorm1(inputs)
+        inputs = tf.reshape(inputs, shape=[batch_size, nodes, self.num_heads, -1])
+        inputs = self.multi_head_dense(inputs.shape[3])(inputs)
+        inputs = tf.reshape(inputs, shape=[batch_size, nodes, -1])
+
+        coef = self.dense(nodes)(inputs)
+        coef = tf.math.softmax(coef)
+
+        adj = tf.math.multiply(adj, coef)
+        output = tf.matmul(adj, inputs)
+        output = self.layernorm2(output)
+        output = self.lrelu(output)
+
 
         return output
