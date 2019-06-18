@@ -118,5 +118,4 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         output = self.layernorm2(output)
         output = self.lrelu(output)
 
-
         return output

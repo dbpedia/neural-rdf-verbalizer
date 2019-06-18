@@ -54,10 +54,10 @@ class GraphEncoder(tf.keras.layers.Layer):
                     outputs = self.layers[i](inputs, adj, self.num_heads, train)
                 else:
                     # Skip connections
-                    shortcut = outputs
+                    #shortcut = outputs
                     outputs = self.layers[i](outputs, adj, self.num_heads, train)
                     #outputs = self.layers[i](outputs)
-                    outputs += shortcut
+                    #outputs += shortcut
             outputs, state = self.gru(outputs, initial_state=self.hidden)
         return outputs, state
 
