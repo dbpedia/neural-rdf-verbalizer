@@ -80,7 +80,7 @@ class GraphEncoder(tf.keras.layers.Layer):
                     for sub_layer in layer:
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
-            outputs, state = self.gru(outputs, initial_state=self.hidden)
+            outputs, state = self.gru(outputs)
 
         return outputs, state
 
