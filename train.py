@@ -68,6 +68,9 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+            
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
@@ -152,6 +155,8 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         def loss_function(real, pred):
             mask = tf.math.logical_not(tf.math.equal(real, 0))
@@ -238,6 +243,9 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+            
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         def train_step(inp, tar):
             tar_inp = tar[:, :-1]
