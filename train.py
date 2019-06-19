@@ -53,10 +53,10 @@ if __name__ == "__main__":
         model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
@@ -133,10 +133,10 @@ if __name__ == "__main__":
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
 
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
@@ -219,10 +219,10 @@ if __name__ == "__main__":
         
         if args.learning_rate is not None:
             learning_rate = args.learning_rate
-            optimizer = tf.train.AdamOptimizer(learning_rate,beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
                                                 epsilon=1e-9)
 
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
