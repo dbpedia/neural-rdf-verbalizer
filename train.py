@@ -317,6 +317,8 @@ if __name__ == "__main__":
             nodes = tf.cast(nodes, tf.float32)
             edges = tf.cast(edges, tf.float32)
             targ = tf.cast(targ, tf.float32)
+            nodes = embedding(nodes)
+            edges = embedding(edges)
             predictions, a, _ = model(adj, nodes, edges, targ)
         print(predictions.shape)
 
