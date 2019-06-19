@@ -52,6 +52,7 @@ def pre_process(path):
         result = np.zeros((8, 8))
 
         result[:array.shape[0], :array.shape[1]] = array
+
         result += np.identity(8)
         tensor.append(result)
 
