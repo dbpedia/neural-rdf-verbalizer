@@ -49,10 +49,11 @@ def pre_process(path):
         nodes.append(list(g.nodes))
         array = nx.to_numpy_array(g)
         print(array)
-        result = np.zeros((16, 16))
+        result = np.zeros((8, 8))
 
         result[:array.shape[0], :array.shape[1]] = array
-        result += np.identity(16)
+
+        result += np.identity(8)
         tensor.append(result)
 
     dest.close()

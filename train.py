@@ -17,7 +17,7 @@ import os
 from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
-from src.models import model_params, transformer, graph_attention_model, rnn_model
+from src.models import model_params, graph_attention_model, rnn_model
 from src.utils.model_utils import create_masks
 from src.utils.model_utils import loss_function, model_summary
 from src.models import transformer
@@ -44,8 +44,8 @@ if __name__ == "__main__":
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-    if args.enc_type == 'gat':
-        OUTPUT_DIR += '/'+args.enc_type
+    if args.enc_type == 'gat' and args.dec_type =='rnn':
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
@@ -53,24 +53,35 @@ if __name__ == "__main__":
         model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer()
-        loss_object = tf.keras.losses.CategoricalCrossentropy()
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
-        checkpoint_dir = args.checkpoint_dir
-        checkpoint = tf.train.Checkpoint( optimizer=optimizer,
-                                            model=model)
+        ckpt = tf.train.Checkpoint(
+            model = model,
+            optimizer = optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
+            
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, targ):
+        def train_step(adj, nodes, edges, targ):
             loss = 0
             with tf.GradientTape() as tape:
-                predictions, dec_hidden, loss = model(adj, nodes, targ)
+                predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
+
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
             gradients = tape.gradient(loss, variables)
@@ -79,10 +90,10 @@ if __name__ == "__main__":
             return batch_loss
 
         # Eval function
-        def eval_step(adj, nodes, targ):
+        def eval_step(adj, nodes, edges, targ):
             model.trainable = False
             eval_loss = 0
-            predictions, dec_hidden, loss = model(adj, nodes, targ)
+            predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
             eval_loss = (loss / int(targ.shape[1]))
             model.trainable = True
 
@@ -90,7 +101,7 @@ if __name__ == "__main__":
 
         total_loss =0
         for epoch in range(args.epochs):
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     # type cast all tensors for uniformity
@@ -102,44 +113,50 @@ if __name__ == "__main__":
                     #embed nodes 
                     nodes = embedding(nodes)
                     edges = embedding(edges)
-                    nodes = tf.add(nodes, edges)
 
                     if batch % args.eval_steps == 0:
-                        eval_loss = eval_step(adj, nodes, targ)
+                        eval_loss = eval_step(adj, nodes, edges, targ)
                         print('Batch {} Eval Loss{:.4f} '.format(batch,
                                                                 eval_loss.numpy()))
                     else:
-                        batch_loss = train_step(adj, nodes, targ)
+                        batch_loss = train_step(adj, nodes, edges, targ)
                         print('Batch {} Train Loss{:.4f} '.format(batch,
                                                                 batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
+                        ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
-                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                        checkpoint.save(file_prefix=checkpoint_prefix)
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
-            if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
+                if args.decay is not None:
+                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
-    elif args.enc_type == 'rnn':
-        OUTPUT_DIR += '/'+args.enc_type
+    elif args.enc_type == 'rnn' and args.dec_type =="rnn":
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer()
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
 
-        loss_object = tf.keras.losses.CategoricalCrossentropy()
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
-        checkpoint_dir = args.checkpoint_dir
-        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-        checkpoint = tf.train.Checkpoint(optimizer=optimizer,
-                                         model=model)
+        ckpt = tf.train.Checkpoint(
+            model = model,
+            optimizer = optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         def loss_function(real, pred):
             mask = tf.math.logical_not(tf.math.equal(real, 0))
@@ -173,7 +190,7 @@ if __name__ == "__main__":
             return eval_loss
         
         for epoch in range(args.epochs):
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
 
@@ -185,16 +202,15 @@ if __name__ == "__main__":
                         print('Step {} Batch Loss {:.4f} '.format(batch,batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
+                        ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
-                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                        checkpoint.save(file_prefix=checkpoint_prefix)
                     print('Time {} '.format(time.time() - start))
                     pbar.update(1)
             if args.decay is not None:
                 optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
-    elif args.enc_type == 'transformer':
-        OUTPUT_DIR += '/'+args.enc_type
+    elif args.enc_type == 'transformer' and args.dec_type =="transformer":
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
         num_layers = args.num_layers
@@ -206,11 +222,16 @@ if __name__ == "__main__":
             epochs = args.steps // steps_per_epoch
         else:
             epochs = args.epochs
+        
+        if args.learning_rate is not None:
+            learning_rate = args.learning_rate
+            optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
+        else:
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
 
-        learning_rate = args.learning_rate
-        optimizer = tf.train.AdamOptimizer(learning_rate)
-
-        loss_object = tf.keras.losses.CategoricalCrossentropy()
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
                           vocab_inp_size, vocab_tgt_size, dropout_rate)
 
@@ -222,6 +243,9 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+            
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         def train_step(inp, tar):
             tar_inp = tar[:, :-1]
@@ -256,12 +280,14 @@ if __name__ == "__main__":
                                              combined_mask,
                                              dec_padding_mask)
             loss = loss_function(tar_real, predictions, loss_object)
+            model.trainable = True
+            
             return loss
 
         for epoch in range(epochs):
             start = time.time()
             print("Learning rate "+str(optimizer._lr))
-            with tqdm(total=1074) as pbar:
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
                         batch_loss = train_step(inp, tar)
@@ -279,4 +305,96 @@ if __name__ == "__main__":
             optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
             ckpt_save_path = ckpt_manager.save()
             print("Saving checkpoint \n")
-        
+
+    elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
+        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
+
+        embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
+        model = graph_attention_model.TransGAT(args, vocab_tgt_size, target_lang)
+
+        if args.decay is not None:
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate, beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
+        else:
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
+        loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        train_loss = tf.keras.metrics.Mean(name='train_loss')
+
+        ckpt = tf.train.Checkpoint(
+            model=model,
+            optimizer=optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
+
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
+
+        if args.epochs is not None:
+            steps = args.epochs * steps_per_epoch
+        else:
+            steps = args.steps
+
+
+        def train_step(adj, nodes, edges, targ):
+            loss = 0
+            with tf.GradientTape() as tape:
+                predictions, att_weights = model(adj, nodes, edges, targ)
+                batch_loss= loss_function(targ, predictions, loss_object)
+
+            variables = model.trainable_variables
+            gradients = tape.gradient(batch_loss, variables)
+
+            optimizer.apply_gradients(zip(gradients, variables))
+            return batch_loss
+
+
+        # Eval function
+        def eval_step(adj, nodes, edges, targ):
+            model.trainable = False
+            eval_loss = 0
+            predictions, att_weights = model(adj, nodes, edges, targ)
+            eval_loss = loss_function(targ, predictions, loss_object)
+            eval_loss = train_loss(eval_loss)
+
+            model.trainable = True
+
+            return eval_loss
+
+        for epoch in range(args.epochs):
+            with tqdm(total=(34352 // args.batch_size)) as pbar:
+                for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
+                    start = time.time()
+                    # type cast all tensors for uniformity
+                    adj = tf.cast(adj, tf.float32)
+                    nodes = tf.cast(nodes, tf.float32)
+                    edges = tf.cast(edges, tf.float32)
+                    targ = tf.cast(targ, tf.float32)
+
+                    # embed nodes
+                    nodes = embedding(nodes)
+                    edges = embedding(edges)
+
+                    if batch % args.eval_steps == 0:
+                        eval_loss = eval_step(adj, nodes, edges, targ)
+                        print('Batch {} Eval Loss{:.4f} '.format(batch,
+                                                                 eval_loss.numpy()))
+                    else:
+                        batch_loss = train_step(adj, nodes, edges, targ)
+                        print('Batch {} Train Loss{:.4f} '.format(batch,
+                                                                  batch_loss.numpy()))
+
+                    if batch % args.checkpoint == 0:
+                        ckpt_save_path = ckpt_manager.save()
+                        print("Saving checkpoint \n")
+                    print('Time {} \n'.format(time.time() - start))
+                    pbar.update(1)
+                if args.decay is not None:
+                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
+
+

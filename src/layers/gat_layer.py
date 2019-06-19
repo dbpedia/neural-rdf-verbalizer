@@ -31,6 +31,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         :param train: in training mode or eval mode
         :type train: Bool
         """
+        super(GraphAttentionLayer, self).__init__()
 
         self.in_dim = in_dim
         self.out_dim = out_dim
@@ -47,6 +48,8 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
             bias_initializer='zeros'
         )
         self.self_attention = SelfAttention(out_dim, num_heads, self.dropout)
+        self.dense = tf.keras.layers.Dense
+        self.multi_head_dense = tf.keras.layers.Dense
         self.Dropout = tf.keras.layers.Dropout(
             self.dropout
         )
@@ -56,7 +59,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         self.layernorm3 = tf.contrib.layers.layer_norm
 
 
-    def __call__(self, inputs, adj, num_heads, train):
+    def __call__(self, inputs, edges, adj, num_heads, train):
         """
         Propagates the adjacency matrix and node feature matrix through
         the layer and calculates the attention coefficients.
@@ -74,6 +77,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         :type adj:tf.tensor 
         :return: encoded node representations 
         :rtype:tf.tensor 
+        """
         """
         self.num_heads = num_heads
         batch_size = inputs.get_shape().as_list()[0]
@@ -94,21 +98,22 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
 
         output = self.self_attention(hidden_state, bias=False, training=False)
         output = self.layernorm3(output)
+        """
+        
+        self.num_heads = num_heads
+        nodes = adj.get_shape().as_list()[1]
+        node_tensor = self.w1_layer(inputs)
+        edge_tensor = self.w2_layer(edges)
+        outputs = tf.add(node_tensor, edge_tensor)
+        outputs = self.layernorm1(outputs)
+
+        coef = self.dense(nodes)(outputs)
+        coef = tf.math.softmax(coef)
+
+        adj = tf.math.multiply(adj, coef)
+        output = tf.matmul(adj, outputs)
+        output = self.layernorm2(output)
+        output = self.lrelu(output)
 
         return output
-
-
-
-
-
-
-
-        
-
-
-
-         
-        
-        
-
 
