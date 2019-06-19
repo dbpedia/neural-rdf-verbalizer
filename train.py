@@ -53,9 +53,11 @@ if __name__ == "__main__":
         model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer()
+            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
 
         ckpt = tf.train.Checkpoint(
@@ -131,9 +133,11 @@ if __name__ == "__main__":
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate)
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer()
+            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
 
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
@@ -212,9 +216,14 @@ if __name__ == "__main__":
             epochs = args.steps // steps_per_epoch
         else:
             epochs = args.epochs
-
-        learning_rate = args.learning_rate
-        optimizer = tf.train.AdamOptimizer(learning_rate)
+        
+        if args.learning_rate is not None:
+            learning_rate = args.learning_rate
+            optimizer = tf.train.AdamOptimizer(learning_rate,beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
+        else:
+            optimizer = tf.train.AdamOptimizer(beta_1=0.9, beta_2=0.98, 
+                                                epsilon=1e-9)
 
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
