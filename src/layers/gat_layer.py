@@ -106,9 +106,9 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         inputs = self.w1_layer(inputs)
         inputs = self.w2_layer(inputs)
         inputs = self.layernorm1(inputs)
-       #inputs = tf.reshape(inputs, shape=[batch_size, nodes, self.num_heads, -1])
-       #inputs = self.multi_head_dense(inputs.shape[3])(inputs)
-        #inputs = tf.reshape(inputs, shape=[batch_size, nodes, -1])
+        inputs = tf.reshape(inputs, shape=[batch_size, nodes, self.num_heads, -1])
+        inputs = self.multi_head_dense(inputs.shape[3])(inputs)
+        inputs = tf.reshape(inputs, shape=[batch_size, nodes, -1])
 
         coef = self.dense(nodes)(inputs)
         coef = tf.math.softmax(coef)
