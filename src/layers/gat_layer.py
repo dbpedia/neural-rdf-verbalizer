@@ -104,7 +104,6 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         nodes = adj.get_shape().as_list()[1]
 
         input = self.w1_layer(inputs)
-        input = self.w2_layer(input)
         input = self.layernorm1(input)
 
         coef = self.dense(nodes)(input)
