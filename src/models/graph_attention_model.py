@@ -8,7 +8,7 @@ import tensorflow as tf
 tf.enable_eager_execution()
 from src.layers.encoders import GraphEncoder
 from src.layers.decoders import RNNDecoder
-from src.models.transformer import Decoder
+from src.models.transformer import Decoder as TransDecoder
 from src.utils.model_utils import loss_function
 
 class GATModel (tf.keras.Model):
@@ -60,7 +60,7 @@ class TransGAT(tf.keras.Model):
     def __init__(self, args, vocab_tgt_size, target_lang):
         super(TransGAT, self).__init__()
         self.encoder = GraphEncoder(args)
-        self.decoder = Decoder(args.num_layers, args.emb_dim, args.num_heads,
+        self.decoder = TransDecoder(args.num_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
         self.vocab_tgt_size = vocab_tgt_size
         self.target_lang = target_lang
@@ -81,11 +81,10 @@ class TransGAT(tf.keras.Model):
         :rtype: tf.tensor
         """
         enc_output, enc_hidden = self.encoder(nodes, edges, adj, self.encoder.trainable)
-        loss = 0
         dec_output, attention_weights = self.decoder(
             targ, enc_output, training=self.trainable,
                                look_ahead_mask=None,
                                 padding_mask=None)
         predictions = self.final_layer(dec_output)
 
-        return predictions, attention_weights, loss
+        return predictions, attention_weights
