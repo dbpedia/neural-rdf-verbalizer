@@ -57,9 +57,15 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer()
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
-        checkpoint_dir = args.checkpoint_dir
-        checkpoint = tf.train.Checkpoint( optimizer=optimizer,
-                                            model=model)
+
+        ckpt = tf.train.Checkpoint(
+            model = model,
+            optimizer = optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
 
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
@@ -112,9 +118,8 @@ if __name__ == "__main__":
                                                                 batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
+                        ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
-                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                        checkpoint.save(file_prefix=checkpoint_prefix)
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
             if args.decay is not None:
@@ -134,10 +139,14 @@ if __name__ == "__main__":
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
-        checkpoint_dir = args.checkpoint_dir
-        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-        checkpoint = tf.train.Checkpoint(optimizer=optimizer,
-                                         model=model)
+        ckpt = tf.train.Checkpoint(
+            model = model,
+            optimizer = optimizer
+        )
+        ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+        if ckpt_manager.latest_checkpoint:
+            ckpt.restore(ckpt_manager.latest_checkpoint)
+            print('Latest checkpoint restored!!')
 
         def loss_function(real, pred):
             mask = tf.math.logical_not(tf.math.equal(real, 0))
@@ -183,9 +192,8 @@ if __name__ == "__main__":
                         print('Step {} Batch Loss {:.4f} '.format(batch,batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
+                        ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
-                        checkpoint_prefix = os.path.join(OUTPUT_DIR, "ckpt")
-                        checkpoint.save(file_prefix=checkpoint_prefix)
                     print('Time {} '.format(time.time() - start))
                     pbar.update(1)
             if args.decay is not None:
