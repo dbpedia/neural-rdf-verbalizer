@@ -127,8 +127,8 @@ if __name__ == "__main__":
                         print("Saving checkpoint \n")
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
-            if args.decay is not None:
-                optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
+                if args.decay is not None:
+                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
     elif args.enc_type == 'rnn':
         OUTPUT_DIR += '/'+args.enc_type
