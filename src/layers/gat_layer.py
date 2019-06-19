@@ -103,14 +103,14 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         batch_size = inputs.get_shape().as_list()[0]
         nodes = adj.get_shape().as_list()[1]
 
-        input = self.w1_layer(inputs)
-        input = self.layernorm1(input)
+       # outputs = self.w1_layer(inputs)
+       # outputs = self.layernorm1(outputs)
 
-        coef = self.dense(nodes)(input)
+        coef = self.dense(nodes)(inputs)
         coef = tf.math.softmax(coef)
 
         adj = tf.math.multiply(adj, coef)
-        output = tf.matmul(adj, input)
+        output = tf.matmul(adj, inputs)
         output = self.layernorm2(output)
         output = self.lrelu(output)
 
