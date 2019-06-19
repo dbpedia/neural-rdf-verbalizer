@@ -59,7 +59,7 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         self.layernorm3 = tf.contrib.layers.layer_norm
 
 
-    def __call__(self, inputs, adj, num_heads, train):
+    def __call__(self, inputs, edges, adj, num_heads, train):
         """
         Propagates the adjacency matrix and node feature matrix through
         the layer and calculates the attention coefficients.
@@ -100,17 +100,18 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         output = self.layernorm3(output)
         """
         self.num_heads = num_heads
-        batch_size = inputs.get_shape().as_list()[0]
         nodes = adj.get_shape().as_list()[1]
 
-       # outputs = self.w1_layer(inputs)
-       # outputs = self.layernorm1(outputs)
+        node_tensor = self.w1_layer(inputs)
+        edge_tensor = self.w2_layer(edges)
+        outputs = tf.add(node_tensor, edge_tensor)
+        outputs = self.layernorm1(outputs)
 
-        coef = self.dense(nodes)(inputs)
+        coef = self.dense(nodes)(outputs)
         coef = tf.math.softmax(coef)
 
         adj = tf.math.multiply(adj, coef)
-        output = tf.matmul(adj, inputs)
+        output = tf.matmul(adj, outputs)
         output = self.layernorm2(output)
         output = self.lrelu(output)
 

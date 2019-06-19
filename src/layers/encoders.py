@@ -34,18 +34,18 @@ class GraphEncoder(tf.keras.layers.Layer):
         for i in range(self.num_layers):
             if i==0:
                 heads = []
-                for j in range(self.num_layers):
+                for j in range(self.num_heads):
                     gat_layer = GraphAttentionLayer(in_dim, out_dim, num_heads,
                                                     alpha, dropout, bias)
-                    #heads.append(gat_layer)
-                    self.layers.append(gat_layer)
+                    heads.append(gat_layer)
+                self.layers.append(heads)
             else:
                 heads = []
-                for j in range(self.num_layers):
+                for j in range(self.num_heads):
                     gat_layer = GraphAttentionLayer(out_dim, out_dim, num_heads,
                                                     alpha, dropout, bias)
-                    #heads.append(gat_layer)
-                    self.layers.append(gat_layer)
+                    heads.append(gat_layer)
+                self.layers.append(heads)
 
         self.gru = tf.keras.layers.GRU(units, return_sequences=True,
                                        return_state=True, recurrent_initializer='glorot_uniform')
@@ -54,9 +54,9 @@ class GraphEncoder(tf.keras.layers.Layer):
 
 
 
-    def __call__(self, inputs, adj, train):
+    def __call__(self, inputs, edges, adj, train):
         with tf.variable_scope("encoding"):
-
+            '''
             for i in range(self.num_layers):
                 if i==0:
 
@@ -68,20 +68,20 @@ class GraphEncoder(tf.keras.layers.Layer):
                     #outputs = self.layers[i](outputs)
                     #outputs += shortcut
             outputs, state = self.gru(outputs, initial_state=self.hidden)
-
+        
             '''
             for i, layer in enumerate(self.layers):
                 output_list = []
                 if i ==0:
                     for sub_layer in layer:
-                        output_list.append(sub_layer(inputs, adj, self.num_heads, train))
+                        output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
                 else:
                     for sub_layer in layer:
-                        output_list.append(sub_layer(inputs, adj, self.num_heads, train))
+                        output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
             outputs, state = self.gru(outputs, initial_state=self.hidden)
-            '''
+
         return outputs, state
 
 class RNNEncoder(tf.keras.layers.Layer):
