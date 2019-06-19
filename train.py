@@ -75,6 +75,7 @@ if __name__ == "__main__":
             steps = args.steps
 
         def train_step(adj, nodes, edges, targ):
+            print(optimizer._lr)
             loss = 0
             with tf.GradientTape() as tape:
                 predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
