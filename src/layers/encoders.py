@@ -38,14 +38,14 @@ class GraphEncoder(tf.keras.layers.Layer):
                     gat_layer = GraphAttentionLayer(in_dim, out_dim, num_heads,
                                                     alpha, dropout, bias)
                     #heads.append(gat_layer)
-                    self.layers.append(heads)
+                    self.layers.append(gat_layer)
             else:
                 heads = []
                 for j in range(self.num_layers):
                     gat_layer = GraphAttentionLayer(out_dim, out_dim, num_heads,
                                                     alpha, dropout, bias)
                     #heads.append(gat_layer)
-                    self.layers.append(heads)
+                    self.layers.append(gat_layer)
 
         self.gru = tf.keras.layers.GRU(units, return_sequences=True,
                                        return_state=True, recurrent_initializer='glorot_uniform')
