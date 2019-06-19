@@ -313,6 +313,10 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
         model = graph_attention_model.TransGAT(args, vocab_tgt_size, target_lang)
         for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset.take(1))):
+            adj = tf.cast(adj, tf.float32)
+            nodes = tf.cast(nodes, tf.float32)
+            edges = tf.cast(edges, tf.float32)
+            targ = tf.cast(targ, tf.float32)
             predictions, a, _ = model(adj, nodes, edges, targ)
         print(predictions.shape)
 
