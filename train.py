@@ -17,7 +17,7 @@ import os
 from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
-from src.models import model_params, transformer, graph_attention_model, rnn_model
+from src.models import model_params, graph_attention_model, rnn_model
 from src.utils.model_utils import create_masks
 from src.utils.model_utils import loss_function, model_summary
 from src.models import transformer
@@ -44,7 +44,7 @@ if __name__ == "__main__":
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-    if args.enc_type == 'gat':
+    if args.enc_type == 'gat' and args.dec_type =='rnn':
         OUTPUT_DIR += '/'+args.enc_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
@@ -130,7 +130,7 @@ if __name__ == "__main__":
                 if args.decay is not None:
                     optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
-    elif args.enc_type == 'rnn':
+    elif args.enc_type == 'rnn' and args.dec_type =="rnn":
         OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
@@ -208,7 +208,7 @@ if __name__ == "__main__":
             if args.decay is not None:
                 optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
-    elif args.enc_type == 'transformer':
+    elif args.enc_type == 'transformer' and args.dec_type is None:
         OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
@@ -304,4 +304,18 @@ if __name__ == "__main__":
             optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
             ckpt_save_path = ckpt_manager.save()
             print("Saving checkpoint \n")
-        
+
+    elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
+        OUTPUT_DIR += '/' + args.enc_type
+        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
+
+        embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
+        model = graph_attention_model.TransGAT(args, vocab_tgt_size, target_lang)
+        adj = tf.random.uniform(shape=[32, 8, 8])
+        nodes = tf.random.uniform(shape=[32, 8, 512])
+        edges = tf.random.uniform(shape=[32, 8, 512 ])
+        targ = tf.random.uniform(shape=[32, 6276])
+        predictions, a, _ = model(adj, nodes, edges, targ)
+        print(predictions.shape)
+

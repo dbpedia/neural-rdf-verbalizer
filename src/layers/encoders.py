@@ -49,7 +49,7 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         self.gru = tf.keras.layers.GRU(units, return_sequences=True,
                                        return_state=True, recurrent_initializer='glorot_uniform')
-        self.hidden = tf.zeros((args.batch_size, args.emb_dim))
+        self.hidden = tf.zeros((args.batch_size, args.enc_units))
         self.average_layer = tf.keras.layers.average
 
 
