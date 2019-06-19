@@ -208,7 +208,7 @@ if __name__ == "__main__":
             if args.decay is not None:
                 optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
-    elif args.enc_type == 'transformer' and args.dec_type is None:
+    elif args.enc_type == 'transformer' and args.dec_type =="transformer":
         OUTPUT_DIR += '/'+args.enc_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
