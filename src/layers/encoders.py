@@ -76,9 +76,12 @@ class GraphEncoder(tf.keras.layers.Layer):
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
                 else:
+                    shortcut = outputs
                     for sub_layer in layer:
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
+                    outputs = tf.add(outputs, shortcut)
+
             outputs, state = self.lstm(outputs)
 
         return outputs, state

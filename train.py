@@ -58,7 +58,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                 epsilon=1e-9)
-        loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
 
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 
         total_loss =0
         for epoch in range(args.epochs):
-            with tqdm(total=(34352 // args.batch_size)) as pbar:
+            with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     # type cast all tensors for uniformity
@@ -143,7 +143,7 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                 epsilon=1e-9)
 
-        loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
@@ -190,7 +190,7 @@ if __name__ == "__main__":
             return eval_loss
 
         for epoch in range(args.epochs):
-            with tqdm(total=(34352 // args.batch_size)) as pbar:
+            with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
 
@@ -233,7 +233,7 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                 epsilon=1e-9)
 
-        loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
                           vocab_inp_size, vocab_tgt_size, dropout_rate)
 
@@ -289,7 +289,7 @@ if __name__ == "__main__":
         for epoch in range(epochs):
             start = time.time()
             print("Learning rate "+str(optimizer._lr))
-            with tqdm(total=(34352 // args.batch_size)) as pbar:
+            with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
                         batch_loss = train_step(inp, tar)
@@ -322,7 +322,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
-        loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         train_loss = tf.keras.metrics.Mean(name='train_loss')
 
         ckpt = tf.train.Checkpoint(
@@ -367,7 +367,7 @@ if __name__ == "__main__":
             return eval_loss
 
         for epoch in range(args.epochs):
-            with tqdm(total=(34352 // args.batch_size)) as pbar:
+            with tqdm(total=(38668 // args.batch_size)) as pbar:
                 print(optimizer._lr)
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
