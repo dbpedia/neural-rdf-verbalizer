@@ -47,7 +47,6 @@ class GATModel (tf.keras.Model):
 
             #using teacher forcing 
             dec_input = tf.expand_dims(targ[:, t], 1)
-        print(predictions.shape)
 
         return predictions, dec_hidden, loss
 

@@ -225,11 +225,11 @@ if __name__ == "__main__":
         
         if args.learning_rate is not None:
             learning_rate = args.learning_rate
-            optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98, 
-                                                epsilon=1e-9)
+            optimizer = tf.train.AdadeltaOptimizer()
+
         else:
-            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
-                                                epsilon=1e-9)
+            optimizer = tf.train.AdadeltaOptimizer()
+
 
         loss_object = tf.keras.losses.sparse_categorical_crossentropy
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
@@ -347,14 +347,12 @@ if __name__ == "__main__":
                 predictions, att_weights = model(adj, nodes, edges, targ)
                 batch_loss= loss_function(targ, predictions, loss_object)
 
-            variables = model.trainable_variables
-            gradients = tape.gradient(batch_loss, variables)
+            gradients = tape.gradient(batch_loss, model.trainable_weights)
+            optimizer.apply_gradients(zip(gradients, model.trainable_weights))
 
-            optimizer.apply_gradients(zip(gradients, variables))
             return batch_loss
 
-
-        # Eval function
+         # Eval function
         def eval_step(adj, nodes, edges, targ):
             model.trainable = False
             eval_loss = 0
@@ -368,6 +366,7 @@ if __name__ == "__main__":
 
         for epoch in range(args.epochs):
             with tqdm(total=(34352 // args.batch_size)) as pbar:
+                print(optimizer._lr)
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     # type cast all tensors for uniformity
@@ -382,11 +381,11 @@ if __name__ == "__main__":
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
-                        print('Batch {} Eval Loss{:.4f} '.format(batch,
+                        print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
                                                                  eval_loss.numpy()))
                     else:
                         batch_loss = train_step(adj, nodes, edges, targ)
-                        print('Batch {} Train Loss{:.4f} '.format(batch,
+                        print('Epoch {} Batch {} Train Loss {:.4f} '.format(epoch, batch,
                                                                   batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
@@ -395,6 +394,4 @@ if __name__ == "__main__":
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
                 if args.decay is not None:
-                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
-
-
+                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // args.decay_steps)
