@@ -116,12 +116,12 @@ if __name__ == "__main__":
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
-                        print('Batch {} Eval Loss{:.4f} '.format(batch,
-                                                                eval_loss.numpy()))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
+                                                                           eval_loss.numpy()))
                     else:
                         batch_loss = train_step(adj, nodes, edges, targ)
-                        print('Batch {} Train Loss{:.4f} '.format(batch,
-                                                                batch_loss.numpy()))
+                        print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
+                                                                           batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
@@ -196,10 +196,12 @@ if __name__ == "__main__":
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(inp, targ, enc_hidden)
-                        print('Step {} Eval Loss {:.4f} '.format(batch,eval_loss.numpy()))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
+                                                                           eval_loss.numpy()))
                     else:
                         batch_loss = train_step(inp, targ, enc_hidden)
-                        print('Step {} Batch Loss {:.4f} '.format(batch,batch_loss.numpy()))
+                        print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
+                                                                           batch_loss.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
@@ -291,12 +293,12 @@ if __name__ == "__main__":
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
                         batch_loss = train_step(inp, tar)
-                        print('Step {} Batch Loss {:.4f}'.format(
-                            (batch), batch_loss))
+                        print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
+                                                                           batch_loss.numpy()))
                     else:
                         eval_loss = eval_step(inp, tar)
-                        print('Step {} Eval Loss {:.4f}'.format(
-                            (batch), eval_loss))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
+                                                                           eval_loss.numpy()))
                     pbar.update(1)
 
             print('Epoch {} Loss {:.4f}'.format(

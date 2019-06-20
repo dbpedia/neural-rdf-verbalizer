@@ -47,9 +47,8 @@ class GraphEncoder(tf.keras.layers.Layer):
                     heads.append(gat_layer)
                 self.layers.append(heads)
 
-        self.gru = tf.keras.layers.GRU(units, return_sequences=True,
-                                       return_state=True, recurrent_initializer='glorot_uniform')
-        self.hidden = tf.zeros((args.batch_size, args.enc_units))
+        self.lstm = tf.keras.layers.GRU(units, return_sequences=True,
+                                         return_state=True, recurrent_initializer='glorot_uniform')
         self.average_layer = tf.keras.layers.average
 
 
@@ -80,9 +79,9 @@ class GraphEncoder(tf.keras.layers.Layer):
                     for sub_layer in layer:
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
-            #outputs, state = self.gru(outputs, initial_state=self.hidden)
+            outputs, state = self.lstm(outputs)
 
-        return outputs
+        return outputs, state
 
 class RNNEncoder(tf.keras.layers.Layer):
     """
