@@ -99,9 +99,9 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         output = self.self_attention(hidden_state, bias=False, training=False)
         output = self.layernorm3(output)
         """
+        
         self.num_heads = num_heads
         nodes = adj.get_shape().as_list()[1]
-
         node_tensor = self.w1_layer(inputs)
         edge_tensor = self.w2_layer(edges)
         outputs = tf.add(node_tensor, edge_tensor)

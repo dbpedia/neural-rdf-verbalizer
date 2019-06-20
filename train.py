@@ -45,7 +45,7 @@ if __name__ == "__main__":
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, 
         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
@@ -132,7 +132,7 @@ if __name__ == "__main__":
                     optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
     elif args.enc_type == 'rnn' and args.dec_type =="rnn":
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
@@ -210,7 +210,7 @@ if __name__ == "__main__":
                 optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
     elif args.enc_type == 'transformer' and args.dec_type =="transformer":
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
         num_layers = args.num_layers
@@ -307,7 +307,7 @@ if __name__ == "__main__":
             print("Saving checkpoint \n")
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
