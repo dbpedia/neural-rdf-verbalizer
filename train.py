@@ -213,7 +213,7 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
-        num_layers = args.num_layers
+        num_layers = args.enc_layers
         num_heads = args.num_heads
         d_model = args.emb_dim
         dff = args.hidden_size
