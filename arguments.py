@@ -52,7 +52,9 @@ parser.add_argument(
 parser.add_argument(
     '--hidden_size', type=int, required=True, help='Size of hidden layer output')
 parser.add_argument(
-    '--num_layers', type=int, required=True, help='Number of layers in encoder')
+    '--enc_layers', type=int, required=True, help='Number of layers in encoder')
+parser.add_argument(
+    '--dec_layers', type=int, required=True, help='Number of layers in decoder')
 parser.add_argument(
     '--num_heads', type=int, required=True, help='Number of heads in self-attention')
 parser.add_argument(

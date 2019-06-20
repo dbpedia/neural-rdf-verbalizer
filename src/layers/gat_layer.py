@@ -82,26 +82,29 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         self.num_heads = num_heads
         batch_size = inputs.get_shape().as_list()[0]
         nodes = adj.get_shape().as_list()[1]
-        inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
+        input = self.w1_layer(inputs)
+        edge = self.w2_layer(edges)
+        input = tf.add(input, edge)
+        input = tf.matmul(adj, input)  #[batch_size, nodes, in_dim]
 
-        hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
+        #[batch_size, nodes, out_dim]
         if train == True:
-            hidden_state = self.Dropout(hidden_state)
+            hidden_state = self.Dropout(input)
 
         hidden_state = self.lrelu(hidden_state)
-        hidden_state = self.w2_layer(hidden_state)
+        #hidden_state = self.w2_layer(hidden_state)
         if train == True:
             hidden_state = self.Dropout(hidden_state)
 
         hidden_state = self.lrelu(hidden_state)
         #Apply attention mechanism now
 
-        output = self.self_attention(hidden_state, bias=False, training=False)
-        output = self.layernorm3(output)
+        #output = self.self_attention(hidden_state, bias=False, training=False)
+        output = self.layernorm3(hidden_state)
         """
-        
         self.num_heads = num_heads
         nodes = adj.get_shape().as_list()[1]
+
         node_tensor = self.w1_layer(inputs)
         edge_tensor = self.w2_layer(edges)
         outputs = tf.add(node_tensor, edge_tensor)

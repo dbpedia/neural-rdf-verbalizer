@@ -25,7 +25,7 @@ class GraphEncoder(tf.keras.layers.Layer):
         dropout = args.dropout 
         bias = args.use_bias
         edges = args.use_edges
-        self.num_layers = args.num_layers
+        self.num_layers = args.enc_layers
         units = args.enc_units
         alpha = args.alpha
 
@@ -77,12 +77,14 @@ class GraphEncoder(tf.keras.layers.Layer):
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
                 else:
+                    shortcuts = outputs
                     for sub_layer in layer:
                         output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
                     outputs = self.average_layer(output_list)
-            outputs, state = self.gru(outputs, initial_state=self.hidden)
+                    outputs += shortcuts
+            #outputs, state = self.gru(outputs, initial_state=self.hidden)
 
-        return outputs, state
+        return outputs
 
 class RNNEncoder(tf.keras.layers.Layer):
     """

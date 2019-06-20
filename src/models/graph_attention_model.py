@@ -59,7 +59,7 @@ class TransGAT(tf.keras.Model):
     def __init__(self, args, vocab_tgt_size, target_lang):
         super(TransGAT, self).__init__()
         self.encoder = GraphEncoder(args)
-        self.decoder = TransDecoder(args.num_layers, args.emb_dim, args.num_heads,
+        self.decoder = TransDecoder(args.dec_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
         self.vocab_tgt_size = vocab_tgt_size
         self.target_lang = target_lang
@@ -79,7 +79,7 @@ class TransGAT(tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        enc_output, enc_hidden = self.encoder(nodes, edges, adj, self.encoder.trainable)
+        enc_output = self.encoder(nodes, edges, adj, self.encoder.trainable)
         dec_output, attention_weights = self.decoder(
             targ, enc_output, training=self.trainable,
                                look_ahead_mask=None,
