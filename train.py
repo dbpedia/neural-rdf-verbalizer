@@ -82,7 +82,6 @@ if __name__ == "__main__":
             steps = args.steps
 
         def train_step(adj, nodes, edges, targ):
-            loss = 0
             with tf.GradientTape() as tape:
                 predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
 
@@ -91,20 +90,26 @@ if __name__ == "__main__":
             gradients = tape.gradient(loss, variables)
 
             optimizer.apply_gradients(zip(gradients, variables))
+            train_loss(batch_loss)
+            batch_loss = train_loss.result()
+
             return batch_loss
 
         # Eval function
         def eval_step(adj, nodes, edges, targ):
             model.trainable = False
-            eval_loss = 0
             predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
             eval_loss = (loss / int(targ.shape[1]))
             model.trainable = True
+            train_loss(eval_loss)
+            eval_loss = train_loss.result()
 
             return eval_loss
 
         total_loss =0
         for epoch in range(args.epochs):
+            train_loss.reset_states()
+            train_accuracy.reset_states()
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
