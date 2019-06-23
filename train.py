@@ -31,6 +31,7 @@ PARAMS_MAP = {
 
 if __name__ == "__main__":
     args = get_args()
+    global step
 
     #set up dirs
     if args.use_colab is None:
@@ -53,7 +54,6 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
         model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang)
 
-        global step
         step = 0
 
         if args.decay is not None:
@@ -232,7 +232,6 @@ if __name__ == "__main__":
         else:
             epochs = args.epochs
 
-        global step
         step = 0
 
         if args.decay is not None:
@@ -340,7 +339,6 @@ if __name__ == "__main__":
 
         model = graph_attention_model.TransGAT(args, vocab_nodes_size,
                                                vocab_edge_size, vocab_tgt_size, target_lang)
-        global step
         step = 0
 
         if args.decay is not None:
