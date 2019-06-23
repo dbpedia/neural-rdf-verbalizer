@@ -12,10 +12,10 @@ tf.enable_eager_execution()
 
 class GraphAttentionLayer(tf.keras.layers.Layer):
     def __init__(self, d_model, dff, num_heads, rate=0.1):
-    """
-    Graph Attention Network Layer, takes input and returns embedded
-    node features with self attention applied on the feature matrix
-    """
+        """
+        Graph Attention Network Layer, takes input and returns embedded
+        node features with self attention applied on the feature matrix
+        """
         super(GraphAttentionLayer, self).__init__()
 
         self.mha = MultiHeadAttention(dff, num_heads)
