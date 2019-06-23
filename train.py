@@ -19,7 +19,7 @@ from tqdm import tqdm
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
 from src.utils.model_utils import create_masks
-from src.utils.model_utils import loss_function, model_summary
+from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
 
@@ -53,12 +53,16 @@ if __name__ == "__main__":
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
         model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang)
 
+        global step
+        step = 0
+
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98,
-                                                epsilon=1e-9)
+            learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
+            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
-                                                epsilon=1e-9)
+                                               epsilon=1e-9)
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -72,9 +76,6 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
-
-        if args.learning_rate is not None:
-            optimizer._lr = args.learning_rate
 
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
@@ -113,6 +114,8 @@ if __name__ == "__main__":
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
+                    step += 1
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
@@ -137,12 +140,16 @@ if __name__ == "__main__":
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
+        global step
+        step = 0
+
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98,
-                                                epsilon=1e-9)
+            learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
+            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
-                                                epsilon=1e-9)
+                                               epsilon=1e-9)
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
@@ -156,8 +163,6 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
-        if args.learning_rate is not None:
-            optimizer._lr = args.learning_rate
 
         def loss_function(real, pred):
             mask = tf.math.logical_not(tf.math.equal(real, 0))
@@ -192,6 +197,8 @@ if __name__ == "__main__":
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
+                    step += 1
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(inp, targ, enc_hidden)
@@ -224,14 +231,17 @@ if __name__ == "__main__":
             epochs = args.steps // steps_per_epoch
         else:
             epochs = args.epochs
-        
-        if args.learning_rate is not None:
-            learning_rate = args.learning_rate
-            optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98, 
-                                                epsilon=1e-9)
+
+        global step
+        step = 0
+
+        if args.decay is not None:
+            learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
+            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
-                                                epsilon=1e-9)
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
@@ -249,12 +259,6 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
-            
-        if args.learning_rate is not None:
-            optimizer._lr = args.learning_rate
-
-        if args.learning_rate is not None:
-            optimizer._lr = args.learning_rate
 
         def train_step(inp, tar):
             tar_inp = tar[:, :-1]
@@ -310,6 +314,9 @@ if __name__ == "__main__":
 
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
+                    step += 1
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+
                     if (batch % args.eval_steps == 0):
                         batch_loss, acc = train_step(inp, tar)
                         print('Epoch {} Batch {} Batch Loss {:.4f}'.format(epoch, batch,
@@ -323,8 +330,6 @@ if __name__ == "__main__":
             print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(
                         (epoch), train_loss.result(), train_accuracy.result()))
             print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
-            if args.decay is not None:
-                optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
             ckpt_save_path = ckpt_manager.save()
             print("Saving checkpoint \n")
 
@@ -335,9 +340,12 @@ if __name__ == "__main__":
 
         model = graph_attention_model.TransGAT(args, vocab_nodes_size,
                                                vocab_edge_size, vocab_tgt_size, target_lang)
+        global step
+        step = 0
 
         if args.decay is not None:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate, beta1=0.9, beta2=0.98,
+            learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
+            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
@@ -356,9 +364,6 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
-
-        if args.learning_rate is not None:
-            optimizer._lr = args.learning_rate
 
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
@@ -401,12 +406,13 @@ if __name__ == "__main__":
 
         for epoch in range(args.epochs):
             with tqdm(total=(38668 // args.batch_size)) as pbar:
-                print(optimizer._lr)
                 train_loss.reset_states()
                 train_accuracy.reset_states()
 
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
+                    step +=1
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss, acc = eval_step(adj, nodes, edges, targ)
@@ -422,5 +428,3 @@ if __name__ == "__main__":
                         print("Saving checkpoint \n")
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
-                if args.decay is not None:
-                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // args.decay_steps)
