@@ -355,7 +355,7 @@ if __name__ == "__main__":
 
 
         def train_step(adj, nodes, edges, targ):
-            loss = 0
+
             with tf.GradientTape() as tape:
                 predictions, att_weights = model(adj, nodes, edges, targ)
                 batch_loss= loss_function(targ, predictions, loss_object)
@@ -369,7 +369,6 @@ if __name__ == "__main__":
          # Eval function
         def eval_step(adj, nodes, edges, targ):
             model.trainable = False
-            eval_loss = 0
             predictions, att_weights = model(adj, nodes, edges, targ)
             eval_loss = loss_function(targ, predictions, loss_object)
             eval_loss = train_loss(eval_loss)
