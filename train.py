@@ -64,6 +64,10 @@ if __name__ == "__main__":
             model = model,
             optimizer = optimizer
         )
+        train_loss = tf.keras.metrics.Mean(name='train_loss')
+        train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
+            name='train_accuracy')
+
         ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
@@ -159,7 +163,6 @@ if __name__ == "__main__":
             return tf.reduce_mean(loss_)
 
         def train_step(inp, targ, enc_hidden):
-            loss = 0
 
             with tf.GradientTape() as tape:
                 predictions, dec_hidden, loss = model(inp, targ, enc_hidden)
@@ -172,7 +175,6 @@ if __name__ == "__main__":
             return batch_loss
 
         def eval_step(inp, trg, enc_hidden):
-            eval_loss = 0
             model.trainable = False
 
             predictions, dec_hidden, eval_loss = model(inp, trg, enc_hidden)
@@ -329,8 +331,10 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
 
-        loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
+        loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
+        train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
+            name='train_accuracy')
 
         ckpt = tf.train.Checkpoint(
             model=model,
@@ -357,8 +361,10 @@ if __name__ == "__main__":
                 batch_loss= loss_function(targ, predictions, loss_object)
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
+            batch_loss = train_loss(batch_loss)
+            acc = train_accuracy(targ, predictions)
 
-            return batch_loss
+            return batch_loss, acc
 
          # Eval function
         def eval_step(adj, nodes, edges, targ):
@@ -367,25 +373,29 @@ if __name__ == "__main__":
             predictions, att_weights = model(adj, nodes, edges, targ)
             eval_loss = loss_function(targ, predictions, loss_object)
             eval_loss = train_loss(eval_loss)
+            acc = train_accuracy(targ, predictions)
 
             model.trainable = True
 
-            return eval_loss
+            return eval_loss, acc
 
         for epoch in range(args.epochs):
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 print(optimizer._lr)
+                train_loss.reset_states()
+                train_accuracy.reset_states()
+
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
 
                     if batch % args.eval_steps == 0:
-                        eval_loss = eval_step(adj, nodes, edges, targ)
-                        print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
-                                                                 eval_loss.numpy()))
+                        eval_loss, acc = eval_step(adj, nodes, edges, targ)
+                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
+                                                                 eval_loss.numpy(), acc.numpy()))
                     else:
-                        batch_loss = train_step(adj, nodes, edges, targ)
-                        print('Epoch {} Batch {} Train Loss {:.4f} '.format(epoch, batch,
-                                                                  batch_loss.numpy()))
+                        batch_loss, acc = train_step(adj, nodes, edges, targ)
+                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
+                                                                  batch_loss.numpy(), acc.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
