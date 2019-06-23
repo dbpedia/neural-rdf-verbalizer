@@ -47,10 +47,10 @@ if __name__ == "__main__":
     if args.enc_type == 'gat' and args.dec_type =='rnn':
         OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-        vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
+        vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-        model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
+        model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang)
 
         if args.decay is not None:
             optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,beta1=0.9, beta2=0.98,
@@ -104,15 +104,6 @@ if __name__ == "__main__":
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
-                    # type cast all tensors for uniformity
-                    adj = tf.cast(adj, tf.float32)
-                    nodes = tf.cast(nodes, tf.float32)
-                    edges = tf.cast(edges, tf.float32)
-                    targ = tf.cast(targ, tf.float32)
-
-                    #embed nodes
-                    nodes = embedding(nodes)
-                    edges = embedding(edges)
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
@@ -304,17 +295,18 @@ if __name__ == "__main__":
             print('Epoch {} Loss {:.4f}'.format(
                         (epoch), batch_loss))
             print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
-            optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
+            if args.decay is not None:
+                optimizer._lr =  optimizer._lr * (args.decay_rate)**(epoch // 1)
             ckpt_save_path = ckpt_manager.save()
             print("Saving checkpoint \n")
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ) = get_gat_dataset(args)
+         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
-        embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-        model = graph_attention_model.TransGAT(args, vocab_tgt_size, target_lang)
+        model = graph_attention_model.TransGAT(args, vocab_nodes_size,
+                                               vocab_edge_size, vocab_tgt_size, target_lang)
 
         if args.decay is not None:
             optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate, beta1=0.9, beta2=0.98,
@@ -371,15 +363,6 @@ if __name__ == "__main__":
                 print(optimizer._lr)
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
-                    # type cast all tensors for uniformity
-                    adj = tf.cast(adj, tf.float32)
-                    nodes = tf.cast(nodes, tf.float32)
-                    edges = tf.cast(edges, tf.float32)
-                    targ = tf.cast(targ, tf.float32)
-
-                    # embed nodes
-                    nodes = embedding(nodes)
-                    edges = embedding(edges)
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)

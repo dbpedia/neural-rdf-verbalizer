@@ -7,84 +7,50 @@ from __future__ import absolute_import
 import tensorflow as tf
 from src.layers.gat_layer import GraphAttentionLayer
 from src.layers.attention_layer import MultiHeadAttention
-from src.utils.model_utils import point_wise_feed_forward_network
+from src.utils.model_utils import point_wise_feed_forward_network, positional_encoding
 import abc
 from collections import namedtuple
 import six
 
 class GraphEncoder(tf.keras.layers.Layer):
-    """
-    Class the defines and initializes graph Encoder stack 
-    """
-    def __init__(self, args):
+    def __init__(self, num_layers, d_model, num_heads, dff, node_vocab_size, edge_vocab_size,
+                 rate=0.1):
         super(GraphEncoder, self).__init__()
-        in_dim = args.emb_dim
-        out_dim = args.hidden_size
-        num_heads = args.num_heads
-        self.num_heads = num_heads
-        dropout = args.dropout 
-        bias = args.use_bias
-        edges = args.use_edges
-        self.num_layers = args.enc_layers
-        units = args.enc_units
-        alpha = args.alpha
 
-        self.layers = []
+        self.d_model = d_model
+        self.num_layers = num_layers
+
+        self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
+        self.edge_embedding = tf.keras.layers.Embedding(edge_vocab_size, d_model)
+        self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
+        self.edge_pos_encoding = positional_encoding(edge_vocab_size, self.d_model)
+
+        self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads, rate)
+                           for _ in range(num_layers)]
+
+        self.dropout = tf.keras.layers.Dropout(rate)
+
+    def call(self, nodes, edges, adj, num_heads, training, mask):
+        node_seq_len = tf.shape(nodes)[1]
+        edge_seq_len = tf.shape(edges)[1]
+
+        # adding embedding and position encoding.
+        node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
+        edge_tensor = self.edge_embedding(edges)
+        adj = tf.cast(adj, dtype=tf.float32)
+
+        node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        node_tensor += self.node_pos_encoding[:, :node_seq_len, :]
+        edge_tensor += self.edge_pos_encoding[:, :edge_seq_len, :]
+
+        node_tensor = self.dropout(node_tensor, training=training)
+        edge_tensor = self.dropout(edge_tensor, training=training)
 
         for i in range(self.num_layers):
-            if i==0:
-                heads = []
-                for j in range(self.num_heads):
-                    gat_layer = GraphAttentionLayer(in_dim, out_dim, num_heads,
-                                                    alpha, dropout, bias)
-                    heads.append(gat_layer)
-                self.layers.append(heads)
-            else:
-                heads = []
-                for j in range(self.num_heads):
-                    gat_layer = GraphAttentionLayer(out_dim, out_dim, num_heads,
-                                                    alpha, dropout, bias)
-                    heads.append(gat_layer)
-                self.layers.append(heads)
+            x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
 
-        self.lstm = tf.keras.layers.GRU(units, return_sequences=True,
-                                         return_state=True, recurrent_initializer='glorot_uniform')
-        self.average_layer = tf.keras.layers.average
-
-
-
-    def __call__(self, inputs, edges, adj, train):
-        with tf.variable_scope("encoding"):
-            '''
-            for i in range(self.num_layers):
-                if i==0:
-
-                    outputs = self.layers[i](inputs, adj, self.num_heads, train)
-                else:
-                    # Skip connections
-                    #shortcut = outputs
-                    outputs = self.layers[i](outputs, adj, self.num_heads, train)
-                    #outputs = self.layers[i](outputs)
-                    #outputs += shortcut
-            outputs, state = self.gru(outputs, initial_state=self.hidden)
-        
-            '''
-            for i, layer in enumerate(self.layers):
-                output_list = []
-                if i ==0:
-                    for sub_layer in layer:
-                        output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
-                    outputs = self.average_layer(output_list)
-                else:
-                    shortcut = outputs
-                    for sub_layer in layer:
-                        output_list.append(sub_layer(inputs, edges, adj, self.num_heads, train))
-                    outputs = self.average_layer(output_list)
-                    outputs = tf.add(outputs, shortcut)
-
-            outputs, state = self.lstm(outputs)
-
-        return outputs, state
+        return x  # (batch_size, input_seq_len, d_model)
 
 class RNNEncoder(tf.keras.layers.Layer):
     """

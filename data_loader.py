@@ -158,4 +158,4 @@ def get_gat_dataset(args):
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-            vocab_tgt_size, vocab_nodes_size, target_lang, max_length_targ)
+            vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ)

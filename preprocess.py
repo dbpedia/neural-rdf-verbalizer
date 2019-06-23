@@ -54,6 +54,11 @@ def pre_process(path):
         result[:array.shape[0], :array.shape[1]] = array
 
         result += np.identity(8)
+        adj.append(result)
+        diag = np.sum(result, axis=0)
+        D = np.matrix(np.diag(diag))
+        degree_mat.append(D)
+        result = D**-1 * result
         tensor.append(result)
 
     dest.close()
@@ -97,11 +102,15 @@ def node_tensors(nodes, embedding):
 
 if __name__ == '__main__':
     if args.opt == 'adj':
+        adj = []
+        degree_mat = []
         tensor = []
         nodes = []
         edges = []
         pre_process(args.path)
         tensor = np.array(tensor)
+        degree_mat = np.array(degree_mat)
+        adj = np.array(adj)
         print(tensor.shape)
         if args.train is True:
             if args.use_colab is not None:
@@ -111,6 +120,8 @@ if __name__ == '__main__':
                 OUTPUT_DIR = '/content/gdrive/My Drive/data'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
+                np.save('/content/gdrive/My Drive/data/train_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/train_graph_degree_matrix', degree_mat)
                 np.save('/content/gdrive/My Drive/data/train_graph_adj', tensor)
                 with open('/content/gdrive/My Drive/data/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
@@ -118,6 +129,8 @@ if __name__ == '__main__':
                     pickle.dump(edges, fp)
             else:
                 np.save('data/train_graph_adj', tensor)
+                np.save('data/train_graph_pure_adj', adj)
+                np.save('data/train_graph_degree_matrix', degree_mat)
                 with open('data/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
                 with open('data/train_graph_edges', 'wb') as fp:
@@ -130,13 +143,17 @@ if __name__ == '__main__':
                 OUTPUT_DIR = '/content/gdrive/My Drive/data'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-                np.save('/content/gdrive/My Drive/data/eval_graph_adj', tensor)
+                np.save('/content/gdrive/My Drive/data/train_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/train_graph_degree_matrix', degree_mat)
+                np.save('/content/gdrive/My Drive/data/train_graph_adj', tensor)
                 with open('/content/gdrive/My Drive/data/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
                 with open('/content/gdrive/My Drive/data/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
             else:
-                np.save('data/eval_graph_adj', tensor)
+                np.save('data/train_graph_adj', tensor)
+                np.save('data/train_graph_pure_adj', adj)
+                np.save('data/train_graph_degree_matrix', degree_mat)
                 with open('data/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
                 with open('data/eval_graph_edges', 'wb') as fp:
