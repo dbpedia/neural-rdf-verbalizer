@@ -45,6 +45,7 @@ if __name__ == "__main__":
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
+
         OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
@@ -59,7 +60,6 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                 epsilon=1e-9)
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
-
         ckpt = tf.train.Checkpoint(
             model = model,
             optimizer = optimizer
@@ -123,7 +123,8 @@ if __name__ == "__main__":
                     optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
     elif args.enc_type == 'rnn' and args.dec_type =="rnn":
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+      
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
@@ -203,7 +204,8 @@ if __name__ == "__main__":
                 optimizer._lr = optimizer._lr * args.decay_rate ** (batch // 1)
 
     elif args.enc_type == 'transformer' and args.dec_type =="transformer":
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+      
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
         num_layers = args.enc_layers
@@ -215,7 +217,15 @@ if __name__ == "__main__":
             epochs = args.steps // steps_per_epoch
         else:
             epochs = args.epochs
-
+        
+        if args.learning_rate is not None:
+            learning_rate = args.learning_rate
+            optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
+        else:
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98, 
+                                                epsilon=1e-9)
+            
         if args.learning_rate is not None:
             learning_rate = args.learning_rate
             optimizer = tf.train.AdamOptimizer(learning_rate,beta1=0.9, beta2=0.98,
@@ -236,6 +246,9 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+            
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         if args.learning_rate is not None:
             optimizer._lr = args.learning_rate
@@ -280,6 +293,7 @@ if __name__ == "__main__":
         for epoch in range(epochs):
             start = time.time()
             print("Learning rate "+str(optimizer._lr))
+
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     if (batch % args.eval_steps == 0):
@@ -301,7 +315,7 @@ if __name__ == "__main__":
             print("Saving checkpoint \n")
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
@@ -314,6 +328,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
+
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         train_loss = tf.keras.metrics.Mean(name='train_loss')
 
@@ -340,7 +355,6 @@ if __name__ == "__main__":
             with tf.GradientTape() as tape:
                 predictions, att_weights = model(adj, nodes, edges, targ)
                 batch_loss= loss_function(targ, predictions, loss_object)
-
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
 

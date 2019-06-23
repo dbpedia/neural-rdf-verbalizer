@@ -54,13 +54,13 @@ def pre_process(path):
         result[:array.shape[0], :array.shape[1]] = array
 
         result += np.identity(8)
+
         adj.append(result)
         diag = np.sum(result, axis=0)
         D = np.matrix(np.diag(diag))
         degree_mat.append(D)
         result = D**-1 * result
-        tensor.append(result)
-
+        
     dest.close()
 
 def find_embedding(embedding, str):

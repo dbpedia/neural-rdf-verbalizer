@@ -12,11 +12,14 @@ tf.enable_eager_execution()
 
 class GraphAttentionLayer(tf.keras.layers.Layer):
     def __init__(self, d_model, dff, num_heads, rate=0.1):
+    """
+    Graph Attention Network Layer, takes input and returns embedded
+    node features with self attention applied on the feature matrix
+    """
         super(GraphAttentionLayer, self).__init__()
 
         self.mha = MultiHeadAttention(dff, num_heads)
         self.ffn = point_wise_feed_forward_network(dff, dff)
-
         self.layernorm1 = tf.contrib.layers.layer_norm
         self.layernorm2 = tf.contrib.layers.layer_norm
 
@@ -39,5 +42,5 @@ class GraphAttentionLayer(tf.keras.layers.Layer):
         ffn_output = self.ffn(out1)  # (batch_size, input_seq_len, d_model)
         ffn_output = self.dropout2(ffn_output, training=training)
         out2 = self.layernorm2(out1 + ffn_output)  # (batch_size, input_seq_len, d_model)
-
+        
         return out2
