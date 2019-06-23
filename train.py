@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
 
-        OUTPUT_DIR += '/' + args.enc_type+'|'+args.dec_type
+        OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
