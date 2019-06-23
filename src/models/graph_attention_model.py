@@ -56,17 +56,18 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-
-    def __init__(self, args, vocab_tgt_size, target_lang):
+    def __init__(self, args, node_vocab_size, edge_vocab_size, vocab_tgt_size, target_lang):
+      
         super(TransGAT, self).__init__()
-        self.encoder = GraphEncoder(args)
-        self.decoder = TransDecoder(args.num_layers, args.emb_dim, args.num_heads,
+        self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
+                               args.hidden_size, node_vocab_size, edge_vocab_size, args.dropout)
+        self.decoder = TransDecoder(args.dec_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
         self.vocab_tgt_size = vocab_tgt_size
         self.target_lang = target_lang
         self.args = args
-        self.loss_object = tf.keras.losses.sparse_categorical_crossentropy
         self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
+        self.num_heads = args.num_heads
 
     def __call__(self, adj, nodes, edges, targ):
         """
@@ -80,7 +81,8 @@ class TransGAT(tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        enc_output, enc_hidden = self.encoder(nodes, edges, adj, self.encoder.trainable)
+                                    
+        enc_output = self.encoder(nodes, edges, adj, self.num_heads, self.encoder.trainable,None)
         dec_output, attention_weights = self.decoder(
             targ, enc_output, training=self.trainable,
                                look_ahead_mask=None,

@@ -3,117 +3,44 @@
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
-from src.layers.attention_layer import SelfAttention
+from src.layers.attention_layer import SelfAttention, MultiHeadAttention
+from src.utils.model_utils import point_wise_feed_forward_network
 
 import numpy as np
 import tensorflow as tf
 tf.enable_eager_execution()
 
 class GraphAttentionLayer(tf.keras.layers.Layer):
+    def __init__(self, d_model, dff, num_heads, rate=0.1):
     """
     Graph Attention Network Layer, takes input and returns embedded
     node features with self attention applied on the feature matrix
     """
-    def __init__(self, in_dim, out_dim, num_heads, alpha, dropout=0.2,
-                 bias=False):
-        """
-        Initialises Graph Attention Layer
-        :param in_dim: input dimensions
-        :type in_dim: int
-        :param out_dim: Output vector dimensions
-        :type out_dim: int
-        :param dropout: dropout probability
-        :type dropout: float
-        :param bias: add bias or not
-        :type bias: Bool
-        :param edges: add edge features or not
-        :type edges: Bool
-        :param train: in training mode or eval mode
-        :type train: Bool
-        """
         super(GraphAttentionLayer, self).__init__()
 
-        self.in_dim = in_dim
-        self.out_dim = out_dim
-        self.dropout = dropout
-        self.bias = bias
-        self.num_heads = num_heads
-
-        self.w1_layer = tf.keras.layers.Dense(
-            self.out_dim, use_bias=True, name="Weights_1", kernel_initializer='glorot_normal',
-            bias_initializer='zeros'
-        )
-        self.w2_layer = tf.keras.layers.Dense(
-            self.out_dim, use_bias=True, name="weights_2", kernel_initializer='glorot_normal',
-            bias_initializer='zeros'
-        )
-        self.self_attention = SelfAttention(out_dim, num_heads, self.dropout)
-        self.dense = tf.keras.layers.Dense
-        self.multi_head_dense = tf.keras.layers.Dense
-        self.Dropout = tf.keras.layers.Dropout(
-            self.dropout
-        )
-        self.lrelu = tf.keras.layers.LeakyReLU(alpha)
+        self.mha = MultiHeadAttention(dff, num_heads)
+        self.ffn = point_wise_feed_forward_network(dff, dff)
         self.layernorm1 = tf.contrib.layers.layer_norm
         self.layernorm2 = tf.contrib.layers.layer_norm
-        self.layernorm3 = tf.contrib.layers.layer_norm
 
+        self.dropout1 = tf.keras.layers.Dropout(rate)
+        self.dropout2 = tf.keras.layers.Dropout(rate)
+        self.node_layer = tf.keras.layers.Dense(dff)
+        self.edge_layer = tf.keras.layers.Dense(dff)
 
-    def __call__(self, inputs, edges, adj, num_heads, train):
-        """
-        Propagates the adjacency matrix and node feature matrix through
-        the layer and calculates the attention coefficients.
+    def call(self, nodes, edges, adj, num_heads, training, mask=None):
 
-        Follows the propogation rule
-        h' = W*inputs 
-        h' = h'*(A + I) 
-        eij =  softmax(h') 
-        This makes sure the features of a node are sum of all first order neighbour's 
-        features and it's own features 
+        nodes = self.node_layer(nodes)
+        edges = self.edge_layer(edges)
+        input = tf.add(nodes, edges)
+        x = tf.matmul(adj, input)
+
+        attn_output, _ = self.mha(x, x, x, mask)  # (batch_size, input_seq_len, d_model)
+        attn_output = self.dropout1(attn_output, training=training)
+        out1 = self.layernorm1(x + attn_output)  # (batch_size, input_seq_len, d_model)
+
+        ffn_output = self.ffn(out1)  # (batch_size, input_seq_len, d_model)
+        ffn_output = self.dropout2(ffn_output, training=training)
+        out2 = self.layernorm2(out1 + ffn_output)  # (batch_size, input_seq_len, d_model)
         
-        :param inputs: node feature matrix 
-        :type inputs: tf.tensor  [batchsize, nodes, in_features]
-        :param adj:adjacency matrix 
-        :type adj:tf.tensor 
-        :return: encoded node representations 
-        :rtype:tf.tensor 
-        """
-        """
-        self.num_heads = num_heads
-        batch_size = inputs.get_shape().as_list()[0]
-        nodes = adj.get_shape().as_list()[1]
-        inputs = tf.matmul(adj, inputs)  #[batch_size, nodes, in_dim]
-
-        hidden_state = self.w1_layer(inputs) #[batch_size, nodes, out_dim]
-        if train == True:
-            hidden_state = self.Dropout(hidden_state)
-
-        hidden_state = self.lrelu(hidden_state)
-        hidden_state = self.w2_layer(hidden_state)
-        if train == True:
-            hidden_state = self.Dropout(hidden_state)
-
-        hidden_state = self.lrelu(hidden_state)
-        #Apply attention mechanism now
-
-        output = self.self_attention(hidden_state, bias=False, training=False)
-        output = self.layernorm3(output)
-        """
-        
-        self.num_heads = num_heads
-        nodes = adj.get_shape().as_list()[1]
-        node_tensor = self.w1_layer(inputs)
-        edge_tensor = self.w2_layer(edges)
-        outputs = tf.add(node_tensor, edge_tensor)
-        outputs = self.layernorm1(outputs)
-
-        coef = self.dense(nodes)(outputs)
-        coef = tf.math.softmax(coef)
-
-        adj = tf.math.multiply(adj, coef)
-        output = tf.matmul(adj, outputs)
-        output = self.layernorm2(output)
-        output = self.lrelu(output)
-
-        return output
-
+        return out2
