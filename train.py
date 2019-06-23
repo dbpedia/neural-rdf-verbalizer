@@ -140,7 +140,6 @@ if __name__ == "__main__":
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
-        global step
         step = 0
 
         if args.decay is not None:
