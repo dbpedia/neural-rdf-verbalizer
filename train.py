@@ -46,7 +46,6 @@ if __name__ == "__main__":
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
-
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
@@ -63,6 +62,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
+            
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -76,7 +76,7 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
-
+            
         if args.epochs is not None:
             steps = args.epochs * steps_per_epoch
         else:
@@ -116,7 +116,7 @@ if __name__ == "__main__":
                     start = time.time()
                     step += 1
                     optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
-
+                  
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
                         print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
@@ -245,7 +245,7 @@ if __name__ == "__main__":
         train_loss = tf.keras.metrics.Mean(name='train_loss')
         train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
             name='train_accuracy')
-
+        
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
                           vocab_inp_size, vocab_tgt_size, dropout_rate)
 
@@ -257,6 +257,9 @@ if __name__ == "__main__":
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint)
             print('Latest checkpoint restored!!')
+
+        if args.learning_rate is not None:
+            optimizer._lr = args.learning_rate
 
         def train_step(inp, tar):
             tar_inp = tar[:, :-1]
@@ -300,7 +303,7 @@ if __name__ == "__main__":
             loss = train_loss.result()
             acc = train_accuracy.result()
             model.trainable = True
-
+            
             return loss, acc
 
         for epoch in range(epochs):
@@ -340,8 +343,7 @@ if __name__ == "__main__":
 
         model = graph_attention_model.TransGAT(args, vocab_nodes_size,
                                                vocab_edge_size, vocab_tgt_size, target_lang)
-        step = 0
-
+        
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -368,7 +370,6 @@ if __name__ == "__main__":
             steps = args.epochs * steps_per_epoch
         else:
             steps = args.steps
-
 
         def train_step(adj, nodes, edges, targ):
             tar_real = targ[:, 1:]
@@ -426,4 +427,5 @@ if __name__ == "__main__":
                         ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
                     print('Time {} \n'.format(time.time() - start))
+
                     pbar.update(1)
