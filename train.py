@@ -351,6 +351,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
+        step =0
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
