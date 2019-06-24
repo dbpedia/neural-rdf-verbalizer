@@ -15,14 +15,17 @@ class GATModel (tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args, vocab_tgt_size, target_lang):
+    def __init__(self, args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang):
         super(GATModel, self).__init__()
-        self.encoder = GraphEncoder(args)
+        self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
+                                    args.hidden_size, vocab_nodes_size, vocab_edge_size, args.dropout)
         self.decoder = RNNDecoder(vocab_tgt_size, args.emb_dim, args.enc_units, args.batch_size)
-        self.vocab_tgt_size = vocab_tgt_size 
+        self.vocab_tgt_size = vocab_tgt_size
+        self.num_heads = args.num_heads
         self.target_lang = target_lang
         self.args = args
-        self.loss_object = tf.keras.losses.sparse_categorical_crossentropy
+        self.loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
+        self.gru = tf.keras.layers.GRU(units=args.enc_units,return_state=True, return_sequences=True)
 
     def __call__(self, adj, nodes, edges, targ):
         """
@@ -36,7 +39,9 @@ class GATModel (tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        enc_output, enc_hidden = self.encoder(nodes, edges, adj, self.encoder.trainable)
+        enc_output = self.encoder(nodes, edges, adj, self.num_heads, self.encoder.trainable, None)
+        enc_output, enc_hidden = self.gru(enc_output)
+
         dec_input=tf.expand_dims([self.target_lang.word_index['<start>']] * self.args.batch_size, 1)
         loss = 0
         
@@ -47,7 +52,6 @@ class GATModel (tf.keras.Model):
 
             #using teacher forcing 
             dec_input = tf.expand_dims(targ[:, t], 1)
-        print(predictions.shape)
 
         return predictions, dec_hidden, loss
 
