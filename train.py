@@ -316,13 +316,15 @@ if __name__ == "__main__":
                     optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if (batch % args.eval_steps == 0):
-                        batch_loss, acc = train_step(inp, tar)
-                        print('Epoch {} Batch {} Batch Loss {:.4f}'.format(epoch, batch,
-                                                                           batch_loss))
-                    else:
                         eval_loss, acc = eval_step(inp, tar)
-                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {.:4f}'.format(epoch, batch,
-                                                                           train_loss.result(), train_accuracy.result()))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
+                                                                                          eval_loss.numpy(),
+                                                                                          acc.numpy()))
+                    else:
+                        batch_loss, acc = train_step(inp, tar)
+                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
+                                                                                           batch_loss.numpy(),
+                                                                                           acc.numpy()))
                     pbar.update(1)
 
             print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(
