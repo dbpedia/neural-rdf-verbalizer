@@ -48,7 +48,12 @@ class GraphEncoder(tf.keras.layers.Layer):
         edge_tensor = self.dropout(edge_tensor, training=training)
 
         for i in range(self.num_layers):
-            x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+            if i==0:
+                x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+            else:
+                shortcut = x
+                x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+                x += shortcut
 
         return x  # (batch_size, input_seq_len, d_model)
 
