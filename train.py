@@ -117,7 +117,8 @@ if __name__ == "__main__":
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
                   
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(adj, nodes, edges, targ)
@@ -201,7 +202,8 @@ if __name__ == "__main__":
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(inp, targ, enc_hidden)
@@ -320,7 +322,8 @@ if __name__ == "__main__":
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if (batch % args.eval_steps == 0):
                         eval_loss, acc = eval_step(inp, tar)
@@ -418,7 +421,8 @@ if __name__ == "__main__":
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step +=1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss, acc = eval_step(adj, nodes, edges, targ)
