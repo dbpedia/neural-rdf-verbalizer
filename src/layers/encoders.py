@@ -29,6 +29,7 @@ class GraphEncoder(tf.keras.layers.Layer):
                            for _ in range(num_layers)]
 
         self.dropout = tf.keras.layers.Dropout(rate)
+        self.layernorm = tf.contrib.layers.layer_norm
 
     def call(self, nodes, edges, adj, num_heads, training, mask):
         node_seq_len = tf.shape(nodes)[1]
@@ -55,7 +56,7 @@ class GraphEncoder(tf.keras.layers.Layer):
                 x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
                 x += shortcut
 
-        return x  # (batch_size, input_seq_len, d_model)
+        return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
 
 class RNNEncoder(tf.keras.layers.Layer):
     """

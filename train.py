@@ -111,7 +111,7 @@ if __name__ == "__main__":
         for epoch in range(args.epochs):
             train_loss.reset_states()
             train_accuracy.reset_states()
-            print("Learning rate "+str(optimizer._lr))
+            print('Learning Rate {:.4f} Step {}'.format(optimizer._lr, step))
 
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
@@ -195,7 +195,7 @@ if __name__ == "__main__":
             return eval_loss
 
         for epoch in range(args.epochs):
-            print("Learning rate " + str(optimizer._lr))
+            print('Learning Rate {:.4f} Step {}'.format(optimizer._lr, step))
 
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
@@ -315,7 +315,7 @@ if __name__ == "__main__":
             train_loss.reset_states()
             train_accuracy.reset_states()
 
-            print("Learning rate "+str(optimizer._lr))
+            print('Learning Rate {:.4f} Step {}'.format(optimizer._lr, step))
 
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
@@ -410,7 +410,7 @@ if __name__ == "__main__":
             return eval_loss, acc
 
         for epoch in range(args.epochs):
-            print("Learning rate "+str(optimizer._lr))
+            print('Learning Rate {:.4f} Step {}'.format(optimizer._lr, step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 train_loss.reset_states()
                 train_accuracy.reset_states()
