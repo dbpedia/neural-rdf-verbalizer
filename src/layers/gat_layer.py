@@ -25,7 +25,7 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
         self.biases = []
         self.attn_kernels = []
 
-        self.node_layer = tf.keras.layers.Dense(dff)
+        self.node_layer = tf.keras.layers.Dense(self.in_dim)
         self.edge_layer = tf.keras.layers.Dense(dff)
         self.lrelu = tf.keras.layers.LeakyReLU()
         self.dropout = tf.keras.layers.Dropout(rate)
