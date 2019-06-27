@@ -61,8 +61,7 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             attn_for_neighs = tf.keras.backend.dot(features, attention_kernel[1])
             # Attention head a(Wh_i, Wh_j) = a^T [[Wh_i], [Wh_j]]
 
-            dense = tf.add(attn_for_neighs, attn_for_self)
-            dense = tf.broadcast_to(dense, shape=adj.shape)
+            dense = tf.matmul(attn_for_self, attn_for_neighs, transpose_b=True)
             dense = self.lrelu(dense)
 
             # Mask values before activation (Vaswani et al., 2017)
