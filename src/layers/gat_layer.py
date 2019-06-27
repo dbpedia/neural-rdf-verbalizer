@@ -10,7 +10,7 @@ import numpy as np
 import tensorflow as tf
 tf.enable_eager_execution()
 
-class GraphAttentionLayer (tf.keras.layers.Layer):
+class GraphAttentionLayer (tf.keras.Model):
     def __init__(self, d_model, dff, num_heads, rate=0.1):
         """
         Graph Attention Network Layer, takes input and returns embedded
@@ -68,7 +68,7 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             dropout_feat = self.dropout(features)  # (N x F')
 
             # Linear combination with neighbors' features
-            node_features = tf.keras.backend.dot(dropout_attn, dropout_feat)  # (N x F')
+            node_features = tf.matmul(dropout_attn, dropout_feat)
             outputs.append(node_features)
 
         output = tf.reduce_mean(tf.stack(outputs), axis=0)  # N x F')
