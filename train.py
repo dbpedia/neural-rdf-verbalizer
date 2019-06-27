@@ -51,7 +51,7 @@ if __name__ == "__main__":
         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-        model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang)
+        model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_tgt_size, target_lang)
 
         step = 0
 
@@ -82,9 +82,9 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, edges, targ):
+        def train_step(adj, nodes, targ):
             with tf.GradientTape() as tape:
-                predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
+                predictions, dec_hidden, loss = model(adj, nodes, targ)
 
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
@@ -97,9 +97,9 @@ if __name__ == "__main__":
             return batch_loss
 
         # Eval function
-        def eval_step(adj, nodes, edges, targ):
+        def eval_step(adj, nodes, targ):
             model.trainable = False
-            predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
+            predictions, dec_hidden, loss = model(adj, nodes, targ)
             eval_loss = (loss / int(targ.shape[1]))
             model.trainable = True
             train_loss(eval_loss)
@@ -121,11 +121,11 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
                   
                     if batch % args.eval_steps == 0:
-                        eval_loss = eval_step(adj, nodes, edges, targ)
+                        eval_loss = eval_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
                                                                            eval_loss.numpy()))
                     else:
-                        batch_loss = train_step(adj, nodes, edges, targ)
+                        batch_loss = train_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
                                                                            batch_loss.numpy()))
 
@@ -379,12 +379,12 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, edges, targ):
+        def train_step(adj, nodes, targ):
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
 
             with tf.GradientTape() as tape:
-                predictions, att_weights = model(adj, nodes, edges, tar_inp)
+                predictions, att_weights = model(adj, nodes, tar_inp)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
@@ -396,12 +396,12 @@ if __name__ == "__main__":
             return batch_loss, acc
 
          # Eval function
-        def eval_step(adj, nodes, edges, targ):
+        def eval_step(adj, nodes, targ):
             model.trainable = False
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
 
-            predictions, att_weights = model(adj, nodes, edges, tar_inp)
+            predictions, att_weights = model(adj, nodes, tar_inp)
             eval_loss = loss_function(tar_real, predictions, loss_object)
             train_loss(eval_loss)
             train_accuracy(tar_real, predictions)
@@ -425,11 +425,11 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc = eval_step(adj, nodes, edges, targ)
+                        eval_loss, acc = eval_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
                                                                  eval_loss.numpy(), acc.numpy()))
                     else:
-                        batch_loss, acc = train_step(adj, nodes, edges, targ)
+                        batch_loss, acc = train_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
                                                                   batch_loss.numpy(), acc.numpy()))
 

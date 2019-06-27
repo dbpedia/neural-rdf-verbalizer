@@ -49,8 +49,6 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
 
     def call(self, nodes, adj, num_heads, training, mask=None):
         nodes = self.node_layer(nodes)
-        #edges = self.edge_layer(edges)
-        #inputs = tf.add(nodes, edges)
         inputs = nodes
 
         outputs = []
