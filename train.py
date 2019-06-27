@@ -349,7 +349,7 @@ if __name__ == "__main__":
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         model = graph_attention_model.TransGAT(args, vocab_nodes_size,
-                                               vocab_edge_size, vocab_tgt_size, target_lang)
+                                            vocab_tgt_size, target_lang)
         
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
