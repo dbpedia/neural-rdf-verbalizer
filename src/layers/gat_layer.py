@@ -47,10 +47,11 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
                                                  name='attn_kernel_neigh_{}'.format(head))
             self.attn_kernels.append([attn_kernel_self, attn_kernel_neighs])
 
-    def call(self, nodes, edges, adj, num_heads, training, mask=None):
+    def call(self, nodes, adj, num_heads, training, mask=None):
         nodes = self.node_layer(nodes)
-        edges = self.edge_layer(edges)
-        inputs = tf.add(nodes, edges)
+        #edges = self.edge_layer(edges)
+        #inputs = tf.add(nodes, edges)
+        inputs = nodes
 
         outputs = []
         for head in range(num_heads):

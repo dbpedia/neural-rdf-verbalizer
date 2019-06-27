@@ -43,17 +43,20 @@ def pre_process(path):
         for l in triple_list:
             l = l.strip().split(' | ')
             print(l)
-            g.add_edge(l[0], l[2], label=l[1])
+            g.add_edge(l[0], l[1])
+            g.add_edge(l[1], l[0])
+            g.add_edge(l[1], l[2])
+            g.add_edge(l[2], l[1])
             temp_edge.append(l[1])
         edges.append(temp_edge)
         nodes.append(list(g.nodes))
         array = nx.to_numpy_array(g)
         print(array)
-        result = np.zeros((8, 8))
+        result = np.zeros((16, 16))
 
         result[:array.shape[0], :array.shape[1]] = array
 
-        result += np.identity(8)
+        result += np.identity(16)
 
         adj.append(result)
         diag = np.sum(result, axis=0)

@@ -139,11 +139,11 @@ def get_gat_dataset(args):
     (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang,
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.tgt_path, args.num_examples)
-
+    print(node_tensor.shape, edge_tensor.shape)
     # Pad the edge tensor to 16 size
-    node_paddings = tf.constant([[0, 0], [0, 0]])
+    node_paddings = tf.constant([[0, 0], [0, 1]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
-    edge_paddings = tf.constant([[0,0], [0,1]])
+    edge_paddings = tf.constant([[0,0], [0,9]])
     edge_tensor = tf.pad(edge_tensor, edge_paddings, mode='CONSTANT')
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size

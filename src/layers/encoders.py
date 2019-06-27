@@ -21,9 +21,9 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.num_layers = num_layers
 
         self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
-        self.edge_embedding = tf.keras.layers.Embedding(edge_vocab_size, d_model)
+        #self.edge_embedding = tf.keras.layers.Embedding(edge_vocab_size, d_model)
         self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
-        self.edge_pos_encoding = positional_encoding(edge_vocab_size, self.d_model)
+        #self.edge_pos_encoding = positional_encoding(edge_vocab_size, self.d_model)
 
         self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads, rate)
                            for _ in range(num_layers)]
@@ -37,23 +37,23 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         # adding embedding and position encoding.
         node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
-        edge_tensor = self.edge_embedding(edges)
+        #edge_tensor = self.edge_embedding(edges)
         adj = tf.cast(adj, dtype=tf.float32)
 
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        #edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         node_tensor += self.node_pos_encoding[:, :node_seq_len, :]
-        edge_tensor += self.edge_pos_encoding[:, :edge_seq_len, :]
+        #edge_tensor += self.edge_pos_encoding[:, :edge_seq_len, :]
 
         node_tensor = self.dropout(node_tensor, training=training)
-        edge_tensor = self.dropout(edge_tensor, training=training)
+        #edge_tensor = self.dropout(edge_tensor, training=training)
 
         for i in range(self.num_layers):
             if i==0:
-                x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+                x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
             else:
                 shortcut = x
-                x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+                x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
                 x += shortcut
 
         return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
