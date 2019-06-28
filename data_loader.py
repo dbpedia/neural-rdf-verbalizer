@@ -106,11 +106,12 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, tgt_path, num_examples=No
     edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
 
     # save all vocabularies
-    with open('vocabs/target_vocab', 'wb') as fp:
+    os.makedirs('vocabs', exist_ok=True)
+    with open('vocabs/target_vocab', 'wb+') as fp:
         pickle.dump(targ_lang_tokenizer, fp)
-    with open('vocabs/nodes_vocab', 'wb') as fp:
+    with open('vocabs/nodes_vocab', 'wb+') as fp:
         pickle.dump(nodes_tokenizer, fp)
-    with open('vocabs/edges_vocab', 'wb') as fp:
+    with open('vocabs/edges_vocab', 'wb+') as fp:
         pickle.dump(edges_tokenizer, fp)
 
     return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,
