@@ -25,7 +25,8 @@ class GATModel (tf.keras.Model):
         self.target_lang = target_lang
         self.args = args
         self.loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
-        self.gru = tf.keras.layers.GRU(units=args.enc_units,return_state=True, return_sequences=True)
+        self.gru = tf.keras.layers.GRU(units=args.enc_units,dropout=args.dropout,
+                                       return_state=True, return_sequences=True)
 
     def __call__(self, adj, nodes, targ):
         """
