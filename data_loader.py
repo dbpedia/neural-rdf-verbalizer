@@ -4,8 +4,6 @@ as tf.data files
 from __future__ import absolute_import, division, print_function, unicode_literals
 import tensorflow as tf
 
-tf.enable_eager_execution()
-
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
@@ -106,6 +104,14 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, tgt_path, num_examples=No
     edges_tokenizer.fit_on_texts(graph_edges) 
     edge_tensor = edges_tokenizer.texts_to_sequences(graph_edges)
     edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
+
+    # save all vocabularies
+    with open('vocabs/target_vocab', 'wb') as fp:
+        pickle.dump(targ_lang_tokenizer, fp)
+    with open('vocabs/nodes_vocab', 'wb') as fp:
+        pickle.dump(nodes_tokenizer, fp)
+    with open('vocabs/edges_vocab', 'wb') as fp:
+        pickle.dump(edges_tokenizer, fp)
 
     return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,
             edges_tokenizer, targ_tensor, targ_lang_tokenizer, max_length(targ_tensor))

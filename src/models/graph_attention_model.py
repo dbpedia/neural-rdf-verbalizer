@@ -5,7 +5,6 @@ from __future__ import absolute_import
 from __future__ import division
 
 import tensorflow as tf
-tf.enable_eager_execution()
 from src.layers.encoders import GraphEncoder
 from src.layers.decoders import RNNDecoder
 from src.models.transformer import Decoder as TransDecoder
