@@ -3,10 +3,7 @@
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
-from src.layers.attention_layer import SelfAttention, MultiHeadAttention
-from src.utils.model_utils import point_wise_feed_forward_network
 
-import numpy as np
 import tensorflow as tf
 tf.enable_eager_execution()
 

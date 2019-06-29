@@ -7,9 +7,6 @@ from __future__ import absolute_import
 import tensorflow as tf
 from src.layers.attention_layer import BahdanauAttention, MultiHeadAttention
 from src.utils.model_utils import point_wise_feed_forward_network
-import abc
-from collections import namedtuple
-import six
 
 class RNNDecoder(tf.keras.Model):
   def __init__(self, vocab_size, embedding_dim, dec_units, batch_sz):

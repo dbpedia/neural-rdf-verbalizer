@@ -73,7 +73,7 @@ class TransGAT(tf.keras.Model):
         self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
         self.num_heads = args.num_heads
 
-    def __call__(self, adj, nodes, targ):
+    def __call__(self, adj, nodes, targ, mask):
         """
         Puts the tensors through encoders and decoders
         :param adj: Adjacency matrices of input example
@@ -89,7 +89,7 @@ class TransGAT(tf.keras.Model):
         enc_output = self.encoder(nodes, adj, self.num_heads, self.encoder.trainable,None)
         dec_output, attention_weights = self.decoder(
             targ, enc_output, training=self.trainable,
-                               look_ahead_mask=None,
+                               look_ahead_mask=mask,
                                 padding_mask=None)
         predictions = self.final_layer(dec_output)
 

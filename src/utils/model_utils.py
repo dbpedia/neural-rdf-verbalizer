@@ -213,6 +213,17 @@ def create_masks(inp, tar):
 
     return enc_padding_mask, combined_mask, dec_padding_mask
 
+def create_transgat_masks(tar):
+
+    # Used in the 1st attention block in the decoder.
+    # It is used to pad and mask future tokens in the input received by
+    # the decoder.
+    look_ahead_mask = create_look_ahead_mask(tf.shape(tar)[1])
+    dec_target_padding_mask = create_padding_mask(tar)
+    combined_mask = tf.maximum(dec_target_padding_mask, look_ahead_mask)
+
+    return combined_mask
+
 class CustomSchedule(tf.keras.optimizers.schedules.LearningRateSchedule):
     def __init__(self, d_model, warmup_steps=4000):
         super(CustomSchedule, self).__init__()

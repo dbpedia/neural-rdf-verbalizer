@@ -8,9 +8,6 @@ import tensorflow as tf
 from src.layers.gat_layer import GraphAttentionLayer
 from src.layers.attention_layer import MultiHeadAttention
 from src.utils.model_utils import point_wise_feed_forward_network, positional_encoding
-import abc
-from collections import namedtuple
-import six
 
 class GraphEncoder(tf.keras.layers.Layer):
     def __init__(self, num_layers, d_model, num_heads, dff, node_vocab_size,

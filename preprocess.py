@@ -123,20 +123,20 @@ if __name__ == '__main__':
                 OUTPUT_DIR = '/content/gdrive/My Drive/data'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-                np.save('/content/gdrive/My Drive/data/train_graph_pure_adj', adj)
-                np.save('/content/gdrive/My Drive/data/train_graph_degree_matrix', degree_mat)
-                np.save('/content/gdrive/My Drive/data/train_graph_adj', tensor)
-                with open('/content/gdrive/My Drive/data/train_graph_nodes', 'wb') as fp:
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_degree_matrix', degree_mat)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/train_graph_edges', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
             else:
-                np.save('data/train_graph_adj', tensor)
-                np.save('data/train_graph_pure_adj', adj)
-                np.save('data/train_graph_degree_matrix', degree_mat)
-                with open('data/train_graph_nodes', 'wb') as fp:
+                np.save('data/processed_graphs/train_graph_adj', tensor)
+                np.save('data/processed_graphs/train_graph_pure_adj', adj)
+                np.save('data/processed_graphs/train_graph_degree_matrix', degree_mat)
+                with open('data/processed_graphs/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/train_graph_edges', 'wb') as fp:
+                with open('data/processed_graphs/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
         else:
             if args.use_colab is not None:
@@ -146,24 +146,18 @@ if __name__ == '__main__':
                 OUTPUT_DIR = '/content/gdrive/My Drive/data'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-                np.save('/content/gdrive/My Drive/data/eval_graph_pure_adj', adj)
-                np.save('/content/gdrive/My Drive/data/eval_graph_degree_matrix', degree_mat)
-                np.save('/content/gdrive/My Drive/data/eval_graph_adj', tensor)
-                with open('/content/gdrive/My Drive/data/eval_graph_nodes', 'wb') as fp:
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_degree_matrix', degree_mat)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/eval_graph_edges', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
             else:
-                np.save('data/eval_graph_adj', tensor)
-                np.save('data/eval_graph_pure_adj', adj)
-                np.save('data/eval_graph_degree_matrix', degree_mat)
-                with open('data/eval_graph_nodes', 'wb') as fp:
+                np.save('data/processed_graphs/eval_graph_adj', tensor)
+                np.save('data/processed_graphs/eval_graph_pure_adj', adj)
+                np.save('data/processed_graphs/eval_graph_degree_matrix', degree_mat)
+                with open('data/processed_graphs/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/eval_graph_edges', 'wb') as fp:
+                with open('data/processed_graphs/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
- 
-
-
-
-
-

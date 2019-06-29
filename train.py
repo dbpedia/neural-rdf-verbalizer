@@ -7,18 +7,13 @@ from __future__ import absolute_import
 from __future__ import division
 
 import tensorflow as tf
-import argparse
-import os
 import time
-import io
-import tempfile
-from six.moves import xrange
 import os
 from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
-from src.utils.model_utils import create_masks
+from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
@@ -364,8 +359,7 @@ if __name__ == "__main__":
             name='train_accuracy')
 
         ckpt = tf.train.Checkpoint(
-            model=model,
-            optimizer=optimizer
+            model=model
         )
         ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
         if ckpt_manager.latest_checkpoint:
@@ -382,7 +376,8 @@ if __name__ == "__main__":
             tar_inp = targ[:, :-1]
 
             with tf.GradientTape() as tape:
-                predictions, att_weights = model(adj, nodes, tar_inp)
+                mask = create_transgat_masks(tar_inp)
+                predictions, att_weights = model(adj, nodes, tar_inp, mask)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
@@ -398,8 +393,9 @@ if __name__ == "__main__":
             model.trainable = False
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
+            mask = create_transgat_masks(tar_inp)
 
-            predictions, att_weights = model(adj, nodes, tar_inp)
+            predictions, att_weights = model(adj, nodes, tar_inp, mask)
             eval_loss = loss_function(tar_real, predictions, loss_object)
             train_loss(eval_loss)
             train_accuracy(tar_real, predictions)
