@@ -4,18 +4,11 @@ as tf.data files
 from __future__ import absolute_import, division, print_function, unicode_literals
 import tensorflow as tf
 
-tf.enable_eager_execution()
-
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-
 import unicodedata
 import re
 import numpy as np
 import os
 import io
-import time
-import argparse
 import pickle
 
 # Converts the unicode file to ascii
@@ -107,6 +100,15 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, tgt_path, num_examples=No
     edge_tensor = edges_tokenizer.texts_to_sequences(graph_edges)
     edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
 
+    # save all vocabularies
+    os.makedirs('vocabs', exist_ok=True)
+    with open('vocabs/target_vocab', 'wb+') as fp:
+        pickle.dump(targ_lang_tokenizer, fp)
+    with open('vocabs/nodes_vocab', 'wb+') as fp:
+        pickle.dump(nodes_tokenizer, fp)
+    with open('vocabs/edges_vocab', 'wb+') as fp:
+        pickle.dump(edges_tokenizer, fp)
+
     return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,
             edges_tokenizer, targ_tensor, targ_lang_tokenizer, max_length(targ_tensor))
 
@@ -139,11 +141,11 @@ def get_gat_dataset(args):
     (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang,
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.tgt_path, args.num_examples)
-
+    print(node_tensor.shape, edge_tensor.shape)
     # Pad the edge tensor to 16 size
-    node_paddings = tf.constant([[0, 0], [0, 0]])
+    node_paddings = tf.constant([[0, 0], [0, 1]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
-    edge_paddings = tf.constant([[0,0], [0,1]])
+    edge_paddings = tf.constant([[0,0], [0,9]])
     edge_tensor = tf.pad(edge_tensor, edge_paddings, mode='CONSTANT')
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size

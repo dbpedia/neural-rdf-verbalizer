@@ -1,127 +1,136 @@
-"""     Inference, take triple set as input and give sentence as output
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
-import argparse
+Inference, take a triple set, load the model and return the sentence
+"""
+import tensorflow as tf
 import networkx as nx
 import numpy as np
-import tensorflow as tf
-tf.enable_eager_execution()
+import pickle
+import os
 
+from src.models import graph_attention_model, transformer
+from src.utils.model_utils import CustomSchedule, create_masks
 from arguments import get_args
-from src.models import graph_attention_model, rnn_model
-from data_loader import get_gat_dataset, get_dataset, max_length, load_gat_dataset
-from src.utils.model_utils import loss_function
+
+
+def load_vocabs():
+    with open('vocabs/nodes_vocab', 'rb') as f:
+        nodes_vocab = pickle.load(f)
+    with open('vocabs/target_vocab', 'rb') as f:
+        target_vocab = pickle.load(f)
+
+    return nodes_vocab, target_vocab
 
 def load_model(args):
     """
-    Function to load the model from checkpoint
-    :param args:
-    :type args:
-    :return: model and necessities 
-    :rtype:
+    Function to load the model from stored checkpoint.
+    :param args: All arguments that were given to train file
+    :type args: Argparse object
+    :return: model
+    :rtype: tf.keras.Model
     """
-    dir = args.checkpoint_dir
-    og_dataset, BUFFER_SIZE, BATCH_SIZE,\
-    steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
+    # set up dirs
+    if args.use_colab is None:
+        output_file = 'results.txt'
+        OUTPUT_DIR = 'ckpts'
+        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+    else:
+        from google.colab import drive
 
-    (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang,
-     target_tensor, target_lang, max_length_targ) = load_gat_dataset(args.graph_adj, args.graph_nodes,
-                                                                     args.graph_edges, args.tgt_path, args.num_examples)
-    model = graph_attention_model.GATModel(args, vocab_tgt_size, target_lang)
-    optimizer = tf.train.AdamOptimizer()
-    checkpoint = tf.train.Checkpoint( optimizer=optimizer,
-                                            model=model)
-    checkpoint.restore(args.checkpoint_dir)
+        drive.mount('/content/gdrive')
+        OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
+        output_file = OUTPUT_DIR + '/results.txt'
+        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+    
+    node_vocab, target_vocab = load_vocabs()
+    vocab_nodes_size = len(node_vocab.word_index) +1
+    vocab_tgt_size = len(target_vocab.word_index) +1
+
+    OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
+
+    model = graph_attention_model.TransGAT(args, vocab_nodes_size,
+                                           vocab_tgt_size, target_vocab)
+
+    if args.decay is not None:
+        learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
+        optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
+                                           epsilon=1e-9)
+    else:
+        optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+                                           epsilon=1e-9)
+    step = 0
+
+    ckpt = tf.train.Checkpoint(
+        model=model
+    )
+    ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
+    if ckpt_manager.latest_checkpoint:
+        ckpt.restore(ckpt_manager.latest_checkpoint)
+        print('Latest checkpoint restored!!')
 
     return model
 
-def preprocess(line):
-    """
-    Function that preprocess the triples for evaluation
-    :param sentence: triple set
-    :type sentence: str
-    :return: adjacency matrix, node list, edge list
-    :rtype: dataset
-    """
-    edges = []
-    nodes = []
+def process_sentence(line):
     g = nx.MultiDiGraph()
-    temp_edge = []
+    nodes = []
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
-        print(l)
-        g.add_edge(l[0], l[2], label=l[1])
-        temp_edge.append(l[1])
-    edges.append(temp_edge)
+        g.add_edge(l[0], l[1])
+        g.add_edge(l[1], l[0])
+        g.add_edge(l[1], l[2])
+        g.add_edge(l[2], l[1])
     nodes.append(list(g.nodes))
     array = nx.to_numpy_array(g)
     result = np.zeros((16, 16))
     result[:array.shape[0], :array.shape[1]] = array
-
-    return result, nodes, edges
-
-def tensor_process(args, nodes, edges):
-    (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang,
-     target_tensor, target_lang, max_length_targ) = load_gat_dataset(args.graph_adj, args.graph_nodes,
-                                                                     args.graph_edges, args.tgt_path, args.num_examples)
+    result += np.identity(16)
+    nodes_lang, target_lang = load_vocabs()
     node_tensor = nodes_lang.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
-    edge_tensor = edges_lang.texts_to_sequences(edges)
-    edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor, padding='post')
+    node_paddings = tf.constant([[0, 0], [0, 16-len(nodes[0])]])
+    node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
 
-    # Pad the node tensors tp 16 size
-    print(node_tensor.shape, edge_tensor.shape)
-    paddings = tf.constant([[0, 0], [0, 14]])
-    node_tensor = tf.pad(node_tensor, paddings)
-    # Pad the edge tensor to 16 size
-    edge_paddings = tf.constant([[0, 0], [0, 15]])
-    edge_tensor = tf.pad(edge_tensor, edge_paddings)
-    vocab_nodes_size = len(nodes_lang.word_index) + 1
+    return node_tensor, result
 
-    embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-    node_tensor = embedding(node_tensor)
-    edge_tensor = embedding(edge_tensor)
+def inference(model, node_tensor, adj):
+    """
+    Function to carry out the Inference mechanism
+    :param model: the model in use
+    :type model: tf.keras.Model
+    :param node_tensor: input node tensor
+    :type node_tensor: tf.tensor
+    :param adj: adjacency matrix of node tensor
+    :type adj: tf.tensor
+    :return: Verbalised sentence
+    :rtype: str
+    """
+    model.trainable = False
+    node_vocab, target_vocab = load_vocabs()
+    start_token = [target_vocab.word_index['<start>']]
+    end_token = [target_vocab.word_index['<end>']]
+    output = tf.expand_dims(start_token, 0)
+    for i in range(82):
+        predictions, attention_weights = model(adj, node_tensor, output)
+        # select the last word from the seq_len dimension
+        predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
+        predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
+        # return the result if the predicted_id is equal to the end token
+        if tf.equal(predicted_id, end_token[0]):
+            return tf.squeeze(output, axis=0), attention_weights
 
-    return node_tensor, edge_tensor, target_lang, max_length_targ
+        # concatentate the predicted_id to the output which is given to the decoder
+        # as its input.
+        output = tf.concat([output, predicted_id], axis=-1)
+        print(output)
+
+    return tf.squeeze(output, axis=0), attention_weights
 
 if __name__ == "__main__":
     args = get_args()
-    adj, nodes, edges = preprocess('Aarhus Airport | cityServed | Aarhus , Denmark')
-    node, edge, targ_lang, max_length_targ = tensor_process(args, nodes, edges)
+
+    node_tensor, adj = process_sentence('Bhajji | country | India < TSP > Bhajji | mainIngredients | Gram flour , vegetables < TSP > Bhajji | alternativeName | Bhaji , bajji < TSP > Bhajji | ingredient | Gram flour')
     model = load_model(args)
-    model.trainable = False
-
-    hidden = [tf.zeros((1, args.enc_units))]
-    result = ''
-    inputs = node + edge
-    print(inputs.shape)
-    adj = tf.cast(tf.expand_dims(adj, axis=0), dtype=tf.float32)
-    inputs = tf.cast(inputs,  dtype=tf.float32)
-    enc_output, enc_hidden = model.encoder(inputs, adj, False)
-    dec_input = tf.expand_dims([targ_lang.word_index['<start>']], 0)
-    dec_hidden = enc_hidden
-
-    for t in range(max_length_targ):
-        predictions, dec_hidden, _ = model.decoder(dec_input, dec_hidden, enc_output)
-
-        predicted_id = tf.argmax(predictions[0]).numpy()
-        result += targ_lang.index_word[predicted_id] + ' '
-        if predicted_id != 0:
-            if targ_lang.index_word[predicted_id] == '<end>':
-                print(result)
-        dec_input = tf.expand_dims([predicted_id], 0)
-
+    node_vocab, target_vocab = load_vocabs()
+    result, att_weights = inference(model, node_tensor, adj)
     print(result)
-
-
-
-
-
-
-
-
-
-
-
 

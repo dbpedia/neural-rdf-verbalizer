@@ -7,18 +7,13 @@ from __future__ import absolute_import
 from __future__ import division
 
 import tensorflow as tf
-import argparse
-import os
 import time
-import io
-import tempfile
-from six.moves import xrange
 import os
 from tqdm import tqdm 
 
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
-from src.utils.model_utils import create_masks
+from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
@@ -51,7 +46,9 @@ if __name__ == "__main__":
         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-        model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_edge_size, vocab_tgt_size, target_lang)
+        model = graph_attention_model.GATModel(args, vocab_nodes_size, vocab_tgt_size, target_lang)
+
+        step = 0
 
         step = 0
 
@@ -82,9 +79,9 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, edges, targ):
+        def train_step(adj, nodes, targ):
             with tf.GradientTape() as tape:
-                predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
+                predictions, dec_hidden, loss = model(adj, nodes, targ)
 
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
@@ -97,9 +94,9 @@ if __name__ == "__main__":
             return batch_loss
 
         # Eval function
-        def eval_step(adj, nodes, edges, targ):
+        def eval_step(adj, nodes, targ):
             model.trainable = False
-            predictions, dec_hidden, loss = model(adj, nodes, edges, targ)
+            predictions, dec_hidden, loss = model(adj, nodes, targ)
             eval_loss = (loss / int(targ.shape[1]))
             model.trainable = True
             train_loss(eval_loss)
@@ -111,18 +108,20 @@ if __name__ == "__main__":
         for epoch in range(args.epochs):
             train_loss.reset_states()
             train_accuracy.reset_states()
+            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
                   
                     if batch % args.eval_steps == 0:
-                        eval_loss = eval_step(adj, nodes, edges, targ)
+                        eval_loss = eval_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
                                                                            eval_loss.numpy()))
                     else:
-                        batch_loss = train_step(adj, nodes, edges, targ)
+                        batch_loss = train_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
                                                                            batch_loss.numpy()))
 
@@ -131,8 +130,6 @@ if __name__ == "__main__":
                         print("Saving checkpoint \n")
                     print('Time {} \n'.format(time.time() - start))
                     pbar.update(1)
-                if args.decay is not None:
-                    optimizer._lr = optimizer._lr * args.decay_rate ** (epoch // 1)
 
     elif args.enc_type == 'rnn' and args.dec_type =="rnn":
       
@@ -193,11 +190,14 @@ if __name__ == "__main__":
             return eval_loss
 
         for epoch in range(args.epochs):
+            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
+
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss = eval_step(inp, targ, enc_hidden)
@@ -310,14 +310,13 @@ if __name__ == "__main__":
             start = time.time()
             train_loss.reset_states()
             train_accuracy.reset_states()
-
-            print("Learning rate "+str(optimizer._lr))
-
+            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     step += 1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
-
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                        
                     if (batch % args.eval_steps == 0):
                         eval_loss, acc = eval_step(inp, tar)
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
@@ -342,7 +341,7 @@ if __name__ == "__main__":
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, target_lang, max_length_targ) = get_gat_dataset(args)
 
         model = graph_attention_model.TransGAT(args, vocab_nodes_size,
-                                               vocab_edge_size, vocab_tgt_size, target_lang)
+                                            vocab_tgt_size, target_lang)
         
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
@@ -351,6 +350,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
+        step =0
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
@@ -358,8 +358,7 @@ if __name__ == "__main__":
             name='train_accuracy')
 
         ckpt = tf.train.Checkpoint(
-            model=model,
-            optimizer=optimizer
+            model=model
         )
         ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
         if ckpt_manager.latest_checkpoint:
@@ -371,12 +370,13 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, edges, targ):
+        def train_step(adj, nodes, targ):
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
 
             with tf.GradientTape() as tape:
-                predictions, att_weights = model(adj, nodes, edges, tar_inp)
+                mask = create_transgat_masks(tar_inp)
+                predictions, att_weights = model(adj, nodes, tar_inp, mask)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
@@ -388,12 +388,13 @@ if __name__ == "__main__":
             return batch_loss, acc
 
          # Eval function
-        def eval_step(adj, nodes, edges, targ):
+        def eval_step(adj, nodes, targ):
             model.trainable = False
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
+            mask = create_transgat_masks(tar_inp)
 
-            predictions, att_weights = model(adj, nodes, edges, tar_inp)
+            predictions, att_weights = model(adj, nodes, tar_inp, mask)
             eval_loss = loss_function(tar_real, predictions, loss_object)
             train_loss(eval_loss)
             train_accuracy(tar_real, predictions)
@@ -405,6 +406,7 @@ if __name__ == "__main__":
             return eval_loss, acc
 
         for epoch in range(args.epochs):
+            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 train_loss.reset_states()
                 train_accuracy.reset_states()
@@ -412,14 +414,15 @@ if __name__ == "__main__":
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step +=1
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    if args.decay is not None:
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc = eval_step(adj, nodes, edges, targ)
+                        eval_loss, acc = eval_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
                                                                  eval_loss.numpy(), acc.numpy()))
                     else:
-                        batch_loss, acc = train_step(adj, nodes, edges, targ)
+                        batch_loss, acc = train_step(adj, nodes, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
                                                                   batch_loss.numpy(), acc.numpy()))
 

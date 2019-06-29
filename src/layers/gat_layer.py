@@ -3,44 +3,80 @@
 from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
-from src.layers.attention_layer import SelfAttention, MultiHeadAttention
-from src.utils.model_utils import point_wise_feed_forward_network
 
-import numpy as np
 import tensorflow as tf
 tf.enable_eager_execution()
 
-class GraphAttentionLayer(tf.keras.layers.Layer):
+class GraphAttentionLayer (tf.keras.layers.Layer):
     def __init__(self, d_model, dff, num_heads, rate=0.1):
         """
         Graph Attention Network Layer, takes input and returns embedded
         node features with self attention applied on the feature matrix
         """
         super(GraphAttentionLayer, self).__init__()
+        self.in_dim = d_model
+        self.out_dim = dff
+        self.num_heads = num_heads
+        self.dropout_rate = rate
+        self.kernels = []
+        self.biases = []
+        self.attn_kernels = []
 
-        self.mha = MultiHeadAttention(dff, num_heads)
-        self.ffn = point_wise_feed_forward_network(dff, dff)
-        self.layernorm1 = tf.contrib.layers.layer_norm
-        self.layernorm2 = tf.contrib.layers.layer_norm
-
-        self.dropout1 = tf.keras.layers.Dropout(rate)
-        self.dropout2 = tf.keras.layers.Dropout(rate)
-        self.node_layer = tf.keras.layers.Dense(dff)
+        self.node_layer = tf.keras.layers.Dense(self.in_dim)
         self.edge_layer = tf.keras.layers.Dense(dff)
+        self.lrelu = tf.keras.layers.LeakyReLU()
+        self.dropout = tf.keras.layers.Dropout(rate)
 
-    def call(self, nodes, edges, adj, num_heads, training, mask=None):
+        for head in range(self.num_heads):
+            kernel = self.add_weight(shape=(self.in_dim, self.out_dim),
+                                     initializer='glorot_uniform',
+                                     name='kernel_{}'.format(head))
+            self.kernels.append(kernel)
+            bias = self.add_weight(shape=(self.out_dim, ),
+                                   initializer='glorot_uniform',
+                                   name='bias_{}'.format(head))
+            # Attention kernels
+            attn_kernel_self = self.add_weight(shape=(self.out_dim, 1),
+                                               initializer='glorot_uniform',
+                                               name='attn_kernel_self_{}'.format(head))
+            attn_kernel_neighs = self.add_weight(shape=(self.out_dim, 1),
+                                                 initializer='glorot_uniform',
+                                                 name='attn_kernel_neigh_{}'.format(head))
+            self.attn_kernels.append([attn_kernel_self, attn_kernel_neighs])
 
+    def call(self, nodes, adj, num_heads, training, mask=None):
         nodes = self.node_layer(nodes)
-        edges = self.edge_layer(edges)
-        input = tf.add(nodes, edges)
-        x = tf.matmul(adj, input)
+        inputs = nodes
 
-        attn_output, _ = self.mha(x, x, x, mask)  # (batch_size, input_seq_len, d_model)
-        attn_output = self.dropout1(attn_output, training=training)
-        out1 = self.layernorm1(x + attn_output)  # (batch_size, input_seq_len, d_model)
+        outputs = []
+        for head in range(num_heads):
+            kernel = self.kernels[head]
+            attention_kernel = self.attn_kernels[head]
 
-        ffn_output = self.ffn(out1)  # (batch_size, input_seq_len, d_model)
-        ffn_output = self.dropout2(ffn_output, training=training)
-        out2 = self.layernorm2(out1 + ffn_output)  # (batch_size, input_seq_len, d_model)
-        
-        return out2
+            features = tf.keras.backend.dot(inputs, kernel)
+            attn_for_self = tf.keras.backend.dot(features, attention_kernel[0])
+            attn_for_neighs = tf.keras.backend.dot(features, attention_kernel[1])
+            # Attention head a(Wh_i, Wh_j) = a^T [[Wh_i], [Wh_j]]
+
+            dense = tf.matmul(attn_for_self, attn_for_neighs, transpose_b=True)
+            dense = self.lrelu(dense)
+
+            # Mask values before activation (Vaswani et al., 2017)
+            mask_local = -10e9 * (1.0 - adj)
+            dense += mask_local
+
+            # Apply softmax to get attention coefficients
+            dense = tf.math.softmax(dense)  # (N x N)
+
+            # Apply dropout to features and attention coefficients
+            dropout_attn = self.dropout(dense)  # (N x N)
+            dropout_feat = self.dropout(features)  # (N x F')
+
+            # Linear combination with neighbors' features
+            node_features = tf.matmul(dropout_attn, dropout_feat)  # (N x F')
+            outputs.append(node_features)
+
+        output = tf.reduce_mean(tf.stack(outputs), axis=0)  # N x F')
+        output = tf.nn.relu(output)
+
+        return output

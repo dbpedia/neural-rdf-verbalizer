@@ -1,7 +1,5 @@
 """ File to hold arguments """
 import argparse
-import io
-import os
 # data arguments
 
 parser = argparse.ArgumentParser(description="Main Arguments")

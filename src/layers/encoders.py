@@ -8,12 +8,9 @@ import tensorflow as tf
 from src.layers.gat_layer import GraphAttentionLayer
 from src.layers.attention_layer import MultiHeadAttention
 from src.utils.model_utils import point_wise_feed_forward_network, positional_encoding
-import abc
-from collections import namedtuple
-import six
 
 class GraphEncoder(tf.keras.layers.Layer):
-    def __init__(self, num_layers, d_model, num_heads, dff, node_vocab_size, edge_vocab_size,
+    def __init__(self, num_layers, d_model, num_heads, dff, node_vocab_size,
                  rate=0.1):
       
         super(GraphEncoder, self).__init__()
@@ -21,36 +18,35 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.num_layers = num_layers
 
         self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
-        self.edge_embedding = tf.keras.layers.Embedding(edge_vocab_size, d_model)
         self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
-        self.edge_pos_encoding = positional_encoding(edge_vocab_size, self.d_model)
 
         self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads, rate)
                            for _ in range(num_layers)]
 
         self.dropout = tf.keras.layers.Dropout(rate)
+        self.layernorm = tf.contrib.layers.layer_norm
 
-    def call(self, nodes, edges, adj, num_heads, training, mask):
+    def call(self, nodes, adj, num_heads, training, mask):
         node_seq_len = tf.shape(nodes)[1]
-        edge_seq_len = tf.shape(edges)[1]
 
         # adding embedding and position encoding.
         node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
-        edge_tensor = self.edge_embedding(edges)
         adj = tf.cast(adj, dtype=tf.float32)
 
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         node_tensor += self.node_pos_encoding[:, :node_seq_len, :]
-        edge_tensor += self.edge_pos_encoding[:, :edge_seq_len, :]
 
         node_tensor = self.dropout(node_tensor, training=training)
-        edge_tensor = self.dropout(edge_tensor, training=training)
 
         for i in range(self.num_layers):
-            x = self.enc_layers[i](node_tensor, edge_tensor, adj, num_heads, training, mask)
+            if i==0:
+                x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
+            else:
+                shortcut = x
+                x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
+                x += shortcut
 
-        return x  # (batch_size, input_seq_len, d_model)
+        return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
 
 class RNNEncoder(tf.keras.layers.Layer):
     """
