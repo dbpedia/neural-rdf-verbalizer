@@ -50,6 +50,8 @@ if __name__ == "__main__":
 
         step = 0
 
+        step = 0
+
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -107,7 +109,6 @@ if __name__ == "__main__":
             train_loss.reset_states()
             train_accuracy.reset_states()
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
-
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (adj, nodes, edges, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
@@ -309,15 +310,13 @@ if __name__ == "__main__":
             start = time.time()
             train_loss.reset_states()
             train_accuracy.reset_states()
-
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
-
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     step += 1
                     if args.decay is not None:
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
-
+                        
                     if (batch % args.eval_steps == 0):
                         eval_loss, acc = eval_step(inp, tar)
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
