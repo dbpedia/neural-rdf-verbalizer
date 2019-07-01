@@ -8,7 +8,7 @@ import pickle
 import os
 
 from src.models import graph_attention_model, transformer
-from src.utils.model_utils import CustomSchedule, create_masks
+from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from arguments import get_args
 
 
@@ -108,29 +108,36 @@ def inference(model, node_tensor, adj):
     node_vocab, target_vocab = load_vocabs()
     start_token = [target_vocab.word_index['<start>']]
     end_token = [target_vocab.word_index['<end>']]
-    output = tf.expand_dims(start_token, 0)
+    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    result = ''
+
     for i in range(82):
-        predictions, attention_weights = model(adj, node_tensor, output)
+        mask = create_transgat_masks(dec_input)
+        predictions, attention_weights = model(adj, node_tensor, dec_input, mask)
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
         # return the result if the predicted_id is equal to the end token
-        if tf.equal(predicted_id, end_token[0]):
-            return tf.squeeze(output, axis=0), attention_weights
+        #predicted_id = tf.argmax(predictions[0]).numpy()
+        result += target_vocab.index_word[predicted_id[0][0].numpy() ]+ ' '
+        if target_vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
+            return result
+        #if tf.equal(predicted_id, end_token[0]):
+        #    return tf.squeeze(output, axis=0), attention_weights
 
         # concatentate the predicted_id to the output which is given to the decoder
         # as its input.
-        output = tf.concat([output, predicted_id], axis=-1)
-        print(output)
+        dec_input = tf.concat([dec_input, predicted_id], axis=-1)
+        #dec_input = tf.expand_dims([predicted_id], 0)
 
-    return tf.squeeze(output, axis=0), attention_weights
+    return result
 
 if __name__ == "__main__":
     args = get_args()
 
-    node_tensor, adj = process_sentence('Bhajji | country | India < TSP > Bhajji | mainIngredients | Gram flour , vegetables < TSP > Bhajji | alternativeName | Bhaji , bajji < TSP > Bhajji | ingredient | Gram flour')
+    node_tensor, adj = process_sentence('Ann Arbor , Michigan | leaderTitle | Mayor')
     model = load_model(args)
     node_vocab, target_vocab = load_vocabs()
-    result, att_weights = inference(model, node_tensor, adj)
+    result = inference(model, node_tensor, adj)
     print(result)
 
