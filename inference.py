@@ -140,4 +140,3 @@ if __name__ == "__main__":
     node_vocab, target_vocab = load_vocabs()
     result = inference(model, node_tensor, adj)
     print(result)
-
