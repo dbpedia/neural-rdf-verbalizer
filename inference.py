@@ -92,7 +92,7 @@ def process_sentence(line):
 
     return node_tensor, result
 
-def inference(model, node_tensor, adj):
+def eval(model, node_tensor, adj):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -132,11 +132,7 @@ def inference(model, node_tensor, adj):
 
     return result
 
-if __name__ == "__main__":
-    args = get_args()
-
-    node_tensor, adj = process_sentence('Ann Arbor , Michigan | leaderTitle | Mayor')
-    model = load_model(args)
-    node_vocab, target_vocab = load_vocabs()
-    result = inference(model, node_tensor, adj)
+def inf(triple, model):
+    node_tensor, adj = process_sentence(triple)
+    result = eval(model, node_tensor, adj)
     print(result)
