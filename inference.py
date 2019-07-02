@@ -136,3 +136,11 @@ def inf(triple, model):
     node_tensor, adj = process_sentence(triple)
     result = eval(model, node_tensor, adj)
     print(result)
+
+if __name__ == "__main__":
+    args = get_args()
+    f = open(args.eval, 'r')
+    model = load_model(args)
+    for line in f:
+        print(line)
+        inf(line, model)

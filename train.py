@@ -17,7 +17,7 @@ from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
-from inference import inf
+from inference import inference
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -401,12 +401,6 @@ if __name__ == "__main__":
             train_accuracy(tar_real, predictions)
             eval_loss = train_loss.result()
             acc = train_accuracy.result()
-
-            args = get_args()
-            f = open(args.eval, 'r')
-            for line in f:
-                result = inf(line, model)
-                print(result+"\n")
 
             model.trainable = True
             return eval_loss, acc
