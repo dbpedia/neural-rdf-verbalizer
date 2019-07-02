@@ -11,7 +11,7 @@ from src.utils.model_utils import point_wise_feed_forward_network, positional_en
 
 class GraphEncoder(tf.keras.layers.Layer):
     def __init__(self, num_layers, d_model, num_heads, dff, node_vocab_size,
-                 rate=0.1):
+                 reg_scale=0.001, rate=0.1):
       
         super(GraphEncoder, self).__init__()
         self.d_model = d_model
@@ -20,7 +20,8 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
         self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
 
-        self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads, rate)
+        self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads,
+                                               reg_scale=reg_scale, rate=rate)
                            for _ in range(num_layers)]
 
         self.dropout = tf.keras.layers.Dropout(rate)

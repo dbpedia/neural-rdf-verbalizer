@@ -17,7 +17,7 @@ class GATModel (tf.keras.Model):
     def __init__(self, args, vocab_nodes_size, vocab_tgt_size, target_lang):
         super(GATModel, self).__init__()
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                                    args.hidden_size, vocab_nodes_size, args.dropout)
+                                    args.hidden_size, vocab_nodes_size, args.dropout, reg_scale=args.reg_scale)
         self.decoder = RNNDecoder(vocab_tgt_size, args.emb_dim, args.enc_units, args.batch_size)
         self.vocab_tgt_size = vocab_tgt_size
         self.num_heads = args.num_heads
@@ -63,8 +63,9 @@ class TransGAT(tf.keras.Model):
     def __init__(self, args, node_vocab_size, vocab_tgt_size, target_lang):
       
         super(TransGAT, self).__init__()
+        self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                               args.hidden_size, node_vocab_size, args.dropout)
+                               args.hidden_size, node_vocab_size, reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder = TransDecoder(args.dec_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
         self.vocab_tgt_size = vocab_tgt_size

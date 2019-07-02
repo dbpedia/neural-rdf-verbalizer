@@ -24,6 +24,8 @@ parser.add_argument(
 parser.add_argument(
     '--tgt_path', type=str, required=True, help='Path to target.lex file')
 parser.add_argument(
+    '--eval', type=str, required=False, help='Path to source.triple file of the Eval set')
+parser.add_argument(
     '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
 parser.add_argument(
     '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')
@@ -61,6 +63,8 @@ parser.add_argument(
     '--use_edges', type=bool, required=False, help='Add edges to embeddings')
 parser.add_argument(
     '--dropout', type=float, required=False, help='Dropout rate')
+parser.add_argument(
+    '--reg_scale', type=float, required=False, help='L2 Regularizer scale')
 parser.add_argument(
     '--enc_units', type=int, required=False, help='Number of encoder units')
 parser.add_argument(

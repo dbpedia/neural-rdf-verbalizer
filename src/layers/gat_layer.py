@@ -8,7 +8,7 @@ import tensorflow as tf
 tf.enable_eager_execution()
 
 class GraphAttentionLayer (tf.keras.layers.Layer):
-    def __init__(self, d_model, dff, num_heads, rate=0.1):
+    def __init__(self, d_model, dff, num_heads, reg_scale =0.001, rate=0.1):
         """
         Graph Attention Network Layer, takes input and returns embedded
         node features with self attention applied on the feature matrix
@@ -26,21 +26,26 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
         self.edge_layer = tf.keras.layers.Dense(dff)
         self.lrelu = tf.keras.layers.LeakyReLU()
         self.dropout = tf.keras.layers.Dropout(rate)
+        self.reg = tf.contrib.layers.l2_regularizer(reg_scale)
 
         for head in range(self.num_heads):
             kernel = self.add_weight(shape=(self.in_dim, self.out_dim),
                                      initializer='glorot_uniform',
+                                     regularizer=self.reg,
                                      name='kernel_{}'.format(head))
-            self.kernels.append(kernel)
             bias = self.add_weight(shape=(self.out_dim, ),
                                    initializer='glorot_uniform',
+                                   regularizer=self.reg,
                                    name='bias_{}'.format(head))
+            self.kernels.append([kernel, bias])
             # Attention kernels
             attn_kernel_self = self.add_weight(shape=(self.out_dim, 1),
                                                initializer='glorot_uniform',
+                                               regularizer=self.reg,
                                                name='attn_kernel_self_{}'.format(head))
             attn_kernel_neighs = self.add_weight(shape=(self.out_dim, 1),
                                                  initializer='glorot_uniform',
+                                                 regularizer=self.reg,
                                                  name='attn_kernel_neigh_{}'.format(head))
             self.attn_kernels.append([attn_kernel_self, attn_kernel_neighs])
 
@@ -53,7 +58,8 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             kernel = self.kernels[head]
             attention_kernel = self.attn_kernels[head]
 
-            features = tf.keras.backend.dot(inputs, kernel)
+            features = tf.keras.backend.dot(inputs, kernel[0])
+            features = tf.add(features, kernel[1])
             attn_for_self = tf.keras.backend.dot(features, attention_kernel[0])
             attn_for_neighs = tf.keras.backend.dot(features, attention_kernel[1])
             # Attention head a(Wh_i, Wh_j) = a^T [[Wh_i], [Wh_j]]

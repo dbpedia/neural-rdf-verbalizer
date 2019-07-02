@@ -17,7 +17,6 @@ from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
-from inference import inference
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -83,6 +82,8 @@ if __name__ == "__main__":
         def train_step(adj, nodes, targ):
             with tf.GradientTape() as tape:
                 predictions, dec_hidden, loss = model(adj, nodes, targ)
+                reg_loss = tf.losses.get_regularization_loss()
+                loss += reg_loss
 
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
@@ -173,6 +174,8 @@ if __name__ == "__main__":
 
             with tf.GradientTape() as tape:
                 predictions, dec_hidden, loss = model(inp, targ, enc_hidden)
+                reg_loss = tf.losses.get_regularization_loss()
+                loss += reg_loss
 
             batch_loss = (loss / int(targ.shape[1]))
             variables = model.trainable_variables
@@ -275,6 +278,8 @@ if __name__ == "__main__":
                                              combined_mask,
                                              dec_padding_mask)
                 loss = loss_function(tar_real, predictions, loss_object)
+                reg_loss = tf.losses.get_regularization_loss()
+                loss += reg_loss
 
             gradients = tape.gradient(loss, model.trainable_variables)
             optimizer.apply_gradients(zip(gradients, model.trainable_variables))
@@ -379,6 +384,9 @@ if __name__ == "__main__":
                 mask = create_transgat_masks(tar_inp)
                 predictions, att_weights = model(adj, nodes, tar_inp, mask)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
+                reg_loss = tf.losses.get_regularization_loss()
+                batch_loss += reg_loss
+
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
             train_loss(batch_loss)
