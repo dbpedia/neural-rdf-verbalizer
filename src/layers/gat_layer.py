@@ -57,7 +57,6 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
         for head in range(num_heads):
             kernel = self.kernels[head]
             attention_kernel = self.attn_kernels[head]
-
             features = tf.keras.backend.dot(inputs, kernel[0])
             features = tf.add(features, kernel[1])
             attn_for_self = tf.keras.backend.dot(features, attention_kernel[0])

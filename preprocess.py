@@ -33,6 +33,65 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+def pre_process_thiago(path):
+    dest = open(path, 'r')
+    count = 0
+    for line in dest:
+        g = nx.MultiDiGraph()
+        temp_edge = []
+        triple_list = line.split('< TSP >')
+        for l in triple_list:
+            l = l.strip().split(' | ')
+            print(l)
+            g.add_edge(l[0], l[1])
+            g.add_edge(l[1], l[2])
+            g.add_edge(l[0], l[2])
+            temp_edge.append(l[1])
+        print('-')
+        edges.append(temp_edge)
+        print(list(g.nodes()))
+        nodes.append(list(g.nodes()))
+
+        # set roles
+        roles_ = []
+        for node in list(g.nodes()):
+            role = ''
+            for l in triple_list:
+                l = l.strip().split(' | ')
+
+                if l[0] == node:
+                    if role == 'object':
+                        role = 'bridge'
+                    else:
+                        role = 'subject'
+                elif l[1] == node:
+                    role = 'predicate'
+                elif l[2] == node:
+                    if role == 'subject':
+                        role = 'bridge'
+                    else:
+                        role = 'object'
+            roles_.append(role)
+        roles.append(roles_)
+
+        print(roles_)
+
+        array = nx.to_numpy_matrix(g)
+        print(array)
+        result = np.zeros((16, 16))
+
+        result[:array.shape[0], :array.shape[1]] = array
+
+        result += np.identity(16)
+
+        adj.append(result)
+        diag = np.sum(result, axis=0)
+        D = np.matrix(np.diag(diag))
+        degree_mat.append(D)
+        result = D**-1 * result
+
+    dest.close()
+
 def pre_process(path):
     dest = open(path, 'r')
     count = 0
@@ -49,7 +108,7 @@ def pre_process(path):
             g.add_edge(l[2], l[1])
             temp_edge.append(l[1])
         edges.append(temp_edge)
-        nodes.append(list(g.nodes))
+        nodes.append(list(g.nodes()))
         array = nx.to_numpy_array(g)
         print(array)
         result = np.zeros((16, 16))
@@ -109,8 +168,9 @@ if __name__ == '__main__':
         degree_mat = []
         tensor = []
         nodes = []
+        roles = []
         edges = []
-        pre_process(args.path)
+        pre_process_thiago(args.path)
         tensor = np.array(tensor)
         degree_mat = np.array(degree_mat)
         adj = np.array(adj)
@@ -130,14 +190,18 @@ if __name__ == '__main__':
                     pickle.dump(nodes, fp)
                 with open('/content/gdrive/My Drive/data/processed_graphs/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train_node_roles', 'wb') as fp:
+                    pickle.dump(roles, fp)
             else:
-                np.save('data/processed_graphs/train_graph_adj', tensor)
-                np.save('data/processed_graphs/train_graph_pure_adj', adj)
-                np.save('data/processed_graphs/train_graph_degree_matrix', degree_mat)
-                with open('data/processed_graphs/train_graph_nodes', 'wb') as fp:
+                np.save('data/processed_data/train_graph_adj', tensor)
+                np.save('data/processed_data/train_graph_pure_adj', adj)
+                np.save('data/processed_data/train_graph_degree_matrix', degree_mat)
+                with open('data/processed_data/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_graphs/train_graph_edges', 'wb') as fp:
+                with open('data/processed_data/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
+                with open('data/processed_data/train_node_roles', 'wb') as fp:
+                    pickle.dump(roles, fp)
         else:
             if args.use_colab is not None:
                 from google.colab import drive
@@ -153,11 +217,15 @@ if __name__ == '__main__':
                     pickle.dump(nodes, fp)
                 with open('/content/gdrive/My Drive/data/processed_graphs/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval_node_roles', 'wb') as fp:
+                    pickle.dump(roles, fp)
             else:
-                np.save('data/processed_graphs/eval_graph_adj', tensor)
-                np.save('data/processed_graphs/eval_graph_pure_adj', adj)
-                np.save('data/processed_graphs/eval_graph_degree_matrix', degree_mat)
-                with open('data/processed_graphs/eval_graph_nodes', 'wb') as fp:
+                np.save('data/processed_data/eval_graph_adj', tensor)
+                np.save('data/processed_data/eval_graph_pure_adj', adj)
+                np.save('data/processed_data/eval_graph_degree_matrix', degree_mat)
+                with open('data/processed_data/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_graphs/eval_graph_edges', 'wb') as fp:
+                with open('data/processed_data/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
+                with open('data/processed_data/eval_node_roles', 'wb') as fp:
+                    pickle.dump(roles, fp)

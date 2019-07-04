@@ -60,12 +60,12 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args, node_vocab_size, vocab_tgt_size, target_lang):
-      
+    def __init__(self, args, node_vocab_size, role_vocab_size, vocab_tgt_size, target_lang):      
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                               args.hidden_size, node_vocab_size, reg_scale= args.reg_scale, rate=args.dropout)
+                                    args.hidden_size, node_vocab_size, role_vocab_size, 
+                                    reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder = TransDecoder(args.dec_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
         self.vocab_tgt_size = vocab_tgt_size
@@ -73,8 +73,8 @@ class TransGAT(tf.keras.Model):
         self.args = args
         self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
         self.num_heads = args.num_heads
-
-    def __call__(self, adj, nodes, targ, mask):
+        
+    def __call__(self, adj, nodes, roles, targ, mask):
         """
         Puts the tensors through encoders and decoders
         :param adj: Adjacency matrices of input example
@@ -86,8 +86,7 @@ class TransGAT(tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-                                    
-        enc_output = self.encoder(nodes, adj, self.num_heads, self.encoder.trainable,None)
+        enc_output = self.encoder(nodes, adj, roles, self.num_heads, self.encoder.trainable,None)
         dec_output, attention_weights = self.decoder(
             targ, enc_output, training=self.trainable,
                                look_ahead_mask=mask,
