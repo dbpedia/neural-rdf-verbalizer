@@ -33,7 +33,7 @@ parser.add_argument(
 
 args = parser.parse_args()
 
-def pre_process_thiago(path):
+def pre_process_with_roles(path):
     dest = open(path, 'r')
     count = 0
     for line in dest:
@@ -170,7 +170,7 @@ if __name__ == '__main__':
         nodes = []
         roles = []
         edges = []
-        pre_process_thiago(args.path)
+        pre_process_with_roles(args.path)
         tensor = np.array(tensor)
         degree_mat = np.array(degree_mat)
         adj = np.array(adj)
