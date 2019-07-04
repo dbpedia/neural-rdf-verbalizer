@@ -85,7 +85,6 @@ if __name__ == "__main__":
                 predictions, dec_hidden, loss = model(adj, nodes, targ)
                 reg_loss = tf.losses.get_regularization_loss()
                 loss += reg_loss
-
             batch_loss =(loss / int(targ.shape[1]))
             variables = model.trainable_variables
             gradients = tape.gradient(loss, variables)
@@ -353,7 +352,6 @@ if __name__ == "__main__":
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
          target_lang, max_length_targ) = get_gat_dataset(args)
-
         model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_role_size,
                                             vocab_tgt_size, target_lang)
         

@@ -21,7 +21,6 @@ class GraphEncoder(tf.keras.layers.Layer):
         # 4 = subject, object, predicate, bridge
         self.role_embedding = tf.keras.layers.Embedding(role_vocab_size, d_model)
         self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
-
         self.node_role_layer = tf.keras.layers.Dense(self.d_model, input_shape=(2*d_model, ))
 
         self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads,

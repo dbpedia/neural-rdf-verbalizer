@@ -102,12 +102,12 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_
     edges_tokenizer.fit_on_texts(graph_edges) 
     edge_tensor = edges_tokenizer.texts_to_sequences(graph_edges)
     edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
-
+    
     roles_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='')
     roles_tokenizer.fit_on_texts(roles)
     role_tensor = roles_tokenizer.texts_to_sequences(roles)
     role_tensor = tf.keras.preprocessing.sequence.pad_sequences(role_tensor,padding='post')
-
+    
     # save all vocabularies
     os.makedirs('vocabs', exist_ok=True)
     with open('vocabs/target_vocab', 'wb+') as fp:
@@ -152,6 +152,7 @@ def get_gat_dataset(args):
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.graph_roles, args.tgt_path, args.num_examples)
     print(node_tensor.shape, edge_tensor.shape, role_tensor.shape)
+
     # Pad the edge tensor to 16 size
     node_paddings = tf.constant([[0, 0], [0, 1]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
