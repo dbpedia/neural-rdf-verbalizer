@@ -180,52 +180,58 @@ if __name__ == '__main__':
                 from google.colab import drive
 
                 drive.mount('/content/gdrive')
-                OUTPUT_DIR = '/content/gdrive/My Drive/data'
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/train'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_pure_adj', adj)
-                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_degree_matrix', degree_mat)
-                np.save('/content/gdrive/My Drive/data/processed_graphs/train_graph_adj', tensor)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train_graph_nodes', 'wb') as fp:
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train/train_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train/train_graph_degree_matrix', degree_mat)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/train/train_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train_graph_edges', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train_node_roles', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_node_roles', 'wb') as fp:
                     pickle.dump(roles, fp)
             else:
-                np.save('data/processed_data/train_graph_adj', tensor)
-                np.save('data/processed_data/train_graph_pure_adj', adj)
-                np.save('data/processed_data/train_graph_degree_matrix', degree_mat)
-                with open('data/processed_data/train_graph_nodes', 'wb') as fp:
+                OUTPUT_DIR = 'data/processed_graphs/train'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
+                np.save('data/processed_graphs/train/train_graph_adj', tensor)
+                np.save('data/processed_graphs/train/train_graph_pure_adj', adj)
+                np.save('data/processed_graphs/train/train_graph_degree_matrix', degree_mat)
+                with open('data/processed_graphs/train/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_data/train_graph_edges', 'wb') as fp:
+                with open('data/processed_graphs/train/train_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
-                with open('data/processed_data/train_node_roles', 'wb') as fp:
+                with open('data/processed_graphs/train/train_node_roles', 'wb') as fp:
                     pickle.dump(roles, fp)
         else:
             if args.use_colab is not None:
                 from google.colab import drive
 
                 drive.mount('/content/gdrive')
-                OUTPUT_DIR = '/content/gdrive/My Drive/data'
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/eval'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_pure_adj', adj)
-                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_degree_matrix', degree_mat)
-                np.save('/content/gdrive/My Drive/data/processed_graphs/eval_graph_adj', tensor)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval_graph_nodes', 'wb') as fp:
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval/eval_graph_pure_adj', adj)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval/eval_graph_degree_matrix', degree_mat)
+                np.save('/content/gdrive/My Drive/data/processed_graphs/eval/eval_graph_adj', tensor)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval_graph_edges', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval_node_roles', 'wb') as fp:
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_node_roles', 'wb') as fp:
                     pickle.dump(roles, fp)
             else:
-                np.save('data/processed_data/eval_graph_adj', tensor)
-                np.save('data/processed_data/eval_graph_pure_adj', adj)
-                np.save('data/processed_data/eval_graph_degree_matrix', degree_mat)
-                with open('data/processed_data/eval_graph_nodes', 'wb') as fp:
+                OUTPUT_DIR = 'data/processed_graphs/eval'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
+                np.save('data/processed_graphs/eval/eval_graph_adj', tensor)
+                np.save('data/processed_graphs/eval/eval_graph_pure_adj', adj)
+                np.save('data/processed_graphs/eval/eval_graph_degree_matrix', degree_mat)
+                with open('data/processed_graphs/eval/eval_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_data/eval_graph_edges', 'wb') as fp:
+                with open('data/processed_graphs/eval/eval_graph_edges', 'wb') as fp:
                     pickle.dump(edges, fp)
-                with open('data/processed_data/eval_node_roles', 'wb') as fp:
+                with open('data/processed_graphs/eval/eval_node_roles', 'wb') as fp:
                     pickle.dump(roles, fp)
