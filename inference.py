@@ -165,12 +165,20 @@ def eval(model, node_tensor, role_tensor, adj):
 def inf(triple, model):
     node_tensor, role_tensor, adj = process_sentence(triple)
     result = eval(model, node_tensor, role_tensor, adj)
-    print(result)
+    return (result)
 
 if __name__ == "__main__":
     args = get_args()
-    f = open(args.eval, 'r')
     model = load_model(args)
+    f = open(args.eval, 'r')
+    if args.colab is True:
+        s = open('/content/gdrive/My Drive/data/results.txt', 'w+')
+    else:
+        s = open('data/results.txt', 'w+')
+    #line = 'Point Fortin | country | Trinidad'
+
     for line in f:
         print(line)
-        inf(line, model)
+        result = inf(line, model)
+        s.write(result + '\n')
+    #inf (line, model)
