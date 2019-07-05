@@ -388,8 +388,8 @@ if __name__ == "__main__":
                 mask = create_transgat_masks(tar_inp)
                 predictions, att_weights = model(adj, nodes, roles, tar_inp, mask)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
-                reg_loss = tf.losses.get_regularization_loss()
-                batch_loss += reg_loss
+                #reg_loss = tf.losses.get_regularization_loss()
+                #batch_loss += reg_loss
 
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))

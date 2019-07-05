@@ -45,16 +45,18 @@ class GraphEncoder(tf.keras.layers.Layer):
         role_tensor += self.node_pos_encoding[:, :node_seq_len, :]
 
         node_tensor = tf.concat([node_tensor, role_tensor], 2)
-        node_tensor = tf.tanh(self.node_role_layer(node_tensor))
+        node_tensor = tf.nn.relu(self.node_role_layer(node_tensor))
         node_tensor = self.dropout(node_tensor, training=training)
 
         for i in range(self.num_layers):
             if i==0:
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
-            else:
+            elif((i % 2)==0):
                 shortcut = x
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
                 x += shortcut
+            else:
+                x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
 
         return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
 
