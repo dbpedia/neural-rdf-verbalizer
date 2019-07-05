@@ -51,7 +51,7 @@ class GraphEncoder(tf.keras.layers.Layer):
         for i in range(self.num_layers):
             if i==0:
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
-            elif((i % 2)==0):
+            elif((i % 2)==0 and i!=0):
                 shortcut = x
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
                 x += shortcut

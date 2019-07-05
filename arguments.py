@@ -24,6 +24,8 @@ parser.add_argument(
 parser.add_argument(
     '--tgt_path', type=str, required=True, help='Path to target.lex file')
 parser.add_argument(
+    '--lang', type=str, required=True, help='Lang of source and target files')
+parser.add_argument(
     '--eval', type=str, required=False, help='Path to source.triple file of the Eval set')
 parser.add_argument(
     '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
