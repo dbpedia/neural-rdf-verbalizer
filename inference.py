@@ -17,8 +17,10 @@ def load_vocabs():
         nodes_vocab = pickle.load(f)
     with open('vocabs/target_vocab', 'rb') as f:
         target_vocab = pickle.load(f)
+    with open('vocabs/roles_vocab', 'rb') as f:
+        roles_vocab = pickle.load(f)
 
-    return nodes_vocab, target_vocab
+    return nodes_vocab, roles_vocab, target_vocab
 
 def load_model(args):
     """
@@ -41,13 +43,14 @@ def load_model(args):
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     
-    node_vocab, target_vocab = load_vocabs()
+    node_vocab, roles_vocab, target_vocab = load_vocabs()
     vocab_nodes_size = len(node_vocab.word_index) +1
-    vocab_tgt_size = len(target_vocab.word_index) +1
+    vocab_tgt_size = len(target_vocab.word_index) + 1
+    vocab_roles_size = len(roles_vocab.word_index) + 1
 
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
-    model = graph_attention_model.TransGAT(args, vocab_nodes_size,
+    model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_roles_size,
                                            vocab_tgt_size, target_vocab)
 
     if args.decay is not None:
@@ -72,6 +75,7 @@ def load_model(args):
 def process_sentence(line):
     g = nx.MultiDiGraph()
     nodes = []
+    roles = []
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
@@ -80,19 +84,45 @@ def process_sentence(line):
         g.add_edge(l[1], l[2])
         g.add_edge(l[2], l[1])
     nodes.append(list(g.nodes))
+    # set roles
+    roles_ = []
+    for node in list(g.nodes()):
+        role = ''
+        for l in triple_list:
+            l = l.strip().split(' | ')
+
+            if l[0] == node:
+                if role == 'object':
+                    role = 'bridge'
+                else:
+                    role = 'subject'
+            elif l[1] == node:
+                role = 'predicate'
+            elif l[2] == node:
+                if role == 'subject':
+                    role = 'bridge'
+                else:
+                    role = 'object'
+        roles_.append(role)
+    roles.append(roles_)
     array = nx.to_numpy_array(g)
     result = np.zeros((16, 16))
     result[:array.shape[0], :array.shape[1]] = array
     result += np.identity(16)
-    nodes_lang, target_lang = load_vocabs()
+    nodes_lang, roles_vocab, target_lang = load_vocabs()
     node_tensor = nodes_lang.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
+    role_tensor = roles_vocab.texts_to_sequences(roles)
+    role_tensor = tf.keras.preprocessing.sequence.pad_sequences(role_tensor, padding='post')
+
     node_paddings = tf.constant([[0, 0], [0, 16-len(nodes[0])]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
+    role_paddings = tf.constant([[0, 0], [0, 16-len(roles[0])]])
+    role_tensor = tf.pad(role_tensor, role_paddings, mode='CONSTANT')
 
-    return node_tensor, result
+    return node_tensor, role_tensor, result
 
-def eval(model, node_tensor, adj):
+def eval(model, node_tensor, role_tensor, adj):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -105,7 +135,7 @@ def eval(model, node_tensor, adj):
     :rtype: str
     """
     model.trainable = False
-    node_vocab, target_vocab = load_vocabs()
+    node_vocab, roles_vocab, target_vocab = load_vocabs()
     start_token = [target_vocab.word_index['<start>']]
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
@@ -113,7 +143,7 @@ def eval(model, node_tensor, adj):
 
     for i in range(82):
         mask = create_transgat_masks(dec_input)
-        predictions, attention_weights = model(adj, node_tensor, dec_input, mask)
+        predictions, attention_weights = model(adj, node_tensor, role_tensor, dec_input, mask)
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
@@ -133,8 +163,8 @@ def eval(model, node_tensor, adj):
     return result
 
 def inf(triple, model):
-    node_tensor, adj = process_sentence(triple)
-    result = eval(model, node_tensor, adj)
+    node_tensor, role_tensor, adj = process_sentence(triple)
+    result = eval(model, node_tensor, role_tensor, adj)
     print(result)
 
 if __name__ == "__main__":
