@@ -180,5 +180,6 @@ if __name__ == "__main__":
     for line in f:
         print(line)
         result = inf(line, model)
+        print(result)
         s.write(result + '\n')
     #inf (line, model)
