@@ -20,8 +20,6 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
         # 4 = subject, object, predicate, bridge
         self.role_embedding = tf.keras.layers.Embedding(role_vocab_size, d_model)
-        self.node_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
-        self.role_pos_encoding = positional_encoding(node_vocab_size, self.d_model)
         self.node_role_layer = tf.keras.layers.Dense(self.d_model, input_shape=(d_model, ))
 
         self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads,
@@ -32,19 +30,13 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.layernorm = tf.contrib.layers.layer_norm
 
     def call(self, nodes, adj, roles, num_heads, training, mask):
-        node_seq_len = tf.shape(nodes)[1]
-        role_seq_len = tf.shape(roles)[1]
-
         # adding embedding and position encoding.
         node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
         adj = tf.cast(adj, dtype=tf.float32)
 
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        node_tensor += self.node_pos_encoding[:, :node_seq_len, :]
-
         role_tensor = self.role_embedding(roles)  # (batch_size, input_seq_len, d_model)
         role_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        role_tensor += self.role_pos_encoding[:, :role_seq_len, :]
 
         #node_tensor = tf.concat([node_tensor, role_tensor], 2)
         node_tensor = tf.add(node_tensor, role_tensor)
