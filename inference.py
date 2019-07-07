@@ -234,7 +234,7 @@ if __name__ == "__main__":
     args = get_args()
     model = load_model(args)
     f = open(args.eval, 'r')
-    if args.colab is True:
+    if args.use_colab is True:
         s = open('/content/gdrive/My Drive/data/results.txt', 'w+')
     else:
         s = open('data/results.txt', 'w+')
