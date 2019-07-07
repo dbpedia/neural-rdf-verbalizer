@@ -63,7 +63,6 @@ def tokenize(lang):
     lang_tokenizer.fit_on_texts(lang)
 
     tensor = lang_tokenizer.texts_to_sequences(lang)
-
     tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
                                                            padding='post')
 
@@ -76,6 +75,12 @@ def load_dataset(src_path, tgt_path, num_examples=None):
 
     input_tensor, inp_lang_tokenizer = tokenize(inp_lang)
     target_tensor, targ_lang_tokenizer = tokenize(targ_lang)
+
+    os.makedirs('vocabs/seq2seq', exist_ok=True)
+    with open('vocabs/seq2seq/source_vocab', 'wb+') as fp:
+        pickle.dump(inp_lang_tokenizer, fp)
+    with open('vocabs/seq2seq/target_vocab', 'wb+') as fp:
+        pickle.dump(targ_lang_tokenizer, fp)
 
     return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
 
@@ -109,14 +114,14 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_
     role_tensor = tf.keras.preprocessing.sequence.pad_sequences(role_tensor,padding='post')
     
     # save all vocabularies
-    os.makedirs('vocabs', exist_ok=True)
-    with open('vocabs/target_vocab', 'wb+') as fp:
+    os.makedirs('vocabs/gat', exist_ok=True)
+    with open('vocabs/gat/target_vocab', 'wb+') as fp:
         pickle.dump(targ_lang_tokenizer, fp)
-    with open('vocabs/nodes_vocab', 'wb+') as fp:
+    with open('vocabs/gat/nodes_vocab', 'wb+') as fp:
         pickle.dump(nodes_tokenizer, fp)
-    with open('vocabs/edges_vocab', 'wb+') as fp:
+    with open('vocabs/gat/edges_vocab', 'wb+') as fp:
         pickle.dump(edges_tokenizer, fp)
-    with open('vocabs/roles_vocab', 'wb+') as fp:
+    with open('vocabs/gat/roles_vocab', 'wb+') as fp:
         pickle.dump(roles_tokenizer, fp)
 
     return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,

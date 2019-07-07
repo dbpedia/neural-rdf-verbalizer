@@ -8,19 +8,28 @@ import pickle
 import os
 
 from src.models import graph_attention_model, transformer
-from src.utils.model_utils import CustomSchedule, create_transgat_masks
+from src.utils.model_utils import CustomSchedule, \
+                                create_transgat_masks, create_masks
 from arguments import get_args
 
 
-def load_vocabs():
-    with open('vocabs/nodes_vocab', 'rb') as f:
+def load_gat_vocabs():
+    with open('vocabs/gat/nodes_vocab', 'rb') as f:
         nodes_vocab = pickle.load(f)
-    with open('vocabs/target_vocab', 'rb') as f:
+    with open('vocabs/gat/target_vocab', 'rb') as f:
         target_vocab = pickle.load(f)
-    with open('vocabs/roles_vocab', 'rb') as f:
+    with open('vocabs/gat/roles_vocab', 'rb') as f:
         roles_vocab = pickle.load(f)
 
     return nodes_vocab, roles_vocab, target_vocab
+
+def load_seq_vocabs():
+    with open('vocabs/seq2seq/source_vocab', 'rb') as f:
+        source_vocab = pickle.load(f)
+    with open('vocabs/seq2seq/target_vocab', 'rb') as f:
+        target_vocab = pickle.load(f)
+
+    return source_vocab, target_vocab
 
 def load_model(args):
     """
@@ -42,16 +51,26 @@ def load_model(args):
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-    
-    node_vocab, roles_vocab, target_vocab = load_vocabs()
-    vocab_nodes_size = len(node_vocab.word_index) +1
-    vocab_tgt_size = len(target_vocab.word_index) + 1
-    vocab_roles_size = len(roles_vocab.word_index) + 1
-
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
-    model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_roles_size,
-                                           vocab_tgt_size, target_vocab)
+    if args.enc_type == "gat" and args.dec_type == "transformer":
+        node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+        vocab_nodes_size = len(node_vocab.word_index) + 1
+        vocab_tgt_size = len(target_vocab.word_index) + 1
+        vocab_roles_size = len(roles_vocab.word_index) + 1
+        model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_roles_size,
+                                                vocab_tgt_size, target_vocab)
+    else:
+        num_layers = args.enc_layers
+        num_heads = args.num_heads
+        d_model = args.emb_dim
+        dff = args.hidden_size
+        dropout_rate = args.dropout
+        source_vocab, targ_vocab = load_seq_vocabs()
+        vocab_inp_size = len(source_vocab.word_index) + 1
+        vocab_tgt_size = len(targ_vocab.word_index) + 1
+        model = transformer.Transformer(num_layers, d_model, num_heads, dff,
+                                        vocab_inp_size, vocab_tgt_size, dropout_rate)
 
     if args.decay is not None:
         learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
@@ -60,19 +79,19 @@ def load_model(args):
     else:
         optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
                                            epsilon=1e-9)
-    step = 0
 
     ckpt = tf.train.Checkpoint(
-        model=model
+        model=model,
+        optimizer=optimizer
     )
     ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
     if ckpt_manager.latest_checkpoint:
-        ckpt.restore(ckpt_manager.latest_checkpoint)
+        ckpt.restore(ckpt_manager.latest_checkpoint).expect_partial()
         print('Latest checkpoint restored!!')
 
     return model
 
-def process_sentence(line):
+def process_gat_sentence(line):
     g = nx.MultiDiGraph()
     nodes = []
     roles = []
@@ -109,7 +128,7 @@ def process_sentence(line):
     result = np.zeros((16, 16))
     result[:array.shape[0], :array.shape[1]] = array
     result += np.identity(16)
-    nodes_lang, roles_vocab, target_lang = load_vocabs()
+    nodes_lang, roles_vocab, target_lang = load_gat_vocabs()
     node_tensor = nodes_lang.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
     role_tensor = roles_vocab.texts_to_sequences(roles)
@@ -122,7 +141,7 @@ def process_sentence(line):
 
     return node_tensor, role_tensor, result
 
-def eval(model, node_tensor, role_tensor, adj):
+def gat_eval(model, node_tensor, role_tensor, adj):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -135,7 +154,7 @@ def eval(model, node_tensor, role_tensor, adj):
     :rtype: str
     """
     model.trainable = False
-    node_vocab, roles_vocab, target_vocab = load_vocabs()
+    node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
     start_token = [target_vocab.word_index['<start>']]
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
@@ -162,10 +181,54 @@ def eval(model, node_tensor, role_tensor, adj):
 
     return result
 
+def seq2seq_eval(model, triple):
+    """
+    Function to carry out inference for Transformer model.
+    :param model: The model object
+    :type model: tf.keras.Model
+    :param tensor: preprocessed input tenor of shape [batch_size, seq_length]
+    :type tensor: tf.tensor
+    :return: The verbalised sentence of the triple
+    :rtype: str
+    """
+    model.trainable = False
+    source_vocab, target_vocab = load_seq_vocabs()
+    tensor = source_vocab.texts_to_sequences(triple)
+    tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
+                                                           padding='post')
+    encoder_input = tf.transpose(tensor)
+    source_vocab, target_vocab = load_seq_vocabs()
+    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    result = ''
+    for i in range(82):
+        enc_padding_mask, combined_mask, dec_padding_mask = create_masks(encoder_input, dec_input)
+        predictions, _ = model(encoder_input, dec_input,
+                               True,
+                               enc_padding_mask,
+                               combined_mask,
+                               dec_padding_mask)
+        predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
+        predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
+        result += target_vocab.index_word[predicted_id[0][0].numpy()] + ' '
+        if target_vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
+            return result
+        # if tf.equal(predicted_id, end_token[0]):
+        #    return tf.squeeze(output, axis=0), attention_weights
+
+        # concatentate the predicted_id to the output which is given to the decoder
+        # as its input.
+        dec_input = tf.concat([dec_input, predicted_id], axis=-1)
+        # dec_input = tf.expand_dims([predicted_id], 0)
+    return result
+
 def inf(triple, model):
-    node_tensor, role_tensor, adj = process_sentence(triple)
-    result = eval(model, node_tensor, role_tensor, adj)
-    return (result)
+    if args.enc_type == 'gat':
+        node_tensor, role_tensor, adj = process_gat_sentence(triple)
+        result = gat_eval(model, node_tensor, role_tensor, adj)
+        return (result)
+    else:
+        result = seq2seq_eval(model, triple)
+        return result
 
 if __name__ == "__main__":
     args = get_args()
