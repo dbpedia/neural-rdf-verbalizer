@@ -41,8 +41,8 @@ class GATModel (tf.keras.Model):
         """
         enc_output = self.encoder(nodes, adj, roles, self.num_heads, self.encoder.trainable, None)
         batch = enc_output.shape[0]
-        enc_output_hidden = tf.reshape(enc_output, shape=[batch, -1])
-        enc_hidden = self.hidden(enc_output_hidden)
+        self.enc_output_hidden = tf.reshape(enc_output, shape=[batch, -1])
+        enc_hidden = self.hidden(self.enc_output_hidden)
 
         dec_input=tf.expand_dims([self.target_lang.word_index['<start>']] * self.args.batch_size, 1)
         loss = 0

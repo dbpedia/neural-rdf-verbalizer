@@ -60,7 +60,7 @@ def load_model(args):
         vocab_roles_size = len(roles_vocab.word_index) + 1
         model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_roles_size,
                                                 vocab_tgt_size, target_vocab)
-    else:
+    elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         num_layers = args.enc_layers
         num_heads = args.num_heads
         d_model = args.emb_dim
@@ -71,7 +71,13 @@ def load_model(args):
         vocab_tgt_size = len(targ_vocab.word_index) + 1
         model = transformer.Transformer(num_layers, d_model, num_heads, dff,
                                         vocab_inp_size, vocab_tgt_size, dropout_rate)
-
+    else:
+        node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+        vocab_nodes_size = len(node_vocab.word_index) + 1
+        vocab_tgt_size = len(target_vocab.word_index) + 1
+        vocab_roles_size = len(roles_vocab.word_index) + 1
+        model = graph_attention_model.GATModel(args, vocab_nodes_size,
+                                               vocab_roles_size, vocab_tgt_size, target_vocab)
     if args.decay is not None:
         learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -221,13 +227,40 @@ def seq2seq_eval(model, triple):
         # dec_input = tf.expand_dims([predicted_id], 0)
     return result
 
-def inf(triple, model):
-    if args.enc_type == 'gat':
+def rnn_eval(args, model, node_tensor, role_tensor, adj):
+    model.trainable = False
+    node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+    hidden = [tf.zeros((1, args.enc_units))]
+    enc_out = model.encoder(node_tensor, adj, role_tensor,
+                            args.num_heads, model.trainable, None)
+    enc_out_hidden = tf.reshape(enc_out, shape=[enc_out.shape[0], -1])
+    enc_hidden = model.hidden(enc_out_hidden)
+    dec_hidden = enc_hidden
+    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    result = ''
+    for t in range(82):
+        predictions, dec_hidden, attention_weights = model.decoder(dec_input,
+                                                             dec_hidden,
+                                                             enc_out)
+        predicted_id = tf.argmax(predictions[0]).numpy()
+        result += target_vocab.index_word[predicted_id] + ' '
+        if target_vocab.index_word[predicted_id] == '<end>':
+            return result
+        dec_input = tf.expand_dims([predicted_id], 0)
+
+    return result 
+
+def inf(args, triple, model):
+    if args.enc_type == 'gat' and args.dec_type == 'transformer':
         node_tensor, role_tensor, adj = process_gat_sentence(triple)
         result = gat_eval(model, node_tensor, role_tensor, adj)
         return (result)
-    else:
+    elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         result = seq2seq_eval(model, triple)
+        return result
+    else:
+        node_tensor, role_tensor, adj = process_gat_sentence(triple)
+        result = rnn_eval(args, model, node_tensor, role_tensor, adj)
         return result
 
 if __name__ == "__main__":
@@ -242,7 +275,7 @@ if __name__ == "__main__":
 
     for line in f:
         print(line)
-        result = inf(line, model)
+        result = inf(args, line, model)
         print(result)
         s.write(result + '\n')
     #inf (line, model)
