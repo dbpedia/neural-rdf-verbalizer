@@ -230,7 +230,6 @@ def seq2seq_eval(model, triple):
 def rnn_eval(args, model, node_tensor, role_tensor, adj):
     model.trainable = False
     node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
-    hidden = [tf.zeros((1, args.enc_units))]
     enc_out = model.encoder(node_tensor, adj, role_tensor,
                             args.num_heads, model.trainable, None)
     enc_out_hidden = tf.reshape(enc_out, shape=[enc_out.shape[0], -1])
@@ -248,7 +247,7 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
             return result
         dec_input = tf.expand_dims([predicted_id], 0)
 
-    return result 
+    return result
 
 def inf(args, triple, model):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
