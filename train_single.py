@@ -88,8 +88,7 @@ if __name__ == "__main__":
             gradients = tape.gradient(loss, variables)
 
             optimizer.apply_gradients(zip(gradients, variables))
-            train_loss(batch_loss)
-            batch_loss = train_loss.result()
+
             return batch_loss
 
         # Eval function
