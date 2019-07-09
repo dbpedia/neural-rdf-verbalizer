@@ -14,10 +14,11 @@ class GATModel (tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args, vocab_nodes_size, vocab_tgt_size, target_lang):
+    def __init__(self, args, node_vocab_size, role_vocab_size, vocab_tgt_size, target_lang):
         super(GATModel, self).__init__()
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                                    args.hidden_size, vocab_nodes_size, args.dropout, reg_scale=args.reg_scale)
+                                    args.hidden_size, node_vocab_size, role_vocab_size,
+                                    reg_scale=args.reg_scale, rate=args.dropout)
         self.decoder = RNNDecoder(vocab_tgt_size, args.emb_dim, args.enc_units, args.batch_size)
         self.vocab_tgt_size = vocab_tgt_size
         self.num_heads = args.num_heads
@@ -27,7 +28,7 @@ class GATModel (tf.keras.Model):
         self.gru = tf.keras.layers.GRU(units=args.enc_units,dropout=args.dropout,
                                        return_state=True, return_sequences=True)
 
-    def __call__(self, adj, nodes, targ):
+    def __call__(self, adj, nodes, roles, targ):
         """
         Puts the tensors through encoders and decoders
         :param adj: Adjacency matrices of input example
@@ -39,7 +40,7 @@ class GATModel (tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        enc_output = self.encoder(nodes, adj, self.num_heads, self.encoder.trainable, None)
+        enc_output = self.encoder(nodes, adj, roles, self.num_heads, self.encoder.trainable, None)
         enc_output, enc_hidden = self.gru(enc_output)
 
         dec_input=tf.expand_dims([self.target_lang.word_index['<start>']] * self.args.batch_size, 1)
