@@ -46,9 +46,9 @@ class GraphEncoder(tf.keras.layers.Layer):
             if i==0:
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
             else:
-                shortcut = x
+                #shortcut = x
                 x = self.enc_layers[i](node_tensor, adj, num_heads, training, mask)
-                x += shortcut
+                #x += shortcut
 
         return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
 
