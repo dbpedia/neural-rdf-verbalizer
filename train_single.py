@@ -358,7 +358,7 @@ if __name__ == "__main__":
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
         step =0
 
