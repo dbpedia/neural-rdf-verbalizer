@@ -25,8 +25,7 @@ class GATModel (tf.keras.Model):
         self.target_lang = target_lang
         self.args = args
         self.loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
-        self.gru = tf.keras.layers.GRU(units=args.enc_units,dropout=args.dropout,
-                                       return_state=True, return_sequences=True)
+        self.hidden = tf.keras.layers.Dense(args.hidden_size)
 
     def __call__(self, adj, nodes, roles, targ):
         """
@@ -41,7 +40,9 @@ class GATModel (tf.keras.Model):
         :rtype: tf.tensor
         """
         enc_output = self.encoder(nodes, adj, roles, self.num_heads, self.encoder.trainable, None)
-        enc_output, enc_hidden = self.gru(enc_output)
+        batch = enc_output.shape[0]
+        enc_output_hidden = tf.reshape(enc_output, shape=[batch, -1])
+        enc_hidden = self.hidden(enc_output_hidden)
 
         dec_input=tf.expand_dims([self.target_lang.word_index['<start>']] * self.args.batch_size, 1)
         loss = 0
