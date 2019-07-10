@@ -28,19 +28,20 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         self.dropout = tf.keras.layers.Dropout(rate)
         self.layernorm = tf.contrib.layers.layer_norm
+        self.node_pos_enc = positional_encoding(node_vocab_size, self.d_model)
 
     def call(self, nodes, adj, roles, num_heads, training, mask):
         # adding embedding and position encoding.
         node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
-        adj = tf.cast(adj, dtype=tf.float32)
-
-        node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         role_tensor = self.role_embedding(roles)  # (batch_size, input_seq_len, d_model)
-        role_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        adj = tf.cast(adj, dtype=tf.float32)
+        node_seq_len = tf.shape(nodes)[1]
 
         node_tensor = tf.concat([node_tensor, role_tensor], 2)
         node_tensor = tf.cast(self.node_role_layer(node_tensor), dtype=tf.float32)
-        #node_tensor = tf.add(node_tensor, role_tensor)
+        node_tensor = tf.add(node_tensor, role_tensor)
+        node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        node_tensor += self.node_pos_enc[:, :node_seq_len, :]
 
         for i in range(self.num_layers):
             if i==0:
@@ -66,7 +67,7 @@ class RNNEncoder(tf.keras.layers.Layer):
         self.batch_size = batch_size
         self.enc_units = enc_units
         self.embedding = tf.keras.layers.Embedding(vocab_size, emb_dim)
-        self.gru = tf.keras.layers.GRU(self.enc_units,
+        self.gru = tf.keras.layers.CuDNNGRU(self.enc_units,
                                        return_sequences=True,
                                        return_state=True,
                                        recurrent_initializer='glorot_uniform')
