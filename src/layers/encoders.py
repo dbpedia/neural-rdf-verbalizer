@@ -67,14 +67,22 @@ class RNNEncoder(tf.keras.layers.Layer):
         self.batch_size = batch_size
         self.enc_units = enc_units
         self.embedding = tf.keras.layers.Embedding(vocab_size, emb_dim)
-        self.gru = tf.keras.layers.CuDNNGRU(self.enc_units,
-                                       return_sequences=True,
-                                       return_state=True,
-                                       recurrent_initializer='glorot_uniform')
+        self.forward_gru = tf.keras.layers.CuDNNGRU(self.enc_units,
+                                                    return_sequences=True,
+                                                    return_state=True,
+                                                    recurrent_initializer='glorot_uniform')
+        self.backward_gru = tf.keras.layers.CuDNNGRU(self.enc_units,
+                                                    return_sequences=True,
+                                                    return_state=True,
+                                                    go_backwards=True,
+                                                    recurrent_initializer='glorot_uniform')
+        self.gru = tf.keras.layers.Bidirectional(self.forward_gru, backward_layer=self.backward_gru,
+                                                 merge_mode='ave')
 
     def __call__(self, x, hidden):
         x = self.embedding(x)
-        output, state = self.gru(x, initial_state=hidden)
+        output = self.gru(x, initial_state=hidden)
+        output, state = output[0], output[2]
         return output, state
 
     def initialize_hidden_state(self):

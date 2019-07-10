@@ -17,8 +17,15 @@ class RNNDecoder(tf.keras.Model):
     self.forward_gru = tf.keras.layers.CuDNNGRU(self.dec_units,
                                    return_sequences=True,
                                    return_state=True,
-                                   go_backwards=True,
+                                   go_backwards=False,
                                    recurrent_initializer='glorot_uniform')
+    self.backward_gru = tf.keras.layers.CuDNNGRU(self.dec_units,
+                                                return_sequences=True,
+                                                return_state=True,
+                                                go_backwards=True,
+                                                recurrent_initializer='glorot_uniform')
+    self.gru = tf.keras.layers.Bidirectional(self.forward_gru, backward_layer=self.backward_gru,
+                                             merge_mode='ave')
     self.fc = tf.keras.layers.Dense(vocab_size)
 
     # used for attention
@@ -36,8 +43,8 @@ class RNNDecoder(tf.keras.Model):
     x = tf.concat([tf.expand_dims(context_vector, 1), x], axis=-1)
 
     # passing the concatenated vector to the GRU
-    output, state = self.forward_gru(x)
-
+    output = self.gru(x)
+    output, state = output[0], output[2]
     # output shape == (batch_size * 1, hidden_size)
     output = tf.reshape(output, (-1, output.shape[2]))
     output = self.layernorm(output)
