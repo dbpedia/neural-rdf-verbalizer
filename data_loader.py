@@ -73,16 +73,22 @@ def load_dataset(src_path, tgt_path, num_examples=None):
     # creating cleaned input, output pairs
     inp_lang, targ_lang = create_dataset(src_path, tgt_path, num_examples)
 
-    input_tensor, inp_lang_tokenizer = tokenize(inp_lang)
-    target_tensor, targ_lang_tokenizer = tokenize(targ_lang)
+    tokenizer = tf.keras.preprocessing.text.Tokenizer(
+        filters='')
+    tokenizer.fit_on_texts(inp_lang)
+    tokenizer.fit_on_texts(targ_lang)
+    input_tensor = tokenizer.texts_to_sequences(inp_lang)
+    input_tensor = tf.keras.preprocessing.sequence.pad_sequences(input_tensor,
+                                                                 padding='post')
+    target_tensor = tokenizer.texts_to_sequences(targ_lang)
+    target_tensor = tf.keras.preprocessing.sequence.pad_sequences(target_tensor,
+                                                                 padding='post')
 
     os.makedirs('vocabs/seq2seq', exist_ok=True)
-    with open('vocabs/seq2seq/source_vocab', 'wb+') as fp:
-        pickle.dump(inp_lang_tokenizer, fp)
-    with open('vocabs/seq2seq/target_vocab', 'wb+') as fp:
-        pickle.dump(targ_lang_tokenizer, fp)
+    with open('vocabs/seq2seq/vocab', 'wb+') as fp:
+        pickle.dump(tokenizer, fp)
 
-    return input_tensor, target_tensor, inp_lang_tokenizer, targ_lang_tokenizer
+    return input_tensor, target_tensor, tokenizer
 
 def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, num_examples)
@@ -97,7 +103,13 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_
 
     with open(role_path, 'rb') as role_f:
         roles = pickle.load(role_f)
-    
+
+    total_token = tf.keras.preprocessing.text.Tokenizer(filters='')
+    total_token.fit_on_texts(targ_lang)
+    total_token.fit_on_texts(graph_nodes)
+    total_token.fit_on_texts(roles)
+    print(len(total_token.word_index))
+
     nodes_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
     nodes_tokenizer.fit_on_texts(graph_nodes) 
     node_tensor = nodes_tokenizer.texts_to_sequences(graph_nodes)
@@ -136,27 +148,24 @@ def convert(lang, tensor):
 
 def get_dataset(args):
 
-    input_tensor, target_tensor, input_lang, target_lang = load_dataset(args.src_path, args.tgt_path, args.num_examples)
+    input_tensor, target_tensor, lang = load_dataset(args.src_path, args.tgt_path, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(input_tensor) // BATCH_SIZE
-    vocab_inp_size = len(input_lang.word_index) + 1
-    vocab_tgt_size = len(target_lang.word_index) + 1
+    vocab_size = len(lang.word_index) + 1
 
-    print(len(input_tensor))
     dataset = tf.data.Dataset.from_tensor_slices((input_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-           vocab_inp_size, vocab_tgt_size, target_lang)
+           vocab_size, lang)
 
 def get_gat_dataset(args):
 
     (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang, role_tensor, role_lang,
     target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
                                                     args.graph_edges, args.graph_roles, args.tgt_path, args.num_examples)
-    print(node_tensor.shape, edge_tensor.shape, role_tensor.shape)
 
     # Pad the edge tensor to 16 size
     node_paddings = tf.constant([[0, 0], [0, 1]])

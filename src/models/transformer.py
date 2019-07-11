@@ -81,14 +81,11 @@ class Transformer(tf.keras.Model):
       representation, and the decoder uses the encoder output to generate
       probabilities for the output sequence.
     """
-    def __init__(self, args, vocab_inp_size, vocab_tgt_size, name=None):
+    def __init__(self, args, vocab_size, name=None):
         super(Transformer, self).__init__(name=name)
         self.args = args
-        self.input_embedding_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_inp_size, args.hidden_size
-        )
         self.embedding_softmax_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_tgt_size, args.hidden_size
+            vocab_size, args.hidden_size
         )
         self.encoder_stack = EncoderStack(args)
         self.decoder_stack = DecoderStack(args)
@@ -118,7 +115,7 @@ class Transformer(tf.keras.Model):
         with tf.name_scope("encode"):
             # Prepare inputs to the layer stack by adding positional encodings and
             # applying dropout.
-            embedded_inputs = self.input_embedding_layer(inputs)
+            embedded_inputs = self.embedding_softmax_layer(inputs)
             embedded_inputs = tf.cast(embedded_inputs, tf.float32)
             inputs_padding = transformer_utils.get_padding(inputs)
             attention_bias = tf.cast(attention_bias, tf.float32)

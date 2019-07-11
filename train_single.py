@@ -15,7 +15,7 @@ from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
 from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
-from src.models import transformer
+from src.utils.optimizers import LazyAdam
 from arguments import get_args
 from src.models.graph_attention_model import TransGAT
 from src.models.transformer import Transformer
@@ -226,7 +226,7 @@ if __name__ == "__main__":
       
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
-        steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
+        steps_per_epoch, vocab_size, lang= get_dataset(args)
         num_layers = args.enc_layers
         num_heads = args.num_heads
         d_model = args.emb_dim
@@ -241,18 +241,17 @@ if __name__ == "__main__":
 
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
-            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
-                                               epsilon=1e-9)
+            optimizer = LazyAdam(learning_rate=learning_rate, beta_1=0.9, beta_2=0.98, epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate,
-                                               beta1=0.9, beta2=0.98, epsilon=1e-9)
+            optimizer = LazyAdam(learning_rate=args.learning_rate,
+                                 beta_1=0.9, beta_2=0.98, epsilon=1e-9)
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
         train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
             name='train_accuracy')
         
-        model = Transformer(args, vocab_inp_size, vocab_tgt_size)
+        model = Transformer(args, vocab_size)
 
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -307,12 +306,12 @@ if __name__ == "__main__":
             start = time.time()
             train_loss.reset_states()
             train_accuracy.reset_states()
-            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
+            print('Learning Rate'+str(optimizer.lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     step += 1
                     if args.decay is not None:
-                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                        optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
                         
                     if (batch % args.eval_steps == 0):
                         eval_loss, acc = eval_step(inp, tar)
@@ -344,11 +343,10 @@ if __name__ == "__main__":
         
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
-            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
-                                               epsilon=1e-9)
+            optimizer = LazyAdam(learning_rate=learning_rate, beta_1=0.9, beta_2=0.98, epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(learning_rate=args.learning_rate, beta1=0.9, beta2=0.98,
-                                               epsilon=1e-9)
+            optimizer = LazyAdam(learning_rate=args.learning_rate,
+                                 beta_1=0.9, beta_2=0.98, epsilon=1e-9)
         step =0
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
@@ -406,7 +404,7 @@ if __name__ == "__main__":
             return eval_loss, acc
 
         for epoch in range(args.epochs):
-            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
+            print('Learning Rate'+str(optimizer.lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 train_loss.reset_states()
                 train_accuracy.reset_states()
@@ -415,7 +413,7 @@ if __name__ == "__main__":
                     start = time.time()
                     step +=1
                     if args.decay is not None:
-                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                        optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss, acc = eval_step(adj, nodes, roles, targ)
