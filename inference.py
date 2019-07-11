@@ -207,11 +207,8 @@ def seq2seq_eval(model, triple):
     result = ''
     for i in range(82):
         enc_padding_mask, combined_mask, dec_padding_mask = create_masks(encoder_input, dec_input)
-        predictions, _ = model(encoder_input, dec_input,
-                               True,
-                               enc_padding_mask,
-                               combined_mask,
-                               dec_padding_mask)
+        predictions= model(encoder_input, dec_input,
+                               True)
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
         result += target_vocab.index_word[predicted_id[0][0].numpy()] + ' '
