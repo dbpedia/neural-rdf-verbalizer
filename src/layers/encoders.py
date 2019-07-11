@@ -39,7 +39,7 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         node_tensor = tf.concat([node_tensor, role_tensor], 2)
         node_tensor = tf.cast(self.node_role_layer(node_tensor), dtype=tf.float32)
-        node_tensor = tf.add(node_tensor, role_tensor)
+        #node_tensor = tf.add(node_tensor, role_tensor)
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         #node_tensor += self.node_pos_enc[:, :node_seq_len, :]
 
