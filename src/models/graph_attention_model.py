@@ -7,7 +7,6 @@ from __future__ import division
 import tensorflow as tf
 from src.layers.encoders import GraphEncoder
 from src.layers.decoders import RNNDecoder
-from src.models.transformer import Decoder as TransDecoder
 from src.utils.model_utils import loss_function
 
 class GATModel (tf.keras.Model):
@@ -62,11 +61,11 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args, node_vocab_size, role_vocab_size, vocab_tgt_size, target_lang):      
+    def __init__(self, args, node_vocab_size, role_vocab_size, vocab_tgt_size, target_lang):
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                                    args.hidden_size, node_vocab_size, role_vocab_size, 
+                                    args.hidden_size, node_vocab_size, role_vocab_size,
                                     reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder = TransDecoder(args.dec_layers, args.emb_dim, args.num_heads,
                                args.hidden_size, vocab_tgt_size, args.dropout)
@@ -75,7 +74,7 @@ class TransGAT(tf.keras.Model):
         self.args = args
         self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
         self.num_heads = args.num_heads
-        
+
     def __call__(self, adj, nodes, roles, targ, mask):
         """
         Puts the tensors through encoders and decoders

@@ -56,6 +56,8 @@ parser.add_argument(
 parser.add_argument(
     '--hidden_size', type=int, required=True, help='Size of hidden layer output')
 parser.add_argument(
+    '--filter_size', type=int, required=True, help='Size of FFN Filters ')
+parser.add_argument(
     '--enc_layers', type=int, required=True, help='Number of layers in encoder')
 parser.add_argument(
     '--dec_layers', type=int, required=True, help='Number of layers in decoder')

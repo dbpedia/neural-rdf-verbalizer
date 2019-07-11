@@ -17,6 +17,8 @@ from src.utils.model_utils import create_masks, create_transgat_masks
 from src.utils.model_utils import loss_function, CustomSchedule
 from src.models import transformer
 from arguments import get_args
+from src.models.graph_attention_model import TransGAT
+from src.models.transformer import Transformer
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -250,8 +252,7 @@ if __name__ == "__main__":
         train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
             name='train_accuracy')
         
-        model = transformer.Transformer(num_layers, d_model, num_heads, dff,
-                          vocab_inp_size, vocab_tgt_size, dropout_rate)
+        model = Transformer(args, vocab_inp_size, vocab_tgt_size)
 
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -272,11 +273,7 @@ if __name__ == "__main__":
             enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
 
             with tf.GradientTape() as tape:
-                predictions, _ = model(inp, tar_inp,
-                                             True,
-                                             enc_padding_mask,
-                                             combined_mask,
-                                             dec_padding_mask)
+                predictions = model(inp, tar_inp, training=model.trainable)
                 loss = loss_function(tar_real, predictions, loss_object)
                 reg_loss = tf.losses.get_regularization_loss()
                 loss += reg_loss
@@ -296,11 +293,7 @@ if __name__ == "__main__":
             tar_real = tar[:, 1:]
 
             enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
-            predictions, _ = model(inp, tar_inp,
-                                             True,
-                                             enc_padding_mask,
-                                             combined_mask,
-                                             dec_padding_mask)
+            predictions = model(inp, tar_inp, training=model.trainable)
             loss = loss_function(tar_real, predictions, loss_object)
             train_loss(loss)
             train_accuracy(tar_real, predictions)
@@ -346,7 +339,7 @@ if __name__ == "__main__":
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
          target_lang, max_length_targ) = get_gat_dataset(args)
-        model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_role_size,
+        model = TransGAT(args, vocab_nodes_size, vocab_role_size,
                                             vocab_tgt_size, target_lang)
         
         if args.decay is not None:

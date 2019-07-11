@@ -7,6 +7,7 @@ from src.layers import attention_layer
 from src.layers import embedding_layer
 from src.layers import ffn_layer
 from src.utils import transformer_utils
+from arguments import get_args
 
 class LayerNormalization(tf.keras.layers.Layer):
     """Applies layer normalization."""
@@ -81,12 +82,9 @@ class Transformer(tf.keras.Model):
       representation, and the decoder uses the encoder output to generate
       probabilities for the output sequence.
     """
-    def __init__(self, args, vocab_inp_size, vocab_tgt_size, name=None):
+    def __init__(self, args, vocab_tgt_size, name=None):
         super(Transformer, self).__init__(name=name)
         self.args = args
-        self.input_embedding_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_inp_size, args.hidden_size
-        )
         self.embedding_softmax_layer = embedding_layer.EmbeddingSharedWeights(
             vocab_tgt_size, args.hidden_size
         )
@@ -118,7 +116,7 @@ class Transformer(tf.keras.Model):
         with tf.name_scope("encode"):
             # Prepare inputs to the layer stack by adding positional encodings and
             # applying dropout.
-            embedded_inputs = self.input_embedding_layer(inputs)
+            embedded_inputs = self.embedding_softmax_layer(inputs)
             embedded_inputs = tf.cast(embedded_inputs, tf.float32)
             inputs_padding = transformer_utils.get_padding(inputs)
             attention_bias = tf.cast(attention_bias, tf.float32)
@@ -307,3 +305,7 @@ class DecoderStack(tf.keras.layers.Layer):
                         decoder_inputs, training=training)
 
         return self.output_normalization(decoder_inputs)
+
+if __name__ == "__main__":
+    args = get_args()
+    model = Transformer(args, 30)
