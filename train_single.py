@@ -253,6 +253,7 @@ if __name__ == "__main__":
             name='train_accuracy')
         
         model = Transformer(args, vocab_size)
+        loss_layer = LossLayer(vocab_size, 0.1)
 
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -274,15 +275,16 @@ if __name__ == "__main__":
 
             with tf.GradientTape() as tape:
                 predictions = model(inp, tar_inp, training=model.trainable)
-                loss = loss_function(tar_real, predictions, loss_object)
+                #loss = loss_function(tar_real, predictions, loss_object)
+                loss = loss_layer([predictions, tar_real])
                 reg_loss = tf.losses.get_regularization_loss()
                 loss += reg_loss
 
             gradients = tape.gradient(loss, model.trainable_variables)
             optimizer.apply_gradients(zip(gradients, model.trainable_variables))
-            train_loss(loss)
+            #train_loss(loss)
             train_accuracy(tar_real, predictions)
-            loss = train_loss.result()
+            #loss = train_loss.result()
             acc = train_accuracy.result()
 
             return loss, acc
@@ -294,10 +296,11 @@ if __name__ == "__main__":
 
             enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
             predictions = model(inp, tar_inp, training=model.trainable)
-            loss = loss_function(tar_real, predictions, loss_object)
-            train_loss(loss)
+            #loss = loss_function(tar_real, predictions, loss_object)
+            loss = loss_layer([predictions, tar_real])
+            #train_loss(loss)
             train_accuracy(tar_real, predictions)
-            loss = train_loss.result()
+            #loss = train_loss.result()
             acc = train_accuracy.result()
             model.trainable = True
 
@@ -381,9 +384,9 @@ if __name__ == "__main__":
 
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
-            train_loss(batch_loss)
+            #train_loss(batch_loss)
             train_accuracy(tar_real, predictions)
-            batch_loss = train_loss.result()
+            #batch_loss = train_loss.result()
             acc = train_accuracy.result()
 
             return batch_loss, acc
@@ -395,10 +398,11 @@ if __name__ == "__main__":
             tar_inp = targ[:, :-1]
             mask = create_transgat_masks(tar_inp)
             predictions = model(adj, nodes, roles, tar_inp, mask)
-            eval_loss = loss_function(tar_real, predictions, loss_object)
-            train_loss(eval_loss)
+            #eval_loss = loss_function(tar_real, predictions, loss_object)
+            eval_loss = loss_layer([predictions, tar_real])
+            #train_loss(eval_loss)
             train_accuracy(tar_real, predictions)
-            eval_loss = train_loss.result()
+            #eval_loss = train_loss.result()
             acc = train_accuracy.result()
 
             model.trainable = True
