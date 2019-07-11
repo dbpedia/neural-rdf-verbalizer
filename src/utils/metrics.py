@@ -22,11 +22,13 @@ def _pad_tensors_to_same_length(x, y):
 
 def padded_cross_entropy_loss(logits, labels, smoothing, vocab_size):
   """Calculate cross entropy loss while ignoring padding.
+
   Args:
     logits: Tensor of size [batch_size, length_logits, vocab_size]
     labels: Tensor of size [batch_size, length_labels]
     smoothing: Label smoothing constant, used to determine the on and off values
     vocab_size: int size of the vocabulary
+
   Returns:
     Returns the cross entropy loss and weight tensors: float32 tensors with
       shape [batch_size, max(length_logits, length_labels)]
@@ -142,11 +144,13 @@ class MetricLayer(tf.keras.layers.Layer):
 
 def transformer_loss(logits, labels, smoothing, vocab_size):
   """Calculates total loss containing cross entropy with padding ignored.
+
   Args:
     logits: Tensor of size [batch_size, length_logits, vocab_size]
     labels: Tensor of size [batch_size, length_labels]
     smoothing: Label smoothing constant, used to determine the on and off values
     vocab_size: int size of the vocabulary
+
   Returns:
     A scalar float tensor for loss.
   """
@@ -169,8 +173,9 @@ class LossLayer(tf.keras.layers.Layer):
         "label_smoothing": self.label_smoothing,
     }
 
-  def call(self, logits, targets):
+  def call(self, inputs):
+    logits, targets = inputs[0], inputs[1]
     loss = transformer_loss(logits, targets, self.label_smoothing,
                             self.vocab_size)
     self.add_loss(loss)
-    return logits
+    return loss

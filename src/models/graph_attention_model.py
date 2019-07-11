@@ -68,15 +68,14 @@ class TransGAT(tf.keras.Model):
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
         self.emb_node_layer = embedding_layer.EmbeddingSharedWeights(
-            node_vocab_size, args.hidden_size)
+            node_vocab_size, args.emb_dim)
         self.emb_role_layer = embedding_layer.EmbeddingSharedWeights(
-            role_vocab_size, args.hidden_size)
+            role_vocab_size, args.emb_dim)
         self.emb_tgt_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_tgt_size, args.hidden_size)
+            vocab_tgt_size, args.emb_dim)
 
-        self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,
-                                    args.hidden_size, node_vocab_size, role_vocab_size,
-                                    reg_scale= args.reg_scale, rate=args.dropout)
+        self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,args.hidden_size,
+                                    args.filter_size, reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder_stack = DecoderStack(args)
         self.vocab_tgt_size = vocab_tgt_size
         self.target_lang = target_lang
@@ -104,7 +103,7 @@ class TransGAT(tf.keras.Model):
         decoder_inputs = tf.cast(decoder_inputs, tf.float32)
 
         enc_output = self.encoder(node_tensor, adj, role_tensor,
-                                  self.num_heads, self.encoder.trainable,None)
+                                  self.num_heads, self.encoder.trainable)
         attention_bias = transformer_utils.get_padding_bias(nodes)
         attention_bias = tf.cast(attention_bias, tf.float32)
         with tf.name_scope("shift_targets"):

@@ -19,6 +19,7 @@ from src.utils.optimizers import LazyAdam
 from arguments import get_args
 from src.models.graph_attention_model import TransGAT
 from src.models.transformer import Transformer
+from src.utils.metrics import LossLayer
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -299,7 +300,7 @@ if __name__ == "__main__":
             loss = train_loss.result()
             acc = train_accuracy.result()
             model.trainable = True
-            
+
             return loss, acc
 
         for epoch in range(epochs):
@@ -312,7 +313,7 @@ if __name__ == "__main__":
                     step += 1
                     if args.decay is not None:
                         optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
-                        
+
                     if (batch % args.eval_steps == 0):
                         eval_loss, acc = eval_step(inp, tar)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
@@ -340,13 +341,14 @@ if __name__ == "__main__":
          target_lang, max_length_targ) = get_gat_dataset(args)
         model = TransGAT(args, vocab_nodes_size, vocab_role_size,
                                             vocab_tgt_size, target_lang)
-        
+        loss_layer = LossLayer(vocab_tgt_size, 0.1)
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
-            optimizer = LazyAdam(learning_rate=learning_rate, beta_1=0.9, beta_2=0.98, epsilon=1e-9)
+            optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
         else:
-            optimizer = LazyAdam(learning_rate=args.learning_rate,
-                                 beta_1=0.9, beta_2=0.98, epsilon=1e-9)
+            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+                                               epsilon=1e-9)
         step =0
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
@@ -370,14 +372,12 @@ if __name__ == "__main__":
         def train_step(adj, nodes, roles, targ):
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
-            model.trainable = True 
 
             with tf.GradientTape() as tape:
                 mask = create_transgat_masks(tar_inp)
                 predictions = model(adj, nodes, roles, tar_inp, mask)
-                batch_loss= loss_function(tar_real, predictions, loss_object)
-                #reg_loss = tf.losses.get_regularization_loss()
-                #batch_loss += reg_loss
+                #batch_loss= loss_function(tar_real, predictions, loss_object)
+                batch_loss = loss_layer([predictions, tar_real])
 
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
@@ -405,7 +405,7 @@ if __name__ == "__main__":
             return eval_loss, acc
 
         for epoch in range(args.epochs):
-            print('Learning Rate'+str(optimizer.lr)+' Step '+ str(step))
+            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
             with tqdm(total=(38668 // args.batch_size)) as pbar:
                 train_loss.reset_states()
                 train_accuracy.reset_states()
@@ -414,7 +414,7 @@ if __name__ == "__main__":
                     start = time.time()
                     step +=1
                     if args.decay is not None:
-                        optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
                         eval_loss, acc = eval_step(adj, nodes, roles, targ)
