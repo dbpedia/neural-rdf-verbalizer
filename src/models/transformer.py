@@ -7,6 +7,7 @@ from src.layers import attention_layer
 from src.layers import embedding_layer
 from src.layers import ffn_layer
 from src.utils import transformer_utils
+from src.utils import beam_search
 
 class LayerNormalization(tf.keras.layers.Layer):
     """Applies layer normalization."""
@@ -89,6 +90,7 @@ class Transformer(tf.keras.Model):
         )
         self.encoder_stack = EncoderStack(args)
         self.decoder_stack = DecoderStack(args)
+        self.vocab_size = vocab_size
 
     def get_config(self):
         return {
@@ -209,6 +211,40 @@ class Transformer(tf.keras.Model):
             return logits, cache
         return symbols_to_logits_fn
 
+    def predict(self, encoder_outputs, encoder_decoder_attention_bias, training):
+        """Return predicted sequence."""
+        encoder_outputs = tf.cast(encoder_outputs, tf.float32)
+        batch_size = tf.shape(encoder_outputs)[0]
+        input_length = tf.shape(encoder_outputs)[1]
+        max_decode_length = input_length + self.max_length
+
+        symbols_to_logits_fn = self._get_symbols_to_logits_fn(
+            max_decode_length, training)
+        # Create initial set of IDs that will be passed into symbols_to_logits_fn.
+        initial_ids = tf.zeros([batch_size], dtype=tf.int32)
+        cache = {
+            "layer_%d" % layer: {
+                "k": tf.zeros([batch_size, 0, self.args.hidden_size]),
+                "v": tf.zeros([batch_size, 0, self.args.hidden_size])
+            } for layer in range(self.args.enc_layers)
+        }
+        cache["encoder_outputs"] = encoder_outputs
+        cache["encoder_decoder_attention_bias"] = encoder_decoder_attention_bias
+        # Use beam search to find the top beam_size sequences and scores.
+        decoded_ids, scores = beam_search.sequence_beam_search(
+            symbols_to_logits_fn=symbols_to_logits_fn,
+            initial_ids=initial_ids,
+            initial_cache=cache,
+            vocab_size=self.vocab_size,
+            beam_size=self.args.beam_size,
+            alpha=self.args.alpha,
+            max_decode_length=max_decode_length,
+            eos_id=6)
+
+        # Get the top sequence for each batch element
+        top_decoded_ids = decoded_ids[:, 0, 1:]
+        top_scores = scores[:, 0]
+        return {"outputs": top_decoded_ids, "scores": top_scores}
 
 class EncoderStack(tf.keras.layers.Layer):
     """Transformer encoder stack.

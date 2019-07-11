@@ -108,7 +108,6 @@ def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_
     total_token.fit_on_texts(targ_lang)
     total_token.fit_on_texts(graph_nodes)
     total_token.fit_on_texts(roles)
-    print(len(total_token.word_index))
 
     nodes_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
     nodes_tokenizer.fit_on_texts(graph_nodes) 

@@ -373,7 +373,7 @@ if __name__ == "__main__":
 
             with tf.GradientTape() as tape:
                 mask = create_transgat_masks(tar_inp)
-                predictions, att_weights = model(adj, nodes, roles, tar_inp, mask)
+                predictions = model(adj, nodes, roles, tar_inp, mask)
                 batch_loss= loss_function(tar_real, predictions, loss_object)
                 #reg_loss = tf.losses.get_regularization_loss()
                 #batch_loss += reg_loss
@@ -393,7 +393,7 @@ if __name__ == "__main__":
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
             mask = create_transgat_masks(tar_inp)
-            predictions, att_weights = model(adj, nodes, roles, tar_inp, mask)
+            predictions = model(adj, nodes, roles, tar_inp, mask)
             eval_loss = loss_function(tar_real, predictions, loss_object)
             train_loss(eval_loss)
             train_accuracy(tar_real, predictions)

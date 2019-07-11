@@ -17,9 +17,9 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.d_model = d_model
         self.num_layers = num_layers
 
-        self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
+        #self.node_embedding = tf.keras.layers.Embedding(node_vocab_size, d_model)
         # 4 = subject, object, predicate, bridge
-        self.role_embedding = tf.keras.layers.Embedding(role_vocab_size, d_model)
+        #self.role_embedding = tf.keras.layers.Embedding(role_vocab_size, d_model)
         self.node_role_layer = tf.keras.layers.Dense(self.d_model, input_shape=(2*d_model, ))
 
         self.enc_layers = [GraphAttentionLayer(d_model, dff, num_heads,
@@ -28,20 +28,20 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         self.dropout = tf.keras.layers.Dropout(rate)
         self.layernorm = tf.contrib.layers.layer_norm
-        self.node_pos_enc = positional_encoding(node_vocab_size, self.d_model)
+        #self.node_pos_enc = positional_encoding(node_vocab_size, self.d_model)
 
-    def call(self, nodes, adj, roles, num_heads, training, mask):
+    def call(self, node_tensor, adj, role_tensor, num_heads, training, mask):
         # adding embedding and position encoding.
-        node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
-        role_tensor = self.role_embedding(roles)  # (batch_size, input_seq_len, d_model)
+        #node_tensor = self.node_embedding(nodes)  # (batch_size, input_seq_len, d_model)
+        #role_tensor = self.role_embedding(roles)  # (batch_size, input_seq_len, d_model)
         adj = tf.cast(adj, dtype=tf.float32)
-        node_seq_len = tf.shape(nodes)[1]
+        node_seq_len = tf.shape(node_tensor)[1]
 
         node_tensor = tf.concat([node_tensor, role_tensor], 2)
         node_tensor = tf.cast(self.node_role_layer(node_tensor), dtype=tf.float32)
         node_tensor = tf.add(node_tensor, role_tensor)
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        node_tensor += self.node_pos_enc[:, :node_seq_len, :]
+        #node_tensor += self.node_pos_enc[:, :node_seq_len, :]
 
         for i in range(self.num_layers):
             if i==0:
