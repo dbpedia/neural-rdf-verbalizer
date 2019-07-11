@@ -69,8 +69,7 @@ def load_model(args):
         source_vocab, targ_vocab = load_seq_vocabs()
         vocab_inp_size = len(source_vocab.word_index) + 1
         vocab_tgt_size = len(targ_vocab.word_index) + 1
-        model = transformer.Transformer(num_layers, d_model, num_heads, dff,
-                                        vocab_inp_size, vocab_tgt_size, dropout_rate)
+        model = transformer.Transformer(args, vocab_inp_size, vocab_tgt_size)
     else:
         node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
         vocab_nodes_size = len(node_vocab.word_index) + 1
