@@ -73,11 +73,12 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             dense = tf.math.softmax(dense)  # (N x N)
 
             # Apply dropout to features and attention coefficients
-            dropout_attn = self.dropout(dense)  # (N x N)
-            dropout_feat = self.dropout(features)  # (N x F')
+            if training is True:
+                dense = self.dropout(dense)  # (N x N)
+                features = self.dropout(features)  # (N x F')
 
             # Linear combination with neighbors' features
-            node_features = tf.matmul(dropout_attn, dropout_feat)  # (N x F')
+            node_features = tf.matmul(dense, features)  # (N x F')
             outputs.append(node_features)
 
         output = tf.reduce_mean(tf.stack(outputs), axis=0)  # N x F')

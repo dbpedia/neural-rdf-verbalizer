@@ -370,6 +370,7 @@ if __name__ == "__main__":
         def train_step(adj, nodes, roles, targ):
             tar_real = targ[:, 1:]
             tar_inp = targ[:, :-1]
+            model.trainable = True 
 
             with tf.GradientTape() as tape:
                 mask = create_transgat_masks(tar_inp)
