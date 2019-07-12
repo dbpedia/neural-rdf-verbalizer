@@ -11,6 +11,7 @@ from src.models import graph_attention_model, transformer
 from src.utils.model_utils import CustomSchedule, \
                                 create_transgat_masks, create_masks
 from arguments import get_args
+from src.utils import transformer_utils
 
 
 def load_gat_vocabs():
@@ -161,10 +162,10 @@ def gat_eval(model, node_tensor, role_tensor, adj):
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
     result = ''
-
+    '''
     for i in range(82):
         mask = create_transgat_masks(dec_input)
-        predictions = model(adj, node_tensor, role_tensor, dec_input, mask)
+        predictions = model(adj, node_tensor, role_tensor, dec_input, mask=mask)
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
@@ -180,7 +181,15 @@ def gat_eval(model, node_tensor, role_tensor, adj):
         # as its input.
         dec_input = tf.concat([dec_input, predicted_id], axis=-1)
         #dec_input = tf.expand_dims([predicted_id], 0)
-
+    '''
+    predictions = model(adj, node_tensor, role_tensor, targ=None, mask=None)
+    pred = (predictions['outputs'][0].numpy())
+    for i in pred:
+        if (target_vocab.index_word[i] != '<start>'):
+            result += target_vocab.index_word[i] + ' '
+        if (target_vocab.index_word[i] == '<end>'):
+            return result
+    #'''
     return result
 
 def seq2seq_eval(model, triple):
@@ -202,6 +211,7 @@ def seq2seq_eval(model, triple):
     vocab = load_seq_vocabs()
     dec_input = tf.expand_dims([vocab.word_index['<start>']], 0)
     result = ''
+    '''
     for i in range(82):
         predictions= model(inputs=encoder_input, targets=None, training=False)
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
@@ -216,6 +226,16 @@ def seq2seq_eval(model, triple):
         # as its input.
         dec_input = tf.concat([dec_input, predicted_id], axis=-1)
         # dec_input = tf.expand_dims([predicted_id], 0)
+    '''
+    predictions = model(encoder_input, targets=None, training=model.trainable)
+    pred = (predictions['outputs'][0].numpy())
+    for i in pred:
+        #if (vocab.index_word[i] != '<start>'):
+        if i!=0:
+            result += vocab.index_word[i] + ' '
+        if (vocab.index_word[i] == '<end>'):
+            return result
+
     return result
 
 def rnn_eval(args, model, node_tensor, role_tensor, adj):

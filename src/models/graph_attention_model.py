@@ -12,6 +12,7 @@ from src.models.transformer import DecoderStack
 from src.utils import transformer_utils
 from src.layers import embedding_layer
 from src.utils.metrics import MetricLayer
+from src.utils import beam_search
 
 class GATModel (tf.keras.Model):
     """
@@ -85,6 +86,82 @@ class TransGAT(tf.keras.Model):
         self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
         self.num_heads = args.num_heads
 
+    def _get_symbols_to_logits_fn(self, max_decode_length, training):
+        """Returns a decoding function that calculates logits of the next tokens."""
+
+        timing_signal = transformer_utils.get_position_encoding(
+            max_decode_length + 1, self.args.hidden_size)
+        decoder_self_attention_bias = transformer_utils.get_decoder_self_attention_bias(
+            max_decode_length)
+
+        def symbols_to_logits_fn(ids, i, cache):
+            """Generate logits for next potential IDs.
+            Args:
+              ids: Current decoded sequences. int tensor with shape [batch_size *
+                beam_size, i + 1]
+              i: Loop index
+              cache: dictionary of values storing the encoder output, encoder-decoder
+                attention bias, and previous decoder attention values.
+            Returns:
+              Tuple of
+                (logits with shape [batch_size * beam_size, vocab_size],
+                 updated cache values)
+            """
+            # Set decoder input to the last generated IDs
+            decoder_input = ids[:, -1:]
+
+            # Preprocess decoder input by getting embeddings and adding timing signal.
+            decoder_input = self.emb_tgt_layer(decoder_input)
+            decoder_input += timing_signal[i:i + 1]
+
+            self_attention_bias = decoder_self_attention_bias[:, :, i:i + 1, :i + 1]
+            decoder_outputs = self.decoder_stack(
+                decoder_input,
+                cache.get("encoder_outputs"),
+                self_attention_bias,
+                cache.get("encoder_decoder_attention_bias"),
+                training=training,
+                cache=cache)
+            logits = self.final_layer(decoder_outputs)
+            logits = tf.squeeze(logits, axis=[1])
+            return logits, cache
+        return symbols_to_logits_fn
+
+    def predict(self, encoder_outputs, encoder_decoder_attention_bias, training):
+        """Return predicted sequence."""
+        encoder_outputs = tf.cast(encoder_outputs, tf.float32)
+        batch_size = tf.shape(encoder_outputs)[0]
+        input_length = tf.shape(encoder_outputs)[1]
+        max_decode_length = 82
+
+        symbols_to_logits_fn = self._get_symbols_to_logits_fn(
+            max_decode_length, training)
+        # Create initial set of IDs that will be passed into symbols_to_logits_fn.
+        initial_ids = tf.zeros([batch_size], dtype=tf.int32)
+        cache = {
+            "layer_%d" % layer: {
+                "k": tf.zeros([batch_size, 0, self.args.hidden_size]),
+                "v": tf.zeros([batch_size, 0, self.args.hidden_size])
+            } for layer in range(self.args.enc_layers)
+        }
+        cache["encoder_outputs"] = encoder_outputs
+        cache["encoder_decoder_attention_bias"] = encoder_decoder_attention_bias
+        # Use beam search to find the top beam_size sequences and scores.
+        decoded_ids, scores = beam_search.sequence_beam_search(
+            symbols_to_logits_fn=symbols_to_logits_fn,
+            initial_ids=initial_ids,
+            initial_cache=cache,
+            vocab_size=self.vocab_tgt_size,
+            beam_size=self.args.beam_size,
+            alpha=self.args.beam_alpha,
+            max_decode_length=max_decode_length,
+            eos_id=6)
+
+        # Get the top sequence for each batch element
+        top_decoded_ids = decoded_ids[:, 0, 1:]
+        top_scores = scores[:, 0]
+        return {"outputs": top_decoded_ids, "scores": top_scores}
+
     def __call__(self, adj, nodes, roles, targ, mask):
         """
         Puts the tensors through encoders and decoders
@@ -99,15 +176,22 @@ class TransGAT(tf.keras.Model):
         """
         node_tensor = self.emb_node_layer(nodes)
         role_tensor = self.emb_role_layer(roles)
-        decoder_inputs = self.emb_tgt_layer(targ)
+        if targ is not None:
+            decoder_inputs = self.emb_tgt_layer(targ)
+            decoder_inputs = tf.cast(decoder_inputs, tf.float32)
+
         node_tensor = tf.cast(node_tensor, tf.float32)
         role_tensor = tf.cast(role_tensor, tf.float32)
-        decoder_inputs = tf.cast(decoder_inputs, tf.float32)
 
         enc_output = self.encoder(node_tensor, adj, role_tensor,
                                   self.num_heads, self.encoder.trainable)
         attention_bias = transformer_utils.get_padding_bias(nodes)
         attention_bias = tf.cast(attention_bias, tf.float32)
+
+        if targ is None:
+            predictions = self.predict(enc_output, attention_bias, False)
+            return predictions
+
         with tf.name_scope("shift_targets"):
             # Shift targets to the right, and remove the last element
             decoder_inputs = tf.pad(decoder_inputs,

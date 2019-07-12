@@ -218,7 +218,7 @@ class Transformer(tf.keras.Model):
         encoder_outputs = tf.cast(encoder_outputs, tf.float32)
         batch_size = tf.shape(encoder_outputs)[0]
         input_length = tf.shape(encoder_outputs)[1]
-        max_decode_length = input_length + self.max_length
+        max_decode_length = 82
 
         symbols_to_logits_fn = self._get_symbols_to_logits_fn(
             max_decode_length, training)
@@ -239,7 +239,7 @@ class Transformer(tf.keras.Model):
             initial_cache=cache,
             vocab_size=self.vocab_size,
             beam_size=self.args.beam_size,
-            alpha=self.args.alpha,
+            alpha=self.args.beam_alpha,
             max_decode_length=max_decode_length,
             eos_id=6)
 
