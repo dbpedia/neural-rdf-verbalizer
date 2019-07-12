@@ -7,7 +7,7 @@ from src.layers import attention_layer
 from src.layers import embedding_layer
 from src.layers import ffn_layer
 from src.utils import transformer_utils
-from arguments import get_args
+from src.arguments import get_args
 
 class LayerNormalization(tf.keras.layers.Layer):
     """Applies layer normalization."""

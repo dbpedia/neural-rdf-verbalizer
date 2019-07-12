@@ -11,12 +11,12 @@ import time
 import os
 from tqdm import tqdm 
 
-from data_loader import get_dataset, get_gat_dataset
+from src.data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
-from src.utils.model_utils import create_masks, create_transgat_masks
+from src.utils.model_utils import create_transgat_masks
 from src.utils.model_utils import CustomSchedule
 from src.utils.optimizers import LazyAdam
-from arguments import get_args
+from src.arguments import get_args
 from src.models.graph_attention_model import TransGAT
 from src.models.transformer import Transformer
 from src.utils.metrics import LossLayer

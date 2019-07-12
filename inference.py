@@ -6,11 +6,11 @@ import networkx as nx
 import numpy as np
 import pickle
 import os
+from nltk.translate.bleu_score import corpus_bleu
 
 from src.models import graph_attention_model, transformer
-from src.utils.model_utils import CustomSchedule, \
-                                create_transgat_masks, create_masks
-from arguments import get_args
+from src.utils.model_utils import CustomSchedule
+from src.arguments import get_args
 from src.utils.rogue import rouge_n
 
 def load_gat_vocabs():
@@ -295,4 +295,6 @@ if __name__ == "__main__":
     for i, line in enumerate(reference):
         if ( i< len(verbalised_triples)):
             ref_sentence.append(line)
-    print('Rogue '+ str(rouge_n(verbalised_triples, ref_sentence)))
+    print('Rogue '+ str(rouge_n(verbalised_triples, ref_sentence))+'\n')
+    score = corpus_bleu(ref_sentence, verbalised_triples)
+    print('BLEU ' + str(score)+'\n')
