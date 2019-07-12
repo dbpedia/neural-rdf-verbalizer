@@ -24,12 +24,10 @@ def load_gat_vocabs():
     return nodes_vocab, roles_vocab, target_vocab
 
 def load_seq_vocabs():
-    with open('vocabs/seq2seq/source_vocab', 'rb') as f:
-        source_vocab = pickle.load(f)
-    with open('vocabs/seq2seq/target_vocab', 'rb') as f:
-        target_vocab = pickle.load(f)
+    with open('vocabs/seq2seq/vocab', 'rb') as f:
+        vocab = pickle.load(f)
 
-    return source_vocab, target_vocab
+    return vocab
 
 def load_model(args):
     """
@@ -66,10 +64,9 @@ def load_model(args):
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        source_vocab, targ_vocab = load_seq_vocabs()
-        vocab_inp_size = len(source_vocab.word_index) + 1
-        vocab_tgt_size = len(targ_vocab.word_index) + 1
-        model = transformer.Transformer(args, vocab_inp_size, vocab_tgt_size)
+        vocab = load_seq_vocabs()
+        vocab_size = len(vocab.word_index) + 1
+        model = transformer.Transformer(args, vocab_size)
     else:
         node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
         vocab_nodes_size = len(node_vocab.word_index) + 1
@@ -167,7 +164,7 @@ def gat_eval(model, node_tensor, role_tensor, adj):
 
     for i in range(82):
         mask = create_transgat_masks(dec_input)
-        predictions, attention_weights = model(adj, node_tensor, role_tensor, dec_input, mask)
+        predictions = model(adj, node_tensor, role_tensor, dec_input, mask)
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
@@ -197,22 +194,20 @@ def seq2seq_eval(model, triple):
     :rtype: str
     """
     model.trainable = False
-    source_vocab, target_vocab = load_seq_vocabs()
+    source_vocab = load_seq_vocabs()
     tensor = source_vocab.texts_to_sequences(triple)
     tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
                                                            padding='post')
     encoder_input = tf.transpose(tensor)
-    source_vocab, target_vocab = load_seq_vocabs()
-    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    vocab = load_seq_vocabs()
+    dec_input = tf.expand_dims([vocab.word_index['<start>']], 0)
     result = ''
     for i in range(82):
-        enc_padding_mask, combined_mask, dec_padding_mask = create_masks(encoder_input, dec_input)
-        predictions= model(encoder_input, dec_input,
-                               True)
+        predictions= model(inputs=encoder_input, targets=None, training=False)
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
-        result += target_vocab.index_word[predicted_id[0][0].numpy()] + ' '
-        if target_vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
+        result += vocab.index_word[predicted_id[0][0].numpy()] + ' '
+        if vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
             return result
         # if tf.equal(predicted_id, end_token[0]):
         #    return tf.squeeze(output, axis=0), attention_weights

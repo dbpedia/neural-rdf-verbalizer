@@ -15,6 +15,10 @@ _NEG_INF_FP32 = -1e9
 _NEG_INF_FP16 = np.finfo(np.float16).min
 
 
+def is_v2():
+  """Returns whether it is v2."""
+  return tf2_internal.enabled()
+
 def get_position_encoding(
     length, hidden_size, min_timescale=1.0, max_timescale=1.0e4):
   """Return positional encoding.
