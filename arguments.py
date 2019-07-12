@@ -28,6 +28,10 @@ parser.add_argument(
 parser.add_argument(
     '--eval', type=str, required=False, help='Path to source.triple file of the Eval set')
 parser.add_argument(
+    '--eval_ref', type=str, required=False, help='Path to Lex file of the Eval set')
+parser.add_argument(
+    '--num_eval_lines', type=int, required=False, help='Number of sentences to be used to eval')
+parser.add_argument(
     '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
 parser.add_argument(
     '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')

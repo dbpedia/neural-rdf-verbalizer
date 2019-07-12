@@ -11,8 +11,7 @@ from src.models import graph_attention_model, transformer
 from src.utils.model_utils import CustomSchedule, \
                                 create_transgat_masks, create_masks
 from arguments import get_args
-from src.utils import transformer_utils
-
+from src.utils.rogue import rouge_n
 
 def load_gat_vocabs():
     with open('vocabs/gat/nodes_vocab', 'rb') as f:
@@ -282,10 +281,18 @@ if __name__ == "__main__":
     else:
         s = open('data/results.txt', 'w+')
     #line = 'Point Fortin | country | Trinidad'
-
-    for line in f:
-        print(line)
-        result = inf(args, line, model)
-        print(result)
-        s.write(result + '\n')
+    verbalised_triples = []
+    for i,line in enumerate(f):
+        if i< 2:
+            print(line)
+            result = inf(args, line, model)
+            verbalised_triples.append(result)
+            print(result)
+            #s.write(result + '\n')
     #inf (line, model)
+    ref_sentence = []
+    reference = open(args.eval_ref, 'r')
+    for i, line in enumerate(reference):
+        if ( i< len(verbalised_triples)):
+            ref_sentence.append(line)
+    print('Rogue '+ str(rouge_n(verbalised_triples, ref_sentence)))
