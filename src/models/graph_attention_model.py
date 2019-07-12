@@ -11,6 +11,7 @@ from src.utils.model_utils import loss_function
 from src.models.transformer import DecoderStack
 from src.utils import transformer_utils
 from src.layers import embedding_layer
+from src.utils.metrics import MetricLayer
 
 class GATModel (tf.keras.Model):
     """
@@ -72,7 +73,8 @@ class TransGAT(tf.keras.Model):
         self.emb_role_layer = embedding_layer.EmbeddingSharedWeights(
             role_vocab_size, args.emb_dim)
         self.emb_tgt_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_tgt_size, args.emb_dim)
+            vocab_tgt_size, args.hidden_size)
+        self.metric_layer = MetricLayer(vocab_tgt_size)
 
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,args.hidden_size,
                                     args.filter_size, reg_scale= args.reg_scale, rate=args.dropout)

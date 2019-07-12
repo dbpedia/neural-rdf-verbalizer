@@ -14,7 +14,7 @@ from tqdm import tqdm
 from data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
 from src.utils.model_utils import create_masks, create_transgat_masks
-from src.utils.model_utils import loss_function, CustomSchedule
+from src.utils.model_utils import CustomSchedule
 from src.utils.optimizers import LazyAdam
 from arguments import get_args
 from src.models.graph_attention_model import TransGAT
@@ -268,43 +268,30 @@ if __name__ == "__main__":
             optimizer._lr = args.learning_rate
 
         def train_step(inp, tar):
-            tar_inp = tar[:, :-1]
-            tar_real = tar[:, 1:]
-
-            enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
-
             with tf.GradientTape() as tape:
-                predictions = model(inp, tar_inp, training=model.trainable)
-                #loss = loss_function(tar_real, predictions, loss_object)
-                loss = loss_layer([predictions, tar_real])
+                predictions = model(inp, tar, training=model.trainable)
+                predictions = model.metric_layer([predictions, tar])
+                loss = loss_layer([predictions, tar])
                 reg_loss = tf.losses.get_regularization_loss()
                 loss += reg_loss
 
             gradients = tape.gradient(loss, model.trainable_variables)
             optimizer.apply_gradients(zip(gradients, model.trainable_variables))
-            #train_loss(loss)
-            train_accuracy(tar_real, predictions)
-            #loss = train_loss.result()
-            acc = train_accuracy.result()
+            acc = model.metrics[0].result()
+            ppl = model.metrics[-1].result()
 
-            return loss, acc
+            return loss, acc, ppl
 
         def eval_step(inp, tar):
             model.trainable = False
-            tar_inp = tar[:, :-1]
-            tar_real = tar[:, 1:]
-
-            enc_padding_mask, combined_mask, dec_padding_mask = create_masks(inp, tar_inp)
-            predictions = model(inp, tar_inp, training=model.trainable)
-            #loss = loss_function(tar_real, predictions, loss_object)
-            loss = loss_layer([predictions, tar_real])
-            #train_loss(loss)
-            train_accuracy(tar_real, predictions)
-            #loss = train_loss.result()
-            acc = train_accuracy.result()
+            predictions = model(inp, tar, training=model.trainable)
+            predictions = model.metric_layer([predictions, tar])
+            loss = loss_layer([predictions, tar])
+            acc = model.metrics[0].result()
+            ppl = model.metrics[-1].result()
             model.trainable = True
 
-            return loss, acc
+            return loss, acc, ppl
 
         for epoch in range(epochs):
             start = time.time()
@@ -318,17 +305,19 @@ if __name__ == "__main__":
                         optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if (batch % args.eval_steps == 0):
-                        eval_loss, acc = eval_step(inp, tar)
+                        eval_loss, acc, ppl = eval_step(inp, tar)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
-                                                                                          eval_loss.numpy(),
-                                                                                          acc.numpy()))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
+                                                                                                          eval_loss.numpy(),
+                                                                                                          acc.numpy(),
+                                                                                                          ppl.numpy()))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
-                        batch_loss, acc = train_step(inp, tar)
-                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
-                                                                                           batch_loss.numpy(),
-                                                                                           acc.numpy()))
+                        batch_loss, acc, ppl = train_step(inp, tar)
+                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
+                                                                                                          batch_loss.numpy(),
+                                                                                                          acc.numpy(),
+                                                                                                          ppl.numpy()))
                     pbar.update(1)
 
             print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(
@@ -373,40 +362,31 @@ if __name__ == "__main__":
             steps = args.steps
 
         def train_step(adj, nodes, roles, targ):
-            tar_real = targ[:, 1:]
-            tar_inp = targ[:, :-1]
-
             with tf.GradientTape() as tape:
-                mask = create_transgat_masks(tar_inp)
-                predictions = model(adj, nodes, roles, tar_inp, mask)
-                #batch_loss= loss_function(tar_real, predictions, loss_object)
-                batch_loss = loss_layer([predictions, tar_real])
+                mask = create_transgat_masks(targ)
+                predictions = model(adj, nodes, roles, targ, mask)
+                predictions = model.metric_layer([predictions, targ])
+                batch_loss = loss_layer([predictions, targ])
 
             gradients = tape.gradient(batch_loss, model.trainable_weights)
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
-            #train_loss(batch_loss)
-            train_accuracy(tar_real, predictions)
-            #batch_loss = train_loss.result()
-            acc = train_accuracy.result()
+            acc = model.metrics[0].result()
+            ppl = model.metrics[-1].result()
 
-            return batch_loss, acc
+            return batch_loss, acc, ppl
 
          # Eval function
         def eval_step(adj, nodes, roles, targ):
             model.trainable = False
-            tar_real = targ[:, 1:]
-            tar_inp = targ[:, :-1]
-            mask = create_transgat_masks(tar_inp)
-            predictions = model(adj, nodes, roles, tar_inp, mask)
-            #eval_loss = loss_function(tar_real, predictions, loss_object)
-            eval_loss = loss_layer([predictions, tar_real])
-            #train_loss(eval_loss)
-            train_accuracy(tar_real, predictions)
-            #eval_loss = train_loss.result()
-            acc = train_accuracy.result()
-
+            mask = create_transgat_masks(targ)
+            predictions = model(adj, nodes, roles, targ, mask)
+            predictions = model.metric_layer([predictions, targ])
+            eval_loss = loss_layer([predictions, targ])
+            acc = model.metrics[0].result()
+            ppl = model.metrics[-1].result()
             model.trainable = True
-            return eval_loss, acc
+
+            return eval_loss, acc, ppl
 
         for epoch in range(args.epochs):
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
@@ -421,15 +401,15 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc = eval_step(adj, nodes, roles, targ)
+                        eval_loss, acc, ppl = eval_step(adj, nodes, roles, targ)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
-                                                                 eval_loss.numpy(), acc.numpy()))
+                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
+                                                                 eval_loss.numpy(), acc.numpy(), ppl.numpy()))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
-                        batch_loss, acc = train_step(adj, nodes, roles, targ)
-                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f}'.format(epoch, batch,
-                                                                  batch_loss.numpy(), acc.numpy()))
+                        batch_loss, acc, ppl = train_step(adj, nodes, roles, targ)
+                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
+                                                                  batch_loss.numpy(), acc.numpy(), ppl.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()

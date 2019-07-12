@@ -8,6 +8,7 @@ from src.layers import embedding_layer
 from src.layers import ffn_layer
 from src.utils import transformer_utils
 from src.utils import beam_search
+from src.utils.metrics import MetricLayer
 
 class LayerNormalization(tf.keras.layers.Layer):
     """Applies layer normalization."""
@@ -91,6 +92,7 @@ class Transformer(tf.keras.Model):
         self.encoder_stack = EncoderStack(args)
         self.decoder_stack = DecoderStack(args)
         self.vocab_size = vocab_size
+        self.metric_layer = MetricLayer(vocab_size=vocab_size)
 
     def get_config(self):
         return {
