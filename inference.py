@@ -283,7 +283,7 @@ if __name__ == "__main__":
     #line = 'Point Fortin | country | Trinidad'
     verbalised_triples = []
     for i,line in enumerate(f):
-        if i< 2:
+        if i< args.num_eval_lines:
             print(line)
             result = inf(args, line, model)
             verbalised_triples.append(result)

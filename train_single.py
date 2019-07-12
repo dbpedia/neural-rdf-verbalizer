@@ -34,12 +34,12 @@ if __name__ == "__main__":
     #set up dirs
     if args.use_colab is None:
         output_file = 'results.txt'
-        OUTPUT_DIR = 'ckpts'
+        OUTPUT_DIR = 'ckpts/'+args.lang
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
-        OUTPUT_DIR = '/content/gdrive/My Drive/ckpts'
+        OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         output_file = OUTPUT_DIR + '/results.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
