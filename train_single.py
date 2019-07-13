@@ -20,6 +20,7 @@ from src.arguments import get_args
 from src.models.graph_attention_model import TransGAT
 from src.models.transformer import Transformer
 from src.utils.metrics import LossLayer
+from inference import inf
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -382,6 +383,9 @@ if __name__ == "__main__":
             logits = model(nodes, labels, node1, node2, targ, mask)
             predictions = model.metric_layer([logits, targ])
             eval_loss = loss_layer([predictions, targ])
+            line = 'Amarillo , Texas | isPartOf | United States'
+            result = inf(args, line, model)
+            print(result)
             acc = model.metrics[0].result()
             ppl = model.metrics[-1].result()
             model.trainable = True
