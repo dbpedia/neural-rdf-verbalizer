@@ -329,10 +329,10 @@ if __name__ == "__main__":
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
-         target_lang, max_length_targ) = get_gat_dataset(args)
-        model = TransGAT(args, vocab_nodes_size, vocab_role_size,
-                                            vocab_tgt_size, target_lang)
+         vocab_tgt_size, vocab_src_size, tgt_vocab, max_length_targ) = get_gat_dataset(args)
+
+        model = TransGAT(args, vocab_src_size,
+                        vocab_tgt_size, tgt_vocab)
         loss_layer = LossLayer(vocab_tgt_size, 0.1)
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
@@ -361,10 +361,10 @@ if __name__ == "__main__":
         else:
             steps = args.steps
 
-        def train_step(adj, nodes, roles, targ):
+        def train_step(nodes, labels, node1, node2, targ):
             with tf.GradientTape() as tape:
                 mask = create_transgat_masks(targ)
-                predictions = model(adj, nodes, roles, targ, mask)
+                predictions = model(nodes, labels, node1, node2, targ, mask)
                 predictions = model.metric_layer([predictions, targ])
                 batch_loss = loss_layer([predictions, targ])
 
@@ -376,11 +376,11 @@ if __name__ == "__main__":
             return batch_loss, acc, ppl
 
          # Eval function
-        def eval_step(adj, nodes, roles, targ):
+        def eval_step(nodes, labels, node1, node2, targ):
             model.trainable = False
             mask = create_transgat_masks(targ)
-            predictions = model(adj, nodes, roles, targ, mask)
-            predictions = model.metric_layer([predictions, targ])
+            logits = model(nodes, labels, node1, node2, targ, mask)
+            predictions = model.metric_layer([logits, targ])
             eval_loss = loss_layer([predictions, targ])
             acc = model.metrics[0].result()
             ppl = model.metrics[-1].result()
@@ -394,20 +394,20 @@ if __name__ == "__main__":
                 train_loss.reset_states()
                 train_accuracy.reset_states()
 
-                for (batch, (adj, nodes, edges, roles, targ)) in tqdm(enumerate(dataset)):
+                for (batch, (nodes, labels, node1, node2, targ)) in tqdm(enumerate(dataset)):
                     start = time.time()
                     step +=1
                     if args.decay is not None:
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc, ppl = eval_step(adj, nodes, roles, targ)
+                        eval_loss, acc, ppl, rouge = eval_step(nodes, labels, node1, node2, targ)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                  eval_loss.numpy(), acc.numpy(), ppl.numpy()))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
-                        batch_loss, acc, ppl = train_step(adj, nodes, roles, targ)
+                        batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                   batch_loss.numpy(), acc.numpy(), ppl.numpy()))
 

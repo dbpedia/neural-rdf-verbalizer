@@ -36,7 +36,11 @@ parser.add_argument(
 parser.add_argument(
     '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')
 parser.add_argument(
-    '--graph_edges', type=str, required=False, help='Path to edge list of each example')
+    '--edge_labels', type=str, required=False, help='Path to labels of edges in each graph')
+parser.add_argument(
+    '--edge_node1', type=str, required=False, help='Path to node1 of each edges ')
+parser.add_argument(
+    '--edge_node2', type=str, required=False, help='Path to node2 of each edges ')
 parser.add_argument(
     '--graph_roles', type=str, required=False, help='Path to role list of each example')
 

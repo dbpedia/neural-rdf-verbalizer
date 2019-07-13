@@ -90,53 +90,49 @@ def load_dataset(src_path, tgt_path, num_examples=None):
 
     return input_tensor, target_tensor, tokenizer
 
-def load_gat_dataset(adj_path, nodes_path, edges_path, role_path, tgt_path, num_examples=None):
+def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path, tgt_path, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, num_examples)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
-    graph_adj = np.load(adj_path) 
 
     with open(nodes_path, 'rb') as f:
         graph_nodes = pickle.load(f)
 
-    with open(edges_path, 'rb') as edge_f:
-        graph_edges = pickle.load(edge_f)
+    with open(labels_path, 'rb') as edge_f:
+        edge_labels = pickle.load(edge_f)
 
-    with open(role_path, 'rb') as role_f:
-        roles = pickle.load(role_f)
+    with open(node1_path, 'rb') as role_f:
+        node1 = pickle.load(role_f)
 
-    total_token = tf.keras.preprocessing.text.Tokenizer(filters='')
-    total_token.fit_on_texts(targ_lang)
-    total_token.fit_on_texts(graph_nodes)
-    total_token.fit_on_texts(roles)
+    with open(node2_path, 'rb') as role_f:
+        node2 = pickle.load(role_f)
 
-    nodes_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
-    nodes_tokenizer.fit_on_texts(graph_nodes) 
-    node_tensor = nodes_tokenizer.texts_to_sequences(graph_nodes)
+
+    src_vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
+    src_vocab.fit_on_texts(graph_nodes)
+    src_vocab.fit_on_texts(edge_labels)
+    src_vocab.fit_on_texts(node1)
+    src_vocab.fit_on_texts(node2)
+
+    node_tensor = src_vocab.texts_to_sequences(graph_nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor,padding='post') 
-    
-    edges_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='') 
-    edges_tokenizer.fit_on_texts(graph_edges) 
-    edge_tensor = edges_tokenizer.texts_to_sequences(graph_edges)
-    edge_tensor = tf.keras.preprocessing.sequence.pad_sequences(edge_tensor,padding='post')
-    
-    roles_tokenizer = tf.keras.preprocessing.text.Tokenizer(filters='')
-    roles_tokenizer.fit_on_texts(roles)
-    role_tensor = roles_tokenizer.texts_to_sequences(roles)
-    role_tensor = tf.keras.preprocessing.sequence.pad_sequences(role_tensor,padding='post')
-    
+
+    label_tensor = src_vocab.texts_to_sequences(edge_labels)
+    label_tensor = tf.keras.preprocessing.sequence.pad_sequences(label_tensor,padding='post')
+
+    node1_tensor = src_vocab.texts_to_sequences(node1)
+    node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(node1_tensor,padding='post')
+
+    node2_tensor = src_vocab.texts_to_sequences(node2)
+    node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
     # save all vocabularies
     os.makedirs('vocabs/gat', exist_ok=True)
     with open('vocabs/gat/target_vocab', 'wb+') as fp:
         pickle.dump(targ_lang_tokenizer, fp)
-    with open('vocabs/gat/nodes_vocab', 'wb+') as fp:
-        pickle.dump(nodes_tokenizer, fp)
-    with open('vocabs/gat/edges_vocab', 'wb+') as fp:
-        pickle.dump(edges_tokenizer, fp)
-    with open('vocabs/gat/roles_vocab', 'wb+') as fp:
-        pickle.dump(roles_tokenizer, fp)
+    with open('vocabs/gat/src_vocab', 'wb+') as fp:
+        pickle.dump(src_vocab, fp)
 
-    return (graph_adj, node_tensor, nodes_tokenizer, edge_tensor,
-            edges_tokenizer, role_tensor, roles_tokenizer, targ_tensor, targ_lang_tokenizer, max_length(targ_tensor))
+    return (node_tensor, label_tensor, node1_tensor, node2_tensor,
+            targ_tensor, src_vocab, targ_lang_tokenizer, max_length(targ_tensor))
 
 
 def convert(lang, tensor):
@@ -162,29 +158,27 @@ def get_dataset(args):
 
 def get_gat_dataset(args):
 
-    (graph_adj, node_tensor, nodes_lang, edge_tensor, edges_lang, role_tensor, role_lang,
-    target_tensor, target_lang, max_length_targ )= load_gat_dataset(args.graph_adj, args.graph_nodes,
-                                                    args.graph_edges, args.graph_roles, args.tgt_path, args.num_examples)
+    lang = args.lang
+
+    (node_tensor, label_tensor, node1_tensor, node2_tensor,
+     target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,
+                                                                              args.edge_node1, args.edge_node2, args.tgt_path)
 
     # Pad the edge tensor to 16 size
     node_paddings = tf.constant([[0, 0], [0, 1]])
-    node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
-    edge_paddings = tf.constant([[0,0], [0,9]])
-    edge_tensor = tf.pad(edge_tensor, edge_paddings, mode='CONSTANT')
-    role_paddings = tf.constant([[0, 0], [0, 1]])
-    role_tensor = tf.pad(role_tensor, role_paddings, mode='CONSTANT')
+    label_tensor = tf.pad(label_tensor, node_paddings, mode='CONSTANT')
+    node1_tensor = tf.pad(node1_tensor, node_paddings, mode='CONSTANT')
+    node2_tensor = tf.pad(node2_tensor, node_paddings, mode='CONSTANT')
+
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(target_tensor) // BATCH_SIZE
-    vocab_tgt_size = len(target_lang.word_index) + 1
-    vocab_nodes_size = len(nodes_lang.word_index) + 1
-    vocab_edge_size = len(edges_lang.word_index) + 1
-    vocab_role_size = len(role_lang.word_index) + 1
-    print(graph_adj.shape, edge_tensor.shape, node_tensor.shape, role_tensor.shape)
+    vocab_tgt_size = len(tgt_vocab.word_index) + 1
+    vocab_src_size = len(src_vocab.word_index) + 1
 
-    dataset = tf.data.Dataset.from_tensor_slices((graph_adj, node_tensor, 
-                                                    edge_tensor, role_tensor, target_tensor)).shuffle(BUFFER_SIZE)
+    dataset = tf.data.Dataset.from_tensor_slices((node_tensor, label_tensor,
+                                                    node1_tensor, node2_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-            vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size, target_lang, max_length_targ)
+            vocab_tgt_size, vocab_src_size, tgt_vocab, max_length_targ)

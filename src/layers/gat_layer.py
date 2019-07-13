@@ -22,8 +22,7 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
         self.biases = []
         self.attn_kernels = []
 
-        self.node_layer = tf.keras.layers.Dense(self.in_dim)
-        self.edge_layer = tf.keras.layers.Dense(dff)
+        self.edge_layer = tf.keras.layers.Dense(self.out_dim)
         self.lrelu = tf.keras.layers.LeakyReLU()
         self.dropout = tf.keras.layers.Dropout(rate)
         self.reg = tf.contrib.layers.l2_regularizer(reg_scale)
@@ -49,8 +48,9 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
                                                  name='attn_kernel_neigh_{}'.format(head))
             self.attn_kernels.append([attn_kernel_self, attn_kernel_neighs])
 
-    def call(self, nodes, adj, num_heads, training, mask=None):
-        inputs = self.node_layer(nodes)
+    def call(self, nodes, edges, labels, num_heads, training, mask=None):
+        edges = self.edge_layer(tf.add(edges, labels))
+        inputs = nodes
 
         outputs = []
         for head in range(num_heads):
@@ -61,13 +61,13 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             attn_for_self = tf.keras.backend.dot(features, attention_kernel[0])
             attn_for_neighs = tf.keras.backend.dot(features, attention_kernel[1])
             # Attention head a(Wh_i, Wh_j) = a^T [[Wh_i], [Wh_j]]
-
+            features = tf.add(features, edges)
             dense = tf.matmul(attn_for_self, attn_for_neighs, transpose_b=True)
             dense = self.lrelu(dense)
 
             # Mask values before activation (Vaswani et al., 2017)
-            mask_local = -10e9 * (1.0 - adj)
-            dense += mask_local
+            #mask_local = -10e9 * (1.0 - adj)
+            #dense += mask_local
 
             # Apply softmax to get attention coefficients
             dense = tf.math.softmax(dense)  # (N x N)

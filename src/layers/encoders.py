@@ -29,24 +29,23 @@ class GraphEncoder(tf.keras.layers.Layer):
         self.dropout = tf.keras.layers.Dropout(rate)
         self.layernorm = tf.contrib.layers.layer_norm
 
-    def call(self, node_tensor, adj, role_tensor, num_heads, training):
+    def call(self, node_tensor, label_tensor, node1_tensor, node2_tensor, num_heads, training):
         # adding embedding and position encoding.
 
-        adj = tf.cast(adj, dtype=tf.float32)
-
-        node_tensor = tf.concat([node_tensor, role_tensor], 2)
-        node_tensor = tf.cast(self.node_role_layer(node_tensor), dtype=tf.float32)
+        edge_tensor = tf.concat([node1_tensor, node2_tensor], 2)
+        edge_tensor = tf.cast(self.node_role_layer(edge_tensor), dtype=tf.float32)
         #node_tensor = tf.add(node_tensor, role_tensor)
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
+        edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         #node_tensor += self.node_pos_enc[:, :node_seq_len, :]
 
         for i, layer in enumerate(self.enc_layers):
             if i==0:
-                x = self.enc_layers[i][0](node_tensor, adj, num_heads, training)
+                x = self.enc_layers[i][0](node_tensor, edge_tensor, label_tensor, num_heads, training)
                 x = self.enc_layers[i][1](x, training=self.trainable)
             else:
                 shortcut = x
-                x = self.enc_layers[i][0](node_tensor, adj, num_heads, training)
+                x = self.enc_layers[i][0](node_tensor, edge_tensor, label_tensor, num_heads, training)
                 x = self.enc_layers[i][1](x, training=self.trainable)
                 x += shortcut
 

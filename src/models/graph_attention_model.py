@@ -66,13 +66,11 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args, node_vocab_size, role_vocab_size, vocab_tgt_size, target_lang):
+    def __init__(self, args,vocab_src_size , vocab_tgt_size, target_lang):
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
-        self.emb_node_layer = embedding_layer.EmbeddingSharedWeights(
-            node_vocab_size, args.emb_dim)
-        self.emb_role_layer = embedding_layer.EmbeddingSharedWeights(
-            role_vocab_size, args.emb_dim)
+        self.emb_src_layer = embedding_layer.EmbeddingSharedWeights(
+            vocab_src_size, args.emb_dim)
         self.emb_tgt_layer = embedding_layer.EmbeddingSharedWeights(
             vocab_tgt_size, args.hidden_size)
         self.metric_layer = MetricLayer(vocab_tgt_size)
@@ -162,7 +160,7 @@ class TransGAT(tf.keras.Model):
         top_scores = scores[:, 0]
         return {"outputs": top_decoded_ids, "scores": top_scores}
 
-    def __call__(self, adj, nodes, roles, targ, mask):
+    def __call__(self, nodes, labels, node1, node2, targ, mask):
         """
         Puts the tensors through encoders and decoders
         :param adj: Adjacency matrices of input example
@@ -174,21 +172,19 @@ class TransGAT(tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        node_tensor = self.emb_node_layer(nodes)
-        role_tensor = self.emb_role_layer(roles)
-        if targ is not None:
-            decoder_inputs = self.emb_tgt_layer(targ)
-            decoder_inputs = tf.cast(decoder_inputs, tf.float32)
+        node_tensor = self.emb_src_layer(nodes)
+        label_tensor = tf.cast(self.emb_src_layer(labels), dtype=tf.float32)
+        node1_tensor = tf.cast(self.emb_src_layer(node1), dtype=tf.float32)
+        node2_tensor = tf.cast(self.emb_src_layer(node2), dtype=tf.float32)
 
-        node_tensor = tf.cast(node_tensor, tf.float32)
-        role_tensor = tf.cast(role_tensor, tf.float32)
-
-        enc_output = self.encoder(node_tensor, adj, role_tensor,
+        enc_output = self.encoder(node_tensor, label_tensor, node1_tensor, node2_tensor,
                                   self.num_heads, self.encoder.trainable)
         attention_bias = transformer_utils.get_padding_bias(nodes)
         attention_bias = tf.cast(attention_bias, tf.float32)
 
-        if targ is None:
+        if targ is not None:
+            decoder_inputs = tf.cast(self.emb_tgt_layer(targ), dtype=tf.float32)
+        else:
             predictions = self.predict(enc_output, attention_bias, False)
             return predictions
 
