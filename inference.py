@@ -14,14 +14,12 @@ from src.arguments import get_args
 from src.utils.rogue import rouge_n
 
 def load_gat_vocabs():
-    with open('vocabs/gat/nodes_vocab', 'rb') as f:
-        nodes_vocab = pickle.load(f)
+    with open('vocabs/gat/src_vocab', 'rb') as f:
+        src_vocab = pickle.load(f)
     with open('vocabs/gat/target_vocab', 'rb') as f:
         target_vocab = pickle.load(f)
-    with open('vocabs/gat/roles_vocab', 'rb') as f:
-        roles_vocab = pickle.load(f)
 
-    return nodes_vocab, roles_vocab, target_vocab
+    return src_vocab, target_vocab
 
 def load_seq_vocabs():
     with open('vocabs/seq2seq/vocab', 'rb') as f:
@@ -52,12 +50,11 @@ def load_model(args):
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
     if args.enc_type == "gat" and args.dec_type == "transformer":
-        node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+        node_vocab, target_vocab = load_gat_vocabs()
         vocab_nodes_size = len(node_vocab.word_index) + 1
         vocab_tgt_size = len(target_vocab.word_index) + 1
-        vocab_roles_size = len(roles_vocab.word_index) + 1
-        model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_roles_size,
-                                                vocab_tgt_size, target_vocab)
+        model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_tgt_size,target_vocab)
+
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         num_layers = args.enc_layers
         num_heads = args.num_heads
@@ -67,6 +64,7 @@ def load_model(args):
         vocab = load_seq_vocabs()
         vocab_size = len(vocab.word_index) + 1
         model = transformer.Transformer(args, vocab_size)
+
     else:
         node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
         vocab_nodes_size = len(node_vocab.word_index) + 1
@@ -96,54 +94,53 @@ def load_model(args):
 def process_gat_sentence(line):
     g = nx.MultiDiGraph()
     nodes = []
-    roles = []
+    labels = []
+    node1 = []
+    node2 = []
+    temp_node1 = []
+    temp_node2 = []
+    temp_label = []
+
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
-        g.add_edge(l[0], l[1])
-        g.add_edge(l[1], l[0])
-        g.add_edge(l[1], l[2])
-        g.add_edge(l[2], l[1])
-    nodes.append(list(g.nodes))
+        g.add_edge(l[0], l[1], label='A_ZERO')
+        g.add_edge(l[1], l[2], label='A_ONE')
+    node_list = list(g.nodes())
+    nodes.append(node_list)
+    edge_list = list(g.edges.data())
+    for edge in edge_list:
+        temp_node1.append(edge[0])
+        temp_node2.append(edge[1])
+        label = (edge[2]['label'])
+        temp_label.append(label)
+    node1.append(temp_node1)
+    node2.append(temp_node2)
+    labels.append(temp_label)
     # set roles
-    roles_ = []
-    for node in list(g.nodes()):
-        role = ''
-        for l in triple_list:
-            l = l.strip().split(' | ')
 
-            if l[0] == node:
-                if role == 'object':
-                    role = 'bridge'
-                else:
-                    role = 'subject'
-            elif l[1] == node:
-                role = 'predicate'
-            elif l[2] == node:
-                if role == 'subject':
-                    role = 'bridge'
-                else:
-                    role = 'object'
-        roles_.append(role)
-    roles.append(roles_)
-    array = nx.to_numpy_array(g)
-    result = np.zeros((16, 16))
-    result[:array.shape[0], :array.shape[1]] = array
-    result += np.identity(16)
-    nodes_lang, roles_vocab, target_lang = load_gat_vocabs()
-    node_tensor = nodes_lang.texts_to_sequences(nodes)
+    src_lang, target_lang = load_gat_vocabs()
+    node_tensor = src_lang.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
-    role_tensor = roles_vocab.texts_to_sequences(roles)
-    role_tensor = tf.keras.preprocessing.sequence.pad_sequences(role_tensor, padding='post')
+    label_tensor = src_lang.texts_to_sequences(labels)
+    label_tensor = tf.keras.preprocessing.sequence.pad_sequences(label_tensor, padding='post')
+    node1_tensor = src_lang.texts_to_sequences(node1)
+    node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(node1_tensor, padding='post')
+    node2_tensor = src_lang.texts_to_sequences(node2)
+    node2_tensorode = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
 
-    node_paddings = tf.constant([[0, 0], [0, 16-len(nodes[0])]])
+    node_paddings = tf.constant([[0, 0], [0, 15-len(nodes[0])]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
-    role_paddings = tf.constant([[0, 0], [0, 16-len(roles[0])]])
-    role_tensor = tf.pad(role_tensor, role_paddings, mode='CONSTANT')
+    label_padding = tf.constant([[0, 0], [0, 15 - len(labels[0])]])
+    label_tensor = tf.pad(label_tensor, label_padding, mode='CONSTANT')
+    node1_padding = tf.constant([[0, 0], [0, 15 - len(node1[0])]])
+    node1_tensor = tf.pad(node1_tensor, node1_padding, mode='CONSTANT')
+    node2_padding = tf.constant([[0, 0], [0, 15 - len(node2[0])]])
+    node2_tensor = tf.pad(node2_tensor, node2_padding, mode='CONSTANT')
 
-    return node_tensor, role_tensor, result
+    return node_tensor, label_tensor, node1_tensor, node2_tensor
 
-def gat_eval(model, node_tensor, role_tensor, adj):
+def gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -156,7 +153,7 @@ def gat_eval(model, node_tensor, role_tensor, adj):
     :rtype: str
     """
     model.trainable = False
-    node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+    src_vocab, target_vocab = load_gat_vocabs()
     start_token = [target_vocab.word_index['<start>']]
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
@@ -181,7 +178,7 @@ def gat_eval(model, node_tensor, role_tensor, adj):
         dec_input = tf.concat([dec_input, predicted_id], axis=-1)
         #dec_input = tf.expand_dims([predicted_id], 0)
     '''
-    predictions = model(adj, node_tensor, role_tensor, targ=None, mask=None)
+    predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=None, mask=None)
     pred = (predictions['outputs'][0].numpy())
     for i in pred:
         if (target_vocab.index_word[i] != '<start>'):
@@ -261,8 +258,8 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
 
 def inf(args, triple, model):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, role_tensor, adj = process_gat_sentence(triple)
-        result = gat_eval(model, node_tensor, role_tensor, adj)
+        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple)
+        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor)
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         result = seq2seq_eval(model, triple)
