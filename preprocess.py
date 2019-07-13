@@ -97,32 +97,28 @@ def pre_process(path):
     count = 0
     for line in dest:
         g = nx.MultiDiGraph()
-        temp_edge = []
+        temp_label = []
+        temp_node1 = []
+        temp_node2 = []
         triple_list = line.split('< TSP >')
         for l in triple_list:
             l = l.strip().split(' | ')
-            print(l)
-            g.add_edge(l[0], l[1])
-            g.add_edge(l[1], l[0])
-            g.add_edge(l[1], l[2])
-            g.add_edge(l[2], l[1])
-            temp_edge.append(l[1])
-        edges.append(temp_edge)
-        nodes.append(list(g.nodes()))
-        array = nx.to_numpy_array(g)
-        print(array)
-        result = np.zeros((16, 16))
-
-        result[:array.shape[0], :array.shape[1]] = array
-
-        result += np.identity(16)
-
-        adj.append(result)
-        diag = np.sum(result, axis=0)
-        D = np.matrix(np.diag(diag))
-        degree_mat.append(D)
-        result = D**-1 * result
-        
+            #print(l)
+            g.add_edge(l[0], l[1], label='A_ZERO')
+            #g.add_edge(l[1], l[0])
+            g.add_edge(l[1], l[2], label='A_ONE')
+            #g.add_edge(l[2], l[1])
+        node_list = list(g.nodes())
+        nodes.append(node_list)
+        edge_list = list(g.edges.data())
+        for edge in edge_list:
+            temp_node1.append(edge[0])
+            temp_node2.append(edge[1])
+            label = (edge[2]['label'])
+            temp_label.append(label)
+        node1.append(temp_node1)
+        node2.append(temp_node2)
+        labels.append(temp_label)
     dest.close()
 
 def find_embedding(embedding, str):
@@ -235,3 +231,62 @@ if __name__ == '__main__':
                     pickle.dump(edges, fp)
                 with open('data/processed_graphs/eval/eval_node_roles', 'wb') as fp:
                     pickle.dump(roles, fp)
+
+    elif args.opt == 'reif':
+        nodes = []
+        node1 = []
+        node2 = []
+        labels = []
+        pre_process(args.path)
+        if args.train is not None:
+            if args.use_colab is not None:
+                from google.colab import drive
+
+                drive.mount('/content/gdrive')
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/train'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_node1', 'wb') as fp:
+                    pickle.dump(node1, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_node2', 'wb') as fp:
+                    pickle.dump(node2, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_labels', 'wb') as fp:
+                    pickle.dump(labels, fp)
+            else:
+                OUTPUT_DIR = 'data/processed_graphs/train'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+                with open('data/processed_graphs/train/train_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('data/processed_graphs/train/train_node1', 'wb') as fp:
+                    pickle.dump(node1, fp)
+                with open('data/processed_graphs/train/train_node2', 'wb') as fp:
+                    pickle.dump(node2, fp)
+                with open('data/processed_graphs/train/train_labels', 'wb') as fp:
+                    pickle.dump(labels, fp)
+        else:
+            if args.use_colab is not None:
+                from google.colab import drive
+
+                drive.mount('/content/gdrive')
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/eval'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_node1', 'wb') as fp:
+                    pickle.dump(node1, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_node2', 'wb') as fp:
+                    pickle.dump(node2, fp)
+                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_labels', 'wb') as fp:
+                    pickle.dump(labels, fp)
+            else:
+                OUTPUT_DIR = 'data/processed_graphs/eval'
+                if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+                with open('data/processed_graphs/eval/eval_nodes', 'wb') as fp:
+                    pickle.dump(nodes, fp)
+                with open('data/processed_graphs/eval/eval_node1', 'wb') as fp:
+                    pickle.dump(node1, fp)
+                with open('data/processed_graphs/eval/eval_node2', 'wb') as fp:
+                    pickle.dump(node2, fp)
+                with open('data/processed_graphs/eval/eval_labels', 'wb') as fp:
+                    pickle.dump(labels, fp)
