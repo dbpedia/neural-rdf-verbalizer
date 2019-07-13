@@ -401,7 +401,7 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc, ppl, rouge = eval_step(nodes, labels, node1, node2, targ)
+                        eval_loss, acc, ppl = eval_step(nodes, labels, node1, node2, targ)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                         print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                  eval_loss.numpy(), acc.numpy(), ppl.numpy()))
