@@ -9,7 +9,7 @@ import os
 from nltk.translate.bleu_score import corpus_bleu
 
 from src.models import graph_attention_model, transformer
-from src.utils.model_utils import CustomSchedule
+from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from src.arguments import get_args
 from src.utils.rogue import rouge_n
 
@@ -158,10 +158,10 @@ def gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor):
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
     result = ''
-    '''
+
     for i in range(82):
         mask = create_transgat_masks(dec_input)
-        predictions = model(adj, node_tensor, role_tensor, dec_input, mask=mask)
+        predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=dec_input, mask=None)
         # select the last word from the seq_len dimension
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
