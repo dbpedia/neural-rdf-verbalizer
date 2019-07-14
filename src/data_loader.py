@@ -180,5 +180,5 @@ def get_gat_dataset(args):
                                                     node1_tensor, node2_tensor, target_tensor)).shuffle(BUFFER_SIZE)
     dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-    return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-            vocab_tgt_size, vocab_src_size, tgt_vocab, max_length_targ)
+    return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size,
+            vocab_src_size, src_vocab, tgt_vocab, max_length_targ)

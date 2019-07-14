@@ -91,7 +91,7 @@ def load_model(args):
 
     return model
 
-def process_gat_sentence(line):
+def process_gat_sentence(line, src_lang, target_lang):
     g = nx.MultiDiGraph()
     nodes = []
     labels = []
@@ -118,8 +118,6 @@ def process_gat_sentence(line):
     node2.append(temp_node2)
     labels.append(temp_label)
     # set roles
-
-    src_lang, target_lang = load_gat_vocabs()
     node_tensor = src_lang.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
     label_tensor = src_lang.texts_to_sequences(labels)
@@ -140,7 +138,8 @@ def process_gat_sentence(line):
 
     return node_tensor, label_tensor, node1_tensor, node2_tensor
 
-def gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor):
+def gat_eval(model, node_tensor, label_tensor,
+             node1_tensor, node2_tensor, src_vocab, target_vocab):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -153,12 +152,11 @@ def gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor):
     :rtype: str
     """
     model.trainable = False
-    src_vocab, target_vocab = load_gat_vocabs()
     start_token = [target_vocab.word_index['<start>']]
     end_token = [target_vocab.word_index['<end>']]
     dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
     result = ''
-
+    '''
     for i in range(82):
         mask = create_transgat_masks(dec_input)
         predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=dec_input, mask=None)
@@ -256,10 +254,10 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
 
     return result
 
-def inf(args, triple, model):
+def inf(args, triple, model, src_vocab, target_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple)
-        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor)
+        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab)
+        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         result = seq2seq_eval(model, triple)
@@ -279,10 +277,12 @@ if __name__ == "__main__":
         s = open('data/results.txt', 'w+')
     #line = 'Point Fortin | country | Trinidad'
     verbalised_triples = []
+    if args.enc_type == 'gat':
+        src_vocab, target_vocab = load_gat_vocabs()
     for i,line in enumerate(f):
         if i< args.num_eval_lines:
             print(line)
-            result = inf(args, line, model)
+            result = inf(args, line, model, src_vocab, target_vocab)
             verbalised_triples.append(result)
             print(result)
             #s.write(result + '\n')

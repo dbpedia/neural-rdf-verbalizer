@@ -21,6 +21,8 @@ from src.models.graph_attention_model import TransGAT
 from src.models.transformer import Transformer
 from src.utils.metrics import LossLayer
 from inference import inf
+from src.utils.rogue import rouge_n
+from nltk.translate.bleu_score import corpus_bleu
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -330,7 +332,13 @@ if __name__ == "__main__":
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_tgt_size, vocab_src_size, tgt_vocab, max_length_targ) = get_gat_dataset(args)
+         vocab_tgt_size, vocab_src_size, src_vocab, tgt_vocab, max_length_targ) = get_gat_dataset(args)
+        ref_sentence = []
+        reference = open(args.eval_ref, 'r')
+        for i, line in enumerate(reference):
+            if (i < (args.num_eval_lines)):
+                ref_sentence.append(line)
+        eval_file = open(args.eval, 'r')
 
         model = TransGAT(args, vocab_src_size,
                         vocab_tgt_size, tgt_vocab)
@@ -377,20 +385,20 @@ if __name__ == "__main__":
             return batch_loss, acc, ppl
 
          # Eval function
-        def eval_step(nodes, labels, node1, node2, targ):
+        def eval_step():
             model.trainable = False
-            mask = create_transgat_masks(targ)
-            logits = model(nodes, labels, node1, node2, targ, mask)
-            predictions = model.metric_layer([logits, targ])
-            eval_loss = loss_layer([predictions, targ])
-            line = 'Amarillo , Texas | isPartOf | United States'
-            result = inf(args, line, model)
-            print(result)
-            acc = model.metrics[0].result()
-            ppl = model.metrics[-1].result()
+            verbalised_triples = []
+            for i, line in enumerate(eval_file):
+                if i < args.num_eval_lines:
+                    print(line)
+                    result = inf(args, line, model, src_vocab, tgt_vocab)
+                    verbalised_triples.append(result)
+                    print(result)
+            rogue = (rouge_n(verbalised_triples, ref_sentence))
+            score = corpus_bleu(ref_sentence, verbalised_triples)
             model.trainable = True
 
-            return eval_loss, acc, ppl
+            return rogue, score
 
         for epoch in range(args.epochs):
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
@@ -405,10 +413,9 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        eval_loss, acc, ppl = eval_step(nodes, labels, node1, node2, targ)
+                        rogue, bleu = eval_step()
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                 eval_loss.numpy(), acc.numpy(), ppl.numpy()))
+                        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, bleu))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
