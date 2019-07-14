@@ -395,10 +395,10 @@ if __name__ == "__main__":
                     verbalised_triples.append(result)
                     print(result)
             rogue = (rouge_n(verbalised_triples, ref_sentence))
-            score = corpus_bleu(ref_sentence, verbalised_triples)
+            #score = corpus_bleu(ref_sentence, verbalised_triples)
             model.trainable = True
 
-            return rogue, score
+            return rogue
 
         for epoch in range(args.epochs):
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
@@ -413,9 +413,9 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        rogue, bleu = eval_step()
+                        rogue = eval_step()
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, bleu))
+                        print('Rogue {:.4f}'.format(rogue))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
