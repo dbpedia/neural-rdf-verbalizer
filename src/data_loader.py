@@ -69,7 +69,7 @@ def tokenize(lang):
     return tensor, lang_tokenizer
 
 
-def load_dataset(src_path, tgt_path, num_examples=None):
+def load_dataset(src_path, tgt_path, lang, num_examples=None):
     # creating cleaned input, output pairs
     inp_lang, targ_lang = create_dataset(src_path, tgt_path, num_examples)
 
@@ -84,13 +84,13 @@ def load_dataset(src_path, tgt_path, num_examples=None):
     target_tensor = tf.keras.preprocessing.sequence.pad_sequences(target_tensor,
                                                                  padding='post')
 
-    os.makedirs('vocabs/seq2seq', exist_ok=True)
-    with open('vocabs/seq2seq/vocab', 'wb+') as fp:
+    os.makedirs(('vocabs/seq2seq/'+lang), exist_ok=True)
+    with open(('vocabs/seq2seq/'+lang+'/vocab'), 'wb+') as fp:
         pickle.dump(tokenizer, fp)
 
     return input_tensor, target_tensor, tokenizer
 
-def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path, tgt_path, num_examples=None):
+def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path, tgt_path, lang, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, num_examples)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
 
@@ -125,10 +125,10 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path, tgt_path, 
     node2_tensor = src_vocab.texts_to_sequences(node2)
     node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
     # save all vocabularies
-    os.makedirs('vocabs/gat', exist_ok=True)
-    with open('vocabs/gat/target_vocab', 'wb+') as fp:
+    os.makedirs(('vocabs/gat/'+lang), exist_ok=True)
+    with open(('vocabs/gat/'+lang+'/target_vocab'), 'wb+') as fp:
         pickle.dump(targ_lang_tokenizer, fp)
-    with open('vocabs/gat/src_vocab', 'wb+') as fp:
+    with open(('vocabs/gat/'+lang+'/src_vocab'), 'wb+') as fp:
         pickle.dump(src_vocab, fp)
 
     return (node_tensor, label_tensor, node1_tensor, node2_tensor,
@@ -143,7 +143,7 @@ def convert(lang, tensor):
 
 def get_dataset(args):
 
-    input_tensor, target_tensor, lang = load_dataset(args.src_path, args.tgt_path, args.num_examples)
+    input_tensor, target_tensor, lang = load_dataset(args.src_path, args.tgt_path, args.lang, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
@@ -156,13 +156,11 @@ def get_dataset(args):
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
            vocab_size, lang)
 
-def get_gat_dataset(args):
-
-    lang = args.lang
+def get_gat_dataset(args, lang):
 
     (node_tensor, label_tensor, node1_tensor, node2_tensor,
-     target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,
-                                                                              args.edge_node1, args.edge_node2, args.tgt_path)
+     target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,args.edge_node1,
+                                                                              args.edge_node2, args.tgt_path, lang)
 
     # Pad the edge tensor to 16 size
     node_paddings = tf.constant([[0, 0], [0, 1]])

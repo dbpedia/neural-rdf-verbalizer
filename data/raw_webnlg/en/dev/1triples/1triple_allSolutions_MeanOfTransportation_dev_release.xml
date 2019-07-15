@@ -1,0 +1,419 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="MeanOfTransportation" eid="Id1" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>1955_Dodge | aka | "Dodge Coronet"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1955_Dodge | alternativeName | "Dodge Coronet"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Dodge Coronet is the alternative name for the 1955 Dodge.</lex>
+      <lex comment="good" lid="Id2">The 1955 Dodge is also named the Dodge Coronet.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id2" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>1955_Dodge | engine | 230</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1955_Dodge | engine | 230 (cubic inches)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The 1955 Dodge engine is 230 cubic inches.</lex>
+      <lex comment="good" lid="Id2">The size of the engine in the 1955 Dodge is 230 cubic inches.</lex>
+      <lex comment="good" lid="Id3">The 1955 Dodge has an engine size of 230 cubic inches.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id3" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDA_Cruises | location | Rostock</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDA_Cruises | location | Rostock</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The location of AIDA Cruises is Rostock.</lex>
+      <lex comment="good" lid="Id2">AIDA Cruises are located at Rostock.</lex>
+      <lex comment="good" lid="Id3">AIDA Cruises is based in Rostock.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id4" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDAluna | activeYearsStartDate | "2009-03-22"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAluna | activeYearsStartDate | 2009-03-22</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIDAluna service was started on the 22nd of March, 2009.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id5" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDAluna | shipClass | "Sphinx class cruise ship"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAluna | shipClass | "Sphinx class cruise ship"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AIDAluna is a Sphinx class cruise ship.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id6" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDAstella | shipBuilder | Meyer_Werft</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AIDAstella | builder | Meyer_Werft</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | builder | Meyer_Werft</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AIDAstella was built by Meyer Werft.</lex>
+      <lex comment="good" lid="Id2">AIDAstella was built by Meyer Werft.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id7" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDAstella | shipChristened | "--03-16"^^xsd:gMonthDay</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AIDAstella | christeningDate | "2013-03-16"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | christeningDate | 2013-03-16</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AIDAstella was christened on the 16th of March, 2013.</lex>
+      <lex comment="good" lid="Id2">The AIDAstella was christened in March 16 2013.</lex>
+      <lex comment="good" lid="Id3">The christening date of AIDAstella is 2013-03-16.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id8" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AIDAstella | shipInService | "2013-03-17"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIDAstella | shipInService | 2013-03-17</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AIDAstella ship was put in service on March 17, 2013.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id9" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>ALCO_RS-3 | enginetype | Four-stroke_engine</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ALCO_RS-3 | engine | Four-stroke_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ALCO RS-3 has a four-stroke engine.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id10" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>ALV_X-1 | manufacturer | Alliant_Techsystems</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>ALV_X-1 | manufacturer | Alliant_Techsystems</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The ALV X-1 was manufactured by Alliant Techsystems.</lex>
+      <lex comment="good" lid="Id2">Alliant Techsystems makes the ALV X-1.</lex>
+      <lex comment="good" lid="Id3">Alliant Techsystems is the manufacturer of the ALV X-1.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id11" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>AMC_Matador | related | AMC_Ambassador</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AMC_Matador | relatedMeanOfTransportation | AMC_Ambassador</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The AMC Matador is related to the AMC Ambassador.</lex>
+      <lex comment="good" lid="Id2">The AMC Matador and the AMC Ambassador are relative means of transportation.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id12" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abarth_1000_GT_Coupé | productionEndYear | "1958"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abarth_1000_GT_Coupé | productionEndYear | 1958</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Abarth 1000 GT Coupé's final year of production was 1958.</lex>
+      <lex comment="good" lid="Id2">The last Abarth 1000 GT Coupé rolled off the production line in 1958.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id13" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Acura_TLX | engine | "3.5"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Acura_TLX | engine | 3.5 (litres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The engine size of the Acura TLX is 3.5 litres.</lex>
+      <lex comment="good" lid="Id2">The Acura TLX has a 3.5 litre engine.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id14" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Acura_TLX | engine | Honda_K_engine</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Acura_TLX | engine | Honda_K_engine</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Acura TLX has a Honda K engine.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id15" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Acura_TLX | transmission | "9-speedZF9HPautomatic(V6)"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Acura_TLX | transmission | "9-speed ZF 9HP automatic (V6)"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The transmission of the Acura TLX is a 9-speed ZF 9HP automatic (V6).</lex>
+      <lex comment="good" lid="Id2">The Acura TLX has a 9-speed ZF 9HP automatic (V6) transmission.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id16" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfa_Romeo_164 | class | Executive_car</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfa_Romeo_164 | class | Executive_car</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alfa Romeo 164 is an executive class car.</lex>
+      <lex comment="good" lid="Id2">The Alfa Romeo 164 is an executive car.</lex>
+      <lex comment="good" lid="Id3">The Alfa Romeo 164 is classified as an executive type car.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id17" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Fiat_Croma</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfa_Romeo_164 | related | Fiat_Croma</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfa_Romeo_164 | relatedMeanOfTransportation | Fiat_Croma</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alfa Romeo 164 and the Fiat Croma are similar means of transport.</lex>
+      <lex comment="good" lid="Id2">The Alfa Romeo 164 and the Fiat Croma are related means of transportation.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id18" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alhambra_(1855) | shipMaidenVoyage | "1855-07-07"^^xsd:date</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alhambra_(1855) | maidenVoyage | "1855-07-07"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alhambra | maidenVoyage | 1855-07-07</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alhambra had its maiden voyage on the 7th of July 1855.</lex>
+      <lex comment="good" lid="Id2">The Alhambra made its maiden voyage on July 7th 1855.</lex>
+      <lex comment="good" lid="Id3">Alhambra ship's first journey took place on 07/07/1855.</lex>
+      <lex comment="good" lid="Id4">The Alhambra had its first trip on July 7, 1855.</lex>
+      <lex comment="good" lid="Id5">Alhambra has its maiden voyage on July 7th, 1855.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id19" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alhambra_(1855) | shipBeam | "8.3 m"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alhambra | shipBeam | 8.3 m</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alhambra ship beam is 8.3m.</lex>
+      <lex comment="good" lid="Id2">The Alhambra has a ship beam of 8.3m.</lex>
+      <lex comment="good" lid="Id3">The Alhambra has an 8.3m ship beam.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id20" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alhambra_(1855) | topSpeed | "18.52"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alhambra | topSpeed | 18.52</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Alhambra had a top speed of 18.52 km/h.</lex>
+      <lex comment="good" lid="Id2">The Alhambra has a top speed of 18.52.</lex>
+      <lex comment="good" lid="Id3">The top speed of the Alhambra is 18.52.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id21" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Antares_(rocket) | finalFlight | "2014-10-28"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antares_(rocket) | finalFlight | 2014-10-28</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Antares rocket's final flight was on the 28th October 2014.</lex>
+      <lex comment="good" lid="Id2">The final flight of the Antares rocket was on 2014-10-28.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id22" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Ariane_5 | maidenFlight | "2005-08-11"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ariane_5 | maidenFlight | 2005-08-11</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Ariane 5 had its first voyage August 11, 2005.</lex>
+      <lex comment="good" lid="Id2">Ariane 5 had its maiden flight on August 11th 2005.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id23" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Ariane_5 | manufacturer | Airbus_Defence_and_Space</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ariane_5 | manufacturer | Airbus_Defence_and_Space</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Ariane 5 was manufactured by Airbus Defence and Space.</lex>
+      <lex comment="good" lid="Id2">The manufacturer of the Ariane 5 was The Airbus Defence and Space.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id24" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Atlas_II | countryOrigin | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlas_II | countryOrigin | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Atlas II originated from the U.S.</lex>
+      <lex comment="good" lid="Id2">Atlas II originates from the United States.</lex>
+      <lex comment="good" lid="Id3">The Atlas II is from the United States.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id25" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Atlas_II | finalFlight | "1998-03-16"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlas_II | finalFlight | 1998-03-16</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Atlas II had its final flight on March 16th 1998.</lex>
+      <lex comment="good" lid="Id2">The final flight of Atlas II was on 1998-03-16.</lex>
+      <lex comment="good" lid="Id3">The final flight of the Atlas II was on the 16th March 1998.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id26" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Audi | division | Audi_e-tron</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Audi | division | Audi_e-tron</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Audi e-tron is a division of Audi.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id27" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Audi_A1 | assembly | Audi_Brussels</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Audi_A1 | assembly | Audi_Brussels</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Audi A1 is assembled by Audi Brussels.</lex>
+      <lex comment="good" lid="Id2">The Audi A1 is assembled at Audi Brussels.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id28" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | foundation | California</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | foundationPlace | California</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | foundationPlace | California</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Caterpillar Inc was founded in California.</lex>
+      <lex comment="good" lid="Id2">The foundation place of Caterpillar Inc. was California.</lex>
+      <lex comment="good" lid="Id3">The company, Caterpillar, Inc. was founded in California.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id29" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | keyPerson | Douglas_R._Oberhelman</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The key person of Caterpillar Inc. is Douglas R. Oberhelman.</lex>
+      <lex comment="good" lid="Id2">Douglas R. Oberhelman is a key person at Caterpillar Inc.</lex>
+      <lex comment="good" lid="Id3">Douglas R Oberhelman is a key person at Caterpillar Inc.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id30" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Caterpillar_Inc. | location | Peoria,_Illinois</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Caterpillar_Inc. | location | Peoria,_Illinois</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Caterpillar Inc. is located in Peoria, Illinois.</lex>
+      <lex comment="good" lid="Id2">Caterpillar Inc. is in Peoria, Illinois.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id31" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Delta_II | sites | Cape_Canaveral_Air_Force_Station</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Delta_II | launchSite | Cape_Canaveral_Air_Force_Station</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Delta_II | launchSite | Cape_Canaveral_Air_Force_Station</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Delta II was launched at the Cape Canaveral Air Force Station.</lex>
+      <lex comment="good" lid="Id2">The Delta II was launched at Cape Canaveral Air Force Station.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id32" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Finland | language | Sami_languages</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Finland | language | Sami_languages</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">One of the languages in Finland is Sami.</lex>
+      <lex comment="good" lid="Id2">Sami languages are spoken in Finland.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id33" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Germany | leader | Stanislaw_Tillich</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Germany | leaderName | Stanislaw_Tillich</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Germany is Stanislaw Tillich.</lex>
+      <lex comment="good" lid="Id2">Stanislaw Tillich is a leader of Germany.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id34" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Guiana_Space_Centre | headquarters | Kourou,_French_Guiana</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Guiana_Space_Centre | headquarter | Kourou,_French_Guiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Guiana_Space_Centre | headquarter | Kourou,_French_Guiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Guiana Space Centre has its headquarters at Kourou in French Guiana.</lex>
+      <lex comment="good" lid="Id2">The Guiana Space Centre's headquarters are located in Kourou, French Guiana.</lex>
+      <lex comment="good" lid="Id3">The headquarters of the Guiana Space Centre is in Kourou, French Guiana.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id35" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Honda | division | Acura</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Honda | division | Acura</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Acura is a division of the Honda Co.</lex>
+      <lex comment="good" lid="Id2">Acura is a division of Honda.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id36" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Lancia_Thema | related | Alfa_Romeo_164</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Lancia_Thema | relatedMeanOfTransportation | Alfa_Romeo_164</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Lancia_Thema | relatedMeanOfTransportation | Alfa_Romeo_164</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Lancia Thema is related to the Alfa Romeo 164.</lex>
+      <lex comment="good" lid="Id2">Lancia Thema is a mean of transportation compared to Alfa Romeo 164.</lex>
+      <lex comment="good" lid="Id3">The Lancia Thema and the Alfa Romeo 164 are related means of transportation.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id37" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Meyer_Werft | location | Germany</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Meyer_Werft | location | Germany</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Meyer Werft is located in Germany.</lex>
+    </entry>
+    <entry category="MeanOfTransportation" eid="Id38" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Meyer_Werft | location | Papenburg</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Meyer_Werft | location | Papenburg</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The location of Meyer Werft is Papenburg.</lex>
+      <lex comment="good" lid="Id2">Mayer Werft is located in Papenburg.</lex>
+      <lex comment="good" lid="Id3">Meyer Werft is located in Papenburg.</lex>
+    </entry>
+    </entries>
+</benchmark>

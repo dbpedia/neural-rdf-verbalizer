@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Athlete" eid="Id1" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>A.C._Milan | chairman | Silvio_Berlusconi</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A.C._Milan | chairman | Silvio_Berlusconi</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Chairman of A C Milan is Silvio Berlusconi.</lex>
+      <lex comment="good" lid="Id2">Silvio Berlusconi is the chiarman of A.C. Milan.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id2" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | birthPlace | Canada</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aaron_Boogaard | placeOfBirth | Canada</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_Boogaard | birthPlace | Canada</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron Boogaard's birthplace is Canada.</lex>
+      <lex comment="good" lid="Id2">Aaron Boogaard was born in Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id3" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Uruguay_Olympic_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Uruguay_Olympic_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez is in the Uruguay Olympic football team.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez played for the Uruguay Olympic football team.</lex>
+      <lex comment="good" lid="Id3">Abel Hernández plays for the Uruguay Olympic football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id4" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abel_Hernández | team | Uruguay_national_football_team</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Hernández | club | Uruguay_national_football_team</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Hernandez's club is the Uruguay National football team.</lex>
+      <lex comment="good" lid="Id2">Abel Hernandez plays for the Uruguay national football team.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id5" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abner_(footballer) | team | C.D._FAS</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_(footballer) | club | C.D._FAS</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The footballer, Abner belongs to the club, C.D. FAS.</lex>
+      <lex comment="good" lid="Id2">The footballer Abner plays for C.D. FAS.</lex>
+      <lex comment="good" lid="Id3">Abner is a footballer for the CD FAS club.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id6" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Maher | birthPlace | "Ait Ikkou, Morocco"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Maher | birthPlace | "Ait Ikkou, Morocco"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Maher was born in Ait Ikkou, Morocco.</lex>
+      <lex comment="good" lid="Id2">Ait Ikkou, Morocco is the birth place of Adam Maher.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id7" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Maher | birthPlace | Diemen</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adam_Maher | placeOfBirth | Diemen</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Maher | birthPlace | Diemen</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Maher's birthplace is Diemen.</lex>
+      <lex comment="good" lid="Id2">Diemen is the birth place of Adam Maher.</lex>
+      <lex comment="good" lid="Id3">Adam Maher was born in Diemen.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id8" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_McQuaid | birthPlace | Charlottetown</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adam_McQuaid | placeOfBirth | Charlottetown</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_McQuaid | birthPlace | Charlottetown</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam McQuaid was born in Charlottetown.</lex>
+      <lex comment="good" lid="Id2">Charlottetown was the birthplace of Adam McQuaid.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id9" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | birthPlace | Iraq</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | birthPlace | Iraq</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad's birthplace is Iraq.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim Assad was born in Iraq.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad's place of birth is Iraq.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id10" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | team | PAS_Tehran_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ahmad_Kadhim_Assad | clubs | PAS_Tehran_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ahmad_Kadhim_Assad | club | PAS_Tehran_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ahmad Kadhim Assad played for the club PAS Tehran F.C.</lex>
+      <lex comment="good" lid="Id2">Ahmad Kadhim plays for PAS Tehran FC.</lex>
+      <lex comment="good" lid="Id3">Ahmad Kadhim Assad plays for PAS Tahran F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id11" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Akeem_Ayers | position | Linebacker</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Ayers | position | Linebacker</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Ayers plays as a linebacker.</lex>
+      <lex comment="good" lid="Id2">Akeem Ayers' position is linebacker.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id12" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | team | FK_Mughan</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Akeem_Priestley | clubs | "→ FK Mughan"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | club | FK_Mughan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley plays for FK Mughan.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley played for FK Mughan.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id13" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Akeem_Priestley | youthclubs | Jacksonville_Dolphins</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Akeem_Priestley | youthclub | Jacksonville_Dolphins</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akeem Priestley played for the Jacksonville Dolphins youth team.</lex>
+      <lex comment="good" lid="Id2">Akeem Priestley is in the Jacksonville Dolphins youth club.</lex>
+      <lex comment="good" lid="Id3">Akeem Priestley's youth club is the Jacksonville Dolphins.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id14" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Al-Khor_Sports_Club | league | Qatar_Stars_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Al-Khor_Sports_Club | league | Qatar_Stars_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Al-Khor Sports Club is in the Qatar Stars League.</lex>
+      <lex comment="good" lid="Id2">Al-Khor Sports Club play in the Qatar Stars League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id15" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alaa_Abdul-Zahra | birthPlace | Baghdad</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alaa_Abdul-Zahra | birthPlace | Baghdad</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alaa Abdul-Zahra was born in Baghdad.</lex>
+      <lex comment="good" lid="Id2">Baghdad is the birth place of Alaa Abdul-Zahra.</lex>
+      <lex comment="good" lid="Id3">Alaa Abdul Zahra was born in Baghdad.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id16" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Accrington_Stanley_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | "→ Accrington Stanley"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Accrington_Stanley_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alan Martin played football for Accrington Stanley F.C.</lex>
+      <lex comment="good" lid="Id2">Footballer, Alan Martin plays for the club, Accrington Stanley F.C.</lex>
+      <lex comment="good" lid="Id3">Alan Martin played for Accrington Stanley F.C.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id17" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | clubs | Crewe_Alexandra_F.C.</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alan_Martin_(footballer,_born_1989) | team | Crewe_Alexandra_F.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alan_Martin_(footballer) | club | Crewe_Alexandra_F.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Footballer, Alan Martin, plays for the club, Crewe Alexandra F.C.</lex>
+      <lex comment="good" lid="Id2">The footballer Alan Martin plays for Crewe Alexandra F.C.</lex>
+      <lex comment="good" lid="Id3">Alan Martin is a footballer for the Crewe Alexandra FC.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id18" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | birthPlace | Finland</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | birthPlace | Finland</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr was born in Finland.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr. was born in Finland.</lex>
+      <lex comment="good" lid="Id3">Aleksander Barkov, Jr's birth place is Finland.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id19" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | team | Florida_Panthers</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | club | Florida_Panthers</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr has played for the Florida Panthers.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov, Jr's club is the Florida Panthers.</lex>
+      <lex comment="good" lid="Id3">Aleksander Barkov Jr. plays for the Florida Panthers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id20" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aleksander_Barkov,_Jr. | league | National_Hockey_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksander_Barkov,_Jr. | league | National_Hockey_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksander Barkov Jr played in the National Hockey League.</lex>
+      <lex comment="good" lid="Id2">Aleksander Barkov Jr. plays in the National Hockey League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id21" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | clubs | FC_Samtredia</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Aleksandre_Guruli | team | FC_Samtredia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aleksandre_Guruli | club | FC_Samtredia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aleksandre Guruli plays for FC Samtredia.</lex>
+      <lex comment="good" lid="Id2">Aleksandre Guruli's club is FC Samtredia.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id22" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alex_Plante | placeOfBirth | Manitoba</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alex_Plante | birthPlace | Manitoba</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | birthPlace | Manitoba</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante was born in Manitoba.</lex>
+      <lex comment="good" lid="Id2">Alex Plante's birthplace is Manitoba.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id23" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alex_Plante | height | "1.9304"^^xsd:double</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alex_Plante | height | 1.9304</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alex Plante is 1.9304m tall.</lex>
+      <lex comment="good" lid="Id2">Alex Plante is 1.9304 m tall.</lex>
+      <lex comment="good" lid="Id3">Alex Plante is 1.9304 metres tall.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id24" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Brandon,_Manitoba | leaderName | Drew_Caldwell</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Brandon,_Manitoba | leaderName | Drew_Caldwell</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Brandon, Manitoba is Drew Caldwell.</lex>
+      <lex comment="good" lid="Id2">Drew Caldwell is leader of Brandon, Manitoba.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id25" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Budapest | country | Hungary</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Budapest | country | Hungary</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Budapest is a city in Hungary.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id26" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Canada | language | Inuktitut</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Canada | language | Inuktitut</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Inuktitut is a language spoken in Canada.</lex>
+      <lex comment="good" lid="Id2">Inuktitut is a spoken language in Canada.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id27" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Columbus_Blue_Jackets | city | Columbus,_Ohio</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Columbus_Blue_Jackets | locationCity | Columbus,_Ohio</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Columbus_Blue_Jackets | city | Columbus,_Ohio</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Columbus Blue Jackets' city is Columbus, Ohio.</lex>
+      <lex comment="good" lid="Id2">The Columbus Blue Jackets are based in the city of Columbus, Ohio.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id28" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>FC_Terek_Grozny | ground | Grozny</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Terek_Grozny | ground | Grozny</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">FC Terek Grozny's ground is based at Grozny.</lex>
+      <lex comment="good" lid="Id2">FC Terek Grozny's ground is located in Grozny.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id29" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>FC_Tom_Tomsk | league | Russian_Football_National_League</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Tom_Tomsk | league | Russian_Football_National_League</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The league FC Tom Tomsk plays in is the Russian Football National League.</lex>
+      <lex comment="good" lid="Id2">FC Tom Tomsk play in the Russian National Football League.</lex>
+      <lex comment="good" lid="Id3">FC Tom Tomsk play in the Russian Football National League.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id30" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>FC_Torpedo_Moscow | manager | Valery_Petrakov</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>FC_Torpedo_Moscow | manager | Valery_Petrakov</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Valery Petrakov is the manager of FC Torpedo Moscow.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id31" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Florida_Panthers | generalManager | Dale_Tallon</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Florida_Panthers | generalManager | Dale_Tallon</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The general manager of Florida Panthers is Dale Tallon.</lex>
+      <lex comment="good" lid="Id2">Florida Panthers' general manager is Dale Tallon.</lex>
+      <lex comment="good" lid="Id3">Dale Tallon is the general manager of the Florida Panthers.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id32" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Maccabi_Tel_Aviv_B.C. | coach | Žan_Tabak</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Maccabi_Tel_Aviv_B.C. | coach | Žan_Tabak</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Maccabi Tel Aviv B.C.'s coach is Zan Tabak.</lex>
+      <lex comment="good" lid="Id2">Zan Tabak is the coach for the Maccabi Tel Aviv B.C. team.</lex>
+      <lex comment="good" lid="Id3">The coach of Maccabi Tel Aviv B.C is Zan Tabak.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id33" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Olympique_Lyonnais | ground | Parc_Olympique_Lyonnais</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Olympique_Lyonnais | ground | Parc_Olympique_Lyonnais</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Olympique Lyonnais play their home games at the Parc Olympique Lyonnais.</lex>
+      <lex comment="good" lid="Id2">Olympique Lyonnais' home ground is the Parc Olympique Lyonnais stadium.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id34" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Peñarol | manager | Jorge_Orosmán_da_Silva</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Peñarol | manager | Jorge_Orosmán_da_Silva</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Peñarol's manager is Jorge Orosmán da Silva.</lex>
+      <lex comment="good" lid="Id2">The manager of Peñarol is Jorge Orosmán da Silva.</lex>
+      <lex comment="good" lid="Id3">Jorge Orosmán da Silva is the manager of Peñarol.</lex>
+    </entry>
+    <entry category="Athlete" eid="Id35" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Point_Fortin | country | Trinidad</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Point_Fortin | country | Trinidad</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Point Fortin is in Trinidad.</lex>
+      <lex comment="good" lid="Id2">Point Fortin is located in Trinidad.</lex>
+      <lex comment="good" lid="Id3">Point Fortin is located in the country of Trinidad.</lex>
+    </entry>
+    </entries>
+</benchmark>

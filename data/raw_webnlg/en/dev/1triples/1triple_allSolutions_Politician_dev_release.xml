@@ -1,0 +1,412 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Politician" eid="Id1" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aaron_S._Daggett | award | Purple_Heart</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_S._Daggett | award | Purple_Heart</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Aaron S Daggett was awarded the Purple Heart.</lex>
+      <lex comment="good" lid="Id2">Aaron S. Daggett was awarded the Purple Heart.</lex>
+    </entry>
+    <entry category="Politician" eid="Id2" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Aaron_S._Daggett | battle | Battle_of_Mine_Run</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Aaron_S._Daggett | battles | Battle_of_Mine_Run</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Battle of Mine Run was one fought by Aaron S Daggett.</lex>
+      <lex comment="good" lid="Id2">Aaron S. Daggett fought in the Battle of Mine Run.</lex>
+      <lex comment="good" lid="Id3">The Battle of Mine Run was one of the battles that Aaron S. Daggett fought at.</lex>
+    </entry>
+    <entry category="Politician" eid="Id3" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Rahman_Ya'kub | governor | Tuanku_Bujang_Tuanku_Othman</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Rahman_Ya'kub | inOfficeWhileVicePresident | Tuanku_Bujang_Tuanku_Othman</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Rahman Ya'kub was in office while Tuanku Bujang Tuanku Othman was Vice President.</lex>
+      <lex comment="good" lid="Id2">Abdul Rahman Ya'kub was in office whilst Tuanku Bujang Tuanku Othman was Vice President.</lex>
+    </entry>
+    <entry category="Politician" eid="Id4" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | almaMater | University_of_Adelaide</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | almaMater | University_of_Adelaide</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud's Alma mater is the University of Adelaide.</lex>
+      <lex comment="good" lid="Id2">The University of Adelaide is the alma mater of Abdul Taib Mahmud.</lex>
+    </entry>
+    <entry category="Politician" eid="Id5" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | region | Kota_Samarahan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | region | Kota_Samarahan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud is from Kota Samarahan.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud is from the region of Kota Samarahan.</lex>
+      <lex comment="good" lid="Id3">Adul Taib Mahmud lived in the Kota Samarahan region.</lex>
+    </entry>
+    <entry category="Politician" eid="Id6" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | successor | Adenan_Satem</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | successor | Adenan_Satem</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud successor was Adenan Satem.</lex>
+      <lex comment="good" lid="Id2">Adenan Satem succeeded Abdul Taib Mahmud.</lex>
+    </entry>
+    <entry category="Politician" eid="Id7" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdul_Taib_Mahmud | successor | Sulaiman_Abdul_Rahman_Taib</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdul_Taib_Mahmud | successor | Sulaiman_Abdul_Rahman_Taib</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdul Taib Mahmud's successor was Sulaiman Abdul Rahman Taib.</lex>
+      <lex comment="good" lid="Id2">Abdul Taib Mahmud was succeded by Sulaiman Abdul Rahman Taib.</lex>
+      <lex comment="good" lid="Id3">The sucessor to Abdul Taib Mahmud was Sulaiman Abdul Rahman Taib.</lex>
+    </entry>
+    <entry category="Politician" eid="Id8" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abdulsalami_Abubakar | militaryBranch | Nigerian_Army</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abdulsalami_Abubakar | militaryBranch | Nigerian_Army</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abdulsalami Abubakar served in the Nigerian Army.</lex>
+    </entry>
+    <entry category="Politician" eid="Id9" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abel_Caballero | monarch | Juan_Carlos_I_of_Spain</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abel_Caballero | inOfficeWhileMonarch | Juan_Carlos_I_of_Spain</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abel Caballero was in office during the reign of Monarch, Juan Carlos I of Spain.</lex>
+      <lex comment="good" lid="Id2">Abel Caballero was in office whilst Juan Carlos I of Spain was Monarch.</lex>
+    </entry>
+    <entry category="Politician" eid="Id10" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | battle | World_War_II</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Abner_W._Sibal | battles | World_War_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abner_W._Sibal | battles | World_War_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Abner W. Sibal fought in World War II.</lex>
+      <lex comment="good" lid="Id2">Abner W. Sibal fought during WWII.</lex>
+    </entry>
+    <entry category="Politician" eid="Id11" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Abraham_A._Ribicoff | successor | Anthony_J._Celebrezze</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abraham_A._Ribicoff | successor | Anthony_J._Celebrezze</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The successor to Abraham A. Ribicoff is Anthony J. Celebrezze.</lex>
+      <lex comment="good" lid="Id2">Anthony J. Celebrezze succeeded Abraham A. Ribicoff.</lex>
+      <lex comment="good" lid="Id3">Abraham A. Ribicoff's successor was Anthony J. Celebrezze.</lex>
+    </entry>
+    <entry category="Politician" eid="Id12" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Koc | awards | Cross_of_Valour_(Poland)</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Adam_Koc | award | Cross_of_Valour_(Poland)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Koc | award | Cross_of_Valour_(Poland)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Koc was awarded the Cross of Valour (Poland).</lex>
+      <lex comment="good" lid="Id2">Adam Koc has been awarded the Cross of Valour for Poland.</lex>
+    </entry>
+    <entry category="Politician" eid="Id13" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adam_Koc | deathPlace | New_York_City</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adam_Koc | deathPlace | New_York_City</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adam Koc died in New York City.</lex>
+    </entry>
+    <entry category="Politician" eid="Id14" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adenan_Satem | almaMater | University_of_Adelaide</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adenan_Satem | almaMater | University_of_Adelaide</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The alma mater of Adenan Satem is the University of Adelaide.</lex>
+      <lex comment="good" lid="Id2">Adenan Satem's alma mater is the University of Adelaide.</lex>
+    </entry>
+    <entry category="Politician" eid="Id15" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Adonis_Georgiadis | office | "Deputy Minister for Development, Competitiveness and Shipping"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Adonis_Georgiadis | office (workedAt, workedAs) | "Deputy Minister for Development, Competitiveness and Shipping"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Adonis Georgiadis worked as Deputy Minister for Development, Competitiveness and Shipping.</lex>
+      <lex comment="good" lid="Id2">Adonis Georgiadis was the Deputy Minister for Development, Competitiveness and Shipping.</lex>
+      <lex comment="good" lid="Id3">Adonis Georgiadis worked as the Deputy Minister for Development, Competitiveness and Shipping.</lex>
+    </entry>
+    <entry category="Politician" eid="Id16" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Agnes_Kant | office | House_of_Representatives_(Netherlands)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agnes_Kant | office (workedAt, workedAs) | House_of_Representatives_(Netherlands)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Agnes Kant worked at the House of Representatives in Netherlands.</lex>
+      <lex comment="good" lid="Id2">Agnes Kant worked at the House of Representatives in the Netherlands.</lex>
+    </entry>
+    <entry category="Politician" eid="Id17" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Agnes_Kant | residence | Netherlands</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Agnes_Kant | residence | Netherlands</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Agnes Kant lives in the Netherlands.</lex>
+      <lex comment="good" lid="Id2">Agnes Kant resides in the Netherlands.</lex>
+    </entry>
+    <entry category="Politician" eid="Id18" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | award | Territorial_Decoration</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | award | Territorial_Decoration</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave was awarded the Territorial Decoration.</lex>
+      <lex comment="good" lid="Id2">Airey Neave won the Territorial Decoration award.</lex>
+    </entry>
+    <entry category="Politician" eid="Id19" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | birthPlace | "Knightsbridge, London"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | birthPlace | "Knightsbridge, London"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Knightsbridge, London is the birthplace of Airey Neave.</lex>
+      <lex comment="good" lid="Id2">Airey Neave was born in Knightsbridge, London.</lex>
+    </entry>
+    <entry category="Politician" eid="Id20" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Airey_Neave | serviceStartYear | "1935"^^xsd:gYear</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Airey_Neave | serviceStartYear | 1935</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Airey Neave began his military career in 1935.</lex>
+      <lex comment="good" lid="Id2">Airey Neave started serving in military in 1935.</lex>
+      <lex comment="good" lid="Id3">Airey Neave began his service in 1935.</lex>
+    </entry>
+    <entry category="Politician" eid="Id21" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alberto_Teisaire | nationality | Argentina</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alberto_Teisaire | nationality | Argentina</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alberto Teisaire's nationality is Argentinian.</lex>
+      <lex comment="good" lid="Id2">Alberto Teisaire is Argentinian.</lex>
+      <lex comment="good" lid="Id3">Alberto Teisaire was Argentinian.</lex>
+    </entry>
+    <entry category="Politician" eid="Id22" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfred_Moore_Scales | battles | Battle_of_Chancellorsville</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfred_Moore_Scales | battle | Battle_of_Chancellorsville</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_Moore_Scales | battles | Battle_of_Chancellorsville</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred Moore Scales took part in the Battle of Chancellorsville.</lex>
+      <lex comment="good" lid="Id2">Alfred Moore Scales fought in the Battle of Chancellorsville.</lex>
+      <lex comment="good" lid="Id3">Alfred Moore Scales was involved in the Battle of Chancellorsville.</lex>
+    </entry>
+    <entry category="Politician" eid="Id23" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alfred_Moore_Scales | battle | Overland_Campaign</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alfred_Moore_Scales | battles | Overland_Campaign</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alfred_Moore_Scales | battles | Overland_Campaign</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alfred Moore Scales fought in the Overland Campaign.</lex>
+    </entry>
+    <entry category="Politician" eid="Id24" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Allan_Shivers | battle | World_War_II</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Allan_Shivers | battles | World_War_II</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allan_Shivers | battles | World_War_II</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allan Shivers fought battles in World War II.</lex>
+      <lex comment="good" lid="Id2">Allan Shivers fought in World War II.</lex>
+    </entry>
+    <entry category="Politician" eid="Id25" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Allan_Shivers | militaryBranch | United_States_Army</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Allan_Shivers | branch | United_States_Army</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Allan_Shivers | militaryBranch | United_States_Army</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Allan Shivers served in the United States Army.</lex>
+    </entry>
+    <entry category="Politician" eid="Id26" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | activeYearsEndDate | "1857-03-03"^^xsd:date</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | activeYearsEndDate | 1857-03-03</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alvah Sabin ended their career on 1857-03-03.</lex>
+    </entry>
+    <entry category="Politician" eid="Id27" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Alvah_Sabin | party | Whig_Party_(United_States)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alvah_Sabin | party | Whig_Party_(United_States)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alvah Sabin was a member of the United States Whig Party.</lex>
+      <lex comment="good" lid="Id2">Alvah Sabin belongs to the Whig Party (United States).</lex>
+      <lex comment="good" lid="Id3">Alvah Sabin was a member of the Whig Party of the United States.</lex>
+    </entry>
+    <entry category="Politician" eid="Id28" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Antonis_Samaras | successor | Konstantinos_Mitsotakis</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Antonis_Samaras | successor | Konstantinos_Mitsotakis</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Konstantinos Mitsotakis was the successor to Antonis Samaras.</lex>
+      <lex comment="good" lid="Id2">The successor to Antonis Samaras was Konstantionos Mitsotakis.</lex>
+    </entry>
+    <entry category="Politician" eid="Id29" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Argentina | leaderName | Gabriela_Michetti</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Argentina | leaderName | Gabriela_Michetti</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The leader of Argentina is Gabriela Michetti.</lex>
+      <lex comment="good" lid="Id2">Gabriela Michetti is a leader in Argentina.</lex>
+    </entry>
+    <entry category="Politician" eid="Id30" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Austria | language | Austrian_German</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austria | language | Austrian_German</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">In Austria, the language is Austrian German.</lex>
+      <lex comment="good" lid="Id2">The language in Austria is Austrian German.</lex>
+      <lex comment="good" lid="Id3">The spoken language of Austria is Austrian German.</lex>
+    </entry>
+    <entry category="Politician" eid="Id31" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Battle_of_Fredericksburg | isPartOfMilitaryConflict | American_Civil_War</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Battle_of_Fredericksburg | isPartOfMilitaryConflict | American_Civil_War</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Battle of Fredericksburg was fought during the American Civil War.</lex>
+      <lex comment="good" lid="Id2">The battle of Fredericksburg was part of the American Civil War military conflict.</lex>
+    </entry>
+    <entry category="Politician" eid="Id32" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Edmund_J._Davis | deathPlace | Austin,_Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Edmund_J._Davis | deathPlace | Austin,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The death place of Edmund J. Davis is Austin Texas.</lex>
+      <lex comment="good" lid="Id2">Edmund J. Davis died in Austin, Texas.</lex>
+      <lex comment="good" lid="Id3">Edmund J. Davis died in Austin Texas.</lex>
+    </entry>
+    <entry category="Politician" eid="Id33" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Josef_Klaus | almaMater | University_of_Vienna</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Josef_Klaus | almaMater | University_of_Vienna</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The University of Vienna is the Alma mater of Josef Klaus.</lex>
+      <lex comment="good" lid="Id2">Josef Klaus alma mater is the University of Vienna.</lex>
+      <lex comment="good" lid="Id3">The alma mater of Josef Klaus is the University of Vienna.</lex>
+    </entry>
+    <entry category="Politician" eid="Id34" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Juan_Perón | party | Labour_Party_(Argentina)</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Juan_Perón | party | Labour_Party_(Argentina)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Juan Perón was a member of the Labour Party in Argentina.</lex>
+      <lex comment="good" lid="Id2">Juan Peron belongs to the Labour Party in Argentina.</lex>
+    </entry>
+    <entry category="Politician" eid="Id35" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Mike_Akhigbe | predecessor | Oladipo_Diya</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Mike_Akhigbe | predecessor | Oladipo_Diya</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Oladipo Diya was Mike Akhigbe's predecessor.</lex>
+      <lex comment="good" lid="Id2">Oladipo Diya was the predecessor of Mike Akhigbe.</lex>
+    </entry>
+    <entry category="Politician" eid="Id36" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Nigerian_Air_Force | commander | Sadique_Abubakar</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Nigerian_Air_Force | commander | Sadique_Abubakar</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Sadique Abubakar is a commander in the Nigerian Air Force.</lex>
+      <lex comment="good" lid="Id2">The commander of the Nigerian Air Force is Sadique Abubakar.</lex>
+      <lex comment="good" lid="Id3">Sadique Abubakar was commander of the Nigerian Air Force.</lex>
+    </entry>
+    <entry category="Politician" eid="Id37" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Poland | ethnicGroup | Romani_people</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Poland | ethnicGroup | Romani_people</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Romani are an ethnic group in Poland.</lex>
+      <lex comment="good" lid="Id2">The Romani people are an ethnic group in Poland.</lex>
+      <lex comment="good" lid="Id3">An ethnic group in Poland is the Romani people.</lex>
+    </entry>
+    <entry category="Politician" eid="Id38" shape="(X (X))" shape_type="NA" size="1">
+      <originaltripleset>
+        <otriple>Poland | language | Kashubian_language</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Poland | language | Kashubian_language</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The Kashubian language is spoken in Poland.</lex>
+      <lex comment="good" lid="Id2">The language spoken in Poland is the Kashubian language.</lex>
+    </entry>
+    </entries>
+</benchmark>

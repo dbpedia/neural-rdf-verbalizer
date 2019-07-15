@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="City" eid="Id1" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Albany,_Georgia | subdivisionName | United_States</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Georgia | isPartOf | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albany, Georgia is in the United States, home to a number of ethnic groups including, African Americans.</lex>
+      <lex comment="good" lid="Id2">Albany, Georgia is part of the United States of America where one of the ethnic groups are the African Americans.</lex>
+      <lex comment="good" lid="Id3">Albany, Georgia, is in the United States where African Americans are one of the ethnic groups.</lex>
+    </entry>
+    <entry category="City" eid="Id2" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Albany,_Oregon | isPartOf | Oregon</otriple>
+        <otriple>Oregon | largestCity | Portland,_Oregon</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Albany,_Oregon | isPartOf | Oregon</mtriple>
+        <mtriple>Oregon | largestCity | Portland,_Oregon</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Portland is the largest city in Oregon which also includes Albany.</lex>
+      <lex comment="good" lid="Id2">Portland is the largest city in Oregon, the state which is home to Albany.</lex>
+      <lex comment="good" lid="Id3">Albany is a city in Oregon along with Portland which is the largest.</lex>
+    </entry>
+    <entry category="City" eid="Id3" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81167e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81167e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.332"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.332"^^xsd:double</otriple>
+        <otriple>Alexandria,_Indiana | areaTotal | "6.81"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.332"^^xsd:double</otriple>
+        <otriple>Alexandria,_Indiana | areaTotal | "6.81166873018368"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3"^^xsd:double</otriple>
+        <otriple>Alexandria,_Indiana | areaTotal | "6.81"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81167e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.332"^^xsd:double</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alexandria,_Indiana | areaTotal | 6.81e+06</otriple>
+        <otriple>Alexandria,_Indiana | populationDensity | "755.3316527565869"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alexandria,_Indiana | areaTotal | 6.81 (square kilometres)</mtriple>
+        <mtriple>Alexandria,_Indiana | populationDensity | 755.3 (inhabitants per square kilometre)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alexandria, Indiana (total area 6.81 sq km), has a population density of 755.3 inhabitants per square kilometre.</lex>
+      <lex comment="good" lid="Id2">Alexandria, Indiana, covers an area of 6.81 sq kilometres and has a population density of 755.3 inhabitants per sq km.</lex>
+      <lex comment="good" lid="Id3">The population density of Alexandria, Indiana, is 755.3 (inhabitants per square kilometer) and it occupies 6.81 square kilometers.</lex>
+    </entry>
+    <entry category="City" eid="Id4" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Amarillo,_Texas | isPartOf | Potter_County,_Texas</otriple>
+        <otriple>Potter_County,_Texas | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Amarillo,_Texas | isPartOf | Potter_County,_Texas</mtriple>
+        <mtriple>Potter_County,_Texas | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Amarillo can be located in Potter County, Texas which is in the United States of America.</lex>
+      <lex comment="good" lid="Id2">Amarillo is part of Potter County, Texas, U.S.</lex>
+      <lex comment="good" lid="Id3">Amarillo is located in Potter County, Texas in the United States of America.</lex>
+    </entry>
+    <entry category="City" eid="Id5" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "48.0"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | 1.316e+08</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "47.8536"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | 1.316e+08</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "48.0"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | "131.6"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "47.8536"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | "131.6"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "48.0"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | "131.5998858742825"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anaheim,_California | elevation | "47.8536"^^xsd:double</otriple>
+        <otriple>Anaheim,_California | areaTotal | "131.5998858742825"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anaheim,_California | elevationAboveTheSeaLevel | 48.0</mtriple>
+        <mtriple>Anaheim,_California | areaTotal | 131.6 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anaheim, California is situated at 48.0 above sea level and has a total area of 131.6 square kilometres.</lex>
+      <lex comment="good" lid="Id2">Anaheim, California is situated at 48.0 above sea level and has a total area of 131.6 sq km.</lex>
+    </entry>
+    <entry category="City" eid="Id6" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Anderson,_Indiana | isPartOf | Anderson_Township,_Madison_County,_Indiana</otriple>
+        <otriple>Anderson_Township,_Madison_County,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Anderson_Township,_Madison_County,_Indiana | country | United_States</otriple>
+        <otriple>Anderson,_Indiana | subdivisionName | Anderson_Township,_Madison_County,_Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anderson,_Indiana | isPartOf | Anderson_Township,_Madison_County,_Indiana</mtriple>
+        <mtriple>Anderson_Township,_Madison_County,_Indiana | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson is part of Anderson Township,Madison County,Indiana in the United States.</lex>
+      <lex comment="good" lid="Id2">Anderson, Indiana is part of Anderson Township, Madison County, Indiana, in the United States.</lex>
+      <lex comment="good" lid="Id3">Anderson is part of the Anderson Township, Madison County in Indiana United States.</lex>
+    </entry>
+    <entry category="City" eid="Id7" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Anderson,_Indiana | isPartOf | Fall_Creek_Township,_Madison_County,_Indiana</otriple>
+        <otriple>Fall_Creek_Township,_Madison_County,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anderson,_Indiana | isPartOf | Fall_Creek_Township,_Madison_County,_Indiana</mtriple>
+        <mtriple>Fall_Creek_Township,_Madison_County,_Indiana | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson, Indiana, is part of Fall Creek Township, Madison County Indiana, United States.</lex>
+      <lex comment="good" lid="Id2">Anderson, is part of Fall Creek Township, Madison County, in the U.S.</lex>
+      <lex comment="good" lid="Id3">Anderson, is part of Fall Creek Township, Madison County, Indiana, in the U.S.</lex>
+    </entry>
+    <entry category="City" eid="Id8" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Anderson,_Indiana | isPartOf | Union_Township,_Madison_County,_Indiana</otriple>
+        <otriple>Union_Township,_Madison_County,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Anderson,_Indiana | isPartOf | Union_Township,_Madison_County,_Indiana</mtriple>
+        <mtriple>Union_Township,_Madison_County,_Indiana | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Anderson is part of Union Township, Madison County, Indiana, United States.</lex>
+      <lex comment="good" lid="Id2">Anderson is part of Union Township, Madison County, Indiana in the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id9" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.66"^^xsd:double</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.33"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.6636268569193"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.3326587666432"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | 7.43327e+07</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.3326587666432"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | 7.433e+07</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^xsd:double</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.33"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^xsd:double</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.3326587666432"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.6636268569193"^^&lt;http://dbpedia.org/datatype/inhabitantsPerSquareKilometre&gt;</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | 7.433e+07</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.7"^^xsd:double</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | 7.433e+07</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Ann_Arbor,_Michigan | populationDensity | "1580.66"^^xsd:double</otriple>
+        <otriple>Ann_Arbor,_Michigan | areaTotal | "74.3326587666432"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Ann_Arbor,_Michigan | populationDensity | 1580.7 (inhabitants per square kilometre)</mtriple>
+        <mtriple>Ann_Arbor,_Michigan | areaTotal | 74.33 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ann Arbor, Michigan has a population of 1580.7 per square kilometre and a total area of 74.33 square kilometres.</lex>
+      </entry>
+    <entry category="City" eid="Id10" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Atlanta | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlanta | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The United States is the location of Atlanta and includes the African Americans among its ethnic groups.</lex>
+      <lex comment="good" lid="Id2">The United States has the ethnic group of African Americans and is the location of Atlanta.</lex>
+      <lex comment="good" lid="Id3">Atlanta is located in the United States where African Americans are an ethnic group.</lex>
+    </entry>
+    <entry category="City" eid="Id11" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Atlanta | isPartOf | Georgia_(U.S._state)</otriple>
+        <otriple>Atlanta | subdivisionName | Fulton_County,_Georgia</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Atlanta | isPartOf | Georgia_(U.S._state)</mtriple>
+        <mtriple>Atlanta | isPartOf | Fulton_County,_Georgia</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Atlanta is part of Fulton County, Georgia, United States.</lex>
+      <lex comment="good" lid="Id2">Atlanta is part of Fulton County, Georgia, US.</lex>
+      <lex comment="good" lid="Id3">Atlanta is part of Fulton County, Georgia U.S.</lex>
+    </entry>
+    <entry category="City" eid="Id12" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Attica,_Indiana | subdivisionName | Indiana</otriple>
+        <otriple>Attica,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Attica,_Indiana | isPartOf | Indiana</otriple>
+        <otriple>Attica,_Indiana | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Attica,_Indiana | isPartOf | Indiana</mtriple>
+        <mtriple>Attica,_Indiana | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Attica is located in the state of Indiana in the U.S.</lex>
+      <lex comment="good" lid="Id2">Attica is part of Indiana in the US.</lex>
+      <lex comment="good" lid="Id3">Attica is part of Indiana in the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id13" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Auburn,_Alabama | country | United_States</otriple>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Alabama | country | United_States</mtriple>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Washington DC is the capital of the United States, where Auburn, Alabama is located.</lex>
+      <lex comment="good" lid="Id2">Auburn Alabama is in the United States with Washington, D.C. as the capital of the U.S.</lex>
+    </entry>
+    <entry category="City" eid="Id14" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Auburn,_Alabama | country | United_States</otriple>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Auburn,_Alabama | country | United_States</mtriple>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Auburn, Alabama is located in the United States, where one of the ethnic groups is Asian Americans.</lex>
+      <lex comment="good" lid="Id2">Auburn, Alabama is located in the United States, a country where one of the ethnic groups is Asian Americans.</lex>
+      <lex comment="good" lid="Id3">Auburn Alabama is in the United States, where one of the ethnic groups are Asian Americans.</lex>
+    </entry>
+    <entry category="City" eid="Id15" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+        <otriple>Austin,_Texas | areaTotal | 7.03959e+08</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Austin,_Texas | areaTotal | "703.9587683893247"^^&lt;http://dbpedia.org/datatype/squareKilometre&gt;</otriple>
+        <otriple>Austin,_Texas | areaLand | 6.86088e+08</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | areaOfLand | 686.0 (square kilometres)</mtriple>
+        <mtriple>Austin,_Texas | areaTotal | 703.95 (square kilometres)</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The area of Austin, Texas is 703.95km2 and the land area is 686km2.</lex>
+      <lex comment="good" lid="Id2">Austin, Texas has a total area of 703.95 sq km including a land area of 686 sq km.</lex>
+    </entry>
+    <entry category="City" eid="Id16" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Austin,_Texas | country | United_States</otriple>
+        <otriple>Austin,_Texas | isPartOf | Travis_County,_Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | country | United_States</mtriple>
+        <mtriple>Austin,_Texas | isPartOf | Travis_County,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Austin is part of Travis County, Texas, is United States.</lex>
+      <lex comment="good" lid="Id2">Austin is part of Travis County, which is in Texas, United States.</lex>
+      <lex comment="good" lid="Id3">Austin is part of Travis County, in Texas, located within the country of the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id17" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Austin,_Texas | country | United_States</otriple>
+        <otriple>Austin,_Texas | leaderTitle | "City Manager"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Austin,_Texas | country | United_States</otriple>
+        <otriple>Austin,_Texas | leaderTitle | City_manager</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | country | United_States</mtriple>
+        <mtriple>Austin,_Texas | leaderTitle | City_Manager</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Austin, Texas is located within the country of the United States and is led by the City Manager.</lex>
+      <lex comment="good" lid="Id2">The leader of Austin, Texas, United States is the City Manager.</lex>
+      <lex comment="good" lid="Id3">Austin, Texas is in the United States and is led by the City manager.</lex>
+    </entry>
+    <entry category="City" eid="Id18" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Austin,_Texas | isPartOf | Texas</otriple>
+        <otriple>Austin,_Texas | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Austin,_Texas | isPartOf | Texas</mtriple>
+        <mtriple>Austin,_Texas | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Austin is located in Texas, in the country of the United States.</lex>
+      <lex comment="good" lid="Id2">Austin is part of the state of Texas in the United States.</lex>
+      <lex comment="good" lid="Id3">Austin is part of the state of Texas, in the United States.</lex>
+    </entry>
+    <entry category="City" eid="Id19" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Indiana | capital | Indianapolis</otriple>
+        <otriple>Attica,_Indiana | subdivisionName | Indiana</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Indiana | capital | Indianapolis</mtriple>
+        <mtriple>Attica,_Indiana | isPartOf | Indiana</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Attica is part of Indiana, where Indianapolis is the capital.</lex>
+      <lex comment="good" lid="Id2">Attica is part of the state of Indiana where the capital is Indianapolis.</lex>
+      </entry>
+    <entry category="City" eid="Id20" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Michigan | country | United_States</otriple>
+        <otriple>Ann_Arbor,_Michigan | subdivisionName | Michigan</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Michigan | country | United_States</otriple>
+        <otriple>Ann_Arbor,_Michigan | isPartOf | Michigan</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Michigan | country | United_States</mtriple>
+        <mtriple>Ann_Arbor,_Michigan | isPartOf | Michigan</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Ann Arbor is part of Michigan in the United States.</lex>
+      <lex comment="good" lid="Id2">Ann Arbor is part of Michigan, United States.</lex>
+    </entry>
+    <entry category="City" eid="Id21" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Texas | language | English_language</otriple>
+        <otriple>Arlington,_Texas | isPartOf | Texas</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Texas | language | English_language</mtriple>
+        <mtriple>Arlington,_Texas | isPartOf | Texas</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Arlington is part of Texas when English is spoken.</lex>
+      <lex comment="good" lid="Id2">Arlington is part of the state of Texas, where English is used.</lex>
+      <lex comment="good" lid="Id3">Arlington is part of the state of Texas where the English language is spoken.</lex>
+    </entry>
+    <entry category="City" eid="Id22" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | demonym | Americans</otriple>
+        <otriple>Albuquerque,_New_Mexico | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | demonym | Americans</mtriple>
+        <mtriple>Albuquerque,_New_Mexico | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Albuquerque is in New Mexico, in the United States, of which the occupants are Americans.</lex>
+      <lex comment="good" lid="Id2">Albuquerque,New Mexico is located in the United States where the Americans are living.</lex>
+      <lex comment="good" lid="Id3">The United States is the location of Albuquerque, New Mexico and the inhabitants of the country are known as Americans.</lex>
+    </entry>
+    <entry category="City" eid="Id23" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+        <otriple>Akron,_Ohio | subdivisionName | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+        <mtriple>Akron,_Ohio | isPartOf | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Akron, Ohio is part of the United States, where Asian Americans are an ethnic group.</lex>
+      <lex comment="good" lid="Id2">Akron Ohio is part of the United States where one of the ethnic groups are Asian Americans.</lex>
+      <lex comment="good" lid="Id3">The United States include the ethnic group of Asian Americans and is the location of Akron, Ohio.</lex>
+    </entry>
+    </entries>
+</benchmark>

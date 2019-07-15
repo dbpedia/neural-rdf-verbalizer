@@ -1,0 +1,1674 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Astronaut" eid="Id1" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Apollo_12 | operator | NASA</mtriple>
+        <mtriple>Apollo_12 | commander | David_Scott</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean was under commander David Scott on Nasa's Apollo 12 mission.</lex>
+      <lex lang="ru" lid="Id1">Алан Беан находился под командиром Дэвида Скотта на миссии "Аполлон" "Аполло 12".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Бин находился под командиром Дэвида Скотта на миссии "Аполлон" "Аполло 12".</finallex>
+      <lex lang="en" lid="Id2">Alan Bean was a member of the NASA operated Apollo 12 crew commanded by David Scott.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан был членом NASA, управлявшего экипажем "Аполло 12", которым командовал Дэвид Скотт.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин был членом NASA, управлявшего экипажем "Аполло 12", которым командовал Дэвид Скотт.</finallex>
+      <lex lang="en" lid="Id3">David Scott was the commander of the NASA operated Apollo 12 flight mission on which the crew included Alan Bean.</lex>
+      <lex lang="ru" lid="Id3">Дэвид Скотт был командиром NASA, выполнявшего рейс "Аполло 12", на котором экипаж включил Алана Беана.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дэвид Скотт был командиром NASA, выполнявшего рейс "Аполло 12", на котором экипаж включил Алана Бина.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">David_Scott|sameAs|Скотт,_Дэвид</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id2" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | deathDate | "1998-07-21"</mtriple>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>California | senators | Dianne_Feinstein</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dianne Feinstein is a senator in California where Alan Shepard died on July 21 1998.</lex>
+      <lex lang="ru" lid="Id1">Dianne Feinstein - сенатор в Калифорнии, где 21 июля 1998 года умер Алан Шепард.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дайэнн Файнстайн - сенатор в Калифорнии, где 21 июля 1998 года умер Алан Шепард.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard died on the 21st of July, 1998 in California (whose Senator was Dianne Feinstein).</lex>
+      <lex lang="ru" lid="Id2">Alan Shepard умер 21 июля 1998 года в Калифорнии (сенатором стал Диан Фейнштейн).</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шепард умер 21 июля 1998 года в Калифорнии (сенатором стал Диан Фейнштейн).</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+        <dbpedialink direction="en2ru">Dianne_Feinstein|sameAs|Файнстайн,_Дайэнн</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id3" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | alternativeNames | "Edwin E. Aldrin, Jr."</mtriple>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | almaMater | "Massachusetts Institute of Technology, Sc.D. 1963"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, also called Edwin E. Aldrin Jr., graduated in 1963 from MIT with a Sc.D. and was a crew member on Apollo 11.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, также называемый Эдвин Э. Альдрин-младший, окончил в 1963 году из MIT с Sc.D. и был членом экипажа на "Аполло-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин, также называемый Эдвин Э. Альдрин-младший, окончил в 1963 году из MIT с Sc.D. и был членом экипажа на "Аполло-11".</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, whose real name was Edwin E. Aldrin, Jr., graduated from Massachusetts Institute of Technology in 1963 with a doctorate in Science and later became a crew member of Apollo 11.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin, чье настоящее имя - Эдвин Э. Альдрин-младший, окончил Массачусетский технологический институт в 1963 году с доктором наук, а позднее стал членом экипажа "Аполло-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин, чье настоящее имя - Эдвин Э. Альдрин-младший, окончил Массачусетский технологический институт в 1963 году с доктором наук, а позднее стал членом экипажа "Аполло-11".</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin (AKA Edwin E Aldrin Jr) graduated in 1963 from MIT with a Sc.D. was a crew member of Apollo 11.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin (AKA Edwin E Aldrin Jr) окончил в 1963 году из MIT с Sc.D. был членом экипажа "Аполло-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин (AKA Edwin E Aldrin Jr) окончил в 1963 году из MIT с Sc.D. был членом экипажа "Аполло-11".</finallex>
+      <lex lang="en" lid="Id4">Buzz Aldrin, whose real name is Edwin E. Aldrin Jr., was a member of Apollo 11 who in 1963 graduated with a Sc. D. from MIT.</lex>
+      <lex lang="ru" lid="Id4">Buzz Aldrin, чье настоящее имя Эдвин Э. Альдрин-младший, был членом "Аполло-11", который в 1963 году окончил с MIT.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Базз Олдрин, чье настоящее имя Эдвин Э. Альдрин-младший, был членом "Аполло-11", который в 1963 году окончил с MIT.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id4" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | timeInSpace | "52.0"(minutes)</mtriple>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, who was a member of the Apollo 11 crew and spent 52 minutes in space, was born in Glen Ridge New Jersey.</lex>
+      <lex lang="ru" lid="Id1">Буз Алдрин, который был членом экипажа "Аполлон-11" и провел 52 минуты в космосе, родился в Глен-Ридж-Нью-Джерси.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Базз Олдрин, который был членом экипажа "Аполлон-11" и провел 52 минуты в космосе, родился в Глен-Ридж, Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id2">Born in Glen Ridge New Jersey, Apollo 11 crewman Buzz Aldrin spent 52 minutes in space.</lex>
+      <lex lang="ru" lid="Id2">Уроженец Глен Ридж Нью-Джерси, "Аполлон" 11-го класса Buzz Aldrin провел 52 минуты в космосе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Уроженец Глен Ридж Нью-Джерси, "Аполлон" 11-го класса Базз Олдрин провел 52 минуты в космосе.</finallex>
+      <lex lang="en" lid="Id3">Born in Glen Ridge, NJ, Buzz Aldrin spent 52 minutes in space as part of Apollo 11's crew.</lex>
+      <lex lang="ru" lid="Id3">Уроженец Глен Ридж, NJ, Buzz Aldrin провел 52 минуты в космосе в составе экипажа "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Уроженец Глен Ридж, NJ, Базз Олдрин провел 52 минуты в космосе в составе экипажа "Аполлон-11".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id5" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>California | fossil | Smilodon</mtriple>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>Alan_Shepard | awards | Distinguished_Service_Medal_(United_States_Navy)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard, who was awarded the US Navy Distinguished Service Medal died in California, incidentally a Smilodon is a fossil from California.</lex>
+      <lex lang="ru" lid="Id1">Alan Shepard, который был награжден медалью Военно-морского флота США, умер в Калифорнии, кстати, Смилодон - ископаемый из Калифорнии.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Шепард, который был награжден медалью Военно-морского флота США, умер в Калифорнии, кстати, Смилодон - ископаемый из Калифорнии.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard was awarded the Distinguished Service Medal by United States Navy and died in California (where a Smilodon fossil was found).</lex>
+      <lex lang="ru" lid="Id2">Alan Shepard был награжден медалью "Медаль" со стороны ВМС Соединенных Штатов и умер в Калифорнии (где был найден "Смилодон ископаемого").</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шепард был награжден медалью "Медаль" со стороны ВМС Соединенных Штатов и умер в Калифорнии (где был найден "Смилодон ископаемого").</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, who was awarded the Distinguished Service Medal by the US Navy, died in California where the Smilodon fossil was found.</lex>
+      <lex lang="ru" lid="Id3">Alan Shepard, который был награжден медалью "Медаль" со стороны ВМС США, умер в Калифорнии, где был найден "Смилодон ископаемого".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард, который был награжден медалью "Медаль" со стороны ВМС США, умер в Калифорнии, где был найден "Смилодон ископаемого".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+        <dbpedialink direction="en2ru">Smilodon|sameAs|Смилодоны</dbpedialink>
+        <dbpedialink direction="en2ru">Distinguished_Service_Medal_(United_States_Navy)|sameAs|Медаль_«За_выдающуюся_службу»_(ВМС_США)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id6" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>Elliot_See | deathDate | "1966-02-28"</mtriple>
+        <mtriple>Elliot_See | was selected by NASA | 1962</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See who was selected by NASA in 1962 died on 28 February 1966 in St Louis.</lex>
+      <lex lang="ru" lid="Id1">Elliot See, который был выбран НАСА в 1962 году, скончался 28 февраля 1966 года в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Эллиот Си, который был выбран НАСА в 1962 году, скончался 28 февраля 1966 года в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, ex NASA worker since 1962, died in St Louis on the 28th of February 1966.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, ex NASA с 1962 года, умер в Сент-Луисе 28 февраля 1966 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си, ex NASA с 1962 года, умер в Сент-Луисе 28 февраля 1966 года.</finallex>
+      <lex lang="en" lid="Id3">Elliot See was selected by NASA in 1962. He died in St. Louis on 1966-02-28.</lex>
+      <lex lang="ru" lid="Id3">Elliot See был выбран НАСА в 1962 году. Он умер в Сент-Луисе в 1966-02-м годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эллиот Си был отобран NASA в 1962 году. Он умер в Сент-Луисе в 1966-02-м годах.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">1962|sameAs|1962_год</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id7" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | status | "Deceased"</mtriple>
+        <mtriple>Elliot_See | birthDate | "1927-07-23"</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, born July 23 1927 in Dallas, has died.</lex>
+      <lex lang="ru" lid="Id1">Эллиот Си, родившийся 23 июля 1927 года в Далласе, умер.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Эллиот Си, родившийся 23 июля 1927 года в Далласе, умер.</finallex>
+      <lex lang="en" lid="Id2">Elliot See is deceased, was born on 23rd July 1927 in Dallas.</lex>
+      <lex lang="ru" lid="Id2">Эллиот Престол умер, родился 23 июля 1927 года в Далласе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си умер, родился 23 июля 1927 года в Далласе.</finallex>
+      <lex lang="en" lid="Id3">Elliot See (deceased) was born in Dallas 1927-07-23.</lex>
+      <lex lang="ru" lid="Id3">Эллиот См. (Покойный) родился в Далласе 1927-07-го.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эллиот Си (Покойный) родился в Далласе 1927-07-го.</finallex>
+      <lex lang="en" lid="Id4">Elliot See was born in Dallas on July 23, 1927. He is now deceased.</lex>
+      <lex lang="ru" lid="Id4">Эллиот Си родился в Далласе 23 июля 1927 года. Сейчас он скончался.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Эллиот Си родился в Далласе 23 июля 1927 года. Сейчас он скончался.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id8" part="dev" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | birthDate | "1933-10-17"</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Born on October 17th, 1933 in British Hong Kong, William Anders would serve as a crew member on Apollo 8.</lex>
+      <lex lang="ru" lid="Id1">Родился 17 октября 1933 года в британском Гонконге, Уильям Андерс будет выступать в качестве члена экипажа на "Аполло-8".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Родился 17 октября 1933 года в британском Гонконге, Уильям Андерс будет выступать в качестве члена экипажа на "Аполло-8".</finallex>
+      <lex lang="en" lid="Id2">William Anders who was born on 17 October 1933 in British Hong Kong later served as a crew member of Apollo 8.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс, родившийся 17 октября 1933 года в британском Гонконге, позднее занимал должность члена экипажа "Аполлон-8".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Уильям Андерс, родившийся 17 октября 1933 года в британском Гонконге, позднее служил членом команды "Аполлона-8".</finallex>
+      <lex lang="en" lid="Id3">William Anders, who was born in British Hong Kong on the 17th of October 1933, crewed Apollo 8.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, крестил "Аполлон-8".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, был членом команды Аполлона 8.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id1" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | nationality | United_States</mtriple>
+        <mtriple>Alan_Bean | birthPlace | Wheeler,_Texas</mtriple>
+        <mtriple>Alan_Bean | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">American retiree Alan Bean was born in Wheeler, Texas.</lex>
+      <lex lang="ru" lid="Id1">В Wheeler, штат Техас, родился американский пенсионер Алан Беан.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">В Wheeler, штат Техас, родился американский пенсионер Алан Бин.</finallex>
+      <lex lang="en" lid="Id2">Retired US National Alan Bean was born in Wheeler, Texas.</lex>
+      <lex lang="ru" lid="Id2">Ушедший в отставку гражданин США Алан Беан родился в Уилл, штат Техас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Ушедший в отставку гражданин США Алан Бин родился в Уилер, штат Техас.</finallex>
+      <lex lang="en" lid="Id3">Alan Bean was born in the United States in Wheeler, Texas and has retired.</lex>
+      <lex lang="ru" lid="Id3">Алан Беан родился в США в Урале, штат Техас и вышел на пенсию.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Бин родился в США в Урале, штат Техас и вышел на пенсию.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id2" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>United_States | leaderName | Joe_Biden</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was born in Glen Ridge, New Jersey, USA (the leader of which was Joe Biden).</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin родился в городе Глен-Ридж, штат Нью-Джерси, США (лидером которого был Джо Байден).</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин родился в городе Глен-Ридж, штат Нью-Джерси, США (лидером которого был Джо Байден).</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Joe_Biden|sameAs|Байден,_Джо</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id3" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>Buzz_Aldrin | was selected by NASA | 1963</mtriple>
+        <mtriple>Buzz_Aldrin | almaMater | "Massachusetts Institute of Technology, Sc.D. 1963"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The United States National Buzz Aldrin, who graduated from Massachusetts Institute of Technology, Sc. D. in 1963, was hired by NASA shortly after his graduation.</lex>
+      <lex lang="ru" lid="Id1">National United States National Buzz Aldrin, который окончил Массачусетский технологический институт, Sc. D. в 1963 году, был нанят НАСА вскоре после его окончания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">National United States National Базз Олдрин, который окончил Массачусетский технологический институт, Sc. D. в 1963 году, был нанят НАСА вскоре после его окончания.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, a US national, was selected by NASA in 1963 having graduated from MIT in 1963 with a doctorate in Science.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin, гражданин США, был выбран НАСА в 1963 году, окончив MIT в 1963 году с докторской диссертацией в области науки.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Базз Олдрин, гражданин США, был выбран НАСА в 1963 году, окончив MIT в 1963 году со степенью доктора наук.</finallex>
+      <lex lang="en" lid="Id3">American Buzz Aldrin graduated from Massachusetts Institute of Technology in 1963 with a doctorate in Science and was hired by NASA that year.</lex>
+      <lex lang="ru" lid="Id3">American Buzz Aldrin окончил Массачусетский технологический институт в 1963 году с доктором наук и был нанят НАСА в том году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">American Базз Олдрин окончил Массачусетский технологический институт в 1963 году с доктором наук и был нанят НАСА в том году.</finallex>
+      <lex lang="en" lid="Id4">Buzz Aldrin (from the United States) went to Massachusetts Institute of Technology, Sc.D. 1963 and was selected by NASA in 1963.</lex>
+      <lex lang="ru" lid="Id4">Buzz Aldrin (из США) отправился в Массачусетский технологический институт, Sc.D. 1963 года и был выбран НАСА в 1963 году.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Базз Олдрин (из США) отправился в Массачусетский технологический институт со степенью доктора наук в 1963 году года и был выбран НАСА в 1963 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id4" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+        <mtriple>Elliot_See | nationality | United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, a US national, was born in Dallas and graduated from the University of Texas at Austin.</lex>
+      <lex lang="ru" lid="Id1">Elliot See, гражданин США, родился в Далласе и окончил Университет Техаса в Остине.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, гражданин США, родился в Далласе и окончил Техасский университет в Остине.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, a US national born in Dallas, was a student at University of Texas at Austin.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, гражданин США, родившийся в Далласе, был студентом Университета Техаса в Остине.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си, гражданин США, родившийся в Далласе, был студентом Университета Техаса в Остине.</finallex>
+      <lex lang="en" lid="Id3">Elliot See, a United States national born in Dallas, attended the University of Texas at Austin.</lex>
+      <lex lang="ru" lid="Id3">Elliot See, гражданин Соединенных Штатов, родившийся в Далласе, посещал Университет Техаса в Остине.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Эллиот Си, гражданин Соединенных Штатов, родившийся в Далласе, посещал Техасский университет в Остине.</finallex>
+      <lex lang="en" lid="Id4">Elliot See (born in Dallas, United States) attended the University of Texas at Austin.</lex>
+      <lex lang="ru" lid="Id4">Эллиот См. (Родился в Далласе, США), посещал Университет Техаса в Остине.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Эллиот Си (Родился в Далласе, США), посещал Техасский университет в Остине.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id5" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>Elliot_See | was selected by NASA | 1962</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, who graduated from the University of Texas at Austin and was chosen by NASA in 1962, died in St. Louis.</lex>
+      <lex lang="ru" lid="Id1">Elliot See, которая окончила Университет Техаса в Остине и была выбрана НАСА в 1962 году, умерла в Сент-Луисе.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, которая окончила Техасский университет в Остине и была выбрана НАСА в 1962 году, умерла в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id2">Elliot See who was selected by NASA in 1962, attended the University of Texas at Austin and died in St Louis.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, который был выбран НАСА в 1962 году, посещал Университет Техаса в Остине и умер в Сент-Луисе.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эллиот Си, который был выбран НАСА в 1962 году, посещал Техасский университет в Остине и умер в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id3">Elliot See, who graduated from the University of Texas in Austin and was chosen by NASA in 1962, has died in St Louis.</lex>
+      <lex lang="ru" lid="Id3">Elliot See, которая окончила Университет Техаса в Остине и была выбрана НАСА в 1962 году, скончалась в Сент-Луисе.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Эллиот Си, которая окончила Техасский университет в Остине и была выбрана НАСА в 1962 году, скончалась в Сент-Луисе.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+        <dbpedialink direction="en2ru">1962|sameAs|1962_год</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id6" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>St._Louis | leaderName | Francis_G._Slay</mtriple>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, a past graduate of the University of Texas, Austin, died in St Louis where the leader is Francis G Slay.</lex>
+      <lex lang="ru" lid="Id1">Elliot See, прошлый выпускник Университета Техаса, Остин, умер в Сент-Луисе, где лидером является Фрэнсис Г. Слай.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, прошлый выпускник Университета Техаса, Остин, умер в Сент-Луисе, где лидером является Фрэнсис Г. Слей.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, who attended the University of Texas at Austin, died in St. Louis, whose Mayor is Francis G. Slay.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, присутствовавший в университете Техаса в Остине, умер в Сент-Луисе, мэр которого - Фрэнсис Г. Слай.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эллиот Си, присутствовавший в университете Техаса в Остине, умер в Сент-Луисе, мэр которого - Фрэнсис Г. Слей.</finallex>
+      <lex lang="en" lid="Id3">Elliot See was a student at University of Texas at Austin and died in St. Louis led by Francis G. Slay.</lex>
+      <lex lang="ru" lid="Id3">Elliot See была студенткой Университета Техаса в Остине и умерла в Сент-Луисе во главе с Фрэнсисом Дж.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эллиот Си была студенткой Университета Техаса в Остине и умерла в Сент-Луисе во главе с Фрэнсисом Дж.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id7" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>St._Louis | isPartOf | Kingdom_of_France</mtriple>
+        <mtriple>Elliot_See | deathDate | "1966-02-28"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot see died on the 28th of February 1966 in St. Louis, which is part of the Kingdom of France.</lex>
+      <lex lang="ru" lid="Id1">Эллиот видит, что умер 28 февраля 1966 года в Сент-Луисе, который входит в состав Королевства Франция.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Эллиот видит, что умер 28 февраля 1966 года в Сент-Луисе, который входит в состав Королевства Франция.</finallex>
+      <lex lang="en" lid="Id2">Elliot See died on 28 February, 1966 in St. Louis a part of the kingdom of France.</lex>
+      <lex lang="ru" lid="Id2">Эллиот Престол скончался 28 февраля 1966 года в Сент-Луисе в составе королевства Франции.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си скончался 28 февраля 1966 года в Сент-Луисе в составе королевства Франции.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">Kingdom_of_France|sameAs|Королевство_Франция</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id8" part="test" size="3">
+      <modifiedtripleset>
+        <mtriple>New_Hampshire | bird | Purple_finch</mtriple>
+        <mtriple>Alan_Shepard | timeInSpace | "13017.0"(minutes)</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard was born in New Hampshire, the home of the Purple Finch, and spent 130170 minutes in space.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард родился в Нью-Гэмпшире, дом Purple Finch, и провел в космосе 130170 минут.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Шепард родился в Нью-Гэмпшире, дом Фиолетовый зяблик, и провел в космосе 130170 минут.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id1" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | almaMater | "UT Austin, B.S. 1955"</mtriple>
+        <mtriple>Alan_Bean | timeInSpace | "100305.0"(minutes)</mtriple>
+        <mtriple>Alan_Bean | was selected by NASA | 1963</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean, who graduated in 1955 from UT Austin with a B.S. and was selected by NASA in 1963, spent 100305.0 minutes in space.</lex>
+      <lex lang="ru" lid="Id1">Alan Bean, который окончил в 1955 году из UT Austin с B.S. и был выбран НАСА в 1963 году, провел в космосе 100305,0 минуты.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Бин, который окончил в 1955 году из UT Austin с B.S. и был выбран НАСА в 1963 году, провел в космосе 100305,0 минуты.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean went to UT Austin, B.S. 1955. He was selected by NASA in 1963 and spent 100305.0"(minutes) in space.</lex>
+      <lex lang="ru" lid="Id2">Alan Bean отправился в UT Austin, B.S. 1955. Он был выбран НАСА в 1963 году и потратил 100305,0 "(минуты) в космосе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин отправился в UT Austin, B.S. 1955. Он был выбран НАСА в 1963 году и потратил 100305,0 "(минуты) в космосе.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id2" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | almaMater | "UT Austin, B.S. 1955"</mtriple>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | dateOfRetirement | "June 1981"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean, who received a Bachelor of Science degree at the University of Texas at Austin in 1955 and was a crew member on the Apollo 12 flight mission, retired in June 1981.</lex>
+      <lex lang="ru" lid="Id1">Alan Bean, получивший степень бакалавра наук в университете Техаса в Остине в 1955 году и являвшийся членом экипажа на летной миссии "Аполлон 12", вышел в отставку в июне 1981 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Бин, получивший степень бакалавра наук в университете Техаса в Остине в 1955 году и являвшийся членом экипажа на летной миссии "Аполлон 12", вышел в отставку в июне 1981 года.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean received a Bachelor of Science degree at the University of Texas at Austin in 1955 was a crew member on the Apollo 12 flight mission and retired in June of 1981.</lex>
+      <lex lang="ru" lid="Id2">Alan Bean получил степень бакалавра наук в университете Техаса в Остине в 1955 году был членом экипажа на летной миссии "Аполло 12" и вышел в отставку в июне 1981 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин получил степень бакалавра наук в университете Техаса в Остине в 1955 году был членом экипажа на летной миссии "Аполло 12" и вышел в отставку в июне 1981 года.</finallex>
+      <lex lang="en" lid="Id3">Alan Bean graduated from UT Austin, B.S. 1955 and was a crew member of Apollo 12 before retiring on June 1981.</lex>
+      <lex lang="ru" lid="Id3">Alan Bean окончил UT Austin, B.S. 1955 и был членом экипажа "Аполло-12" перед выходом в отставку в июне 1981 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Алан Бин окончил UT Austin, B.S. 1955 и был членом экипажа "Аполлон-12" перед выходом в отставку в июне 1981 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id3" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | birthDate | "1932-03-15"</mtriple>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | timeInSpace | "100305.0"(minutes)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean, born March 15, 1932, spent over 69 days (or 100305 minutes!) in space as a member of the Apollo 12 crew.</lex>
+      <lex lang="ru" lid="Id1">Алан Беан, родившийся 15 марта 1932 года, провел в космосе более 69 дней (или 100305 минут!) в составе команды "Аполлон-12".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Бин, родившийся 15 марта 1932 года, провел в космосе более 69 дней (или 100305 минут!) в составе команды "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id2">Alan Bean, born on the 15th of March 1932, was in space for 100305 minutes as part of the crew of Apollo 12.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан, родившийся 15 марта 1932 года, находился в космосе за 100305 минут в составе экипажа "Аполло-12".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Алан Бин, родившийся 15 марта 1932 года, находился в космосе за 100305 минут в составе экипажа "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id3">Alan Bean (born on 1932-03-15) was a crew member of Apollo 12 and spent 100305.0"(minutes) in space!</lex>
+      <lex lang="ru" lid="Id3">Алан Беан (родился на 1932-03-м) был членом экипажа "Аполло-12" и потратил 100305,0 "(минуты) в космосе!</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Алан Бин (родился на 1932-03-м) был членом экипажа "Аполлон-12" и потратил 100305,0 "(минуты) в космосе!</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id4" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | birthDate | "1932-03-15"</mtriple>
+        <mtriple>Alan_Bean | was selected by NASA | 1963</mtriple>
+        <mtriple>Alan_Bean | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Now retired, Alan Bean was born on Mar 15, 1932 and hired by NASA in 1963.</lex>
+      <lex lang="ru" lid="Id1">Теперь ушел в отставку, Алан Беан родился 15 марта 1932 года и нанял NASA в 1963 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Теперь ушел в отставку, Алан Бин родился 15 марта 1932 года и нанял NASA в 1963 году.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean, who was born on 15th of March 1932 and selected by NASA in 1963, is now retired.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан, который родился 15 марта 1932 года и выбран НАСА в 1963 году, сейчас в отставке.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин, который родился 15 марта 1932 года и выбран НАСА в 1963 году, сейчас в отставке.</finallex>
+      <lex lang="en" lid="Id3">Alan Bean (born on 1932-03-15) was selected by NASA in 1963 and is now retired.</lex>
+      <lex lang="ru" lid="Id3">Алан Беан (родился на 1932-03-м) был выбран НАСА в 1963 году и сейчас в отставке.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Бин (родился на 1932-03-м) был выбран НАСА в 1963 году и сейчас в отставке.</finallex>
+      <lex lang="en" lid="Id4">Alan Bean(born on 1932-03-15) was selected by NASA in 1963 and now is retired.</lex>
+      <lex lang="ru" lid="Id4">Алан Беан (родился на 1932-03-м) был выбран НАСА в 1963 году и сейчас ушел в отставку.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Алан Бин (родился на 1932-03-м) был выбран НАСА в 1963 году и сейчас ушел в отставку.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id5" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | nationality | United_States</mtriple>
+        <mtriple>Alan_Bean | almaMater | "UT Austin, B.S. 1955"</mtriple>
+        <mtriple>Alan_Bean | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean, a US National who graduated from UT Austin in 1955 with a B.S., is now retired.</lex>
+      <lex lang="ru" lid="Id1">Alan Bean, гражданин США, который окончил UT Austin в 1955 году с B.S., сейчас в отставке.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Алан Бин, гражданин США, который окончил UT Austin в 1955 году со степенью бакалавра., сейчас в отставке.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean who was born in the USA and graduated from UT Austin in 1955 with a BS degree, is now retired.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан, который родился в США и окончил UT Austin в 1955 году с градусом BS, в настоящее время вышел на пенсию.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин, который родился в США и окончил UT Austin в 1955 году с градусом BS, в настоящее время вышел на пенсию.</finallex>
+      <lex lang="en" lid="Id3">United States citizen Alan Bean graduated from UT Austin, B.S. in 1955 and is now retired.</lex>
+      <lex lang="ru" lid="Id3">Гражданин Соединенных Штатов Алан Беан окончил UT Austin, B.S. в 1955 году и сейчас в отставке.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Гражданин Соединенных Штатов Алан Бин окончил UT Austin, B.S. в 1955 году и сейчас в отставке.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id6" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | nationality | United_States</mtriple>
+        <mtriple>Alan_Bean | occupation | Test_pilot</mtriple>
+        <mtriple>Alan_Bean | birthPlace | Wheeler,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Test pilot Alan Bean was born in Wheeler, Texas, USA.</lex>
+      <lex lang="ru" lid="Id1">Летчик-испытатель Алан Беан родился в Уилл, штат Техас, США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Летчик-испытатель Алан Бин родился в Уилер, штат Техас, США.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean was born in Wheeler, Texas, US and was a test pilot.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан родился в Уилл, штат Техас, США и был тестовым пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Алан Бин родился в Уилер, штат Техас, США и был летчиком-испытателем.</finallex>
+      <lex lang="en" lid="Id3">Alan Bean, a US national whose birth place is Wheeler, Texas, served as a test pilot.</lex>
+      <lex lang="ru" lid="Id3">Алан Беан, гражданин США, место рождения которого - Wheeler, "Техас", служил тестовым пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Алан Бин, гражданин США, место рождения которого - Wheeler, "Техас", служил летчиком-испытателем.</finallex>
+      <lex lang="en" lid="Id4">Alan Bean was born in Wheeler, Texas, United States and served as a test pilot.</lex>
+      <lex lang="ru" lid="Id4">Алан Беан родился в Уилл, штат Техас, США и служил тестовым пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Алан Бин родился в Уилер, штат Техас, США и служил летчиком-испытателем.</finallex>
+      <lex lang="en" lid="Id5">Alan Bean (born in Wheeler, Texas of the United States served as a test pilot.</lex>
+      <lex lang="ru" lid="Id5">Alan Bean (родился в Wheeler, "Техас Соединенных Штатов" служил тестовым пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id5">Алан Бин (родился в Wheeler, "Техас Соединенных Штатов" служил летчиком-испытателем.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id7" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | nationality | United_States</mtriple>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | was selected by NASA | 1963</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Allan Bean, was one of the Americans hired by NASA in 1963 to crew Apollo 12.</lex>
+      <lex lang="ru" lid="Id1">Аллан Беан, был одним из американцев, нанятых НАСА в 1963 году экипажем "Аполло-12".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Аллан Бин, был одним из американцев, нанятых НАСА в 1963 году экипажем "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id2">Alan Bean, born in the United States, was selected by NASA in 1963 and served as a crew member of Apollo 12.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан, родившийся в США, был выбран НАСА в 1963 году и занимал должность члена экипажа "Аполло-12".</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Алан Бин, родившийся в США, был выбран НАСА в 1963 году и служил членом экипажа "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id3">Alan Bean, a US national, was selected by Nasa in 1963 and served as a crew member of Apollo 12.</lex>
+      <lex lang="ru" lid="Id3">Алан Беан, гражданин США, был выбран Наса в 1963 году и занимал должность члена экипажа "Аполло-12".</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id3">Алан Бин, гражданин США, был выбран НАСА в 1963 году и служил членом экипажа "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id4">Alan Bean was an American astronaut who NASA picked in 1963 to fly with Apollo 12.</lex>
+      <lex lang="ru" lid="Id4">Алан Беан был американским астронавтом, который НАСА выбрал в 1963 году, чтобы вылететь с "Аполло-12".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Алан Бин был американским астронавтом, который НАСА выбрал в 1963 году, чтобы вылететь с "Аполлон-12".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id8" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | occupation | Test_pilot</mtriple>
+        <mtriple>Alan_Bean | birthPlace | Wheeler,_Texas</mtriple>
+        <mtriple>Alan_Bean | timeInSpace | "100305.0"(minutes)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The test pilot Alan Bean, who spent 100305 minutes in space, was born in Wheeler, Texas.</lex>
+      <lex lang="ru" lid="Id1">Летчик-испытатель Алан Беан, который провел 100305 минут в космосе, родился в Уилл, штат Техас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Летчик-испытатель Алан Бин, который провел 100305 минут в космосе, родился в Уилл, штат Техас.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id9" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | birthPlace | Wheeler,_Texas</mtriple>
+        <mtriple>Alan_Bean | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean has retired, having been born in Wheeler, Texas and serving on the crew of Apollo 12.</lex>
+      <lex lang="ru" lid="Id1">Alan Bean вышел на пенсию, родившись в Уилл, штат Техас, и служил на экипаже "Аполло-12".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Алан Бин вышел на пенсию, родившись в Уилл, штат Техас, и служил на экипаже "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id2">Alan Bean has retired, having been born in Wheeler, Texas and serving as a crew member on the Apollo 12 flight mission.</lex>
+      <lex lang="ru" lid="Id2">Alan Bean вышел в отставку, после того, как он родился в Уилл, штат Техас, и выполнял функции члена экипажа на летной миссии "Аполлон-12".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин вышел в отставку, после того, как он родился в Уилл, штат Техас, и выполнял функции члена экипажа на летной миссии "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id3">Alan Bean, born in Wheeler, Texas, was on the crew of Apollo 12 but has since retired.</lex>
+      <lex lang="ru" lid="Id3">Алан Беан, родившийся в Уилл, штат Техас, был на экипаже "Аполло-12", но с тех пор ушел в отставку.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Алан Бин, родившийся в Уилл, штат Техас, был на экипаже "Аполлон-12", но с тех пор ушел в отставку.</finallex>
+      <lex lang="en" lid="Id4">Alan Bean, born in Wheeler, Texas, is a retired astronaut who was a member of the crew of Apollo 12.</lex>
+      <lex lang="ru" lid="Id4">Алан Беан, родившийся в Уилл, штат Техас, является отставным астронавтом, который входил в состав экипажа "Аполло-12".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Алан Бин, родившийся в Уилл, штат Техас, является отставным астронавтом, который входил в состав экипажа "Аполлон-12".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id10" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | nationality | United_States</mtriple>
+        <mtriple>Apollo_12 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">U.S. born Alan Bean was on the crew of NASA operated Apollo 12.</lex>
+      <lex lang="ru" lid="Id1">В США родился Алан Беан на экипаже NASA, эксплуатировавшего "Аполлон-12".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">В США родился Алан Бин на экипаже NASA, эксплуатировавшего "Аполлон-12".</finallex>
+      <lex lang="en" lid="Id2">Alan Bean was a member of the Apollo 12 crew, his nationality is United States and the operator of Apollo 12 was NASA.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан был членом экипажа "Аполлон-12", его национальность - США, а оператором "Аполло-12" был NASA.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Алан Бин был членом экипажа "Аполлон-12", его национальность - США, а оператором "Аполлон-12" был NASA.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id11" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Apollo_12 | operator | NASA</mtriple>
+        <mtriple>Alan_Bean | timeInSpace | "100305.0"(minutes)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean was a crew member on the Apollo 12 flight mission operated by NASA and spent 100305.0 minutes in Space.</lex>
+      <lex lang="ru" lid="Id1">Alan Bean был членом экипажа на летной миссии "Аполлон-12", эксплуатируемой НАСА, и провел в космосе 100305,0 минуты.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Бин был членом экипажа на летной миссии "Аполлон-12", эксплуатируемой НАСА, и провел в космосе 100305,0 минуты.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean was on the crew of the NASA operated Apollo 12 and spent 100305 minutes in space.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан был на борту самолета NASA, эксплуатировавшего "Аполлон-12", и провел в космосе 100305 минут.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин был на борту самолета NASA, эксплуатировавшего "Аполлон-12", и провел в космосе 100305 минут.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id12" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | almaMater | "NWC, M.A. 1957"</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Alan_Shepard | dateOfRetirement | "1974-08-01"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard went to school at NWC and graduated with an MA in 1957, was born in New Hampshire and retired 1st of August 1974.</lex>
+      <lex lang="ru" lid="Id1">Alan Shepard отправился в школу в НВК и в 1957 году окончил ОЭТ, родился в Нью-Гэмпшире и вышел в отставку 1 августа 1974 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Алан Шепард отправился в школу в НВК и в 1957 году окончил магистратура, родился в Нью-Гэмпшире и вышел в отставку 1 августа 1974 года.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepherd, who was born in New Hampshire, retired on 1 August 1974, having graduated from NWC with an MA in 1957.</lex>
+      <lex lang="ru" lid="Id2">Alan Shepherd, который родился в Нью-Гэмпшире, вышел в отставку 1 августа 1974 года, окончив НЖД в 1957 году.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Alan Shepherd, который родился в Нью-Гэмпшире, вышел в отставку 1 августа 1974 года, окончив НЖД в 1957 году.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard graduated from NWS in 1957,which born in New Hampshire and died on 1974-08-01.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард окончил НПФ в 1957 году, который родился в Нью-Гэмпшире и умер в 1974-08-01 годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард окончил НПФ в 1957 году, который родился в Нью-Гэмпшире и умер 01.08.1974.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard was born in New Hampshire and got his M.A. in 1957 at NWC and retired on August 1st, 1974.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире и получил степень магистра в 1957 году в НВК и вышел в отставку 1 августа 1974 года.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире и получил степень магистра в 1957 году в НВК и вышел в отставку 1 августа 1974 года.</finallex>
+      <lex lang="en" lid="Id5">Alan Shepard, born in New Hampshire and a 1957 graduate of NWC, retired on August 1, 1974.</lex>
+      <lex lang="ru" lid="Id5">Алан Шепард, родившийся в Нью-Гэмпшире и выпускник NWC 1957 года, вышел в отставку 1 августа 1974 года.</lex>
+      <finallex comment="" lang="ru" lid="Id5">Алан Шепард, родившийся в Нью-Гэмпшире и выпускник NWC 1957 года, вышел в отставку 1 августа 1974 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id13" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | almaMater | "NWC, M.A. 1957"</mtriple>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepherd was born in New Hampshire, graduated from NWC in 1957, and died in California.</lex>
+      <lex lang="ru" lid="Id1">Алан Шеферд родился в Нью-Гэмпшире, окончил НЖД в 1957 году и умер в Калифорнии.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Алан Шеферд родился в Нью-Гэмпшире, окончил НЖД в 1957 году и умер в Калифорнии.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepherd who died in California, was born in New Hampshire and graduated from NWC with an MA in 1957.</lex>
+      <lex lang="ru" lid="Id2">Alan Shepherd, скончавшийся в Калифорнии, родился в Нью-Гэмпшире и окончил НЖД в 1957 году.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Alan Shepherd, скончавшийся в Калифорнии, родился в Нью-Гэмпшире и окончил НЖД в 1957 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id14" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | almaMater | "NWC, M.A. 1957"</mtriple>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>Alan_Shepard | deathDate | "1998-07-21"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard, who graduated from NWC with a M.A. in 1957, died on July 21st 1998 in California.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард, который окончил НЖД с М.А. в 1957 году, скончался 21 июля 1998 года в Калифорнии.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Алан Шепард, который окончил НЖД с М.А. в 1957 году, скончался 21 июля 1998 года в Калифорнии.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard graduated from NWC, M.A. in 1957, he died in California on 1998-07-21.</lex>
+      <lex lang="ru" lid="Id2">Алан Шепард окончил НВК, М.А. в 1957 году, он умер в Калифорнии в 1998-м-21-м.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шепард окончил НВК, М.А. в 1957 году, он умер в Калифорнии 21.07.1998.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard (died on 1998-07-21 in California) graduated from NWC in 1957.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард (умер в 1998-м в Калифорнии) окончил НЖД в 1957 году.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард (умер в 1998-м в Калифорнии) окончил НЖД в 1957 году.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard, who attended NWC, M.A. in 1957, died in California on July 21, 1998.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард, посетивший NWC, М.А. в 1957 году умер в Калифорнии 21 июля 1998 года.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Алан Шепард, посетивший NWC, М.А. в 1957 году умер в Калифорнии 21 июля 1998 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id15" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Alan_Shepard | was selected by NASA | 1959</mtriple>
+        <mtriple>Alan_Shepard | birthDate | "1923-11-18"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard who was born on Nov 18, 1923 in New Hampshire was selected by NASA in 1959.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард, родившийся 18 ноября 1923 года в Нью-Гэмпшире, был выбран НАСА в 1959 году.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Алан Шепард, родившийся 18 ноября 1923 года в Нью-Гэмпшире, был выбран НАСА в 1959 году.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard was born on November 18th, 1923 in New Hampshire and was selected by NASA in 1959.</lex>
+      <lex lang="ru" lid="Id2">Алан Шепард родился 18 ноября 1923 года в Нью-Гэмпшире и был выбран НАСА в 1959 году.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Алан Шепард родился 18 ноября 1923 года в Нью-Гэмпшире и был выбран НАСА в 1959 году.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard was born in New Hampshire, chosen by NASA in 1959 and was born on the 18th of November 1923.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард родился в Нью-Гэмпшире, выбран НАСА в 1959 году и родился 18 ноября 1923 года.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард родился в Нью-Гэмпшире, выбран НАСА в 1959 году и родился 18 ноября 1923 года.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard was born in New Hampshire on November 18th, 1923 and in 1959 NASA chose him as part of the space program.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире 18 ноября 1923 года, а в 1959 году НАСА выбрало его в рамках космической программы.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире 18 ноября 1923 года, а в 1959 году НАСА выбрало его в рамках космической программы.</finallex>
+      <lex lang="en" lid="Id5">Alan Shepard, born in New Hampshire on November 18, 1923, was selected by NASA in 1959.</lex>
+      <lex lang="ru" lid="Id5">Алан Шепард, родившийся в Нью-Гэмпшире 18 ноября 1923 года, был выбран НАСА в 1959 году.</lex>
+      <finallex comment="" lang="ru" lid="Id5">Алан Шепард, родившийся в Нью-Гэмпшире 18 ноября 1923 года, был выбран НАСА в 1959 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">1959|sameAs|1959_год</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id16" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Alan_Shepard | was selected by NASA | 1959</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard who died in California was born in New Hampshire and was selected by NASA in 1959.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард, скончавшийся в Калифорнии, родился в Нью-Гэмпшире и был выбран НАСА в 1959 году.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Алан Шепард, скончавшийся в Калифорнии, родился в Нью-Гэмпшире и был выбран НАСА в 1959 году.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard, born in New Hampshire, but died in California, was hired by NASA in 1959.</lex>
+      <lex lang="ru" lid="Id2">Алан Шепард, родившийся в Нью-Гэмпшире, но умер в Калифорнии, был нанят НАСА в 1959 году.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Алан Шепард, родившийся в Нью-Гэмпшире, но умер в Калифорнии, был нанят НАСА в 1959 году.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, who was born in New Hampshire and in 1959 selected by NASA, died in California.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард, родившийся в Нью-Гэмпшире и в 1959 году выбранный НАСА, умер в Калифорнии.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард, родившийся в Нью-Гэмпшире и в 1959 году выбранный НАСА, умер в Калифорнии.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard (born in New Hampshire) was selected by NASA in 1959 and passed away in California.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард (родился в Нью-Гэмпшире) был выбран НАСА в 1959 году и скончался в Калифорнии.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Алан Шепард (родился в Нью-Гэмпшире) был выбран НАСА в 1959 году и скончался в Калифорнии.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+        <dbpedialink direction="en2ru">1959|sameAs|1959_год</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id17" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | occupation | Test_pilot</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Alan_Shepard | birthDate | "1923-11-18"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Test pilot Alan Shepard was born in New Hampshire on November 18, 1923.</lex>
+      <lex lang="ru" lid="Id1">Тест-пилот Алан Шепард родился в Нью-Гэмпшире 18 ноября 1923 года.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Тест-пилот Алан Шепард родился в Нью-Гэмпшире 18 ноября 1923 года.</finallex>
+      <lex lang="en" lid="Id2">Test Pilot Alan Shepard was born November 18th, 1923 in New Hampshire.</lex>
+      <lex lang="ru" lid="Id2">Тест Pilot Alan Shepard родился 18 ноября 1923 года в Нью-Гэмпшире.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Тест Pilot Алан Шепард родился 18 ноября 1923 года в Нью-Гэмпшире.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, who served as a Test pilot, was born in New Hampshire on the 18th of November 1923.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард, служивший в качестве летчика-испытателя, родился в Нью-Гэмпшире 18 ноября 1923 года.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард, служивший в качестве летчика-испытателя, родился в Нью-Гэмпшире 18 ноября 1923 года.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard (born on 1923-11-18 in New Hampshire) served as a Test Pilot.</lex>
+      <lex lang="ru" lid="Id4">Alan Shepard (родился в 1923-11-м в Нью-Гэмпшире) служил тестовым пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Алан Шепард (родился в 1923-11-м в Нью-Гэмпшире) служил летчиком-испытателем.</finallex>
+      <lex lang="en" lid="Id5">Alan Shepard was a test pilot who was born in New Hampshire on November 18th, 1923.</lex>
+      <lex lang="ru" lid="Id5">Алан Шепард был летчиком-испытателем, который родился в Нью-Гэмпшире 18 ноября 1923 года.</lex>
+      <finallex comment="" lang="ru" lid="Id5">Алан Шепард был летчиком-испытателем, который родился в Нью-Гэмпшире 18 ноября 1923 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id18" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | served as Chief of the Astronaut Office in | 1963</mtriple>
+        <mtriple>Alan_Shepard | was awarded | "American Defense Service ribbon.svg"</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard, who was born in New Hampshire and was the Chief of the Astronaut Office in 1963, was awarded with the American Defense Service ribbon.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард, который родился в Нью-Гэмпшире и был начальником астронавта в 1963 году, был награжден американской службой обороны.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Алан Шепард, который родился в Нью-Гэмпшире и был начальником астронавта в 1963 году, был награжден американской службой обороны.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepherd was born in New Hampshire, awarded the American Defense Service Ribbon, and was the Chief of the Astronaut Office in 1963.</lex>
+      <lex lang="ru" lid="Id2">Алан Шеферд родился в Нью-Гэмпшире, награжден американской службой обороны "Риббон", а в 1963 году был начальником отдела астронавтов.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шеферд родился в Нью-Гэмпшире, награжден лентой Американской Службы Обороны, а в 1963 году был начальником отдела астронавтов.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard was born in New Hampshire and served as Chief of the Astronaut Office in 1963, being awarded the American Defense Service ribbon.</lex>
+      <lex lang="ru" lid="Id3">Alan Shepard родился в Нью-Гэмпшире и занимал должность начальника отдела астронавтов в 1963 году, награжден американской лентой "Служба обороны".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард родился в Нью-Гэмпшире и занимал должность начальника отдела астронавтов в 1963 году, награжден американской лентой "Служба обороны".</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard (born in New Hampshire) served as Chief of the Astronaut Office in 1963 and was awarded an American Defense Service ribbon.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард (родился в Нью-Гэмпшире) занимал должность начальника отдела астронавтов в 1963 году и был удостоен американской ленты "Служба обороны".</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Алан Шепард (родился в Нью-Гэмпшире) занимал должность начальника отдела астронавтов в 1963 году и был награжден лентой Американской Службы Обороны.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id19" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | status | "Deceased"</mtriple>
+        <mtriple>Alan_Shepard | occupation | Test_pilot</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard was born in New Hampshire, served as a test pilot and is dead.</lex>
+      <lex lang="ru" lid="Id1">Алан Шепард родился в Нью-Гэмпшире, служил тестовым пилотом и мертв.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Шепард родился в Нью-Гэмпшире, служил летчиком-испытателем и мертв.</finallex>
+      <lex lang="en" lid="Id2">The test pilot Alan Shepard, who is now deceased, was born in New Hampshire.</lex>
+      <lex lang="ru" lid="Id2">Летчик-испытатель Алан Шепард, ныне покойный, родился в Нью-Гэмпшире.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Летчик-испытатель Алан Шепард, ныне покойный, родился в Нью-Гэмпшире.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, who was born in New Hampshire and served as a test pilot, is deceased.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард, который родился в Нью-Гэмпшире и служил тестовым пилотом, скончался.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард, который родился в Нью-Гэмпшире и служил летчиком-испытателем, скончался.</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard, now deceased, was born in New Hampshire and served as a test pilot.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард, ныне покойный, родился в Нью-Гэмпшире и служил тестовым пилотом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Алан Шепард, ныне покойный, родился в Нью-Гэмпшире и служил летчиком-испытателем.</finallex>
+      <lex lang="en" lid="Id5">Alan Shepard (born in New Hampshire) served as a test pilot but is now deceased.</lex>
+      <lex lang="ru" lid="Id5">Алан Шепард (родился в Нью-Гэмпшире) служил тестовым пилотом, но сейчас скончался.</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">Алан Шепард (родился в Нью-Гэмпшире) служил летчиком-испытателем, но сейчас скончался.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id20" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | timeInSpace | "13017.0"(minutes)</mtriple>
+        <mtriple>Alan_Shepard | was a crew member of | Apollo_14</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard's time in space is 13017 minutes, he was on the crew of Apollo 14 and his birth place was New Hampshire.</lex>
+      <lex lang="ru" lid="Id1">Время Alan Shepard в космосе составляет 13017 минут, он был на экипаже "Аполло-14", а его место рождения занял Нью-Гэмпшир.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Время Алан Шепард в космосе составляет 13017 минут, он был членом экипажа "Аполлона-14", а его место рождения занял Нью-Гэмпшир.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard, who was born in New Hampshire, was a crew member aboard Apollo 14 and spent a total of 13017 minutes in space.</lex>
+      <lex lang="ru" lid="Id2">Алан Шепард, который родился в Нью-Гэмпшире, был членом экипажа на борту "Аполло-14" и провел в общей сложности 13017 минут в космосе.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Алан Шепард, который родился в Нью-Гэмпшире, был членом экипажа на борту "Аполло-14" и провел в общей сложности 13017 минут в космосе.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard (born in New Hampshire) was a crew member of Apollo 14 and spent 13017.0 (minutes) in space.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард (родился в Нью-Гэмпшире) был членом экипажа "Аполло-14" и провел в космосе 13017,0 (минут).</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард (родился в Нью-Гэмпшире) был членом экипажа "Аполло-14" и провел в космосе 13017,0 (минут).</finallex>
+      <lex lang="en" lid="Id4">Alan Shepard was born in New Hampshire, was a crew member of Apollo 14 and spent 13017.0 minutes in space.</lex>
+      <lex lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире, был членом экипажа "Аполло-14" и провел в космосе 13017,0 минуты.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Алан Шепард родился в Нью-Гэмпшире, был членом экипажа "Аполло-14" и провел в космосе 13017,0 минуты.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_14|sameAs|Аполлон-14</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id21" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Alan_Shepard | was a crew member of | Apollo_14</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Apollo_14 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Born in New Hampshire, Alan Shepard was a crew member on NASA's Apollo 14 mission.</lex>
+      <lex lang="ru" lid="Id1">Родился в Нью-Гэмпшире, Алан Шепард был членом экипажа на миссии НАСА "Аполлон-14".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Родился в Нью-Гэмпшире, Алан Шепард был членом экипажа на миссии НАСА "Аполлон-14".</finallex>
+      <lex lang="en" lid="Id2">Alan Shepherd, born in New Hampshire, served as a crew member of the NASA operated Apollo 14.</lex>
+      <lex lang="ru" lid="Id2">Алан Шеферд, родившийся в Нью-Гэмпшире, занимал должность члена экипажа NASA, эксплуатировавшего "Аполлон-14".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шеферд, родившийся в Нью-Гэмпшире, служил членом экипажа NASA, эксплуатировавшего "Аполлон-14".</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, born in New Hampshire, was a member of NASA's Apollo 14 crew.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард, родившийся в Нью-Гэмпшире, был членом экипажа НАСА "Аполлон-14".</lex>
+      <finallex comment="" lang="ru" lid="Id3">Алан Шепард, родившийся в Нью-Гэмпшире, был членом экипажа НАСА "Аполлон-14".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_14|sameAs|Аполлон-14</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id22" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Apollo_12 | backup pilot | Alfred_Worden</mtriple>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Alan_Bean | birthPlace | Wheeler,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Bean, born in Wheeler, Texas, was a crew member of Apollo 12 where Alfred Worden served as the backup pilot.</lex>
+      <lex lang="ru" lid="Id1">Алан Беан, родившийся в Уилл, штат Техас, был членом экипажа "Аполло-12", где Альфред Уорден служил резервным пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Алан Бин, родившийся в Уилл, штат Техас, был членом экипажа "Аполлон-12", где Альфред Уорден служил резервным пилотом.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean, born in Wheeler, Texas, was part of the crew of Apollo 12 where Alfred Worden served as backup pilot.</lex>
+      <lex lang="ru" lid="Id2">Алан Беан, родившийся в Уилл, штат Техас, входил в состав экипажа "Аполло-12", где Альфред Уорден служил резервным пилотом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Алан Бин, родившийся в Уилл, штат Техас, входил в состав экипажа "Аполлон-12", где Альфред Уорден служил резервным пилотом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alfred_Worden|sameAs|Уорден,_Альфред_Меррилл</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id23" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Apollo_12 | backup pilot | Alfred_Worden</mtriple>
+        <mtriple>Alan_Bean | was a crew member of | Apollo_12</mtriple>
+        <mtriple>Apollo_12 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alfred Worden was a backup pilot on the NASA operated Apollo 12 where Alan Bean served as a crew member.</lex>
+      <lex lang="ru" lid="Id1">Альфред Уорден был резервным пилотом на управляемом НАСА Apollo 12, где Alan Bean служил членом экипажа.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Альфред Уорден был резервным пилотом на управляемом НАСА Apollo 12, где Алан Бин служил членом экипажа.</finallex>
+      <lex lang="en" lid="Id2">Alan Bean was on the crew of Apollo 12 operated by NASA, with Alfred Warren as a backup pilot .</lex>
+      <lex lang="ru" lid="Id2">Алан Беан был на борту самолета "Аполлон-12", управляемого НАСА, с Альфредом Уордом в качестве резервного пилота.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Бин был на борту самолета "Аполлон-12", управляемого НАСА, с Альфредом Уордом в качестве резервного пилота.</finallex>
+      <lex lang="en" lid="Id3">Alan Bean crewed the Apollo 12 operated by NASA, with Alfred Worden as the backup pilot.</lex>
+      <lex lang="ru" lid="Id3">Alan Bean скрепил "Аполлон-12", эксплуатируемый НАСА, с Альфредом Уордом в качестве резервного пилота.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Бин скрепил "Аполлон-12", эксплуатируемый НАСА, с Альфредом Уордом в качестве резервного пилота.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alfred_Worden|sameAs|Уорден,_Альфред_Меррилл</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_12|sameAs|Аполлон-12</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Bean|sameAs|Бин,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id24" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Apollo_8 | commander | Frank_Borman</mtriple>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+        <mtriple>Apollo_8 | backup pilot | Buzz_Aldrin</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Crew member William Anders and backup pilot Buzz Aldrin served under commander Frank Borman on Apollo 8.</lex>
+      <lex lang="ru" lid="Id1">Член экипажа Уильям Андерс и резервный пилот Buzz Aldrin служили под командиром Фрэнка Бормана на "Аполлон-8".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Член экипажа Уильям Андерс и резервный пилот Базз Олдрин служили под командиром Фрэнка Бормана на "Аполлон-8".</finallex>
+      <lex lang="en" lid="Id2">Frank Borman was a Commander with William Anders as crew member and Buzz Aldrin as the backup pilot on the Apollo 8 mission.</lex>
+      <lex lang="ru" lid="Id2">Фрэнк Борман был командиром с Уильямом Андерсом в качестве члена экипажа и Buzz Aldrin в качестве резервного пилота на миссии "Аполлон-8".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Фрэнк Борман был командиром с Уильямом Андерсом в качестве члена экипажа и Базз Олдрин в качестве резервного пилота на миссии "Аполлон-8".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">Frank_Borman|sameAs|Борман,_Фрэнк</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id25" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | awards | 20</mtriple>
+        <mtriple>Buzz_Aldrin | almaMater | "Massachusetts Institute of Technology, Sc.D. 1963"</mtriple>
+        <mtriple>Buzz_Aldrin | birthDate | "1930-01-20"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin won 20 awards, graduated from Massachusetts Institute of Technology with a Sc.D in 1963 and was born on 1930-01-20.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin завоевал 20 наград, окончил Массачусетский технологический институт с Sc.D в 1963 году и родился на 1930-01-й.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Базз Олдрин завоевал 20 наград, окончил Массачусетский технологический институт со степенью доктора наук в 1963 году и родился на 1930-01-й.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, born January 20, 1930, graduated in 1963 from MIT with a Sc.D. with 20 awards.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin, родился 20 января 1930 года, окончил в 1963 году из MIT с Sc.D. с 20 наградами.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин, родился 20 января 1930 года, окончил в 1963 году из MIT с Sc.D. с 20 наградами.</finallex>
+      <lex lang="en" lid="Id3">Born on the twentieth of January, 1930, 1963 Massachusetts Institute of Technology, Sc.D. graduate Buzz Aldrin has won 20 awards.</lex>
+      <lex lang="ru" lid="Id3">Родился 20 января 1930 года в Массачусетском технологическом институте, Sc.D. выпускник Buzz Aldrin завоевал 20 наград.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Родился 20 января 1930 года в Массачусетском технологическом институте, Sc.D. выпускник Базз Олдрин завоевал 20 наград.</finallex>
+      <lex lang="en" lid="Id4">Graduating from Massachusetts Institute of Technology in 1963, Buzz Aldrin (born 1930-01-20) received 20 awards.</lex>
+      <lex lang="ru" lid="Id4">Окончив Массачусетский технологический институт в 1963 году, Buzz Aldrin (родился 1930-01-20) получил 20 наград.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Окончив Массачусетский технологический институт в 1963 году, Базз Олдрин (родился 1930-01-20) получил 20 наград.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id26" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>Buzz_Aldrin | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Retired American Buzz Aldrin was born in Glen Ridge, NJ.</lex>
+      <lex lang="ru" lid="Id1">Отставной американец Буз Алдрин родился в городе Глен-Ридж, штат НЮ.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Отставной американец Базз Олдрин родился в городе Глен-Ридж, штат НЮ.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, now retired, is a US national, being born in Glen Ridge, New Jersey.</lex>
+      <lex lang="ru" lid="Id2">"Buzz Aldrin", ныне вышедший в отставку, - гражданин США, родившийся в городе Глен-Ридж, штат Нью-Джерси.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин, ныне вышедший в отставку, - гражданин США, родившийся в городе Глен-Ридж, штат Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin, born in Glen Ridge, New Jersey, in the USA, is now retired.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin, родившийся в городе Глен-Ридж, штат Нью-Джерси, в США, в настоящее время находится в отставке.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин, родившийся в городе Глен-Ридж, штат Нью-Джерси, в США, в настоящее время находится в отставке.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id27" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, a member of the Apollo 11 crew was born in Glen Ridge, New Jersey, US.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, член экипажа "Аполлон-11" родился в городе Глен-Ридж, штат Нью-Джерси, США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин, член экипажа "Аполлон-11" родился в городе Глен-Ридж, штат Нью-Джерси, США.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was an American crew member on Apollo 11, having been born in Glen Ridge, New Jersey.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin был американским членом экипажа на "Аполлон-11", родившись в Глен-Ридже, штат Нью-Джерси.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин был американским членом экипажа на "Аполлон-11", родившись в Глен-Ридже, штат Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was a US national, being born in Glen Ridge, New Jersey and was a member of the Apollo 11 crew.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin был гражданином США, рожденным в Глен-Ридж, штат Нью-Джерси, и был членом экипажа "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин был гражданином США, рожденным в Глен-Ридж, штат Нью-Джерси, и был членом экипажа "Аполлон-11".</finallex>
+      <lex lang="en" lid="Id4">Buzz Aldrin (born at Glen Ridge in New Jersey,USA) was a crew member of Apollo 11.</lex>
+      <lex lang="ru" lid="Id4">Buzz Aldrin (родился в Глен-Ридж в Нью-Джерси, США) был членом экипажа "Аполло-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Базз Олдрин (родился в Глен-Ридж в Нью-Джерси, США) был членом экипажа "Аполло-11".</finallex>
+      <lex lang="en" lid="Id5">Buzz Aldrin is an American who was born in Glen Ridge, New Jersey and part of the Apollo 11 flight crew.</lex>
+      <lex lang="ru" lid="Id5">Buzz Aldrin - американец, родившийся в городе Глен-Ридж, штат Нью-Джерси, и часть экипажа рейса "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">Базз Олдрин - американец, родившийся в городе Глен-Ридж, штат Нью-Джерси, и часть экипажа рейса "Аполлон-11".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id28" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>Glen_Ridge,_New_Jersey | isPartOf | Essex_County,_New_Jersey</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was a United States national born in Glen Ridge, New Jersey, in the Essex County.</lex>
+      <lex lang="ru" lid="Id1">"Buzz Aldrin" был гражданином Соединенных Штатов, родившимся в городе Глен-Ридж, штат Нью-Джерси, в графстве Эссекс.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Базз Олдрин был гражданином Соединенных Штатов, родившимся в городе Глен-Ридж, штат Нью-Джерси, в округе Эссекс.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was born in Glen Ridge located in the Essex County in New Jersey and is a US national.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin родился в городе Глен-Ридж, расположенном в графстве Эссекс в Нью-Джерси, и является гражданином США.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Базз Олдрин родился в городе Глен-Ридж, расположенном в округе Эссекс в Нью-Джерси, и является гражданином США.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was born in Glen Ridge, Essex County, New Jersey, USA.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin родился в городе Глен-Ридж, округ Эссекс, штат Нью-Джерси, США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин родился в городе Глен-Ридж, округ Эссекс, штат Нью-Джерси, США.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Essex_County,_New_Jersey|sameAs|Эссекс_(округ,_Нью-Джерси)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id29" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>United_States | leader | Joe_Biden</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buss Aldrin is an American born in Glen Ridge, New Jersey in the United States of which Joe Biden is a leader.</lex>
+      <lex lang="ru" lid="Id1">Бусс Алдрин - американец, родившийся в городе Глен-Ридж, штат Нью-Джерси в США, лидером которого является Джо Байден.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Бусс Алдрин - американец, родившийся в городе Глен-Ридж, штат Нью-Джерси в США, лидером которого является Джо Байден.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was born in Glen Ridge, New Jersey as a United States national where Joe Biden is the leader.</lex>
+      <lex lang="ru" lid="Id2">"Buzz Aldrin" родился в Глен-Ридже, Нью-Джерси как гражданин Соединенных Штатов, где Джо Байден является лидером.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин родился в Глен-Ридже, Нью-Джерси как гражданин Соединенных Штатов, где Джо Байден является лидером.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was born in Glen Ridge, New Jersey and was a United States national where Joe Biden is the leader.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin родился в городе Глен-Ридж, штат Нью-Джерси, и был гражданином Соединенных Штатов, где Джо Байден является лидером.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин родился в городе Глен-Ридж, штат Нью-Джерси, и был гражданином Соединенных Штатов, где Джо Байден является лидером.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Joe_Biden|sameAs|Байден,_Джо</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id30" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | occupation | Fighter_pilot</mtriple>
+        <mtriple>Buzz_Aldrin | almaMater | "Massachusetts Institute of Technology, Sc.D. 1963"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin who was born in Glen Ridge, New Jersey and graduated in 1963 from MIT with a Sc. D, served as a fighter pilot.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, который родился в Глен-Ридж, штат Нью-Джерси и окончил в 1963 году из MIT с Sc. D, служил пилотом истребителя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин, который родился в Глен-Ридж, штат Нью-Джерси и окончил в 1963 году из MIT с Sc. D, служил пилотом истребителя.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was born in Glen Ridge, New Jersey and graduated with a Sc.D from MIT in 1963 before becoming a fighter pilot.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin родился в городе Глен-Ридж, штат Нью-Джерси, и окончил Sc.D из MIT в 1963 году перед тем, как стать пилотом истребителя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин родился в городе Глен-Ридж, штат Нью-Джерси, и окончил Sc.D из MIT в 1963 году перед тем, как стать пилотом истребителя.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin, who was born in Glen Ridge, New Jersey graduated from MIT in 1963 with a Sc D and served as a fighter pilot.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin, который родился в Глен-Ридж, штат Нью-Джерси, окончил MIT в 1963 году с Sc D и служил пилотом истребителя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин, который родился в Глен-Ридж, штат Нью-Джерси, окончил MIT в 1963 году с Sc D и служил пилотом истребителя.</finallex>
+      <lex lang="en" lid="Id4">Buzz Aldrin (born in Glen Ridge New Jersey) was a fighter pilot and went to the Massachusetts Institute of Technology, Sc.D. 1963.</lex>
+      <lex lang="ru" lid="Id4">Buzz Aldrin (родился в Глен Ридж Нью-Джерси) был пилотом истребителя и отправился в Массачусетский технологический институт, Sc.D. 1963.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Базз Олдрин (родился в Глен Ридж Нью-Джерси) был пилотом истребителя и отправился в Массачусетский технологический институт со степенью доктора наук в 1963 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id31" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | occupation | Fighter_pilot</mtriple>
+        <mtriple>Buzz_Aldrin | birthDate | "1930-01-20"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Born on January 2 1930 in Glen Ridge, NJ, Buzz Aldrin was a fighter pilot.</lex>
+      <lex lang="ru" lid="Id1">Родился 2 января 1930 года в Глен-Ридж, NJ, Buzz Aldrin был пилотом истребителя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Родился 2 января 1930 года в Глен-Ридж, NJ, Базз Олдрин был пилотом истребителя.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, who was born in Glen Ridge, New Jersey on 20 January 1930 served as a fighter pilot.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin, который родился в Глен-Ридж, штат Нью-Джерси 20 января 1930 года, служил пилотом истребителя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин, который родился в Глен-Ридж, штат Нью-Джерси 20 января 1930 года, служил пилотом истребителя.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id32" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | birthPlace | Glen_Ridge,_New_Jersey</mtriple>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Glen_Ridge,_New_Jersey | isPartOf | Essex_County,_New_Jersey</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, a crew member of Apollo 11, was born in the Essex County of Glen Ridge, New Jersey.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, член экипажа "Аполлона-11", родился в графстве Эссекс в городе Глен-Ридж, штат Нью-Джерси.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Базз Олдрин, член экипажа "Аполлона-11", родился в округе Эссекс в городе Глен-Ридж, штат Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was born in Glen Ridge New Jersey situated in the Essex County, he was a crew member of Apollo 11.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin родился в Глен-Ридж-Нью-Джерси, расположенном в графстве Эссекс, он был членом экипажа "Аполло-11".</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Базз Олдрин родился в Глен-Ридж, Нью-Джерси, расположенном в округе Эссекс, он был членом экипажа "Аполло-11".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Essex_County,_New_Jersey|sameAs|Эссекс_(округ,_Нью-Джерси)</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id33" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Apollo_11 | backup pilot | William_Anders</mtriple>
+        <mtriple>Apollo_11 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was a crew member of Apollo 11 where William Anders was a backup pilot and the mission was operated by NASA.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin был членом экипажа "Аполло-11", где Уильям Андерс был резервным пилотом, а миссия эксплуатировалась НАСА.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Базз Олдрин был членом экипажа "Аполло-11", где Уильям Андерс был резервным пилотом, а миссия управлялась НАСА.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin served as a crew member on the NASA organised Apollo 11 program, where William Anders was a backup pilot.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin служил членом экипажа на NASA организованной программой "Аполлон-11", где Уильям Андерс был резервным пилотом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин служил членом экипажа на NASA организованной программой "Аполлон-11", где Уильям Андерс был резервным пилотом.</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was a member of Nasa's Apollo 11 crew alongside William Anders the backup pilot.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin был членом экипажа "Аполлона" "Аполлон-11" вместе с Уильямом Андерсом резервным пилотом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин был членом экипажа "Аполлона" "Аполлон-11" вместе с Уильямом Андерсом резервным пилотом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id34" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | nationality | United_States</mtriple>
+        <mtriple>Apollo_11 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, a US national, was a crew member on Apollo 11 operated by NASA.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, гражданин США, был членом экипажа на "Аполло-11", управляемом НАСА.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин, гражданин США, был членом экипажа на "Аполло-11", управляемом НАСА.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was a US national who served as a crew member of the NASA operated Apollo 11.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin был гражданином США, который занимал пост члена экипажа NASA, эксплуатировавшего "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин был гражданином США, который занимал пост члена экипажа NASA, эксплуатировавшего "Аполлон-11".</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin, born in the USA, was a crew member of the NASA operated Apollo 11.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin, родившийся в США, был членом экипажа NASA, эксплуатировавшего "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин, родившийся в США, был членом экипажа NASA, эксплуатировавшего "Аполлон-11".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id35" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | occupation | Fighter_pilot</mtriple>
+        <mtriple>Buzz_Aldrin | birthDate | "1930-01-20"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was a crew member on Apollo 11, performed as a fighter pilot and his birth date was 1930 01 20.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin был членом экипажа на "Аполло-11", выступал в качестве пилота истребителя, а дата его рождения - 1930 01 20.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин был членом экипажа на "Аполло-11", выступал в качестве пилота истребителя, а дата его рождения - 1930 01 20.</finallex>
+      <lex lang="en" lid="Id2">Fighter pilot Buzz Aldrin, who was born on January 20 1930, was a member of Apollo 11's crew.</lex>
+      <lex lang="ru" lid="Id2">Пилот истребителя Buzz Aldrin, который родился 20 января 1930 года, был членом экипажа "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Пилот истребителя Базз Олдрин, который родился 20 января 1930 года, был членом экипажа "Аполлон-11".</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was both a fighter pilot and a flight member of Apollo 11 who was born on January 20th, 1930.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin был как пилотом истребителя, так и борцом из "Аполло-11", который родился 20 января 1930 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин был как пилотом истребителя, так и борцом из "Аполло-11", который родился 20 января 1930 года.</finallex>
+      <lex lang="en" lid="Id4">Buzz Aldrin was born on 1930-01-20, was a crew member of Apollo 11 and his main occupation was as a Fighter pilot.</lex>
+      <lex lang="ru" lid="Id4">Буз Алдрин родился в 1930-01-м, был членом экипажа "Аполло-11", а его главная оккупация была в качестве пилота Fighter.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Базз Олдрин родился в 1930-01-м, был членом экипажа "Аполло-11", а его главная оккупация была в качестве пилота Fighter.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id36" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | timeInSpace | "52.0"(minutes)</mtriple>
+        <mtriple>Apollo_11 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin, as part of the NASA operated Apollo 11 program, spent 52 minutes in space.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin, в составе NASA эксплуатировала программу "Аполлон-11", провела 52 минуты в космосе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин, в составе NASA эксплуатировала программу "Аполлон-11", провела 52 минуты в космосе.</finallex>
+      <lex lang="en" lid="Id2">On the NASA operated Apollo 11 program, crew member Buzz Aldrin spent 52.0 minutes in space.</lex>
+      <lex lang="ru" lid="Id2">На сайте NASA действовала программа "Аполлон-11", член экипажа Buzz Aldrin провел в космосе 52,0 минуты.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">На сайте NASA действовала программа "Аполлон-11", член экипажа Базз Олдрин провел в космосе 52,0 минуты.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id37" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | was selected by NASA | 1963</mtriple>
+        <mtriple>Apollo_11 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was hired by NASA in 1963 for the Apollo 11 mission.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin был нанят НАСА в 1963 году для миссии "Аполлон-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин был нанят НАСА в 1963 году для миссии "Аполлон-11".</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin was hired by NASA in 1963 to take part in Apollo 11.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin был нанят НАСА в 1963 году, чтобы принять участие в "Аполло-11".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Базз Олдрин был нанят НАСА в 1963 году, чтобы принять участие в "Аполло-11".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id38" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Buzz_Aldrin | was selected by NASA | 1963</mtriple>
+        <mtriple>Buzz_Aldrin | was a crew member of | Apollo_11</mtriple>
+        <mtriple>Buzz_Aldrin | status | "Retired"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buzz Aldrin was hired by NASA in 1963, was a member of the Apollo 11 crew and is retired.</lex>
+      <lex lang="ru" lid="Id1">Buzz Aldrin был нанят НАСА в 1963 году, был членом экипажа "Аполло-11" и отправлен в отставку.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Базз Олдрин был нанят НАСА в 1963 году, был членом экипажа "Аполло-11" и отправлен в отставку.</finallex>
+      <lex lang="en" lid="Id2">Buzz Aldrin, who is now retired, was selected by NASA in 1963 and served as a crew member of Apollo 11.</lex>
+      <lex lang="ru" lid="Id2">Buzz Aldrin, который сейчас вышел на пенсию, был выбран НАСА в 1963 году и занимал должность члена экипажа "Аполло-11".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Базз Олдрин, который сейчас вышел на пенсию, был выбран НАСА в 1963 году и служил членом экипажа "Аполло-11".</finallex>
+      <lex lang="en" lid="Id3">Buzz Aldrin was hired by NASA in 1963, was a crew member on Apollo 11 and is retired.</lex>
+      <lex lang="ru" lid="Id3">Buzz Aldrin был нанят НАСА в 1963 году, был членом экипажа на "Аполло-11" и отправлен в отставку.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Базз Олдрин был нанят НАСА в 1963 году, был членом экипажа на "Аполло-11" и отправлен в отставку.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">Buzz_Aldrin|sameAs|Олдрин,_Базз</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_11|sameAs|Аполлон-11</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id39" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>California | gemstone | Benitoite</mtriple>
+        <mtriple>Alan_Shepard | deathPlace | California</mtriple>
+        <mtriple>California | senators | Dianne_Feinstein</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dianne Feinstein is senator in California, the same place Benitoite was found and Alan Shepard died.</lex>
+      <lex lang="ru" lid="Id1">Dianne Feinstein - сенатор в Калифорнии, там же место Бенитоита нашли и Алан Шепард умер.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дайэнн Файнстайн - сенатор в Калифорнии, там же место Бенитоита нашли и Алан Шепард умер.</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard died in California. California's senator was Dianne Feinstein and Benitoite is the gemstone.</lex>
+      <lex lang="ru" lid="Id2">Алан Шепард умер в Калифорнии. Сенатором Калифорнии был Диан Фейнштейн и Бенитоит - драгоценный камень.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Алан Шепард умер в Калифорнии. Сенатором Калифорнии был Диан Фейнштейн и Бенитоит - драгоценный камень.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard died in California where senator is Dianne Feinstein and gemstone is Benitoite.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард умер в Калифорнии, где сенатор - Дианна Фейнштейн и драгоценных камней - Бенитоит.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард умер в Калифорнии, где сенатор - Дайэнн Файнстайн и драгоценных камней - Бенитоит.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">California|sameAs|Калифорния</dbpedialink>
+        <dbpedialink direction="en2ru">Benitoite|sameAs|Бенитоит</dbpedialink>
+        <dbpedialink direction="en2ru">Dianne_Feinstein|sameAs|Файнстайн,_Дайэнн</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id40" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Dallas | partsType | List_of_counties_in_Texas</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+        <mtriple>Dallas | part | Collin_County,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See was born in Dallas, Collin County, Texas.</lex>
+      <lex lang="ru" lid="Id1">Эллиот Престол родился в Далласе, графство Коллин, штат Техас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Эллиот Си родился в Далласе, графство Коллин, штат Техас.</finallex>
+      <lex lang="en" lid="Id2">Elliot See was born in Dallas, located in the Collin County in Texas.</lex>
+      <lex lang="ru" lid="Id2">Эллиот Си родился в Далласе, расположенном в округе Коллин в штате Техас.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Эллиот Си родился в Далласе, расположенном в округе Коллин в штате Техас.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">List_of_counties_in_Texas|sameAs|Список_округов_Техаса</dbpedialink>
+        <dbpedialink direction="en2ru">Collin_County,_Texas|sameAs|Коллин_(округ,_Техас)</dbpedialink>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id41" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Distinguished_Service_Medal_(United_States_Navy) | higher | Department_of_Commerce_Gold_Medal</mtriple>
+        <mtriple>Alan_Shepard | birthPlace | New_Hampshire</mtriple>
+        <mtriple>Alan_Shepard | awards | Distinguished_Service_Medal_(United_States_Navy)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Shepard, born in New Hampshire, was awarded the Distinguished Service Medal (a higher award than the Department of Commerce Gold Medal) by the United States Navy.</lex>
+      <lex lang="ru" lid="Id1">Alan Shepard, родившийся в Нью-Гэмпшире, был награжден наградной медалью "Медаль" (более высокая награда, чем "Золотая медаль" Министерства торговли США).</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Алан Шепард, родившийся в Нью-Гэмпшире, был награжден наградной медалью "Медаль" (более высокая награда, чем "Золотая медаль" Министерства торговли США).</finallex>
+      <lex lang="en" lid="Id2">Alan Shepard, born in New Hampshire, was awarded the United States Navy Distinguished Service Medal which ranks higher than Department of Commerce Gold Medal.</lex>
+      <lex lang="ru" lid="Id2">Alan Shepard, родившийся в Нью-Гэмпшире, был награжден медалью Военно-морского флота США, которая занимает более высокое место, чем медаль Департамента торговли.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Алан Шепард, родившийся в Нью-Гэмпшире, был награжден медалью Военно-морского флота США, которая занимает более высокое место, чем медаль Департамента торговли.</finallex>
+      <lex lang="en" lid="Id3">Alan Shepard, who was born in New Hampshire, was awarded the United States Navy Distinguished Service Medal, which is higher than the department of commerce gold medal.</lex>
+      <lex lang="ru" lid="Id3">Алан Шепард, который родился в Нью-Гэмпшире, был награжден медалью Военно-морского флота США, что выше, чем у департамента торговли золотой медалью.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Алан Шепард, который родился в Нью-Гэмпшире, был награжден медалью Военно-морского флота США, что выше Золотой медали Министерства торговли.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Distinguished_Service_Medal_(United_States_Navy)|sameAs|Медаль_«За_выдающуюся_службу»_(ВМС_США)</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Shepard|sameAs|Шепард,_Алан</dbpedialink>
+        <dbpedialink direction="en2ru">New_Hampshire|sameAs|Нью-Гэмпшир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id42" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>Elliot_See | deathDate | "1966-02-28"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, who graduated from the University of Texas at Austin, died in St Louis on 28 February 1966.</lex>
+      <lex lang="ru" lid="Id1">Эллиот См., который окончил Университет Техаса в Остине, скончался в Сент-Луисе 28 февраля 1966 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, который окончил Техасский университет в Остине, скончался в Сент-Луисе 28 февраля 1966 года.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, a student from the University of Texas in Austin, died in St Louis on the 28th of February 1966.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, студент из Университета Техаса в Остине, скончался в Сент-Луисе 28 февраля 1966 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си, студент из Университета Техаса в Остине, скончался в Сент-Луисе 28 февраля 1966 года.</finallex>
+      <lex lang="en" lid="Id3">Elliot See went to University of Texas at Austin and died in St. Louis on 1966-02-08.</lex>
+      <lex lang="ru" lid="Id3">Elliot See отправился в Техасский университет в Остине и умер в Сент-Луисе в 1966-02-08 годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эллиот Си отправился в Техасский университет в Остине и умер в Сент-Луисе в 1966-02-08 годах.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id43" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>Elliot_See | status | "Deceased"</mtriple>
+        <mtriple>Elliot_See | occupation | Test_pilot</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See who was a student of the University of Texas at Austin and served as a test pilot, has died.</lex>
+      <lex lang="ru" lid="Id1">Эллиот См., кто был студентом Университета Техаса в Остине и служил тестовым пилотом, умер.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, кто был студентом Университета Техаса в Остине и служил летчиком-испытателем, умер.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, a student at the University of Texas in Austin who was also a test pilot, has died.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, студент Университета Техаса в Остине, который также был тестовым пилотом, умер.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эллиот Си, студент Университета Техаса в Остине, который также был летчиком-испытателем, умер.</finallex>
+      <lex lang="en" lid="Id3">Elliot See went to the University of Texas at Austin and served as a test pilot and is now deceased.</lex>
+      <lex lang="ru" lid="Id3">Elliot See отправился в Техасский университет в Остине и служил тестовым пилотом и сейчас скончался.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Эллиот Си отправился в Техасский университет в Остине и служил летчиком-испытателем и сейчас скончался.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id44" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>University_of_Texas_at_Austin | affiliation | University_of_Texas_System</mtriple>
+        <mtriple>University_of_Texas_at_Austin | president | Gregory_L._Fenves</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The University of Texas at Austin, where Elliot See was a student and Gregory L. Fenves is president, is affiliated with the University of Texas System.</lex>
+      <lex lang="ru" lid="Id1">Университет Техаса в Остине, где Эллиот Прей был студентом и Григорием Л. Фьюри - президентом, связан с Университетом Техасской системы.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Техасский университет в Остине, где Эллиот Си был студентом и Григорием Л. Фьюри - президентом, связан с системой Техасского университета.</finallex>
+      <lex lang="en" lid="Id2">The University of Texas, the president of which is Gregory L. Fences, is affiliated with the University of Texas System, and was previously attended by Elliot See.</lex>
+      <lex lang="ru" lid="Id2">Университет Техаса, президентом которого является Григорий Л. Фьюри, связан с Университетом Техасской системы, а ранее в нем присутствовал Эллиот См.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id2">Техасский университет, президентом которого является Грегори Л. Фенвес, связан с системой Техасского университета, а ранее в нем присутствовал Эллиот Си</finallex>
+      <lex lang="en" lid="Id3">Gregory L Fenves is the appointed president of the University of Texas at Austin (affiliated with University of Texas System) from which Elliot See graduated.</lex>
+      <lex lang="ru" lid="Id3">Gregory L Fenves - назначенный президент Техасского университета в Остине (аффилирован с Университетом Техасской системы), из которого окончил Эллиот См.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Gregory L Fenves - назначенный президент Техасского университета в Остине (аффилирован с системой Техасского университета), из которого окончил Эллиот Си</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id45" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>University_of_Texas_at_Austin | affiliations | University_of_Texas_System</mtriple>
+        <mtriple>University_of_Texas_at_Austin | compete in | Big_12_Conference</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The university of Texas at Austin, where Elliot See was a student, is affiliated to the university of Texas system and is competing in the Big 12 Conference.</lex>
+      <lex lang="ru" lid="Id1">Университет Техаса в Остине, где Эллиот Прей был студентом, аффилирован с университетом Техасской системы и соревнуется на Большой 12-й конференции.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Техасский университет в Остине, где Эллиот Си был студентом, аффилирован с университетом Техасской системы и участвует в конференции Big 12.</finallex>
+      <lex lang="en" lid="Id2">Elliot See was a student at University of Texas Austin, which is affiliated to the University of Texas system, and which will compete in the Big 12 conference.</lex>
+      <lex lang="ru" lid="Id2">Elliot See был студентом Университета Техаса Остина, который входит в систему Техасского университета, и который будет выступать на конференции "Большой 12".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си был студентом Университета Техаса Остина, который входит в систему Техасского университета, и который будет выступать на конференции "Большой 12".</finallex>
+      <lex lang="en" lid="Id3">Elliot See's attended University of Texas at Austin which competed in Big 12 Conference and is affiliated with the University of Texas system.</lex>
+      <lex lang="ru" lid="Id3">Elliot See 's посещал Университет Техаса в Остине, который соревновался на Большой 12-й конференции и аффилирован с системой Техасского университета.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Эллиот Си's посещал Техасский университет в Остине, который соревновался на Большой 12-й конференции и аффилирован с системой Техасского университета.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id46" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | almaMater | University_of_Texas_at_Austin</mtriple>
+        <mtriple>University_of_Texas_at_Austin | mascot | Hook_'em_(mascot)</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, who was born in Dallas, attended the University of Texas at Austin (whose mascot is Hook'em).</lex>
+      <lex lang="ru" lid="Id1">Эллиот См., который родился в Далласе, посещал Университет Техаса в Остине (чей талисман - Hook 'em).</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си, который родился в Далласе, посещал Техасский университет в Остине (чей талисман - Hook'em).</finallex>
+      <lex lang="en" lid="Id2">Elliot See was born in Dallas, and graduated from the University of Texas at Austin where Hook 'em is the mascot.</lex>
+      <lex lang="ru" lid="Id2">Эллиот Престол родился в Далласе и окончил Университет Техаса в Остине, где Хок 'em - талисман.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эллиот Си родился в Далласе и окончил Техасский университет в Остине, где Хок'em - талисман.</finallex>
+      <lex lang="en" lid="Id3">The mascot of the University of Texas at Austin, which Elliot See (born Dallas) attended is Hook'em.</lex>
+      <lex lang="ru" lid="Id3">Талисман Университета штата Техас в Остине, который Эллиот См. (Родился Даллас) присутствовал на выставке Hook 'em.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Талисман Университета штата Техас в Остине, который Эллиот Си (Родился Даллас) присутствовал на выставке Hook'em.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">University_of_Texas_at_Austin|sameAs|Техасский_университет_в_Остине</dbpedialink>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id47" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+        <mtriple>Elliot_See | occupation | Test_pilot</mtriple>
+        <mtriple>Elliot_See | was selected by NASA | 1962</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See, who was born in Dallas and flew as a test pilot, was selected by NASA in 1962.</lex>
+      <lex lang="ru" lid="Id1">Elliot See, которая родилась в Далласе и летела в качестве летчика-испытателя, была выбрана НАСА в 1962 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Эллиот Си, которая родилась в Далласе и летела в качестве летчика-испытателя, была выбрана НАСА в 1962 году.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, who was chosen by NASA in 1962 to serve as a test pilot, was born in Dallas.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, который был выбран НАСА в 1962 году для работы в качестве летчика-испытателя, родился в Далласе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си, который был выбран НАСА в 1962 году для работы в качестве летчика-испытателя, родился в Далласе.</finallex>
+      <lex lang="en" lid="Id3">Born in Dallas, Elliot See served as a test pilot before being selected by NASA in 1962.</lex>
+      <lex lang="ru" lid="Id3">Родился в Далласе, Elliot See служил тестовым пилотом, прежде чем был выбран НАСА в 1962 году.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Родился в Далласе, Эллиот Си служил летчиком-испытателем, прежде чем был выбран НАСА в 1962 году.</finallex>
+      <lex lang="en" lid="Id4">Elliot See was born in Dallas and became a test pilot who was chosen by NASA in 1962.</lex>
+      <lex lang="ru" lid="Id4">Elliot See родился в Далласе и стал тестовым пилотом, который был выбран НАСА в 1962 году.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Эллиот Си родился в Далласе и стал летчиком-испытателем, который был выбран НАСА в 1962 году.</finallex>
+      <lex lang="en" lid="Id5">Elliot See was born in Dallas and worked as a Test pilot before being selected by NASA in 1962.</lex>
+      <lex lang="ru" lid="Id5">Elliot See родился в Далласе и работал в качестве летчика-испытателя, прежде чем был выбран НАСА в 1962 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">Эллиот Си родился в Далласе и работал в качестве летчика-испытателя, прежде чем был выбран НАСА в 1962 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+        <dbpedialink direction="en2ru">1962|sameAs|1962_год</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id48" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+        <mtriple>Elliot_See | status | "Deceased"</mtriple>
+        <mtriple>Dallas | part | Collin_County,_Texas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The late Elliot See was born in Dallas, which is located in the Collin County in Texas.</lex>
+      <lex lang="ru" lid="Id1">Покойный Эллиот През родился в Далласе, который находится в округе Коллин в штате Техас.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Покойный Эллиот През родился в Далласе, который находится в округе Коллин в штате Техас.</finallex>
+      <lex lang="en" lid="Id2">The deceased Elliot See was born in Dallas, Collin County, Texas.</lex>
+      <lex lang="ru" lid="Id2">Покойный Эллиот См. Родился в Далласе, графство Коллин, штат Техас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Покойный Эллиот Си Родился в Далласе, графство Коллин, штат Техас.</finallex>
+      <lex lang="en" lid="Id3">Elliot See, who was born in Dallas (Collin County, Texas), has died.</lex>
+      <lex lang="ru" lid="Id3">Эллиот Си, который родился в Далласе (Collin County, Техас), умер.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Эллиот Си, который родился в Далласе (Collin County, Техас), умер.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+        <dbpedialink direction="en2ru">Collin_County,_Texas|sameAs|Коллин_(округ,_Техас)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id49" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>Elliot_See | birthDate | "1927-07-23"</mtriple>
+        <mtriple>Elliot_See | occupation | Test_pilot</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See was born on July 23rd, 1927 served as a test pilot and died in St Louis..</lex>
+      <lex lang="ru" lid="Id1">Elliot See родился 23 июля 1927 года, служил тестовым пилотом и умер в Сент-Луисе.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си родился 23 июля 1927 года, служил летчиком-испытателем и умер в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id2">Elliot See was a test pilot who was born on 23 July 1027 and died in St Louis.</lex>
+      <lex lang="ru" lid="Id2">Elliot See был летчиком-испытателем, который родился 23 июля 1027 года и умер в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си был летчиком-испытателем, который родился 23 июля 1027 года и умер в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id3">Elliot See died in St. Louis, was born on the 23rd of July 1927 and performed as a test pilot.</lex>
+      <lex lang="ru" lid="Id3">Эллиот Престол умер в Сент-Луисе, родился 23 июля 1927 года и выступал в качестве летчика-испытателя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эллиот Си умер в Сент-Луисе, родился 23 июля 1927 года и выступал в качестве летчика-испытателя.</finallex>
+      <lex lang="en" lid="Id4">Elliot See was a test pilot who was born on July 23rd, 1927 and died in St. Louis.</lex>
+      <lex lang="ru" lid="Id4">Elliot See был летчиком-испытателем, который родился 23 июля 1927 года и умер в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Эллиот Си был летчиком-испытателем, который родился 23 июля 1927 года и умер в Сент-Луисе.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id50" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+        <mtriple>Elliot_See | nationality | United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">American Elliot See was born in Dallas and died in St. Louis.</lex>
+      <lex lang="ru" lid="Id1">Американская Elliot See родилась в Далласе и умерла в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Американская Эллиот Си родилась в Далласе и умерла в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id2">Elliot See was born in Dallas, US and died in St Louis.</lex>
+      <lex lang="ru" lid="Id2">Эллиот Престол родился в Далласе, США и умер в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си родился в Далласе, США и умер в Сент-Луисе.</finallex>
+      <lex lang="en" lid="Id3">Elliot See died in St Louis, was born in Dallas and his nationality is United States.</lex>
+      <lex lang="ru" lid="Id3">Эллиот Си умер в Сент-Луисе, родился в Далласе, а его национальность - США.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Эллиот Си умер в Сент-Луисе, родился в Далласе, а его национальность - США.</finallex>
+      <lex lang="en" lid="Id4">Elliot See was born in Dallas in the United States and later died in St. Louis.</lex>
+      <lex lang="ru" lid="Id4">Эллиот Престол родился в Далласе в США и позднее скончался в Сент-Луисе.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Эллиот Си родился в Далласе в США и позднее скончался в Сент-Луисе.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id51" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>Elliot_See | occupation | Test_pilot</mtriple>
+        <mtriple>Dallas | partsType | List_of_counties_in_Texas</mtriple>
+        <mtriple>Elliot_See | birthPlace | Dallas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See was a test pilot originating from Dallas, Texas.</lex>
+      <lex lang="ru" lid="Id1">Elliot See был опытным пилотом из Далласа, штат Техас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Эллиот Си был опытным пилотом из Далласа, штат Техас.</finallex>
+      <lex lang="en" lid="Id2">Elliot See, who was born in Dallas, Texas, performed as a test pilot.</lex>
+      <lex lang="ru" lid="Id2">Elliot See, который родился в Далласе, штат Техас, выступал в качестве летчика-испытателя.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эллиот Си, который родился в Далласе, штат Техас, выступал в качестве летчика-испытателя.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Dallas|sameAs|Даллас</dbpedialink>
+        <dbpedialink direction="en2ru">List_of_counties_in_Texas|sameAs|Список_округов_Техаса</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id52" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>St._Louis | leaderName | Francis_G._Slay</mtriple>
+        <mtriple>Elliot_See | deathPlace | St._Louis</mtriple>
+        <mtriple>St._Louis | isPartOf | Kingdom_of_France</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Elliot See died in St. Louis that used to be a part of the kingdom of France and is headed by Francis G. Slay.</lex>
+      <lex lang="ru" lid="Id1">Эллиот Престол умер в Сент-Луисе, который раньше входил в состав королевства Франции и возглавляет Фрэнсис Г. Слай.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эллиот Си умер в Сент-Луисе, который раньше входил в состав королевства Франции и возглавляет Фрэнсис Г. Слей.</finallex>
+      <lex lang="en" lid="Id2">Elliot See died in St Louis in France where the mayor is Francis G Slay.</lex>
+      <lex lang="ru" lid="Id2">Elliot See умер в Сент-Луисе во Франции, где мэр - Фрэнсис Г. Слай.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эллиот Си умер в Сент-Луисе во Франции, где мэр - Фрэнсис Г. Слей.</finallex>
+      <lex lang="en" lid="Id3">St Louis, which is also a place in France, is where Elliot See died and whose mayor is Francis G Slay.</lex>
+      <lex lang="ru" lid="Id3">"Сент-Луис", который также является местом во Франции, - это там, где умер Эллиот Прей и чей мэр - Фрэнсис Г. Слай.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Сент-Луис, который также является местом во Франции, - это там, где умер Эллиот Си и чей мэр - Фрэнсис Г. Слей.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">St._Louis|sameAs|Сент-Луис</dbpedialink>
+        <dbpedialink direction="en2ru">Kingdom_of_France|sameAs|Королевство_Франция</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id53" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | dateOfRetirement | "1969-09-01"</mtriple>
+        <mtriple>British_Hong_Kong | representative | Chris_Patten</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Represented by Chris Patten, British Hong Kong is known as the birth place of William Anders, who retired on September 1st, 1969.</lex>
+      <lex lang="ru" lid="Id1">Представлявший Криса Паттен, британский Гонконг известен как место рождения Уильяма Андерса, который вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Представлявший Криса Паттен, британский Гонконг известен как место рождения Уильяма Андерса, который вышел в отставку 1 сентября 1969 года.</finallex>
+      <lex lang="en" lid="Id2">William Anders, who retired on the 1st of September 1969, was born in British Hong Kong where Chris Patten served as a representative.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс, вышедший на пенсию 1 сентября 1969 года, родился в британском Гонконге, где Крис Паттен занимал должность представителя.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Уильям Андерс, вышедший на пенсию 1 сентября 1969 года, родился в британском Гонконге, где Крис Паттен занимал должность представителя.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id54" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | dateOfRetirement | "1969-09-01"</mtriple>
+        <mtriple>William_Anders | birthDate | "1933-10-17"</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders retired on 1 September 1969, having been born on 17 October 1933 in British Hong Kong.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс вышел в отставку 1 сентября 1969 года, родившись 17 октября 1933 года в британском Гонконге.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс вышел в отставку 1 сентября 1969 года, родившись 17 октября 1933 года в британском Гонконге.</finallex>
+      <lex lang="en" lid="Id2">William Anders, who was born in British Hong Kong on October 17th, 1933 retired 1969-09-01.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, ушел в отставку 1969-09-01.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, ушел в отставку 1969-09-01.</finallex>
+      <lex lang="en" lid="Id3">William Anders, born in British Hong Kong on the 17th of October 1933, retired on the 1st of September 1969.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс, родившийся в британском Гонконге 17 октября 1933 года, вышел в отставку 1 сентября 1969 года.</finallex>
+      <lex lang="en" lid="Id4">William Anders was born on 1933-10-17 in British Hong Kong and retired on 1969-09-01.</lex>
+      <lex lang="ru" lid="Id4">Уильям Андерс родился в 1933-м в британском Гонконге и вышел на пенсию в 1969-09-01 годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Уильям Андерс родился в 1933-м в британском Гонконге и вышел на пенсию 1969-09-01.</finallex>
+      <lex lang="en" lid="Id5">William Anders( born on 1933-10-17 in British Hong Kong) retired on 1969-09-01 date.</lex>
+      <lex lang="ru" lid="Id5">Уильям Андерс (родился в 1933-м в британском Гонконге) вышел на пенсию в 1969-09-01 годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">Уильям Андерс (родился в 1933-м в британском Гонконге) вышел на пенсию 1969-09-01.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id55" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | dateOfRetirement | "1969-09-01"</mtriple>
+        <mtriple>William_Anders | occupation | Fighter_pilot</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Fighter Pilot William Anders was born in British Hong Kong and retired on 1st September 1969.</lex>
+      <lex lang="ru" lid="Id1">Истребитель-испытатель Уильям Андерс родился в британском Гонконге и вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Истребитель-испытатель Уильям Андерс родился в британском Гонконге и вышел в отставку 1 сентября 1969 года.</finallex>
+      <lex lang="en" lid="Id2">The fighter pilot William Anders, born in British Hong Kong, retired Sept 1st 1969.</lex>
+      <lex lang="ru" lid="Id2">Пилот истребителя Уильям Андерс, родившийся в британском Гонконге, вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Пилот истребителя Уильям Андерс, родившийся в британском Гонконге, вышел в отставку 1 сентября 1969 года.</finallex>
+      <lex lang="en" lid="Id3">William Anders, a fighter pilot from British Hong Kong, retired on September 1, 1969.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, пилот истребителя из британского Гонконга, вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс, пилот истребителя из британского Гонконга, вышел в отставку 1 сентября 1969 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id56" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | dateOfRetirement | "1969-09-01"</mtriple>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+        <mtriple>William_Anders | almaMater | "AFIT, M.S. 1962"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders, who graduated, with an M.S., from AFIT in 1962 and served as a crew member on Apollo 8, retired 1969-09-01.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс, который окончил, с М.С., из AFIT в 1962 году и служил членом экипажа на "Аполло-8", в отставке 1969-09-01.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Уильям Андерс, который окончил, со степенью магистра технических наук., из AFIT в 1962 году и служил членом экипажа на "Аполло-8", в отставке 1969-09-01.</finallex>
+      <lex lang="en" lid="Id2">William Anders retired on the 1st of September 1969, was a member of the Apollo 8 crew and in 1962 received a M.S. from his alma Mater, AFIT.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс вышел в отставку 1 сентября 1969 года, был членом экипажа "Аполло-8", а в 1962 году получил М.С. от своей альмы Матер, AFIT.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Уильям Андерс вышел в отставку 1 сентября 1969 года, был членом экипажа "Аполло-8", а в 1962 году получил M.S. от своей альмы Матер, AFIT.</finallex>
+      <lex lang="en" lid="Id3">William Anders, who graduated from AFIT, M.S. in 1962 and crewed Apollo 8, retired on September 1, 1969.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, который окончил AFIT, M.S. в 1962 году и крестил "Аполлон 8", вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс, который окончил AFIT, M.S. в 1962 году и крестил "Аполлон 8", вышел в отставку 1 сентября 1969 года.</finallex>
+      <lex lang="en" lid="Id4">William Anders graduated with a M.S. in 1962 from AFIT, became a member of the Apollo 8 team and retired on September 1st, 1969.</lex>
+      <lex lang="ru" lid="Id4">Уильям Андерс окончил M.S. в 1962 году из AFIT, стал членом команды "Аполлон-8" и вышел в отставку 1 сентября 1969 года.</lex>
+      <finallex comment="" lang="ru" lid="Id4">Уильям Андерс окончил M.S. в 1962 году из AFIT, стал членом команды "Аполлон-8" и вышел в отставку 1 сентября 1969 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id57" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | occupation | Fighter_pilot</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders, born in British Hong Kong, was a fighter pilot a member of Apollo 8's crew.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс, родившийся в британском Гонконге, был летчиком-истребителем члена экипажа "Аполлон-8".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс, родившийся в британском Гонконге, был летчиком-истребителем члена экипажа "Аполлон-8".</finallex>
+      <lex lang="en" lid="Id2">British Hong Kong born William Anders was a fighter pilot on Apollo 8.</lex>
+      <lex lang="ru" lid="Id2">Британский Гонконг родился Уильям Андерс - пилот истребителя на "Аполлон-8".</lex>
+      <finallex comment="" lang="ru" lid="Id2">Британский Гонконг родился Уильям Андерс - пилот истребителя на "Аполлон-8".</finallex>
+      <lex lang="en" lid="Id3">William Anders was born in British Hong Kong, served as a test pilot and was a member of the Apollo 8 crew.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге, служил тестовым пилотом и входил в состав экипажа "Аполлон-8".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге, служил летчиком-испытателем и входил в состав экипажа "Аполлон-8".</finallex>
+      <lex lang="en" lid="Id4">William Anders (born in British Hong Kong) served as a fighter pilot and was a crew member of Apollo 8.</lex>
+      <lex lang="ru" lid="Id4">Уильям Андерс (родился в британском Гонконге) служил пилотом истребителя и являлся членом экипажа "Аполло-8".</lex>
+      <finallex comment="" lang="ru" lid="Id4">Уильям Андерс (родился в британском Гонконге) служил пилотом истребителя и являлся членом экипажа "Аполло-8".</finallex>
+      <lex lang="en" lid="Id5">William Anders( born in British Hong Kong) was a part of Apollo 8 and served as fighter pilot.</lex>
+      <lex lang="ru" lid="Id5">Уильям Андерс (родился в британском Гонконге) входил в "Аполлон-8" и служил пилотом истребителя.</lex>
+      <finallex comment="" lang="ru" lid="Id5">Уильям Андерс (родился в британском Гонконге) входил в "Аполлон-8" и служил пилотом истребителя.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id58" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | title | United_States_Ambassador_to_Norway</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+        <mtriple>William_Anders | almaMater | "AFIT, M.S. 1962"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Born in British Hong Kong, William Anders graduated AFIT, M.S. in 1962 and is now the US Ambassador to Norway.</lex>
+      <lex lang="ru" lid="Id1">Родился в британском Гонконге, Уильям Андерс окончил AFIT, М.С. в 1962 году и сейчас является послом США в Норвегии.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Родился в британском Гонконге, Уильям Андерс окончил AFIT, M.S. в 1962 году и сейчас является послом США в Норвегии.</finallex>
+      <lex lang="en" lid="Id2">United States Ambassador to Norway, William Anders, was born in British Hong Kong and graduated from his alma Mater, AFIT, in 1962 with an M.S.</lex>
+      <lex lang="ru" lid="Id2">Посол Соединенных Штатов в Норвегии Уильям Андерс родился в британском Гонконге и окончил его альма Матер, AFIT, в 1962 году с М.С.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Посол Соединенных Штатов в Норвегии Уильям Андерс родился в британском Гонконге и окончил его альма Матер, AFIT, в 1962 году со степенью магистра технических наук.</finallex>
+      <lex lang="en" lid="Id3">William Anders was born in British Hong Kong and went to AFIT, M.S. 1962 and was the United States Ambassador to Norway.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге и отправился в AFIT, M.S. 1962 и был послом США в Норвегии.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге и отправился в AFIT, M.S. 1962 и был послом США в Норвегии.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id59" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+        <mtriple>Apollo_8 | crewMembers | Frank_Borman</mtriple>
+        <mtriple>Apollo_8 | operator | NASA</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">NASA's Apollo 8 crew included Frank Borman and William Anders.</lex>
+      <lex lang="ru" lid="Id1">В состав экипажа "Аполлон-8" вошли Фрэнк Борман и Уильям Андерс.</lex>
+      <finallex comment="" lang="ru" lid="Id1">В состав экипажа "Аполлон-8" вошли Фрэнк Борман и Уильям Андерс.</finallex>
+      <lex lang="en" lid="Id2">William Anders and Frank Borman were both crew members on Apollo 8 operated by NASA.</lex>
+      <lex lang="ru" lid="Id2">William Anders и Frank Borman были членами экипажа на "Аполлон-8", эксплуатируемом НАСА.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Уильям Андерс и Frank Borman были членами экипажа на "Аполлон-8", эксплуатируемом НАСА.</finallex>
+      <lex lang="en" lid="Id3">William Anders and Frank Borman were crew members of NASA's Apollo 8.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс и Фрэнк Борман были членами экипажа НАСА "Аполлон-8".</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс и Фрэнк Борман были членами экипажа НАСА "Аполлон-8".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">Frank_Borman|sameAs|Борман,_Фрэнк</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+        <dbpedialink direction="en2ru">NASA|sameAs|НАСА</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id60" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+        <mtriple>William_Anders | almaMater | "AFIT, M.S. 1962"</mtriple>
+        <mtriple>Apollo_8 | crewMembers | Frank_Borman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders received an MS from his alma Mater, AFIT, in 1962 and served as a crew member of Apollo 8 along with Frank Borman,.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс получил МС от своей альмы Матер, AFIT, в 1962 году и служил членом экипажа "Аполлона 8" вместе с Фрэнком Борманом.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс получил МС от своей альмы Матер, AFIT, в 1962 году и служил членом экипажа "Аполлона 8" вместе с Фрэнком Борманом.</finallex>
+      <lex lang="en" lid="Id2">William Anders, who graduated from AFIT in 1962 with an M.S., was a crew member of Apollo 8 along with Fr.ank Borman.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс, который окончил AFIT в 1962 году с М.С., был членом экипажа "Аполлон-8" вместе с Fr.ank Borman.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Уильям Андерс, который окончил AFIT в 1962 году со степенью магистра технических наук., был членом экипажа "Аполлон-8" вместе с Fr.ank Borman.</finallex>
+      <lex lang="en" lid="Id3">William Anders, who graduated with an M.S., from AFIT in 1962, served as a crew member on Apollo 8 alongside Frank Borman.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, окончивший М.С., из AFIT в 1962 году, служил членом экипажа на "Аполло-8" вместе с Фрэнком Борманом.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс, окончивший М.С., из AFIT в 1962 году, служил членом экипажа на "Аполло-8" вместе с Фрэнком Борманом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">Frank_Borman|sameAs|Борман,_Фрэнк</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id61" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was selected by NASA | 1963</mtriple>
+        <mtriple>William_Anders | birthDate | "1933-10-17"</mtriple>
+        <mtriple>William_Anders | was a crew member of | Apollo_8</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders, born 1933-10-17, joined NASA in 1963 to serve as a crew member on Apollo 8.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс, родившийся в 1933-м, присоединился к NASA в 1963 году, чтобы выступать в качестве члена экипажа на "Аполло-8".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс, родившийся в 1933-м, присоединился к NASA в 1963 году, чтобы выступать в качестве члена экипажа на "Аполло-8".</finallex>
+      <lex lang="en" lid="Id2">William Anders, who was born on the 17th of October, 1933, joined NASA in 1963 and served as a member of the crew of Apollo 8.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс, который родился 17 октября 1933 года, присоединился к NASA в 1963 году и служил в составе экипажа "Аполлон-8".</lex>
+      <finallex comment="" lang="ru" lid="Id2">Уильям Андерс, который родился 17 октября 1933 года, присоединился к NASA в 1963 году и служил в составе экипажа "Аполлон-8".</finallex>
+      <lex lang="en" lid="Id3">William Anders, born 17 October 1933 was chosen by NASA in 1963 and served as a crew member on Apollo 8.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс, родившийся 17 октября 1933 года, был выбран НАСА в 1963 году и служил членом экипажа на "Аполло-8".</lex>
+      <finallex comment="" lang="ru" lid="Id3">Уильям Андерс, родившийся 17 октября 1933 года, был выбран НАСА в 1963 году и служил членом экипажа на "Аполло-8".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">Apollo_8|sameAs|Аполлон-8</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id62" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was selected by NASA | 1963</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+        <mtriple>William_Anders | almaMater | "AFIT, M.S. 1962"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders, born in British Hong Kong graduated with an MS from AFIT in 1962 and was chosen by NASA in 1963.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс, родившийся в британском Гонконге, окончил МС от АФИТ в 1962 году и был выбран НАСА в 1963 году.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс, родившийся в британском Гонконге, окончил МС от АФИТ в 1962 году и был выбран НАСА в 1963 году.</finallex>
+      <lex lang="en" lid="Id2">William Anders was born in British Hong Kong, graduated from AFIT in 1962, and joined NASA in 1963.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс родился в британском Гонконге, окончил AFIT в 1962 году и присоединился к NASA в 1963 году.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Уильям Андерс родился в британском Гонконге, окончил AFIT в 1962 году и присоединился к NASA в 1963 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id63" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was selected by NASA | 1963</mtriple>
+        <mtriple>William_Anders | nationality | United_States</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders joined NASA in 1963, is an American and was born in British Hong Kong.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс присоединился к NASA в 1963 году, является американцем и родился в британском Гонконге.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Уильям Андерс присоединился к NASA в 1963 году, является американцем и родился в британском Гонконге.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Astronaut" eid="Id64" part="train" size="3">
+      <modifiedtripleset>
+        <mtriple>William_Anders | was selected by NASA | 1963</mtriple>
+        <mtriple>William_Anders | occupation | Fighter_pilot</mtriple>
+        <mtriple>William_Anders | birthPlace | British_Hong_Kong</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">William Anders was born in British Hong Kong, then served as a Fighter pilot when he was chosen by NASA in 1963.</lex>
+      <lex lang="ru" lid="Id1">Уильям Андерс родился в британском Гонконге, затем служил пилотом Fighter, когда был выбран НАСА в 1963 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Уильям Андерс родился в британском Гонконге, затем служил летчиком-истребителем, когда был выбран НАСА в 1963 году.</finallex>
+      <lex lang="en" lid="Id2">William Anders was a fighter pilot who joined NASA in 1963 having been born in British Hong Kong.</lex>
+      <lex lang="ru" lid="Id2">Уильям Андерс был пилотом истребителя, который присоединился к НАСА в 1963 году, родившись в британском Гонконге.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Уильям Андерс был пилотом истребителя, который присоединился к НАСА в 1963 году, родившись в британском Гонконге.</finallex>
+      <lex lang="en" lid="Id3">William Anders was born in British Hong Kong and his occupation was a Fighter pilot when selected by NASA in 1963.</lex>
+      <lex lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге, а его оккупация была пилотом Fighter при выборе НАСА в 1963 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Уильям Андерс родился в британском Гонконге, а его оккупация была летчиком-истребителем при выборе НАСА в 1963 году.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">1963|sameAs|1963_год</dbpedialink>
+        <dbpedialink direction="en2ru">William_Anders|sameAs|Андерс,_Уильям</dbpedialink>
+      </dbpedialinks>
+    </entry>
+  </entries>
+</benchmark>

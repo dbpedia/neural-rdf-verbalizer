@@ -34,6 +34,10 @@ if __name__ == "__main__":
     args = get_args()
     global step
 
+    if (args.lang == 'multi'):
+        raise ValueError('Use train_multiple script for Multilingual Training !')
+        exit(0)
+
     #set up dirs
     if args.use_colab is None:
         output_file = 'results.txt'
@@ -332,7 +336,7 @@ if __name__ == "__main__":
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_tgt_size, vocab_src_size, src_vocab, tgt_vocab, max_length_targ) = get_gat_dataset(args)
+         vocab_tgt_size, vocab_src_size, src_vocab, tgt_vocab, max_length_targ) = get_gat_dataset(args, args.lang)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):

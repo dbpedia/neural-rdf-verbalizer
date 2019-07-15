@@ -1,0 +1,951 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="Monument" eid="Id1" part="dev" size="1">
+      <modifiedtripleset>
+        <mtriple>Atatürk_Monument_(İzmir) | designer | Pietro_Canonica</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Atatürk Monument in Izmir was designed by Pietro Canonica.</lex>
+      <lex lang="ru" lid="Id1">Памятник Ататюрку в Измире был спроектирован Pietro Canonica.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Памятник Ататюрку в Измире был спроектирован Пьетро Каноника.</finallex>
+      <lex lang="en" lid="Id2">Pietro Canonica designed the Atatürk Monument in Izmir.</lex>
+      <lex lang="ru" lid="Id2">Pietro Canonica спроектировал памятник Ататюрку в Измире.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Пьетро Каноника спроектировал памятник Ататюрку в Измире.</finallex>
+      <lex lang="en" lid="Id3">Pietro Canonica is the designer of the Ataturk Monument (Izmir).</lex>
+      <lex lang="ru" lid="Id3">Pietro Canonica - дизайнер Ataturk Monument (Измир).</lex>
+      <finallex comment="ne;ne;voc" lang="ru" lid="Id3">Пьетро Каноника - дизайнер памятника Ататюрку(Измир).</finallex>
+      <lex lang="en" lid="Id4">The Ataturk Monument was designed by Pietro Canonica.</lex>
+      <lex lang="ru" lid="Id4">Памятник Ататюрку был спроектирован Pietro Canonica.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Памятник Ататюрку был спроектирован Пьетро Каноника.</finallex>
+      <lex lang="en" lid="Id5">Ataturk Monument was designed by Pietro Canonica.</lex>
+      <lex lang="ru" lid="Id5">"Ататюрк" был спроектирован Pietro Canonica.</lex>
+      <finallex comment="ne;ne;str:del" lang="ru" lid="Id5">Памятник Ататюрку был спроектирован Пьетро Каноника.</finallex>
+      <lex lang="en" lid="Id6">The Atatürk Monument (İzmir) was designed by Pietro Canonica.</lex>
+      <lex lang="ru" lid="Id6">"Памятник Ататюрка" (Izmir) был спроектирован Pietro Canonica.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id6">Памятник Ататюрку был спроектирован Пьетро Каноника.</finallex>
+      <lex lang="en" lid="Id7">The designer of the Atatürk_Monument (İzmir) is Pietro Canonica.</lex>
+      <lex lang="ru" lid="Id7">Дизайнер Atatürk _ Monument (Izmir) - Pietro Canonica.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id7">Дизайнер памятника Ататюрку (Измир) - Пьетро Каноника.</finallex>
+      <lex lang="en" lid="Id8">Pietro Canonica is the designer of the Ataturk Monument in Izmir.</lex>
+      <lex lang="ru" lid="Id8">Pietro Canonica - дизайнер Ataturk Monument в Измире.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id8">Пьетро Каноника - дизайнер памятника Ататюрку в Измире.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Pietro_Canonica|sameAs|Каноника,_Пьетро</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id2" part="dev" size="1">
+      <modifiedtripleset>
+        <mtriple>Atatürk_Monument_(İzmir) | material | "Bronze"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Atatürk Monument in Izmir is made of bronze.</lex>
+      <lex lang="ru" lid="Id1">Памятка "Ататюрк" в Измире выполнена из бронзы.</lex>
+      <finallex comment="ne;gr:ga" lang="ru" lid="Id1">Памятник Ататюрку в Измире выполнен из бронзы.</finallex>
+      <lex lang="en" lid="Id2">The material of the Ataturk Monument (Izmir) is bronze.</lex>
+      <lex lang="ru" lid="Id2">Материал Ataturk Monument (Измир) - бронза.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Материал памятника Ататюрку - бронза.</finallex>
+      <lex lang="en" lid="Id3">The Ataturk Monument is made from Bronze.</lex>
+      <lex lang="ru" lid="Id3">Памятник Ататюрку сделан из бронзы.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <lex lang="en" lid="Id4">The Atatürk Monument (İzmir) is made of Bronze.</lex>
+      <lex lang="ru" lid="Id4">Памятка "Ататюрк" (Izmir) выполнена из бронзы.</lex>
+      <finallex comment="ne;gr:ga" lang="ru" lid="Id4">Памятник Ататюрку выполнен из бронзы.</finallex>
+      <lex lang="en" lid="Id5">Ataturk Monument is made of Bronze.</lex>
+      <lex lang="ru" lid="Id5">Ataturk Monument выполнен из бронзы.</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">Памятник Ататюрку выполнен из бронзы.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id3" part="dev" size="1">
+      <modifiedtripleset>
+        <mtriple>Azerbaijan | leaderName | Artur_Rasizade</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Azerbaijan leader's name is Artur Rasizade.</lex>
+      <lex lang="ru" lid="Id1">Имя лидера Азербайджана - Артур Расизаде.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The name of the leader of Azerbaijan is Artur Rasizade.</lex>
+      <lex lang="ru" lid="Id2">Имя лидера Азербайджана - Артур Расизаде.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+        <dbpedialink direction="en2ru">Artur_Rasizade|sameAs|Расизаде,_Артур_Таир_оглы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id4" part="dev" size="1">
+      <modifiedtripleset>
+        <mtriple>Baku_Turkish_Martyrs'_Memorial | location | Azerbaijan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Baku Turkish Martyrs' Memorial is located in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id1">"Мемориал Баку" "Мемориал" расположен в Азербайджане.</lex>
+      <finallex comment="ne;str:del;str:ins;gr:attr" lang="ru" lid="Id1">Мемориал памяти турецких солдат в Баку расположен в Азербайджане.</finallex>
+      <lex lang="en" lid="Id2">The Baku Turkish Martyr's Memorial is in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id2">"Мемориал" Баку-Турецкого мученика "- в Азербайджане.</lex>
+      <finallex comment="ne;gr:attr;gr:cop" lang="ru" lid="Id2">Бакинский мемориал памяти турецких солдат в Баку находится в Азербайджане.</finallex>
+      <lex lang="en" lid="Id3">The Turkish martyrs memorial is located in Baku, Azerbaijan.</lex>
+      <lex lang="ru" lid="Id3">"Турецкий мученик" мемориал расположен в Баку, Азербайджан.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id3">Мемориал памяти турецких воинов расположен в Баку, Азербайджан.</finallex>
+      <lex lang="en" lid="Id4">Baku Turkish Martyrs' Memorial is located in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id4">"Мемориал Баку" "Мемориал" расположен в Азербайджане.</lex>
+      <finallex comment="ne;str:ins;str:del;gr:attr;voc:amb" lang="ru" lid="Id4">Бакинский мемориал памяти турецких солдат находится в Азербайджане.</finallex>
+      <lex lang="en" lid="Id5" comment="bad">The Baku Turkish Martyrs' Memorial can be found is Azerbaijan.</lex>
+      <lex lang="ru" lid="Id5">"Мемориала" Бакинского турецкого мученика "можно найти Азербайджан.</lex>
+      <finallex comment="ne;gr:attr;gr:ga;gr:pr;gr:cm;voc:amb" lang="ru" lid="Id5">Мемориал памяти турецких солдат в Баку находится в Азербайджане.</finallex>
+      <lex lang="en" lid="Id6">The Baku Turkish Martyrs' Memorial is in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id6">В Азербайджане действует "Мемориал" "Мемориала" Баку.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;gr:cop" lang="ru" lid="Id6">В Азербайджане находится мемориал турецких солдат Баку.</finallex>
+      <lex lang="en" lid="Id7">The Baku Turkish Martyrs' Memorial is found in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id7">В Азербайджане найден "Мемориал" "Мемориала" Баку.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;voc:amb" lang="ru" lid="Id7">В Азербайджане находится Мемориал памяти турецких солдат Баку.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id5" part="dev" size="1">
+      <modifiedtripleset>
+        <mtriple>Baku_Turkish_Martyrs'_Memorial | material | "Red granite and white marble"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The materials used for the Baku Turkish Martyrs' Memorial is red granite and white marble.</lex>
+      <lex lang="ru" lid="Id1">Материалы, используемые для "Мемориала Баку", - это красный гранитный и белый мрамор.</lex>
+      <finallex comment="ne;str:del;str:del;gr:pos" lang="ru" lid="Id1">Материалы, используемые для мемориала турецких солдат в Баку, - это красный гранит и белый мрамор.</finallex>
+      <lex lang="en" lid="Id2">The Baku Turkish Martyrs' Memorial is created in red granite and white marble.</lex>
+      <lex lang="ru" lid="Id2">В "Мемориале" в Баку создан "Мемориал" "Мемориал".</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;str:del;str:del;gr:cm;gr:pr" lang="ru" lid="Id2">Мемориал турецких солдат в Баку создан из красного гранита и белого мрамора.</finallex>
+      <lex lang="en" lid="Id3">The material of the Baku Turkish Martyrs' Memorial is Red granite and white marble.</lex>
+      <lex lang="ru" lid="Id3">Материал Бакинского "Мемориала" "Мемориал" - Красная гранита и белый мрамор.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;gr:ga" lang="ru" lid="Id3">Материал мемориала турецких солдат в Баку - красный гранит и белый мрамор.</finallex>
+      <lex lang="en" lid="Id4">The Baku Turkish Martyrs' Memorial is made from red granite and white marble.</lex>
+      <lex lang="ru" lid="Id4">"Мемориала" Баку-Турецкого "Мемориала" сделана из красного гранита и белого мрамора.</lex>
+      <finallex comment="ne;gr:attr;str:ins;gr:ga" lang="ru" lid="Id4">Мемориал турецких солдат в Баку сделан из красного гранита и белого мрамора.</finallex>
+      <lex lang="en" lid="Id5">Baku Turkish Martyrs' Memorial is made of red granite and white marble.</lex>
+      <lex lang="ru" lid="Id5">Мемориальный "Мемориал" Баку "Мемориал" выполнен из красного гранита и белого мрамора.</lex>
+      <finallex comment="ne;gr:attr;str:del;str:del;str:ins" lang="ru" lid="Id5">Мемориал турецких солдат в Баку выполнен из красного гранита и белого мрамора.</finallex>
+      <lex lang="en" lid="Id6">Baku Turkish Martyrs' Memorial is made from red granite and white marble.</lex>
+      <lex lang="ru" lid="Id6">Мемориальный "Мемориал" "Баку" "Мемориал" выполнен из красного гранита и белого мрамора.</lex>
+      <finallex comment="ne;gr:attr;str:del;str:del;str:ins;str:ins" lang="ru" lid="Id6">Мемориал турецких солдат в Баку выполнен из красного гранита и белого мрамора.</finallex>
+      <lex lang="en" lid="Id7">The Baku Turkish Martyrs' Memorial is made with red granite and white marble.</lex>
+      <lex lang="ru" lid="Id7">Мемориальный "Мемориал" Баку - "Мемориал" выполнен с красным гранитом и белым мрамором.</lex>
+      <finallex comment="ne;gr:attr;str:del;str:del;str:ins;str:ins" lang="ru" lid="Id7">Мемориал турецких солдат в Баку выполнен из красного гранита и белого мрамора.></finallex>
+    </entry>
+    <entry category="Monument" eid="Id1" part="test" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | established | 2000</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument was established in the year 2000.</lex>
+      <lex lang="ru" lid="Id1">В 2000 году был создан 11-й Mississippi Infantry Monument.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">В 2000 году был создан Памятник 11-й пехоте Миссисипи.</finallex>
+      <lex lang="en" lid="Id2">The 11th Mississippi Infantry Monument was established in 2000.</lex>
+      <lex lang="ru" lid="Id2">В 2000 году был создан 11-й Mississippi Infantry Monument.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">В 2000 году был создан Памятник 11-й пехоте Миссисипи.</finallex>
+      <lex lang="en" lid="Id3">A monument to the 11th Mississippi Infantry was erected in 2000.</lex>
+      <lex lang="ru" lid="Id3">Памятник 11-й Миссисипи Инфанте был возведен в 2000 году.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Памятник 11-й пехоте Миссисипи был возведен в 2000 году.</finallex>
+      <lex lang="en" lid="Id4">11th Mississippi Infantry Monument was established in 2000.</lex>
+      <lex lang="ru" lid="Id4">11 Mississippi Infantry Monument была создана в 2000 году.</lex>
+      <finallex comment="ne;gr:ga" lang="ru" lid="Id4">Памятник 11-й пехоте Миссисипи был создан в 2000 году.</finallex>
+      <lex lang="en" lid="Id5">11th Mississippi Infantry Monument has been established in 2000.</lex>
+      <lex lang="ru" lid="Id5">11 Mississippi Infantry Monument была создана в 2000 году.</lex>
+      <finallex comment="ne;gr:ga" lang="ru" lid="Id5">Памятник 11-й пехоте Миссисипи был создан в 2000 году.</finallex>
+      <lex lang="en" lid="Id6">The 11th Mississippi Infantry Monument was completed in 2000.</lex>
+      <lex lang="ru" lid="Id6">В 2000 году был завершен 11-й Mississippi Infantry Monument.</lex>
+      <finallex comment="ne" lang="ru" lid="Id6">В 2000 году был завершен памятник 11-й пехоте Миссисипи.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">2000|sameAs|2000_год</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id2" part="test" size="1">
+      <modifiedtripleset>
+        <mtriple>Adams_County,_Pennsylvania | has to its southeast | Carroll_County,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">To the southeast of Adams County, Pennsylvania lies Carroll County, Maryland.</lex>
+      <lex lang="ru" lid="Id1">К юго-востоку от округа Адамс, штат Пенсильвания, находится Carroll County, штат Мэриленд.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">К юго-востоку от округа Адамс, штат Пенсильвания, находится округ Кэрролл, штат Мэриленд.</finallex>
+      <lex lang="en" lid="Id2">Adams County, Pennsylvania has Carroll County, Maryland to its southeast.</lex>
+      <lex lang="ru" lid="Id2">Adams County, Пенсильвания имеет Carroll County, Мэриленд на своем юго-востоке.</lex>
+      <finallex comment="ne;ne;gr:cop" lang="ru" lid="Id2">Округ Адамс, Пенсильвания, граничит с округом Кэрролл, Мэриленд, на юго-востоке.</finallex>
+      <lex lang="en" lid="Id3">Carroll County Maryland is southeast of Adams County Pennsylvania.</lex>
+      <lex lang="ru" lid="Id3">Carroll County Country находится на юго-востоке штата Адамс, штат Пенсильвания.</lex>
+      <finallex comment="ne;voc:var;gr:pr;gr:cm" lang="ru" lid="Id3">Округ Кэрролл находится к юго-востоку от округа Адамс, штат Пенсильвания.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Carroll_County,_Maryland|sameAs|Кэрролл_(округ,_Мэриленд)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id3" part="test" size="1">
+      <modifiedtripleset>
+        <mtriple>Azerbaijan | leader | Artur_Rasizade</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Artur Rasizade was an Azerbaijan leader.</lex>
+      <lex lang="ru" lid="Id1">Артур Расизаде был лидером Азербайджана.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">Artur Rasizade is an Azerbaijan leader.</lex>
+      <lex lang="ru" lid="Id2">Артур Расизаде - лидер Азербайджана.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">Artur Rasizade is the leader of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id3">Лидер Азербайджана Артур Расизаде.</lex>
+      <finallex comment="punct" lang="ru" lid="Id3">Лидер Азербайджана - Артур Расизаде.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+        <dbpedialink direction="en2ru">Artur_Rasizade|sameAs|Расизаде,_Артур_Таир_оглы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id4" part="test" size="1">
+      <modifiedtripleset>
+        <mtriple>Azerbaijan | leaderTitle | Prime_Minister_of_Azerbaijan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Prime Minister of Azerbaijan is the official title of the leader of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id1">Премьер-министр Азербайджана - официальный титул лидера Азербайджана.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The title of the leader of Azerbaijan is Prime Minister of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id2">Звание лидера Азербайджана занимает премьер-министр Азербайджана.</lex>
+      <finallex comment="gr:cop;voc:amb" lang="ru" lid="Id2">Титул лидера Азербайджана - премьер-министр Азербайджана.</finallex>
+      <lex lang="en" lid="Id3">The title of the leader of Azerbaijan is The Prime Minister of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id3">Звание лидера Азербайджана занимает премьер-министр Азербайджана.</lex>
+      <finallex comment="gr:cop" lang="ru" lid="Id3">Титул лидера Азербайджана занимает премьер-министр Азербайджана.</finallex>
+      <lex lang="en" lid="Id4">Azerbaijan's leader is the Prime Minister of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id4">Лидером Азербайджана является премьер-министр Азербайджана.</lex>
+      <finallex comment="" lang="ru" lid="Id4"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+        <dbpedialink direction="en2ru">Prime_Minister_of_Azerbaijan|sameAs|Список_премьер-министров_Азербайджана</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id5" part="test" size="1">
+      <modifiedtripleset>
+        <mtriple>Baku_Turkish_Martyrs'_Memorial | nativeName | "Türk Şehitleri Anıtı"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Native name of the Baku Turkish Martyrs' Memorial is "Türk Sehitleri Aniti".</lex>
+      <lex lang="ru" lid="Id1">Коренное название "Мемориала Баку" - "Türk Sehitleri Aniti".</lex>
+      <finallex comment="voc:cont;ne;str:del;str:del;gr:attr" lang="ru" lid="Id1">Оригинальное название мемориала памяти турецких солдат в Баку - "Türk Sehitleri Aniti".</finallex>
+      <lex lang="en" lid="Id2">The native name of the Baku Turkish Martyrs' Memorial is Turk Sehitleri Aniti.</lex>
+      <lex lang="ru" lid="Id2">Родное имя Баку турецких мучеников "Мемориал" - Turk Sehitleri Aniti.</lex>
+      <finallex comment="ne;voc:cont;voc:amb;gr:attr" lang="ru" lid="Id2">Изначальное название мемориала памяти турецких солдат в Баку - Turk Sehitleri Aniti.</finallex>
+      <lex lang="en" lid="Id3">The native name for the Baku Turkish Martyrs' Memorial is Türk Şehitleri Anıtı.</lex>
+      <lex lang="ru" lid="Id3">Родным именем для Бакинского "Мемориала" "Мемориал" является Türk Shehitleri Anítı.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;voc:cont;voc:amb;gr:pr" lang="ru" lid="Id3">Подлинным названием памятника турецким солдатам в Баку является Turk Sehitleri Aniti.</finallex>
+      <lex lang="en" lid="Id4">The Baku Turkish Martyrs' Memorial is known locally as Türk Şehitleri Anıtı.</lex>
+      <lex lang="ru" lid="Id4">«Мемориал» «Мемориал» в Баку известен на местном уровне как Türk Shehitleri Anítı.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins" lang="ru" lid="Id4">Мемориал памяти турецких солдат в Баку известен на местном уровне как Turk Sehitleri Aniti.</finallex>
+      <lex lang="en" lid="Id5">Baku Turkish Martyrs' Memorial is called Turk Sehitleri Aniti.</lex>
+      <lex lang="ru" lid="Id5">"Мемориал" Баку турецких мучеников называется Turk Sehitleri Aniti.</lex>
+      <finallex comment="ne;gr:attr" lang="ru" lid="Id5">Памятник турецким мученикам Баку называется Turk Sehitleri Aniti.</finallex>
+      <lex lang="en" lid="Id6">The Baku Turkish Martyrs' Memorial is known in Turkish as Turk Sehitleri Aniti.</lex>
+      <lex lang="ru" lid="Id6">Мемориальный "Мемориал" Баку-турецкий "Мемориал" известен на турецком языке как турок Сехитлери Анити.</lex>
+      <finallex comment="ne;str:del;str:ins;str:ins;gr:attr;ne:wt" lang="ru" lid="Id6">Памятник турецким солдатам в Баку известен на турецком языке как Turk Sehitleri Aniti.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id1" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | category | Contributing_property</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument falls under the category of Contributing property.</lex>
+      <lex lang="ru" lid="Id1">11 Mississippi Infantry Monument относится к категории «Имущество».</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The 11th Mississippi Infantry Monument is categorized as a Contributing Property.</lex>
+      <lex lang="ru" lid="Id2">11 Mississippi Infantry Monument относится к категории «Имущество».</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The 11th Mississippi Infantry Monument is categorised as a contributing property.</lex>
+      <lex lang="ru" lid="Id3">11 Mississippi Infantry Monument Communication Communication.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+    </entry>
+    <entry category="Monument" eid="Id2" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | country | "United States"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument is located in the United States.</lex>
+      <lex lang="ru" lid="Id1">11-й Mississippi Infantry Monument находится в США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Памятник 11-й пехоте Миссисипи находится в США.</finallex>
+      <lex lang="en" lid="Id2">11th Mississippi Infantry Monument is in the United States.</lex>
+      <lex lang="ru" lid="Id2">11 Mississippi Infantry Monument находится в США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Памятник 11-й пехоте Миссисипи находится в США.</finallex>
+      <lex lang="en" lid="Id3">The 11th Mississippi Infantry Monument is in the United States.</lex>
+      <lex lang="ru" lid="Id3">11-й Mississippi Infantry Monument находится в США.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Памятник 11-й пехоте Миссисипи находится в США.</finallex>
+      <lex lang="en" lid="Id4">The 11th Mississippi Infantry Monument is based in the US.</lex>
+      <lex lang="ru" lid="Id4">11-й Mississippi Infantry Monument базируется в США.</lex>
+      <finallex comment="ne;voc:cont" lang="ru" lid="Id4">Памятник 11-й пехоте Миссисипи находится в США.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id3" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | location | Adams_County,_Pennsylvania</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">11th Mississippi Infantry Monument's location is Adams County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id1">11 Mississippi Infantry Monument 's Monument - Adams County, Пенсильвания.</lex>
+      <finallex comment="ne;ne;str:del;gr:cop" lang="ru" lid="Id1">Местонахождение памятника 11-й пехоте Миссисипи - округ Адамс, Пенсильвания.</finallex>
+      <lex lang="en" lid="Id2">The location of the 11th Mississippi Infantry Monument is Adams County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id2">Местонахождение 11-го Миссисипи Инфанта-Монстрации - округ Адамс, штат Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Местонахождение памятника 11-й пехоте Миссисипи - округ Адамс, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id3">The 11th Mississippi Infantry Monument is located in Adams County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id3">11 Mississippi Infantry Monument находится в графстве Адамс, штат Пенсильвания.</lex>
+      <finallex comment="ne;voc:var" lang="ru" lid="Id3">Памятник 11-й пехоте Миссисипи находится в округе Адамс, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id4">11th Mississippi Infantry Monument is found in the Adams County in Pennsylvania.</lex>
+      <lex lang="ru" lid="Id4">11 Mississippi Infantry Monument находится в графстве Адамс в штате Пенсильвания.</lex>
+      <finallex comment="ne;voc:var" lang="ru" lid="Id4">Памятник 11-й пехоте Миссисипи находится в округе Адамс в штате Пенсильвания.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id4" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | location | Seminary_Ridge</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument is located at Seminary Ridge.</lex>
+      <lex lang="ru" lid="Id1">11-й Mississippi Infantry Monument находится в Семенарском хребте.</lex>
+      <finallex comment="ne;gr:pr;ne" lang="ru" lid="Id1">Памятник 11-й пехоте Миссисипи находится на Семинарском хребте.</finallex>
+      <lex lang="en" lid="Id2">The 11th Mississippi Infantry Monument's location is in the Seminary Ridge.</lex>
+      <lex lang="ru" lid="Id2">11 Mississippi Infantry Monument Monument находится в Семеновском хребте.</lex>
+      <finallex comment="ne;ne;gr:pr" lang="ru" lid="Id2">Памятник 11-й пехоте Миссисипи находится на Семинарском хребте.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id5" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | municipality | Gettysburg,_Pennsylvania</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument is in the municipality of Gettysburg , Pennsylvania.</lex>
+      <lex lang="ru" lid="Id1">11-й Mississippi Infantry Monument находится в муниципалитете Геттисбург, штат Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Памятник 11-й пехоте Миссисипи находится в муниципалитете Геттисбург, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id2">The 11th Mississippi Infantry Monument is placed in the municipality of Gettysburg in Pennsylvania.</lex>
+      <lex lang="ru" lid="Id2">11-й Mississippi Infantry Monument размещен в муниципалитете Геттисбург в штате Пенсильвания.</lex>
+      <finallex comment="ne;voc:cont" lang="ru" lid="Id2">Памятник 11-й пехоте Миссисипи находится в муниципалитете Геттисбург, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id3">The 11th Mississippi Infantry Monument is in the municipality of Gettysburg, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id3">11-й Mississippi Infantry Monument находится в муниципалитете Геттисбург, штат Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Памятник 11-й пехоте Миссисипи находится в муниципалитете Геттисбург, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id4">The 11th Mississippi Infantry Monument is located in Gettysburg, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id4">11-й Mississippi Infantry Monument находится в городе Геттисбургe, штат Пенсильвания.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id4">Памятник 11-й пехоте Миссисипи находится в городе Геттисбург, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id5">11th Mississippi Infantry Monument is in Gettysburg, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id5">11 Mississippi Infantry Monument - в городе Геттисбургe, штат Пенсильвания.</lex>
+      <finallex comment="ne;gr:cop;gr:cm" lang="ru" lid="Id5">Памятник 11-й пехоте Миссисипи находится в городе Геттисбургe, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id6">The 11th Mississippi Infantry Monument is in the municipality of Gettysburg Pennsylvania.</lex>
+      <lex lang="ru" lid="Id6">11-й Mississippi Infantry Monument находится в муниципалитете Геттисбург Пенсильвания.</lex>
+      <finallex comment="ne;punct" lang="ru" lid="Id6">Памятник 11-й пехоте Миссисипи находится в муниципалитете Геттисбург, Пенсильвания.</finallex>
+      <lex lang="en" lid="Id7">The municipality for the 11th Mississippi Infantry Monument is Gettysburg, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id7">Муниципалитет для 11-го Миссисипи Инфанте Монстрация - Gettyburg, Пенсильвания.</lex>
+      <finallex comment="ne;ne;gr:attr;gr:pr;gr:cop;gr:cm" lang="ru" lid="Id7">Муниципалитет памятника 11-й пехоте Миссисипи - Геттисбург, Пенсильвания.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gettysburg,_Pennsylvania|sameAs|Геттисберг</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id6" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>11th_Mississippi_Infantry_Monument | state | "Pennsylvania"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 11th Mississippi Infantry Monument is in Pennsylvania.</lex>
+      <lex lang="ru" lid="Id1">11-й Mississippi Infantry Monument находится в штате Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Памятник 11-й пехоте Миссисипи находится в штате Пенсильвания.</finallex>
+      <lex lang="en" lid="Id2">The 11th Mississippi Infantry Monument is located in the state of Pennsylvania.</lex>
+      <lex lang="ru" lid="Id2">11-й Mississippi Infantry Monument находится в штате Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Памятник 11-й пехоте Миссисипи находится в штате Пенсильвания.</finallex>
+      <lex lang="en" lid="Id3">The 11th Mississippi Infantry Monument stands in the state of Pennsylvania.</lex>
+      <lex lang="ru" lid="Id3">11 Mississippi Infantry Monument стоит в штате Пенсильвания.</lex>
+      <finallex comment="ne;voc:cont" lang="ru" lid="Id3">Памятник 11-й пехоте Миссисипи находится в штате Пенсильвания.</finallex>
+      <lex lang="en" lid="Id4">11th Mississippi Infantry Monument is in Pennsylvania.</lex>
+      <lex lang="ru" lid="Id4">11 Mississippi Infantry Monument находится в штате Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Памятник 11-й пехоте Миссисипи находится в штате Пенсильвания.</finallex>
+      <lex lang="en" lid="Id5">The 11th Mississippi Infantry Monument is found in Pennsylvania.</lex>
+      <lex lang="ru" lid="Id5">В Пенсильвании найден 11-й Миссисипи Infantry Monument.</lex>
+      <finallex comment="ne;voc:amb" lang="ru" lid="Id5">Памятник 11-й пехоте Миссисипи находится в Пенсильвании.</finallex>
+      <lex lang="en" lid="Id6">The 11th Mississippi Infantry Monument is located in Pennsylvania state.</lex>
+      <lex lang="ru" lid="Id6">11-й Mississippi Infantry Monument находится в штате Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id6">Памятник 11-й пехоте Миссисипи находится в штате Пенсильвания.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id7" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | category | Historic_districts_in_the_United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument belongs to the category of Historic districts in the United States.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" волонтер "Инфанте" принадлежит к категории исторических районов в США.</lex>
+      <finallex comment="ne;str:del;gr:pr" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит к категории исторических районов США.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer Infantry Monument is categorised as a historic district in the United States.</lex>
+      <lex lang="ru" lid="Id2">14-й "Нью-Джерси" волонтер "Инфанте" категоричен как исторический район в США.</lex>
+      <finallex comment="ne;str:del;gr:pr;voc:amb" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит к категории исторических районов США.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id8" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | country | "United States"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument is located in the United States.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" волонтер "Инфанте" находится в США.</lex>
+      <finallex comment="ne;str:del" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси находится в США.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer Infantry Monument is found in the United States.</lex>
+      <lex lang="ru" lid="Id2">В США найден 14-й волонтер "Нью-Джерси" Infantry Monument.</lex>
+      <finallex comment="ne;voc:amb" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси находится в США.</finallex>
+      <lex lang="en" lid="Id3" comment="bad">14th New Jersey Volunteer Infantry Monument located in United States.</lex>
+      <lex lang="ru" lid="Id3">14-й "Нью-Джерси" ("Нью-Джерси") - "Инфанте", расположенный в Соединенных Штатах.</lex>
+      <finallex comment="ne;str:del" lang="ru" lid="Id3">Памятник 14-й добровольческой пехоте расположен в Соединенных Штатах.</finallex>
+      <lex lang="en" lid="Id4">14th New Jersey Volunteer Infantry Memorial is in the United States.</lex>
+      <lex lang="ru" lid="Id4">14-й "Нью-Джерси" - "Мемориал" "Мемориал" - в США.</lex>
+      <finallex comment="ne;str:del;str:del;str:ins;gr:cop" lang="ru" lid="Id4">Памятник 14-й добровольческой пехоте Нью-Джерси находится в США.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id9" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | district | Monocacy_National_Battlefield</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument is located in the district of the Monocacy National Battlefield.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" "Infantry Monument" расположен в районе Монокского национального Battlefield.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси находится в районе национального парка Monocacy National Battlefield.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer Infantry Monument is located on the Monocacy National Battlefield.</lex>
+      <lex lang="ru" lid="Id2">14-й "Нью-Джерси" "Infantry Monument" находится на Monocacy National Battlefield.</lex>
+      <finallex comment="ne;gr:attr;ne" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси находится в национальном парке Monocacy National Battlefield.</finallex>
+      <lex lang="en" lid="Id3">The 14th New Jersey Volunteer Infantry Monument is located in the Monocacy National Battlefield.</lex>
+      <lex lang="ru" lid="Id3">14-й "Нью-Джерси" "Инфанте" расположен в национальном парке "Monocacy National Battlefield".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Памятник 14-й добровольческой пехоте Нью-Джерси находится в национальном парке "Monocacy National Battlefield".</finallex>
+      <lex lang="en" lid="Id4">The 14th New Jersey Volunteer Infantry Monument is found in the Monocacy National Battlefield.</lex>
+      <lex lang="ru" lid="Id4">14-й "Нью-Джерси" "Infantry Monument" найден в Monocacy National Battlefield.</lex>
+      <finallex comment="ne;voc:amb" lang="ru" lid="Id4">Памятник 14-й добровольческой пехоте Нью-Джерси находится в Monocacy National Battlefield.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id10" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | established | "1907-07-11"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument was established in 1907-07-11.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" был создан в 1907-2007 годах.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси был создан в 1907-2007 годах.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer Infantry Monument was established 1907-07-11.</lex>
+      <lex lang="ru" lid="Id2">14-й "Нью-Джерси" "Инфанте" был создан 1907-07-й.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси был создан в 1907-2007 годах.</finallex>
+      <lex lang="en" lid="Id3">The 14th New Jersey Volunteer Infantry Monument was established on July 11th, 1907.</lex>
+      <lex lang="ru" lid="Id3">14 июля 1907 года был создан 14-й "Нью-Джерси" "Infantry Monument".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">14 июля 1907 года был создан Памятник 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id4">The 14th New Jersey Volunteer Infantry Monument was established on 11th July 1907.</lex>
+      <lex lang="ru" lid="Id4">14-го июля 1907 года был создан 14-й "Нью-Джерси".</lex>
+      <finallex comment="ne" lang="ru" lid="Id4">Памятник 14-й добровольческой пехоте Нью-Джерси был создан 14 июля 1907 года.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id11" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | foundingDate | "1907-07-11"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">14th New Jersey Volunteer Infantry Monument was founded 1907-07-11.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" "Infantry Monument" основан 1907-07-й.</lex>
+      <finallex comment="ne;voc:cont;ne" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси был создан 11.07.1907.</finallex>
+      <lex lang="en" lid="Id2">The memorial depicting the 14th New Jersey Volunteer Infantry was founded on July 11th, 1907.</lex>
+      <lex lang="ru" lid="Id2">Мемориал, изображающий 14-й "Нью-Джерси", был основан 11 июля 1907 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Мемориал, изображающий 14 пехоту Нью-Джерси, был основан 11 июля 1907 года.</finallex>
+      <lex lang="en" lid="Id3">The 14th New Jersey Volunteer Infantry Monument was started on 11th July 1907.</lex>
+      <lex lang="ru" lid="Id3">14-го июля 1907 года начался 14-й "Нью-Джерси".</lex>
+      <finallex comment="ne;str:del;str:del;str:del;gr:v" lang="ru" lid="Id3">14 июля 1907 был начат памятник 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id4">The 14th New Jersey Volunteer Infantry Monument's founding date was on 1907-07-11.</lex>
+      <lex lang="ru" lid="Id4">14-я организация «Нью-Джерси» была учреждена в 1907-2007 годах.</lex>
+      <finallex comment="ne;gr:ps;str:del;str:del;str:del;gr:ga;gr:cop;ne" lang="ru" lid="Id4">Дата создания памятника 14-й добровольческой пехоте Нью-Джерси - 11.07.1907.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id12" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | owner | National_Park_Service</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument is owned by the National Park Service.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси "-волонтер" Инфанте "принадлежит службе национального парка.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит Cлужбе национальных парков США.</finallex>
+      <lex lang="en" lid="Id2">The National Park Service looks after the 14th New Jersey Volunteer Infantry Monument.</lex>
+      <lex lang="ru" lid="Id2">Служба "Национальный парк" выглядит после 14-го "Нью-Джерси" "Infantry Monument".</lex>
+      <finallex comment="ne;ne;voc:scope" lang="ru" lid="Id2">Служба национальных парков США заботится о памятнике 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id3">14th New Jersey Volunteer Infantry Monument is owned by the National Park Service.</lex>
+      <lex lang="ru" lid="Id3">14-й "Нью-Джерси" "Infantry Monument" принадлежит Службе национального парка.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит Cлужбе национальных парков США.</finallex>
+      <lex lang="en" lid="Id4">The National Park Service is the owner of the 14th New Jersey Volunteer Infantry Monument.</lex>
+      <lex lang="ru" lid="Id4">Служба "Национальный парк" является владельцем 14-го "Нью-Джерси" "Infantry Monument".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Служба национальных парков США является владельцем памятника 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">National_Park_Service|sameAs|Служба_национальных_парков_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id13" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | owningOrganisation | National_Park_Service</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monument is owned by the National Park Service.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси "-волонтер" Инфанте "принадлежит службе национального парка.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит Cлужбе национальных парков США.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer Infantry Monument has been provided by the National Park Service.</lex>
+      <lex lang="ru" lid="Id2">14-й "Нью-Джерси" «Инфанте» был предоставлен Службой национального парка.</lex>
+      <finallex comment="ne;ne;voc:cont" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси был создан Cлужбой национальных парков США.</finallex>
+      <lex lang="en" lid="Id3">14th New Jersey Volunteer Infantry Monument is owned by the National Park Service.</lex>
+      <lex lang="ru" lid="Id3">14-й "Нью-Джерси" "Infantry Monument" принадлежит Службе национального парка.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Памятник 14-й добровольческой пехоте Нью-Джерси принадлежит Cлужбе национальных парков США.</finallex>
+      <lex lang="en" lid="Id4">The National Park Service has responsibility for the 14th New Jersey Volunteer Infantry Monument.</lex>
+      <lex lang="ru" lid="Id4">Служба национального парка отвечает за 14-й "волонтер" Нью-Джерси "Инфанте".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id4">Cлужбе национальных парков США отвечает за памятник 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <lex lang="en" lid="Id5">The National Park Service owns the 14th New Jersey Volunteer Infantry Monument.</lex>
+      <lex lang="ru" lid="Id5">"Национальный парк" владеет 14-м "Нью-Джерси" "Инфантом".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id5">Cлужба национальных парков США владеет памятником 14-й добровольческой пехоте Нью-Джерси.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">National_Park_Service|sameAs|Служба_национальных_парков_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id14" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>14th_New_Jersey_Volunteer_Infantry_Monument | state | "Maryland"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The 14th New Jersey Volunteer Infantry Monuments is located in the state of Maryland.</lex>
+      <lex lang="ru" lid="Id1">14-й "Нью-Джерси" в штате Мэриленд находится в штате Мэриленд.</lex>
+      <finallex comment="ne;str:del;str:del;str:del;str:ins" lang="ru" lid="Id1">Памятник 14-й добровольческой пехоте Нью-Джерси находится в штате Мэриленд.</finallex>
+      <lex lang="en" lid="Id2">The 14th New Jersey Volunteer infantry Monument is in the state of Maryland.</lex>
+      <lex lang="ru" lid="Id2">14-й "Нью-Джерси" в штате Мэриленд находится в штате Мэриленд.</lex>
+      <finallex comment="ne;str:del;str:del;str:del;str:ins" lang="ru" lid="Id2">Памятник 14-й добровольческой пехоте Нью-Джерси находится в штате Мэриленд.</finallex>
+      <lex lang="en" lid="Id3">The 14th New Jersey Volunteer Infantry Monument is located in the state of Maryland.</lex>
+      <lex lang="ru" lid="Id3">14-й "Нью-Джерси" "Infantry Monument" находится в штате Мэриленд.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Памятник 14-й добровольческой пехоте Нью-Джерси находится в штате Мэриленд.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id15" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Adams_County,_Pennsylvania | has to its north | Cumberland_County,_Pennsylvania</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Adams County, Pennsylvania has Cumberland County, Pennsylvania to its north.</lex>
+      <lex lang="ru" lid="Id1">Adams County, Пенсильвания имеет Cumberland County, Пенсильвания на своем севере.</lex>
+      <finallex comment="ne;ne;voc:scope" lang="ru" lid="Id1">К северу от округа Адамс, Пенсильвания, находится округ Камберленд, Пенсильвания. </finallex>
+      <lex lang="en" lid="Id2">Cumberland county, Pennsylvania is north of Adams County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id2">Cumberland Country, Пенсильвания - к северу от округа Адамс, штат Пенсильвания.</lex>
+      <finallex comment="ne;gr:cop" lang="ru" lid="Id2">Округ Камберленд, Пенсильвания, находится к северу от округа Адамс, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id3">Pennsylvania's Cumberland County is to the north of the Adams County.</lex>
+      <lex lang="ru" lid="Id3">"Cumberland" Cumberland находится к северу от округа Адамс.</lex>
+      <finallex comment="ne;str:ins;str:del" lang="ru" lid="Id3">Округ Камберленд в Пенсильвании находится к северу от округа Адамс.</finallex>
+      <lex lang="en" lid="Id4">Cumberland County Pennsylvania is located in the north of Adams County Pennsylvania.</lex>
+      <lex lang="ru" lid="Id4">Cumberland Country Conference находится на севере города Адамс в штате Пенсильвания.</lex>
+      <finallex comment="ne;str:ins;str:del;gr:pr;voc:amb" lang="ru" lid="Id4">Округ Камберленд, Пенсильвания, находится на севере от города Адамс в штате Пенсильвания.</finallex>
+      <lex lang="en" lid="Id5">To the north of Adams County, Pennsylvania is Cumberland County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id5">К северу от округа Адамс, штат Пенсильвания, находится Cumberland County, штат Пенсильвания.</lex>
+      <finallex comment="ne" lang="ru" lid="Id5">К северу от округа Адамс, штат Пенсильвания, находится округ Камберленд, штат Пенсильвания.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Cumberland_County,_Pennsylvania|sameAs|Камберленд_(округ,_Пенсильвания)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id16" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Adams_County,_Pennsylvania | has to its southwest | Frederick_County,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Frederick County, Maryland is to the southwest of Adams County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id1">Frederick County, Мэриленд - к юго-западу от округа Адамс, штат Пенсильвания.</lex>
+      <finallex comment="ne;gr:cop" lang="ru" lid="Id1">Округ Фредерик, Мэриленд, находится к к юго-западу от округа Адамс, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id2">Adams County, Pennsylvania has Frederick County, Maryland to its southwest.</lex>
+      <lex lang="ru" lid="Id2">Adams County, штат Пенсильвания, округ Фредерик, штат Мэриленд, на юго-западе.</lex>
+      <finallex comment="ne;gr:cm;voc:scope;str:wrdord;gr:pr" lang="ru" lid="Id2">На юго-западе от округа Адамс, штат Пенсильвания, находится округ Фредерик.</finallex>
+      <lex lang="en" lid="Id3" comment="bad">Frederick County Maryland is southwest of Adams Count Pennsylvania.</lex>
+      <lex lang="ru" lid="Id3">Frederick County Мэриленд является юго-западнее Адамс граф Пенсильвания.</lex>
+      <finallex comment="ne;ne;gr:cop;gr:pr;gr:cm" lang="ru" lid="Id3">Округ Фредерик, Мэриленд, находится к юго-западу от округа Адамс, Пенсильвания.</finallex>
+      <lex lang="en" lid="Id4">Maryland's Frederick County is found to the southwest of Pennsylvania's Adams County.</lex>
+      <lex lang="ru" lid="Id4">"Мэриленд" Frederick County найден на юго-западе штата Пенсильвания.</lex>
+      <finallex comment="ne;gr:ps;gr:ps;ne;str:del;str:del;gr:v" lang="ru" lid="Id4">Округ Фредерик, Мэриленд, находится к юго-западу от округа Адамс, штат Пенсильвания.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Frederick_County,_Maryland|sameAs|Фредерик_(округ,_Мэриленд)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id17" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Adams_County,_Pennsylvania | has to its west | Franklin_County,_Pennsylvania</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Adams County Pennsylvania is East of Franklin County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id1">Компания "Адамс", штат Пенсильвания, штат Пенсильвания, штат Пенсильвания.</lex>
+      <finallex comment="str:ins;str:ins;str:ins;str:del;str:del;str:del;str:del" lang="ru" lid="Id1">Округ Адамс, Пенсильвания, находится на востоке от округа Франклин, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id2">To the west of Adams County, Pennsylvania, is Franklin County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id2">К западу от округа Адамс, штат Пенсильвания, - Франклин, штат Пенсильвания.</lex>
+      <finallex comment="ne;str:del" lang="ru" lid="Id2">К западу от округа Адамс, штат Пенсильвания, - округ Франклин, штат Пенсильвания.</finallex>
+      <lex lang="en" lid="Id3">Pennsylvania's Franklin County is found to the west of Adams County.</lex>
+      <lex lang="ru" lid="Id3">К западу от округа Адамс в штате Пенсильвания найден Пенсильванский округ.</lex>
+      <finallex comment="ne;str:del" lang="ru" lid="Id3">К западу от округа Адамс в штате Пенсильвания находится округ Франклин, Пенсильвания.</finallex>
+      <lex lang="en" lid="Id4">Adams County, Pennsylvania has to its west Franklin County, Pennsylvania.</lex>
+      <lex lang="ru" lid="Id4">В штате Пенсильвания, штат Пенсильвания, штат Пенсильвания, штат Пенсильвания.</lex>
+      <finallex comment="ne;ne;str:del;str:del;str:del;str:del;str:del;str:del;str:del;str:del;str:del" lang="ru" lid="Id4">На западе от округа Адамс, Пенсильвания, находится округ Франклин, Пенсильвания.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Franklin_County,_Pennsylvania|sameAs|Франклин_(округ,_Пенсильвания)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id18" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Atatürk_Monument_(İzmir) | inaugurationDate | "1932-07-27"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Ataturk Monument was inaugurated on 27th July, 1932.</lex>
+      <lex lang="ru" lid="Id1">Памятник Ататюрку был открыт 27 июля 1932 года.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The inauguration date of the Atatürk Monument in Izmir is the 27th of July, 1932.</lex>
+      <lex lang="ru" lid="Id2">Дата инаугурации памятника Ататюрка в Измире - 27 июля 1932 года.</lex>
+      <finallex comment="gr:cm" lang="ru" lid="Id2">Дата инаугурации памятника Ататюрку в Измире - 27 июля 1932 года.</finallex>
+      <lex lang="en" lid="Id3">The inauguration date for the Atatürk Monument (İzmir) is 1932-07-27.</lex>
+      <lex lang="ru" lid="Id3">Дата открытия памятника "Ататюрк" (Izmir) - 1932-07-27.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дата открытия памятника Ататюрку (Измир) - 27 июля 1932 года.</finallex>
+      <lex lang="en" lid="Id4">The inauguration of the Atatürk Monument was at July 27th, 1932.</lex>
+      <lex lang="ru" lid="Id4">Торжественное открытие памятника "Ататюрк" состоялось 27 июля 1932 года.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id4">Торжественное открытие памятника Ататюрку состоялось 27 июля 1932 года.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id19" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Atatürk_Monument_(İzmir) | location | Turkey</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Atatürk Monument is located in Izmir, Turkey.</lex>
+      <lex lang="ru" lid="Id1">Памятка "Ататюрк" расположена в Измире, Турция.</lex>
+      <finallex comment="ne;gr:ga" lang="ru" lid="Id1">Памятник Ататюрку расположен в Измире, Турция.</finallex>
+      <lex lang="en" lid="Id2">The Ataturk Monument (Izmir) is located in Turkey.</lex>
+      <lex lang="ru" lid="Id2">Памятник Ататюрку (Измир) расположен в Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The Atatürk Monument is in Turkey.</lex>
+      <lex lang="ru" lid="Id3">Памятка "Ататюрк" находится в Турции.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id3">Памятник Ататюрку находится в Турции.</finallex>
+      <lex lang="en" lid="Id4">The Atatürk Monument is located in İzmir, Turkey.</lex>
+      <lex lang="ru" lid="Id4">Памятка "Ататюрк" расположена в Измире, Турция.</lex>
+      <finallex comment="ne;gr:cm" lang="ru" lid="Id4">Памятник Ататюрку расположен в Измире, Турция.</finallex>
+      <lex lang="en" lid="Id5">The Atatürk Monument (İzmir) can be found in Turkey.</lex>
+      <lex lang="ru" lid="Id5">Памятник Ататюрку (Измир) можно найти в Турции.</lex>
+      <finallex comment="voc:amb" lang="ru" lid="Id5">Памятник Ататюрку (Измир) находится в Турции.</finallex>
+      <lex lang="en" lid="Id6">The Atatürk Monument (İzmir) is found in Turkey.</lex>
+      <lex lang="ru" lid="Id6">В Турции найден памятник Ататюрку (Измир).</lex>
+      <finallex comment="gr:v;str:wrdord" lang="ru" lid="Id6">Памятник Ататюрку (Измир) находится в Турции.</finallex>
+      <lex lang="en" lid="Id7">Atatürk Monument is located in İzmir, Turkey.</lex>
+      <lex lang="ru" lid="Id7">"Ататюрк" находится в Измире, Турция.</lex>
+      <finallex comment="ne;str:del" lang="ru" lid="Id7">Памятник Ататюрку находится в Измире, Турция.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id20" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Azerbaijan | capital | Baku</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baku is the capital of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id1">Баку - столица Азербайджана.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The capital of Azerbaijan is Baku.</lex>
+      <lex lang="ru" lid="Id2">Столица Азербайджана - Баку.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+        <dbpedialink direction="en2ru">Baku|sameAs|Баку</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id21" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Azerbaijan | legislature | National_Assembly_(Azerbaijan)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The National Assembly dictates the legislature of Azerbaijan.</lex>
+      <lex lang="ru" lid="Id1">Национальное собрание диктует законодательный орган Азербайджана.</lex>
+      <finallex comment="voc:amb" lang="ru" lid="Id1">Национальное собрание диктует законодательство Азербайджана.</finallex>
+      <lex lang="en" lid="Id2">The National Assembly (Azerbaijan) is the source of legislature in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id2">Национальное собрание (Азербайджан) является источником законодательной власти в Азербайджане.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The Azerbaijan legislature is known as the National Assembly.</lex>
+      <lex lang="ru" lid="Id3">Законодательный орган Азербайджана известен как Национальное собрание.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <lex lang="en" lid="Id4">The National Assembly is the legislative branch of government in Azerbaijan.</lex>
+      <lex lang="ru" lid="Id4">Национальное собрание является законодательной властью в Азербайджане.</lex>
+      <finallex comment="" lang="ru" lid="Id4"></finallex>
+      <lex lang="en" lid="Id5">the legislature in Azerbaijan is National Assembly.</lex>
+      <lex lang="ru" lid="Id5">Законодательная власть в Азербайджане - Национальное собрание.</lex>
+      <finallex comment="" lang="ru" lid="Id5"></finallex>
+      <lex lang="en" lid="Id6">Azerbaijan has legislature of National Assembly.</lex>
+      <lex lang="ru" lid="Id6">В Азербайджане действует законодательный орган Национального собрания.</lex>
+      <finallex comment="gr:cm;voc:cont" lang="ru" lid="Id6">В Азербайджане законодательство ведется Национальным собранием.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Azerbaijan|sameAs|Азербайджан</dbpedialink>
+        <dbpedialink direction="en2ru">National_Assembly_(Azerbaijan)|sameAs|Милли_Меджлис_Азербайджана</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id22" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Baku_Turkish_Martyrs'_Memorial | dedicatedTo | "Ottoman Army soldiers killed in the Battle of Baku"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baku Turkish Martyrs' Memorial is dedicated to the Ottoman Army soldiers killed in the Battle of Baku.</lex>
+      <lex lang="ru" lid="Id1">"Мемориал" "Баку" "Мемориал" посвящен солдатам Османской армии, погибшим в битве за Баку.</lex>
+      <finallex comment="ne;str:ins;str:del;str:del" lang="ru" lid="Id1">Мемориал памяти турецких солдат в Баку посвящен солдатам Османской армии, погибшим в битве за Баку.</finallex>
+      <lex lang="en" lid="Id2">The Baku Turkish Martyrs' Memorial is dedicated to the Ottoman Army Soldiers killed in the Battle of Baku.</lex>
+      <lex lang="ru" lid="Id2">Мемориальный "Мемориал" Баку-турецкий "Мемориал" посвящен османским солдатам-солдатам, погибшим в битве за Баку.</lex>
+      <finallex comment="ne;str:ins;str:ins;gr:attr;str:del;str:ins;gr:attr" lang="ru" lid="Id2">Мемориал памяти турецких солдат в Баку посвящен солдатам Османской армии, погибшим в битве за Баку.</finallex>
+      <lex lang="en" lid="Id3">The Baku Turkish Martyrs Memorial has been dedicated to Ottoman Army soldiers killed in the Battle of Baku.</lex>
+      <lex lang="ru" lid="Id3">"Мемориал" в Баку был посвящен солдатам Османской армии, погибшим в битве в Баку.</lex>
+      <finallex comment="ne;str:del;str:del" lang="ru" lid="Id3">Мемориал памяти турецких солдат в Баку был посвящен солдатам Османской армии, погибшим в битве за Баку.</finallex>
+      <lex lang="en" lid="Id4">The Baku Turkish Martyrs Memorial is dedicated to the Ottoman Army soldiers killed in the Battle of Baku.</lex>
+      <lex lang="ru" lid="Id4">"Мемориала" Баку-Турция "Мемориал" посвящена солдатам Османской армии, погибшим в битве за Баку.</lex>
+      <finallex comment="ne;gr:ga;gr:attr;str:ins" lang="ru" lid="Id4">Мемориал памяти турецких солдат в Баку посвящен солдатам Османской армии, погибшим в битве за Баку.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id23" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Baku_Turkish_Martyrs'_Memorial | designer | "Hüseyin Bütüner and Hilmi Güner"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1" comment="bad">Baku Turkish Martyrs Memorial designer was Hüseyin Bütüner and Hilmi Güner.</lex>
+      <lex lang="ru" lid="Id1">"Мемориальный дизайнер Баку" - Хюсейн Бьюнер и Хилми Гюнер.</lex>
+      <finallex comment="ne;gr:attr;str:del;str:del;str:del;voc:cont" lang="ru" lid="Id1">Создателями мемориала памяти турецких солдат в Баку были Хюсейн Бьюнер и Хилми Гюнер.</finallex>
+      <lex lang="en" lid="Id2">The Baku Turkish Martyr's Memorial was designed by Hüseyin Bütüner and Hilmi Güner.</lex>
+      <lex lang="ru" lid="Id2">Мемориальный "Мемориал" Баку был спроектирован Хюсейн Бютюнер и Хилми Гюнером.</lex>
+      <finallex comment="ne;str:ins;str:del;str:del;gr:cm" lang="ru" lid="Id2">Мемориала памяти турецких солдат в Баку был спроектирован Хюсейном Бютюнером и Хилми Гюнером.</finallex>
+      <lex lang="en" lid="Id3">The designers of the Turkish martyrs memorial are Huseyin Butuner and Hilmi Guner.</lex>
+      <lex lang="ru" lid="Id3">У дизайнеров турецких мучеников мемориал - Гусейин Бутунер и Хилми Гунер.</lex>
+      <finallex comment="ne;gr:pr;gr:cm" lang="ru" lid="Id3">Дизайнеры мемориала турецких мучеников - Гусейн Бутунер и Хилми Гунер.</finallex>
+      <lex lang="en" lid="Id4">The Baku Turkish Martyrs' Memorial was designed by Huseyin Butuner and Hilmi Guner.</lex>
+      <lex lang="ru" lid="Id4">Мемориальный "Мемориал" Баку был разработан компанией Huseyin Butuner и Hilmi Guner.</lex>
+      <finallex comment="ne;str:ins;str:del;str:del;str:ins" lang="ru" lid="Id4">Мемориал турецких мучеников был разработан Хусейном Бутунером и Хилми Гунером.</finallex>
+      <lex lang="en" lid="Id5">Hüseyin Bütüner and Hilmi Güner designed the Baku Turkish Martyrs' Memorial.</lex>
+      <lex lang="ru" lid="Id5">Хюсейн Бьюнер и Хилми Гюнер разработали "Мемориал Баку".</lex>
+      <finallex comment="ne;str:del;str:del;ne" lang="ru" lid="Id5">Хюсейн Бютюнер и Хилми Гюнер разработали мемориал турецких мучеников в Баку.</finallex>
+      <lex lang="en" lid="Id6">Baku Turkish Martyrs' Memorial was designed by Huseyin Butuner and Hilmi Guner.</lex>
+      <lex lang="ru" lid="Id6">"Мемориал Баку" был разработан Гусейном Бутунером и Хилми Гунером.</lex>
+      <finallex comment="ne;str:del;str:del" lang="ru" lid="Id6">Мемориал турецких мучеников в Баку был разработан Гусейном Бутунером и Хилми Гунером.</finallex>
+      <lex lang="en" lid="Id7">The designers of the Baku Turkish Martyrs' Memorial are Hüseyin Bütüner and Hilmi Güner.</lex>
+      <lex lang="ru" lid="Id7">Проектировщики "Мемориала Баку" - Хюсейн Бьюнер и Хилми Гюнер.</lex>
+      <finallex comment="ne;str:del;str:del;voc:amb;ne" lang="ru" lid="Id7">Создатели мемориала турецких мучеников в Баку - Хюсейн Бютюнер и Хилми Гюнер.</finallex>
+      <lex lang="en" lid="Id8">Huseyin Butuner and Hilmi Guner are the designers of the Baku Turkish Martyrs' Memorial.</lex>
+      <lex lang="ru" lid="Id8">Huseyin Butuner и Hilmi Guner - дизайнеры "Мемориала Баку".</lex>
+      <finallex comment="ne;ne;ne;str:del;str:del" lang="ru" lid="Id8">Хюсейн Бютюнер и Хилми Гюнер - создатели мемориала турецких мучеников в Баку.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id24" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Dead_Man's_Plack | dedicatedTo | Æthelwald,_Ealdorman_of_East_Anglia</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Dead Man's Plack is dedicated to Æthelwald, Ealdorman of East Anglia.</lex>
+      <lex lang="ru" lid="Id1">"Мертвый человек" "Мертвый человек" посвящен "Эалдорману" Эалдорману из Восточной Англии.</lex>
+      <finallex comment="ne;ne;gr:ps;str:ins;str:ins;str:del;str:ins" lang="ru" lid="Id1">"Плак мертвого человека" посвящен Этельвальду, олдермену из Восточной Англии. </finallex>
+      <lex lang="en" lid="Id2">Dead Man's Plack is dedicated to Æthelwald, Ealdorman of East Anglia.</lex>
+      <lex lang="ru" lid="Id2">"Мертвый человек" посвящен "Эалдорману" Эалдорману из Восточной Англии.</lex>
+      <finallex comment="ne;str:del;gr:ps;str:del;str:ins" lang="ru" lid="Id2">"Плак мертвого человека" посвящен Этельвальду, альдерману из Восточной Англии.</finallex>
+    </entry>
+    <entry category="Monument" eid="Id25" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Dead_Man's_Plack | location | England</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Dead Man's Plack is located in England.</lex>
+      <lex lang="ru" lid="Id1">"Мертвый человек" находится в Англии.</lex>
+      <finallex comment="ne;str:del;gr:ps" lang="ru" lid="Id1">"Плак мертвеца" находится в Англии.</finallex>
+      <lex lang="en" lid="Id2">Dead Man's Plack is in England.</lex>
+      <lex lang="ru" lid="Id2">"Мертвый человек" находится в Англии.</lex>
+      <finallex comment="ne;str:del;gr:ps" lang="ru" lid="Id2">"Плак мертвеца" находится в Англии.</finallex>
+      <lex lang="en" lid="Id3">Dead Man's Plack is found in England.</lex>
+      <lex lang="ru" lid="Id3">"Мертвый человек" найден в Англии.</lex>
+      <finallex comment="ne;str:del;gr:ps;gr:v" lang="ru" lid="Id3">"Плак мертвеца" находится в Англии.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id26" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Dead_Man's_Plack | material | Rock_(geology)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Dead Man's Plack is made from rock.</lex>
+      <lex lang="ru" lid="Id1">"Мертвый человек" сделан из рока.</lex>
+      <finallex comment="ne;str:del;gr:ps;voc:amb" lang="ru" lid="Id1">"Плак мертвеца" сделан из камня.</finallex>
+      <lex lang="en" lid="Id2">Dad Man's Plack is made of rock.</lex>
+      <lex lang="ru" lid="Id2">Pade Man 's Panness выполнен из рока.</lex>
+      <finallex comment="ne;str:ins;str:ins;voc:amb" lang="ru" lid="Id2">"Плак мертвеца" выполнен из камня.</finallex>
+      <lex lang="en" lid="Id3">Dead Man's Plack is made from stone.</lex>
+      <lex lang="ru" lid="Id3">"Мертвый человек" из камня.</lex>
+      <finallex comment="ne;str:del;gr:ps;str:del" lang="ru" lid="Id3">"Плак мертвеца" выполнен из камня.</finallex>
+      <lex lang="en" lid="Id4">The Dead Man's Plack is made with rock.</lex>
+      <lex lang="ru" lid="Id4">"Мертвый человек" выполнен с помощью рока.</lex>
+      <finallex comment="ne;str:del;gr:ps;voc:amb;voc:amb" lang="ru" lid="Id4">"Плак мертвеца" выполнен из камня.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Rock_(geology)|sameAs|Горная_порода</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id27" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>England | capital | London</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">London is the capital of England.</lex>
+      <lex lang="ru" lid="Id1">Лондон - столица Англии.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The capital of England is London.</lex>
+      <lex lang="ru" lid="Id2">Столица Англии - Лондон.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">England's capital is London.</lex>
+      <lex lang="ru" lid="Id3">Столица Англии - Лондон.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id28" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>England | ethnicGroups | British_Arabs</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">One of the ethnic groups found in England is the British Arabs.</lex>
+      <lex lang="ru" lid="Id1">Одна из этнических групп, найденных в Англии, - это британские арабы.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The British Arabs are an English ethnic group.</lex>
+      <lex lang="ru" lid="Id2">Британские арабы - это английская этническая группа.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id29" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>England | languages | Cornish_language</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">One of the languages spoken in England is the Cornish language.</lex>
+      <lex lang="ru" lid="Id1">Один из языков, на котором говорят в Англии, - язык Корниш.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Один из языков, на котором говорят в Англии, - корнский.</finallex>
+      <lex lang="en" lid="Id2">Cornish language is spoken in England.</lex>
+      <lex lang="ru" lid="Id2">"Корнический язык" говорят в Англии.</lex>
+      <finallex comment="ne;voc:colloc;gr:cm" lang="ru" lid="Id2">На корнском языке говорят в Англии.</finallex>
+      <lex lang="en" lid="Id3">Cornish is a language spoken in the Cornwall region of England.</lex>
+      <lex lang="ru" lid="Id3">"Корниш" - это язык, на котором говорят в Корнстенском районе Англии.</lex>
+      <finallex comment="ne;ne;voc:amb" lang="ru" lid="Id3">Корнский - язык, на котором говорят в корнуолльском регионе Англии.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+        <dbpedialink direction="en2ru">Cornish_language|sameAs|Корнский_язык</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id30" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>England | religion | Church_of_England</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">In England the main religion is the Church of England.</lex>
+      <lex lang="ru" lid="Id1">В Англии главной религией является Церковь Англии.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The established religion in England is The Church of England.</lex>
+      <lex lang="ru" lid="Id2">Устоявшаяся религия в Англии - Церковь Англии.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">the religion of England is Church of England.</lex>
+      <lex lang="ru" lid="Id3">Религия Англии - церковь Англии.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Church_of_England|sameAs|Церковь_Англии</dbpedialink>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id31" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Monocacy_National_Battlefield | location | Frederick_County,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Monocacy National Battlefield is located in Frederick County, Maryland.</lex>
+      <lex lang="ru" lid="Id1">Monocacy National Battlefield находится в графстве Фредерик, штат Мэриленд.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The Monocacy National Battlefield is located in Frederick County, Maryland.</lex>
+      <lex lang="ru" lid="Id2">Monocacy National Battlefield находится в графстве Фредерик, штат Мэриленд.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The Monocacy National Battlefield is in the county Frederick, Maryland.</lex>
+      <lex lang="ru" lid="Id3">Monocacy National Battlefield находится в графстве Фредерик, штат Мэриленд.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Frederick_County,_Maryland|sameAs|Фредерик_(округ,_Мэриленд)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id32" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Monocacy_National_Battlefield | nearestCity | Frederick,_Maryland</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The city nearest to Monocacy National Battlefield is Frederick, Maryland.</lex>
+      <lex lang="ru" lid="Id1">Город, ближайший к Monocacy National Battlefield - "Фредерик", штат Мэриленд.</lex>
+      <finallex comment="punct" lang="ru" lid="Id1">Город, ближайший к Monocacy National Battlefield - Фредерик, штат Мэриленд.</finallex>
+      <lex lang="en" lid="Id2">The nearest city to Monocacy National Battlefield is Frederick, Maryland.</lex>
+      <lex lang="ru" lid="Id2">Ближайший город к Monocacy National Battlefield - Фредерик, штат Мэриленд.</lex>
+      <finallex comment="str:wrdord" lang="ru" lid="Id2">Ближайший к Monocacy National Battlefield город - Фредерик, штат Мэриленд.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Frederick,_Maryland|sameAs|Фредерик_(Мэриленд)</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id33" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | capital | Ankara</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Ankara is the capital of Turkey.</lex>
+      <lex lang="ru" lid="Id1">Анкара - столица Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">The capital of Turkey is Ankara.</lex>
+      <lex lang="ru" lid="Id2">Столица Турции - Анкара.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">Turkey's capital is Ankara.</lex>
+      <lex lang="ru" lid="Id3">Столица Турции - это Анкара.</lex>
+      <finallex comment="str:ins" lang="ru" lid="Id3">Столица Турции - Анкара.</finallex>
+      <lex lang="en" lid="Id4">Ankara is the Turkish capital.</lex>
+      <lex lang="ru" lid="Id4">Анкара - турецкая столица.</lex>
+      <finallex comment="" lang="ru" lid="Id4"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+        <dbpedialink direction="en2ru">Ankara|sameAs|Анкара</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id34" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | currency | Turkish_lira</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The currency of Turkey is Turkish Lira.</lex>
+      <lex lang="ru" lid="Id1">Валютой Турции является турецкая "Лира".</lex>
+      <finallex comment="punct" lang="ru" lid="Id1">Валютой Турции является турецкая лира.</finallex>
+      <lex lang="en" lid="Id2">The currency of Turkey is the Turkish lira.</lex>
+      <lex lang="ru" lid="Id2">Валюта Турции - турецкая лира.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The currency in Turkey is the Turkish Lira.</lex>
+      <lex lang="ru" lid="Id3">Валютой в Турции является турецкая "Лира".</lex>
+      <finallex comment="punct" lang="ru" lid="Id3">Валютой в Турции является турецкая лира.</finallex>
+      <lex lang="en" lid="Id4">Turkey's currency is the Turkish lira.</lex>
+      <lex lang="ru" lid="Id4">Валюта Турции - турецкая лира.</lex>
+      <finallex comment="" lang="ru" lid="Id4"></finallex>
+      <lex lang="en" lid="Id5">the currency used in Turkey is lira.</lex>
+      <lex lang="ru" lid="Id5">Валюта, используемая в Турции, - лира.</lex>
+      <finallex comment="" lang="ru" lid="Id5"></finallex>
+      <lex lang="en" lid="Id6">The Turkish currency is the Turkish lira.</lex>
+      <lex lang="ru" lid="Id6">Турецкая валюта - турецкая лира.</lex>
+      <finallex comment="" lang="ru" lid="Id6"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+        <dbpedialink direction="en2ru">Turkish_lira|sameAs|Турецкая_лира</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id35" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | largestCity | Istanbul</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The largest city in Turkey is Istanbul.</lex>
+      <lex lang="ru" lid="Id1">Самый крупный город в Турции - Стамбул.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">Istanbul is the largest city in Turkey.</lex>
+      <lex lang="ru" lid="Id2">Стамбул - крупнейший город в Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">Turkey's largest City is Istanbul.</lex>
+      <lex lang="ru" lid="Id3">Крупнейший город Турции - Стамбул.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+        <dbpedialink direction="en2ru">Istanbul|sameAs|Стамбул</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id36" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | leader | Ahmet_Davutoğlu</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Ahmet Davutoglu is a leader of Turkey.</lex>
+      <lex lang="ru" lid="Id1">Ахмет Давутоглу - лидер Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">Ahmet Davutoglu is the leader of Turkey.</lex>
+      <lex lang="ru" lid="Id2">Ахмет Давутоглу - лидер Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">Leader of Turkey is Ahmet Davutoglu.</lex>
+      <lex lang="ru" lid="Id3">Лидер Турции - Ахмет Давутоглу.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <lex lang="en" lid="Id4">Ahmet_Davutoğlu is Turkey's leader.</lex>
+      <lex lang="ru" lid="Id4">Ахмет _ Давутоглу - лидер Турции.</lex>
+      <finallex comment="punct" lang="ru" lid="Id4">Ахмет Давутоглу - лидер Турции.</finallex>
+      <lex lang="en" lid="Id5">The Leader Of Turkey is Ahmet Davutoğlu.</lex>
+      <lex lang="ru" lid="Id5">Лидер Турции - Ахмет Давутоглу.</lex>
+      <finallex comment="" lang="ru" lid="Id5"></finallex>
+      <lex lang="en" lid="Id6">Ahmet Davutoglu is the Turkish leader.</lex>
+      <lex lang="ru" lid="Id6">Ахмет Давутоглу - турецкий лидер.</lex>
+      <finallex comment="" lang="ru" lid="Id6"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+        <dbpedialink direction="en2ru">Ahmet_Davutoğlu|sameAs|Давутоглу,_Ахмет</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id37" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | leaderName | Ahmet_Davutoğlu</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Turkey's leader is Ahmet Davutoğlu.</lex>
+      <lex lang="ru" lid="Id1">Лидером Турции является Ахмет Давутоглу.</lex>
+      <finallex comment="" lang="ru" lid="Id1"></finallex>
+      <lex lang="en" lid="Id2">Turkey leader name is Ahmet Davutoğlu.</lex>
+      <lex lang="ru" lid="Id2">Лидера Турции зовут Ахмет Давутоглу.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">The Turkish leader's name is Ahmet Davutoglu.</lex>
+      <lex lang="ru" lid="Id3">Имя турецкого лидера - Ахмет Давутоглу.</lex>
+      <finallex comment="" lang="ru" lid="Id3"></finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+        <dbpedialink direction="en2ru">Ahmet_Davutoğlu|sameAs|Давутоглу,_Ахмет</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="Monument" eid="Id38" part="train" size="1">
+      <modifiedtripleset>
+        <mtriple>Turkey | leaderTitle | President_of_Turkey</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The leader's title in Turkey is the President of Turkey.</lex>
+      <lex lang="ru" lid="Id1">Титул вождя в Турции занимает президент Турции.</lex>
+      <finallex comment="voc:amb;gr:cop" lang="ru" lid="Id1">Титул лидера Турции - Президент Турции.</finallex>
+      <lex lang="en" lid="Id2">Turkey's leader is the President of Turkey.</lex>
+      <lex lang="ru" lid="Id2">Лидером Турции является президент Турции.</lex>
+      <finallex comment="" lang="ru" lid="Id2"></finallex>
+      <lex lang="en" lid="Id3">President of Turkey is the official title of the Turkish leader.</lex>
+      <lex lang="ru" lid="Id3">Официальным титулом турецкого лидера является президент Турции.</lex>
+      <finallex comment="spel:cap" lang="ru" lid="Id3">Официальным титулом турецкого лидера является Президент Турции.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Turkey|sameAs|Турция</dbpedialink>
+      </dbpedialinks>
+    </entry>
+  </entries>
+</benchmark>

@@ -1,0 +1,352 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="WrittenWork" eid="Id1" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>1634:_The_Bavarian_Crisis | author | Eric_Flint</otriple>
+        <otriple>1634:_The_Bavarian_Crisis | previousWork | The_Grantville_Gazettes</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1634:_The_Bavarian_Crisis | author | Eric_Flint</mtriple>
+        <mtriple>1634:_The_Bavarian_Crisis | precededBy | The_Grantville_Gazettes</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">1634: The Bavarian Crisis was written by Eric Flint and preceded by The Grantville Gazettes.</lex>
+      <lex comment="good" lid="Id2">Eric Flint is the author of 1634: The Bavarian Crisis which is preceded by The Grantville Gazettes.</lex>
+      <lex comment="good" lid="Id3">'1634: The Bavarian crisis', which was written by Eric Flint, is the sequel to The Grantville Gazettes.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id2" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>1634:_The_Ram_Rebellion | mediaType | E-book</otriple>
+        <otriple>1634:_The_Ram_Rebellion | author | Virginia_DeMarce</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>1634:_The_Ram_Rebellion | mediaType | E-book</mtriple>
+        <mtriple>1634:_The_Ram_Rebellion | author | Virginia_DeMarce</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">1634: The Ram Rebellion, available in ebook is authored by Virginia DeMarce.</lex>
+      <lex comment="good" lid="Id2">1634: The Ram Rebellion was written by Virginia DeMarce and can be found as an Ebook.</lex>
+      <lex comment="good" lid="Id3">Virginia DeMarce is the author of 1634: The Ram Rebellion, which can be found as an e-book.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id3" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>AIP_Advances | abbreviation | "AIP Adv."@en</otriple>
+        <otriple>AIP_Advances | eissn | 2158</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>AIP_Advances | eissn | 2158</otriple>
+        <otriple>AIP_Advances | abbreviation | "AIP Adv."</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>AIP_Advances | EISSN_number | 2158</mtriple>
+        <mtriple>AIP_Advances | abbreviation | "AIP Adv."</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">AIP Advances (abbreviated to "AIP Adv.") had the EISSN number 2158.</lex>
+      <lex comment="good" lid="Id2">The EISSN number of AIP Advances (abbreviated to "AIP Adv.") is 2158.</lex>
+      <lex comment="good" lid="Id3">The EISSN number of AIP Advances is 2158 and it is abbreviated to AIP Adv.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id4" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Fortress_of_Grey_Ice | author | J._V._Jones</otriple>
+        <otriple>A_Fortress_of_Grey_Ice | mediaType | "Print"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Fortress_of_Grey_Ice | author | J._V._Jones</mtriple>
+        <mtriple>A_Fortress_of_Grey_Ice | mediaType | "Print"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Fortress of Grey Ice is available in print and was written by J. V. Jones.</lex>
+      <lex comment="good" lid="Id2">A Fortress of Grey Ice was written by J. V. Jones and is available in print.</lex>
+      <lex comment="good" lid="Id3">The author of A Fortress of Grey Ice is J.V. Jones and it is available in print.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id5" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Fortress_of_Grey_Ice | numberOfPages | "672"^^xsd:positiveInteger</otriple>
+        <otriple>A_Fortress_of_Grey_Ice | isbn | "0-7653-0633-6"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Fortress_of_Grey_Ice | numberOfPages | "672"</mtriple>
+        <mtriple>A_Fortress_of_Grey_Ice | ISBN_number | "0-7653-0633-6"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Fortress of Grey Ice has 672 pages, and has the ISBN number 0-7653-0633-6.</lex>
+      <lex comment="good" lid="Id2">A Fortress of Grey Ice with ISBM 0-7653-0633-6 has 672 pages.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id6" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Glastonbury_Romance | subsequentWork | Weymouth_Sands</otriple>
+        <otriple>A_Glastonbury_Romance | author | John_Cowper_Powys</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Glastonbury_Romance | followedBy | Weymouth_Sands</mtriple>
+        <mtriple>A_Glastonbury_Romance | author | John_Cowper_Powys</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">John Cowper Powys wrote A Glastonbury Romance, which was followed by Weymouth Sands.</lex>
+      <lex comment="good" lid="Id2">A Glastonbury Romance which written by John Cowper Powys, was followed by Weymouth Sands.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id7" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Long_Long_Way | oclc | "57392246"</otriple>
+        <otriple>A_Long_Long_Way | mediaType | "Print  &amp; Paperback"@en</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A_Long_Long_Way | mediaType | "Print  &amp; Paperback"@en</otriple>
+        <otriple>A_Long_Long_Way | oclc | 57392246</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Long_Long_Way | OCLC_number | 57392246</mtriple>
+        <mtriple>A_Long_Long_Way | mediaType | "Print  &amp; Paperback"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Long Long Way was published in Print &amp; Paperback and has the OCLC number 57392246.</lex>
+      <lex comment="good" lid="Id2">A Long Long Way which has the OCLC number 57392246, was published in Print &amp; Paperback.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id8" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Long_Long_Way | numberOfPages | "292"^^xsd:positiveInteger</otriple>
+        <otriple>A_Long_Long_Way | isbn | "0-670-03380-4"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Long_Long_Way | numberOfPages | "292"</mtriple>
+        <mtriple>A_Long_Long_Way | ISBN_number | "0-670-03380-4"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Long Long Way has 292 pages and the ISBN number is 0-670-03380-4.</lex>
+      <lex comment="good" lid="Id2">A Long Long Way is 292 pages long, and has the ISBN number 0-670-03380-4.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id9" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A_Long_Long_Way | publisher | Viking_Press</otriple>
+        <otriple>Viking_Press | parent | Penguin_Random_House</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A_Long_Long_Way | publisher | Viking_Press</otriple>
+        <otriple>Viking_Press | parentCompany | Penguin_Random_House</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Long_Long_Way | publisher | Viking_Press</mtriple>
+        <mtriple>Viking_Press | parentCompany | Penguin_Random_House</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Penguin Random House is the parent company of Viking Press, which published A long long way.</lex>
+      <lex comment="good" lid="Id2">A Long Long Way was published by Viking Press a subsidiary of Penguin Random House.</lex>
+      <lex comment="good" lid="Id3">The book "A Long Long Way was published by Viking Press, who is owned by Penguin Random House.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id10" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Loyal_Character_Dancer | author | Qiu_Xiaolong</otriple>
+        <otriple>A_Loyal_Character_Dancer | mediaType | "Print"@en</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Loyal_Character_Dancer | author | Qiu_Xiaolong</mtriple>
+        <mtriple>A_Loyal_Character_Dancer | mediaType | "Print"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Loyal Character Dancer which is in print, was penned by Qiu Xiaolong.</lex>
+      <lex comment="good" lid="Id2">A Loyal Character Dancer which is in print, was written by Qiu Xiaolong.</lex>
+      <lex comment="good" lid="Id3">Qiu Xiaolong is the author of A Loyal Character Dancer which is currently in print.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id11" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | oclc | "8805735"</otriple>
+        <otriple>A_Severed_Wasp | isbn | "0-374-26131-8"</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | oclc | 8805735</otriple>
+        <otriple>A_Severed_Wasp | isbn | "0-374-26131-8"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Severed_Wasp | OCLC_number | 8805735</mtriple>
+        <mtriple>A_Severed_Wasp | ISBN_number | "0-374-26131-8"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Severed Wasp which has the ISBN number 0-374-26131-8, also has an OCLC number of 8805735.</lex>
+      <lex comment="good" lid="Id2">A Severed Wasp has the ISBN number 0-374-26131-8 and OCLC number 8805735.</lex>
+      <lex comment="good" lid="Id3">A Severed Wasp has the ISBN number 0-374-26131-8, and the OCLC number 8805735.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id12" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | oclc | 8805735</otriple>
+        <otriple>A_Severed_Wasp | mediaType | Hardcover</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | oclc | "8805735"</otriple>
+        <otriple>A_Severed_Wasp | mediaType | Hardcover</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Severed_Wasp | OCLC_number | 8805735</mtriple>
+        <mtriple>A_Severed_Wasp | mediaType | Hardcover</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The hardcover A Severed Wasp was assigned the OCLC number 8805735.</lex>
+      <lex comment="good" lid="Id2">A Severed Wasp, OCLC number 8805735, is a hardcover book.</lex>
+      <lex comment="good" lid="Id3">The OCLC number of the hardback book, "A Severed Wasp" is 8805735.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id13" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | language | English_language</otriple>
+        <otriple>English_language | spokenIn | Great_Britain</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Severed_Wasp | language | English_language</mtriple>
+        <mtriple>English_language | spokenIn | Great_Britain</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Severed Wasp is in the English language which is the language spoken in Great Britain.</lex>
+      <lex comment="good" lid="Id2">English is spoken in Great Britain and A Severed Wasp was written in this language.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id14" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>A_Severed_Wasp | mediaType | "Print"@en</otriple>
+        <otriple>A_Severed_Wasp | isbn | "0-374-26131-8"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>A_Severed_Wasp | mediaType | "Print"</mtriple>
+        <mtriple>A_Severed_Wasp | ISBN_number | "0-374-26131-8"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Severed Wasp, ISBN number 0-374-26131-8, is currently in print.</lex>
+      <lex comment="good" lid="Id2">The book "A Severed Wasp" is available in print and has an ISBN number of "0-374-26131-8".</lex>
+      <lex comment="good" lid="Id3">The book "A Severed Wasp" is available in print and has the ISBN number 0-374-26131-8.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id15" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Abhandlungen_aus_dem_Mathematischen_Seminar_der_Universität_Hamburg | publisher | Springer_Science+Business_Media</otriple>
+        <otriple>Springer_Science+Business_Media | founder | Julius_Springer</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Abhandlungen_aus_dem_Mathematischen_Seminar_der_Universität_Hamburg | publisher | Springer_Science+Business_Media</mtriple>
+        <mtriple>Springer_Science+Business_Media | founder | Julius_Springer</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Julius Springer is the founder of Springer Science and Business Media which is the publisher of Abhandlungen aus dem Mathematischen Seminar der Universitat Hamburg.</lex>
+      <lex comment="good" lid="Id2">Julius Springer founded Springer Science and Business Media, the publisher of Abhandlungen aus dem Mathematischen Seminar der Universitat Hamburg.</lex>
+      <lex comment="good" lid="Id3">Julius Springer founded Springer Science and Business Media which publishes Abhandlungen aus dem Mathematischen Seminar der Universitat Hamburg.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id16" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | isbn | "0-439-92550-9"</otriple>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | literaryGenre | Fantasy_literature</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alcatraz_Versus_the_Evil_Librarians | ISBN_number | "0-439-92550-9"</mtriple>
+        <mtriple>Alcatraz_Versus_the_Evil_Librarians | literaryGenre | Fantasy_literature</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alcatraz Versus the Evil Librarians is considered Fantasy literature and has the ISBN number 0-439-92550-9.</lex>
+      <lex comment="good" lid="Id2">Alcatraz Versus the Evil Librarians has the ISBN number 0-439-92550-9 and can be found under the genre of fantasy literature.</lex>
+      <lex comment="good" lid="Id3">Alcatraz Versus the Evil Librarians is a fantasy book, with the ISBN number of 0-439-92550-9.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id17" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | oclc | "78771100"</otriple>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | isbn | "0-439-92550-9"</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alcatraz_Versus_the_Evil_Librarians | OCLC_number | 78771100</mtriple>
+        <mtriple>Alcatraz_Versus_the_Evil_Librarians | ISBN_number | "0-439-92550-9"</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alcatraz Versus The Evil Librarians has the OCLC and ISBN numbers 78771100 and 0-439-92550-9, respectively.</lex>
+      <lex comment="good" lid="Id2">The ISBN number of "Alcatraz Versus the Evil Librarians" is 0-439-92550-9; the OCLC number is 78771100.</lex>
+      <lex comment="good" lid="Id3">The book Alcatraz Versus the Evil Librarians has the OCLC number of 7877110 and the ISBN number 0-439-92550-9.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id18" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>Alcatraz_Versus_the_Scrivener's_Bones | author | Brandon_Sanderson</otriple>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | followedBy | Alcatraz_Versus_the_Scrivener's_Bones</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>Alcatraz_Versus_the_Evil_Librarians | subsequentWork | Alcatraz_Versus_the_Scrivener's_Bones</otriple>
+        <otriple>Alcatraz_Versus_the_Scrivener's_Bones | author | Brandon_Sanderson</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>Alcatraz_Versus_the_Evil_Librarians | followedBy | Alcatraz_Versus_the_Scrivener's_Bones</mtriple>
+        <mtriple>Alcatraz_Versus_the_Scrivener's_Bones | author | Brandon_Sanderson</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Alcatraz versus the Evil Librarians is followed by Alcatraz Versus the Scrivener's Bones authored by Brandon Sanderson.</lex>
+      <lex comment="good" lid="Id2">Alcatraz Versus the Scrivener's Bones, written by Brandon Sanderson was the follow up book to Alcatraz Versus the Evil Librarians.</lex>
+      <lex comment="good" lid="Id3">"Alcatraz Versus the Scrivener's Bones," written by Brandon Sanderson, followed "Alcatraz Versus the Evil Librarians.".</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id19" shape="(X (X) (X))" shape_type="sibling" size="2">
+      <originaltripleset>
+        <otriple>American_Journal_of_Mathematics | abbreviation | "Am. J. Math."@en</otriple>
+        <otriple>American_Journal_of_Mathematics | discipline | Mathematics</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_Journal_of_Mathematics | discipline | Mathematics</otriple>
+        <otriple>American_Journal_of_Mathematics | abbreviation | "Am. J. Math."</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Journal_of_Mathematics | academicDiscipline | Mathematics</mtriple>
+        <mtriple>American_Journal_of_Mathematics | abbreviation | "Am. J. Math."</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">The American Journal of Mathematics (abbreviated to Am. J. Math.) has the academic discipline of Mathematics.</lex>
+      <lex comment="good" lid="Id2">Am. J. Math. is the abbreviation of the American Journal of Mathematics which comes under the discipline of Math.</lex>
+      <lex comment="good" lid="Id3">The American Journal of Mathematics, dedicated to mathematical study, is sometimes shortened to Am.J.Math.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id20" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>American_Journal_of_Mathematics | publisher | Johns_Hopkins_University_Press</otriple>
+        <otriple>Johns_Hopkins_University_Press | parent | Johns_Hopkins_University</otriple>
+      </originaltripleset>
+      <originaltripleset>
+        <otriple>American_Journal_of_Mathematics | publisher | Johns_Hopkins_University_Press</otriple>
+        <otriple>Johns_Hopkins_University_Press | parentCompany | Johns_Hopkins_University</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>American_Journal_of_Mathematics | publisher | Johns_Hopkins_University_Press</mtriple>
+        <mtriple>Johns_Hopkins_University_Press | parentCompany | Johns_Hopkins_University</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">Johns Hopkins University is the parent company of Johns Hopkins University Press, the publisher of the American Journal of Mathematics.</lex>
+      <lex comment="good" lid="Id2">Johns Hopkins University Press is the publisher of the American Journal of Mathematics with Johns Hopkins University being the parent company.</lex>
+      </entry>
+    <entry category="WrittenWork" eid="Id21" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>1634:_The_Ram_Rebellion | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>1634:_The_Ram_Rebellion | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">1634 The Ram Rebellion comes from the United States where the capital is Washington DC.</lex>
+      <lex comment="good" lid="Id2">Washington D. C. is the capital of the United States, the country where '1634 The Ram Rebellion' comes from.</lex>
+      <lex comment="good" lid="Id3">'1634 The Ram Rebellion' was written in the United States where the capital is Washington D. C.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id22" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | capital | Washington,_D.C.</otriple>
+        <otriple>A_Fortress_of_Grey_Ice | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | capital | Washington,_D.C.</mtriple>
+        <mtriple>A_Fortress_of_Grey_Ice | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Fortress of Grey Ice is from the United States where the capital is in Washington, D.C.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id23" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>A_Fortress_of_Grey_Ice | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+        <mtriple>A_Fortress_of_Grey_Ice | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Fortress of Grey Ice is from the United States where one of the ethnic groups is African American.</lex>
+      <lex comment="good" lid="Id2">A Fortress of Grey Ice is from the United States, which has among its ethnic groups African Americans.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id24" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | African_Americans</otriple>
+        <otriple>A_Wizard_of_Mars | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | African_Americans</mtriple>
+        <mtriple>A_Wizard_of_Mars | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Wizard of Mars originates from the United States where the African Americans are an ethnic group.</lex>
+      <lex comment="good" lid="Id2">' A Wizard of Mars' was Published in the United States, a country where one of the ethnic groups is African Americans.</lex>
+      <lex comment="good" lid="Id3">A Wizard of Mars originates from the United States, which counts African Americans among its ethnic groups.</lex>
+    </entry>
+    <entry category="WrittenWork" eid="Id25" shape="(X (X (X)))" shape_type="chain" size="2">
+      <originaltripleset>
+        <otriple>United_States | ethnicGroup | Asian_Americans</otriple>
+        <otriple>A_Wizard_of_Mars | country | United_States</otriple>
+      </originaltripleset>
+      <modifiedtripleset>
+        <mtriple>United_States | ethnicGroup | Asian_Americans</mtriple>
+        <mtriple>A_Wizard_of_Mars | country | United_States</mtriple>
+      </modifiedtripleset>
+      <lex comment="good" lid="Id1">A Wizard of Mars originates from the United States where the Asian Americans are an ethnic group.</lex>
+      <lex comment="good" lid="Id2">A Wizard of Mars originates from the United States, where many Asian Americans live.</lex>
+    </entry>
+    </entries>
+</benchmark>
