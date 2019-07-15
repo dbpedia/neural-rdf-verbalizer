@@ -179,11 +179,12 @@ def gat_eval(model, node_tensor, label_tensor,
     predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=None, mask=None)
     pred = (predictions['outputs'][0].numpy())
     for i in pred:
-        #if (target_vocab.index_word[i] != '<start>'):
+        #i
         if i != 0:
-            result += target_vocab.index_word[i] + ' '
-        if (target_vocab.index_word[i] == '<end>'):
-            return result
+            if(target_vocab.index_word[i] != '<start>'):
+                result += target_vocab.index_word[i] + ' '
+            if (target_vocab.index_word[i] == '<end>'):
+                return result
     #'''
     return result
 
@@ -225,11 +226,11 @@ def seq2seq_eval(model, triple):
     predictions = model(encoder_input, targets=None, training=model.trainable)
     pred = (predictions['outputs'][0].numpy())
     for i in pred:
-        #if (vocab.index_word[i] != '<start>'):
         if i!=0:
-            result += vocab.index_word[i] + ' '
-        if (vocab.index_word[i] == '<end>'):
-            return result
+            if (vocab.index_word[i] != '<start>'):
+                result += vocab.index_word[i] + ' '
+            if (vocab.index_word[i] == '<end>'):
+                return result
 
     return result
 
