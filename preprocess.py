@@ -30,6 +30,8 @@ parser.add_argument(
     '--opt', type=str, required=True, help='Adjacency processing or feature: adj -> adjacency matrix')
 parser.add_argument(
     '--use_colab', type=bool, required=False, help='Use colab or not')
+parser.add_argument(
+    '--lang', type=str, required=True, help='Language of the dataset')
 
 args = parser.parse_args()
 
@@ -109,6 +111,7 @@ def pre_process(path):
             g.add_edge(l[1], l[2], label='A_ONE')
             #g.add_edge(l[2], l[1])
         node_list = list(g.nodes())
+        print(node_list)
         nodes.append(node_list)
         edge_list = list(g.edges.data())
         for edge in edge_list:
@@ -194,7 +197,7 @@ if __name__ == '__main__':
 
                 np.save('data/processed_graphs/train/train_graph_adj', tensor)
                 np.save('data/processed_graphs/train/train_graph_pure_adj', adj)
-                np.save('data/processed_graphs/train/train_graph_degree_matrix', degree_mat)
+                np.save('data/processed_graphs/train/train_graph_degree_matrix',degree_mat)
                 with open('data/processed_graphs/train/train_graph_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
                 with open('data/processed_graphs/train/train_graph_edges', 'wb') as fp:
@@ -243,50 +246,50 @@ if __name__ == '__main__':
                 from google.colab import drive
 
                 drive.mount('/content/gdrive')
-                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/train'
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/train/'+args.lang
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_nodes', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_node1', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_node1', 'wb') as fp:
                     pickle.dump(node1, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_node2', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_node2', 'wb') as fp:
                     pickle.dump(node2, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/train/train_labels', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_labels', 'wb') as fp:
                     pickle.dump(labels, fp)
             else:
-                OUTPUT_DIR = 'data/processed_graphs/train'
+                OUTPUT_DIR = 'data/processed_graphs/train/'+args.lang
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-                with open('data/processed_graphs/train/train_nodes', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_graphs/train/train_node1', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_node1', 'wb') as fp:
                     pickle.dump(node1, fp)
-                with open('data/processed_graphs/train/train_node2', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_node2', 'wb') as fp:
                     pickle.dump(node2, fp)
-                with open('data/processed_graphs/train/train_labels', 'wb') as fp:
+                with open(OUTPUT_DIR+'/train_labels', 'wb') as fp:
                     pickle.dump(labels, fp)
         else:
             if args.use_colab is not None:
                 from google.colab import drive
 
                 drive.mount('/content/gdrive')
-                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/eval'
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/eval'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_nodes', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_node1', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_node1', 'wb') as fp:
                     pickle.dump(node1, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_node2', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_node2', 'wb') as fp:
                     pickle.dump(node2, fp)
-                with open('/content/gdrive/My Drive/data/processed_graphs/eval/eval_labels', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_labels', 'wb') as fp:
                     pickle.dump(labels, fp)
             else:
-                OUTPUT_DIR = 'data/processed_graphs/eval'
+                OUTPUT_DIR = 'data/processed_graphs/'+args.lang+'/eval'
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-                with open('data/processed_graphs/eval/eval_nodes', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
-                with open('data/processed_graphs/eval/eval_node1', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_node1', 'wb') as fp:
                     pickle.dump(node1, fp)
-                with open('data/processed_graphs/eval/eval_node2', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_node2', 'wb') as fp:
                     pickle.dump(node2, fp)
-                with open('data/processed_graphs/eval/eval_labels', 'wb') as fp:
+                with open(OUTPUT_DIR+'eval_labels', 'wb') as fp:
                     pickle.dump(labels, fp)

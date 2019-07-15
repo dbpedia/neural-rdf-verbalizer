@@ -33,11 +33,6 @@ PARAMS_MAP = {
 if __name__ == "__main__":
     args = get_args()
     global step
-
-    if (args.lang == 'multi'):
-        raise ValueError('Use train_multiple script for Multilingual Training !')
-        exit(0)
-
     #set up dirs
     if args.use_colab is None:
         output_file = 'results.txt'
