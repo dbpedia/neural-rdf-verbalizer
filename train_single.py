@@ -229,7 +229,7 @@ if __name__ == "__main__":
       
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
-        steps_per_epoch, vocab_size, lang= get_dataset(args)
+        steps_per_epoch, vocab_size, lang, dataset_size= get_dataset(args)
         num_layers = args.enc_layers
         num_heads = args.num_heads
         d_model = args.emb_dim
@@ -300,7 +300,7 @@ if __name__ == "__main__":
             train_loss.reset_states()
             train_accuracy.reset_states()
             print('Learning Rate'+str(optimizer.lr)+' Step '+ str(step))
-            with tqdm(total=(38668 // args.batch_size)) as pbar:
+            with tqdm(total=(dataset_size // args.batch_size)) as pbar:
                 for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
                     step += 1
                     if args.decay is not None:
@@ -330,8 +330,8 @@ if __name__ == "__main__":
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
-        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_tgt_size, vocab_src_size, src_vocab, tgt_vocab, max_length_targ) = get_gat_dataset(args, args.lang)
+        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size,
+         vocab_src_size, src_vocab, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args, args.lang)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):
@@ -401,7 +401,8 @@ if __name__ == "__main__":
 
         for epoch in range(args.epochs):
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
-            with tqdm(total=(38668 // args.batch_size)) as pbar:
+            print(dataset_size)
+            with tqdm(total=(dataset_size // args.batch_size)) as pbar:
                 train_loss.reset_states()
                 train_accuracy.reset_states()
 
