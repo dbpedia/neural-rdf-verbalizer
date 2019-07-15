@@ -162,6 +162,8 @@ def get_gat_dataset(args, lang):
     (node_tensor, label_tensor, node1_tensor, node2_tensor,
      target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,args.edge_node1,
                                                                               args.edge_node2, args.tgt_path, lang)    # Pad the edge tensor to 16 size
+    node_padding = tf.constant([[0, 0], [0, 16-node_tensor.shape[1]]])
+    node_tensor = tf.pad(node_tensor, node_padding, mode='CONSTANT')
     label_padding = tf.constant([[0, 0], [0, 16-label_tensor.shape[1]]])
     label_tensor = tf.pad(label_tensor, label_padding, mode='CONSTANT')
     node1_paddings = tf.constant([[0, 0], [0, 16 - node1_tensor.shape[1]]])
