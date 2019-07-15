@@ -160,13 +160,15 @@ def get_gat_dataset(args, lang):
 
     (node_tensor, label_tensor, node1_tensor, node2_tensor,
      target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,args.edge_node1,
-                                                                              args.edge_node2, args.tgt_path, lang)
+                                                                              args.edge_node2, args.tgt_path, lang)    # Pad the edge tensor to 16 size
+    label_padding = tf.constant([[0, 0], [0, 16-label_tensor.shape[1]]])
+    label_tensor = tf.pad(label_tensor, label_padding, mode='CONSTANT')
+    node1_paddings = tf.constant([[0, 0], [0, 16 - node1_tensor.shape[1]]])
+    node1_tensor = tf.pad(node1_tensor, node1_paddings, mode='CONSTANT')
+    node2_paddings = tf.constant([[0, 0], [0, 16 - node2_tensor.shape[1]]])
+    node2_tensor = tf.pad(node2_tensor, node2_paddings, mode='CONSTANT')
+    print(node_tensor.shape, node1_tensor.shape, node2_tensor.shape, target_tensor.shape)
 
-    # Pad the edge tensor to 16 size
-    node_paddings = tf.constant([[0, 0], [0, 1]])
-    label_tensor = tf.pad(label_tensor, node_paddings, mode='CONSTANT')
-    node1_tensor = tf.pad(node1_tensor, node_paddings, mode='CONSTANT')
-    node2_tensor = tf.pad(node2_tensor, node_paddings, mode='CONSTANT')
 
     BUFFER_SIZE = len(target_tensor)
     BATCH_SIZE = args.batch_size
