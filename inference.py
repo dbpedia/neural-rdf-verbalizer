@@ -181,7 +181,7 @@ def gat_eval(model, node_tensor, label_tensor,
     for i in pred:
         if i == 0:
             continue
-        if(target_vocab.index_word[i] != '<start>'):
+        if ((target_vocab.index_word[i] != '<start>') or (target_vocab.index_word[i] != '<end>')):
             result += target_vocab.index_word[i] + ' '
         if (target_vocab.index_word[i] == '<end>'):
             return result
@@ -228,7 +228,7 @@ def seq2seq_eval(model, triple):
     for i in pred:
         if i==0:
             continue
-        if (vocab.index_word[i] != '<start>'):
+        if ((vocab.index_word[i] != '<start>') or (vocab.index_word[i] != '<end>')):
             result += vocab.index_word[i] + ' '
         if (vocab.index_word[i] == '<end>'):
             return result
