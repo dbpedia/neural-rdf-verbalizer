@@ -288,7 +288,7 @@ if __name__ == "__main__":
             result = inf(args, line, model, src_vocab, target_vocab)
             verbalised_triples.append(result)
             print(result)
-            #s.write(result + '\n')
+            s.write(result + '\n')
     #inf (line, model)
     ref_sentence = []
     reference = open(args.eval_ref, 'r')
