@@ -181,7 +181,7 @@ def gat_eval(model, node_tensor, label_tensor,
     for i in pred:
         if i == 0:
             continue
-        if ((target_vocab.index_word[i] != '<start>') and (target_vocab.index_word[i] != '<end>')):
+        if ((target_vocab.index_word[i] != '<start>')):
             result += target_vocab.index_word[i] + ' '
         if (target_vocab.index_word[i] == '<end>'):
             return result
@@ -286,6 +286,8 @@ if __name__ == "__main__":
         if i< args.num_eval_lines:
             print(line)
             result = inf(args, line, model, src_vocab, target_vocab)
+            result = result.strip('<start>')
+            result = result.strip('<end>')
             verbalised_triples.append(result)
             print(result)
             s.write(result + '\n')
