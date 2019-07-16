@@ -181,7 +181,7 @@ def gat_eval(model, node_tensor, label_tensor,
     for i in pred:
         if i == 0:
             continue
-        if ((target_vocab.index_word[i] != '<start>') or (target_vocab.index_word[i] != '<end>')):
+        if ((target_vocab.index_word[i] != '<start>') and (target_vocab.index_word[i] != '<end>')):
             result += target_vocab.index_word[i] + ' '
         if (target_vocab.index_word[i] == '<end>'):
             return result
