@@ -104,10 +104,11 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
-        l = [lang + ' ' + x for x in l]
+        l = ['<'+lang+'> ' + x for x in l]
         g.add_edge(l[0], l[1], label='A_ZERO')
         g.add_edge(l[1], l[2], label='A_ONE')
     node_list = list(g.nodes())
+    print(node_list)
     nodes.append(node_list)
     edge_list = list(g.edges.data())
     for edge in edge_list:
@@ -126,9 +127,9 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     node1_tensor = src_lang.texts_to_sequences(node1)
     node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(node1_tensor, padding='post')
     node2_tensor = src_lang.texts_to_sequences(node2)
-    node2_tensorode = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
+    node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
 
-    node_paddings = tf.constant([[0, 0], [0, 16-len(nodes[0])]])
+    node_paddings = tf.constant([[0, 0], [0, 16 - len(nodes[0])]])
     node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
     label_padding = tf.constant([[0, 0], [0, 16 - len(labels[0])]])
     label_tensor = tf.pad(label_tensor, label_padding, mode='CONSTANT')
