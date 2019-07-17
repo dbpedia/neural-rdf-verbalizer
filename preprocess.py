@@ -94,9 +94,9 @@ def pre_process_with_roles(path):
 
     dest.close()
 
-def pre_process(path):
+def pre_process(path, lang):
     dest = open(path, 'r')
-    count = 0
+    lang = '<'+lang+'>'
     for line in dest:
         g = nx.MultiDiGraph()
         temp_label = []
@@ -105,7 +105,7 @@ def pre_process(path):
         triple_list = line.split('< TSP >')
         for l in triple_list:
             l = l.strip().split(' | ')
-            #print(l)
+            l = [lang+' '+x for x in l]
             g.add_edge(l[0], l[1], label='A_ZERO')
             #g.add_edge(l[1], l[0])
             g.add_edge(l[1], l[2], label='A_ONE')
@@ -240,7 +240,7 @@ if __name__ == '__main__':
         node1 = []
         node2 = []
         labels = []
-        pre_process(args.path)
+        pre_process(args.path, args.lang)
         if args.train is not None:
             if args.use_colab is not None:
                 from google.colab import drive
