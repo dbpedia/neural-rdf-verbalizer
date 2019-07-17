@@ -91,7 +91,7 @@ def load_model(args):
 
     return model
 
-def process_gat_sentence(line, src_lang, target_lang):
+def process_gat_sentence(line, src_lang, target_lang, lang):
     g = nx.MultiDiGraph()
     nodes = []
     labels = []
@@ -104,7 +104,7 @@ def process_gat_sentence(line, src_lang, target_lang):
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
-        l = [target_lang + ' ' + x for x in l]
+        l = [lang + ' ' + x for x in l]
         g.add_edge(l[0], l[1], label='A_ZERO')
         g.add_edge(l[1], l[2], label='A_ONE')
     node_list = list(g.nodes())
@@ -260,7 +260,7 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
 
 def inf(args, triple, model, src_vocab, target_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab)
+        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab, args.lang)
         result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
