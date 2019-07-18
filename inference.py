@@ -13,10 +13,10 @@ from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from src.arguments import get_args
 from src.utils.rogue import rouge_n
 
-def load_gat_vocabs():
-    with open('vocabs/gat/src_vocab', 'rb') as f:
+def load_gat_vocabs(lang):
+    with open('vocabs/gat/'+lang+'/src_vocab', 'rb') as f:
         src_vocab = pickle.load(f)
-    with open('vocabs/gat/target_vocab', 'rb') as f:
+    with open('vocabs/gat/'+lang+'/target_vocab', 'rb') as f:
         target_vocab = pickle.load(f)
 
     return src_vocab, target_vocab
@@ -50,7 +50,7 @@ def load_model(args):
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
     if args.enc_type == "gat" and args.dec_type == "transformer":
-        node_vocab, target_vocab = load_gat_vocabs()
+        node_vocab, target_vocab = load_gat_vocabs(args.lang)
         vocab_nodes_size = len(node_vocab.word_index) + 1
         vocab_tgt_size = len(target_vocab.word_index) + 1
         model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_tgt_size,target_vocab)
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     #line = 'Point Fortin | country | Trinidad'
     verbalised_triples = []
     if args.enc_type == 'gat':
-        src_vocab, target_vocab = load_gat_vocabs()
+        src_vocab, target_vocab = load_gat_vocabs(args.lang)
     for i,line in enumerate(f):
         if i< args.num_eval_lines:
             print(line)
