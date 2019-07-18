@@ -390,11 +390,10 @@ if __name__ == "__main__":
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
-                    print(line)
                     result = inf(args, line, model, src_vocab, tgt_vocab)
                     file.write(result+'\n')
                     verbalised_triples.append(result)
-                    print(result)
+                    print(str(i)+' '+result)
             rogue = (rouge_n(verbalised_triples, ref_sentence))
             #score = corpus_bleu(ref_sentence, verbalised_triples)
             file.close()

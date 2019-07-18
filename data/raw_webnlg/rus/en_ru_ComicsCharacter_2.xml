@@ -1,0 +1,1571 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="ComicsCharacter" eid="Id1" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Asterix_(comicsCharacter) | creator | René_Goscinny</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | creator | Albert_Uderzo</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic strip character Asterix was created by Albert Uderzo and Rene Goscinny.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов "Астерикс" был создан Альбертом Удерзо и Рене Госкиным.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Астерикс был создан Альбером Удерзо и Рене Госинни.</finallex>
+      <lex lang="en" lid="Id2">The comic book character Asterix was created by René Goscinny and Albert Uderzo.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов "Астерикс" был создан Рене Госкиным и Альбертом Удерзо.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Персонаж комиксов Астерикс был создан Рене Госинни и Альбером Удерзо.</finallex>
+      <lex lang="en" lid="Id3">The character Asterix was created by Reneé Goscinny and Albert Uderzo.</lex>
+      <lex lang="ru" lid="Id3">Персонаж Астерикс был создан Reneé Goscinny и Albert Uderzo.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж Астерикс был создан Reneé Goscinny и Albert Uderzo.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">René_Goscinny|sameAs|Госинни,_Рене</dbpedialink>
+        <dbpedialink direction="en2ru">Albert_Uderzo|sameAs|Удерзо,_Альбер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Aurakles | creator | Len_Wein</mtriple>
+        <mtriple>Aurakles | alternativeName | "Aurakles"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Created by Len Wein, Aurakles's alternative name is also Aurakles.</lex>
+      <lex lang="ru" lid="Id1">Созданный Лэнь Вайном, альтернативное название Aurakles - тоже Aurakles.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Созданный Леном Уэйном, альтернативное название Aurakles - тоже Aurakles.</finallex>
+      <lex lang="en" lid="Id2">The character Aurakles, also known as Aurakles, was created by Len Wein.</lex>
+      <lex lang="ru" lid="Id2">Персонаж Aurakles, также известный как Aurakles, был создан Лэнь Вайном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж Aurakles, также известный как Aurakles, был создан Леном Уэйном.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Len_Wein|sameAs|Уэйн,_Лен</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Ballistic_(comicsCharacter) | creator | Doug_Moench</mtriple>
+        <mtriple>Ballistic_(comicsCharacter) | alternativeName | "Kelvin Mao"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Doug Moench was the creator of the comic character Ballistic, who has the alternative name Kelvin Mao.</lex>
+      <lex lang="ru" lid="Id1">Doug Moench был создателем комического персонажа "Пулково", у которого есть альтернативное имя Келвин Мао.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Дуг Манч был создателем персонажа комиксов Баллистик, у которого есть альтернативное имя Келвин Мао.</finallex>
+      <lex lang="en" lid="Id2">Ballistic, ( also known as Kelvin Mao ), is a fictional comic superhero created by Doug Moench.</lex>
+      <lex lang="ru" lid="Id2">Баллистическая, (также известная как Келвин Мао), - вымышленный комикс-супергерой, созданный Дугом Моенком.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Баллистическая, (также известная как Келвин Мао), - вымышленный комикс-супергерой, созданный Дугом Моенком.</finallex>
+      <lex lang="en" lid="Id3">Doug Moench created the character Ballistic, the fictional superhero whose alter ego is Kelvin Mao.</lex>
+      <lex lang="ru" lid="Id3">Doug Moench создал персонаж "Пулково", вымышленный супергерой, чье изменение эго - Келвин Мао.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Дуг Манч создал персонаж Баллистик, вымышленный супергерой, чье изменение эго - Келвин Мао.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Starring Graeme Garden, Bananaman, the TV series was shown on the BBC.</lex>
+      <lex lang="ru" lid="Id1">В ролях Graeme Garden, Bananaman, сериал был показан на Би-би-си.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">В ролях Грэм Гарден, Бананаман, сериал был показан на Би-би-си.</finallex>
+      <lex lang="en" lid="Id2">Graeme Garden starred in the TV series Bananman, which was shown on the BBC.</lex>
+      <lex lang="ru" lid="Id2">Graeme Garden снялся в телесериале Bananman, который показали на Би-би-си.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Грэм Гарден снялся в телесериале Bananman, который показали на Би-би-си.</finallex>
+      <lex lang="en" lid="Id3">Bananaman , which starred Graeme Garden, was broadcasted by the BBC.</lex>
+      <lex lang="ru" lid="Id3">Bananaman, которая сняла Graeme Garden, транслировалась Би-би-си.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Бананаман, которая сняла Грэм Гарден, транслировалась Би-би-си.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id5" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Lancashire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bill Oddie, who stars in Bananaman, was born in Lancashire.</lex>
+      <lex lang="ru" lid="Id1">Билл Одди, звезда которого находится в Бананамане, родился в Ланкассире.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Билл Одди, звезда которого находится в Бананамане, родился в Ланкашире.</finallex>
+      <lex lang="en" lid="Id2">Bananaman starred Bill Oddie who was born in Lancashire.</lex>
+      <lex lang="ru" lid="Id2">"Бананаман" снялся с Биллом Одди, который родился в Ланкассире.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бананаман снялся с Биллом Одди, который родился в Ланкашире.</finallex>
+      <lex lang="en" lid="Id3">Bill Oddie, who was born in Lancashire, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Билл Одди, который родился в Ланкассире, снялся в Бананамане.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Билл Одди, который родился в Ланкашире, снялся в Бананамане.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Lancashire|sameAs|Ланкашир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id6" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Bibbo_Bibbowski | creator | Jerry_Ordway</mtriple>
+        <mtriple>Jerry_Ordway | nationality | Americans</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bibbo Bibbowski was created by American, Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id1">Биббо Биббоевский был создан американцем Джерри Орденом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Биббо Биббовски был создан американцем Джерри Орденом.</finallex>
+      <lex lang="en" lid="Id2">The creator of Bibbo Bibbowski is Jerry Ordway, an American.</lex>
+      <lex lang="ru" lid="Id2">Создателем Bibbo Bibbowski является Джерри Ордэй, американец.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Создателем Биббо Биббовски является Джерри Ордуэй, американец.</finallex>
+      <lex lang="en" lid="Id3">Jerry Ordway, an American, is the creator of Bibbo Bibbowski.</lex>
+      <lex lang="ru" lid="Id3">Джерри Ордэй, американец, является создателем Биббо Биббоевского.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Джерри Ордуэй, американец, является создателем Биббо Биббовски.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id7" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Black_Pirate | creator | Sheldon_Moldoff</mtriple>
+        <mtriple>Black_Pirate | alternativeName | "Jon Valor"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Black Pirate, also known as Jon Valor, was created by Sheldon Moldoff.</lex>
+      <lex lang="ru" lid="Id1">"Черный пират", также известный как Jon Valor, был создан Sheldon Moldoff.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">"Черный пират", также известный как Jon Valor, был создан Шелдон Молдофф.</finallex>
+      <lex lang="en" lid="Id2">The Black Pirate ( Jon Valor ), was created by Sheldon Moldoff.</lex>
+      <lex lang="ru" lid="Id2">"Черная пирата" (Jon Valor) была создана Шелдон Молдофф.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Черный пират" (Jon Valor) была создана Шелдон Молдофф.</finallex>
+      <lex lang="en" lid="Id3">Sheldon Moldoff is the creator of Black Pirate, who is also known as Jon Valor.</lex>
+      <lex lang="ru" lid="Id3">Шелдон Молдофф - создатель Black Pirate, который также известен как Jon Valor.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Шелдон Молдофф - создатель « Черный пират », который также известен как Jon Valor.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id8" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Roger_Stern</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Tom_Lyle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Blockbuster was created by Roger Stern and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж Blockbuster был создан Роджером Стерн и Томом Лайле.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Герой комиксов Блокбастер был создан Роджером Стерн и Томом Лайле.</finallex>
+      <lex lang="en" lid="Id2">Blockbuster is a comic book character which was created by both Roger Stern and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id2">Blockbuster - персонаж комиксов, созданный как Роджером Стерн, так и Томом Лайле.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Blockbuster - персонаж комиксов, созданный как Роджером Стерн, так и Томом Лайле.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Blockbuster was created by Roger Stern and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов Blockbuster был создан Роджером Стерн и Томом Лайле.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж комиксов Blockbuster был создан Роджером Стерн и Томом Лайле.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id9" part="dev" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Gary_Cohn_(comics)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Paris Culins and Gary Cohn are the creators of the comics character Bolt.</lex>
+      <lex lang="ru" lid="Id1">Paris Culins и Gary Cohn - создатели комического персонажа Bolt.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Paris Culins и Gary Cohn - создатели персонажа комиксов Bolt.</finallex>
+      <lex lang="en" lid="Id2">Both Paris Cullins and Gary Cohn were the creator's of the comic character Bolt.</lex>
+      <lex lang="ru" lid="Id2">И Париж, и Гэри Коэн были создателем комического персонажа "Болт".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">И Париж, и Гэри Кон были создателем персонажа комиксов "Болт".</finallex>
+      <lex lang="en" lid="Id3">The comic character Bolt, was created by Paris Cullins and Gary Cohn.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж "Болт", созданный парижскими Cullins и Gary Cohn.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов Болт, созданный парижскими Cullins и Gary Cohn.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id1" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>April_O'Neil | creator | Peter_Laird</mtriple>
+        <mtriple>Peter_Laird | nationality | United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">April O'Neil was created by Peter Laird, from the US.</lex>
+      <lex lang="ru" lid="Id1">Апрель О 'Нил был создан Петром Лаирдом, из США.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эйприл О'Нил был создан Питером Лэрдом, из США.</finallex>
+      <lex lang="en" lid="Id2">The character, April O'Neil, was created by Peter Laird, a United States national.</lex>
+      <lex lang="ru" lid="Id2">Персонаж, апрель О 'Нил, был создан "Питер Лэрд", гражданином Соединенных Штатов.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Персонаж, апрель О'Нил, был создан "Питер Лэрд", гражданином Соединенных Штатов.</finallex>
+      <lex lang="en" lid="Id3">April O'Neil was created by the American Peter Laird.</lex>
+      <lex lang="ru" lid="Id3">Апрель О 'Нил был создан американцем Петром Лаирдом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Эйприл О'Нил был создан американцем Питером Лэрдом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">April_O'Neil|sameAs|Эйприл_О’Нил</dbpedialink>
+        <dbpedialink direction="en2ru">Peter_Laird|sameAs|Лэрд,_Питер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | starring | Jill_Shilling</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman, starring Jill Shilling, is broadcasted by the BBC.</lex>
+      <lex lang="ru" lid="Id1">"Бананаман", в ролях Джилл Шиллинг, транслируется Би-би-си.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Бананаман, в ролях Джилл Шиллинг, транслируется Би-би-си.</finallex>
+      <lex lang="en" lid="Id2">Bananaman was broadcast by the BBC and starred Jill Shilling.</lex>
+      <lex lang="ru" lid="Id2">Бананаман транслировал "Би-би-си" и снимал Джилл Шиллинг.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Бананаман транслировал "Би-би-си" и снимал Джилл Шиллинг.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Graeme Garden stars in Bananaman, which is broadcast by STV.</lex>
+      <lex lang="ru" lid="Id1">Graeme Garden stars in Bananaman, который транслирует "Известия".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Грэм Гарден снимается в Бананамане, который транслируется « СТВ ».</finallex>
+      <lex lang="en" lid="Id2">Bananaman stars Graeme Garden, and is broadcasted by STV.</lex>
+      <lex lang="ru" lid="Id2">Bananaman stars Graeme Garden, и транслируется STV.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">В Бананамане играет Грэм Гарден, и транслируется STV.</finallex>
+      <lex lang="en" lid="Id3">Graeme Garden stars in Bananaman which is broadcasted by STV.</lex>
+      <lex lang="ru" lid="Id3">Graeme Garden stars in Bananaman, который транслируется STV.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Грэм Гарден снимается в Бананамане, который транслируется STV.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Tim_Brooke-Taylor | birthPlace | Derbyshire</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor, star of Bananaman was born in Derbyshire.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор, звезда "Бананаман" родился в Дербенте.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Тим Брук-Тейлор, звезда Бананаман родился в Дербишире.</finallex>
+      <lex lang="en" lid="Id2">Tim Brooke Taylor, was born in Derbyshire, and starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id2">Тим Брук Тейлор, родился в Дербенте, и снялся в Бананамане.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Тим Брук Тейлор, родился в Дербишире, и снялся в Бананамане.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Derbyshire|sameAs|Дербишир</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id5" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Alan_Tudyk</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Big Hero 6, starring Alan Tudyk, was Baymax's first film appearance.</lex>
+      <lex lang="ru" lid="Id1">Большой Hero 6, в ролях Алан Тудык, был первым фильмом "Баймакс".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Большой Hero 6, в ролях Алан Тудык, был первым фильмом Баймакс.</finallex>
+      <lex lang="en" lid="Id2">Baymax first appeared in the film Big Hero 6, starring Alan Tudyk.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" впервые появился в фильме Big Hero 6, в ролях Алан Тудык.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс впервые появился в фильме Big Hero 6, в ролях Алан Тудык.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Tudyk|sameAs|Тудик,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id6" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Scott_Adsit</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The first appearance in a film for the character Baymax was Big Hero 6, the film that Scott Adsit starred in.</lex>
+      <lex lang="ru" lid="Id1">Первым появлением в фильме для персонажа "Баймакс" стал Большой Герой 6, фильм о том, что Скотт Адсит снялся в кино.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Первым появлением в фильме для персонажа Баймакс стал Большой Герой 6, фильм о том, что Скотт Адсит снялся в кино.</finallex>
+      <lex lang="en" lid="Id2">The first appearance in a film for the character Baymax was Big Hero 6 which starred Scott Adsit.</lex>
+      <lex lang="ru" lid="Id2">Первым появлением в фильме для персонажа "Баймакс" стал Big Hero 6, который сняла Скотт Адсит.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Первым появлением в фильме для персонажа Баймакс стал Big Hero 6, который сняла Скотт Адсит.</finallex>
+      <lex lang="en" lid="Id3">Baymax first appeared in Big Hero 6, starring Scott Adsit.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс" впервые появился в Big Hero 6, в ролях Скотт Адсит.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Баймакс впервые появился в Big Hero 6, в ролях Скотт Адсит.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id7" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax, created by Steve T. Seagle, is a character in Big Hero 6.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс", созданный Steve T. Seagle, является персонажем в Big Hero 6.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Баймакс, созданный Steve T. Seagle, является персонажем в Big Hero 6.</finallex>
+      <lex lang="en" lid="Id2">Baymax was created by Steven t Seagle and is a character in Big Hero 6.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" был создан Steven t Seagle и является персонажем в Big Hero 6.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс был создан Steven t Seagle и является персонажем в Big Hero 6.</finallex>
+      <lex lang="en" lid="Id3">Baymax, a character in Big Hero 6, was created by Steven. T Seagle.</lex>
+      <lex lang="ru" lid="Id3">Baymax, персонаж в Big Hero 6, был создан Steven. T Seagle.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Баймакс, персонаж в Big Hero 6, был создан Steven. T Seagle.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id8" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Ben_Urich | creator | Roger_McKenzie_(comic_book_writer)</mtriple>
+        <mtriple>Ben_Urich | fullName | "Benjamin Urich"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Ben Urich ( full name, Benjamin Urich ) was created by Roger McKenzie.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Ben Urich (полное имя, Бенджамин Урих) был создан Роджером Маккензи.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Бен Урич (полное имя, Бенджамин Урич) был создан Роджером Маккензи.</finallex>
+      <lex lang="en" lid="Id2">Roger McKenzie is the comic book writer who created Ben Urich (full name Benjamin Urich).</lex>
+      <lex lang="ru" lid="Id2">Роджер Маккензи - писатель комиксов, создавший Бена Уриха (полное имя Бенджамин Урих).</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Роджер Маккензи - писатель комиксов, создавший Бена Урича (полное имя Бенджамин Урич).</finallex>
+      <lex lang="en" lid="Id3">Roger McKenzie, the comic book writer, is the creator of Ben Urich ( Benjamin Urich ).</lex>
+      <lex lang="ru" lid="Id3">Roger McKenzie, автор комиксов, является создателем Ben Urich (Бенджамин Урих).</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Roger McKenzie, автор комиксов, является создателем Бена Урича (Бенджамин Урич).</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id9" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Bibbo_Bibbowski | creator | Jerry_Ordway</mtriple>
+        <mtriple>Bibbo_Bibbowski | creator | Marv_Wolfman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bibbo Bibbowski was created by Jerry Ordway and Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id1">Биббо Биббоевски создали Джерри Ордэй и Марв Вольфман.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Биббо Биббоевски создали Джерри Ордуэй и Марв Вольфман.</finallex>
+      <lex lang="en" lid="Id2">Jerry Ordway and Marv Wolfman are the creators of Bibbo Bibbowski.</lex>
+      <lex lang="ru" lid="Id2">Джерри Ордэй и Марв Вольфман - создатели Bibbo Bibbowski.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Джерри Ордуэй и Марв Вольфман - создатели Биббо Биббовски.</finallex>
+      <lex lang="en" lid="Id3">Bibbo Bibbowski is the creation of Marv Wolfman and Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id3">Биббо Биббоевски - создание Marv Wolfman и Jerry Ordway.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Биббо Биббоевски - создание Marv Wolfman и Jerry Ordway.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id10" part="test" size="2">
+      <modifiedtripleset>
+        <mtriple>Bibbo_Bibbowski | creator | Marv_Wolfman</mtriple>
+        <mtriple>Bibbo_Bibbowski | fullName | "Bo Bibbowski"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bibbo Bibbowski, often called Bo Bibbowski, was created by Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id1">Биббо Биббоевский, который часто называют Бо Биббоевским, был создан Марком Вольфманом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Биббо Биббовски, который часто называют Бо Биббовски, был создан Марком Вольфманом.</finallex>
+      <lex lang="en" lid="Id2">Marv Wolfman was creator of Bibbo Bibbowski, often called Bo Bibbowski.</lex>
+      <lex lang="ru" lid="Id2">Марв Вольфман был создателем Bibbo Bibbowski, которого часто называют Бо Биббоевским.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Марв Вольфман был создателем Биббо Биббовски, которого часто называют Бо Биббовски.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id1" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Airman_(comicsCharacter) | alternativeName | "Drake Stevens"</mtriple>
+        <mtriple>Airman_(comicsCharacter) | creator | George_Kapitan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">George Kapitan created the comic character Airman whose alter ego is Drake Stevens.</lex>
+      <lex lang="ru" lid="Id1">Джордж Капитан создал комический персонаж Airman, чье изменение эго - Drake Stevens.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Джордж Капитан создал персонаж комиксов Airman, чье изменение эго - Дрейк Стивенс.</finallex>
+      <lex lang="en" lid="Id2">"Drake Stevens, known as Airman, was created by George Kapitan.</lex>
+      <lex lang="ru" lid="Id2">"Дрейк Стивенс, известный как Airman, был создан Георгием Капитовым.</lex>
+      <finallex comment="" lang="ru" lid="Id2">"Дрейк Стивенс, известный как Airman, был создан Георгием Капитовым.</finallex>
+      <lex lang="en" lid="Id3">George Kapitan is the creator of the comic character "Airman" or otherwise known as "Drake Stevens".</lex>
+      <lex lang="ru" lid="Id3">Джордж Капитан - создатель комического персонажа "Airman" или иначе известный как "Дрейк Стивенс".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Джордж Капитан - создатель персонажа комиксов "Airman" или иначе известный как "Дрейк Стивенс".</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Airman_(comicsCharacter) | alternativeName | "Drake Stevens"</mtriple>
+        <mtriple>Airman_(comicsCharacter) | creator | Harry_Sahle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Airman, AKA Drake Stephens, was created by Harry Sahle.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Airman, AKA Drake Stephens, был создан Гарри Сахле.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Airman, AKA Drake Stephens, был создан Гарри Сале.</finallex>
+      <lex lang="en" lid="Id2">Drake Stevens is known as the comic character Airman, which was created by Harry Sahle.</lex>
+      <lex lang="ru" lid="Id2">Дрейк Стивенс известен как комический персонаж Airman, который был создан Гарри Сахле.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Дрейк Стивенс известен как персонаж комиксов Airman, который был создан Гарри Сале.</finallex>
+      <lex lang="en" lid="Id3">The comic character Airman, who has the alternative name Drake Stevens, was created by Harry Sahle.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж Airman, у которого есть альтернативное название Drake Stevens, был создан Гарри Сахле.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Персонаж комиксов Airman, у которого есть альтернативное название Дрейк Стивенс, был создан Гарри Сале.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Airman_(comicsCharacter) | creator | Harry_Sahle</mtriple>
+        <mtriple>Airman_(comicsCharacter) | creator | George_Kapitan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creators of the comic character Airman were Harry Sahle and George Kapitan.</lex>
+      <lex lang="ru" lid="Id1">Создателями комического персонажа Airman были Гарри Сахле и Джордж Капитан.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Создателями персонажа комиксов Airman были Гарри Сале и Джордж Капитан.</finallex>
+      <lex lang="en" lid="Id2">The comic book character Airman was created by both Harry Sahle and George Kapitan.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов Airman был создан как Гарри Сахле, так и Джорджем Капитаном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж комиксов Airman был создан как Гарри Сале, так и Джорджем Капитаном.</finallex>
+      <lex lang="en" lid="Id3">The creators of the comic book character Airman were Harry Sahle and George Kapitan.</lex>
+      <lex lang="ru" lid="Id3">Создателями персонажа комиксов Airman были Гарри Сахле и Джордж Капитан.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Создателями персонажа комиксов Airman были Гарри Сале и Джордж Капитан.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Amazing-Man_(comicsCharacter) | creator | Bill_Everett</mtriple>
+        <mtriple>Amazing-Man_(comicsCharacter) | alternativeName | "John Aman"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">John Aman (created by Bill Everett) is also known as Amazing-Man in the comics genre.</lex>
+      <lex lang="ru" lid="Id1">Джон Аман (созданный Биллом Эвереттом) также известен как Amazing-Man в жанре комиксов.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Джон Аман (созданный Биллом Эвереттом) также известен как Amazing-Man в жанре комиксов.</finallex>
+      <lex lang="en" lid="Id2">Bill Everett is the creator of the comic character, Amazing-Man who has the alternative name, John Aman.</lex>
+      <lex lang="ru" lid="Id2">Билл Эверетт - создатель комического персонажа, Amazing-Man, у которого есть альтернативное имя, Джон Аман.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Билл Эверетт - создатель персонажа комиксов Amazing-Man, у которого есть альтернативное имя, Джон Аман.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Amazing-Man's alter ego is John Aman and it was created by Bill Everett.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Amazing-Man" - Джон Аман и его создал Билл Эверетт.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж комиксов "Amazing-Man" - Джон Аман и его создал Билл Эверетт.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id5" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>April_O'Neil | creator | Peter_Laird</mtriple>
+        <mtriple>April_O'Neil | creator | Kevin_Eastman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character April O'Neil was created by Peter Laird and Kevin Eastman.</lex>
+      <lex lang="ru" lid="Id1">Персонаж апреля О 'Нил был создан Петром Лаирдом и Кевином Истманом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж апреля О'Нил был создан Питером Лэрдом и Кевином Истменом.</finallex>
+      <lex lang="en" lid="Id2">April O'Neil was created by Kevin Eastman and Peter Laird.</lex>
+      <lex lang="ru" lid="Id2">Апрель О 'Нил создали Кевин Истман и Питер Лэрд.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Эйприл О'Нил создали Кевин Истман и Питер Лэрд.</finallex>
+      <lex lang="en" lid="Id3">Peter Laird and Kevin Eastman, created the character, April O'Neil.</lex>
+      <lex lang="ru" lid="Id3">Peter Laird и Kevin Eastman создали персонаж, апрель О 'Нил.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Питер Лэрд и Kevin Eastman создали персонаж, апрель О'Нил.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Kevin_Eastman|sameAs|Истмен,_Кевин</dbpedialink>
+        <dbpedialink direction="en2ru">April_O'Neil|sameAs|Эйприл_О’Нил</dbpedialink>
+        <dbpedialink direction="en2ru">Peter_Laird|sameAs|Лэрд,_Питер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id6" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Arion_(comicsCharacter) | alternativeName | "Ahri'ahn"</mtriple>
+        <mtriple>Arion_(comicsCharacter) | creator | Paul_Kupperberg</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Paul Kupperberg is the creator of the comic character Arion, sometimes known as Ahri'ahn.</lex>
+      <lex lang="ru" lid="Id1">Павел Купперберг является создателем комического персонажа Arion, иногда известного как AHRI 'ahn.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Пол Купперберг является создателем персонажа комиксов Arion, иногда известного как Ahri'ahn.</finallex>
+      <lex lang="en" lid="Id2">Created by Paul Kupperberg, the book character Arion is also known as Ahri'ahn.</lex>
+      <lex lang="ru" lid="Id2">Созданный Полом Куппербергом книжный персонаж "Арион" также известен как AHRI 'ahn.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Созданный Полом Куппербергом книжный персонаж "Арион" также известен как Ahri'ahn.</finallex>
+      <lex lang="en" lid="Id3">Paul Kupperberg is the creator of the comic character Arion , otherwise known as Ahri'ahn.</lex>
+      <lex lang="ru" lid="Id3">Павел Купперберг является создателем комического персонажа Arion, иначе известного как AHRI 'ahn.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Пол Купперберг является создателем персонажа комиксов Arion, иначе известного как Ahri'ahn.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id7" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Arion_(comicsCharacter) | creator | Jan_Duursema</mtriple>
+        <mtriple>Arion_(comicsCharacter) | alternativeName | "Ahri'ahn"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Arion, also known as Ahri'ahn, was created by Jan Duursema.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Арион", также известный как AHRI 'ahn, был создан Яном Дуурсемом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Арион, также известный как Ahri'ahn, был создан Яном Дуурсемом.</finallex>
+      <lex lang="en" lid="Id2">Created by Jan Duursema, the comic character Arion is also known as Ahri'ahn.</lex>
+      <lex lang="ru" lid="Id2">Созданный Яна Дуурсема, комический персонаж Arion также известен как AHRI 'ahn.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Созданный Яна Дуурсема, персонаж комиксов Arion также известен как Ahri'ahn.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id8" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Arion_(comicsCharacter) | creator | Jan_Duursema</mtriple>
+        <mtriple>Arion_(comicsCharacter) | creator | Paul_Kupperberg</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Arion was created by Jan Duursema and Paul Kupperberg.</lex>
+      <lex lang="ru" lid="Id1">Персонаж "Арион" создали Яна Дуурсема и Пол Купперберг.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Персонаж "Арион" создали Яна Дуурсема и Пол Купперберг.</finallex>
+      <lex lang="en" lid="Id2">The comic character, Arion, was created by Jan Duursema and Paul Kupperberg.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж "Арион" создал Ян Дуурсема и Пол Купперберг.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж комиксов Арион был создан Ян Дуурсема и Пол Купперберг.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Arion was created by Jan Duursema and Paul Kupperberg.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Арион" создал Ян Дуурсема и Пол Купперберг.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов Arion был создан Ян Дуурсемой и Пол Купперберг.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id9" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Arion_(comicsCharacter) | creator | Jan_Duursema</mtriple>
+        <mtriple>Jan_Duursema | award | Eisner_Award</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character, Arion, was created by Jan Duursema, who has won the Eisner Award.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Арион" создал Ян Дуурсема, завоевавший премию "Эйснер".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Арион был создан Ян Дуурсема, завоевавший премию Айснера.</finallex>
+      <lex lang="en" lid="Id2">The Eisner award winning Jan Duursema created the comic book character Arion.</lex>
+      <lex lang="ru" lid="Id2">Лауреат премии "Эйснер" Ян Дуурсема создал персонаж комиксов "Арион".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Лауреат премии Айснера Ян Дуурсема создал персонаж комиксов "Арион".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Eisner_Award|sameAs|Премия_Айснера</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id10" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Asterix_(comicsCharacter) | alternativeName | "Astérix"</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | creator | Albert_Uderzo</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Asterix, sometimes called Astérix, was created by Albert Uderzo.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж Астерикс, иногда называемый Astérix, был создан Альбертом Удерзо.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Астерикс, иногда называемый Astérix, был создан Альбером Удерзо.</finallex>
+      <lex lang="en" lid="Id2">The alternative name of Asterix (comics character) is "Astérix" and he was created by Albert Uderzo.</lex>
+      <lex lang="ru" lid="Id2">Альтернативное название Asterix (персонаж комиксов) - "Astérix" и его создал Альберт Удерзо.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Альтернативным именем Asterix (персонаж комиксов) - "Astérix" и его создал Альбер Удерзо.</finallex>
+      <lex lang="en" lid="Id3">Albert Uderzo is the creator of the comic character, Asterix, which is also known as Astérix.</lex>
+      <lex lang="ru" lid="Id3">Альберт Удерзо - создатель комического персонажа, Астерикс, который также известен как Astérix.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Альбер Удерзо - создатель героя комиксов Астерикса, который также известен как Astérix.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Albert_Uderzo|sameAs|Удерзо,_Альбер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id11" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Asterix_(comicsCharacter) | creator | René_Goscinny</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | alternativeName | "Astérix"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creator of Asterix, the comics character also known as Astérix, is René Goscinny.</lex>
+      <lex lang="ru" lid="Id1">Создатель "Астерикса", персонаж комиксов, известный также как Astérix, - Рене Госчинный.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Создатель "Астерикса", персонаж комиксов, известный также как Astérix, - Рене Госинни.</finallex>
+      <lex lang="en" lid="Id2">The comic character Asterix, sometimes called Astérix, was created by Rene Goscinny.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж Астерикс, иногда называемый Astérix, был создан Рене Госкиным.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Астерикс, иногда называемый Astérix, был создан Рене Госинни.</finallex>
+      <lex lang="en" lid="Id3">The comic character Asterix (also known as Astérix), was created by Rene Goscinny.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж Астерикс (также известный как Astérix), был создан Рене Госчиным.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Персонаж комиксов Астерикс (также известный как Astérix), был создан Рене Госинни.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">René_Goscinny|sameAs|Госинни,_Рене</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id12" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Asterix_(comicsCharacter) | creator | René_Goscinny</mtriple>
+        <mtriple>René_Goscinny | nationality | French_people</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creator of Asterix , a comics character, is René Goscinny, who is French.</lex>
+      <lex lang="ru" lid="Id1">Создателем "Астерикса", персонажем комиксов, является Рене Госчинный, который является французом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Создателем "Астерикса", персонажем комиксов, является Рене Госинни, который является французом.</finallex>
+      <lex lang="en" lid="Id2">Asterix was created by Rene Goscinny, who is a frenchman.</lex>
+      <lex lang="ru" lid="Id2">Астерикс был создан Рене Госчиным, который является французом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Астерикс был создан Рене Госинни, который является французом.</finallex>
+      <lex lang="en" lid="Id3">Rene Goscinny is a French national and also the creator of the comic character Asterix.</lex>
+      <lex lang="ru" lid="Id3">Рене Госкино - французский гражданин, а также создатель комического персонажа Астерикс.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Рене Госинни - французский гражданин, а также создатель персонажа комиксов Астерикс.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">René_Goscinny|sameAs|Госинни,_Рене</dbpedialink>
+        <dbpedialink direction="en2ru">French_people|sameAs|Французы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id13" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Aurakles | creator | Dick_Dillin</mtriple>
+        <mtriple>Aurakles | alternativeName | "Aurakles"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dick Dillin is the creator of the comic book character Aurakles.</lex>
+      <lex lang="ru" lid="Id1">Дик Диллин - создатель персонажа комиксов "Аураклес".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дик Диллин - создатель персонажа комиксов Аураклес.</finallex>
+      <lex lang="en" lid="Id2">Dick Dillin was the creator of the comic book character Aurakles.</lex>
+      <lex lang="ru" lid="Id2">Дик Диллин был создателем персонажа комиксов "Аураклес".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Дик Диллин был создателем персонажа комиксов Аураклес.</finallex>
+      <lex lang="en" lid="Id3">Dick Dillin created the comic book character called Aurakles, whose alternative name is also Aurakles.</lex>
+      <lex lang="ru" lid="Id3">Дик Диллин создал персонаж комиксов под названием Aurakles, чье альтернативное название - тоже Aurakles.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Дик Диллин создал персонаж комиксов под названием Aurakles, чье альтернативное название - тоже Aurakles.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id14" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Aurakles | creator | Dick_Dillin</mtriple>
+        <mtriple>Aurakles | creator | Len_Wein</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Aurakles was created by Dick Dillin and Len Wein.</lex>
+      <lex lang="ru" lid="Id1">"Аураклес" был создан Диком Диллином и Лэнь Вайном.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Аураклес был создан Диком Диллином и Леном Уэйном.</finallex>
+      <lex lang="en" lid="Id2">The comic book character, Aurakles, was created by Dick Dillin and Len Wein.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов "Аураклес" создал Дик Диллин и Лэнь Вайн.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж комиксов Аураклес создал Дик Диллин и Лэнь Вайн.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Aurakles was created by both Dick Dillin and Len Wein.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Aurakles" был создан как Диком Диллином, так и Лэнь Вайном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов "Aurakles" был создан как Диком Диллином, так и Леном Уэйном.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Len_Wein|sameAs|Уэйн,_Лен</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id15" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Aurakles | creator | Dick_Dillin</mtriple>
+        <mtriple>Dick_Dillin | nationality | United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dick Dillian is an american who created the fictional character, Aurakles.</lex>
+      <lex lang="ru" lid="Id1">Дик Диллиан - американец, создавший вымышленный персонаж, Aurakles.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дик Диллин - американец, создавший вымышленный персонаж, Aurakles.</finallex>
+      <lex lang="en" lid="Id2">Aurakles is a fictional character created by American national Dick Dillin.</lex>
+      <lex lang="ru" lid="Id2">Aurakles - вымышленный персонаж, созданный американцем Диком Диллином.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Aurakles - вымышленный персонаж, созданный американцем Диком Диллином.</finallex>
+      <lex lang="en" lid="Id3">Dick Dillin, the creator of Aurakles, is from the US.</lex>
+      <lex lang="ru" lid="Id3">Дик Диллин, создатель Aurakles, родом из США.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Дик Диллин, создатель Aurakles, родом из США.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id16" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Auron_(comicsCharacter) | creator | Karl_Kesel</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Marv_Wolfman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Auron was created by Karl Kesel and Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Auron был создан Карлом Кезелем и Марком Вольфманом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Аурон был создан Карлом Кезелем и Марком Вольфманом.</finallex>
+      <lex lang="en" lid="Id2">The character Auron, was created by Kark Kesel and Marv Worlfman,.</lex>
+      <lex lang="ru" lid="Id2">Персонаж Auron, был создан KARK Kesel и Marv Worlfman.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж Аурон, был создан KARK Kesel и Marv Worlfman.</finallex>
+      <lex lang="en" lid="Id3">The creators of Auron (comics character) are Karl Kesel and Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id3">Создатели Auron (персонаж комиксов) - Карл Кесель и Марв Вольфман.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Создатели Аурон (персонаж комиксов) - Карл Кесель и Марв Вольфман.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id17" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Auron_(comicsCharacter) | creator | Karl_Kesel</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Walt_Simonson</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Auron was created by both Karl Kesel and Walt Simonson.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Аурон" был создан как Карлом Кезелем, так и Уолтом Симонсоном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Аурон "был создан как Карлом Кезелем, так и Уолтом Симонсоном.</finallex>
+      <lex lang="en" lid="Id2">Walt Simonson and Karl Kesel created the comic character Auron.</lex>
+      <lex lang="ru" lid="Id2">Уолт Симонсон и Карл Кесель создали комический персонаж Auron.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Уолт Симонсон и Карл Кесель создали персонаж комиксов Аурон.</finallex>
+      <lex lang="en" lid="Id3">The character Auron was created by Karl Kesel and Walt Simonson.</lex>
+      <lex lang="ru" lid="Id3">Персонаж Auron был создан Карлом Кезелем и Уолтом Симонсоном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж Аурон был создан Карлом Кезелем и Уолтом Симонсоном.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id18" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Auron_(comicsCharacter) | creator | Marv_Wolfman</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Walt_Simonson</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Auron was created by both Marv Wolfman and Walt Simonson.</lex>
+      <lex lang="ru" lid="Id1">Auron создали как Марв Вольфман, так и Уолт Симонсон.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Аурон создали как Марв Вольфман, так и Уолт Симонсон.</finallex>
+      <lex lang="en" lid="Id2">The comic character auron was created by Marv Wolfman and Walt Simonson.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж Auron создали Марв Вольфман и Уолт Симонсон.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Аурон создали Марв Вольфман и Уолт Симонсон.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Auron was created by both Marv Wolfman and Walt Simonson.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов Auron создали как Марв Вольфман, так и Уолт Симонсон.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов Аурон создали как Марв Вольфман, так и Уолт Симонсон.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id19" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Auron_(comicsCharacter) | creator | Marv_Wolfman</mtriple>
+        <mtriple>Auron_(comicsCharacter) | fullName | "Lambien"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Marv Wolfman created the comic book character Auron aka Lambien.</lex>
+      <lex lang="ru" lid="Id1">Марв Вольфман создал персонаж комиксов Auron aka Lambien.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Марв Вольфман создал персонаж комиксов Аурон aka Лэмбиен.</finallex>
+      <lex lang="en" lid="Id2">The comic character Auron, whose full name is Lambien, was created by Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж Auron, чье полное название - Lambien, был создан Марком Вольфманом.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Персонаж комиксов Аурон, чье полное название - Лэмбиен, был создан Марком Вольфманом.</finallex>
+      <lex lang="en" lid="Id3">The comic character Auron, otherwise known as "Lambien" was created by Marv Wolfman.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж Auron, иначе известный как "Ламбиен", был создан Марком Вольфманом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Персонаж комиксов Аурон, иначе известный как "Ламбиен", был создан Марком Вольфманом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id20" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Balder_(comicsCharacter) | alternativeName | "Balder Odinson"</mtriple>
+        <mtriple>Balder_(comicsCharacter) | creator | Stan_Lee</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Balder, full name, Balder Odinson was created by Stan Lee.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Балдер", полное имя, Балдер Одинсон был создан Стэн Ли.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Бальдер, полное имя, Бальдер Одинсон был создан Стэн Ли.</finallex>
+      <lex lang="en" lid="Id2">An alternative name for the comic character Balder (created by Stan Lee), is Balder Odinson.</lex>
+      <lex lang="ru" lid="Id2">Альтернативное название для комического персонажа "Балдер" (создана Stan Lee), - Balder Odinson.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id2">Альтернативным именем для персонажа комиксов "Бальдер" (создана Stan Lee), - Бальдер Одинсон.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Stan_Lee|sameAs|Стэн_Ли</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id21" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Balder_(comicsCharacter) | creator | Jack_Kirby</mtriple>
+        <mtriple>Balder_(comicsCharacter) | alternativeName | "Balder Odinson"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Balder, also known as Balder Odinson was created by Jack Kirby.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Балдер", также известный как Балдер Одинсон, был создан Джеком Кирби.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Персонаж комиксов Бальдер, также известный как Бальдер Одинсон, был создан Джеком Кёрби.</finallex>
+      <lex lang="en" lid="Id2">Balder, otherwise known as Balder Odinson, was created by Jack Kirby.</lex>
+      <lex lang="ru" lid="Id2">"Балдер", иначе известный как Балдер Одинсон, был создан Джеком Кирби.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">"Бальдер", иначе известный как Бальдер Одинсон, был создан Джеком Кёрби.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jack_Kirby|sameAs|Джек_Кёрби</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id22" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Balder_(comicsCharacter) | creator | Jack_Kirby</mtriple>
+        <mtriple>Balder_(comicsCharacter) | creator | Stan_Lee</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Jack Kirby and Stan Lee are the creators of the comic character Balder.</lex>
+      <lex lang="ru" lid="Id1">Джек Кирби и Стэн Ли - создатели комического персонажа Balder.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Джек Кёрби и Стэн Ли - создатели персонажа комиксов Бальдер.</finallex>
+      <lex lang="en" lid="Id2">The character Balder created by Jack Kirby and Stan Lee.</lex>
+      <lex lang="ru" lid="Id2">Персонаж "Балдер" создал Джек Кирби и Стэн Ли.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж "Бальдер" создал Джек Кёрби и Стэн Ли.</finallex>
+      <lex lang="en" lid="Id3">Jack Kirby and Stan Lee, created the comic character Balder.</lex>
+      <lex lang="ru" lid="Id3">Джек Кирби и Стэн Ли создали комический персонаж "Балдер".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Джек Кёрби и Стэн Ли создали персонаж комиксов Бальдер.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jack_Kirby|sameAs|Джек_Кёрби</dbpedialink>
+        <dbpedialink direction="en2ru">Stan_Lee|sameAs|Стэн_Ли</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id23" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Balder_(comicsCharacter) | creator | Jack_Kirby</mtriple>
+        <mtriple>Jack_Kirby | nationality | Americans</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character, Balder, was created by Jack Kirby, an American.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж, "Балдер", был создан Джеком Кирби, американцем.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Бальдер был создан Джеком Кёрби, американцем.</finallex>
+      <lex lang="en" lid="Id2">The American Jack Kirby created the comic character Balder.</lex>
+      <lex lang="ru" lid="Id2">Американец Джек Кирби создал комический персонаж "Балдер".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Американец Джек Кёрби создал персонажа комиксов Бальдера.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jack_Kirby|sameAs|Джек_Кёрби</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id24" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Ballistic_(comicsCharacter) | alternativeName | "Kelvin Mao"</mtriple>
+        <mtriple>Ballistic_(comicsCharacter) | creator | "Michael Manley"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Michael Manley created the comic character, Ballistic, who has the alternative name, Kelvin Mao.</lex>
+      <lex lang="ru" lid="Id1">Майкл Мэнли создал комический персонаж, "Пулково", у которого есть альтернативное имя, Келвин Мао.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Майкл Манли создал персонаж комиксов, Баллистик, у которого есть альтернативное имя, Келвин Мао.</finallex>
+      <lex lang="en" lid="Id2">The comic character, Ballistic, has the alternative name, Kelvin Mao, and was created by Michael Manley.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж, "Пулково", имеет альтернативное название, Келвин Мао, и был создан Майклом Мэнли.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">У персонажа комиксов Баллистик есть альтернативное имя Кельвин Мао, и был создан Майклом Манли.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id25" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Ballistic_(comicsCharacter) | creator | Doug_Moench</mtriple>
+        <mtriple>Ballistic_(comicsCharacter) | creator | "Michael Manley"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creators of the comic character Ballistic were Michael Manley and Doug Moench.</lex>
+      <lex lang="ru" lid="Id1">Создателями комического персонажа "Пулково" стали Майкл Мэнли и Дед Моенч.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Создателями персонажа комиксов Баллистик стали Майкл Манли и Дед Моенч.</finallex>
+      <lex lang="en" lid="Id2">Doug Moench and Michael Manley, created the comic character Ballistic.</lex>
+      <lex lang="ru" lid="Id2">Doug Moench и Michael Manley, создали комический характер.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Дуг Манч и Michael Manley, создали комический характер.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Ballistic was created by Michael Manley and Doug Moench.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Пулково" создали Майкл Мэнли и Дед Моенч.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Персонаж комиксов Баллистик создали Майкл Манли и Дед Моенч.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id26" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman is broadcast by the BBC which is headquartered in Broadcasting house.</lex>
+      <lex lang="ru" lid="Id1">Бананаман транслирует "Би-би-си", штаб-квартира которого находится в вещательном доме.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Бананаман транслирует "Би-би-си", штаб-квартира которого находится в вещательном доме.</finallex>
+      <lex lang="en" lid="Id2">Bananaman the TV series was shown on the BBC, the BBC is headquartered in Broadcasting house.</lex>
+      <lex lang="ru" lid="Id2">Bananaman телесериала была показана на Би-би-си, Би-би-си находится в вещательном доме.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Телесериал "Бананаман" была показана на Би-би-си, Би-би-си находится в вещательном доме.</finallex>
+      <lex lang="en" lid="Id3">Bananaman is broadcasted by the BBC which is based in the Broadcasting House in London.</lex>
+      <lex lang="ru" lid="Id3">Бананаман транслирует "Би-би-си", которая базируется в вещательном доме в Лондоне.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Бананаман транслирует "Би-би-си", которая базируется в вещательном доме в Лондоне.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id27" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | locationCity | London</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Located in London, the BBC, broadcast Bananaman.</lex>
+      <lex lang="ru" lid="Id1">Расположенный в Лондоне "Би-би-си", передает Bananaman.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Расположенный в Лондоне "Би-би-си", передает Бананаман.</finallex>
+      <lex lang="en" lid="Id2">Bananaman is broadcast by the BBC, which is based in London.</lex>
+      <lex lang="ru" lid="Id2">Бананаман транслирует "Би-би-си", которая базируется в Лондоне.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Бананаман транслирует "Би-би-си", которая базируется в Лондоне.</finallex>
+      <lex lang="en" lid="Id3">Bananaman the TV series was shown on the BBC which is located in London.</lex>
+      <lex lang="ru" lid="Id3">Bananaman телесериала показали на Би-би-си, которая расположена в Лондоне.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Телесериал "Бананаман" показали на Би-би-си, которая расположена в Лондоне.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id28" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The BBC broadcasted Bananaman which starred Bill Oddie.</lex>
+      <lex lang="ru" lid="Id1">"Би-би-си" транслировала Bananaman, которая сняла Билла Одди.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">"Би-би-си" транслировала Бананаман, которая сняла Билла Одди.</finallex>
+      <lex lang="en" lid="Id2">Bill Oddies stars in Bananaman, broadcasted by the BBC.</lex>
+      <lex lang="ru" lid="Id2">Билл Oddies stars in Bananaman, передает Би-би-си.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Билл Oddies stars in Бананаман, передает Би-би-си.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id29" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bill Oddie starred in Bananaman broadcast by STV.</lex>
+      <lex lang="ru" lid="Id1">Билл Одди снялся в эфире "Бананаман" в эфире "Известий".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Билл Одди снялся в эфире Бананаман в эфире "Известий".</finallex>
+      <lex lang="en" lid="Id2">STV broadcast Bananaman starring Bill Oddie.</lex>
+      <lex lang="ru" lid="Id2">"STV" транслирует Bananaman в роли Билла Одди.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"STV" транслирует Бананаман в роли Билла Одди.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id30" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman first aired on the 3rd of October 1983, and starred Bill Oddie.</lex>
+      <lex lang="ru" lid="Id1">Бананаман впервые вышел в эфир 3 октября 1983 года и снялся с Биллом Одди.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Бананаман впервые вышел в эфир 3 октября 1983 года и снялся с Биллом Одди.</finallex>
+      <lex lang="en" lid="Id2">Bill Oddie stars in Bananaman that was first aired on the 3rd of October, 1983.</lex>
+      <lex lang="ru" lid="Id2">"Билл Одди звезд" в Бананамане, который впервые вышел в эфир 3 октября 1983 года.</lex>
+      <finallex comment="" lang="ru" lid="Id2">"Билл Одди звезд" в Бананамане, который впервые вышел в эфир 3 октября 1983 года.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id31" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Rochdale</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bill Oddie (born in Rochdale) stars in Bananaman.</lex>
+      <lex lang="ru" lid="Id1">Билл Одди (родился на Рочдельской) звезд в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Билл Одди (родился на Рочдельской) звезд в Бананамане.</finallex>
+      <lex lang="en" lid="Id2">Bill Oddie, who was born in Rochdale, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id2">Билл Одди, который родился в Рочдейле, снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Билл Одди, который родился в Рочдейле, снялся в Бананамане.</finallex>
+      <lex lang="en" lid="Id3">Bananaman starred Bill Oddie, who was born in Rochdale.</lex>
+      <lex lang="ru" lid="Id3">"Бананаман" снялся с Биллом Одди, который родился в Рочдейле.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Бананаман снялся с Биллом Одди, который родился в Рочдейле.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Rochdale|sameAs|Рочдейл</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id32" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman first aired on tv screens on the 3rd of October 1983, and starred Graeme Garden.</lex>
+      <lex lang="ru" lid="Id1">Bananaman впервые вышла в эфир на телеэкранах 3 октября 1983 года и сняла Graeme Garden.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Бананаман впервые вышла в эфир на телеэкранах 3 октября 1983 года и сняла Грэм Гарден.</finallex>
+      <lex lang="en" lid="Id2">Bananaman, first aired 3/10/1983, stars Graeme Garden.</lex>
+      <lex lang="ru" lid="Id2">Bananaman, впервые в эфире 3 / 10 / 1983, звезды Graeme Garden.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бананаман, впервые в эфире 3 / 10 / 1983, звезды Грэм Гарден.</finallex>
+      <lex lang="en" lid="Id3">Bananaman was first aired on 10/03/1983 and starred Graeme Garden.</lex>
+      <lex lang="ru" lid="Id3">Bananaman впервые вышла в эфир 10 / 03 / 1983 и сняла "Graeme Garden".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Бананаман впервые вышла в эфир 10 / 03 / 1983 и сняла "Грэм Гарден".</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id33" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+        <mtriple>Graeme_Garden | birthPlace | Aberdeen</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Graeme Garden, one of the stars of Bananaman, was born in Aberdeen.</lex>
+      <lex lang="ru" lid="Id1">Graeme Garden, одна из звезд Bananaman, родилась в Абердине.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Грэм Гарден, одна из звезд Бананаман, родилась в Абердине.</finallex>
+      <lex lang="en" lid="Id2">Bananaman stars Graeme Garden who was born in Aberdeen.</lex>
+      <lex lang="ru" lid="Id2">Bananaman stars Graeme Garden, который родился в Абердине.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">В Бананамане играет Грэм Гарден, который родился в Абердине.</finallex>
+      <lex lang="en" lid="Id3">Graeme Garden, born in Aberdeen, stars in Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Graeme Garden, родившаяся в Абердине, звезды в Бананамане.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Грэм Гарден, родившаяся в Абердине, звезды в Бананамане.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Aberdeen|sameAs|Абердин</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id34" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Jill_Shilling</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Jill Shilling stared in Bananaman, broadcasted by STV.</lex>
+      <lex lang="ru" lid="Id1">Jill Shilling stared in Bananaman, транслируемый "STV".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Джилл Шиллинг сыграла в Бананамане, транслируемый "STV".</finallex>
+      <lex lang="en" lid="Id2">Jill Shilling starred in Bananaman, broadcasted by STV,.</lex>
+      <lex lang="ru" lid="Id2">Джилл Шиллинг снялась в Бананамане, передает "Известия".</lex>
+      <finallex comment="" lang="ru" lid="Id2">Джилл Шиллинг снялась в Бананамане, передает "Известия".</finallex>
+      <lex lang="en" lid="Id3">Bananaman which stars Jill Shilling is broadcasted by STV.</lex>
+      <lex lang="ru" lid="Id3">Bananaman, который звезды Джилл Шиллинг транслирует "STV".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Бананаман, который звезды Джилл Шиллинг транслирует "STV".</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id35" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor starred in Bananaman, which was broadcasted by STV.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Бананамане, который транслировал "Известия".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Бананамане, который транслировался STV.</finallex>
+      <lex lang="en" lid="Id2">Tim Brooke-Taylor starred in Bananaman, which is broadcast by STV.</lex>
+      <lex lang="ru" lid="Id2">Тим Брук-Тейлор снялся в Bananaman, который транслирует "Известия".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Тим Брук-Тейлор снялся в Бананаман, который транслируется « СТВ ».</finallex>
+      <lex lang="en" lid="Id3">Tim Brooke-Taylor starred as Bananaman, which was broadcast by STV.</lex>
+      <lex lang="ru" lid="Id3">Тим Брук-Тейлор снялся как Бананаман, который транслировался в эфире "Известий".</lex>
+      <finallex comment="" lang="ru" lid="Id3">Тим Брук-Тейлор снялся как Бананаман, который транслировался в эфире "Известий".</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id36" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor starred in Bananaman, broadcasted by the BBC.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Бананамане, передает "Би-би-си".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Бананамане, передает "Би-би-си".</finallex>
+      <lex lang="en" lid="Id2">Tim Brooke Tayler starred in Bananaman, broadcasted by the BBC.</lex>
+      <lex lang="ru" lid="Id2">Тим Брук Тайлер снялся в Бананамане, передает "Би-би-си".</lex>
+      <finallex comment="" lang="ru" lid="Id2">Тим Брук Тайлер снялся в Бананамане, передает "Би-би-си".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id37" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Tim_Brooke-Taylor | birthPlace | Buxton</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Buxton is the birthplace of Tim Brooke-Taylor, who starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id1">"Букстон" - место рождения Тима Брука-Тейлора, который снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id1">"Букстон" - место рождения Тима Брука-Тейлора, который снялся в Бананамане.</finallex>
+      <lex lang="en" lid="Id2">Tim Brooke-Tayler, born in Buxton, starred in bananaman.</lex>
+      <lex lang="ru" lid="Id2">Тим Брук-Тайлер, родившийся в Buxton, снялся в бананане.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Тим Брук-Тайлер, родившийся в Бакстон, снялся в бананане.</finallex>
+      <lex lang="en" lid="Id3">Born in Buxton, Tim Brooke-Taylor, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Родился в Букстоне, Тим Брук-Тейлор, снялся в Бананамане.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Родился в Бакстоне, Тим Брук-Тейлор, снялся в Бананамане.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id38" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Tim_Brooke-Taylor | birthPlace | England</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor, born in England, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор, родившийся в Англии, снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Тим Брук-Тейлор, родившийся в Англии, снялся в Бананамане.</finallex>
+      <lex lang="en" lid="Id2">Tim Brooke Taylor, who starred in Bananaman, was born in England.</lex>
+      <lex lang="ru" lid="Id2">Тим Брук Тейлор, который снялся в Бананамане, родился в Англии.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Тим Брук Тейлор, который снялся в Бананамане, родился в Англии.</finallex>
+      <lex lang="en" lid="Id3">Tim Brooke Taylor was born in England and starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Тим Брук Тейлор родился в Англии и снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Тим Брук Тейлор родился в Англии и снялся в Бананамане.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">England|sameAs|Англия</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id39" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Tim_Brooke-Taylor | birthPlace | United_Kingdom</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor was born in the UK and starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор родился в Великобритании и снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Тим Брук-Тейлор родился в Великобритании и снялся в Бананамане.</finallex>
+      <lex lang="en" lid="Id2">Born in the United Kingdom, Tim Brooke-Taylor, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id2">Родился в Соединенном Королевстве Тим Брук-Тейлор, снявшийся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Родился в Соединенном Королевстве Тим Брук-Тейлор, снявшийся в Бананамане.</finallex>
+      <lex lang="en" lid="Id3">Tim Brooke-Taylor , originally from the U.K, starred in Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Тим Брук-Тейлор, изначально из США, снялся в Бананамане.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Тим Брук-Тейлор, изначально из США, снялся в Бананамане.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_Kingdom|sameAs|Великобритания</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id40" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Duncan Rouleau and Steven T. Seagle created Baymax.</lex>
+      <lex lang="ru" lid="Id1">Duncan Rouleau и Steven T. Seagle создали "Баймакс".</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Дункан Руло и Стивен Т. Сигл создали Баймакс.</finallex>
+      <lex lang="en" lid="Id2">Baymax was created by Duncan Rouleau and Steven T. Seagle.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" был создан Duncan Rouleau и Steven T. Seagle.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Баймакс был создан Дункан Руло и Стивен Т. Сигл.</finallex>
+      <lex lang="en" lid="Id3">Baymax was created by both Duncan Rouleau and Steven T. Seagle.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс" был создан как Duncan Rouleau и Steven T. Seagle.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Баймакс был создан как Дункан Руло и Стивен Т. Сигл.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id41" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Ryan_Potter</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax first appeared in Big Hero 6, starring Ryan Potter.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" впервые появился в Big Hero 6, в ролях Райан Поттер.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Баймакс впервые появился в Big Hero 6, в ролях Райан Поттер.</finallex>
+      <lex lang="en" lid="Id2">Baymax first appeared in the film Big Hero 6 which stars Ryan Potter.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" впервые появился в фильме Big Hero 6, который звезды Ryan Potter.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс впервые появился в фильме Big Hero 6, который звезды Ryan Potter.</finallex>
+      <lex lang="en" lid="Id3">The first appearance in a film for the character Baymax was Big Hero 6 which starred Ryan Potter.</lex>
+      <lex lang="ru" lid="Id3">Первым появлением в фильме для персонажа "Баймакс" стал Big Hero 6, снявший Райана Поттера.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Первым появлением в фильме для персонажа Баймакс стал Big Hero 6, снявший Райана Поттера.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id42" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Duncan Rouleau created Baymax, a character in Big Hero 6.</lex>
+      <lex lang="ru" lid="Id1">Дункан Рулеу создал "Баймакс", персонаж в Big Hero 6.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Дункан Руло создал Баймакс, персонаж в Big Hero 6.</finallex>
+      <lex lang="en" lid="Id2">Created by Duncan Rouleau, Baymax, is a character in Big Hero 6.</lex>
+      <lex lang="ru" lid="Id2">Созданный Duncan Rouleau, Baymax, является персонажем в "Большом Герое 6".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Созданный Дункан Руло, Баймакс, является персонажем в "Большом Герое 6".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id43" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Damon_Wayans,_Jr.</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Big Hero 6, starring Damon Wayans Jr., features the character Baymax.</lex>
+      <lex lang="ru" lid="Id1">Большой Hero 6, в ролях Дэймон Уэйнс-младший, обладает персонажем "Баймакс".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Большой Hero 6, в ролях Деймон Уэйанс-младший, обладает персонажем Баймакс.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in Big Hero 6 that stars the actor Damon Wayans Jr.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в "Большом Херо-6", что звезды актера Дэймона Уэйса-младшего.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс - персонаж в "Большом Херо-6", что звезды актера Дэймона Уэйса-младшего.</finallex>
+      <lex lang="en" lid="Id3">The film Big Hero 6, which stars Damon Wayans Jr, has a character called Baymax.</lex>
+      <lex lang="ru" lid="Id3">Фильм "Большой Герой 6", который звезды Дэймон Уэйнс-младший, имеет характер под названием "Баймакс".</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Фильм « Город героев », который звезды Деймон Уэйанс-младший, имеет характер под названием Баймакс.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id44" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Jamie_Chung</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in the film Big Hero 6 that starred Jamie Chung.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в фильме Big Hero 6, который снимал Джейми Чун.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс - персонаж в фильме Big Hero 6, который снимал Джеми Чон.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in Big Hero 6, where Jamie Chung is the star.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в Big Hero 6, где Джейми Чун - звезда.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс - персонаж в Big Hero 6, где Джеми Чон - звезда.</finallex>
+      <lex lang="en" lid="Id3">Big Hero 6, starring Jamie Chung, features the character Baymax.</lex>
+      <lex lang="ru" lid="Id3">Большой Hero 6, в ролях Джейми Чун, обладает персонажем "Баймакс".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Большой Hero 6, в ролях Джеми Чон, обладает персонажем Баймакс.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jamie_Chung|sameAs|Чон,_Джеми</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id45" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Maya_Rudolph</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in Big Hero 6 which also starred Maya Rudolph.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в Big Hero 6, в котором также снялась Майя Рудольф.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Баймакс - персонаж в Big Hero 6, в котором также снялась Майя Рудольф.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in Big Hero 6 that stars Maya Rudolph.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в Big Hero 6, что звезды Майя Рудольф.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс - персонаж в Big Hero 6, что звезды Майя Рудольф.</finallex>
+      <lex lang="en" lid="Id3">Maya Rudolph starred in the film Big Hero 6, in which Baymax is a character.</lex>
+      <lex lang="ru" lid="Id3">Майя Рудольф снялась в фильме Big Hero 6, в котором "Баймакс" - персонаж.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Майя Рудольф снялась в фильме Big Hero 6, в котором Баймакс - персонаж.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Maya_Rudolph|sameAs|Рудольф,_Майя</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id46" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Scott_Adsit</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in Big Hero 6, Scott Adsit starred in the movie version of Big Hero 6.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в Big Hero 6, Скотт Адсит снялся в фильме "Большой Герой 6".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс - персонаж в Big Hero 6, Скотт Адсит снялся в фильме « Город героев ».</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in the film Big Hero 6 which stars Scott Adsit.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в фильме Big Hero 6, который звезды Скотт Адсит.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс - персонаж в фильме Big Hero 6, который звезды Скотт Адсит.</finallex>
+      <lex lang="en" lid="Id3">Baymax is a character in Big Hero 6, starring Scott Adsit.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс" - персонаж в Big Hero 6, в ролях Скотт Адсит.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Баймакс - персонаж в Big Hero 6, в ролях Скотт Адсит.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id47" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Baymax | voice | Scott_Adsit</mtriple>
+        <mtriple>Scott_Adsit | birthPlace | Northbrook,_Illinois</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Scott Adsit was born in Northbrook, Illinois and does the voice for Baymax.</lex>
+      <lex lang="ru" lid="Id1">Скотт Адсит родился в Нортбруке, штат Иллинойс, и делает голос за "Баймакс".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Скотт Адсит родился в Нортбруке, штат Иллинойс, и делает голос за Баймакс.</finallex>
+      <lex lang="en" lid="Id2">The character Baymax is voiced by Scott Adsit, who was born in Northbrook, Illinois.</lex>
+      <lex lang="ru" lid="Id2">Персонаж "Баймакс" озвучивает Скотт Адсит, который родился в Нортбруке, штат Иллинойс.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж Баймакс озвучивается Скоттом Адситом, который родился в Нортбруке, штат Иллинойс.</finallex>
+      <lex lang="en" lid="Id3">Born in Northbrook Illinois, Scott Adsit, provides the voice for the character Baymax.</lex>
+      <lex lang="ru" lid="Id3">Уроженец Нортбрука Иллинойс, Скотт Адсит, обеспечивает голос за персонажа "Баймакс".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Уроженец Нортбрука Иллинойс, Скотт Адсит, озвучивает персонажа Баймакса.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id48" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Ben_Urich | creator | Gene_Colan</mtriple>
+        <mtriple>Ben_Urich | fullName | "Benjamin Urich"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Ben Urich ( Benjamin Urich ) was created by Gene Colan.</lex>
+      <lex lang="ru" lid="Id1">Персонаж Бен Урих (Бенджамин Урих) был создан Gene Colan.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Персонаж Бен Урич (Бенджамин Урич) был создан Джином Коланом.</finallex>
+      <lex lang="en" lid="Id2">Ben Urich's full name is actually Benjamin Urich, the character was created by Gene Colan.</lex>
+      <lex lang="ru" lid="Id2">Полное имя Бен Уриха - это на самом деле Бенджамин Урих, персонаж был создан Gene Colan.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Полное имя Бен Уриха - это на самом деле Бенджамин Урич, персонаж был создан Джином Коланом.</finallex>
+      <lex lang="en" lid="Id3">Ben Urich, full name Benjamin Urich, was created by Gene Colan.</lex>
+      <lex lang="ru" lid="Id3">Бен Урих, полное имя Бенджамин Урих, был создан Gene Colan.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Бен Урич, полное имя Бенджамин Урич, был создан Джином Коланом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gene_Colan|sameAs|Колан,_Джин</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id49" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Ben_Urich | creator | Roger_McKenzie_(comic_book_writer)</mtriple>
+        <mtriple>Ben_Urich | creator | Gene_Colan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Comic book character Ben Urich was created by Roger McKenzie and Gene Colan.</lex>
+      <lex lang="ru" lid="Id1">Персонаж Comic book Ben Urich был создан Роджером Маккензи и Gene Colan.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Герой комиксов Бен Урич был создан Роджером Маккензи и Джин Колан.</finallex>
+      <lex lang="en" lid="Id2">comic book writer, Roger McKenzie, along with Gene Colan, created Ben Urich.</lex>
+      <lex lang="ru" lid="Id2">Автор комиксов, Роджер Маккензи, вместе с Gene Colan, создал Бен Урих.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Писатель комиксов Роджер Маккензи вместе с Джин Колан, создал Бен Урич.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gene_Colan|sameAs|Колан,_Джин</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id50" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bibbo_Bibbowski | creator | Jerry_Ordway</mtriple>
+        <mtriple>Bibbo_Bibbowski | fullName | "Bo Bibbowski"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bo Bibbowski (full name Bibbo Bibbowski) was created by Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id1">Бо Биббоевский (полное имя Биббо Биббоевский) был создан Джерри Ордэй.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Бо Биббовски (полное имя Биббо Биббовски) был создан Джерри Ордуэй.</finallex>
+      <lex lang="en" lid="Id2">Bo Bibbowski , otherwise known as Bibbo, was created by Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id2">Бо Биббоевский, иначе известный как Биббо, был создан Джерри Ордэй.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бо Биббовски, иначе известный как Биббо, был создан Джерри Ордуэй.</finallex>
+      <lex lang="en" lid="Id3">Bo Bibbowski is often called Bibbo and was created by Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id3">Бо Биббоевский часто называют Биббо и был создан Джерри Ордэй.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Бо Биббовски часто называют Биббо и был создан Джерри Ордуэй.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id51" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Big_Hero_6_(film) | starring | Alan_Tudyk</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in the film Big Hero 6, which stars Alan Tudyk.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в фильме "Большой Герой 6", который звезды Алан Тудык.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс - персонаж в фильме « Город героев », который звезды Алан Тудык.</finallex>
+      <lex lang="en" lid="Id2">The film Big Hero 6, starring Alan Tudyk, has a character called Baymax.</lex>
+      <lex lang="ru" lid="Id2">Фильм Big Hero 6, в котором играет Алан Тудык, имеет характер под названием "Баймакс".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Фильм Big Hero 6, в котором играет Алан Тудык, имеет характер под названием Баймакс.</finallex>
+      <lex lang="en" lid="Id3">Baymax is a character in the film Big Hero 6, which starred Alan Tudyk.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс" - персонаж в фильме "Большой Герой 6", который снимал Алан Тудык.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Баймакс - персонаж в фильме « Город героев », который снимал Алан Тудык.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Tudyk|sameAs|Тудик,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id52" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Big_Hero_6_(film) | starring | Ryan_Potter</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in the film Big Hero 6, which starred Ryan Potter.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в фильме Big Hero 6, который снимал Райан Поттер.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Баймакс - персонаж в фильме Big Hero 6, который снимал Райан Поттер.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in Big Hero 6 in which Ryan Potter stars.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в Big Hero 6, в котором звезды Ryan Potter.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Баймакс - персонаж в Big Hero 6, в котором звезды Ryan Potter.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id53" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Black_Pirate | creator | Sheldon_Moldoff</mtriple>
+        <mtriple>Sheldon_Moldoff | award | Inkpot_Award</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Sheldon Moldoff created the Black Pirate and won the Inkpot Award.</lex>
+      <lex lang="ru" lid="Id1">Sheldon Moldoff создал "Черный пират" и завоевал премию "Инстаграм".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Шелдон Молдофф создал "Черный пират" и завоевал премию Inkpot.</finallex>
+      <lex lang="en" lid="Id2">Sheldon Moldoff, creator of the Black Pirate, has won the Inkpot Award.</lex>
+      <lex lang="ru" lid="Id2">"Шелдон Молдофф", создатель Black Pirate, завоевал премию "Инстаграм".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">"Шелдон Молдофф", создатель « Черный пират », завоевал премию Inkpot.</finallex>
+      <lex lang="en" lid="Id3">The Black Pirate was created by Sheldon Moldoff, who won the Inkpot Award.</lex>
+      <lex lang="ru" lid="Id3">"Черным пиратом" был создан Шелдон Молдофф, завоевавший премию "Инстаграм".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">"Черным пиратом" был создан Шелдон Молдофф, завоевавший премию Inkpot.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id54" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Gardner_Fox</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Carmine_Infantino</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Blockbuster is a comic character that was created by Carmine Infantino and Gardner Fox.</lex>
+      <lex lang="ru" lid="Id1">Blockbuster - комический персонаж, который создали Кармин Инфантино и Гарднер Фокс.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Blockbuster - персонаж комиксов, который создали Кармайн Инфантино и Гарднер Фокс.</finallex>
+      <lex lang="en" lid="Id2">The comic book character Blockbuster was created by both Gardner Fox and Carmine Infantino.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов Blockbuster был создан как Gardner Fox, так и Кармином Инфантино.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Blockbuster был создан как Гарднер Фокс, так и Кармайном Инфантино.</finallex>
+      <lex lang="en" lid="Id3">The character Blockbuster was created by Garnder Fox and Carmine INfantino.</lex>
+      <lex lang="ru" lid="Id3">Персонаж Blockbuster был создан Garnder Fox и Carmine Infantino.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж Blockbuster был создан Garnder Fox и Carmine Infantino.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gardner_Fox|sameAs|Фокс,_Гарднер</dbpedialink>
+        <dbpedialink direction="en2ru">Carmine_Infantino|sameAs|Инфантино,_Кармайн</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id55" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Gardner_Fox</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Roger_Stern</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Blockbuster was created by Gardner Fox and Roger Stern.</lex>
+      <lex lang="ru" lid="Id1">Персонаж Blockbuster был создан Gardner Fox и Roger Stern.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж Блокбастер был создан Гарднером Фоксом и Roger Stern.</finallex>
+      <lex lang="en" lid="Id2">The comic character Blockbuster was created by Gardner Fox and Roger Stern.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж Blockbuster был создан Gardner Fox и Roger Stern.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Блокбастер был создан Гарднером Фоксом и Roger Stern.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gardner_Fox|sameAs|Фокс,_Гарднер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id56" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Gardner_Fox</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Tom_Lyle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creators of Blockbuster (comics character) are Gardner Fox and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id1">Создатели Blockbuster (персонаж комиксов) - Gardner Fox и Tom Lyle.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Создатели Blockbuster (персонаж комиксов) - Гарднер Фокс и Tom Lyle.</finallex>
+      <lex lang="en" lid="Id2">Both Gardner Fox and Tom Lyle were the creators of the comic character, Blockbuster.</lex>
+      <lex lang="ru" lid="Id2">И Gardner Fox, и Том Лайле были создателями комического персонажа, Blockbuster.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">И Гарднер Фокс, и Том Лайле были создателями персонажа комиксов Блокбастера.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Blockbuster was created by Gardner Fox and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов Blockbuster был создан Gardner Fox и Tom Lyle.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов Блокбастер был создан Гарднером Фоксом и Tom Lyle.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Gardner_Fox|sameAs|Фокс,_Гарднер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id57" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Roger_Stern</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Carmine_Infantino</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Blockbuster was created by Roger Stern and Carmine Infantino.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Blockbuster создал Роджер Стерн и Кармин Инфантино.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Blockbuster создал Роджер Стерн и Кармайн Инфантино.</finallex>
+      <lex lang="en" lid="Id2">The comics character Blockbuster was created by Carmine Infantino and Roger Stern.</lex>
+      <lex lang="ru" lid="Id2">Комикс-персонаж Blockbuster был создан Кармином Инфантино и Роджером Стерном.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Blockbuster был создан Кармайном Инфантино и Роджером Стерном.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Carmine_Infantino|sameAs|Инфантино,_Кармайн</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id58" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Tom_Lyle</mtriple>
+        <mtriple>Blockbuster_(comicsCharacter) | creator | Carmine_Infantino</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Blockbuster was created by Tom Lyle and Carmine Infantino.</lex>
+      <lex lang="ru" lid="Id1">Персонаж Blockbuster был создан Томом Лайле и Кармином Инфантино.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж Blockbuster был создан Томом Лайле и Кармайном Инфантино.</finallex>
+      <lex lang="en" lid="Id2">The creators of the comics character Blockbuster are Carmine Infantino and Tom Lyle.</lex>
+      <lex lang="ru" lid="Id2">Создатели комического персонажа Blockbuster - Кармин Инфантино и Том Лайле.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Создатели персонажа комиксов Blockbuster - Кармайн Инфантино и Том Лайле.</finallex>
+      <lex lang="en" lid="Id3">The comic character Blockbuster was created by both Tom Lyle and Carmine Infantino.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж Blockbuster создали и Том Лайле, и Кармин Инфантино.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Герой комиксов Блокбастер создали и Том Лайле, и Кармайн Инфантино.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Carmine_Infantino|sameAs|Инфантино,_Кармайн</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id59" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Dan_Mishkin</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Gary_Cohn_(comics)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Bolt was created by Dan Mishkin and Garcy Cohn.</lex>
+      <lex lang="ru" lid="Id1">Персонаж "Болт" создали Дэн Мишкин и Гарси Коэн.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Персонаж "Болт" создали Дэн Мишкин и Гарси Коэн.</finallex>
+      <lex lang="en" lid="Id2">The comic character Bolt was created by Gary Cohn and Dan Mishkin.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж "Болт" был создан Гэри Коэном и Дэн Мишкиным.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Болт был создан Гэри Коном и Дэн Мишкиным.</finallex>
+      <lex lang="en" lid="Id3">Dan Mishkin created the comic book character Bolt while Gary Cohn is the creator of Bolf.</lex>
+      <lex lang="ru" lid="Id3">Дэн Мишкин создал персонаж комиксов "Болт", пока Гэри Коэн является создателем Болфа.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дэн Мишкин создал персонаж комиксов "Болт", пока Гэри Кон является создателем Болфа.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id60" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Dan_Mishkin</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Bolt was created by Ernie Colon and Dan Mishkin.</lex>
+      <lex lang="ru" lid="Id1">Персонаж "Болт" был создан Эрни Колоном и Дэн Мишкиным.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Персонаж "Болт" был создан Эрни Колоном и Дэн Мишкиным.</finallex>
+      <lex lang="en" lid="Id2">Ernie Colón and Dan Mishkin are among the creators of the comic character Bolt.</lex>
+      <lex lang="ru" lid="Id2">Среди создателей комиксов "Болт" - Эрни Колон и Дэн Мишкин.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Среди создателей комиксов "Болт" - Эрни Колон и Дэн Мишкин.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Bolt was created by both Dan Mishkin and Ernie Colon.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комикса "Болт" создали как Дэн Мишкин, так и Эрни Колон.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж комикса "Болт" создали как Дэн Мишкин, так и Эрни Колон.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id61" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Gary_Cohn_(comics)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Ernie Colon and Gary Cohn created the comic character Bolt.</lex>
+      <lex lang="ru" lid="Id1">Эрни Колон и Гэри Коэн создали комический персонаж Болт.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Эрни Колон и Гэри Кон создали персонаж комиксов Болт.</finallex>
+      <lex lang="en" lid="Id2">Ernie Colón and comic book writer Gary Cohn were the creators of the comic character Bolt.</lex>
+      <lex lang="ru" lid="Id2">Создатели комического персонажа "Болт" Эрни Колон и комик Гэри Коэн.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Создатели персонажа комиксов "Болт" Эрни Колон и комик Гэри Кон.</finallex>
+      <lex lang="en" lid="Id3">Ernie Colón and Gary Cohn are some of the creators of the comic character Bolt.</lex>
+      <lex lang="ru" lid="Id3">Эрни Колон и Гэри Коэн - одни из создателей комикса "Болт".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Эрни Колон и Гэри Кон - одни из создателей комикса "Болт".</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id62" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Ernie_Colón | nationality | Puerto_Ricans</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Ernie Colon, one of the creators of the character Bolt is a Puerto Rican national.</lex>
+      <lex lang="ru" lid="Id1">Эрни Колон, один из создателей персонажа "Болт" - гражданин Пуэрто-Рико.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Эрни Колон, один из создателей персонажа "Болт" - гражданин Пуэрто-Рико.</finallex>
+      <lex lang="en" lid="Id2">Ernie Colon, a Puerto Rican national, created Bolt.</lex>
+      <lex lang="ru" lid="Id2">Эрни Колон, гражданин Пуэрто-Рико, создал Болт.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Эрни Колон, гражданин Пуэрто-Рико, создал Болт.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Puerto_Ricans|sameAs|Пуэрториканцы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id63" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Dan_Mishkin</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creators of the comic character, Bolt, were Paris Cullins and Dan Mishkin.</lex>
+      <lex lang="ru" lid="Id1">Создателями комикса "Болт" стали парижские Cullins и Дэн Мишкин.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Создателями комикса "Болт" стали парижские Cullins и Дэн Мишкин.</finallex>
+      <lex lang="en" lid="Id2">The character Bolt was created by Paris Cullins and Dan Mishkin.</lex>
+      <lex lang="ru" lid="Id2">Персонаж "Болт" был создан парижскими Cullins и Дэн Мишкиным.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Персонаж "Болт" был создан парижскими Cullins и Дэн Мишкиным.</finallex>
+      <lex lang="en" lid="Id3">Dan Mishkin and Paris Cullins are creators of the comic character known as Bolt.</lex>
+      <lex lang="ru" lid="Id3">Дэн Мишкин и парижский Cullins - создатели комического персонажа, известного как Болт.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дэн Мишкин и парижский Cullins - создатели персонажа комиксов известного как Болт.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id64" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Bolt, was created by Paris Cullins and Ernie Colon.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Болт" был создан парижскими Cullins и Ernie Colon.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Болт был создан парижскими Cullins и Ernie Colon.</finallex>
+      <lex lang="en" lid="Id2">The creators of the comic character, Bolt, are Paris Cullins and Ernie Colon.</lex>
+      <lex lang="ru" lid="Id2">Создатели комикса "Болт" - Paris Cullins и Ernie Colon.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Создатели комикса "Болт" - Пэрис Каллинс и Ernie Colon.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id65" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Paris_Cullins | nationality | United_States</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The creator of the comic character, Bolt, is Paris Cullins, A United States national.</lex>
+      <lex lang="ru" lid="Id1">Создателем комического персонажа, Болта, является парижский Cullins, A United States official.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Создателем персонажа комиксов Болта, является парижский Cullins, A United States official.</finallex>
+      <lex lang="en" lid="Id2">Paris Cullins is an United States national that created the comic character "Bolt".</lex>
+      <lex lang="ru" lid="Id2">Paris Cullins - гражданин Соединенных Штатов, создавший комический персонаж "Болт".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Пэрис Каллинс - гражданин Соединенных Штатов, создавший персонаж комиксов "Болт".</finallex>
+      <lex lang="en" lid="Id3">The character Bolt was created Paris Cullins, from the United States.</lex>
+      <lex lang="ru" lid="Id3">Персонаж "Болт" был создан парижским Cullins, из США.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж "Болт" был создан парижским Cullins, из США.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id66" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Bozo_the_Iron_Man | creator | George_Brenner</mtriple>
+        <mtriple>Bozo_the_Iron_Man | fullName | "Hugh Hazzard"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bozo the Iron Man's full name is Hugh Hazzard and he was created by Goerge Brenner.</lex>
+      <lex lang="ru" lid="Id1">Bozo the Iron Man 's полного имени - Хью Хаззард и его создал Госьерж Бреннер.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Bozo the Iron Man's полного имени - Хью Хаззард и его создал Госьерж Бреннер.</finallex>
+      <lex lang="en" lid="Id2">Created by George Brenner, the full name of Bozo the Iron Man is "Hugh Hazzard".</lex>
+      <lex lang="ru" lid="Id2">Созданный Георгием Бреннером, полное имя Бозо "Железный человек" - "Хью Хаззард".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Созданный Георгием Бреннером, полное имя Бозо "Железный человек" - Хью Хаззард.</finallex>
+      <lex lang="en" lid="Id3">George Brenner is the creator of Bozo the Iron Man whose alter ego is Hugh Hazzard.</lex>
+      <lex lang="ru" lid="Id3">Джордж Бреннер - создатель "Бозо" "Железный человек", изменяющий эго - Хью Хаззард.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Джордж Бреннер - создатель "Бозо" "Железный человек", изменяющий эго - Хью Хаззард.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id67" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | creator | John_Buscema</mtriple>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | alternativeName | "Dane Whitman"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dane Whitman, aka the Black Knight was created by John Buscema.</lex>
+      <lex lang="ru" lid="Id1">DANE Whitman, aka the Black Knight была создана Джоном Бушкемом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дейн Уитмен, aka the Black Knight была создана Джоном Бушкемом.</finallex>
+      <lex lang="en" lid="Id2">The Black Knight, ( also known as Dane Whitman ), was created in the comics genre by John Buscema.</lex>
+      <lex lang="ru" lid="Id2">Black Knight, (также известный как Дане Уайтман), была создана в жанре комиксов Джона Бушкема.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Black Knight, (также известный как Дейн Уитмен), была создана в жанре комиксов Джона Буссема.</finallex>
+      <lex lang="en" lid="Id3">Dane Whitman is the alternative name for the comic character, Dane Whitman Black Knight, which was created by John Buscema.</lex>
+      <lex lang="ru" lid="Id3">DANE Whitman - альтернативное название для персонажа комиксов Dane Whitman Black Knight, который был создан Джоном Бушкемом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дейн Уитмен - альтернативное название для персонажа комиксов Dane Whitman Black Knight, который был создан Джоном Бушкемом.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id68" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | creator | John_Buscema</mtriple>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | creator | Roy_Thomas</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Dane Whitman ( otherwise known as the Black Knight ), was created by both Roy Thomas and John Buscema.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Dane Whitman (иначе известный как Black Knight), был создан как Рой Томас, так и Джоном Бушкемом.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Персонаж комиксов Dane Whitman (иначе известный как Black Knight), был создан как Рой Томас, так и Джоном Бушкемом.</finallex>
+      <lex lang="en" lid="Id2">Dane Whitman, from the Black Knight was created by John Buscema and Roy Thomas.</lex>
+      <lex lang="ru" lid="Id2">ДАНЕ Уайтман из Black Knight был создан Джоном Бушкемом и Рой Томасом.</lex>
+      <finallex comment="" lang="ru" lid="Id2">ДАНЕ Уайтман из Black Knight был создан Джоном Бушкемом и Рой Томасом.</finallex>
+      <lex lang="en" lid="Id3">Dane Whitman, aka Black Night was created by John Buscema and Roy Thomas.</lex>
+      <lex lang="ru" lid="Id3">ДАНЕ Уайтман, ака "Черная ночь" была создана Джоном Бушкемом и Рой Томасом.</lex>
+      <finallex comment="" lang="ru" lid="Id3">ДАНЕ Уайтман, ака "Черная ночь" была создана Джоном Бушкемом и Рой Томасом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Roy_Thomas|sameAs|Томас,_Рой</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id69" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | creator | John_Buscema</mtriple>
+        <mtriple>John_Buscema | nationality | Americans</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dane Whitman, alter ego Black Knight, was created by the American, John Buscema.</lex>
+      <lex lang="ru" lid="Id1">DANE Whitman, hall ego Black Knight, был создан американцем Джоном Бушкемом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дейн Уитмен, альтер эго Черный Рыцарь, был создан американцем Джоном Бушкемом.</finallex>
+      <lex lang="en" lid="Id2">Dane Whitman, a.k.a. Black Knight, was created by John Buscema (American) in the comics genre.</lex>
+      <lex lang="ru" lid="Id2">DANE Whitman, a.k.a. Black Knight, был создан Джоном Бушкемом (американцем) в жанре комиксов.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Дейн Уитмен, также известный как Чёрный рыцарь, был создан Джоном Бушкемом (американцем) в жанре комиксов.</finallex>
+      <lex lang="en" lid="Id3">Dane Whitman, a.k.a. Black Knight, was created by John Buscema (Amercian) and considered to be in the comics genre.</lex>
+      <lex lang="ru" lid="Id3">DANE Whitman, a.k.a. Black Knight, была создана Джоном Бушкемом (АМЕРИКАН) и считалась в жанре комиксов.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дейн Уитмен, также известный как Чёрный рыцарь, была создана Джоном Бушкемом (АМЕРИКАН) и считалась в жанре комиксов.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id70" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | creator | Roy_Thomas</mtriple>
+        <mtriple>Dane_Whitman_Black_Knight_(comicsCharacter) | alternativeName | "Dane Whitman"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dane Whitman is the alternative name for the comic character, Dane Whitman Black Knight which was created by Roy Thomas.</lex>
+      <lex lang="ru" lid="Id1">DANE Whitman - альтернативное название для комического персонажа, Dane Whitman Black Knight, который был создан Рой Томас.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Дейн Уитмен - альтернативное название для персонажа комиксов Dane Whitman Black Knight, который был создан Рой Томас.</finallex>
+      <lex lang="en" lid="Id2">The comic book character Dane Whitman Black Knight is also known as simply Dane Whitman or the alter ego Black Knight, and was created by Roy Thomas.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов Dane Whitman Black Knight также известен как просто Dane Whitman или изменение ego Black Knight, и был создан Рой Томас.</lex>
+      <finallex comment="" lang="ru" lid="Id2">Персонаж комиксов Dane Whitman Black Knight также известен как просто Dane Whitman или изменение ego Black Knight, и был создан Рой Томас.</finallex>
+      <lex lang="en" lid="Id3">Dane Whitman Black, also known as Dane Whitman was created by Roy Thomas.</lex>
+      <lex lang="ru" lid="Id3">DANE Whitman Black, также известный как Dane Whitman, был создан Рой Томас.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Дейн Уитмен Black, также известный как Dane Whitman, был создан Рой Томас.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Roy_Thomas|sameAs|Томас,_Рой</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id71" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Duncan Rouleau is an American national who created Baymax.</lex>
+      <lex lang="ru" lid="Id1">Дункан Рулею - американский гражданин, создавший "Баймакс".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Дункан Руло - американский гражданин, создавший Баймакс.</finallex>
+      <lex lang="en" lid="Id2">Baymax was created by American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" был создан американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс был создан американцем Дункан Руло.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id72" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Gene_Colan | nationality | Americans</mtriple>
+        <mtriple>Ben_Urich | creator | Gene_Colan</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Gene Colan is the American national who created the character Ben Urich.</lex>
+      <lex lang="ru" lid="Id1">Ген Colan - американский гражданин, создавший персонаж Бен Урих.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Джин Колан - американский гражданин, создавший персонаж Бен Урич.</finallex>
+      <lex lang="en" lid="Id2">Ben Urich was created by Gene Colan, an American.</lex>
+      <lex lang="ru" lid="Id2">Бен Урих был создан Gene Colan, американцем.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бен Урич был создан Джином Коланом, американцем.</finallex>
+      <lex lang="en" lid="Id3">The American Gene Nolan created the character Ben Urich.</lex>
+      <lex lang="ru" lid="Id3">Американский Gene Nolan создал персонажа Бена Уриха.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Американский Gene Nolan создал персонажа Бена Урича.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Gene_Colan|sameAs|Колан,_Джин</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id73" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Karl_Kesel | nationality | Americans</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Karl_Kesel</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Auron was created by Karl Kesel, an American.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов Auron был создан Карлом Кезелем, американцем.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Персонаж комиксов Аурон был создан Карлом Кезелем, американцем.</finallex>
+      <lex lang="en" lid="Id2">American, Karl Kesel, is the creator of the comic character, Auron.</lex>
+      <lex lang="ru" lid="Id2">Американец Карл Кесель - создатель комического персонажа, Auron.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Американец Карл Кесель - создатель персонажа комиксов Аурон.</finallex>
+      <lex lang="en" lid="Id3">The American Karl Kesel created the comic character Auron.</lex>
+      <lex lang="ru" lid="Id3">Американец Карл Кесель создал комический персонаж Auron.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Американец Карл Кесель создал персонаж комиксов Аурон.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id74" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Roger_McKenzie_(comic_book_writer) | nationality | United_States</mtriple>
+        <mtriple>Ben_Urich | creator | Roger_McKenzie_(comic_book_writer)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The American Roger McKenzie is a comic book writer who created the character Ben Urich.</lex>
+      <lex lang="ru" lid="Id1">Американец Роджер Маккензи - писатель комиксов, создавший персонаж Бен Урих.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Американец Роджер Маккензи - писатель комиксов, создавший персонаж Бен Урич.</finallex>
+      <lex lang="en" lid="Id2">A United States national, comic book writer, Roger McKenzie, is the creator of Ben Urich.</lex>
+      <lex lang="ru" lid="Id2">Гражданин Соединенных Штатов, писатель комиксов, Роджер Маккензи, является создателем "Бена Уриха".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Гражданин Соединенных Штатов, писатель комиксов, Роджер Маккензи, является создателем "Бена Урича".</finallex>
+      <lex lang="en" lid="Id3">Roger Mckenzie, the american comic book writer is the creator of Ben Urich.</lex>
+      <lex lang="ru" lid="Id3">Roger Mckenzie, американский писатель-комик - создатель Ben Urich.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Roger Mckenzie, американский писатель-комик - создатель Бен Урич.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id75" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>Sheldon_Moldoff | nationality | Americans</mtriple>
+        <mtriple>Black_Pirate | creator | Sheldon_Moldoff</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Sheldon Moldoff is the American creator of Black Pirate.</lex>
+      <lex lang="ru" lid="Id1">Шелдон Молдофф - американский создатель Black Pirate.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Шелдон Молдофф - американский создатель « Черный пират ».</finallex>
+      <lex lang="en" lid="Id2">The Black Pirate was created by Sheldon Moldoff, who was an American national.</lex>
+      <lex lang="ru" lid="Id2">"Черным пиратом" был создан Шелдон Молдофф, который был американским гражданином.</lex>
+      <finallex comment="" lang="ru" lid="Id2">"Черным пиратом" был создан Шелдон Молдофф, который был американским гражданином.</finallex>
+      <lex lang="en" lid="Id3">Sheldon Moldoff is an American who created the Black Pirate.</lex>
+      <lex lang="ru" lid="Id3">Шелдон Молдофф - американец, создавший Black Pirate.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Шелдон Молдофф - американец, создавший « Черный пират ».</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id76" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>The_Arrow_(comicsCharacter) | alternativeName | "Ralph Payne"</mtriple>
+        <mtriple>The_Arrow_(comicsCharacter) | creator | Paul_Gustavson</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Paul Gustavson is the creator of " The Arrow", otherwise known as Ralph Payne.</lex>
+      <lex lang="ru" lid="Id1">Павел Густавсон - создатель "Арроу", иначе известный как Ральф Пайн.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Пол Густавсон - создатель "Стрела", иначе известный как Ральф Пайн.</finallex>
+      <lex lang="en" lid="Id2">Arrow, also known as Ralph Payne, was created by Paul Gustavson.</lex>
+      <lex lang="ru" lid="Id2">"Стрелка", также известная под названием Ralph Payne, была создана Полом Густавсоном.</lex>
+      <finallex comment="" lang="ru" lid="Id2">"Стрелка", также известная под названием Ralph Payne, была создана Полом Густавсоном.</finallex>
+      <lex lang="en" lid="Id3">Arrow, otherwise known as Ralph Payne, was created by Paul Gustavson.</lex>
+      <lex lang="ru" lid="Id3">"Стрелка", иначе известный как Ralph Payne, была создана Полом Густавсоном.</lex>
+      <finallex comment="" lang="ru" lid="Id3">"Стрелка", иначе известный как Ralph Payne, была создана Полом Густавсоном.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id77" part="train" size="2">
+      <modifiedtripleset>
+        <mtriple>The_Arrow_(comicsCharacter) | alternativeName | "Rick Parker"</mtriple>
+        <mtriple>The_Arrow_(comicsCharacter) | creator | Paul_Gustavson</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Rick parker, aka the Arrow was created by Paul Gustavson.</lex>
+      <lex lang="ru" lid="Id1">Рик Паркер, ака "Арроу" был создан Полом Густавсоном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Рик Паркер, ака "Стрела" был создан Полом Густавсоном.</finallex>
+      <lex lang="en" lid="Id2">The character Arrow's alter ego is Rick Parker, created by Paul Gustavson.</lex>
+      <lex lang="ru" lid="Id2">Персонаж "Арроу" - Rick Parker, созданный Полом Густавсоном.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж "Стрела" - Рик Паркер, созданный Полом Густавсоном.</finallex>
+      <lex lang="en" lid="Id3">Rick Parker, aka the Arrow, was created by Paul Gustavson.</lex>
+      <lex lang="ru" lid="Id3">Рик Паркер, ака "Арроу", был создан Полом Густавсоном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Рик Паркер, ака "Стрела", был создан Полом Густавсоном.</finallex>
+    </entry>
+  </entries>
+</benchmark>

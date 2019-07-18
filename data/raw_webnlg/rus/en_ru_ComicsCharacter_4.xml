@@ -1,0 +1,884 @@
+<?xml version='1.0' encoding='utf-8'?>
+<benchmark>
+  <entries>
+    <entry category="ComicsCharacter" eid="Id1" part="dev" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor was the star of Bananaman, an STV series first aired on 10/03/1983 and created by Steve Bright.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор был звездой Bananaman, сериал "STV" впервые вышел в эфир 10 / 03 / 1983 и создан Стивом Светланом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Тим Брук-Тейлор был звездой Бананаман, сериал "STV" впервые вышел в эфир 10 / 03 / 1983 и создан Стивом Брайтом.</finallex>
+      <lex lang="en" lid="Id2">Bananaman was created by Steve Bright and starred Tim Brooke-Taylor. The show was first aired on 3rd October 1983 by STV.</lex>
+      <lex lang="ru" lid="Id2">"Бананаман" был создан Стивом Светланом и звездным Тимом Бруком-Тейлором. Выставка впервые вышла в эфир 3 октября 1983 года "STV".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бананаман был создан Стивом Брайтом и звездным Тимом Бруком-Тейлором. Выставка впервые вышла в эфир 3 октября 1983 года "STV".</finallex>
+      <lex lang="en" lid="Id3">Tim Brooke-Taylor starred in Bananaman that was created by Steve Bright. It was broadcast by STV and first aired on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id3">Тим Брук-Тейлор снялся в Bananaman, который был создан Стивом Светланом. Она была транслирована "STV" и впервые вышла в эфир 3 октября 1983 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Тим Брук-Тейлор снялся в Бананаман, который был создан Стивом Брайтом. Она была транслирована "STV" и впервые вышла в эфир 3 октября 1983 года.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="dev" size="4">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Ernie_Colón | nationality | Puerto_Ricans</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Dan_Mishkin</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Dan Mishkin and the Puerto Rican national, Ernie Colon created the comic character of Bolt who has the alternative name of Larry Bolatinsky.</lex>
+      <lex lang="ru" lid="Id1">Дэн Мишкин и гражданин Пуэрто-Рико Эрни Колон создали комический персонаж Болта, у которого есть альтернативное имя Ларри Болатинский.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Дэн Мишкин и гражданин Пуэрто-Рико Эрни Колон создали персонаж комиксов Болта, у которого есть альтернативное имя Ларри Болатинский.</finallex>
+      <lex lang="en" lid="Id2">Dan Mishkin and Ernie Colón (Puerto Rican) created the comic character Bolt, the alternative name of which is Larry Bolatinsky.</lex>
+      <lex lang="ru" lid="Id2">Дэн Мишкин и Эрни Колон (Пуэрто-Рико) создали комический персонаж Болт, альтернативным названием которого является Ларри Болатинский.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Дэн Мишкин и Эрни Колон (Пуэрто-Рико) создали персонаж комиксов Болт, альтернативным названием которого является Ларри Болатинский.</finallex>
+      <lex lang="en" lid="Id3">The comic book character of Bolt has the alternative name of Larry Bolatinsky. It was created by Dan Mishkin and the Puerto Rican national, Ernie Colon.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Болт" имеет альтернативное имя Ларри Болатинский. Ее создали Дэн Мишкин и гражданин Пуэрто-Рико Эрни Колон.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж комиксов "Болт" имеет альтернативное имя Ларри Болатинский. Ее создали Дэн Мишкин и гражданин Пуэрто-Рико Эрни Колон.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Puerto_Ricans|sameAs|Пуэрториканцы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="dev" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Damon_Wayans,_Jr.</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in Big Hero 6 that stars Damon Wayans Jr. The character was created by the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в Big Hero 6, что звезды Damon Wayans Jr. Персонаж был создан американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс - персонаж в Big Hero 6, что звезды Damon Wayans Jr. Персонаж был создан американцем Дункан Руло.</finallex>
+      <lex lang="en" lid="Id2">Damon Wayans Jr starred in the film Big Hero 6 which also included the character of Baymax who was created by the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">Damon Wayans Jr снялся в фильме Big Hero 6, в который также входил персонаж "Баймакс", созданный американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Damon Wayans Jr снялся в фильме Big Hero 6, в который также входил персонаж Баймакс, созданный американцем Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Baymax is a character in the film Big Hero 6 which starred Damon Wayans, Jr. The character was created by the American national Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс" - персонаж в фильме "Большой герой 6", в котором снялся Дэймон Уэйнс-младший. Персонаж был создан американским гражданином Дункан Рулеу.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Баймакс - персонаж в фильме "Большой герой 6", в котором снялся Деймон Уэйанс-младший. Персонаж был создан американским гражданином Дункан Руло.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="dev" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Jamie_Chung</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax, a character in Big Hero 6, starring Jamie Chung, was created by Duncan Rouleau, an American.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс", персонаж в "Большом Hero 6", в ролях Джейми Чун, был создан Дунканом Рулеу, американцем.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Баймакс, персонаж в "Большом Hero 6", в ролях Джеми Чон, был создан Дунканом Руло, американцем.</finallex>
+      <lex lang="en" lid="Id2">Jamie Chung starred in the film Big Hero 6 in which the character of Baymax appeared. Baymax was created by the American national, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">Джейми Чун снялся в фильме Big Hero 6, в котором появился персонаж Baymax. "Баймакс" был создан американским гражданином Дункан Рулеу.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id2">Джеми Чон снялся в фильме Big Hero 6, в котором появился персонаж Баймакс. Баймакс был создан американским гражданином Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Duncan Rouleau, who is American, created the character Baymax, which appeared in the movie Big Hero 6 starring Jamie Chung.</lex>
+      <lex lang="ru" lid="Id3">Дункан Рулеу, который является американцем, создал персонажа "Баймакс", который появился в фильме "Большой Герой 6" в фильме "Джейми Чун".</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id3">Дункан Руло, который является американцем, создал персонажа Баймакс, который появился в фильме « Город героев » в фильме "Джеми Чон".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jamie_Chung|sameAs|Чон,_Джеми</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id5" part="dev" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Maya_Rudolph</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Big Hero 6 starred May Rudolph and the character of Baymax who was created by the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id1">Большой Hero 6 снимал майский Рудольф и персонаж "Баймакс", который создал американец Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Большой Hero 6 снимал майский Рудольф и персонаж Баймакс, который создал американец Дункан Руло.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in the film Big Hero 6 which starred Maya Rudolph. The creator of this character was American born Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в фильме Big Hero 6, который сняла Майя Рудольф. Создателем этого персонажа стал американец Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс - персонаж в фильме Big Hero 6, который сняла Майя Рудольф. Создателем этого персонажа стал американец Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Maya Rudolph stars in Big Hero 6 in which the character Baymax also appears. Baymax was created by the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id3">Maya Rudolph stars in Big Hero 6, в котором также появляется персонаж Baymax. "Баймакс" был создан американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Maya Rudolph stars in Big Hero 6, в котором также появляется персонаж Баймакс. Баймакс был создан американцем Дункан Руло.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Maya_Rudolph|sameAs|Рудольф,_Майя</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id1" part="test" size="4">
+      <modifiedtripleset>
+        <mtriple>BBC | keyPerson | Rona_Fairhead</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | product | BBC_Radio</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Rona Fairhead is the key person for the BBC whose headquarters are at Broadcasting House. The BBC broadcast Bananaman and also produces BBC radio.</lex>
+      <lex lang="ru" lid="Id1">Rona Fairhead - ключевой человек для "Би-би-си", штаб-квартира которого находится в вещательном доме. Би-би-си транслирует Bananaman, а также выпускает радио "Би-би-си".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Рона Фэрхед - ключевой человек для "Би-би-си", штаб-квартира которого находится в вещательном доме. Би-би-си транслирует Бананаман, а также выпускает радио "Би-би-си".</finallex>
+      <lex lang="en" lid="Id2">Rona Fairhead is a key person for the BBC which headquarters are called the Broadcasting House. Along others, both BBC radio and Bananaman are broadcasted.</lex>
+      <lex lang="ru" lid="Id2">Rona Fairhead - ключевой человек для "Би-би-си", который штаб-квартира называется вещательным домом. Наряду с другими, транслируются как радио Би-би-си, так и Bananaman.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Рона Фэрхед - ключевой человек для "Би-би-си", который штаб-квартира называется вещательным домом. Наряду с другими, транслируются как радио Би-би-си, так и Бананаман.</finallex>
+      <lex lang="en" lid="Id3">Rona Fairhead is a key person for the BBC, who are based in Broadcasting House in London. BBC radio is produced by the BBC, who also broadcast the TV series Bananaman.</lex>
+      <lex lang="ru" lid="Id3">Rona Fairhead - ключевой человек для "Би-би-си", который базируется в вещательном доме в Лондоне. Радио "Би-би-си" производит Би-би-си, которая также транслирует телесериал "Бананаман".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Рона Фэрхед - ключевой человек для "Би-би-си", который базируется в вещательном доме в Лондоне. Радио "Би-би-си" производит Би-би-си, которая также транслирует телесериал Бананаман.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC_Radio|sameAs|BBC_Radio</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="test" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Jill_Shilling</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+        <mtriple>Bananaman | broadcastedBy | "STV"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman first aired on 3 October 1983 and starred Jill Shilling. It was created by Steve Bright and broadcast by STV.</lex>
+      <lex lang="ru" lid="Id1">Bananaman впервые вышла в эфир 3 октября 1983 года и сняла Джилл Шиллинг. Ее создал Стив Светлый и в эфире "Известий".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Бананаман впервые вышла в эфир 3 октября 1983 года и сняла Джилл Шиллинг. Ее создал Стив Брайт и в эфире "Известий".</finallex>
+      <lex lang="en" lid="Id2">Jill shilling was the star of the STV hit Bananaman, created by Steve Bright and first aired on the 3rd of October 1983.</lex>
+      <lex lang="ru" lid="Id2">"Джилл шиллинг" стала звездой "STV" Bananaman, созданной Стивом Светланом и впервые вышедшей в эфир 3 октября 1983 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">"Джилл шиллинг" стала звездой "STV" Бананаман, созданной Стивом Брайтом и впервые вышедшей в эфир 3 октября 1983 года.</finallex>
+      <lex lang="en" lid="Id3">Bananaman was created by Steve Bright and starred Jill Shilling. It was first broadcast by STV on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id3">"Бананаман" был создан Стивом Светланом и звездным Джилл Шиллинг. Она была впервые транслирована «СПОРТ» 3 октября 1983 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Бананаман был создан Стивом Брайтом и звездным Джилл Шиллинг. Она была впервые транслирована « СПОРТ » 3 октября 1983 года.</finallex>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="test" size="4">
+      <modifiedtripleset>
+        <mtriple>Big_Hero_6_(film) | starring | Ryan_Potter</mtriple>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character which was created by American Duncan Rouleau and featured in the film Big Hero 6 ( starring Ryan Potter ).</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж, который создал американец Дункан Рулеу и отличился в фильме "Большой Герой 6" (в ролях Райан Поттер).</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Баймакс - персонаж, который создал американец Дункан Руло и отличился в фильме « Город героев » (в ролях Райан Поттер).</finallex>
+      <lex lang="en" lid="Id2">American, Duncan Rouleau created Baymax, a character in the film Big Hero 6, which starred Ryan Potter.</lex>
+      <lex lang="ru" lid="Id2">Американец Дункан Рулеу создал "Баймакс", персонаж в фильме "Большой Герой 6", который снимал Райан Поттер.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Американец Дункан Руло создал Баймакс, персонаж в фильме « Город героев », который снимал Райан Поттер.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="test" size="4">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Gary_Cohn_(comics)</mtriple>
+        <mtriple>Ernie_Colón | nationality | Puerto_Ricans</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Bolt, who has the alternative name of Larry Bolatinsky, was created by Gary Cohn and the Puerto Rican national, Ernie Colon.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Болт", у которого есть альтернативное имя Ларри Болатинский, был создан Гэри Коэном и пуэрто-риканским гражданином Эрни Колоном.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Болт, у которого есть альтернативное имя Ларри Болатинский, был создан Гэри Коном и пуэрто-риканским гражданином Эрни Колоном.</finallex>
+      <lex lang="en" lid="Id2">The comic character Bolt, with the alternative name Larry Bolatinsky, was created by Gary Cohn and Ernie Colon, who is a Puerto Rican national.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж "Болт" с альтернативным названием Ларри Болатинский был создан Гэри Коэном и Эрни Колоном, который является гражданином Пуэрто-Рико.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Болт с альтернативным названием Ларри Болатинский был создан Гэри Коном и Эрни Колоном, который является гражданином Пуэрто-Рико.</finallex>
+      <lex lang="en" lid="Id3">Larry Bolatinsky is the alternative name for the comic character, Bolt. It was created by the Puerto Rican national Ernie Colon and the comic book writer, Gary Cohn.</lex>
+      <lex lang="ru" lid="Id3">Ларри Болатинский - альтернативное название для комического персонажа, Болта. Она была создана пуэрто-риканским гражданином Эрни Колоном и писателем комиксов Гэри Коэном.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Ларри Болатинский - альтернативное название для персонажа комиксов Болта. Она была создана пуэрто-риканским гражданином Эрни Колоном и писателем комиксов Гэри Коном.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Puerto_Ricans|sameAs|Пуэрториканцы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id1" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Arion_(comicsCharacter) | creator | Jan_Duursema</mtriple>
+        <mtriple>Jan_Duursema | award | Eisner_Award</mtriple>
+        <mtriple>Arion_(comicsCharacter) | alternativeName | "Ahri'ahn"</mtriple>
+        <mtriple>Arion_(comicsCharacter) | creator | Paul_Kupperberg</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Arion (also known as Ahri'ahn) is a comic character created by Paul Kupperberg and Jan Duursema, who won the Eisner award.</lex>
+      <lex lang="ru" lid="Id1">"Арион" (также известный как AHRI 'ahn) - комический персонаж, созданный Полом Куппербергом и Яном Дуурсемом, завоевавшим награду Эйснера.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">"Арион" (также известный как Ahri'ahn) - персонаж комиксов, созданный Полом Куппербергом и Яном Дуурсемом, завоевавшим награду Эйснера.</finallex>
+      <lex lang="en" lid="Id2">Paul Kupperberg and Eisner Award winning Jan Duursema are the creators of the comic book character Arion, also know as Ahri'ahn.</lex>
+      <lex lang="ru" lid="Id2">Paul Kupperberg и Eisner Award победили Яна Дуурсема - создатели персонажа комиксов Arion, также знают как AHRI 'ahn.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Paul Kupperberg и Eisner Award победили Яна Дуурсема - создатели персонажа комиксов Arion, также знают как Ahri'ahn.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Arion (also known as Ahri'ahn), was created by Paul Kupperberg and Jan Duursema, the latter having won the Eisner Award.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Арион" (также известный как AHRI 'ahn), был создан Полом Куппербергом и Яном Дуурсемой, последний завоевал премию Эйснера.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Персонаж комиксов "Арион" (также известный как Ahri'ahn), был создан Полом Куппербергом и Яном Дуурсемой, последний завоевал премию Эйснера.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Eisner_Award|sameAs|Премия_Айснера</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id2" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Aurakles | creator | Dick_Dillin</mtriple>
+        <mtriple>Dick_Dillin | nationality | United_States</mtriple>
+        <mtriple>Aurakles | creator | Len_Wein</mtriple>
+        <mtriple>Aurakles | alternativeName | "Aurakles"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic book character Aurakles was created by Len Wein and the American Dick Dillin.</lex>
+      <lex lang="ru" lid="Id1">Персонаж комиксов "Aurakles" создал Лэнь Вайн и американец Дик Диллин.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Персонаж комиксов "Aurakles" создал Лэнь Вайн и американец Дик Диллин.</finallex>
+      <lex lang="en" lid="Id2">The comic book character Aurakles, with the alternative name Aurakles, was created by Dick Dillin (from the United States) and Len Wein.</lex>
+      <lex lang="ru" lid="Id2">Персонаж комиксов "Aurakles" с альтернативным названием Aurakles был создан Диком Диллином (из США) и Лэнь Вайном.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Персонаж комиксов "Aurakles" с альтернативным названием Aurakles был создан Диком Диллином (из США) и Леном Уэйном.</finallex>
+      <lex lang="en" lid="Id3">The fictional character Aurakles, also known as ''Aurakles'' was created by Len Wein and Dick Dillin (American).</lex>
+      <lex lang="ru" lid="Id3">Вымышленный персонаж "Аураклы", также известный как "Аураклес", был создан Лэнь Вайном и Диком Диллином (американцем).</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Вымышленный персонаж "Аураклы", также известный как Аураклес, был создан Леном Уэйном и Диком Диллином (американцем).</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Len_Wein|sameAs|Уэйн,_Лен</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id3" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>BBC | keyPerson | Rona_Fairhead</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | product | BBC_Radio</mtriple>
+        <mtriple>BBC | locationCity | London</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The BBC, which is located in London, and where Rona Fairhead is a key person, once broadcast Bananaman and has a product called BBC radio.</lex>
+      <lex lang="ru" lid="Id1">"Би-би-си", которая находится в Лондоне, и где Rona Fairhead является ключевым человеком, когда-то транслирует Bananaman и имеет продукт под названием "Би-би-си".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">"Би-би-си", которая находится в Лондоне, и где Рона Фэрхед является ключевым человеком, когда-то транслирует Бананаман и имеет продукт под названием "Би-би-си".</finallex>
+      <lex lang="en" lid="Id2">The BBC, located in London, with Rona Fairhead as a key person, broadcast the TV series Bananaman and produces BBC radio.</lex>
+      <lex lang="ru" lid="Id2">"Би-би-си", расположенная в Лондоне, с Rona Fairhead как ключевой человек, транслирует телесериал "Бананаман" и выпускает радио BBC.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">"Би-би-си", расположенная в Лондоне, с Рона Фэрхед как ключевой человек, транслирует телесериал Бананаман и выпускает радио BBC.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+        <dbpedialink direction="en2ru">BBC_Radio|sameAs|BBC_Radio</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id4" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Balder_(comicsCharacter) | creator | Jack_Kirby</mtriple>
+        <mtriple>Jack_Kirby | nationality | Americans</mtriple>
+        <mtriple>Balder_(comicsCharacter) | creator | Stan_Lee</mtriple>
+        <mtriple>Balder_(comicsCharacter) | alternativeName | "Balder Odinson"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Balder is a comic character created by Stan Lee and the American, Jack Kirby. His alternative name is Balder Odinson.</lex>
+      <lex lang="ru" lid="Id1">"Балдер" - комический персонаж, созданный Стэн Ли и американцем Джеком Кирби. Его альтернативное название - Balder Odinson.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id1">"Бальдер" - персонаж комиксов, созданный Стэн Ли и американцем Джеком Кёрби. Его альтернативное название - Бальдер Одинсон.</finallex>
+      <lex lang="en" lid="Id2">The comic character of Balder is also known as "Balder Odinson". It was created by Stan Lee and the American, Jack Kirby.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж "Балдер" также известен как "Балдер Одинсон". Ее создали Стэн Ли и американец Джек Кирби.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Персонаж комиксов Бальдер также известен как "Бальдер Одинсон". Ее создали Стэн Ли и американец Джек Кёрби.</finallex>
+      <lex lang="en" lid="Id3">The comic character, Balder has the alternative name of Balder Odinson . It was created by Stan Lee and the American, Jack Kirby.</lex>
+      <lex lang="ru" lid="Id3">Комический персонаж, "Балдер" имеет альтернативное название Balder Odinson. Ее создали Стэн Ли и американец Джек Кирби.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id3">Персонаж комиксов, "Бальдер" имеет альтернативное название Бальдер Одинсон. Ее создали Стэн Ли и американец Джек Кёрби.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Jack_Kirby|sameAs|Джек_Кёрби</dbpedialink>
+        <dbpedialink direction="en2ru">Stan_Lee|sameAs|Стэн_Ли</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id5" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | product | BBC_Radio</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+        <mtriple>BBC | foundedBy | John_Reith,_1st_Baron_Reith</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">John Reith, 1st Baron Reith founded the BBC who have their HQ at Broadcasting House. The BBC broadcast Bananaman and also produce BBC radio.</lex>
+      <lex lang="ru" lid="Id1">John Reith, 1-й Baron Reith основал "Би-би-си", у которого есть свой штаб в вещательном доме. "Би-би-си" транслирует Bananaman, а также производит радио BBC.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">John Reith, 1-й Baron Reith основал "Би-би-си", у которого есть свой штаб в вещательном доме. "Би-би-си" транслирует Бананаман, а также производит радио BBC.</finallex>
+      <lex lang="en" lid="Id2">The BBC, founded by John Reith, 1st Baron Reith, has its headquarters in Broadcasting House. The BBC produces BBC radio and broadcast the TV series Bananaman.</lex>
+      <lex lang="ru" lid="Id2">"Би-би-си", основанная Джоном Рейтом, 1-й Барон Рейт, имеет свой штаб в вещательном доме. "Би-би-си" выпускает радио "Би-би-си" и транслирует телесериал "Бананаман".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Би-би-си", основанная Джоном Рейтом, 1-й Барон Рейт, имеет свой штаб в вещательном доме. "Би-би-си" выпускает радио "Би-би-си" и транслирует телесериал Бананаман.</finallex>
+      <lex lang="en" lid="Id3">The founder of the BBC was 1st Baron John Reith and it is located at Broadcasting House in London. The BBC broadcast Bananaman and also produce BBC radio.</lex>
+      <lex lang="ru" lid="Id3">Основателем "Би-би-си" стал 1-й барон Джон Рейт, он находится в вещательном доме в Лондоне. "Би-би-си" транслирует Bananaman, а также производит радио BBC.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Основателем "Би-би-си" стал 1-й барон Джон Рейт, он находится в вещательном доме в Лондоне. "Би-би-си" транслирует Бананаман, а также производит радио BBC.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC_Radio|sameAs|BBC_Radio</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id6" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | product | BBC_Radio</mtriple>
+        <mtriple>BBC | locationCity | London</mtriple>
+        <mtriple>BBC | foundedBy | John_Reith,_1st_Baron_Reith</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">1st Baron, John Reith was the founder of the BBC which is located in London and showed the TV series, Bananaman. Another product of the BBC is BBC radio.</lex>
+      <lex lang="ru" lid="Id1">1-й барон, Джон Рейт был основателем Би-би-си, который находится в Лондоне и показал сериал "Бананаман". Еще один продукт Би-би-си - радио "Би-би-си".</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">1-й барон, Джон Рейт был основателем Би-би-си, который находится в Лондоне и показал сериал Бананаман. Еще один продукт Би-би-си - радио "Би-би-си".</finallex>
+      <lex lang="en" lid="Id2">Bananaman is broadcast by the BBC, the organisation founded by John Reith, 1st Baron Reith. The BBC is based in London and also produces BBC radio.</lex>
+      <lex lang="ru" lid="Id2">Bananaman транслирует BBC, организация, основанная Джоном Рейтом, 1-й Барон Рейт. BBC базируется в Лондоне, а также выпускает радио "Би-би-си".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Бананаман транслирует BBC, организация, основанная Джоном Рейтом, 1-й Барон Рейт. BBC базируется в Лондоне, а также выпускает радио "Би-би-си".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+        <dbpedialink direction="en2ru">BBC_Radio|sameAs|BBC_Radio</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id7" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bill Oddie stars in Bananaman which was created by Steve Bright. It was first broadcast by the BBC on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id1">Билл Одди звезд в Бананамане, который был создан Стивом Светланом. Она была впервые транслирована Би-би-си 3 октября 1983 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Билл Одди звезд в Бананамане, который был создан Стивом Брайтом. Она была впервые транслирована Би-би-си 3 октября 1983 года.</finallex>
+      <lex lang="en" lid="Id2">Bananaman, created by Steve Bright and starring Bill Oddie, was first broadcast by the BBC on the 3rd October 1983.</lex>
+      <lex lang="ru" lid="Id2">Bananaman, созданный Стивом Светланом и в роли Билла Одди, впервые транслировался Би-би-си 3 октября 1983 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бананаман, созданный Стивом Брайтом и в роли Билла Одди, впервые транслировался Би-би-си 3 октября 1983 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id8" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman, which was first broadcast by the BBC on 3rd October 1983, was created by Steve Bright and starred Graeme Garden.</lex>
+      <lex lang="ru" lid="Id1">Bananaman, впервые транслировавшийся Би-би-си 3 октября 1983 года, был создан Стивом Светланом и звездным Graeme Garden.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Бананаман, впервые транслировавшийся Би-би-си 3 октября 1983 года, был создан Стивом Брайтом и звездным Грэм Гарден.</finallex>
+      <lex lang="en" lid="Id2">Steve Bright created Bananaman which was first aired by the BBC on 3 October 1983 and starred Graeme Garden.</lex>
+      <lex lang="ru" lid="Id2">Steve Bright создал Bananaman, который впервые транслировался Би-би-си 3 октября 1983 года и снялся в Graeme Garden.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Steve Bright создал Бананаман, который впервые транслировался Би-би-си 3 октября 1983 года и снялся в Грэм Гарден.</finallex>
+      <lex lang="en" lid="Id3">Bananaman was first aired on 3 October 1983 by the BBC. It was created by Steve Bright and starred Graeme Garden.</lex>
+      <lex lang="ru" lid="Id3">Bananaman впервые вышел в эфир 3 октября 1983 года Би-би-си. Его создали Стив Светлый и звездный Graeme Garden.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Бананаман впервые вышел в эфир 3 октября 1983 года Би-би-си. Его создали Стив Брайт и звездный Грэм Гарден.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id9" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | starring | Jill_Shilling</mtriple>
+        <mtriple>Bananaman | creator | John_Geering</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">John Geering created the TV character Bananaman which was first broadcast by the BBC on 3 October 1983 and starred Jill Shilling.</lex>
+      <lex lang="ru" lid="Id1">John Geering создал телевизионный персонаж Bananaman, который впервые транслировался Би-би-си 3 октября 1983 года и снимал Джилл Шиллинг.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">John Geering создал телевизионный персонаж Бананаман, который впервые транслировался Би-би-си 3 октября 1983 года и снимал Джилл Шиллинг.</finallex>
+      <lex lang="en" lid="Id2">John Geering created the fictional comic superhero of Bananaman which starred Jill Shilling. It was first aired by the BBC on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id2">John Geering создал вымышленного комика-супергероя "Бананаман", который снимал Джилл Шиллинг. Она была впервые транслирована Би-би-си 3 октября 1983 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">John Geering создал вымышленного комика-супергероя Бананаман, который снимал Джилл Шиллинг. Она была впервые транслирована Би-би-си 3 октября 1983 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id10" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | starring | Jill_Shilling</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman was first broadcast by the BBC on 3 October 1983. It was created by Steve Bright and starred Jill Shilling.</lex>
+      <lex lang="ru" lid="Id1">Bananaman впервые транслировался Би-би-си 3 октября 1983 года. Ее создал Стив Светлый и звездный Джилл Шиллинг.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Бананаман впервые транслировался Би-би-си 3 октября 1983 года. Ее создал Стив Брайт и звездный Джилл Шиллинг.</finallex>
+      <lex lang="en" lid="Id2">Bananaman, starring Jill Shilling, created by Steve Bright. first aired on the BBC on 3/10/1983.</lex>
+      <lex lang="ru" lid="Id2">Bananaman, в ролях Джилл Шиллинг, созданный Стивом Брайтом, впервые транслировался на Би-би-си 3 / 10 / 1983.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Бананаман, в ролях Джилл Шиллинг, созданный Стивом Брайтом, впервые транслировался на Би-би-си 3 / 10 / 1983.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id11" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Lancashire</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Lancashire born Bill Oddie was the star of Bananaman, broadcasted by the BBC out of the broadcasting house in London.</lex>
+      <lex lang="ru" lid="Id1">"Ланкассир", рожденный Биллом Одди, стал звездой Bananaman, транслировавшейся Би-би-си из вещательного дома в Лондоне.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">"Ланкассир", рожденный Биллом Одди, стал звездой Бананаман, транслировавшейся Би-би-си из вещательного дома в Лондоне.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Lancashire|sameAs|Ланкашир</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id12" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Lancashire</mtriple>
+        <mtriple>BBC | locationCity | London</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Lancashire born Bill Oddie starred in Bananaman. It was broadcast by the BBC located in London.</lex>
+      <lex lang="ru" lid="Id1">"Ланкассир" родился Билл Одди в Бананамане. Ее транслировала Би-би-си, расположенная в Лондоне.</lex>
+      <finallex comment="" lang="ru" lid="Id1">"Ланкассир" родился Билл Одди в Бананамане. Ее транслировала Би-би-си, расположенная в Лондоне.</finallex>
+      <lex lang="en" lid="Id2">Bananaman, that starred Lancashire born Bill Oddie, is broadcast by the BBC which is located in London.</lex>
+      <lex lang="ru" lid="Id2">"Бананаман", который снимал Lancashire, родился Билл Одди, передает Би-би-си, которая находится в Лондоне.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Бананаман, который снимал Lancashire, родился Билл Одди, передает Би-би-си, которая находится в Лондоне.</finallex>
+      <lex lang="en" lid="Id3">Lancashire born Bill Oddie starred in the TV series Bananaman. It was shown by the BBC who are located in London.</lex>
+      <lex lang="ru" lid="Id3">В телесериале "Бананаман" родился Билл Одди. Его показала Би-би-си, которая находится в Лондоне.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">В телесериале Бананаман родился Билл Одди. Его показала Би-би-си, которая находится в Лондоне.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Lancashire|sameAs|Ланкашир</dbpedialink>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id13" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Rochdale</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Rochdale born Bill Oddie starred in the TV series Bananaman. This show was broadcast by the BBC, which has its headquarters in Broadcasting House.</lex>
+      <lex lang="ru" lid="Id1">Рочдейл родился Билл Одди снялся в телесериале "Бананаман". Это шоу транслировала "Би-би-си", которая имеет свой штаб в вещательном доме.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Рочдейл родился Билл Одди снялся в телесериале Бананаман. Это шоу транслировала "Би-би-си", которая имеет свой штаб в вещательном доме.</finallex>
+      <lex lang="en" lid="Id2">The BBC broadcast Bananaman, which starred Rochdale born Bill Oddie. The BBC headquarters is called Broadcasting House.</lex>
+      <lex lang="ru" lid="Id2">"Би-би-си" транслирует Bananaman, который снимал Рочдейл родился Билл Одди. Штаб-квартира "Би-би-си" называется "вещательный дом".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Би-би-си" транслирует Бананаман, который снимал Рочдейл родился Билл Одди. Штаб-квартира "Би-би-си" называется "вещательный дом".</finallex>
+      <lex lang="en" lid="Id3">Rochdale born Bill Oddie starred in Bananaman which was a TV series shown on the BBC, based at Broadcasting House in London.</lex>
+      <lex lang="ru" lid="Id3">Rochdale родился Билл Одди, снявшийся в Бананамане, который был телесериалом, показанным на BBC, на базе вещательного дома в Лондоне.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Rochdale родился Билл Одди, снявшийся в Бананамане, который был телесериалом, показанным на BBC, на базе вещательного дома в Лондоне.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Rochdale|sameAs|Рочдейл</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id14" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Bill_Oddie</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bill_Oddie | birthPlace | Rochdale</mtriple>
+        <mtriple>BBC | locationCity | London</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman the TV series was shown on the BBC (London) and starred Bill Oddie, who was born in Rochdale.</lex>
+      <lex lang="ru" lid="Id1">Бананаман сериал показывал на Би-би-си (Лондон) и снялся с Биллом Одди, который родился в Рочдейле.</lex>
+      <finallex comment="" lang="ru" lid="Id1">Бананаман сериал показывал на Би-би-си (Лондон) и снялся с Биллом Одди, который родился в Рочдейле.</finallex>
+      <lex lang="en" lid="Id2">The BBC, which is located in London, showed the TV series Bananaman. It starred Bill Oddie who was born in Rochdale.</lex>
+      <lex lang="ru" lid="Id2">"Би-би-си", которая находится в Лондоне, показала сериал "Бананаман". Она сняла Билла Одди, который родился в Рочдейле.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Би-би-си", которая находится в Лондоне, показала сериал Бананаман. Она сняла Билла Одди, который родился в Рочдейле.</finallex>
+      <lex lang="en" lid="Id3">Bananaman is a tv series which starred Rochdale born Bill Oddie. The series was shown on the BBC which is located in the city of London.</lex>
+      <lex lang="ru" lid="Id3">Bananaman - это телесериал, в котором снялся Рочдейл родился Билл Одди. Сериал был показан на Би-би-си, которая расположена в городе Лондон.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Бананаман - это телесериал, в котором снялся Рочдейл родился Билл Одди. Сериал был показан на Би-би-си, которая расположена в городе Лондон.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">London|sameAs|Лондон</dbpedialink>
+        <dbpedialink direction="en2ru">Rochdale|sameAs|Рочдейл</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id15" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Graeme_Garden</mtriple>
+        <mtriple>Graeme_Garden | birthPlace | Aberdeen</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>BBC | locationCity | Broadcasting_House</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Aberdeen born Graeme Garden starred in Bananaman, which was broadcast by the BBC, whose headquarters are called Broadcasting House.</lex>
+      <lex lang="ru" lid="Id1">Абердин родился Graeme Garden в Bananaman, который транслировал Би-би-си, штаб-квартира которого называется "вещательный дом".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Абердин родился Грэм Гарден в Бананаман, который транслировал Би-би-си, штаб-квартира которого называется "вещательный дом".</finallex>
+      <lex lang="en" lid="Id2">Aberdeen born Graeme Garden starred in the tv series " Bananaman " . The series was shown on the BBC which is based in the broadcasting house in London.</lex>
+      <lex lang="ru" lid="Id2">Абердин, родивший Graeme Garden, снялся в телесериале "Бананаман". Сериал показали на Би-би-си, которая базируется в вещательном доме в Лондоне.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Абердин, родивший Грэм Гарден, снялся в телесериале Бананаман. Сериал показали на Би-би-си, которая базируется в вещательном доме в Лондоне.</finallex>
+      <lex lang="en" lid="Id3">The BBC, based in Broadcasting House, London, showed the TV series Bananaman. This show starred Aberdeen born Graeme Garden.</lex>
+      <lex lang="ru" lid="Id3">"Би-би-си", базирующаяся в телерадиовещании, Лондон, показала сериал "Бананаман". На этом шоу снялся Абердин, родивший Graeme Garden.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">"Би-би-си", базирующаяся в телерадиовещании, Лондон, показала сериал Бананаман. На этом шоу снялся Абердин, родивший Грэм Гарден.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Aberdeen|sameAs|Абердин</dbpedialink>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id16" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | creator | John_Geering</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Tim Brooke-Taylor starred in Bananaman which was created by John Geering. It was first broadcast by the BBC on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Bananaman, который был создан Джоном Геленом. Она была впервые транслирована Би-би-си 3 октября 1983 года.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Тим Брук-Тейлор снялся в Бананаман, который был создан Джоном Герингом. Она была впервые транслирована Би-би-си 3 октября 1983 года.</finallex>
+      <lex lang="en" lid="Id2">Bananaman was first aired on 10/03/1983 and was broadcast by the BBC. Tim Brooke-Taylor starred in the show, which was created by John Geering.</lex>
+      <lex lang="ru" lid="Id2">Bananaman впервые вышел в эфир 10 / 03 / 1983 и транслировался Би-би-си. Тим Брук-Тейлор снялся в шоу, которое создал Джон Георг.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Бананаман впервые вышел в эфир 10 / 03 / 1983 и транслировался Би-би-си. Тим Брук-Тейлор снялся в шоу, которое создал Джон Георг.</finallex>
+      <lex lang="en" lid="Id3">The fictional comic superhero Bananaman was created by John Geering and starred Tim Brooke-taylor. It was first broadcast on 3 October 1983 by the BBC.</lex>
+      <lex lang="ru" lid="Id3">Вымышленный комикс-супергерой Bananaman был создан Джоном Гейзером и звездным Тимом Бруком-тайлом. Она была впервые транслирована 3 октября 1983 года Би-би-си.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Вымышленный супергерой комиксов Бананаман был создан Джоном Гейзером и звездным Тимом Бруком-тайлом. Она была впервые транслирована 3 октября 1983 года Би-би-си.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id17" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bananaman | starring | Tim_Brooke-Taylor</mtriple>
+        <mtriple>Bananaman | broadcastedBy | BBC</mtriple>
+        <mtriple>Bananaman | creator | Steve_Bright</mtriple>
+        <mtriple>Bananaman | firstAired | "1983-10-03"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bananaman was created by Steve Bright and starred Tim Brooke-Taylor. It was first aired on 3 October 1983, being broadcast by the BBC.</lex>
+      <lex lang="ru" lid="Id1">"Бананаман" был создан Стивом Светланом и звездным Тимом Бруком-Тейлором. Она была впервые вышла в эфир 3 октября 1983 года, передает Би-би-си.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Бананаман был создан Стивом Брайтом и звездным Тимом Бруком-Тейлором. Она была впервые вышла в эфир 3 октября 1983 года, передает Би-би-си.</finallex>
+      <lex lang="en" lid="Id2">Bananaman (created by Steve Bright ) was first broadcasted by the BBC on the 10/03/1983, and starred Tim Brooke-Taylor.</lex>
+      <lex lang="ru" lid="Id2">Bananaman (созданный Стивом Светланом) впервые транслировался Би-би-си 10 / 03 / 1983, а также снялся Тим Брук-Тейлор.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Бананаман (созданный Стивом Брайтом) впервые транслировался Би-би-си 10 / 03 / 1983, а также снялся Тим Брук-Тейлор.</finallex>
+      <lex lang="en" lid="Id3">Tim Brooke Taylor starred in Bananaman which was created by Steve Bright. It was broadcast by the BBC and first aired on 3 October 1983.</lex>
+      <lex lang="ru" lid="Id3">Тим Брук Тейлор снялся в Бананамане, который был создан Стивом Светланом. Она транслировалась Би-би-си и впервые вышла в эфир 3 октября 1983 года.</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">Тим Брук Тейлор снялся в Бананамане, который был создан Стивом Брайтом. Она транслировалась Би-би-си и впервые вышла в эфир 3 октября 1983 года.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">BBC|sameAs|Би-би-си</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id18" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | voice | Scott_Adsit</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Baymax first appeared in the film Big Hero 6 and is voiced by Scott Adsit. It was created by Duncan Rouleau and Steve T Seagle.</lex>
+      <lex lang="ru" lid="Id1">Персонаж Baymax впервые появился в фильме Big Hero 6 и озвучен Скоттом Адсисом. Ее создали Дункан Рулеу и Стив Т Сеагле.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж Баймакс впервые появился в фильме Big Hero 6 и озвучен Скоттом Адсисом. Ее создали Дункан Руло и Стив Т Сеагле.</finallex>
+      <lex lang="en" lid="Id2">Duncan Rouleau and Steven T Seagle created the character of Baymax who first appeared in the film Big Hero 6 and is voiced by Scott Adsit.</lex>
+      <lex lang="ru" lid="Id2">Duncan Rouleau и Steven T Seagle создали персонаж Baymax, который впервые появился в фильме Big Hero 6 и озвучен Скоттом Адсисом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Дункан Руло и Steven T Seagle создали персонаж Баймакс, который впервые появился в фильме Big Hero 6 и озвучен Скоттом Адсисом.</finallex>
+      <lex lang="en" lid="Id3">Baymax, voiced by Scott Adsit and created by Duncan Roulean and Steven T. Seagle first appeared in the film Big Hero 6.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс", озвученный Скоттом Адсисом и созданный Дунканом Руланом и Стивеном Т. Сеагле впервые появился в фильме "Большой Герой 6".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Баймакс, озвученный Скоттом Адсисом и созданный Дунканом Руланом и Стивеном Т. Сеагле впервые появился в фильме « Город героев ».</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id19" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Baymax, created by Steve T Seagle and the American Duncan Rouleau, first appeared in the film Big Hero 6.</lex>
+      <lex lang="ru" lid="Id1">Персонаж "Баймакс", созданный Стивом Т Seagle и американцем Дункан Рулеу, впервые появился в фильме "Большой Герой 6".</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Персонаж Баймакс, созданный Стивом Т Seagle и американцем Дункан Руло, впервые появился в фильме « Город героев ».</finallex>
+      <lex lang="en" lid="Id2">Baymax first appeared in the film Big Hero 6 and was created by Steven T Seagle and the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" впервые появился в фильме Big Hero 6 и был создан Steven T Seagle и американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс впервые появился в фильме Big Hero 6 и был создан Steven T Seagle и американцем Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Big hero 6 was the first appearance for Baymax, created by American Duncan Rouleau and Steven T. Seagle.</lex>
+      <lex lang="ru" lid="Id3">Большим героем 6 стал первый вид для Baymax, созданный американцем Дункан Рулеу и Стивеном Т. Сеагле.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Большим героем 6 стал первый вид для Баймакс, созданный американцем Дункан Руло и Стивеном Т. Сеагле.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id20" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | firstAppearanceInFilm | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character created by Duncan Rouleau and Steve T. Seagle which first appeared in the film " Big Hero 6".</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж, созданный Дункан Рулеу и Стивом Т. Сеагле, который впервые появился в фильме "Большой герой 6".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс - персонаж, созданный Дункан Руло и Стивом Т. Сеагле, который впервые появился в фильме "Большой герой 6".</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character who first appeared in the film Big Hero 6. It was created by Steven T Seagle and Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж, впервые появившийся в фильме Big Hero 6. Она была создана Steven T Seagle и Duncan Rouleau.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс - персонаж, впервые появившийся в фильме Big Hero 6. Она была создана Steven T Seagle и Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Steven T Seagle and Duncan Rouleau created the character Baymax, which first appeared in the movie Big Hero 6.</lex>
+      <lex lang="ru" lid="Id3">Steven T Seagle и Duncan Rouleau создали персонажа Baymax, который впервые появился в фильме Big Hero 6.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Steven T Seagle и Дункан Руло создали персонажа Баймакс, который впервые появился в фильме Big Hero 6.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id21" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Baymax | voice | Scott_Adsit</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax, the Big Hero 6 character created by Steve T Seagle and Duncan Rouleau, is voiced by Scott Adsit.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс", персонаж Big Hero 6, созданный Steve T Seagle и Duncan Rouleau, озвучен Скоттом Адсисом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Баймакс, персонаж Big Hero 6, созданный Steve T Seagle и Дункан Руло, озвучен Скоттом Адсисом.</finallex>
+      <lex lang="en" lid="Id2">Duncan Rouleau and Steven T. Seagle are both creators of the character Baymax which featured in the film Big Hero 6. The voice of this character in the film was provided by Scott Adsit.</lex>
+      <lex lang="ru" lid="Id2">Duncan Rouleau и Steven T. Seagle - оба создатели персонажа Baymax, которые фигурировали в фильме Big Hero 6. Голос этого персонажа в фильме предоставил Скотт Адсит.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Дункан Руло и Стивен Т. Сигл - оба создатели персонажа Баймакс, которые фигурировали в фильме Big Hero 6. Голос этого персонажа в фильме предоставил Скотт Адсит.</finallex>
+      <lex lang="en" lid="Id3">Duncan Rouleau and Steven T. Seagle are both creators of Baymax which featured in the film Big Hero 6. The voice of Baymax was provided by Scott Adsit.</lex>
+      <lex lang="ru" lid="Id3">Duncan Rouleau и Steven T. Seagle - это и создатели Baymax, которые фигурировали в фильме Big Hero 6. Голос "Баймакс" предоставил Скотт Адсит.</lex>
+      <finallex comment="ne;ne;ne;ne" lang="ru" lid="Id3">Дункан Руло и Стивен Т. Сигл - это и создатели Баймакс, которые фигурировали в фильме Big Hero 6. Голос Баймакс предоставил Скотт Адсит.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id22" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Ernie_Colón | nationality | Puerto_Ricans</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bolt (Larry Bolatinsky) is a comic character that was created by both Paris Cullins and Ernie Colon who is a national of Puerto Rico.</lex>
+      <lex lang="ru" lid="Id1">"Болт" (Ларри Болатинский) - это комический персонаж, который был создан как парижскими Cullins, так и Эрни Колон, который является гражданином Пуэрто-Рико.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">"Болт" (Ларри Болатинский) - это персонаж комиксов, который был создан как парижскими Cullins, так и Эрни Колон, который является гражданином Пуэрто-Рико.</finallex>
+      <lex lang="en" lid="Id2">Bolt is a comic character otherwise know as Larry Bolatinsky. He was created by Paris Cullins and Ernie Colon ( national of Puerto Rico ).</lex>
+      <lex lang="ru" lid="Id2">"Болт" - комический персонаж, иначе знаешь, как Ларри Болатинский. Он был создан "Парижем Кульлинз" и Эрни Колоном (гражданином Пуэрто-Рико).</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Болт" - персонаж комиксов, иначе знаешь, как Ларри Болатинский. Он был создан "Парижем Кульлинз" и Эрни Колоном (гражданином Пуэрто-Рико).</finallex>
+      <lex lang="en" lid="Id3">The character Bolt, also known as Larry Bolatinsky, was created by Paris Cullins and Ernie Colon, a puerto Rican National.</lex>
+      <lex lang="ru" lid="Id3">Персонаж "Болт", также известный как Ларри Болатинский, был создан парижскими Cullins и Ernie Colon.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж "Болт", также известный как Ларри Болатинский, был создан парижскими Cullins и Ernie Colon.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Puerto_Ricans|sameAs|Пуэрториканцы</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id23" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character from Big Hero 6, who was created by American born Duncan Rouleau and Steven T. Seagle.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж из Big Hero 6, который был создан американцем Duncan Rouleau и Steven T. Seagle.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Баймакс - персонаж из Big Hero 6, который был создан американцем Дункан Руло и Стивен Т. Сигл.</finallex>
+      <lex lang="en" lid="Id2">Baymax, a character in Big Hero 6, was created by Steven T Seagle and the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс", персонаж в Big Hero 6, был создан Steven T Seagle и американцем Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс, персонаж в Big Hero 6, был создан Steven T Seagle и американцем Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Baymax, created by Steven T Seagle and the American Duncan Rouleau, is a character in Big Hero 6.</lex>
+      <lex lang="ru" lid="Id3">"Баймакс", созданный Steven T Seagle и американской Duncan Rouleau, является персонажем в Big Hero 6.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Баймакс, созданный Steven T Seagle и американской Дункан Руло, является персонажем в Big Hero 6.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id24" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | creator | Steven_T._Seagle</mtriple>
+        <mtriple>Baymax | voice | Scott_Adsit</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The character Baymax, created by Steve T Seagle and the American Duncan Rouleau, is voiced by Scott Adsit.</lex>
+      <lex lang="ru" lid="Id1">Персонаж "Баймакс", созданный Стивом Т Seagle и американцем Дункан Рулеу, озвучен Скоттом Адсисом.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж Баймакс, созданный Стивом Т Seagle и американцем Дункан Руло, озвучен Скоттом Адсисом.</finallex>
+      <lex lang="en" lid="Id2">Scott Adsit provides the voice for Baymax who was created by Steven T Seagle and the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">Скотт Адсит предоставляет голос за "Баймакс", который создал Стивен Т Сеагле и американец Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Скотт Адсит предоставляет голос за Баймакс, который создал Стивен Т Сеагле и американец Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">Scott Adsit provides the voice for the character Baymax who was created by Steven T Seagle and the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id3">Скотт Адсит дает голос за персонажа "Баймакс", который создал Стивен Т Сеагле и американец Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Скотт Адсит дает голос за персонажа Баймакс, который создал Стивен Т Сеагле и американец Дункан Руло.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id25" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Scott_Adsit</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Baymax is a character in Big Hero 6 which starred Scott Adsit. The creator of Baymax is the American, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id1">"Баймакс" - персонаж в Big Hero 6, который снимал Скотт Адсит. Создателем "Баймакс" является американец Дункан Рулеу.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Баймакс - персонаж в Big Hero 6, который снимал Скотт Адсит. Создателем Баймакс является американец Дункан Руло.</finallex>
+      <lex lang="en" lid="Id2">Baymax is a character in the film Big Hero 6 which star's Scott Adsit. The creator of this character is American national, Duncan Rouleau.</lex>
+      <lex lang="ru" lid="Id2">"Баймакс" - персонаж в фильме Big Hero 6, который звезда Скотт Адсит. Создателем этого персонажа является американский гражданин Дункан Рулеу.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Баймакс - персонаж в фильме Big Hero 6, который звезда Скотт Адсит. Создателем этого персонажа является американский гражданин Дункан Руло.</finallex>
+      <lex lang="en" lid="Id3">The American, Duncan Rouleau created the character of Baymax which appeared in the film Big Hero 6 alongside the star of the film, Scott Adsit.</lex>
+      <lex lang="ru" lid="Id3">Американец Дункан Рулеу создал персонаж "Баймакс", который появился в фильме "Большой Герой 6" вместе с звездой фильма Скоттом Адсисом.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Американец Дункан Руло создал персонаж Баймакс, который появился в фильме « Город героев » вместе с звездой фильма Скоттом Адсисом.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id26" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Duncan_Rouleau | nationality | Americans</mtriple>
+        <mtriple>Baymax | creator | Duncan_Rouleau</mtriple>
+        <mtriple>Big_Hero_6_(film) | starring | Alan_Tudyk</mtriple>
+        <mtriple>Baymax | series | Big_Hero_6_(film)</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Alan Tukyk stars in the film, Big Hero 6 in which Baymax, created by the American Duncan Rouleau, is also a character.</lex>
+      <lex lang="ru" lid="Id1">У Алана Тукика звезды в фильме "Большой Герой 6", в котором Baymax, созданный американцем Дункан Рулеу, тоже является персонажем.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">У Алана Тукика звезды в фильме « Город героев », в котором Баймакс, созданный американцем Дункан Руло, тоже является персонажем.</finallex>
+      <lex lang="en" lid="Id2">The American, Duncan Rouleau created the character of Baymax who appeared in the film Big Hero 6 which starred Alan Tudyk.</lex>
+      <lex lang="ru" lid="Id2">Американец Дункан Рулеу создал персонаж "Баймакс", который появился в фильме Big Hero 6, который снимал Алан Тудык.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Американец Дункан Руло создал персонаж Баймакс, который появился в фильме Big Hero 6, который снимал Алан Тудык.</finallex>
+      <lex lang="en" lid="Id3">American national Duncan Rouleau is the creator of the character Baymax, which featured in the film Big Hero 6 ( starring Alan Tudyk ).</lex>
+      <lex lang="ru" lid="Id3">Американский гражданин Дункан Рулеу - создатель персонажа "Баймакс", который фигурировал в фильме "Большой Герой 6" (в ролях Алан Тудык).</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Американский гражданин Дункан Руло - создатель персонажа Баймакс, который фигурировал в фильме « Город героев » (в ролях Алан Тудык).</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+        <dbpedialink direction="en2ru">Big_Hero_6_(film)|sameAs|Город_героев</dbpedialink>
+        <dbpedialink direction="en2ru">Alan_Tudyk|sameAs|Тудик,_Алан</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id27" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Jerry_Ordway | nationality | Americans</mtriple>
+        <mtriple>Bibbo_Bibbowski | fullName | "Bo Bibbowski"</mtriple>
+        <mtriple>Bibbo_Bibbowski | creator | Jerry_Ordway</mtriple>
+        <mtriple>Bibbo_Bibbowski | creator | Marv_Wolfman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bibbo Bibbowski is the full name of Bo Bibbowski created by Marv Wolfman and the American, Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id1">Биббо Биббоевски - полное имя Бо Биббоевского, созданного Марком Вольфманом и американцем Джерри Орденом.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Биббо Биббоевски - полное имя Бо Биббовски, созданного Марком Вольфманом и американцем Джерри Орденом.</finallex>
+      <lex lang="en" lid="Id2">Bo (full name Bibbo) Bibbowski was created by Marv Wolfman and the American, Jerry Ordway.</lex>
+      <lex lang="ru" lid="Id2">Бо (полное название "Биббо") Биббовски создали Марв Вольфман и американец Джерри Ордэй.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Бо (полное название "Биббо") Биббовски создали Марв Вольфман и американец Джерри Ордуэй.</finallex>
+      <lex lang="en" lid="Id3">Marv Wolfman and the American, Jerry Ordway created Bo (full name Bibbo) Bibbowski.</lex>
+      <lex lang="ru" lid="Id3">Марв Вольфман и американец Джерри Ордэй создали Бо (полное имя Биббо) Биббоевский.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Марв Вольфман и американец Джерри Ордуэй создали Бо (полное имя Биббо) Биббовски.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id28" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Karl_Kesel | nationality | Americans</mtriple>
+        <mtriple>Auron_(comicsCharacter) | fullName | "Lambien"</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Karl_Kesel</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Marv_Wolfman</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Auron ( Lambien ) was created by both Marv Wolfman and American national Karl Kesel.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж Auron (Lambien) был создан как Марком Вольфманом, так и американским гражданином Карлом Кезелем.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Персонаж комиксов Аурон (Лэмбиен) был создан как Марком Вольфманом, так и американским гражданином Карлом Кезелем.</finallex>
+      <lex lang="en" lid="Id2">Auron ( Lambien ) is a comic character that was created by both Marv Wolfman and American national Karl Kesel.</lex>
+      <lex lang="ru" lid="Id2">Auron (Lambien) - комический персонаж, который создали как Марв Вольфман, так и американский гражданин Карл Кесель.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Аурон (Лэмбиен) - персонаж комиксов, который создали как Марв Вольфман, так и американский гражданин Карл Кесель.</finallex>
+      <lex lang="en" lid="Id3">Marv Wolfman and the American Karl Kesel are the creators of the comic book character Auron, whose full name is Lambien.</lex>
+      <lex lang="ru" lid="Id3">Marv Wolfman and the American Karl Kesel - создатели персонажа комиксов Auron, чье полное название - Lambien.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Marv Wolfman and the American Карл Кесель - создатели персонажа комиксов Аурон, чье полное название - Лэмбиен.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Marv_Wolfman|sameAs|Вольфман,_Марв</dbpedialink>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id29" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Karl_Kesel | nationality | Americans</mtriple>
+        <mtriple>Auron_(comicsCharacter) | fullName | "Lambien"</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Karl_Kesel</mtriple>
+        <mtriple>Auron_(comicsCharacter) | creator | Walt_Simonson</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character of Auron (whose full name is Lambien) was created by Walt Simonson and the American, Karl Kesel.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж "Аурон" (чье полное название - Lambien) был создан Уолтом Симонсоном и американцем Карлом Кезелем.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Персонаж комиксов Аурон "(чье полное название - Лэмбиен) был создан Уолтом Симонсоном и американцем Карлом Кезелем.</finallex>
+      <lex lang="en" lid="Id2">The comic character of Auron has the full name Lambien. He was created by Walt Simonson and the American, Karl Kesel.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж Auron имеет полное название Lambien. Его создали Уолт Симонсон и американец Карл Кесель.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id2">Персонаж комиксов Аурон имеет полное название Лэмбиен. Его создали Уолт Симонсон и американец Карл Кесель.</finallex>
+      <lex lang="en" lid="Id3">The comic book character Auron, with the full name Lambien, was created by Walt Simonson and Karl Kesel, who is from the United States.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов Auron, с полным названием Lambien, был создан Уолтом Симонсоном и Карлом Кезелем, родом из США.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">Персонаж комиксов Аурон, с полным названием Лэмбиен, был создан Уолтом Симонсоном и Карлом Кезелем, родом из США.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id30" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Paris_Cullins | nationality | United_States</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Dan_Mishkin</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Bolt is a comic character with the alternative name of Larry Bolatinsky. He was created by Dan Mishkin and the US national, Paris Cullins.</lex>
+      <lex lang="ru" lid="Id1">Болт - комический персонаж с альтернативным названием Ларри Болатинский. Его создали Дэн Мишкин и гражданин США, парижский Cullins.</lex>
+      <finallex comment="ne" lang="ru" lid="Id1">Болт - персонаж комиксов с альтернативным названием Ларри Болатинский. Его создали Дэн Мишкин и гражданин США, парижский Cullins.</finallex>
+      <lex lang="en" lid="Id2">Bolt ( Larry Bolatinsky ) is a comic character which was created by both Dan Mishkin and U.S. national Paris Cullins.</lex>
+      <lex lang="ru" lid="Id2">"Болт" (Ларри Болатинский) - комический персонаж, созданный как Дэн Мишкиным, так и национальным парижским "Парижем".</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">"Болт" (Ларри Болатинский) - персонаж комиксов, созданный как Дэн Мишкиным, так и национальным парижским "Парижем".</finallex>
+      <lex lang="en" lid="Id3">The comic book character Bolt also known as Larry Bolatinsky was created by Dan Mishkin and the American Paris Cullins.</lex>
+      <lex lang="ru" lid="Id3">Персонаж комиксов "Болт", известный также как Ларри Болатинский, был создан Дэн Мишкиным и американцем парижским "Парижем".</lex>
+      <finallex comment="" lang="ru" lid="Id3">Персонаж комиксов "Болт", известный также как Ларри Болатинский, был создан Дэн Мишкиным и американцем парижским "Парижем".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id31" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Paris_Cullins | nationality | United_States</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Gary_Cohn_(comics)</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The US national, Paris Cullins along with comic book writer, Gary Cohn created the comic character of Bolt. The character has the alternative name of Larry Bolatinsky,.</lex>
+      <lex lang="ru" lid="Id1">Гражданин США, парижский "Культура" вместе с писателем комиксов, Гэри Коэн создал комический персонаж Болта. У персонажа есть альтернативное имя Ларри Болатинского.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Гражданин США, парижский "Культура" вместе с писателем комиксов, Гэри Кон создал персонаж комиксов Болта. У персонажа есть альтернативное имя Ларри Болатинского.</finallex>
+      <lex lang="en" lid="Id2">The comic character Bolt , or otherwise known as Larry Bolatinsky, was created by both Gary Cohn and U.S national Paris Cullins.</lex>
+      <lex lang="ru" lid="Id2">Комический персонаж "Болт", или иначе известный как Ларри Болатинский, был создан как Гэри Коэном, так и национальным парижским "Парижем".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Персонаж комиксов Болт, или иначе известный как Ларри Болатинский, был создан как Гэри Коном, так и национальным парижским "Парижем".</finallex>
+      <lex lang="en" lid="Id3">Bolt, also known as Larry Bolatinsky, is a comic book character created by Gary Cohn and the United States national Paris Cullins.</lex>
+      <lex lang="ru" lid="Id3">"Болт", также известный как Ларри Болатинский, - персонаж комиксов, созданный Гэри Коэном и национальным парижским "Парижем".</lex>
+      <finallex comment="ne" lang="ru" lid="Id3">"Болт", также известный как Ларри Болатинский, - персонаж комиксов, созданный Гэри Коном и национальным парижским "Парижем".</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id32" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Paris_Cullins | nationality | United_States</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Paris_Cullins</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | creator | Ernie_Colón</mtriple>
+        <mtriple>Bolt_(comicsCharacter) | alternativeName | "Larry Bolatinsky"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">Larry Bolatinsky is the alternative name for the comic book character Bolt, which was created by Ernie Colon and the American Paris Cullins.</lex>
+      <lex lang="ru" lid="Id1">Ларри Болатинский - альтернативное название для персонажа комиксов "Болт", который был создан Эрни Колоном и американцем парижским "Парижем".</lex>
+      <finallex comment="" lang="ru" lid="Id1">Ларри Болатинский - альтернативное название для персонажа комиксов "Болт", который был создан Эрни Колоном и американцем парижским "Парижем".</finallex>
+      <lex lang="en" lid="Id2">Ernie Colon and the US national Paris Cullins created the comic character of Bolt, who has the alternative name of Larry Bolatinsky.</lex>
+      <lex lang="ru" lid="Id2">Эрни Колон и гражданин США Paris Cullins создали комический персонаж "Болта", у которого есть альтернативное имя Ларри Болатинский.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Эрни Колон и гражданин США Пэрис Каллинс создали персонаж комиксов "Болта", у которого есть альтернативное имя Ларри Болатинский.</finallex>
+      <lex lang="en" lid="Id3">Ernie Colón and the American Paris Cullins were among the creators of the comic book character Bolt, also known as Larry Bolatinsky.</lex>
+      <lex lang="ru" lid="Id3">Среди создателей персонажа комиксов "Болт", также известного как Ларри Болатинский, оказались Эрни Колон и американский парижский Cullins.</lex>
+      <finallex comment="" lang="ru" lid="Id3">Среди создателей персонажа комиксов "Болт", также известного как Ларри Болатинский, оказались Эрни Колон и американский парижский Cullins.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id33" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>René_Goscinny | nationality | French_people</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | creator | René_Goscinny</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | alternativeName | "Astérix"</mtriple>
+        <mtriple>Asterix_(comicsCharacter) | creator | Albert_Uderzo</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The comic character Asterix is sometimes called "Astérix" and was created by Albert Uderzo and the French national, Rene Goscinny.</lex>
+      <lex lang="ru" lid="Id1">Комический персонаж Астерикс иногда называется "Astérix" и был создан Альбертом Удерзо и французским гражданином Рене Госкиным.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id1">Персонаж комиксов Астерикс иногда называется "Astérix" и был создан Альбером Удерзо и французским гражданином Рене Госинни.</finallex>
+      <lex lang="en" lid="Id2">Albert Uderzo and French born René Goscinny, are the creators of the comic character Asterix, also know as Astérix.</lex>
+      <lex lang="ru" lid="Id2">Альберт Удерзо и французы Рене Госчинны - создатели комиксов Asterix, также знают как Astérix.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Альбер Удерзо и французы Рене Госчинны - создатели комиксов Asterix, также знают как Astérix.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">René_Goscinny|sameAs|Госинни,_Рене</dbpedialink>
+        <dbpedialink direction="en2ru">French_people|sameAs|Французы</dbpedialink>
+        <dbpedialink direction="en2ru">Albert_Uderzo|sameAs|Удерзо,_Альбер</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id34" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Roger_McKenzie_(comic_book_writer) | nationality | United_States</mtriple>
+        <mtriple>Ben_Urich | creator | Roger_McKenzie_(comic_book_writer)</mtriple>
+        <mtriple>Ben_Urich | creator | Gene_Colan</mtriple>
+        <mtriple>Ben_Urich | fullName | "Benjamin Urich"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The American comic book writer Roger McKenzie and Gene Colan created the character Ben Urich, who has the full name Benjamin Urich.</lex>
+      <lex lang="ru" lid="Id1">Американский писатель-комик Роджер Маккензи и Джин Колан создали персонажа Бена Уриха, который имеет полное имя Бенджамин Урих.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">Американский писатель-комик Роджер Маккензи и Джин Колан создали персонажа Бена Урича, который имеет полное имя Бенджамин Урич.</finallex>
+      <lex lang="en" lid="Id2">The comic book writer, Roger McKenzie is an American and along with Gene Colan created Ben (Benjamin) Urich.</lex>
+      <lex lang="ru" lid="Id2">Автор комиксов, Роджер Маккензи - американец и вместе с Gene Colan создал Бен (Бенджамин) Урих.</lex>
+      <finallex comment="ne" lang="ru" lid="Id2">Автор комиксов, Роджер Маккензи - американец и вместе с Джин Колан создал Бен (Бенджамин) Урих.</finallex>
+      <lex lang="en" lid="Id3">The character of Ben Urich, whose full name is Benjamin Urich, was created by Gene Colan and the comic book writer Roger Mckenzie who is American.</lex>
+      <lex lang="ru" lid="Id3">Персонаж Бена Уриха, чье полное имя - Бенджамин Урих, был создан Gene Colan и писателем комиксов Роджером Макензи, который является американцем.</lex>
+      <finallex comment="ne;ne;ne" lang="ru" lid="Id3">Персонаж Бена Урича, чье полное имя - Бенджамин Урич, был создан Джином Коланом и писателем комиксов Роджером Макензи, который является американцем.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">United_States|sameAs|Соединённые_Штаты_Америки</dbpedialink>
+        <dbpedialink direction="en2ru">Gene_Colan|sameAs|Колан,_Джин</dbpedialink>
+      </dbpedialinks>
+    </entry>
+    <entry category="ComicsCharacter" eid="Id35" part="train" size="4">
+      <modifiedtripleset>
+        <mtriple>Sheldon_Moldoff | nationality | Americans</mtriple>
+        <mtriple>Black_Pirate | creator | Sheldon_Moldoff</mtriple>
+        <mtriple>Sheldon_Moldoff | award | Inkpot_Award</mtriple>
+        <mtriple>Black_Pirate | alternativeName | "Jon Valor"</mtriple>
+      </modifiedtripleset>
+      <lex lang="en" lid="Id1">The Black Pirate, also know as Jon Valor, was created by the Inkpot Award winning American, Sheldon Moldoff.</lex>
+      <lex lang="ru" lid="Id1">"Черная пирата", также известная как Jon Valor, была создана компанией "Инстаграм", победившей американца, Шелдона Молдоффа.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id1">"Черный пират", также известная как Jon Valor, была создана компанией Inkpot, победившей американца, Шелдона Молдоффа.</finallex>
+      <lex lang="en" lid="Id2">American Sheldon Moldoff, who has won the Inkpot Award, created The Black Pirate, whose alternative name is Jon Valor.</lex>
+      <lex lang="ru" lid="Id2">Американец Шелдон Молдофф, завоевавший премию "Инстаграм", создал The Black Pirate, чье альтернативное название - Jon Valor.</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id2">Американец Шелдон Молдофф, завоевавший премию Inkpot, создал The « Черный пират », чье альтернативное название - Jon Valor.</finallex>
+      <lex lang="en" lid="Id3">The black pirate, also known as Jon Valor, was created by Sheldon Moldoff, an American who has won the Inkpot award.</lex>
+      <lex lang="ru" lid="Id3">"Черный пикап", также известный как Jon Valor, был создан Sheldon Moldoff, американцем, выигравшим премию "Инстаграм".</lex>
+      <finallex comment="ne;ne" lang="ru" lid="Id3">"Черный пикап", также известный как Jon Valor, был создан Шелдон Молдофф, американцем, выигравшим премию Inkpot.</finallex>
+      <dbpedialinks>
+        <dbpedialink direction="en2ru">Americans|sameAs|Американцы_США</dbpedialink>
+      </dbpedialinks>
+    </entry>
+  </entries>
+</benchmark>
