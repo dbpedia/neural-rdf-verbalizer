@@ -104,7 +104,7 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     triple_list = line.split('< TSP >')
     for l in triple_list:
         l = l.strip().split(' | ')
-        l = ['<'+lang+'> ' + x for x in l]
+        #l = ['<'+lang+'> ' + x for x in l]
         g.add_edge(l[0], l[1], label='A_ZERO')
         g.add_edge(l[1], l[2], label='A_ONE')
     node_list = list(g.nodes())
