@@ -17,7 +17,7 @@ def unicode_to_ascii(s):
                    if unicodedata.category(c) != 'Mn')
 
 
-def preprocess_sentence(w):
+def preprocess_sentence(w, lang):
     w = unicode_to_ascii(w.lower().strip())
 
     # creating a space between a word and the punctuation following it
@@ -27,7 +27,8 @@ def preprocess_sentence(w):
     w = re.sub(r'[" "]+', " ", w)
 
     # replacing everything with space except (a-z, A-Z, ".", "?", "!", ",")
-    w = re.sub(r"[^0-9a-zA-Z?.!,¿]+", " ", w)
+    if lang== 'eng':
+        w = re.sub(r"[^0-9a-zA-Z?.!,¿]+", " ", w)
 
     w = w.rstrip().strip()
 
@@ -37,18 +38,18 @@ def preprocess_sentence(w):
     return w
 
 
-def create_dataset(src_path, tgt_path, num_examples):
+def create_dataset(src_path, tgt_path, lang):
     src_lines = io.open(src_path, encoding='UTF-8').read().strip().split('\n')
     tgt_lines = io.open(tgt_path, encoding='UTF-8').read().strip().split('\n')
 
-    src_lines = [preprocess_sentence(w) for w in src_lines]
-    tgt_lines = [preprocess_sentence(w) for w in tgt_lines]
+    src_lines = [preprocess_sentence(w, lang) for w in src_lines]
+    tgt_lines = [preprocess_sentence(w, lang) for w in tgt_lines]
 
     return (src_lines, tgt_lines)
 
-def create_gat_dataset(tgt_path, num_examples):
+def create_gat_dataset(tgt_path, lang):
     tgt_lines = io.open(tgt_path, encoding='UTF-8').read().strip().split('\n')
-    tgt_lines = [preprocess_sentence(w) for w in tgt_lines]
+    tgt_lines = [preprocess_sentence(w, lang) for w in tgt_lines]
 
     return tgt_lines  
 
@@ -71,7 +72,7 @@ def tokenize(lang):
 
 def load_dataset(src_path, tgt_path, lang, num_examples=None):
     # creating cleaned input, output pairs
-    inp_lang, targ_lang = create_dataset(src_path, tgt_path, num_examples)
+    inp_lang, targ_lang = create_dataset(src_path, tgt_path, lang)
 
     tokenizer = tf.keras.preprocessing.text.Tokenizer(
         filters='')
@@ -92,11 +93,11 @@ def load_dataset(src_path, tgt_path, lang, num_examples=None):
 
 def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
                      tgt_path, eval, eval_ref, lang, num_examples=None):
-    targ_lang = create_gat_dataset(tgt_path, num_examples)
+    targ_lang = create_gat_dataset(tgt_path, lang)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
-    eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
-    eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
-    targ_lang_tokenizer.fit_on_texts(eval_tgt)
+    #eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
+    #eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
+    #targ_lang_tokenizer.fit_on_texts(eval_tgt)
 
     with open(nodes_path, 'rb') as f:
         graph_nodes = pickle.load(f)
@@ -118,7 +119,7 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
     src_vocab.fit_on_texts(edge_labels)
     src_vocab.fit_on_texts(node1)
     src_vocab.fit_on_texts(node2)
-    src_vocab.fit_on_texts(eval_nodes)
+    #src_vocab.fit_on_texts(eval_nodes)
 
     node_tensor = src_vocab.texts_to_sequences(graph_nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor,padding='post') 
