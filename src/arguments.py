@@ -43,6 +43,8 @@ parser.add_argument(
     '--edge_node2', type=str, required=False, help='Path to node2 of each edges ')
 parser.add_argument(
     '--graph_roles', type=str, required=False, help='Path to role list of each example')
+parser.add_argument(
+    '--eval_nodes', type=str, required=False, help='Path to eval nodes ')
 
 # training parameters
 parser.add_argument(

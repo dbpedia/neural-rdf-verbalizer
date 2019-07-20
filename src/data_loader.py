@@ -94,9 +94,7 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
                      tgt_path, eval, eval_ref, lang, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, num_examples)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
-    eval_src = io.open(eval, encoding='UTF-8').read().strip().split('\n')
     eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
-    eval_src = [preprocess_sentence(w) for w in eval_src]
     eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
     targ_lang_tokenizer.fit_on_texts(eval_tgt)
 
@@ -106,19 +104,21 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
     with open(labels_path, 'rb') as edge_f:
         edge_labels = pickle.load(edge_f)
 
-    with open(node1_path, 'rb') as role_f:
-        node1 = pickle.load(role_f)
+    with open(node1_path, 'rb') as node1_f:
+        node1 = pickle.load(node1_f)
 
-    with open(node2_path, 'rb') as role_f:
-        node2 = pickle.load(role_f)
+    with open(node2_path, 'rb') as node2_f:
+        node2 = pickle.load(node2_f)
 
+    with open(eval, 'rb') as role_f:
+        eval_nodes = pickle.load(role_f)
 
     src_vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
     src_vocab.fit_on_texts(graph_nodes)
     src_vocab.fit_on_texts(edge_labels)
     src_vocab.fit_on_texts(node1)
     src_vocab.fit_on_texts(node2)
-    src_vocab.fit_on_texts(eval_src)
+    src_vocab.fit_on_texts(eval_nodes)
 
     node_tensor = src_vocab.texts_to_sequences(graph_nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor,padding='post') 
@@ -168,7 +168,7 @@ def get_gat_dataset(args, lang):
 
     (node_tensor, label_tensor, node1_tensor, node2_tensor,
      target_tensor, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.graph_nodes, args.edge_labels,args.edge_node1,
-                                                                              args.edge_node2, args.tgt_path, args.eval,args.eval_ref, lang)    # Pad the edge tensor to 16 size
+                                                                              args.edge_node2, args.tgt_path, args.eval_nodes,args.eval_ref, lang)    # Pad the edge tensor to 16 size
     node_padding = tf.constant([[0, 0], [0, 16-node_tensor.shape[1]]])
     node_tensor = tf.pad(node_tensor, node_padding, mode='CONSTANT')
     label_padding = tf.constant([[0, 0], [0, 16-label_tensor.shape[1]]])

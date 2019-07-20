@@ -273,7 +273,7 @@ if __name__ == '__main__':
                 from google.colab import drive
 
                 drive.mount('/content/gdrive')
-                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/eval'
+                OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/eval/'+args.lang
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
                 with open(OUTPUT_DIR+'/eval_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
@@ -284,7 +284,7 @@ if __name__ == '__main__':
                 with open(OUTPUT_DIR+'/eval_labels', 'wb') as fp:
                     pickle.dump(labels, fp)
             else:
-                OUTPUT_DIR = 'data/processed_graphs/'+args.lang+'/eval'
+                OUTPUT_DIR = 'data/processed_graphs/eval/'+args.lang
                 if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
                 with open(OUTPUT_DIR+'/eval_nodes', 'wb') as fp:
                     pickle.dump(nodes, fp)
@@ -292,5 +292,5 @@ if __name__ == '__main__':
                     pickle.dump(node1, fp)
                 with open(OUTPUT_DIR+'/eval_node2', 'wb') as fp:
                     pickle.dump(node2, fp)
-                with open(OUTPUT_DIR+'eval_labels', 'wb') as fp:
+                with open(OUTPUT_DIR+'/eval_labels', 'wb') as fp:
                     pickle.dump(labels, fp)
