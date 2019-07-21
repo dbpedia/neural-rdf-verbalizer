@@ -286,14 +286,13 @@ if __name__ == "__main__":
     if args.enc_type == 'gat':
         src_vocab, target_vocab = load_gat_vocabs(args.lang)
     for i,line in enumerate(f):
-        if i< args.num_eval_lines:
-            print(line)
-            result = inf(args, line, model, src_vocab, target_vocab)
-            result = result.strip('<start>')
-            result = result.strip('<end>')
-            verbalised_triples.append(result)
-            print(result)
-            s.write(result + '\n')
+        print(line)
+        result = inf(args, line, model, src_vocab, target_vocab)
+        result = result.strip('<start>')
+        result = result.strip('<end>')
+        verbalised_triples.append(result)
+        print(result)
+        s.write(result + '\n')
     #inf (line, model)
     ref_sentence = []
     reference = open(args.eval_ref, 'r')
