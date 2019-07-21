@@ -95,9 +95,9 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
                      tgt_path, eval, eval_ref, lang, num_examples=None):
     targ_lang = create_gat_dataset(tgt_path, lang)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
-    #eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
-    #eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
-    #targ_lang_tokenizer.fit_on_texts(eval_tgt)
+    eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
+    eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
+    targ_lang_tokenizer.fit_on_texts(eval_tgt)
 
     with open(nodes_path, 'rb') as f:
         graph_nodes = pickle.load(f)
@@ -119,7 +119,7 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
     src_vocab.fit_on_texts(edge_labels)
     src_vocab.fit_on_texts(node1)
     src_vocab.fit_on_texts(node2)
-    #src_vocab.fit_on_texts(eval_nodes)
+    src_vocab.fit_on_texts(eval_nodes)
 
     node_tensor = src_vocab.texts_to_sequences(graph_nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor,padding='post') 
