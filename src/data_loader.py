@@ -96,7 +96,7 @@ def load_gat_dataset(nodes_path, labels_path, node1_path, node2_path,
     targ_lang = create_gat_dataset(tgt_path, lang)
     targ_tensor, targ_lang_tokenizer = tokenize(targ_lang)
     eval_tgt = io.open(eval_ref, encoding='UTF-8').read().strip().split('\n')
-    eval_tgt = [preprocess_sentence(w) for w in eval_tgt]
+    eval_tgt = [preprocess_sentence(w, lang) for w in eval_tgt]
     targ_lang_tokenizer.fit_on_texts(eval_tgt)
 
     with open(nodes_path, 'rb') as f:
