@@ -41,7 +41,7 @@ def load_dataset(train_path, eval_path, lang, num_examples=None):
     return input_tensor, target_tensor, \
            eval_inp, vocab
 
-def load_gat_dataset(train_path, eval_path, lang, num_examples=None):
+def load_gat_dataset(train_path, eval_path, vocab_path, lang, num_examples=None):
     #load the train and eval datasets
     with open(train_path, 'rb') as f:
         train_set = pickle.load(f)
@@ -49,8 +49,7 @@ def load_gat_dataset(train_path, eval_path, lang, num_examples=None):
         eval_set = pickle.load(f)
 
     #load vocab
-    vocab_dir = 'vocabs/gat/'+lang+'/vocab'
-    with open(vocab_dir, 'rb') as f:
+    with open(vocab_path, 'rb') as f:
         vocab = pickle.load(f)
 
     train_input, train_tgt = zip(*train_set)
@@ -103,7 +102,8 @@ def get_dataset(args):
 def get_gat_dataset(args):
 
     (train_nodes, train_labels, train_node1, train_node2, train_tgt_tensor,
-     eval_nodes, eval_labels, eval_node1, eval_node2, vocab, max_length_targ) = load_gat_dataset(args.train_path, args.eval_path, args.lang)    # Pad the edge tensor to 16 size
+     eval_nodes, eval_labels, eval_node1, eval_node2, vocab, max_length_targ) = load_gat_dataset(args.train_path, args.eval_path, 
+                                                                                                 args.vocab_path, args.lang)    # Pad the edge tensor to 16 size
 
     node_padding = tf.constant([[0, 0], [0, 16-train_nodes.shape[1]]])
     node_tensor = tf.pad(train_nodes, node_padding, mode='CONSTANT')

@@ -24,6 +24,8 @@ parser.add_argument(
 parser.add_argument(
     '--eval_path', type=str, required=True, help='Path to eval dataset')
 parser.add_argument(
+    '--vocab_path', type=str, required=True, help='Path to Vocab of the dataset')
+parser.add_argument(
     '--lang', type=str, required=True, help='Lang of source and target files')
 parser.add_argument(
     '--eval', type=str, required=False, help='Path to Lex file of the Eval set')
