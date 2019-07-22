@@ -13,7 +13,6 @@ from tqdm import tqdm
 
 from src.data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
-from src.utils.model_utils import create_transgat_masks
 from src.utils.model_utils import CustomSchedule
 from src.utils.optimizers import LazyAdam
 from src.arguments import get_args
@@ -22,7 +21,6 @@ from src.models.transformer import Transformer
 from src.utils.metrics import LossLayer
 from inference import inf
 from src.utils.rogue import rouge_n
-from nltk.translate.bleu_score import corpus_bleu
 
 PARAMS_MAP = {
     "tiny": model_params.TINY_PARAMS,
@@ -230,6 +228,12 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_size, lang, dataset_size= get_dataset(args)
+        ref_sentence = []
+        reference = open(args.eval_ref, 'r')
+        for i, line in enumerate(reference):
+            if (i < (args.num_eval_lines)):
+                ref_sentence.append(line)
+        eval_file = open(args.eval, 'r')
         num_layers = args.enc_layers
         num_heads = args.num_heads
         d_model = args.emb_dim
@@ -286,14 +290,20 @@ if __name__ == "__main__":
 
         def eval_step(inp, tar):
             model.trainable = False
-            predictions = model(inp, tar, training=model.trainable)
-            predictions = model.metric_layer([predictions, tar])
-            loss = loss_layer([predictions, tar])
-            acc = model.metrics[0].result()
-            ppl = model.metrics[-1].result()
+            file = open(output_file, 'w+')
+            verbalised_triples = []
+            for i, line in enumerate(eval_file):
+                if i < args.num_eval_lines:
+                    result = inf(args, line, model, lang, lang)
+                    file.write(result + '\n')
+                    verbalised_triples.append(result)
+                    print(str(i) + ' ' + result)
+            rogue = (rouge_n(verbalised_triples, ref_sentence))
+            # score = corpus_bleu(ref_sentence, verbalised_triples)
+            file.close()
             model.trainable = True
 
-            return loss, acc, ppl
+            return rogue
 
         for epoch in range(epochs):
             start = time.time()
@@ -307,12 +317,9 @@ if __name__ == "__main__":
                         optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if (batch % args.eval_steps == 0):
-                        eval_loss, acc, ppl = eval_step(inp, tar)
+                        eval_loss = eval_step(inp, tar)
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Epoch {} Batch {} Eval Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                                                          eval_loss.numpy(),
-                                                                                                          acc.numpy(),
-                                                                                                          ppl.numpy()))
+                        print('Epoch {} Batch {} Rouge {:.4f}'.format(epoch, batch, eval_loss   ))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
                         batch_loss, acc, ppl = train_step(inp, tar)
@@ -330,8 +337,8 @@ if __name__ == "__main__":
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
-        (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch, vocab_tgt_size,
-         vocab_src_size, src_vocab, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args, args.lang)
+        (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+         vocab_size, vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):
@@ -339,9 +346,8 @@ if __name__ == "__main__":
                 ref_sentence.append(line)
         eval_file = open(args.eval, 'r')
 
-        model = TransGAT(args, vocab_src_size,
-                        vocab_tgt_size, tgt_vocab)
-        loss_layer = LossLayer(vocab_tgt_size, 0.1)
+        model = TransGAT(args, vocab_size, vocab)
+        loss_layer = LossLayer(vocab_size, 0.1)
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -371,8 +377,7 @@ if __name__ == "__main__":
 
         def train_step(nodes, labels, node1, node2, targ):
             with tf.GradientTape() as tape:
-                mask = create_transgat_masks(targ)
-                predictions = model(nodes, labels, node1, node2, targ, mask)
+                predictions = model(nodes, labels, node1, node2, targ, None)
                 predictions = model.metric_layer([predictions, targ])
                 batch_loss = loss_layer([predictions, targ])
 
@@ -390,7 +395,7 @@ if __name__ == "__main__":
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
-                    result = inf(args, line, model, src_vocab, tgt_vocab)
+                    result = inf(args, line, model, vocab, vocab)
                     file.write(result+'\n')
                     verbalised_triples.append(result)
                     print(str(i)+' '+result)

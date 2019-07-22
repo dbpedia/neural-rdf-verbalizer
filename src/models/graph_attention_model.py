@@ -66,22 +66,20 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args,vocab_src_size , vocab_tgt_size, target_lang):
+    def __init__(self, args,vocab_size, target_lang):
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
-        self.emb_src_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_src_size, args.emb_dim)
-        self.emb_tgt_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_tgt_size, args.hidden_size)
-        self.metric_layer = MetricLayer(vocab_tgt_size)
+        self.emb_layer = embedding_layer.EmbeddingSharedWeights(
+            vocab_size, args.emb_dim)
+        self.metric_layer = MetricLayer(vocab_size)
 
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,args.hidden_size,
                                     args.filter_size, reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder_stack = DecoderStack(args)
-        self.vocab_tgt_size = vocab_tgt_size
+        self.vocab_tgt_size = vocab_size
         self.target_lang = target_lang
         self.args = args
-        self.final_layer = tf.keras.layers.Dense(vocab_tgt_size)
+        self.final_layer = tf.keras.layers.Dense(vocab_size)
         self.num_heads = args.num_heads
 
     def _get_symbols_to_logits_fn(self, max_decode_length, training):
@@ -109,7 +107,7 @@ class TransGAT(tf.keras.Model):
             decoder_input = ids[:, -1:]
 
             # Preprocess decoder input by getting embeddings and adding timing signal.
-            decoder_input = self.emb_tgt_layer(decoder_input)
+            decoder_input = self.emb_layer(decoder_input)
             decoder_input += timing_signal[i:i + 1]
 
             self_attention_bias = decoder_self_attention_bias[:, :, i:i + 1, :i + 1]
@@ -172,10 +170,10 @@ class TransGAT(tf.keras.Model):
         :return: output probability distribution
         :rtype: tf.tensor
         """
-        node_tensor = self.emb_src_layer(nodes)
-        label_tensor = tf.cast(self.emb_src_layer(labels), dtype=tf.float32)
-        node1_tensor = tf.cast(self.emb_src_layer(node1), dtype=tf.float32)
-        node2_tensor = tf.cast(self.emb_src_layer(node2), dtype=tf.float32)
+        node_tensor = self.emb_layer(nodes)
+        label_tensor = tf.cast(self.emb_layer(labels), dtype=tf.float32)
+        node1_tensor = tf.cast(self.emb_layer(node1), dtype=tf.float32)
+        node2_tensor = tf.cast(self.emb_layer(node2), dtype=tf.float32)
 
         enc_output = self.encoder(node_tensor, label_tensor, node1_tensor, node2_tensor,
                                   self.num_heads, self.encoder.trainable)
@@ -183,7 +181,7 @@ class TransGAT(tf.keras.Model):
         attention_bias = tf.cast(attention_bias, tf.float32)
 
         if targ is not None:
-            decoder_inputs = tf.cast(self.emb_tgt_layer(targ), dtype=tf.float32)
+            decoder_inputs = tf.cast(self.emb_layer(targ), dtype=tf.float32)
         else:
             predictions = self.predict(enc_output, attention_bias, False)
             return predictions

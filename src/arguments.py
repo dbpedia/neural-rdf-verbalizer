@@ -20,31 +20,17 @@ parser.add_argument(
 
 # preprocess arguments
 parser.add_argument(
-    '--src_path', type=str, required=True, help='Path to source.triple file')
+    '--train_path', type=str, required=True, help='Path to train dataset')
 parser.add_argument(
-    '--tgt_path', type=str, required=True, help='Path to target.lex file')
+    '--eval_path', type=str, required=True, help='Path to eval dataset')
 parser.add_argument(
     '--lang', type=str, required=True, help='Lang of source and target files')
 parser.add_argument(
-    '--eval', type=str, required=False, help='Path to source.triple file of the Eval set')
+    '--eval', type=str, required=False, help='Path to Lex file of the Eval set')
 parser.add_argument(
     '--eval_ref', type=str, required=False, help='Path to Lex file of the Eval set')
 parser.add_argument(
     '--num_eval_lines', type=int, required=False, help='Number of sentences to be used to eval')
-parser.add_argument(
-    '--graph_adj', type=str, required=False, help='Path to adj matrices of examples')
-parser.add_argument(
-    '--graph_nodes', type=str, required=False, help='Path to nodes list of each example')
-parser.add_argument(
-    '--edge_labels', type=str, required=False, help='Path to labels of edges in each graph')
-parser.add_argument(
-    '--edge_node1', type=str, required=False, help='Path to node1 of each edges ')
-parser.add_argument(
-    '--edge_node2', type=str, required=False, help='Path to node2 of each edges ')
-parser.add_argument(
-    '--graph_roles', type=str, required=False, help='Path to role list of each example')
-parser.add_argument(
-    '--eval_nodes', type=str, required=False, help='Path to eval nodes ')
 
 # training parameters
 parser.add_argument(

@@ -22,7 +22,7 @@ def load_gat_vocabs(lang):
     return src_vocab, target_vocab
 
 def load_seq_vocabs():
-    with open('vocabs/seq2seq/vocab', 'rb') as f:
+    with open('vocabs/seq2seq/eng/vocab', 'rb') as f:
         vocab = pickle.load(f)
 
     return vocab
