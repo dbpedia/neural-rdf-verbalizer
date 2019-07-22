@@ -49,7 +49,7 @@ def load_gat_dataset(train_path, eval_path, lang, num_examples=None):
         eval_set = pickle.load(f)
 
     #load vocab
-    vocab_dir = '/home/dwarak/Desktop/projects/GSoC-19/vocabs/gat/'+lang+'/vocab'
+    vocab_dir = 'vocabs/gat/'+lang+'/vocab'
     with open(vocab_dir, 'rb') as f:
         vocab = pickle.load(f)
 
