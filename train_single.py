@@ -385,6 +385,7 @@ if __name__ == "__main__":
             optimizer.apply_gradients(zip(gradients, model.trainable_weights))
             acc = model.metrics[0].result()
             ppl = model.metrics[-1].result()
+            batch_loss = train_loss(batch_loss)
 
             return batch_loss, acc, ppl
 
@@ -427,7 +428,7 @@ if __name__ == "__main__":
                     else:
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                  batch_loss.numpy(), acc.numpy(), ppl.numpy()))
+                                                                  train_loss.result(), acc.numpy(), ppl.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
