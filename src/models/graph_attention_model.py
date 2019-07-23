@@ -86,7 +86,7 @@ class TransGAT(tf.keras.Model):
         """Returns a decoding function that calculates logits of the next tokens."""
 
         timing_signal = transformer_utils.get_position_encoding(
-            max_decode_length + 1, self.args.hidden_size)
+            max_decode_length + 1, self.args.emb_dim)
         decoder_self_attention_bias = transformer_utils.get_decoder_self_attention_bias(
             max_decode_length)
 
