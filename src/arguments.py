@@ -12,6 +12,9 @@ parser.add_argument(
     '--dec_type', default='rnn', type=str, required=True,
     help='Type of decoder Transformer | rnn')
 parser.add_argument(
+    '--opt', type=str, required=False, help='The mode in which GAT model is operated -> \
+                                             Use Roles method or Reification (roles, reif)')
+parser.add_argument(
     '--train', type=bool, required=False, help='In training mode or eval mode')
 
 # Colab options

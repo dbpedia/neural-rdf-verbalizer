@@ -41,7 +41,7 @@ class LayerNormalization(tf.keras.layers.Layer):
         mean = tf.reduce_mean(x, axis=[-1], keepdims=True)
         variance = tf.reduce_mean(tf.square(x - mean), axis=[-1], keepdims=True)
         norm_x = (x - mean) * tf.math.rsqrt(variance + epsilon)
-
+        
         return tf.cast(norm_x * self.scale + self.bias, input_dtype)
 
 class PrePostProcessingWrapper(tf.keras.layers.Layer):
