@@ -1,2 +1,2 @@
-tensorflow==1.14.0
- mosestokenizer==1.0.0
+tensorflow-gpu==1.14.0
+mosestokenizer==1.0.0
