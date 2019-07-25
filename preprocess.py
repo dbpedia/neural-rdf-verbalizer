@@ -225,7 +225,7 @@ if __name__ == '__main__':
             if args.use_colab is not None:
                 from google.colab import drive
 
-                drive.mount('/content/gdrive')
+                drive.mount('/content/gdrive', force_remount=True)
                 OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/'+args.model
                 if not os.path.isdir(OUTPUT_DIR): 
                     os.makedirs(OUTPUT_DIR)
@@ -285,7 +285,7 @@ if __name__ == '__main__':
             if args.use_colab is not None:
                 from google.colab import drive
 
-                drive.mount('/content/gdrive')
+                drive.mount('/content/gdrive', force_remount=True)
                 OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/'+args.model
                 if not os.path.isdir(OUTPUT_DIR):
                      os.makedirs(OUTPUT_DIR)
@@ -329,7 +329,7 @@ if __name__ == '__main__':
         if args.use_colab is not None:
                 from google.colab import drive
 
-                drive.mount('/content/gdrive')
+                drive.mount('/content/gdrive', force_remount=True)
                 OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/'+args.model
                 if not os.path.isdir(OUTPUT_DIR):
                      os.makedirs(OUTPUT_DIR)
