@@ -58,7 +58,7 @@ def load_gat_dataset(train_path, eval_path, vocab_path, opt, lang, num_examples=
         eval_input, eval_tgt = zip(*eval_set)
         (train_nodes, train_labels, train_node1, train_node2) = zip(*train_input)
         (eval_nodes, eval_labels, eval_node1, eval_node2) = zip(*eval_input)
-
+        
         train_node_tensor = vocab.texts_to_sequences(train_nodes)
         eval_node_tensor = vocab.texts_to_sequences(eval_nodes)
         train_node_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_node_tensor,padding='post')
@@ -140,7 +140,7 @@ def get_gat_dataset(args):
     if args.opt == 'reif':
         (train_nodes, train_labels, train_node1, train_node2, train_tgt_tensor,
         eval_nodes, eval_labels, eval_node1, eval_node2, vocab, max_length_targ) = load_gat_dataset(args.train_path, args.eval_path, 
-                                                                                                    args.vocab_path, args.opt, args.lang)    
+                                                                                                    args.vocab_path, args.opt, args.lang)
 
         node_padding = tf.constant([[0, 0], [0, 16-train_nodes.shape[1]]])
         node_tensor = tf.pad(train_nodes, node_padding, mode='CONSTANT')
@@ -223,4 +223,4 @@ def get_gat_dataset(args):
         eval_set = eval_set.batch(BATCH_SIZE, drop_remainder=True)
 
         return (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-                vocab_size, vocab, max_length_targ, dataset_size)
+                vocab_size, vocab, max_length, dataset_size)

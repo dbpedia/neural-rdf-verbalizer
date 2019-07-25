@@ -12,7 +12,6 @@ from src.models import graph_attention_model, transformer
 from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from src.arguments import get_args
 from src.utils.rogue import rouge_n
-from mosestokenizer import MosesDetokenizer
 
 def load_gat_vocabs(lang):
     with open('vocabs/gat/'+lang+'/src_vocab', 'rb') as f:

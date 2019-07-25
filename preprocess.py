@@ -67,7 +67,7 @@ def preprocess_sentence(w, lang):
 
     # adding a start and an end token to the sentence
     # so that the model know when to start and stop predicting.
-    w = '<start> ' + w + ' <end>'
+    w = 'start ' + w + ' end'
     return w
     return w
 
