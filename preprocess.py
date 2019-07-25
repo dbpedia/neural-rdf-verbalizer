@@ -192,6 +192,7 @@ def node_tensors(nodes, embedding):
 
 
 if __name__ == '__main__':
+    tokenizer = MosesTokenizer()
     if args.model == 'gat':
         if args.opt == 'role':
             print('Building the dataset...')
@@ -200,9 +201,9 @@ if __name__ == '__main__':
             
             print('Building the Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-            train_tgt = [preprocess_sentence(w, args.lang) for w in train_tgt]
+            train_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in train_tgt]
             eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-            eval_tgt = [preprocess_sentence(w, args.lang) for w in eval_tgt]
+            eval_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in eval_tgt]
 
             #Create the train and test sets 
             train_input = list(zip(train_adj, train_nodes, train_roles, train_edges))
@@ -247,7 +248,6 @@ if __name__ == '__main__':
             
             train_nodes, train_labels, train_node1, train_node2 = pre_process(args.train_src, args.lang)
             eval_nodes, eval_labels, eval_node1, eval_node2 = pre_process(args.eval_src, args.lang)
-            tokenizer = MosesTokenizer()
 
             # Build and save the vocab
             print('Building the Vocab file... ')
