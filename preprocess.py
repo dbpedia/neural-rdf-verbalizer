@@ -16,7 +16,6 @@ save the adjacency matrix as numpy array
 import tensorflow as tf
 
 import numpy as np
-from mosestokenizer import MosesTokenizer
 import networkx as nx
 import argparse
 import unicodedata
@@ -192,7 +191,6 @@ def node_tensors(nodes, embedding):
 
 
 if __name__ == '__main__':
-    tokenizer = MosesTokenizer()
     if args.model == 'gat':
         if args.opt == 'role':
             print('Building the dataset...')
@@ -252,9 +250,10 @@ if __name__ == '__main__':
             # Build and save the vocab
             print('Building the Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-            train_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in train_tgt]
+            train_tgt = [preprocess_sentence(w, args.lang) for w in train_tgt]
+            #vocab_train_tgt = [tokenizer(w) for w in train_tgt]
             eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-            eval_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in eval_tgt]
+            eval_tgt = [preprocess_sentence(w, args.lang) for w in eval_tgt]
 
             vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
             vocab.fit_on_texts(train_tgt)
