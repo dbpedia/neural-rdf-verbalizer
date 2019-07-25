@@ -12,6 +12,7 @@ from src.models import graph_attention_model, transformer
 from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from src.arguments import get_args
 from src.utils.rogue import rouge_n
+from mosestokenizer import MosesDetokenizer
 
 def load_gat_vocabs(lang):
     with open('vocabs/gat/'+lang+'/src_vocab', 'rb') as f:
@@ -155,9 +156,9 @@ def gat_eval(model, node_tensor, label_tensor,
     :rtype: str
     """
     model.trainable = False
-    start_token = [target_vocab.word_index['<start>']]
-    end_token = [target_vocab.word_index['<end>']]
-    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    start_token = [target_vocab.word_index['start']]
+    end_token = [target_vocab.word_index['end']]
+    dec_input = tf.expand_dims([target_vocab.word_index['start']], 0)
     result = ''
     '''
     for i in range(82):
@@ -169,7 +170,7 @@ def gat_eval(model, node_tensor, label_tensor,
         # return the result if the predicted_id is equal to the end token
         #predicted_id = tf.argmax(predictions[0]).numpy()
         result += target_vocab.index_word[predicted_id[0][0].numpy() ]+ ' '
-        if target_vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
+        if target_vocab.index_word[predicted_id[0][0].numpy()] == 'end':
             return result
         #if tf.equal(predicted_id, end_token[0]):
         #    return tf.squeeze(output, axis=0), attention_weights
@@ -184,9 +185,9 @@ def gat_eval(model, node_tensor, label_tensor,
     for i in pred:
         if i == 0:
             continue
-        if ((target_vocab.index_word[i] != '<start>')):
+        if ((target_vocab.index_word[i] != 'start')):
             result += target_vocab.index_word[i] + ' '
-        if (target_vocab.index_word[i] == '<end>'):
+        if (target_vocab.index_word[i] == 'end'):
             return result
     #'''
     return result
@@ -208,7 +209,7 @@ def seq2seq_eval(model, triple):
                                                            padding='post')
     encoder_input = tf.transpose(tensor)
     vocab = load_seq_vocabs()
-    dec_input = tf.expand_dims([vocab.word_index['<start>']], 0)
+    dec_input = tf.expand_dims([vocab.word_index['start']], 0)
     result = ''
     '''
     for i in range(82):
@@ -216,7 +217,7 @@ def seq2seq_eval(model, triple):
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
         predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
         result += vocab.index_word[predicted_id[0][0].numpy()] + ' '
-        if vocab.index_word[predicted_id[0][0].numpy()] == '<end>':
+        if vocab.index_word[predicted_id[0][0].numpy()] == 'end':
             return result
         # if tf.equal(predicted_id, end_token[0]):
         #    return tf.squeeze(output, axis=0), attention_weights
@@ -231,9 +232,9 @@ def seq2seq_eval(model, triple):
     for i in pred:
         if i==0:
             continue
-        if ((vocab.index_word[i] != '<start>') or (vocab.index_word[i] != '<end>')):
+        if ((vocab.index_word[i] != 'start') or (vocab.index_word[i] != 'end')):
             result += vocab.index_word[i] + ' '
-        if (vocab.index_word[i] == '<end>'):
+        if (vocab.index_word[i] == 'end'):
             return result
 
     return result
@@ -246,7 +247,7 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
     enc_out_hidden = tf.reshape(enc_out, shape=[enc_out.shape[0], -1])
     enc_hidden = model.hidden(enc_out_hidden)
     dec_hidden = enc_hidden
-    dec_input = tf.expand_dims([target_vocab.word_index['<start>']], 0)
+    dec_input = tf.expand_dims([target_vocab.word_index['start']], 0)
     result = ''
     for t in range(82):
         predictions, dec_hidden, attention_weights = model.decoder(dec_input,
@@ -254,7 +255,7 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
                                                              enc_out)
         predicted_id = tf.argmax(predictions[0]).numpy()
         result += target_vocab.index_word[predicted_id] + ' '
-        if target_vocab.index_word[predicted_id] == '<end>':
+        if target_vocab.index_word[predicted_id] == 'end':
             return result
         dec_input = tf.expand_dims([predicted_id], 0)
 
@@ -288,8 +289,8 @@ if __name__ == "__main__":
     for i,line in enumerate(f):
         print(line)
         result = inf(args, line, model, src_vocab, target_vocab)
-        result = result.strip('<start>')
-        result = result.strip('<end>')
+        result = result.strip('start')
+        result = result.strip('end')
         verbalised_triples.append(result)
         print(result)
         s.write(result + '\n')
