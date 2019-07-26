@@ -21,8 +21,8 @@ def load_gat_vocabs(lang):
 
     return src_vocab, target_vocab
 
-def load_seq_vocabs():
-    with open('vocabs/seq2seq/eng/vocab', 'rb') as f:
+def load_seq_vocabs(vocab_path):
+    with open(vocab_path, 'rb') as f:
         vocab = pickle.load(f)
 
     return vocab
@@ -61,7 +61,7 @@ def load_model(args):
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        vocab = load_seq_vocabs()
+        vocab = load_seq_vocabs(args.vocab_path)
         vocab_size = len(vocab.word_index) + 1
         model = transformer.Transformer(args, vocab_size)
 
@@ -191,7 +191,7 @@ def gat_eval(model, node_tensor, label_tensor,
     #'''
     return result
 
-def seq2seq_eval(model, triple):
+def seq2seq_eval(model, triple, vocab_path):
     """
     Function to carry out inference for Transformer model.
     :param model: The model object
@@ -202,12 +202,11 @@ def seq2seq_eval(model, triple):
     :rtype: str
     """
     model.trainable = False
-    source_vocab = load_seq_vocabs()
-    tensor = source_vocab.texts_to_sequences(triple)
+    vocab = load_seq_vocabs(vocab_path)
+    tensor = vocab.texts_to_sequences(triple)
     tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
                                                            padding='post')
     encoder_input = tf.transpose(tensor)
-    vocab = load_seq_vocabs()
     dec_input = tf.expand_dims([vocab.word_index['start']], 0)
     result = ''
     '''
@@ -266,7 +265,7 @@ def inf(args, triple, model, src_vocab, target_vocab):
         result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
-        result = seq2seq_eval(model, triple)
+        result = seq2seq_eval(model, triple, args.vocab_path)
         return result
     else:
         node_tensor, role_tensor, adj = process_gat_sentence(triple)
