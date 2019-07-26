@@ -294,6 +294,7 @@ if __name__ == "__main__":
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
+                    print(line)
                     result = inf(args, line, model, lang, lang)
                     file.write(result + '\n')
                     verbalised_triples.append(result)

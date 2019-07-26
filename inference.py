@@ -230,7 +230,7 @@ def seq2seq_eval(model, triple, vocab_path):
     for i in pred:
         if i==0:
             continue
-        if ((vocab.index_word[i] != 'start') or (vocab.index_word[i] != 'end')):
+        if ((vocab.index_word[i] != 'start')):
             result += vocab.index_word[i] + ' '
         if (vocab.index_word[i] == 'end'):
             return result
@@ -284,6 +284,9 @@ if __name__ == "__main__":
     verbalised_triples = []
     if args.enc_type == 'gat':
         src_vocab, target_vocab = load_gat_vocabs(args.lang)
+    else:
+        src_vocab = load_seq_vocabs(args.vocab_path)
+
     for i,line in enumerate(f):
         print(line)
         result = inf(args, line, model, src_vocab, target_vocab)
@@ -292,7 +295,9 @@ if __name__ == "__main__":
         verbalised_triples.append(result)
         print(result)
         s.write(result + '\n')
-    #inf (line, model)
+
+    #print(inf (args, triple=line, model=model, src_vocab=src_vocab,target_vocab=src_vocab))
+    #exit(0)
     ref_sentence = []
     reference = open(args.eval_ref, 'r')
     for i, line in enumerate(reference):
