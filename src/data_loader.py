@@ -22,7 +22,7 @@ def load_dataset(train_path, eval_path, lang, num_examples=None):
     with open(eval_path, 'rb') as f:
         eval_set = pickle.load(f)
 
-    vocab_dir = '/home/dwarak/Desktop/projects/GSoC-19/vocabs/seq2seq/' + lang + '/vocab'
+    vocab_dir = 'vocabs/seq2seq/' + lang + '/vocab'
     with open(vocab_dir, 'rb') as f:
         vocab = pickle.load(f)
 
