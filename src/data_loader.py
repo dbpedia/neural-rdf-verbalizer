@@ -5,7 +5,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import tensorflow as tf
 
 import pickle
-import numpy as np 
+import numpy as np
+import os
 
 def max_length(tensor):
     return max(len(t) for t in tensor)
@@ -15,15 +16,14 @@ def convert(lang, tensor):
         if t != 0:
             print("%d ----> %s" % (t, lang.index_word[t.numpy()]))
 
-def load_dataset(train_path, eval_path, lang, num_examples=None):
+def load_dataset(train_path, eval_path, vocab_path, lang, num_examples=None):
     # load the train and eval datasets
     with open(train_path, 'rb') as f:
         train_set = pickle.load(f)
     with open(eval_path, 'rb') as f:
         eval_set = pickle.load(f)
-
-    vocab_dir = 'vocabs/seq2seq/' + lang + '/vocab'
-    with open(vocab_dir, 'rb') as f:
+    # load vocab
+    with open(vocab_path, 'rb') as f:
         vocab = pickle.load(f)
 
     train_inp, train_tgt = zip(*train_set)
@@ -122,7 +122,7 @@ def load_gat_dataset(train_path, eval_path, vocab_path, opt, lang, num_examples=
 
 def get_dataset(args):
 
-    input_tensor, target_tensor, eval_tensor, lang = load_dataset(args.train_path, args.eval_path, args.lang, args.num_examples)
+    input_tensor, target_tensor, eval_tensor, lang = load_dataset(args.train_path, args.eval_path, args.vocab_path, args.lang, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
