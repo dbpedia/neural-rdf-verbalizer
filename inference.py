@@ -209,7 +209,7 @@ def seq2seq_eval(model, triple, vocab_path):
     encoder_input = tf.transpose(tensor)
     dec_input = tf.expand_dims([vocab.word_index['start']], 0)
     result = ''
-    '''
+
     for i in range(82):
         predictions= model(inputs=encoder_input, targets=None, training=False)
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
@@ -234,7 +234,7 @@ def seq2seq_eval(model, triple, vocab_path):
             result += vocab.index_word[i] + ' '
         if (vocab.index_word[i] == 'end'):
             return result
-
+    '''
     return result
 
 def rnn_eval(args, model, node_tensor, role_tensor, adj):
