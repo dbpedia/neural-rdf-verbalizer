@@ -209,7 +209,7 @@ def seq2seq_eval(model, triple, vocab_path):
     encoder_input = tf.transpose(tensor)
     dec_input = tf.expand_dims([vocab.word_index['start']], 0)
     result = ''
-
+    '''
     for i in range(82):
         predictions= model(inputs=encoder_input, targets=None, training=False)
         predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
@@ -234,7 +234,7 @@ def seq2seq_eval(model, triple, vocab_path):
             result += vocab.index_word[i] + ' '
         if (vocab.index_word[i] == 'end'):
             return result
-    '''
+
     return result
 
 def rnn_eval(args, model, node_tensor, role_tensor, adj):
@@ -263,6 +263,7 @@ def inf(args, triple, model, src_vocab, target_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
         node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab, args.lang)
         result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
+        result = result[:-4]
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         result = seq2seq_eval(model, triple, args.vocab_path)
