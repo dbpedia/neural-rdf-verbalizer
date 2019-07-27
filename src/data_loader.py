@@ -6,15 +6,7 @@ import tensorflow as tf
 
 import pickle
 import numpy as np
-import os
-
-def max_length(tensor):
-    return max(len(t) for t in tensor)
-
-def convert(lang, tensor):
-    for t in tensor:
-        if t != 0:
-            print("%d ----> %s" % (t, lang.index_word[t.numpy()]))
+from src.utils.model_utils import max_length, convert
 
 def load_dataset(train_path, eval_path, vocab_path, lang, num_examples=None):
     # load the train and eval datasets

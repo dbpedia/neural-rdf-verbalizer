@@ -6,24 +6,15 @@ import argparse
 from pathlib import Path
 import numpy as np
 import os
-#from src.data_loader import max_length, convert, get_gat_dataset
+from src.utils.model_utils import convert, max_length
 
 languages = ['eng', 'rus', 'ger']
-parser = argparse.ArgumentParser(description="Main Arguments")
 
-# model paramteres
-parser.add_argument(
-    '--model', default='rnn', type=str, required=True,
-    help='Type of encoder Transformer | gat | rnn')
-parser.add_argument(
-    '--opt', default='rnn', type=str, required=True,
-    help='Type of decoder Transformer | rnn')
-parser.add_argument(
-    '--lang', default='rnn', type=str, required=True,
-    help='Type of decoder Transformer | rnn')
-parser.add_argument(
-    '--use_colab', default=None, type=str, required=False,
-    help='Type of decoder Transformer | rnn')
+def padding(tensor, max_length):
+    padding = tf.constant([[0, 0], [0, max_length - tensor.shape[1]]])
+    padded_tensor = tf.pad(tensor, padding, mode='CONSTANT')
+
+    return padded_tensor
 
 def load_gat_multidataset(args):
     """
@@ -35,7 +26,7 @@ def load_gat_multidataset(args):
     """
     dataset = {}
     CUR_DIR = os.getcwd()
-    levels_up = 1
+    levels_up = 0
     DATA_PATH = (os.path.normpath(os.path.join(*([CUR_DIR]+[".."]*levels_up))))+'/data/processed_graphs/'
 
     TRAIN_DIRS = [DATA_PATH+lang+'/'+args.model+'/'+args.opt+'_train' for lang in languages]
@@ -90,7 +81,13 @@ def load_gat_multidataset(args):
 
     return dataset, vocab
 
-def process_gat_multidataset(dataset, vocab):
+def process_gat_multidataset(args):
+    multi_dataset_comps = {}
+    dataset, vocab = load_gat_multidataset(args)
+    (multi_dataset_comps['nodes'], multi_dataset_comps['labels'],
+    multi_dataset_comps['node1'], multi_dataset_comps['node2']) = [], [], [], []
+
+    BUFFER_SIZE = 0
     for lang in languages:
         dataset[lang+'_train_nodes'] = vocab.texts_to_sequences(dataset[lang+'_train_nodes'])
         dataset[lang + '_train_labels'] = vocab.texts_to_sequences(dataset[lang + '_train_labels'])
@@ -99,20 +96,32 @@ def process_gat_multidataset(dataset, vocab):
 
         dataset[lang + '_train_tgt'] = vocab.texts_to_sequences(dataset[lang + '_train_tgt'])
 
-        dataset[lang + '_train_nodes'] = tf.keras.preprocessing.sequence.pad_sequences(dataset[lang+'_train_nodes'],
-                                                                                        padding='post')
-        dataset[lang + '_train_labels'] = tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_labels'],
-                                                                                       padding='post')
-        dataset[lang + '_train_node1'] = tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_node1'],
-                                                                                       padding='post')
-        dataset[lang + '_train_node2'] = tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_node2'],
-                                                                                       padding='post')
-        dataset[lang + '_train_tgt'] = tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_tgt'],
-                                                                                       padding='post')
+        dataset[lang + '_train_nodes'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang+'_train_nodes'],
+                                                                                        padding='post'), 16)
+        dataset[lang + '_train_labels'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_labels'],
+                                                                                       padding='post'), 16)
+        dataset[lang + '_train_node1'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_node1'],
+                                                                                       padding='post'), 16)
+        dataset[lang + '_train_node2'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_node2'],
+                                                                                       padding='post'), 16)
+        dataset[lang + '_train_tgt'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_tgt'],
+                                                                                       padding='post'), 222)
+        BUFFER_SIZE += (dataset[lang+'_train_nodes']).shape[0]
 
+    multilingual_target = tf.concat([dataset[lang+'_train_tgt'] for lang in languages], axis=0)
+    multilingual_nodes = tf.concat([dataset[lang+'_train_nodes'] for lang in languages], axis=0)
+    multilingual_labels = tf.concat([dataset[lang + '_train_labels'] for lang in languages], axis=0)
+    multilingual_node1 = tf.concat([dataset[lang + '_train_node1'] for lang in languages], axis=0)
+    multilingual_node2 = tf.concat([dataset[lang + '_train_node2'] for lang in languages], axis=0)
 
+    BATCH_SIZE = 32
+    steps_per_epoch = BUFFER_SIZE // BATCH_SIZE
+    vocab_size = len(vocab.word_index) + 1
+    dataset_size = multilingual_target.shape[0]
 
+    multilingual_dataset = tf.data.Dataset.from_tensor_slices((multilingual_nodes, multilingual_labels,
+                                                  multilingual_node1, multilingual_node2, multilingual_target)).shuffle(BUFFER_SIZE)
+    multilingual_dataset = multilingual_dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-if __name__ == "__main__":
-    args = parser.parse_args()
-    load_gat_multidataset(args)
+    return (multilingual_dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+            vocab_size, vocab, multilingual_target.shape[-1], dataset_size)

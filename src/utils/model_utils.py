@@ -11,6 +11,14 @@ import numpy as np
 
 _NEG_INF = -1e9
 
+def max_length(tensor):
+    return max(len(t) for t in tensor)
+
+def convert(lang, tensor):
+    for t in tensor:
+        if t != 0:
+            print("%d ----> %s" % (t, lang.index_word[t.numpy()]))
+
 def model_summary(model):
     """
     Gives summary of model and its params
