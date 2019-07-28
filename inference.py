@@ -263,7 +263,7 @@ def inf(args, triple, model, src_vocab, target_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
         node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab, args.lang)
         result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
-        result = result[:-4]
+        #result = result[:-4]
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         result = seq2seq_eval(model, triple, args.vocab_path)
