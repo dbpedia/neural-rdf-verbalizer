@@ -102,6 +102,8 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     temp_label = []
 
     triple_list = line.split('< TSP >')
+    if lang == 'eng':
+        triple_list = triple_list[:-1]
     for l in triple_list:
         l = l.strip().split(' | ')
         #l = ['<'+lang+'> ' + x for x in l]
