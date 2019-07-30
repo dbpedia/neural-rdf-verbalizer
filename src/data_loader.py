@@ -7,6 +7,7 @@ import tensorflow as tf
 import pickle
 import numpy as np
 from src.utils.model_utils import max_length, convert
+import sentencepiece as spm
 
 def load_dataset(train_path, eval_path, vocab_path, lang, num_examples=None):
     # load the train and eval datasets
@@ -34,7 +35,8 @@ def load_dataset(train_path, eval_path, vocab_path, lang, num_examples=None):
     return input_tensor, target_tensor, \
            eval_inp, vocab
 
-def load_gat_dataset(train_path, eval_path, vocab_path, opt, lang, num_examples=None):
+def load_gat_dataset(train_path, eval_path, srv_vocab,
+                     tgt_vocab, opt, lang, num_examples=None):
     if opt == 'reif':
         #load the train and eval datasets
         with open(train_path, 'rb') as f:
@@ -43,39 +45,44 @@ def load_gat_dataset(train_path, eval_path, vocab_path, opt, lang, num_examples=
             eval_set = pickle.load(f)
 
         #load vocab
-        with open(vocab_path, 'rb') as f:
-            vocab = pickle.load(f)  
+        with open(srv_vocab, 'rb') as f:
+            src_vocab = pickle.load(f)
+        #load the target vocab
+        sp = spm.SentencePieceProcessor()
+        sp.load(tgt_vocab)
+
 
         train_input, train_tgt = zip(*train_set)
         eval_input, eval_tgt = zip(*eval_set)
         (train_nodes, train_labels, train_node1, train_node2) = zip(*train_input)
         (eval_nodes, eval_labels, eval_node1, eval_node2) = zip(*eval_input)
         
-        train_node_tensor = vocab.texts_to_sequences(train_nodes)
-        eval_node_tensor = vocab.texts_to_sequences(eval_nodes)
+        train_node_tensor = src_vocab.texts_to_sequences(train_nodes)
+        eval_node_tensor = src_vocab.texts_to_sequences(eval_nodes)
         train_node_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_node_tensor,padding='post')
         eval_node_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_node_tensor, padding='post')
 
-        train_label_tensor = vocab.texts_to_sequences(train_labels)
-        eval_label_tensor = vocab.texts_to_sequences(eval_labels)
+        train_label_tensor = src_vocab.texts_to_sequences(train_labels)
+        eval_label_tensor = src_vocab.texts_to_sequences(eval_labels)
         train_label_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_label_tensor, padding='post')
         eval_label_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_label_tensor, padding='post')
 
-        train_node1_tensor = vocab.texts_to_sequences(train_node1)
-        eval_node1_tensor = vocab.texts_to_sequences(eval_node1)
+        train_node1_tensor = src_vocab.texts_to_sequences(train_node1)
+        eval_node1_tensor = src_vocab.texts_to_sequences(eval_node1)
         train_node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_node1_tensor, padding='post')
         eval_node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_node1_tensor, padding='post')
 
-        train_node2_tensor = vocab.texts_to_sequences(train_node2)
-        eval_node2_tensor = vocab.texts_to_sequences(eval_node2)
+        train_node2_tensor = src_vocab.texts_to_sequences(train_node2)
+        eval_node2_tensor = src_vocab.texts_to_sequences(eval_node2)
         train_node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_node2_tensor, padding='post')
         eval_node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_node2_tensor, padding='post')
 
-        train_tgt_tensor = vocab.texts_to_sequences(train_tgt)
+        #train_tgt_tensor = vocab.texts_to_sequences(train_tgt)
+        train_tgt_tensor = [sp.encode_as_ids(w) for w in train_tgt]
         train_tgt_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_tgt_tensor, padding='post')
 
         return (train_node_tensor, train_label_tensor, train_node1_tensor, train_node2_tensor, train_tgt_tensor,
-                eval_node_tensor, eval_label_tensor, eval_node1_tensor, eval_node2_tensor, vocab, max_length(train_tgt_tensor))
+                eval_node_tensor, eval_label_tensor, eval_node1_tensor, eval_node2_tensor, src_vocab, sp, max_length(train_tgt_tensor))
     else:
         #load the train and eval datasets
         with open(train_path, 'rb') as f:
@@ -83,34 +90,34 @@ def load_gat_dataset(train_path, eval_path, vocab_path, opt, lang, num_examples=
         with open(eval_path, 'rb') as f:
             eval_set = pickle.load(f)
         #load vocab
-        with open(vocab_path, 'rb') as f:
-            vocab = pickle.load(f)  
+        with open(srv_vocab, 'rb') as f:
+            src_vocab = pickle.load(f)
 
         train_input, train_tgt = zip(*train_set)
         eval_input, eval_tgt = zip(*eval_set)
         (train_adj, train_nodes, train_roles, train_edges) = zip(*train_input)
         (eval_adj, eval_nodes, eval_roles, eval_edges) = zip(*eval_input)
 
-        train_node_tensor = vocab.texts_to_sequences(train_nodes)
-        eval_node_tensor = vocab.texts_to_sequences(eval_nodes)
+        train_node_tensor = src_vocab.texts_to_sequences(train_nodes)
+        eval_node_tensor = src_vocab.texts_to_sequences(eval_nodes)
         train_node_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_node_tensor,padding='post')
         eval_node_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_node_tensor, padding='post')
 
-        train_role_tensor = vocab.texts_to_sequences(train_roles)
-        eval_role_tensor = vocab.texts_to_sequences(eval_roles)
+        train_role_tensor = src_vocab.texts_to_sequences(train_roles)
+        eval_role_tensor = src_vocab.texts_to_sequences(eval_roles)
         train_role_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_role_tensor, padding='post')
         eval_role_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_role_tensor, padding='post')
 
-        train_edges_tensor = vocab.texts_to_sequences(train_edges)
-        eval_edges_tensor = vocab.texts_to_sequences(eval_edges)
+        train_edges_tensor = src_vocab.texts_to_sequences(train_edges)
+        eval_edges_tensor = src_vocab.texts_to_sequences(eval_edges)
         train_edges_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_edges_tensor, padding='post')
         eval_edges_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_edges_tensor, padding='post')
 
-        train_tgt_tensor = vocab.texts_to_sequences(train_tgt)
+        train_tgt_tensor = src_vocab.texts_to_sequences(train_tgt)
         train_tgt_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_tgt_tensor, padding='post')
 
         return (train_adj, train_node_tensor, train_role_tensor, train_edges_tensor, train_tgt_tensor, eval_adj, 
-                eval_node_tensor, eval_role_tensor, eval_edges_tensor, vocab, max_length(train_tgt_tensor))
+                eval_node_tensor, eval_role_tensor, eval_edges_tensor, src_vocab, max_length(train_tgt_tensor))
 
 def get_dataset(args):
 
@@ -131,8 +138,8 @@ def get_dataset(args):
 def get_gat_dataset(args):
     if args.opt == 'reif':
         (train_nodes, train_labels, train_node1, train_node2, train_tgt_tensor,
-        eval_nodes, eval_labels, eval_node1, eval_node2, vocab, max_length_targ) = load_gat_dataset(args.train_path, args.eval_path, 
-                                                                                                    args.vocab_path, args.opt, args.lang)
+        eval_nodes, eval_labels, eval_node1, eval_node2, src_vocab, tgt_vocab, max_length_targ) = load_gat_dataset(args.train_path, args.eval_path,
+                                                                                                    args.src_vocab, args.tgt_vocab, args.opt, args.lang)
 
         node_padding = tf.constant([[0, 0], [0, 16-train_nodes.shape[1]]])
         node_tensor = tf.pad(train_nodes, node_padding, mode='CONSTANT')
@@ -159,7 +166,8 @@ def get_gat_dataset(args):
         BUFFER_SIZE = len(train_tgt_tensor)
         BATCH_SIZE = args.batch_size
         steps_per_epoch = len(train_tgt_tensor) // BATCH_SIZE
-        vocab_size = len(vocab.word_index) + 1
+        src_vocab_size = len(src_vocab.word_index) + 1
+        tgt_vocab_size = tgt_vocab.get_piece_size()
         dataset_size = train_tgt_tensor.shape[0]
 
         dataset = tf.data.Dataset.from_tensor_slices((node_tensor, label_tensor,
@@ -171,12 +179,13 @@ def get_gat_dataset(args):
         eval_set = eval_set.batch(BATCH_SIZE, drop_remainder=True)
 
         return (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-                vocab_size, vocab, max_length_targ, dataset_size)
+                src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab,
+                max_length_targ, dataset_size)
     
     else:
         (train_adj, train_node_tensor, train_role_tensor, 
         train_edges_tensor, train_tgt_tensor, eval_adj, eval_node_tensor, 
-        eval_role_tensor, eval_edges_tensor, vocab, max_length) = load_gat_dataset(args.train_path, args.eval_path, 
+        eval_role_tensor, eval_edges_tensor, src_vocab, max_length) = load_gat_dataset(args.train_path, args.eval_path, 
                                                                                    args.vocab_path, args.opt, args.lang)
         node_padding = tf.constant([[0, 0], [0, 16-train_node_tensor.shape[1]]])
         node_tensor = tf.pad(train_node_tensor, node_padding, mode='CONSTANT')
@@ -200,7 +209,7 @@ def get_gat_dataset(args):
         BUFFER_SIZE = len(train_tgt_tensor)
         BATCH_SIZE = args.batch_size
         steps_per_epoch = len(train_tgt_tensor) // BATCH_SIZE
-        vocab_size = len(vocab.word_index) + 1
+        src_vocab_size = len(src_vocab.word_index) + 1
         dataset_size = train_tgt_tensor.shape[0]
 
         #convert adj list to numpy array 
@@ -215,4 +224,4 @@ def get_gat_dataset(args):
         eval_set = eval_set.batch(BATCH_SIZE, drop_remainder=True)
 
         return (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-                vocab_size, vocab, max_length, dataset_size)
+                src_vocab_size, src_vocab, max_length, dataset_size)

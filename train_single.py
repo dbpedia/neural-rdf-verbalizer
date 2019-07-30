@@ -226,8 +226,8 @@ if __name__ == "__main__":
     elif args.enc_type == 'transformer' and args.dec_type =="transformer":
       
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
-        dataset, BUFFER_SIZE, BATCH_SIZE,\
-        steps_per_epoch, vocab_size, lang, dataset_size= get_dataset(args)
+        dataset, BUFFER_SIZE, BATCH_SIZE, \
+        steps_per_epoch, src_vocab_size, lang, dataset_size= get_dataset(args)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):
@@ -258,8 +258,8 @@ if __name__ == "__main__":
         train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
             name='train_accuracy')
         
-        model = Transformer(args, vocab_size)
-        loss_layer = LossLayer(vocab_size, 0.1)
+        model = Transformer(args, src_vocab_size)
+        loss_layer = LossLayer(src_vocab_size, 0.1)
 
         ckpt = tf.train.Checkpoint(
             model = model,
@@ -295,7 +295,7 @@ if __name__ == "__main__":
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
                     print(line)
-                    result = inf(args, line, model, lang, lang)
+                    result = inf(args, line, model, lang)
                     file.write(result + '\n')
                     verbalised_triples.append(result)
                     print(str(i) + ' ' + result)
@@ -339,7 +339,7 @@ if __name__ == "__main__":
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
         (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         vocab_size, vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
+         src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):
@@ -347,14 +347,15 @@ if __name__ == "__main__":
                 ref_sentence.append(line)
         eval_file = open(args.eval, 'r')
 
-        model = TransGAT(args, vocab_size, vocab)
-        loss_layer = LossLayer(vocab_size, 0.1)
+        model = TransGAT(args, src_vocab_size, src_vocab,
+                         tgt_vocab_size, tgt_vocab)
+        loss_layer = LossLayer(tgt_vocab_size, 0.1)
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
         else:
-            optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
+            optimizer = tf.train.AdamOptimizer(learning_rate = args.learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
         step =0
 
@@ -397,7 +398,8 @@ if __name__ == "__main__":
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
-                    result = inf(args, line, model, vocab, vocab)
+                    result = inf(args, line, model,
+                                 src_vocab, tgt_vocab)
                     file.write(result+'\n')
                     verbalised_triples.append(result)
                     print(str(i)+' '+result)

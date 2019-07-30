@@ -66,20 +66,21 @@ class TransGAT(tf.keras.Model):
     """
     Model that uses Graph Attention encoder and RNN decoder (for now)
     """
-    def __init__(self, args,vocab_size, target_lang):
+    def __init__(self, args, src_vocab_size,
+                 src_lang, tgt_vocab_size, tgt_vocab):
         super(TransGAT, self).__init__()
         self.regularizer = tf.contrib.layers.l2_regularizer(scale=0.1)
         self.emb_layer = embedding_layer.EmbeddingSharedWeights(
-            vocab_size, args.emb_dim)
-        self.metric_layer = MetricLayer(vocab_size)
+            src_vocab_size, args.emb_dim)
+        self.metric_layer = MetricLayer(tgt_vocab_size)
 
         self.encoder = GraphEncoder(args.enc_layers, args.emb_dim, args.num_heads,args.hidden_size,
                                     args.filter_size, reg_scale= args.reg_scale, rate=args.dropout)
         self.decoder_stack = DecoderStack(args)
-        self.vocab_tgt_size = vocab_size
-        self.target_lang = target_lang
+        self.vocab_tgt_size = tgt_vocab_size
+        self.target_lang = src_lang
         self.args = args
-        self.final_layer = tf.keras.layers.Dense(vocab_size)
+        self.final_layer = tf.keras.layers.Dense(tgt_vocab_size)
         self.num_heads = args.num_heads
 
     def _get_symbols_to_logits_fn(self, max_decode_length, training):

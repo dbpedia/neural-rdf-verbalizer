@@ -15,12 +15,12 @@ save the adjacency matrix as numpy array
 """
 import tensorflow as tf
 
+import sentencepiece as spm
 import numpy as np
 import networkx as nx
 import argparse
 import unicodedata
 import pickle
-import re
 import io
 import os
 
@@ -44,6 +44,17 @@ parser.add_argument(
 
 args = parser.parse_args()
 
+#intialise sentence piece
+def train_vocabs(args):
+    os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
+    spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +' \
+                                    --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
+                                    --vocab_size=8000 --character_coverage=1.0 --model_type=bpe')
+    sp = spm.SentencePieceProcessor()
+    sp.load('vocabs/'+args.model+'/'+args.lang+'/train_tgt.model')
+
+    return sp
+
 def unicode_to_ascii(s):
     return ''.join(c for c in unicodedata.normalize('NFD', s)
                    if unicodedata.category(c) != 'Mn')
@@ -55,19 +66,18 @@ def preprocess_sentence(w, lang):
     # creating a space between a word and the punctuation following it
     # eg: "he is a boy." => "he is a boy ."
     # Reference:- https://stackoverflow.com/questions/3645931/python-padding-punctuation-with-white-spaces-keeping-punctuation
-    w = re.sub(r"([?.!,¿])", r" \1 ", w)
-    w = re.sub(r'[" "]+', " ", w)
+   # w = re.sub(r"([?.!,¿])", r" \1 ", w)
+    #w = re.sub(r'[" "]+', " ", w)
 
     # replacing everything with space except (a-z, A-Z, ".", "?", "!", ",")
-    if lang== 'eng':
-        w = re.sub(r"[^0-9a-zA-Z?.!,¿]+", " ", w)
+    #if lang== 'eng':
+    #   w = re.sub(r"[^0-9a-zA-Z?.!,¿]+", " ", w)
 
     w = w.rstrip().strip()
 
     # adding a start and an end token to the sentence
     # so that the model know when to start and stop predicting.
     w = 'start ' + w + ' end'
-    return w
     return w
 
 def pre_process_with_roles(path):
@@ -144,6 +154,7 @@ def pre_process(path, lang):
         temp_node1 = []
         temp_node2 = []
         triple_list = line.split('< TSP >')
+        #triple_list = triple_list[:-1]
         for l in triple_list:
             l = l.strip().split(' | ')
             #l = [lang+' '+x for x in l]
@@ -199,9 +210,9 @@ if __name__ == '__main__':
             
             print('Building the Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-            train_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in train_tgt]
+            train_tgt = [(preprocess_sentence(w, args.lang)) for w in train_tgt]
             eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-            eval_tgt = [tokenizer(preprocess_sentence(w, args.lang)) for w in eval_tgt]
+            eval_tgt = [(preprocess_sentence(w, args.lang)) for w in eval_tgt]
 
             #Create the train and test sets 
             train_input = list(zip(train_adj, train_nodes, train_roles, train_edges))
@@ -243,12 +254,14 @@ if __name__ == '__main__':
                 pickle.dump(vocab, fp)
 
         elif args.opt == 'reif':
-            
+
+            vocab = train_vocabs(args)
+
             train_nodes, train_labels, train_node1, train_node2 = pre_process(args.train_src, args.lang)
             eval_nodes, eval_labels, eval_node1, eval_node2 = pre_process(args.eval_src, args.lang)
 
             # Build and save the vocab
-            print('Building the Vocab file... ')
+            print('Building the  Source Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
             train_tgt = [preprocess_sentence(w, args.lang) for w in train_tgt]
             #vocab_train_tgt = [tokenizer(w) for w in train_tgt]
@@ -256,7 +269,7 @@ if __name__ == '__main__':
             eval_tgt = [preprocess_sentence(w, args.lang) for w in eval_tgt]
 
             vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
-            vocab.fit_on_texts(train_tgt)
+            #vocab.fit_on_texts(train_tgt)
             #vocab.fit_on_texts(eval_tgt)
             vocab.fit_on_texts(train_nodes)
             vocab.fit_on_texts(train_labels)
@@ -270,7 +283,7 @@ if __name__ == '__main__':
 
             #save the vocab file
             os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-            with open(('vocabs/gat/' + args.lang + '/'+args.opt+'_vocab'), 'wb+') as fp:
+            with open(('vocabs/gat/' + args.lang + '/'+args.opt+'_src_vocab'), 'wb+') as fp:
                 pickle.dump(vocab, fp)
 
             print('Vocab file saved !\n')

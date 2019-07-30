@@ -91,7 +91,7 @@ def load_model(args):
 
     return model
 
-def process_gat_sentence(line, src_lang, target_lang, lang):
+def process_gat_sentence(line, vocab, lang):
     g = nx.MultiDiGraph()
     nodes = []
     labels = []
@@ -102,8 +102,8 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     temp_label = []
 
     triple_list = line.split('< TSP >')
-    if lang == 'eng':
-        triple_list = triple_list[:-1]
+    #if lang == 'eng':
+    #    triple_list = triple_list[:-1]
     for l in triple_list:
         l = l.strip().split(' | ')
         #l = ['<'+lang+'> ' + x for x in l]
@@ -123,13 +123,13 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     node2.append(temp_node2)
     labels.append(temp_label)
     # set roles
-    node_tensor = src_lang.texts_to_sequences(nodes)
+    node_tensor = vocab.texts_to_sequences(nodes)
     node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
-    label_tensor = src_lang.texts_to_sequences(labels)
+    label_tensor = vocab.texts_to_sequences(labels)
     label_tensor = tf.keras.preprocessing.sequence.pad_sequences(label_tensor, padding='post')
-    node1_tensor = src_lang.texts_to_sequences(node1)
+    node1_tensor = vocab.texts_to_sequences(node1)
     node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(node1_tensor, padding='post')
-    node2_tensor = src_lang.texts_to_sequences(node2)
+    node2_tensor = vocab.texts_to_sequences(node2)
     node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
 
     node_paddings = tf.constant([[0, 0], [0, 16 - node_tensor.shape[1]]])
@@ -144,7 +144,7 @@ def process_gat_sentence(line, src_lang, target_lang, lang):
     return node_tensor, label_tensor, node1_tensor, node2_tensor
 
 def gat_eval(model, node_tensor, label_tensor,
-             node1_tensor, node2_tensor, src_vocab, target_vocab):
+             node1_tensor, node2_tensor, target_vocab):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -157,9 +157,9 @@ def gat_eval(model, node_tensor, label_tensor,
     :rtype: str
     """
     model.trainable = False
-    start_token = [target_vocab.word_index['start']]
-    end_token = [target_vocab.word_index['end']]
-    dec_input = tf.expand_dims([target_vocab.word_index['start']], 0)
+    start_token = [target_vocab.EncodeAsIds('start')]
+    end_token = [target_vocab.EncodeAsIds('start')]
+    dec_input = tf.expand_dims([target_vocab.EncodeAsIds('start')], 0)
     result = ''
     '''
     for i in range(82):
@@ -182,7 +182,9 @@ def gat_eval(model, node_tensor, label_tensor,
         #dec_input = tf.expand_dims([predicted_id], 0)
     '''
     predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=None, mask=None)
-    pred = (predictions['outputs'][0].numpy())
+    pred = (predictions['outputs'][0].numpy().tolist())
+    result = (target_vocab.DecodeIds(list(pred)))
+    '''
     for i in pred:
         if i == 0:
             continue
@@ -190,7 +192,7 @@ def gat_eval(model, node_tensor, label_tensor,
             result += target_vocab.index_word[i] + ' '
         if (target_vocab.index_word[i] == 'end'):
             return result
-    #'''
+    '''
     return result
 
 def seq2seq_eval(model, triple, vocab_path):
@@ -261,10 +263,10 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
 
     return result
 
-def inf(args, triple, model, src_vocab, target_vocab):
+def inf(args, triple, model, src_vocab, tgt_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, target_vocab, args.lang)
-        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, src_vocab, target_vocab)
+        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, args.lang)
+        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, tgt_vocab)
         #result = result[:-4]
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
@@ -292,7 +294,7 @@ if __name__ == "__main__":
 
     for i,line in enumerate(f):
         print(line)
-        result = inf(args, line, model, src_vocab, target_vocab)
+        result = inf(args, line, model, src_vocab)
         result = result.strip('start')
         result = result.strip('end')
         verbalised_triples.append(result)
