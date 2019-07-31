@@ -6,6 +6,7 @@ import networkx as nx
 import numpy as np
 import pickle
 import os
+import re
 from nltk.translate.bleu_score import corpus_bleu
 
 from src.models import graph_attention_model, transformer
@@ -267,6 +268,9 @@ def inf(args, triple, model, src_vocab, tgt_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
         node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, args.lang)
         result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, tgt_vocab)
+        start = 'start'
+        end = 'end'
+        result = re.search('%s(.*)%s' % (start, end), result).group(1)
         #result = result[:-4]
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
