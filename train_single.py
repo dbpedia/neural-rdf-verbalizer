@@ -450,7 +450,7 @@ if __name__ == "__main__":
                     if batch % args.eval_steps == 0:
                         rogue, score = eval_step()
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Rogue {:.4f} BLEU {.4f}'.format(rogue, score))
+                        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
