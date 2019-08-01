@@ -10,7 +10,8 @@ import tensorflow as tf
 import time
 import os
 import logging
-from tqdm import tqdm 
+from tqdm import tqdm
+from nltk.translate.bleu_score import corpus_bleu
 
 from src.data_loader import get_dataset, get_gat_dataset
 from src.models import model_params, graph_attention_model, rnn_model
@@ -36,29 +37,15 @@ if __name__ == "__main__":
     if args.use_colab is None:
         output_file = 'results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
-        log_file = 'results/'+args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.txt'
+        log_file = 'data/logs/'+args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         output_file = OUTPUT_DIR + '/results.txt'
-        log_file = OUTPUT_DIR+'/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
+        log_file = OUTPUT_DIR+'/logs/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
-
-    # set up Logger
-    if args.resume:
-        filemode = 'a'
-    else:
-        filemode = 'w'
-
-    logging.basicConfig(
-        filename=log_file,
-        format='%(asctime)s %(message)s',
-        datefmt='%H:%M:%S',
-        level=logging.INFO,
-        filemode=filemode)
-    logger = logging.getLogger(__name__)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
@@ -145,6 +132,9 @@ if __name__ == "__main__":
                         batch_loss = train_step(adj, nodes, roles, targ)
                         print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
                                                                            batch_loss.numpy()))
+                        # log the training results
+                        tf.io.write_file(log_file, "Epoch {}".format(epoch))
+                        tf.io.write_file(log_file, "Train Loss: {}".format(batch_loss))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
@@ -233,6 +223,9 @@ if __name__ == "__main__":
                         batch_loss = train_step(inp, targ, enc_hidden)
                         print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
                                                                            batch_loss.numpy()))
+                        # log the training results
+                        tf.io.write_file(log_file, "Epoch {}".format(epoch))
+                        tf.io.write_file(log_file, "Train Loss: {}".format(batch_loss))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
@@ -348,6 +341,11 @@ if __name__ == "__main__":
                                                                                                           batch_loss.numpy(),
                                                                                                           acc.numpy(),
                                                                                                           ppl.numpy()))
+                        # log the training results
+                        tf.io.write_file(log_file, "Epoch {}".format(epoch))
+                        tf.io.write_file(log_file, "Train Accuracy: {}, Loss: {}, Perplexity{}".format((acc),
+                                                                                         train_loss, ppl))
+
                     pbar.update(1)
 
             print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(
@@ -361,12 +359,18 @@ if __name__ == "__main__":
 
         (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
-        ref_sentence = []
+
+        # Load the eval src and tgt files for evaluation
+        ref_source = []
+        ref_target = []
         reference = open(args.eval_ref, 'r')
-        for i, line in enumerate(reference):
-            if (i < (args.num_eval_lines)):
-                ref_sentence.append(line)
         eval_file = open(args.eval, 'r')
+        for i, (eval_src, eval_tgt) in enumerate(zip(eval_file, reference)):
+            if i < args.num_eval_lines:
+                ref_source.append(eval_src)
+                ref_target.append(eval_tgt)
+        reference.close()
+        eval_file.close()
 
         model = TransGAT(args, src_vocab_size, src_vocab,
                          tgt_vocab_size, tgt_vocab)
@@ -416,20 +420,19 @@ if __name__ == "__main__":
         def eval_step():
             model.trainable = False
             file = open(output_file, 'w+')
-            verbalised_triples = []
-            for i, line in enumerate(eval_file):
-                if i < args.num_eval_lines:
-                    result = inf(args, line, model,
-                                 src_vocab, tgt_vocab)
-                    file.write(result+'\n')
-                    verbalised_triples.append(result)
-                    print(str(i)+' '+result)
-            rogue = (rouge_n(verbalised_triples, ref_sentence))
-            #score = corpus_bleu(ref_sentence, verbalised_triples)
+            verbalised_triples =[]
+            for line in ref_source:
+                result = inf(args, line, model,
+                            src_vocab, tgt_vocab)
+                file.write(result+'\n')
+                verbalised_triples.append(result)
+                print(str(i)+' '+result)
+            rogue = (rouge_n(verbalised_triples, ref_target))
+            score = corpus_bleu(ref_target, verbalised_triples)
             file.close()
             model.trainable = True
 
-            return rogue
+            return rogue, score
 
         for epoch in range(args.epochs):
             print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
@@ -445,18 +448,17 @@ if __name__ == "__main__":
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if batch % args.eval_steps == 0:
-                        rogue = eval_step()
+                        rogue, score = eval_step()
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Rogue {:.4f}'.format(rogue))
+                        print('Rogue {:.4f} BLEU {.4f}'.format(rogue, score))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                     else:
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                   train_loss.result(), acc.numpy(), ppl.numpy()))
                         # log the training results
-                        logger.info("Epoch {}".format(epoch))
-                        logger.info("Train Accuracy: {}, Loss: {}".format((acc),
-                                                                          train_loss))
+                        tf.io.write_file(log_file, "Epoch {} Train Accuracy: {} Loss: {} Perplexity: {}".format(epoch, acc.numpy(),
+                                                                                                        train_loss.result(), ppl.numpy()))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
