@@ -87,14 +87,21 @@ def process_gat_multidataset(args):
     (multi_dataset_comps['nodes'], multi_dataset_comps['labels'],
     multi_dataset_comps['node1'], multi_dataset_comps['node2']) = [], [], [], []
 
-    BUFFER_SIZE = 0
+    TRAIN_BUFFER_SIZE = 0
+    EVAL_BUFFER_SIZE = 0
     for lang in languages:
         dataset[lang+'_train_nodes'] = vocab.texts_to_sequences(dataset[lang+'_train_nodes'])
         dataset[lang + '_train_labels'] = vocab.texts_to_sequences(dataset[lang + '_train_labels'])
         dataset[lang + '_train_node1'] = vocab.texts_to_sequences(dataset[lang + '_train_node1'])
         dataset[lang + '_train_node2'] = vocab.texts_to_sequences(dataset[lang + '_train_node2'])
 
+        dataset[lang + '_eval_nodes'] = vocab.texts_to_sequences(dataset[lang + '_eval_nodes'])
+        dataset[lang + '_eval_labels'] = vocab.texts_to_sequences(dataset[lang + '_eval_labels'])
+        dataset[lang + '_eval_node1'] = vocab.texts_to_sequences(dataset[lang + '_eval_node1'])
+        dataset[lang + '_eval_node2'] = vocab.texts_to_sequences(dataset[lang + '_eval_node2'])
+
         dataset[lang + '_train_tgt'] = vocab.texts_to_sequences(dataset[lang + '_train_tgt'])
+        dataset[lang + '_eval_tgt'] = vocab.texts_to_sequences(dataset[lang + '_eval_tgt'])
 
         dataset[lang + '_train_nodes'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang+'_train_nodes'],
                                                                                         padding='post'), 16)
@@ -106,7 +113,25 @@ def process_gat_multidataset(args):
                                                                                        padding='post'), 16)
         dataset[lang + '_train_tgt'] = padding(tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_train_tgt'],
                                                                                        padding='post'), 222)
-        BUFFER_SIZE += (dataset[lang+'_train_nodes']).shape[0]
+
+        dataset[lang + '_eval_nodes'] = padding(
+            tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_eval_nodes'],
+                                                          padding='post'), 16)
+        dataset[lang + '_eval_labels'] = padding(
+            tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_eval_labels'],
+                                                          padding='post'), 16)
+        dataset[lang + '_eval_node1'] = padding(
+            tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_eval_node1'],
+                                                          padding='post'), 16)
+        dataset[lang + '_eval_node2'] = padding(
+            tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_eval_node2'],
+                                                          padding='post'), 16)
+        dataset[lang + '_eval_tgt'] = padding(
+            tf.keras.preprocessing.sequence.pad_sequences(dataset[lang + '_eval_tgt'],
+                                                          padding='post'), 222)
+
+        TRAIN_BUFFER_SIZE += (dataset[lang+'_train_nodes']).shape[0]
+        EVAL_BUFFER_SIZE += (dataset[lang + '_eval_nodes']).shape[0]
 
     multilingual_target = tf.concat([dataset[lang+'_train_tgt'] for lang in languages], axis=0)
     multilingual_nodes = tf.concat([dataset[lang+'_train_nodes'] for lang in languages], axis=0)
@@ -114,14 +139,25 @@ def process_gat_multidataset(args):
     multilingual_node1 = tf.concat([dataset[lang + '_train_node1'] for lang in languages], axis=0)
     multilingual_node2 = tf.concat([dataset[lang + '_train_node2'] for lang in languages], axis=0)
 
+    eval_target = tf.concat([dataset[lang + '_eval_tgt'] for lang in languages], axis=0)
+    eval_nodes = tf.concat([dataset[lang + '_eval_nodes'] for lang in languages], axis=0)
+    eval_labels = tf.concat([dataset[lang + '_eval_labels'] for lang in languages], axis=0)
+    eval_node1 = tf.concat([dataset[lang + '_eval_node1'] for lang in languages], axis=0)
+    eval_node2 = tf.concat([dataset[lang + '_eval_node2'] for lang in languages], axis=0)
+
     BATCH_SIZE = 32
-    steps_per_epoch = BUFFER_SIZE // BATCH_SIZE
+    steps_per_epoch = TRAIN_BUFFER_SIZE // BATCH_SIZE
     vocab_size = len(vocab.word_index) + 1
     dataset_size = multilingual_target.shape[0]
 
     multilingual_dataset = tf.data.Dataset.from_tensor_slices((multilingual_nodes, multilingual_labels,
-                                                  multilingual_node1, multilingual_node2, multilingual_target)).shuffle(BUFFER_SIZE)
+                                                  multilingual_node1, multilingual_node2, multilingual_target)).shuffle(TRAIN_BUFFER_SIZE)
     multilingual_dataset = multilingual_dataset.batch(BATCH_SIZE, drop_remainder=True)
 
-    return (multilingual_dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-            vocab_size, vocab, multilingual_target.shape[-1], dataset_size)
+    eval_dataset = tf.data.Dataset.from_tensor_slices((eval_nodes, eval_labels,
+                                                               eval_node1, eval_node2,
+                                                               eval_target)).shuffle(EVAL_BUFFER_SIZE)
+    eval_dataset = eval_dataset.batch(BATCH_SIZE, drop_remainder=True)
+
+    return (multilingual_dataset, eval_dataset, TRAIN_BUFFER_SIZE, EVAL_BUFFER_SIZE,
+            BATCH_SIZE, steps_per_epoch, vocab_size, vocab, multilingual_target.shape[-1], dataset_size)

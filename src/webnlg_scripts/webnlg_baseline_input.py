@@ -92,12 +92,14 @@ def create_source_target(b, options, dataset, delex=True):
     rplc_list = []  # store the dict of replacements for each example
     for entr in b.entries:
         tripleset = entr.modifiedtripleset
-        # triples = ''
+        triples_str = ''
         triples = []
+        tripleSep = ""
         properties_objects = {}
         for triple in tripleset.triples:
-            # triples += triple.s + ' ' + triple.p + ' ' + triple.o + ' '
-            triples.append(triple.s + ' ' + triple.p + ' ' + triple.o + ' ')
+            triples_str += tripleSep+ triple.s + ' | ' + triple.p + ' | ' + triple.o + ' | '
+            triples.append(triples_str)
+            tripleSep = "<TSP>"
             properties_objects[triple.p] = triple.o
         #random.shuffle(triples)
 
