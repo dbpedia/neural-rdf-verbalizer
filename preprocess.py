@@ -47,11 +47,12 @@ args = parser.parse_args()
 #intialise sentence piece
 def train_vocabs(args):
     os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-    spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +' \
+    spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
                                     --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
-                                    --vocab_size=8000 --character_coverage=1.0 --model_type=bpe')
+                                    --vocab_size=10000 --character_coverage=1.0 --model_type=bpe')
     sp = spm.SentencePieceProcessor()
     sp.load('vocabs/'+args.model+'/'+args.lang+'/train_tgt.model')
+    print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
 
     return sp
 

@@ -9,6 +9,7 @@ from __future__ import division
 import tensorflow as tf
 import time
 import os
+import logging
 from tqdm import tqdm 
 
 from src.data_loader import get_dataset, get_gat_dataset
@@ -35,16 +36,33 @@ if __name__ == "__main__":
     if args.use_colab is None:
         output_file = 'results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
+        log_file = 'results/'+args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         output_file = OUTPUT_DIR + '/results.txt'
+        log_file = OUTPUT_DIR+'/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+
+    # set up Logger
+    if args.resume:
+        filemode = 'a'
+    else:
+        filemode = 'w'
+
+    logging.basicConfig(
+        filename=log_file,
+        format='%(asctime)s %(message)s',
+        datefmt='%H:%M:%S',
+        level=logging.INFO,
+        filemode=filemode)
+    logger = logging.getLogger(__name__)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
+
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
          target_lang, max_length_targ) = get_gat_dataset(args)
@@ -137,6 +155,7 @@ if __name__ == "__main__":
     elif args.enc_type == 'rnn' and args.dec_type =="rnn":
       
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
+
         dataset, BUFFER_SIZE, BATCH_SIZE,\
         steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
 
@@ -226,6 +245,7 @@ if __name__ == "__main__":
     elif args.enc_type == 'transformer' and args.dec_type =="transformer":
       
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
+
         dataset, BUFFER_SIZE, BATCH_SIZE, \
         steps_per_epoch, src_vocab_size, lang, dataset_size= get_dataset(args)
         ref_sentence = []
@@ -338,6 +358,7 @@ if __name__ == "__main__":
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
+
         (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
         ref_sentence = []
@@ -432,6 +453,10 @@ if __name__ == "__main__":
                         batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                   train_loss.result(), acc.numpy(), ppl.numpy()))
+                        # log the training results
+                        logger.info("Epoch {}".format(epoch))
+                        logger.info("Train Accuracy: {}, Loss: {}".format((acc),
+                                                                          train_loss))
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()

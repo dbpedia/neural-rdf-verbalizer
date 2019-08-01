@@ -19,6 +19,8 @@ parser.add_argument(
                                              Use Roles method or Reification (roles, reif)')
 parser.add_argument(
     '--train', type=bool, required=False, help='In training mode or eval mode')
+parser.add_argument(
+    '--resume', type=bool, required=True, help='Yes | no, to resume training')
 
 # Colab options
 parser.add_argument(
