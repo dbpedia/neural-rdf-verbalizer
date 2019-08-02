@@ -13,15 +13,15 @@ import argparse
 from tqdm import tqdm
 import time
 
-from src.multi_data_loader import process_gat_multidataset
+from src.MultilingualDataLoader import ProcessMultlingualDataset
 from src.arguments import get_args
-from src.models import model_params, graph_attention_model, rnn_model
+from src.models import model_params, GraphAttentionModel, RNNModel
 from src.utils.model_utils import CustomSchedule
-from src.utils.optimizers import LazyAdam
-from src.models.graph_attention_model import TransGAT
-from src.models.transformer import Transformer
+from src.utils.Optimizers import LazyAdam
+from src.models.GraphAttentionModel import TransGAT
+from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
-from inference import inf
+from inference import Inference
 from src.utils.rogue import rouge_n
 from src.utils.model_utils import convert
 
@@ -31,6 +31,8 @@ parser = argparse.ArgumentParser(description="Main Arguments")
 
 if __name__ == "__main__":
     args = get_args()
+    ProcessMultlingualDataset(args)
+    exit(0)
     global step
 
     #set up dirs
@@ -121,7 +123,7 @@ if __name__ == "__main__":
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
-                    result = inf(args, line, model, vocab)
+                    result = Inference(args, line, model, vocab)
                     file.write(result + '\n')
                     verbalised_triples.append(result)
                     print(str(i) + ' ' + result)

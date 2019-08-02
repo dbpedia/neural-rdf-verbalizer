@@ -8,12 +8,12 @@ import pickle
 import os
 from nltk.translate.bleu_score import corpus_bleu
 
-from src.models import graph_attention_model, transformer
+from src.models import GraphAttentionModel, Transformer
 from src.utils.model_utils import CustomSchedule, create_transgat_masks
 from src.arguments import get_args
 from src.utils.rogue import rouge_n
 
-def load_gat_vocabs(lang):
+def LoadGatVocabs(lang):
     with open('vocabs/gat/'+lang+'/src_vocab', 'rb') as f:
         src_vocab = pickle.load(f)
     with open('vocabs/gat/'+lang+'/target_vocab', 'rb') as f:
@@ -21,13 +21,13 @@ def load_gat_vocabs(lang):
 
     return src_vocab, target_vocab
 
-def load_seq_vocabs(vocab_path):
+def LoadSeqVocabs(vocab_path):
     with open(vocab_path, 'rb') as f:
         vocab = pickle.load(f)
 
     return vocab
 
-def load_model(args):
+def LoadModel(args):
     """
     Function to load the model from stored checkpoint.
     :param args: All arguments that were given to train file
@@ -50,10 +50,10 @@ def load_model(args):
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
     if args.enc_type == "gat" and args.dec_type == "transformer":
-        node_vocab, target_vocab = load_gat_vocabs(args.lang)
+        node_vocab, target_vocab = LoadGatVocabs(args.lang)
         vocab_nodes_size = len(node_vocab.word_index) + 1
         vocab_tgt_size = len(target_vocab.word_index) + 1
-        model = graph_attention_model.TransGAT(args, vocab_nodes_size, vocab_tgt_size,target_vocab)
+        model = GraphAttentionModel.TransGAT(args, vocab_nodes_size, vocab_tgt_size, target_vocab)
 
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         num_layers = args.enc_layers
@@ -61,17 +61,17 @@ def load_model(args):
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        vocab = load_seq_vocabs(args.vocab_path)
+        vocab = LoadSeqVocabs(args.vocab_path)
         vocab_size = len(vocab.word_index) + 1
-        model = transformer.Transformer(args, vocab_size)
+        model = Transformer.Transformer(args, vocab_size)
 
     else:
-        node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+        node_vocab, roles_vocab, target_vocab = LoadGatVocabs()
         vocab_nodes_size = len(node_vocab.word_index) + 1
         vocab_tgt_size = len(target_vocab.word_index) + 1
         vocab_roles_size = len(roles_vocab.word_index) + 1
-        model = graph_attention_model.GATModel(args, vocab_nodes_size,
-                                               vocab_roles_size, vocab_tgt_size, target_vocab)
+        model = GraphAttentionModel.GATModel(args, vocab_nodes_size,
+                                             vocab_roles_size, vocab_tgt_size, target_vocab)
     if args.decay is not None:
         learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -91,7 +91,7 @@ def load_model(args):
 
     return model
 
-def process_gat_sentence(line, vocab, lang):
+def PreprocessGatSentence(line, vocab, lang):
     g = nx.MultiDiGraph()
     nodes = []
     labels = []
@@ -101,7 +101,7 @@ def process_gat_sentence(line, vocab, lang):
     temp_node2 = []
     temp_label = []
 
-    triple_list = line.split('< TSP >')
+    triple_list = line.split('<TSP>')
     for l in triple_list:
         l = l.strip().split(' | ')
         #l = ['<'+lang+'> ' + x for x in l]
@@ -141,8 +141,8 @@ def process_gat_sentence(line, vocab, lang):
 
     return node_tensor, label_tensor, node1_tensor, node2_tensor
 
-def gat_eval(model, node_tensor, label_tensor,
-             node1_tensor, node2_tensor, target_vocab):
+def GatEval(model, node_tensor, label_tensor,
+            node1_tensor, node2_tensor, target_vocab):
     """
     Function to carry out the Inference mechanism
     :param model: the model in use
@@ -193,7 +193,7 @@ def gat_eval(model, node_tensor, label_tensor,
     '''
     return result
 
-def seq2seq_eval(model, triple, vocab_path):
+def Seq2seqEval(model, triple, vocab_path):
     """
     Function to carry out inference for Transformer model.
     :param model: The model object
@@ -204,7 +204,7 @@ def seq2seq_eval(model, triple, vocab_path):
     :rtype: str
     """
     model.trainable = False
-    vocab = load_seq_vocabs(vocab_path)
+    vocab = LoadSeqVocabs(vocab_path)
     tensor = vocab.texts_to_sequences(triple)
     tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
                                                            padding='post')
@@ -239,9 +239,9 @@ def seq2seq_eval(model, triple, vocab_path):
 
     return result
 
-def rnn_eval(args, model, node_tensor, role_tensor, adj):
+def RnnEval(args, model, node_tensor, role_tensor, adj):
     model.trainable = False
-    node_vocab, roles_vocab, target_vocab = load_gat_vocabs()
+    node_vocab, roles_vocab, target_vocab = LoadGatVocabs()
     enc_out = model.encoder(node_tensor, adj, role_tensor,
                             args.num_heads, model.trainable, None)
     enc_out_hidden = tf.reshape(enc_out, shape=[enc_out.shape[0], -1])
@@ -261,24 +261,24 @@ def rnn_eval(args, model, node_tensor, role_tensor, adj):
 
     return result
 
-def inf(args, triple, model, src_vocab, tgt_vocab):
+def Inference(args, triple, model, src_vocab, tgt_vocab):
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, label_tensor, node1_tensor, node2_tensor = process_gat_sentence(triple, src_vocab, args.lang)
-        result = gat_eval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, tgt_vocab)
+        node_tensor, label_tensor, node1_tensor, node2_tensor = PreprocessGatSentence(triple, src_vocab, args.lang)
+        result = GatEval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, tgt_vocab)
         result = result.partition("start")[2].partition("end")[0]
         #result = result[:-4]
         return (result)
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
-        result = seq2seq_eval(model, triple, args.vocab_path)
+        result = Seq2seqEval(model, triple, args.vocab_path)
         return result
     else:
-        node_tensor, role_tensor, adj = process_gat_sentence(triple)
-        result = rnn_eval(args, model, node_tensor, role_tensor, adj)
+        node_tensor, role_tensor, adj = PreprocessGatSentence(triple)
+        result = RnnEval(args, model, node_tensor, role_tensor, adj)
         return result
 
 if __name__ == "__main__":
     args = get_args()
-    model = load_model(args)
+    model = LoadModel(args)
     f = open(args.eval, 'r')
     if args.use_colab is True:
         s = open('/content/gdrive/My Drive/data/results.txt', 'w+')
@@ -287,20 +287,20 @@ if __name__ == "__main__":
     #line = 'Point Fortin | country | Trinidad'
     verbalised_triples = []
     if args.enc_type == 'gat':
-        src_vocab, target_vocab = load_gat_vocabs(args.lang)
+        src_vocab, target_vocab = LoadGatVocabs(args.lang)
     else:
-        src_vocab = load_seq_vocabs(args.vocab_path)
+        src_vocab = LoadSeqVocabs(args.vocab_path)
 
     for i,line in enumerate(f):
         print(line)
-        result = inf(args, line, model, src_vocab)
+        result = Inference(args, line, model, src_vocab)
         result = result.strip('start')
         result = result.strip('end')
         verbalised_triples.append(result)
         print(result)
         s.write(result + '\n')
 
-    #print(inf (args, triple=line, model=model, src_vocab=src_vocab,target_vocab=src_vocab))
+    #print(Inference (args, triple=line, model=model, src_vocab=src_vocab,target_vocab=src_vocab))
     #exit(0)
     ref_sentence = []
     reference = open(args.eval_ref, 'r')

@@ -13,15 +13,15 @@ import logging
 from tqdm import tqdm
 from nltk.translate.bleu_score import corpus_bleu
 
-from src.data_loader import get_dataset, get_gat_dataset
-from src.models import model_params, graph_attention_model, rnn_model
+from src.DataLoader import GetDataset, GatGATdataset
+from src.models import model_params, GraphAttentionModel, RNNModel
 from src.utils.model_utils import CustomSchedule
-from src.utils.optimizers import LazyAdam
+from src.utils.Optimizers import LazyAdam
 from src.arguments import get_args
-from src.models.graph_attention_model import TransGAT
-from src.models.transformer import Transformer
+from src.models.GraphAttentionModel import TransGAT
+from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
-from inference import inf
+from inference import Inference
 from src.utils.rogue import rouge_n
 
 PARAMS_MAP = {
@@ -52,11 +52,11 @@ if __name__ == "__main__":
 
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
-         target_lang, max_length_targ) = get_gat_dataset(args)
+         target_lang, max_length_targ) = GatGATdataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
-        model = graph_attention_model.GATModel(args, vocab_nodes_size,
-                                               vocab_role_size,vocab_tgt_size, target_lang)
+        model = GraphAttentionModel.GATModel(args, vocab_nodes_size,
+                                             vocab_role_size, vocab_tgt_size, target_lang)
 
         step = 0
         if args.decay is not None:
@@ -147,7 +147,7 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
         dataset, BUFFER_SIZE, BATCH_SIZE,\
-        steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = get_dataset(args)
+        steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = GetDataset(args)
 
         step = 0
 
@@ -160,7 +160,7 @@ if __name__ == "__main__":
                                                epsilon=1e-9)
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
-        model = rnn_model.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
+        model = RNNModel.RNNModel(vocab_inp_size, vocab_tgt_size, target_lang, args)
         enc_hidden = model.encoder.initialize_hidden_state()
 
         ckpt = tf.train.Checkpoint(
@@ -240,7 +240,7 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
         dataset, BUFFER_SIZE, BATCH_SIZE, \
-        steps_per_epoch, src_vocab_size, lang, dataset_size= get_dataset(args)
+        steps_per_epoch, src_vocab_size, lang, dataset_size= GetDataset(args)
         ref_sentence = []
         reference = open(args.eval_ref, 'r')
         for i, line in enumerate(reference):
@@ -308,7 +308,7 @@ if __name__ == "__main__":
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
                     print(line)
-                    result = inf(args, line, model, lang)
+                    result = Inference(args, line, model, lang)
                     file.write(result + '\n')
                     verbalised_triples.append(result)
                     print(str(i) + ' ' + result)
@@ -358,7 +358,7 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
         (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = get_gat_dataset(args)
+         src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GatGATdataset(args)
 
         # Load the eval src and tgt files for evaluation
         ref_source = []
@@ -422,8 +422,8 @@ if __name__ == "__main__":
             file = open(output_file, 'w+')
             verbalised_triples =[]
             for line in ref_source:
-                result = inf(args, line, model,
-                            src_vocab, tgt_vocab)
+                result = Inference(args, line, model,
+                                   src_vocab, tgt_vocab)
                 file.write(result+'\n')
                 verbalised_triples.append(result)
                 print(str(i)+' '+result)
@@ -457,8 +457,8 @@ if __name__ == "__main__":
                         print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
                                                                   train_loss.result(), acc.numpy(), ppl.numpy()))
                         # log the training results
-                        tf.io.write_file(log_file, "Epoch {} Train Accuracy: {} Loss: {} Perplexity: {}".format(epoch, acc.numpy(),
-                                                                                                        train_loss.result(), ppl.numpy()))
+                        tf.io.write_file(log_file,
+                                         f'Epoch {epoch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()

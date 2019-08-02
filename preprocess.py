@@ -45,7 +45,7 @@ parser.add_argument(
 args = parser.parse_args()
 
 #intialise sentence piece
-def train_vocabs(args):
+def TrainVocabs(args):
     os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
     spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
                                     --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
@@ -61,7 +61,7 @@ def unicode_to_ascii(s):
                    if unicodedata.category(c) != 'Mn')
 
 
-def preprocess_sentence(w, lang):
+def PreProcessSentence(w, lang):
     w = unicode_to_ascii(w.lower().strip())
 
     # creating a space between a word and the punctuation following it
@@ -81,7 +81,7 @@ def preprocess_sentence(w, lang):
     w = 'start ' + w + ' end'
     return w
 
-def pre_process_with_roles(path):
+def PreProcessRolesModel(path):
     adj = []
     degree_mat = []
     tensor = []
@@ -142,7 +142,7 @@ def pre_process_with_roles(path):
 
     return adj, train_nodes, roles, edges
 
-def pre_process(path, lang):
+def PreProcess(path, lang):
     nodes = []
     labels = []
     node1 = []
@@ -154,7 +154,7 @@ def pre_process(path, lang):
         temp_label = []
         temp_node1 = []
         temp_node2 = []
-        triple_list = line.split('< TSP >')
+        triple_list = line.split('<TSP>')
         #triple_list = triple_list[:-1]
         for l in triple_list:
             l = l.strip().split(' | ')
@@ -206,14 +206,14 @@ if __name__ == '__main__':
     if args.model == 'gat':
         if args.opt == 'role':
             print('Building the dataset...')
-            train_adj, train_nodes, train_roles, train_edges = pre_process_with_roles(args.train_src)
-            eval_adj, eval_nodes, eval_roles, eval_edges = pre_process_with_roles(args.eval_src)
+            train_adj, train_nodes, train_roles, train_edges = PreProcessRolesModel(args.train_src)
+            eval_adj, eval_nodes, eval_roles, eval_edges = PreProcessRolesModel(args.eval_src)
             
             print('Building the Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-            train_tgt = [(preprocess_sentence(w, args.lang)) for w in train_tgt]
+            train_tgt = [(PreProcessSentence(w, args.lang)) for w in train_tgt]
             eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-            eval_tgt = [(preprocess_sentence(w, args.lang)) for w in eval_tgt]
+            eval_tgt = [(PreProcessSentence(w, args.lang)) for w in eval_tgt]
 
             #Create the train and test sets 
             train_input = list(zip(train_adj, train_nodes, train_roles, train_edges))
@@ -256,18 +256,18 @@ if __name__ == '__main__':
 
         elif args.opt == 'reif':
 
-            vocab = train_vocabs(args)
+            vocab = TrainVocabs(args)
 
-            train_nodes, train_labels, train_node1, train_node2 = pre_process(args.train_src, args.lang)
-            eval_nodes, eval_labels, eval_node1, eval_node2 = pre_process(args.eval_src, args.lang)
+            train_nodes, train_labels, train_node1, train_node2 = PreProcess(args.train_src, args.lang)
+            eval_nodes, eval_labels, eval_node1, eval_node2 = PreProcess(args.eval_src, args.lang)
 
             # Build and save the vocab
             print('Building the  Source Vocab file... ')
             train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-            train_tgt = [preprocess_sentence(w, args.lang) for w in train_tgt]
+            train_tgt = [PreProcessSentence(w, args.lang) for w in train_tgt]
             #vocab_train_tgt = [tokenizer(w) for w in train_tgt]
             eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-            eval_tgt = [preprocess_sentence(w, args.lang) for w in eval_tgt]
+            eval_tgt = [PreProcessSentence(w, args.lang) for w in eval_tgt]
 
             vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
             #vocab.fit_on_texts(train_tgt)
@@ -317,13 +317,13 @@ if __name__ == '__main__':
         print('Building the dataset...')
 
         train_src = io.open(args.train_src, encoding='UTF-8').read().strip().split('\n')
-        train_src = [preprocess_sentence(w, args.lang) for w in train_src]
+        train_src = [PreProcessSentence(w, args.lang) for w in train_src]
         eval_src = io.open(args.eval_src, encoding='UTF-8').read().strip().split('\n')
-        eval_src = [preprocess_sentence(w, args.lang) for w in eval_src]
+        eval_src = [PreProcessSentence(w, args.lang) for w in eval_src]
         train_tgt = io.open(args.train_tgt, encoding='UTF-8').read().strip().split('\n')
-        train_tgt = [preprocess_sentence(w, args.lang) for w in train_tgt]
+        train_tgt = [PreProcessSentence(w, args.lang) for w in train_tgt]
         eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
-        eval_tgt = [preprocess_sentence(w, args.lang) for w in eval_tgt]
+        eval_tgt = [PreProcessSentence(w, args.lang) for w in eval_tgt]
 
         vocab = tf.keras.preprocessing.text.Tokenizer(filters='')        
         vocab.fit_on_texts(train_src)
