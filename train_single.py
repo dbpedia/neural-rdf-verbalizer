@@ -35,7 +35,7 @@ if __name__ == "__main__":
     global step
     #set up dirs
     if args.use_colab is None:
-        output_file = 'results.txt'
+        EvalResultsFile = 'eval_results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
         log_file = 'data/logs/'+args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
@@ -43,7 +43,7 @@ if __name__ == "__main__":
         from google.colab import drive
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
-        output_file = OUTPUT_DIR + '/results.txt'
+        EvalResultsFile = OUTPUT_DIR + '/eval_results.txt'
         log_file = OUTPUT_DIR+'/logs/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
@@ -301,20 +301,20 @@ if __name__ == "__main__":
 
             return loss, acc, ppl
 
-        def eval_step(inp, tar):
+        def eval_step():
             model.trainable = False
-            file = open(output_file, 'w+')
+            eval_results = open(EvalResultsFile, 'w+')
             verbalised_triples = []
             for i, line in enumerate(eval_file):
                 if i < args.num_eval_lines:
                     print(line)
                     result = Inference(args, line, model, lang)
-                    file.write(result + '\n')
+                    eval_results.write(result + '\n')
                     verbalised_triples.append(result)
                     print(str(i) + ' ' + result)
             rogue = (rouge_n(verbalised_triples, ref_sentence))
             # score = corpus_bleu(ref_sentence, verbalised_triples)
-            file.close()
+            eval_results.close()
             model.trainable = True
 
             return rogue
@@ -331,7 +331,7 @@ if __name__ == "__main__":
                         optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                     if (batch % args.eval_steps == 0):
-                        eval_loss = eval_step(inp, tar)
+                        eval_loss = eval_step()
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
                         print('Epoch {} Batch {} Rouge {:.4f}'.format(epoch, batch, eval_loss   ))
                         print('\n'+ '---------------------------------------------------------------------' + '\n')
@@ -420,21 +420,22 @@ if __name__ == "__main__":
         def eval_step():
             model.trainable = False
             results = []
-            file = open(output_file, 'w+')
+            eval_results = open(EvalResultsFile, 'w+')
 
             for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(eval_set)):
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
                 pred = [(predictions['outputs'].numpy().tolist())]
-                for i in range(len(pred[0])):
+                for i in tqdm(range(len(pred[0]))):
                     sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     print(sentence+'\n')
+                    eval_results.write(sentence + '\n')
                     results.append(sentence)
 
             rogue = (rouge_n(results, ref_target))
             score = corpus_bleu(ref_target, results)
-            file.close()
+            eval_results.close()
             model.trainable = True
 
             return rogue, score
