@@ -39,7 +39,7 @@ def PreProcess(path, lang):
             #g.add_edge(l[2], l[1])
         node_list = list(g.nodes())
         node_list.append(lang)
-        print(node_list)
+        #print(node_list)
         nodes.append(node_list)
         edge_list = list(g.edges.data())
         for edge in edge_list:

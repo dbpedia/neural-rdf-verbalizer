@@ -102,7 +102,7 @@ class SequenceBeamSearch(object):
     # Create tensor for storing initial log probabilities.
     # Assume initial_ids are prob 1.0
     initial_log_probs = tf.constant(
-        [[0.] + [-float("Inference")] * (self.beam_size - 1)])
+        [[0.] + [-float("inf")] * (self.beam_size - 1)])
     alive_log_probs = tf.tile(initial_log_probs, [self.batch_size, 1])
 
     # Expand all values stored in the dictionary to the beam size, so that each
