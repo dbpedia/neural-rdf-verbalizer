@@ -13,7 +13,7 @@ import logging
 from tqdm import tqdm
 from nltk.translate.bleu_score import corpus_bleu
 
-from src.DataLoader import GetDataset, GatGATdataset
+from src.DataLoader import GetDataset, GetGATDataset
 from src.models import model_params, GraphAttentionModel, RNNModel
 from src.utils.model_utils import CustomSchedule
 from src.utils.Optimizers import LazyAdam
@@ -52,7 +52,7 @@ if __name__ == "__main__":
 
         (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          vocab_tgt_size, vocab_nodes_size, vocab_edge_size, vocab_role_size,
-         target_lang, max_length_targ) = GatGATdataset(args)
+         target_lang, max_length_targ) = GetGATDataset(args)
 
         embedding = tf.keras.layers.Embedding(vocab_nodes_size, args.emb_dim)
         model = GraphAttentionModel.GATModel(args, vocab_nodes_size,
@@ -358,7 +358,7 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
         (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-         src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GatGATdataset(args)
+         src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GetGATDataset(args)
 
         # Load the eval src and tgt files for evaluation
         reference = open(args.eval_ref, 'r')

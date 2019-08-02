@@ -2,30 +2,23 @@
 Inference, take a triple set, load the model and return the sentence
 """
 import tensorflow as tf
-import networkx as nx
-import numpy as np
+from tqdm import tqdm
 import pickle
 import os
-from nltk.translate.bleu_score import corpus_bleu
+import sentencepiece as spm
 
 from src.models import GraphAttentionModel, Transformer
-from src.utils.model_utils import CustomSchedule, create_transgat_masks
+from src.utils.model_utils import CustomSchedule
+from src.DataLoader import GetGATDataset
 from src.arguments import get_args
-from src.utils.rogue import rouge_n
 
-def LoadGatVocabs(lang):
-    with open('vocabs/gat/'+lang+'/src_vocab', 'rb') as f:
+def LoadGatVocabs(args):
+    with open('vocabs/gat/'+args.lang+'/'+args.opt+'_src_vocab', 'rb') as f:
         src_vocab = pickle.load(f)
-    with open('vocabs/gat/'+lang+'/target_vocab', 'rb') as f:
-        target_vocab = pickle.load(f)
+    target_vocab = spm.SentencePieceProcessor()
+    target_vocab.load('vocabs/' + args.model + '/' + args.lang + '/train_tgt.model')
 
     return src_vocab, target_vocab
-
-def LoadSeqVocabs(vocab_path):
-    with open(vocab_path, 'rb') as f:
-        vocab = pickle.load(f)
-
-    return vocab
 
 def LoadModel(args):
     """
@@ -50,10 +43,11 @@ def LoadModel(args):
     OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
     if args.enc_type == "gat" and args.dec_type == "transformer":
-        node_vocab, target_vocab = LoadGatVocabs(args.lang)
-        vocab_nodes_size = len(node_vocab.word_index) + 1
-        vocab_tgt_size = len(target_vocab.word_index) + 1
-        model = GraphAttentionModel.TransGAT(args, vocab_nodes_size, vocab_tgt_size, target_vocab)
+        src_vocab, target_vocab = LoadGatVocabs(args)
+        vocab_src_size = len(src_vocab.word_index) + 1
+        vocab_tgt_size = target_vocab.get_piece_size()
+        model = GraphAttentionModel.TransGAT(args, vocab_src_size, src_vocab,
+                                            vocab_tgt_size, target_vocab)
 
     elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
         num_layers = args.enc_layers
@@ -65,13 +59,6 @@ def LoadModel(args):
         vocab_size = len(vocab.word_index) + 1
         model = Transformer.Transformer(args, vocab_size)
 
-    else:
-        node_vocab, roles_vocab, target_vocab = LoadGatVocabs()
-        vocab_nodes_size = len(node_vocab.word_index) + 1
-        vocab_tgt_size = len(target_vocab.word_index) + 1
-        vocab_roles_size = len(roles_vocab.word_index) + 1
-        model = GraphAttentionModel.GATModel(args, vocab_nodes_size,
-                                             vocab_roles_size, vocab_tgt_size, target_vocab)
     if args.decay is not None:
         learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
         optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
@@ -91,222 +78,29 @@ def LoadModel(args):
 
     return model
 
-def PreprocessGatSentence(line, vocab, lang):
-    g = nx.MultiDiGraph()
-    nodes = []
-    labels = []
-    node1 = []
-    node2 = []
-    temp_node1 = []
-    temp_node2 = []
-    temp_label = []
-
-    triple_list = line.split('<TSP>')
-    for l in triple_list:
-        l = l.strip().split(' | ')
-        #l = ['<'+lang+'> ' + x for x in l]
-        g.add_edge(l[0], l[1], label='A_ZERO')
-        g.add_edge(l[1], l[2], label='A_ONE')
-    node_list = list(g.nodes())
-    #node_list.append(lang)
-    print(node_list)
-    nodes.append(node_list)
-    edge_list = list(g.edges.data())
-    for edge in edge_list:
-        temp_node1.append(edge[0])
-        temp_node2.append(edge[1])
-        label = (edge[2]['label'])
-        temp_label.append(label)
-    node1.append(temp_node1)
-    node2.append(temp_node2)
-    labels.append(temp_label)
-    # set roles
-    node_tensor = vocab.texts_to_sequences(nodes)
-    node_tensor = tf.keras.preprocessing.sequence.pad_sequences(node_tensor, padding='post')
-    label_tensor = vocab.texts_to_sequences(labels)
-    label_tensor = tf.keras.preprocessing.sequence.pad_sequences(label_tensor, padding='post')
-    node1_tensor = vocab.texts_to_sequences(node1)
-    node1_tensor = tf.keras.preprocessing.sequence.pad_sequences(node1_tensor, padding='post')
-    node2_tensor = vocab.texts_to_sequences(node2)
-    node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(node2_tensor, padding='post')
-
-    node_paddings = tf.constant([[0, 0], [0, 16 - node_tensor.shape[1]]])
-    node_tensor = tf.pad(node_tensor, node_paddings, mode='CONSTANT')
-    label_padding = tf.constant([[0, 0], [0, 16 - label_tensor.shape[1]]])
-    label_tensor = tf.pad(label_tensor, label_padding, mode='CONSTANT')
-    node1_padding = tf.constant([[0, 0], [0, 16 - node1_tensor.shape[1]]])
-    node1_tensor = tf.pad(node1_tensor, node1_padding, mode='CONSTANT')
-    node2_padding = tf.constant([[0, 0], [0, 16 - node2_tensor.shape[1]]])
-    node2_tensor = tf.pad(node2_tensor, node2_padding, mode='CONSTANT')
-
-    return node_tensor, label_tensor, node1_tensor, node2_tensor
-
-def GatEval(model, node_tensor, label_tensor,
-            node1_tensor, node2_tensor, target_vocab):
-    """
-    Function to carry out the Inference mechanism
-    :param model: the model in use
-    :type model: tf.keras.Model
-    :param node_tensor: input node tensor
-    :type node_tensor: tf.tensor
-    :param adj: adjacency matrix of node tensor
-    :type adj: tf.tensor
-    :return: Verbalised sentence
-    :rtype: str
-    """
-    model.trainable = False
-    start_token = [target_vocab.EncodeAsIds('start')]
-    end_token = [target_vocab.EncodeAsIds('start')]
-    dec_input = tf.expand_dims([target_vocab.EncodeAsIds('start')], 0)
-    result = ''
-    '''
-    for i in range(82):
-        mask = create_transgat_masks(dec_input)
-        predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=dec_input, mask=None)
-        # select the last word from the seq_len dimension
-        predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
-        predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
-        # return the result if the predicted_id is equal to the end token
-        #predicted_id = tf.argmax(predictions[0]).numpy()
-        result += target_vocab.index_word[predicted_id[0][0].numpy() ]+ ' '
-        if target_vocab.index_word[predicted_id[0][0].numpy()] == 'end':
-            return result
-        #if tf.equal(predicted_id, end_token[0]):
-        #    return tf.squeeze(output, axis=0), attention_weights
-
-        # concatentate the predicted_id to the output which is given to the decoder
-        # as its input.
-        dec_input = tf.concat([dec_input, predicted_id], axis=-1)
-        #dec_input = tf.expand_dims([predicted_id], 0)
-    '''
-    predictions = model(node_tensor, label_tensor, node1_tensor, node2_tensor, targ=None, mask=None)
-    pred = (predictions['outputs'][0].numpy().tolist())
-    result = (target_vocab.DecodeIds(list(pred)))
-    '''
-    for i in pred:
-        if i == 0:
-            continue
-        if ((target_vocab.index_word[i] != 'start')):
-            result += target_vocab.index_word[i] + ' '
-        if (target_vocab.index_word[i] == 'end'):
-            return result
-    '''
-    return result
-
-def Seq2seqEval(model, triple, vocab_path):
-    """
-    Function to carry out inference for Transformer model.
-    :param model: The model object
-    :type model: tf.keras.Model
-    :param tensor: preprocessed input tenor of shape [batch_size, seq_length]
-    :type tensor: tf.tensor
-    :return: The verbalised sentence of the triple
-    :rtype: str
-    """
-    model.trainable = False
-    vocab = LoadSeqVocabs(vocab_path)
-    tensor = vocab.texts_to_sequences(triple)
-    tensor = tf.keras.preprocessing.sequence.pad_sequences(tensor,
-                                                           padding='post')
-    encoder_input = tf.transpose(tensor)
-    dec_input = tf.expand_dims([vocab.word_index['start']], 0)
-    result = ''
-    '''
-    for i in range(82):
-        predictions= model(inputs=encoder_input, targets=None, training=False)
-        predictions = predictions[:, -1:, :]  # (batch_size, 1, vocab_size)
-        predicted_id = tf.cast(tf.argmax(predictions, axis=-1), tf.int32)
-        result += vocab.index_word[predicted_id[0][0].numpy()] + ' '
-        if vocab.index_word[predicted_id[0][0].numpy()] == 'end':
-            return result
-        # if tf.equal(predicted_id, end_token[0]):
-        #    return tf.squeeze(output, axis=0), attention_weights
-
-        # concatentate the predicted_id to the output which is given to the decoder
-        # as its input.
-        dec_input = tf.concat([dec_input, predicted_id], axis=-1)
-        # dec_input = tf.expand_dims([predicted_id], 0)
-    '''
-    predictions = model(encoder_input, targets=None, training=model.trainable)
-    pred = (predictions['outputs'][0].numpy())
-    for i in pred:
-        if i==0:
-            continue
-        if ((vocab.index_word[i] != 'start')):
-            result += vocab.index_word[i] + ' '
-        if (vocab.index_word[i] == 'end'):
-            return result
-
-    return result
-
-def RnnEval(args, model, node_tensor, role_tensor, adj):
-    model.trainable = False
-    node_vocab, roles_vocab, target_vocab = LoadGatVocabs()
-    enc_out = model.encoder(node_tensor, adj, role_tensor,
-                            args.num_heads, model.trainable, None)
-    enc_out_hidden = tf.reshape(enc_out, shape=[enc_out.shape[0], -1])
-    enc_hidden = model.hidden(enc_out_hidden)
-    dec_hidden = enc_hidden
-    dec_input = tf.expand_dims([target_vocab.word_index['start']], 0)
-    result = ''
-    for t in range(82):
-        predictions, dec_hidden, attention_weights = model.decoder(dec_input,
-                                                             dec_hidden,
-                                                             enc_out)
-        predicted_id = tf.argmax(predictions[0]).numpy()
-        result += target_vocab.index_word[predicted_id] + ' '
-        if target_vocab.index_word[predicted_id] == 'end':
-            return result
-        dec_input = tf.expand_dims([predicted_id], 0)
-
-    return result
-
-def Inference(args, triple, model, src_vocab, tgt_vocab):
-    if args.enc_type == 'gat' and args.dec_type == 'transformer':
-        node_tensor, label_tensor, node1_tensor, node2_tensor = PreprocessGatSentence(triple, src_vocab, args.lang)
-        result = GatEval(model, node_tensor, label_tensor, node1_tensor, node2_tensor, tgt_vocab)
-        result = result.partition("start")[2].partition("end")[0]
-        #result = result[:-4]
-        return (result)
-    elif args.enc_type == 'transformer' and args.dec_type == 'transformer':
-        result = Seq2seqEval(model, triple, args.vocab_path)
-        return result
-    else:
-        node_tensor, role_tensor, adj = PreprocessGatSentence(triple)
-        result = RnnEval(args, model, node_tensor, role_tensor, adj)
-        return result
-
 if __name__ == "__main__":
+    #Parse the arguments
     args = get_args()
+    EvalResultsFile = 'predictions.txt'
+
+    (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE,
+     steps_per_epoch, src_vocab_size, src_vocab, tgt_vocab_size,
+     tgt_vocab, max_length_targ, dataset_size) = GetGATDataset(args)
+
+    #load the vocabs
+    src_vocab, tgt_vocab = LoadGatVocabs(args)
     model = LoadModel(args)
-    f = open(args.eval, 'r')
-    if args.use_colab is True:
-        s = open('/content/gdrive/My Drive/data/results.txt', 'w+')
-    else:
-        s = open('data/results.txt', 'w+')
-    #line = 'Point Fortin | country | Trinidad'
-    verbalised_triples = []
-    if args.enc_type == 'gat':
-        src_vocab, target_vocab = LoadGatVocabs(args.lang)
-    else:
-        src_vocab = LoadSeqVocabs(args.vocab_path)
+    results = []
+    ref_target = []
+    eval_results = open(EvalResultsFile, 'w+')
+    for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(test_set)):
+        predictions = model(nodes, labels, node1,
+                            node2, targ=None, mask=None)
+        pred = [(predictions['outputs'].numpy().tolist())]
+        for i in range(len(pred[0])):
+            sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+            sentence = sentence.partition("start")[2].partition("end")[0]
+            eval_results.write(sentence + '\n')
+            results.append(sentence)
 
-    for i,line in enumerate(f):
-        print(line)
-        result = Inference(args, line, model, src_vocab)
-        result = result.strip('start')
-        result = result.strip('end')
-        verbalised_triples.append(result)
-        print(result)
-        s.write(result + '\n')
-
-    #print(Inference (args, triple=line, model=model, src_vocab=src_vocab,target_vocab=src_vocab))
-    #exit(0)
-    ref_sentence = []
-    reference = open(args.eval_ref, 'r')
-    for i, line in enumerate(reference):
-        if ( i< len(verbalised_triples)):
-            ref_sentence.append(line)
-    print('Rogue '+ str(rouge_n(verbalised_triples, ref_sentence))+'\n')
-    score = corpus_bleu(ref_sentence, verbalised_triples)
-    print('BLEU ' + str(score)+'\n')
+    eval_results.close()

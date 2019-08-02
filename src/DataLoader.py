@@ -149,7 +149,7 @@ def GetDataset(args):
     return (dataset, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
            vocab_size, lang, dataset_size)
 
-def GatGATdataset(args):
+def GetGATDataset(args):
     if args.opt == 'reif':
         (train_nodes, train_labels, train_node1, train_node2, train_tgt_tensor,
          eval_nodes, eval_labels, eval_node1, eval_node2, test_nodes, test_labels,
@@ -176,18 +176,20 @@ def GatGATdataset(args):
         eval_node2 = tf.pad(eval_node2, eval_node2_paddings, mode='CONSTANT')
 
         test_node_padding = tf.constant([[0, 0], [0, 16 - test_nodes.shape[1]]])
-        test_nodes = tf.pad(eval_nodes, test_node_padding, mode='CONSTANT')
+        test_nodes = tf.pad(test_nodes, test_node_padding, mode='CONSTANT')
         test_label_padding = tf.constant([[0, 0], [0, 16 - test_labels.shape[1]]])
-        test_labels = tf.pad(eval_labels, test_label_padding, mode='CONSTANT')
+        test_labels = tf.pad(test_labels, test_label_padding, mode='CONSTANT')
         test_node1_padding = tf.constant([[0, 0], [0, 16 - test_node1.shape[1]]])
-        test_node1 = tf.pad(eval_node1, test_node1_padding, mode='CONSTANT')
+        test_node1 = tf.pad(test_node1, test_node1_padding, mode='CONSTANT')
         test_node2_padding = tf.constant([[0, 0], [0, 16 - test_node2.shape[1]]])
-        test_node2 = tf.pad(eval_node2, test_node2_padding, mode='CONSTANT')
+        test_node2 = tf.pad(test_node2, test_node2_padding, mode='CONSTANT')
 
         print('\nTrain Tensor shapes (nodes, labels, node1, node2, target) : ')
         print(node_tensor.shape, label_tensor.shape, node1_tensor.shape, node2_tensor.shape, train_tgt_tensor.shape)
         print('\nEval Tensor shapes (nodes, labes, node1, node2) : ')
         print(eval_nodes.shape, eval_labels.shape, eval_node1.shape, eval_node2.shape)
+        print('\nTest Tensor shapes (nodes, labes, node1, node2) : ')
+        print(test_nodes.shape, test_labels.shape, test_node1.shape, test_node2.shape)
 
         BUFFER_SIZE = len(train_tgt_tensor)
         BATCH_SIZE = args.batch_size
