@@ -361,8 +361,6 @@ if __name__ == "__main__":
          src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GatGATdataset(args)
 
         # Load the eval src and tgt files for evaluation
-        ref_source = []
-        ref_target = []
         reference = open(args.eval_ref, 'r')
         eval_file = open(args.eval, 'r')
 
@@ -415,6 +413,7 @@ if __name__ == "__main__":
         def eval_step():
             model.trainable = False
             results = []
+            ref_target = []
             eval_results = open(EvalResultsFile, 'w+')
 
             for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(eval_set)):
