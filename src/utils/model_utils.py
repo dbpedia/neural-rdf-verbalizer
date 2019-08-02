@@ -8,6 +8,7 @@ import math
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
 import numpy as np
+import unicodedata
 
 _NEG_INF = -1e9
 
@@ -18,6 +19,17 @@ def convert(lang, tensor):
     for t in tensor:
         if t != 0:
             print("%d ----> %s" % (t, lang.index_word[t.numpy()]))
+
+def unicode_to_ascii(s):
+    return ''.join(c for c in unicodedata.normalize('NFD', s)
+                   if unicodedata.category(c) != 'Mn')
+
+def PreProcessSentence(w, lang):
+    w = unicode_to_ascii(w.lower().strip())
+    w = w.rstrip().strip()
+    w = 'start ' + w + ' end'
+
+    return w
 
 def model_summary(model):
     """

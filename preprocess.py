@@ -15,11 +15,11 @@ save the adjacency matrix as numpy array
 """
 import tensorflow as tf
 
+from src.utils.model_utils import PreProcessSentence, unicode_to_ascii
 import sentencepiece as spm
 import numpy as np
 import networkx as nx
 import argparse
-import unicodedata
 import pickle
 import io
 import os
@@ -55,31 +55,6 @@ def TrainVocabs(args):
     print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
 
     return sp
-
-def unicode_to_ascii(s):
-    return ''.join(c for c in unicodedata.normalize('NFD', s)
-                   if unicodedata.category(c) != 'Mn')
-
-
-def PreProcessSentence(w, lang):
-    w = unicode_to_ascii(w.lower().strip())
-
-    # creating a space between a word and the punctuation following it
-    # eg: "he is a boy." => "he is a boy ."
-    # Reference:- https://stackoverflow.com/questions/3645931/python-padding-punctuation-with-white-spaces-keeping-punctuation
-   # w = re.sub(r"([?.!,¿])", r" \1 ", w)
-    #w = re.sub(r'[" "]+', " ", w)
-
-    # replacing everything with space except (a-z, A-Z, ".", "?", "!", ",")
-    #if lang== 'eng':
-    #   w = re.sub(r"[^0-9a-zA-Z?.!,¿]+", " ", w)
-
-    w = w.rstrip().strip()
-
-    # adding a start and an end token to the sentence
-    # so that the model know when to start and stop predicting.
-    w = 'start ' + w + ' end'
-    return w
 
 def PreProcessRolesModel(path):
     adj = []

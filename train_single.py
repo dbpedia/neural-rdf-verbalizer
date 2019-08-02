@@ -419,16 +419,20 @@ if __name__ == "__main__":
          # Eval function
         def eval_step():
             model.trainable = False
+            results = []
             file = open(output_file, 'w+')
-            verbalised_triples =[]
-            for line in ref_source:
-                result = Inference(args, line, model,
-                                   src_vocab, tgt_vocab)
-                file.write(result+'\n')
-                verbalised_triples.append(result)
-                print(str(i)+' '+result)
-            rogue = (rouge_n(verbalised_triples, ref_target))
-            score = corpus_bleu(ref_target, verbalised_triples)
+
+            for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(eval_set)):
+                predictions = model(nodes, labels, node1,
+                                    node2, targ=None, mask=None)
+                pred = [(predictions['outputs'].numpy().tolist())]
+                for i in range(len(pred[0])):
+                    sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+                    print(sentence+'\n')
+                    results.append(sentence)
+
+            rogue = (rouge_n(results, ref_target))
+            score = corpus_bleu(ref_target, results)
             file.close()
             model.trainable = True
 
