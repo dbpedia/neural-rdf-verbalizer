@@ -415,8 +415,8 @@ if __name__ == "__main__":
             results = []
             ref_target = []
             eval_results = open(EvalResultsFile, 'w+')
-
-            for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(eval_set)):
+            dev_set = eval_set.take(args.eval_steps)
+            for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(dev_set)):
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
                 pred = [(predictions['outputs'].numpy().tolist())]
@@ -447,22 +447,20 @@ if __name__ == "__main__":
                     if args.decay is not None:
                         optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
-                    if batch % args.eval_steps == 0:
-                        rogue, score = eval_step()
-                        print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
-                        print('\n'+ '---------------------------------------------------------------------' + '\n')
-                    else:
-                        batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
-                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                  train_loss.result(), acc.numpy(), ppl.numpy()))
-                        # log the training results
-                        tf.io.write_file(log_file,
-                                         f'Epoch {epoch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
+                    batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
+                    print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
+                                                              train_loss.result(), acc.numpy(), ppl.numpy()))
+                    # log the training results
+                    tf.io.write_file(log_file,
+                                     f'Epoch {epoch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                     if batch % args.checkpoint == 0:
                         ckpt_save_path = ckpt_manager.save()
                         print("Saving checkpoint \n")
                     print('Time {} \n'.format(time.time() - start))
-
                     pbar.update(1)
+
+                rogue, score = eval_step(args.eval_steps)
+                print('\n' + '---------------------------------------------------------------------' + '\n')
+                print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+                print('\n' + '---------------------------------------------------------------------' + '\n')
