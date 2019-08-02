@@ -365,12 +365,7 @@ if __name__ == "__main__":
         ref_target = []
         reference = open(args.eval_ref, 'r')
         eval_file = open(args.eval, 'r')
-        for i, (eval_src, eval_tgt) in enumerate(zip(eval_file, reference)):
-            if i < args.num_eval_lines:
-                ref_source.append(eval_src)
-                ref_target.append(eval_tgt)
-        reference.close()
-        eval_file.close()
+
 
         model = TransGAT(args, src_vocab_size, src_vocab,
                          tgt_vocab_size, tgt_vocab)
@@ -430,6 +425,7 @@ if __name__ == "__main__":
                     sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
+                    ref_target.append(reference.readline())
                     results.append(sentence)
 
             rogue = (rouge_n(results, ref_target))
