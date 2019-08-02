@@ -410,12 +410,12 @@ if __name__ == "__main__":
             return batch_loss, acc, ppl
 
          # Eval function
-        def eval_step():
+        def eval_step(steps):
             model.trainable = False
             results = []
             ref_target = []
             eval_results = open(EvalResultsFile, 'w+')
-            dev_set = eval_set.take(args.eval_steps)
+            dev_set = eval_set.take(steps)
             for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(dev_set)):
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
