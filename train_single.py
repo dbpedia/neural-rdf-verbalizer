@@ -428,7 +428,7 @@ if __name__ == "__main__":
                     results.append(sentence)
 
             rogue = (rouge_n(results, ref_target))
-            score = corpus_bleu(ref_target, results)
+            score = 0
             eval_results.close()
             model.trainable = True
 
