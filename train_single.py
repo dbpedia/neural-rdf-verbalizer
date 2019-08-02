@@ -428,6 +428,7 @@ if __name__ == "__main__":
                 pred = [(predictions['outputs'].numpy().tolist())]
                 for i in range(len(pred[0])):
                     sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+                    sentence = sentence.partition("start")[2].partition("end")[0]
                     print(sentence+'\n')
                     results.append(sentence)
 
