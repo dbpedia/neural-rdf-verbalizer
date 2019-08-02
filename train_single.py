@@ -21,7 +21,7 @@ from src.arguments import get_args
 from src.models.GraphAttentionModel import TransGAT
 from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
-from inference import Inference
+#from inference import Inference
 from src.utils.rogue import rouge_n
 
 PARAMS_MAP = {
@@ -357,7 +357,7 @@ if __name__ == "__main__":
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
-        (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
+        (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
          src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GatGATdataset(args)
 
         # Load the eval src and tgt files for evaluation
@@ -426,10 +426,9 @@ if __name__ == "__main__":
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
                 pred = [(predictions['outputs'].numpy().tolist())]
-                for i in tqdm(range(len(pred[0]))):
+                for i in range(len(pred[0])):
                     sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
                     sentence = sentence.partition("start")[2].partition("end")[0]
-                    print(sentence+'\n')
                     eval_results.write(sentence + '\n')
                     results.append(sentence)
 

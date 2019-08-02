@@ -34,6 +34,8 @@ parser.add_argument(
 parser.add_argument(
     '--eval_tgt', type=str, required=True, help='Path to eval target file')
 parser.add_argument(
+    '--test_src', type=str, required=True, help='Path to test source file')
+parser.add_argument(
     '--model', type=str, required=True, help='Preprocess for GAT model or seq2seq model')
 parser.add_argument(
     '--opt', type=str, required=True, help='Role processing or Reification: role, reif ')
@@ -41,6 +43,8 @@ parser.add_argument(
     '--use_colab', type=bool, required=False, help='Use colab or not')
 parser.add_argument(
     '--lang', type=str, required=True, help='Language of the dataset')
+parser.add_argument(
+    '--vocab_size', type=int, required=True, help='Size of target vocabulary')
 
 args = parser.parse_args()
 
@@ -49,7 +53,7 @@ def TrainVocabs(args):
     os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
     spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
                                     --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
-                                    --vocab_size=10000 --character_coverage=1.0 --model_type=bpe')
+                                    --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
     sp = spm.SentencePieceProcessor()
     sp.load('vocabs/'+args.model+'/'+args.lang+'/train_tgt.model')
     print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
@@ -235,6 +239,7 @@ if __name__ == '__main__':
 
             train_nodes, train_labels, train_node1, train_node2 = PreProcess(args.train_src, args.lang)
             eval_nodes, eval_labels, eval_node1, eval_node2 = PreProcess(args.eval_src, args.lang)
+            test_nodes, test_labels, test_node1, test_node2 = PreProcess(args.test_src, args.lang)
 
             # Build and save the vocab
             print('Building the  Source Vocab file... ')
@@ -245,16 +250,14 @@ if __name__ == '__main__':
             eval_tgt = [PreProcessSentence(w, args.lang) for w in eval_tgt]
 
             vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
-            #vocab.fit_on_texts(train_tgt)
-            #vocab.fit_on_texts(eval_tgt)
             vocab.fit_on_texts(train_nodes)
             vocab.fit_on_texts(train_labels)
             vocab.fit_on_texts(train_node1)
             vocab.fit_on_texts(train_node2)
-            #vocab.fit_on_texts(eval_nodes)
-            #vocab.fit_on_texts(eval_labels)
-            #vocab.fit_on_texts(eval_node1)
-            #vocab.fit_on_texts(eval_node2)
+            vocab.fit_on_texts(eval_nodes)
+            vocab.fit_on_texts(eval_labels)
+            vocab.fit_on_texts(eval_node1)
+            vocab.fit_on_texts(eval_node2)
             print('Vocab Size : {}\n'.format(len(vocab.word_index)))
 
             #save the vocab file
@@ -266,6 +269,7 @@ if __name__ == '__main__':
             print('Preparing the Graph Network datasets...')
             train_input = list(zip(train_nodes, train_labels, train_node1, train_node2))
             eval_input = list(zip(eval_nodes, eval_labels, eval_node1, eval_node2))
+            test_input = list(zip(test_nodes, test_labels, test_node1, test_node2))
             train_set = list(zip(train_input, train_tgt))
             eval_set = list(zip(eval_input, eval_tgt))
             print('Train and eval dataset size : {} {} '.format(len(train_set), len(eval_set)))
@@ -286,7 +290,9 @@ if __name__ == '__main__':
                 pickle.dump(train_set, fp)
             with open(OUTPUT_DIR+'/'+args.opt+'_eval', 'wb') as fp:
                 pickle.dump(eval_set, fp)
-            print('Dumped the train and eval datasets.')
+            with open(OUTPUT_DIR+'/'+args.opt+'_test', 'wb') as fp:
+                pickle.dump(test_input, fp)
+            print('Dumped the train, eval and test datasets.')
                 
     else:
         print('Building the dataset...')
@@ -299,6 +305,8 @@ if __name__ == '__main__':
         train_tgt = [PreProcessSentence(w, args.lang) for w in train_tgt]
         eval_tgt = io.open(args.eval_tgt, encoding='UTF-8').read().strip().split('\n')
         eval_tgt = [PreProcessSentence(w, args.lang) for w in eval_tgt]
+        test_src = io.open(args.test_src, encoding='UTF-8').read().strip().split('\n')
+        test_src = [PreProcessSentence(w, args.lang) for w in test_src]
 
         vocab = tf.keras.preprocessing.text.Tokenizer(filters='')        
         vocab.fit_on_texts(train_src)
@@ -330,4 +338,6 @@ if __name__ == '__main__':
             pickle.dump(train_set, fp)
         with open(OUTPUT_DIR+'/'+'eval', 'wb') as fp:
             pickle.dump(eval_set, fp)
+        with open(OUTPUT_DIR+'/'+'test', 'wb') as fp:
+            pickle.dump(test_src, fp)
         print('Dumped the train and eval datasets.')

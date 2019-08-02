@@ -32,6 +32,8 @@ parser.add_argument(
 parser.add_argument(
     '--eval_path', type=str, required=True, help='Path to eval dataset')
 parser.add_argument(
+    '--test_path', type=str, required=True, help='Path to test dataset')
+parser.add_argument(
     '--src_vocab', type=str, required=True, help='Path to Vocab of the dataset')
 parser.add_argument(
     '--tgt_vocab', type=str, required=True, help='Path to Vocab of the dataset')
