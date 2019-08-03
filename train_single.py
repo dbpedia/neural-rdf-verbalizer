@@ -10,6 +10,7 @@ import tensorflow as tf
 import time
 import os
 from tqdm import tqdm
+import pickle
 
 from src.DataLoader import GetDataset, GetGATDataset
 from src.models import model_params, GraphAttentionModel, RNNModel
@@ -20,12 +21,6 @@ from src.models.GraphAttentionModel import TransGAT
 from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
 from src.utils.rogue import rouge_n
-
-PARAMS_MAP = {
-    "tiny": model_params.TINY_PARAMS,
-    "base": model_params.BASE_PARAMS,
-    "big": model_params.BIG_PARAMS,
-}
 
 if __name__ == "__main__":
     args = get_args()
@@ -352,41 +347,6 @@ if __name__ == "__main__":
             else:
                 exit(0)
 
-        for epoch in range(epochs):
-            start = time.time()
-            train_loss.reset_states()
-            train_accuracy.reset_states()
-            print('Learning Rate'+str(optimizer.lr)+' Step '+ str(step))
-            with tqdm(total=(dataset_size // args.batch_size)) as pbar:
-                for (batch, (inp, tar)) in tqdm(enumerate(dataset)):
-                    step += 1
-                    if args.decay is not None:
-                        optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
-
-                    if (batch % args.eval_steps == 0):
-                        eval_loss = eval_step()
-                        print('\n'+ '---------------------------------------------------------------------' + '\n')
-                        print('Epoch {} Batch {} Rouge {:.4f}'.format(epoch, batch, eval_loss   ))
-                        print('\n'+ '---------------------------------------------------------------------' + '\n')
-                    else:
-                        batch_loss, acc, ppl = train_step(inp, tar)
-                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                                                          batch_loss.numpy(),
-                                                                                                          acc.numpy(),
-                                                                                                          ppl.numpy()))
-                        # log the training results
-                        tf.io.write_file(log_file, "Epoch {}".format(epoch))
-                        tf.io.write_file(log_file, "Train Accuracy: {}, Loss: {}, Perplexity{}".format((acc),
-                                                                                         train_loss, ppl))
-
-                    pbar.update(1)
-
-            print('Epoch {} Loss {:.4f} Accuracy {:.4f}'.format(
-                        (epoch), train_loss.result(), train_accuracy.result()))
-            print('Time taken for 1 Epoch: {} secs\n'.format(time.time() - start))
-            ckpt_save_path = ckpt_manager.save()
-            print("Saving checkpoint \n")
-
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
 
@@ -396,7 +356,6 @@ if __name__ == "__main__":
         # Load the eval src and tgt files for evaluation
         reference = open(args.eval_ref, 'r')
         eval_file = open(args.eval, 'r')
-
 
         model = TransGAT(args, src_vocab_size, src_vocab,
                          tgt_vocab_size, tgt_vocab)
@@ -408,7 +367,20 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(learning_rate = args.learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
-        global_step = tf.Variable(0, name='global_step', trainable=False)
+
+        # Save model parameters for future use
+        if os.path.isfile(args.lang+'_model_params'):
+            with open(args.lang+'_model_params', 'rb') as fp:
+                PARAMS = pickle.load(fp)
+        else:
+            PARAMS = {
+                "args": args,
+                "src_vocab_size": src_vocab_size,
+                "tgt_vocab_size": tgt_vocab_size,
+                "max_tgt_length": max_length_targ,
+                "dataset_size": dataset_size,
+                "step" : 0
+            }
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
@@ -417,9 +389,9 @@ if __name__ == "__main__":
 
         ckpt = tf.train.Checkpoint(
             model=model,
-            optimizer=optimizer,
-            global_step=global_step
+            optimizer=optimizer
         )
+
         ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
         if ckpt_manager.latest_checkpoint:
             ckpt.restore(ckpt_manager.latest_checkpoint).expect_partial()
@@ -480,13 +452,14 @@ if __name__ == "__main__":
                      node1, node2, targ)) in tqdm(enumerate(dataset.repeat(-1))):
             if batch < steps:
                 start = time.time()
-                global_step = tf.add(global_step, 1)
+                PARAMS['step'] += 1
+
                 if args.decay is not None:
                     optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
                 batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                 print('Step {} Learning Rate {:.4f} Train Loss {:.4f} '
-                      'Accuracy {:.4f} Perplex {:.4f}'.format(batch,
+                      'Accuracy {:.4f} Perplex {:.4f}'.format(PARAMS['step'],
                                                               optimizer._lr,
                                                               train_loss.result(),
                                                               acc.numpy(),
@@ -497,14 +470,17 @@ if __name__ == "__main__":
                                  f'Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                 if batch % args.eval_steps == 0:
-                    rogue, score = eval_step(20)
+                    rogue, score = eval_step(1)
                     print('\n' + '---------------------------------------------------------------------' + '\n')
                     print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
                     print('\n' + '---------------------------------------------------------------------' + '\n')
 
                 if batch % args.checkpoint == 0:
-                    ckpt_save_path = ckpt_manager.save()
                     print("Saving checkpoint \n")
+                    ckpt_save_path = ckpt_manager.save()
+                    with open(args.lang + 'model_params', 'wb+') as fp:
+                        pickle.dump(PARAMS, fp)
+
                 print('Time {} \n'.format(time.time() - start))
             else:
                 rogue, score = eval_step()
