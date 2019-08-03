@@ -15,10 +15,9 @@ save the adjacency matrix as numpy array
 """
 import tensorflow as tf
 
-from src.utils.model_utils import PreProcessSentence, unicode_to_ascii
+from src.utils.model_utils import PreProcessSentence
+from src.utils.PreprocessingUtils import PreProcess, PreProcessRolesModel
 import sentencepiece as spm
-import numpy as np
-import networkx as nx
 import argparse
 import pickle
 import io
@@ -26,15 +25,15 @@ import os
 
 parser = argparse.ArgumentParser(description="preprocessor parser")
 parser.add_argument(
-    '--train_src', type=str, required=True, help='Path to train source file')
+    '--train_src', type=str, required=False, help='Path to train source file')
 parser.add_argument(
-    '--train_tgt', type=str, required=True, help='Path to train target file ')
+    '--train_tgt', type=str, required=False, help='Path to train target file ')
 parser.add_argument(
-    '--eval_src', type=str, required=True, help='Path to eval source file')
+    '--eval_src', type=str, required=False, help='Path to eval source file')
 parser.add_argument(
-    '--eval_tgt', type=str, required=True, help='Path to eval target file')
+    '--eval_tgt', type=str, required=False, help='Path to eval target file')
 parser.add_argument(
-    '--test_src', type=str, required=True, help='Path to test source file')
+    '--test_src', type=str, required=False, help='Path to test source file')
 parser.add_argument(
     '--model', type=str, required=True, help='Preprocess for GAT model or seq2seq model')
 parser.add_argument(
@@ -44,142 +43,32 @@ parser.add_argument(
 parser.add_argument(
     '--lang', type=str, required=True, help='Language of the dataset')
 parser.add_argument(
-    '--vocab_size', type=int, required=True, help='Size of target vocabulary')
+    '--vocab_size', type=int, required=False, help='Size of target vocabulary')
 
 args = parser.parse_args()
 
 #intialise sentence piece
 def TrainVocabs(args):
     os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-    spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
-                                    --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
-                                    --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
+    # exception check for 'None' value of vocab_size
+    # Vocab size is not used during inference, only
+    # during training and eval preprocessing
+    try:
+        if args.vocab_size is None:
+            raise ValueError
+        spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
+                                        --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
+                                        --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
+    except ValueError:
+        print('Please enter the vocab size to'
+              'train the SentencePiece vocab')
+        exit(0)
+
     sp = spm.SentencePieceProcessor()
     sp.load('vocabs/'+args.model+'/'+args.lang+'/train_tgt.model')
     print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
 
     return sp
-
-def PreProcessRolesModel(path):
-    adj = []
-    degree_mat = []
-    tensor = []
-    train_nodes = []
-    roles = []
-    edges = []
-    dest = open(path, 'r')
-    count = 0
-    for line in dest:
-        g = nx.MultiDiGraph()
-        temp_edge = []
-        triple_list = line.split('< TSP >')
-        for l in triple_list:
-            l = l.strip().split(' | ')
-            g.add_edge(l[0], l[1])
-            g.add_edge(l[1], l[2])
-            g.add_edge(l[0], l[2])
-            temp_edge.append(l[1])
-        edges.append(temp_edge)
-        train_nodes.append(list(g.nodes()))
-
-        # set roles
-        roles_ = []
-        for node in list(g.nodes()):
-            role = ''
-            for l in triple_list:
-                l = l.strip().split(' | ')
-
-                if l[0] == node:
-                    if role == 'object':
-                        role = 'bridge'
-                    else:
-                        role = 'subject'
-                elif l[1] == node:
-                    role = 'predicate'
-                elif l[2] == node:
-                    if role == 'subject':
-                        role = 'bridge'
-                    else:
-                        role = 'object'
-            roles_.append(role)
-        roles.append(roles_)
-
-        array = nx.to_numpy_matrix(g)
-        result = np.zeros((16, 16))
-
-        result[:array.shape[0], :array.shape[1]] = array
-
-        result += np.identity(16)
-
-        adj.append(result)
-        diag = np.sum(result, axis=0)
-        D = np.matrix(np.diag(diag))
-        degree_mat.append(D)
-        result = D**-1 * result
-
-    dest.close()
-
-    return adj, train_nodes, roles, edges
-
-def PreProcess(path, lang):
-    nodes = []
-    labels = []
-    node1 = []
-    node2 = [] 
-    dest = open(path, 'r')
-    lang = '<'+lang+'>'
-    for line in dest:
-        g = nx.MultiDiGraph()
-        temp_label = []
-        temp_node1 = []
-        temp_node2 = []
-        triple_list = line.split('<TSP>')
-        #triple_list = triple_list[:-1]
-        for l in triple_list:
-            l = l.strip().split(' | ')
-            #l = [lang+' '+x for x in l]
-            g.add_edge(l[0], l[1], label='A_ZERO')
-            #g.add_edge(l[1], l[0])
-            g.add_edge(l[1], l[2], label='A_ONE')
-            #g.add_edge(l[2], l[1])
-        node_list = list(g.nodes())
-        #node_list.append(lang)
-        #print(node_list)
-        nodes.append(node_list)
-        edge_list = list(g.edges.data())
-        for edge in edge_list:
-            temp_node1.append(edge[0])
-            temp_node2.append(edge[1])
-            label = (edge[2]['label'])
-            temp_label.append(label)
-        node1.append(temp_node1)
-        node2.append(temp_node2)
-        labels.append(temp_label)
-
-    dest.close()
-
-    return nodes, labels, node1, node2
-
-def node_tensors(nodes, embedding):
-    """Function to create feature matrix for each graph
-
-    Arguments:
-        nodes {.npy} -- Numpy array that has list of all nodes in each
-        training example
-        embedding {Bert_embedding object} -- BERT model object
-    """
-    result = []
-    for node in nodes:
-        tensor = []
-        emb = embedding(node)
-        for ele in emb:
-            tensor.append(ele[1][0])
-        tensor = np.array(tensor)
-        result.append(tensor)
-    result = np.array(result)
-
-    return result
-
 
 if __name__ == '__main__':
     if args.model == 'gat':
