@@ -445,12 +445,15 @@ if __name__ == "__main__":
             return batch_loss, acc, ppl
 
          # Eval function
-        def eval_step(steps):
+        def eval_step(steps=None):
             model.trainable = False
             results = []
             ref_target = []
             eval_results = open(EvalResultsFile, 'w+')
-            dev_set = eval_set.take(steps)
+            if steps is None:
+                dev_set = eval_set
+            else:
+                dev_set = eval_set.take(steps)
             for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(dev_set)):
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
@@ -494,7 +497,7 @@ if __name__ == "__main__":
                                  f'Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                 if batch % args.eval_steps == 0:
-                    rogue, score = eval_step(1)
+                    rogue, score = eval_step(20)
                     print('\n' + '---------------------------------------------------------------------' + '\n')
                     print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
                     print('\n' + '---------------------------------------------------------------------' + '\n')
@@ -504,4 +507,7 @@ if __name__ == "__main__":
                     print("Saving checkpoint \n")
                 print('Time {} \n'.format(time.time() - start))
             else:
-                exit(0)
+                rogue, score = eval_step()
+                print('\n' + '---------------------------------------------------------------------' + '\n')
+                print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+                print('\n' + '---------------------------------------------------------------------' + '\n')
