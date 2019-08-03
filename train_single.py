@@ -249,12 +249,11 @@ if __name__ == "__main__":
         d_model = args.emb_dim
         dff = args.hidden_size
         dropout_rate = args.dropout
-        if args.epochs is None :
-            epochs = args.steps // steps_per_epoch
-        else:
-            epochs = args.epochs
 
-        step = 0
+        if args.epochs is not None:
+            steps = args.epochs * steps_per_epoch
+        else:
+            steps = args.steps
 
         if args.decay is not None:
             learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
@@ -316,6 +315,43 @@ if __name__ == "__main__":
 
             return rogue
 
+        train_loss.reset_states()
+        train_accuracy.reset_states()
+
+        for (batch, (inp, tar)) in tqdm(enumerate(dataset.repeat(-1))):
+            if batch < steps:
+                start = time.time()
+                step += 1
+                if args.decay is not None:
+                    optimizer.lr = learning_rate(tf.cast(step, dtype=tf.float32))
+
+
+                batch_loss, acc, ppl = train_step(inp, tar)
+                print('Step {} Learning Rate {:.4f} Train Loss {:.4f}'
+                      ' Accuracy {:.4f} Perplex {:.4f}'.format(batch,
+                                                                optimizer.lr,
+                                                                batch_loss.numpy(),
+                                                                acc.numpy(),
+                                                                ppl.numpy()))
+                # log the training results
+                tf.io.write_file(log_file, "Step {} Train Accuracy: {}, "
+                                           "Loss: {}, Perplexity{}".format(step,
+                                                                            (acc),
+                                                                            train_loss, ppl))
+
+                if batch % args.eval_steps == 0:
+                    rogue, score = eval_step(25)
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
+                    print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
+
+                if batch % args.checkpoint == 0:
+                    ckpt_save_path = ckpt_manager.save()
+                    print("Saving checkpoint \n")
+                print('Time {} \n'.format(time.time() - start))
+            else:
+                exit(0)
+
         for epoch in range(epochs):
             start = time.time()
             train_loss.reset_states()
@@ -372,7 +408,7 @@ if __name__ == "__main__":
         else:
             optimizer = tf.train.AdamOptimizer(learning_rate = args.learning_rate, beta1=0.9, beta2=0.98,
                                                epsilon=1e-9)
-        step =0
+        global_step = tf.Variable(0, name='global_step', trainable=False)
 
         loss_object = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True, reduction='none')
         train_loss = tf.keras.metrics.Mean(name='train_loss')
@@ -380,11 +416,13 @@ if __name__ == "__main__":
             name='train_accuracy')
 
         ckpt = tf.train.Checkpoint(
-            model=model
+            model=model,
+            optimizer=optimizer,
+            global_step=global_step
         )
         ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
         if ckpt_manager.latest_checkpoint:
-            ckpt.restore(ckpt_manager.latest_checkpoint)
+            ckpt.restore(ckpt_manager.latest_checkpoint).expect_partial()
             print('Latest checkpoint restored!!')
 
         if args.epochs is not None:
@@ -439,7 +477,7 @@ if __name__ == "__main__":
                      node1, node2, targ)) in tqdm(enumerate(dataset.repeat(-1))):
             if batch < steps:
                 start = time.time()
-                step += 1
+                global_step = tf.add(global_step, 1)
                 if args.decay is not None:
                     optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
@@ -456,7 +494,7 @@ if __name__ == "__main__":
                                  f'Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                 if batch % args.eval_steps == 0:
-                    rogue, score = eval_step(25)
+                    rogue, score = eval_step(1)
                     print('\n' + '---------------------------------------------------------------------' + '\n')
                     print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
                     print('\n' + '---------------------------------------------------------------------' + '\n')
