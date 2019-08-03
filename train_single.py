@@ -372,6 +372,7 @@ if __name__ == "__main__":
         if os.path.isfile(args.lang+'_model_params'):
             with open(args.lang+'_model_params', 'rb') as fp:
                 PARAMS = pickle.load(fp)
+                print('Loaded Parameters..')
         else:
             PARAMS = {
                 "args": args,
@@ -450,7 +451,7 @@ if __name__ == "__main__":
 
         for (batch, (nodes, labels,
                      node1, node2, targ)) in tqdm(enumerate(dataset.repeat(-1))):
-            if batch < steps:
+            if PARAMS['step'] < steps:
                 start = time.time()
                 PARAMS['step'] += 1
 
@@ -478,7 +479,7 @@ if __name__ == "__main__":
                 if batch % args.checkpoint == 0:
                     print("Saving checkpoint \n")
                     ckpt_save_path = ckpt_manager.save()
-                    with open(args.lang + 'model_params', 'wb+') as fp:
+                    with open(args.lang + '_model_params', 'wb+') as fp:
                         pickle.dump(PARAMS, fp)
 
                 print('Time {} \n'.format(time.time() - start))
