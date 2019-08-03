@@ -9,9 +9,7 @@ from __future__ import division
 import tensorflow as tf
 import time
 import os
-import logging
 from tqdm import tqdm
-from nltk.translate.bleu_score import corpus_bleu
 
 from src.DataLoader import GetDataset, GetGATDataset
 from src.models import model_params, GraphAttentionModel, RNNModel
@@ -21,7 +19,6 @@ from src.arguments import get_args
 from src.models.GraphAttentionModel import TransGAT
 from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
-#from inference import Inference
 from src.utils.rogue import rouge_n
 
 PARAMS_MAP = {
@@ -434,33 +431,39 @@ if __name__ == "__main__":
 
             return rogue, score
 
-        for epoch in range(args.epochs):
-            print('Learning Rate'+str(optimizer._lr)+' Step '+ str(step))
-            print(dataset_size)
-            with tqdm(total=(dataset_size // args.batch_size)) as pbar:
-                train_loss.reset_states()
-                train_accuracy.reset_states()
 
-                for (batch, (nodes, labels, node1, node2, targ)) in tqdm(enumerate(dataset)):
-                    start = time.time()
-                    step +=1
-                    if args.decay is not None:
-                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+        train_loss.reset_states()
+        train_accuracy.reset_states()
 
-                    batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
-                    print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                              train_loss.result(), acc.numpy(), ppl.numpy()))
-                    # log the training results
-                    tf.io.write_file(log_file,
-                                     f'Epoch {epoch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
+        for (batch, (nodes, labels,
+                     node1, node2, targ)) in tqdm(enumerate(dataset.repeat(-1))):
+            if batch < steps:
+                start = time.time()
+                step += 1
+                if args.decay is not None:
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
 
-                    if batch % args.checkpoint == 0:
-                        ckpt_save_path = ckpt_manager.save()
-                        print("Saving checkpoint \n")
-                    print('Time {} \n'.format(time.time() - start))
-                    pbar.update(1)
+                batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
+                print('Step {} Learning Rate {:.4f} Train Loss {:.4f} '
+                      'Accuracy {:.4f} Perplex {:.4f}'.format(batch,
+                                                              optimizer._lr,
+                                                              train_loss.result(),
+                                                              acc.numpy(),
+                                                              ppl.numpy()))
+                # log the training results
+                tf.io.write_file(log_file,
+                                 f'Step {batch} Train Accuracy: {acc.numpy()} '
+                                 f'Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
-                rogue, score = eval_step(args.eval_steps)
-                print('\n' + '---------------------------------------------------------------------' + '\n')
-                print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
-                print('\n' + '---------------------------------------------------------------------' + '\n')
+                if batch % args.eval_steps == 0:
+                    rogue, score = eval_step(1)
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
+                    print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
+
+                if batch % args.checkpoint == 0:
+                    ckpt_save_path = ckpt_manager.save()
+                    print("Saving checkpoint \n")
+                print('Time {} \n'.format(time.time() - start))
+            else:
+                exit(0)
