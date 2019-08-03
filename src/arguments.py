@@ -20,6 +20,9 @@ parser.add_argument(
 parser.add_argument(
     '--train', type=bool, required=False, help='In training mode or eval mode')
 parser.add_argument(
+    '--distillation', type=bool, required=False, help='To use Knowledge Distilaltion in the'
+                                                      'multilingual model')
+parser.add_argument(
     '--resume', type=bool, required=True, help='Yes | no, to resume training')
 
 # Colab options
@@ -61,6 +64,8 @@ parser.add_argument(
         required=False, help='Number of epochs (deprecated)')
 parser.add_argument(
     '--batch_size', type=int, required=True, help='Batch size')
+parser.add_argument(
+    '--vocab_size', type=int, required=True, help='Vocab Size for the multilingual model')
 parser.add_argument(
     '--emb_dim', type=int, required=True, help='Embedding dimension')
 parser.add_argument(

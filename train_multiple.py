@@ -14,6 +14,7 @@ from tqdm import tqdm
 import time
 
 from src.MultilingualDataLoader import ProcessMultilingualDataset
+from src.utils.MultilingualUtils import LoadTeacherModels
 from src.arguments import get_args
 from src.models import model_params, GraphAttentionModel, RNNModel
 from src.utils.model_utils import CustomSchedule
@@ -21,7 +22,6 @@ from src.utils.Optimizers import LazyAdam
 from src.models.GraphAttentionModel import TransGAT
 from src.models.Transformer import Transformer
 from src.utils.metrics import LossLayer
-from inference import Inference
 from src.utils.rogue import rouge_n
 from nltk.translate.bleu_score import corpus_bleu
 
@@ -47,20 +47,11 @@ if __name__ == "__main__":
         log_file = OUTPUT_DIR + '/logs/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
-    if args.enc_type == 'gat' and args.dec_type == 'rnn':
-        OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-
-    if args.enc_type == 'rnn' and args.dec_type == 'rnn':
-        OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-
-    if args.enc_type == 'transformer' and args.dec_type == 'transformer':
-        OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-
     if args.enc_type == 'gat' and args.dec_type == 'transformer':
         OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-        OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-        (dataset, eval_dataset, test_set, train_buffer_size, eval_buffer_size, BATCH_SIZE, steps_per_epoch,
-         src_vocab, src_vocab_size, tgt_vocab, tgt_vocab_size , max_length, dataset_size) = ProcessMultilingualDataset(args)
+        (dataset, src_vocab, src_vocab_size, tgt_vocab,
+         tgt_vocab_size, MULTI_BUFFER_SIZE, steps_per_epoch, MaxSeqSize) = ProcessMultilingualDataset(args)
+        models = LoadTeacherModels()
 
         # Load the eval src and tgt files for evaluation
         ref_source = []
@@ -121,57 +112,58 @@ if __name__ == "__main__":
 
 
         # Eval function
-        def eval_step():
+        def eval_step(steps):
             model.trainable = False
             results = []
             file = open(output_file, 'w+')
 
-            for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(eval_dataset)):
+            for (batch, (nodes, labels,
+                         node1, node2, target)) in tqdm(enumerate(
+                dataset['eval_set'].take(steps))):
                 predictions = model(nodes, labels, node1,
                                     node2, targ=None, mask=None)
                 pred = [(predictions['outputs'].numpy().tolist())]
                 for i in range(len(pred[0])):
                     results.append(tgt_vocab.DecodeIds(list(pred[0][i])))
 
-            rogue = (rouge_n(results, ref_target))
-            score = corpus_bleu(ref_target, results)
+            #rogue = (rouge_n(results, ref_target))
+            #score = corpus_bleu(ref_target, results)
             file.close()
             model.trainable = True
 
-            return rogue, score
+            return 0, 0
 
+        train_loss.reset_states()
+        train_accuracy.reset_states()
 
-        for epoch in range(args.epochs):
-            print('Learning Rate' + str(optimizer._lr) + ' Step ' + str(step))
-            print(dataset_size)
-            with tqdm(total=(int(dataset_size // args.batch_size))) as pbar:
-                train_loss.reset_states()
-                train_accuracy.reset_states()
+        for (batch, (nodes, labels,
+                     node1, node2, targ)) in tqdm(enumerate(
+            dataset['train_set'].repeat(-1))):
+            print('Learning Rate' + str(optimizer._lr))
+            if batch < args.steps:
+                start = time.time()
+                step += 1
+                if args.decay is not None:
+                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                
+                batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
+                print('Step {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(batch,
+                                                                                        train_loss.result(),
+                                                                                        acc.numpy(),
+                                                                                        ppl.numpy()))
+                # log the training results
+                tf.io.write_file(log_file,
+                                f'Step {batch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
-                for (batch, (nodes, labels, node1, node2, targ)) in tqdm(enumerate(dataset)):
-                    start = time.time()
-                    step += 1
-                    if args.decay is not None:
-                        optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                if batch % args.eval_steps == 0:
+                    rogue, score = eval_step(1)
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
+                    print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+                    print('\n' + '---------------------------------------------------------------------' + '\n')
 
-                    if batch % args.eval_steps == 0:
-                        rogue, score = eval_step()
-                        print('\n' + '---------------------------------------------------------------------' + '\n')
-                        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
-                        print('\n' + '---------------------------------------------------------------------' + '\n')
-                    else:
-                        batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
-                        print('Epoch {} Batch {} Train Loss {:.4f} Accuracy {:.4f} Perplex {:.4f}'.format(epoch, batch,
-                                                                                                          train_loss.result(),
-                                                                                                          acc.numpy(),
-                                                                                                          ppl.numpy()))
-                        # log the training results
-                        tf.io.write_file(log_file,
-                                         f'Epoch {epoch} Train Accuracy: {acc.numpy()} Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
-
-                    if batch % args.checkpoint == 0:
-                        ckpt_save_path = ckpt_manager.save()
-                        print("Saving checkpoint \n")
-                    print('Time {} \n'.format(time.time() - start))
-
-                    pbar.update(1)
+                if batch % args.checkpoint == 0:
+                    ckpt_save_path = ckpt_manager.save()
+                    print("Saving checkpoint \n")
+                print('Time {} \n'.format(time.time() - start))
+            else:
+                exit(0)
