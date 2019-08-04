@@ -54,15 +54,15 @@ def TrainVocabs(args):
     # Vocab size is not used during inference, only
     # during training and eval preprocessing
     if args.use_colab is not None:
-        prefix = '/content/gdrive/My Drive/data/vocabs/'+args.model+'/' + args.lang
+        prefix = '/content/gdrive/My Drive/data/vocabs/'+args.model+'/' + args.lang+'/train_tgt'
     else:
         prefix = 'vocabs/'+args.model+'/'+args.lang
     try:
         if args.vocab_size is None:
             raise ValueError
         spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
-                                        --model_prefix='+prefix+'/train_tgt \
-                                        --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
+                                        --model_prefix='+prefix+' --vocab_size='+str(args.vocab_size)+
+                                       ' --character_coverage=1.0 --model_type=bpe')
     except ValueError:
         print('Please enter the vocab size to'
               'train the SentencePiece vocab')
