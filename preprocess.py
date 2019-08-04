@@ -58,7 +58,7 @@ def TrainVocabs(args):
             raise ValueError
         if args.use_colab is not None:
             spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
-                                            --model_prefix="/content/gdrive/My Drive/data/vocabs/'+args.model+'/'+args.lang+'/train_tgt" \
+                                            --model_prefix="/content/gdrive/My\ Drive/data/vocabs/'+args.model+'/'+args.lang+'/train_tgt" \
                                             --vocab_size='+str(
                 args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
         else:
