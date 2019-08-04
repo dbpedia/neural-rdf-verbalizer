@@ -456,7 +456,7 @@ if __name__ == "__main__":
                 PARAMS['step'] += 1
 
                 if args.decay is not None:
-                    optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
+                    optimizer._lr = learning_rate(tf.cast(PARAMS['step'], dtype=tf.float32))
 
                 batch_loss, acc, ppl = train_step(nodes, labels, node1, node2, targ)
                 print('Step {} Learning Rate {:.4f} Train Loss {:.4f} '
