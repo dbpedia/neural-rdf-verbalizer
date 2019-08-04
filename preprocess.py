@@ -44,6 +44,8 @@ parser.add_argument(
     '--lang', type=str, required=True, help='Language of the dataset')
 parser.add_argument(
     '--vocab_size', type=int, required=False, help='Size of target vocabulary')
+parser.add_argument(
+    '--max_seq_len', type=int, required=False, help='Maximum length of the sequence')
 
 args = parser.parse_args()
 
@@ -58,7 +60,8 @@ def TrainVocabs(args):
             raise ValueError
         spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
                                         --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
-                                        --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
+                                        --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 '
+                                        '--model_type=bpe --max_sentencepiece_length='+str(args.max_seq_len))
     except ValueError:
         print('Please enter the vocab size to'
               'train the SentencePiece vocab')
