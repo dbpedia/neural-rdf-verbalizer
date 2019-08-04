@@ -54,7 +54,7 @@ def TrainVocabs(args):
     # Vocab size is not used during inference, only
     # during training and eval preprocessing
     if args.use_colab is not None:
-        prefix = '/content/gdrive/My Drive/data/vocabs/'+args.model+'/' + args.lang+'/train_tgt'
+        prefix = "/content/gdrive/My Drive/data/vocabs/"+args.model+"/" + args.lang+"/train_tgt"
     else:
         prefix = 'vocabs/'+args.model+'/'+args.lang
     try:
