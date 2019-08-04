@@ -46,6 +46,8 @@ parser.add_argument(
     '--vocab_size', type=int, required=False, help='Size of target vocabulary')
 parser.add_argument(
     '--max_seq_len', type=int, required=False, help='Maximum length of the sequence')
+parser.add_argument(
+    '--sentencepiece_model', type=str, required=False, help='SentencePiece model')
 
 args = parser.parse_args()
 
