@@ -27,8 +27,8 @@ def unicode_to_ascii(s):
 
 def PreProcessSentence(w, lang):
     w = unicode_to_ascii(w.lower().strip())
-    #w = re.sub(r"([?.!,¿])", r" \1 ", w)
-    #w = re.sub(r'[" "]+', " ", w)
+    w = re.sub(r"([?.!,¿])", r" \1 ", w)
+    w = re.sub(r'[" "]+', " ", w)
     w = w.rstrip().strip()
     w = 'start ' + w + ' end'
 
