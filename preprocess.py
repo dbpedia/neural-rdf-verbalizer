@@ -56,16 +56,9 @@ def TrainVocabs(args):
     try:
         if args.vocab_size is None:
             raise ValueError
-        if args.use_colab is not None:
-            spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
-                                            --model_prefix="/content/gdrive/My\ Drive/data/vocabs/'+args.model+'/'+args.lang+'/train_tgt" \
-                                            --vocab_size='+str(
-                args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
-        else:
-            spm.SentencePieceTrainer.Train('--input=' + args.train_tgt + ',' + args.eval_tgt + ' \
-                                                        --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_tgt \
-                                                        --vocab_size=' + str(
-                args.vocab_size) + ' --character_coverage=1.0 --model_type=bpe')
+        spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
+                                        --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
+                                        --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
     except ValueError:
         print('Please enter the vocab size to'
               'train the SentencePiece vocab')
@@ -171,8 +164,8 @@ if __name__ == '__main__':
                 if not os.path.isdir(OUTPUT_DIR):
                      os.makedirs(OUTPUT_DIR)
                 # save the vocab file
-                os.makedirs(('/content/gdrive/My Drive/data/vocabs/gat/' + args.lang), exist_ok=True)
-                with open(('/content/gdrive/My Drive/data/vocabs/gat/' + args.lang + '/' + args.opt + '_src_vocab'), 'wb+') as fp:
+                os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
+                with open(('vocabs/gat/' + args.lang + '/' + args.opt + '_src_vocab'), 'wb+') as fp:
                     pickle.dump(vocab, fp)
 
             else:
