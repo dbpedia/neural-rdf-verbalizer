@@ -61,7 +61,7 @@ def TrainVocabs(args):
         spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
                                         --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
                                         --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 '
-                                        '--model_type=bpe --max_sentencepiece_length='+str(args.max_seq_len))
+                                        '--model_type='+args.sentencepiece_model+' --max_sentencepiece_length='+str(args.max_seq_len))
     except ValueError:
         print('Please enter the vocab size to'
               'train the SentencePiece vocab')
