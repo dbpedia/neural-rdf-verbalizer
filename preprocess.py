@@ -53,11 +53,15 @@ def TrainVocabs(args):
     # exception check for 'None' value of vocab_size
     # Vocab size is not used during inference, only
     # during training and eval preprocessing
+    if args.use_colab is not None:
+        prefix = '/content/gdrive/My Drive/data/vocabs/'+args.model+'/' + args.lang
+    else:
+        prefix = 'vocabs/'+args.model+'/'+args.lang
     try:
         if args.vocab_size is None:
             raise ValueError
         spm.SentencePieceTrainer.Train('--input=' + args.train_tgt +','+ args.eval_tgt + ' \
-                                        --model_prefix=vocabs/'+args.model+'/'+args.lang+'/train_tgt \
+                                        --model_prefix='+prefix+'/train_tgt \
                                         --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
     except ValueError:
         print('Please enter the vocab size to'
@@ -149,13 +153,6 @@ if __name__ == '__main__':
             vocab.fit_on_texts(eval_node2)
             print('Vocab Size : {}\n'.format(len(vocab.word_index)))
 
-            #save the vocab file
-            os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-            with open(('vocabs/gat/' + args.lang + '/'+args.opt+'_src_vocab'), 'wb+') as fp:
-                pickle.dump(vocab, fp)
-
-            print('Vocab file saved !\n')
-            print('Preparing the Graph Network datasets...')
             train_input = list(zip(train_nodes, train_labels, train_node1, train_node2))
             eval_input = list(zip(eval_nodes, eval_labels, eval_node1, eval_node2))
             test_input = list(zip(test_nodes, test_labels, test_node1, test_node2))
@@ -170,11 +167,23 @@ if __name__ == '__main__':
                 OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/'+args.lang+'/'+args.model
                 if not os.path.isdir(OUTPUT_DIR):
                      os.makedirs(OUTPUT_DIR)
+                # save the vocab file
+                os.makedirs(('/content/gdrive/My Drive/data/vocabs/gat/' + args.lang), exist_ok=True)
+                with open(('/content/gdrive/My Drive/data/vocabs/gat/' + args.lang + '/' + args.opt + '_src_vocab'), 'wb+') as fp:
+                    pickle.dump(vocab, fp)
 
             else:
                 OUTPUT_DIR = 'data/processed_graphs/'+args.lang+'/'+args.model
                 if not os.path.isdir(OUTPUT_DIR): 
                     os.makedirs(OUTPUT_DIR)
+                # save the vocab file
+                os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
+                with open(('vocabs/gat/' + args.lang + '/' + args.opt + '_src_vocab'), 'wb+') as fp:
+                    pickle.dump(vocab, fp)
+
+            print('Vocab file saved !\n')
+            print('Preparing the Graph Network datasets...')
+
             with open(OUTPUT_DIR+'/'+args.opt+'_train', 'wb') as fp:
                 pickle.dump(train_set, fp)
             with open(OUTPUT_DIR+'/'+args.opt+'_eval', 'wb') as fp:
