@@ -371,7 +371,7 @@ if __name__ == "__main__":
                                                epsilon=1e-9)
 
         # Save model parameters for future use
-        if os.path.isfile(args.lang+'_model_params'):
+        if os.path.isfile(log_dir+'/'+args.lang+'_model_params'):
             with open(log_dir+'/'+args.lang+'_model_params', 'rb') as fp:
                 PARAMS = pickle.load(fp)
                 print('Loaded Parameters..')
