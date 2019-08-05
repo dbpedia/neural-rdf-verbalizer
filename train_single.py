@@ -28,6 +28,7 @@ if __name__ == "__main__":
     #set up dirs
     if args.use_colab is None:
         EvalResultsFile = 'eval_results.txt'
+        TestResults = 'test_results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
         log_dir = 'data/logs'
         log_file = log_dir +args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
@@ -37,6 +38,7 @@ if __name__ == "__main__":
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         EvalResultsFile = OUTPUT_DIR + '/eval_results.txt'
+        TestResults = OUTPUT_DIR + '/test_results.txt'
         log_dir = OUTPUT_DIR+'/logs'
         log_file = log_dir + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
@@ -449,6 +451,30 @@ if __name__ == "__main__":
 
             return rogue, score
 
+        # Eval function
+        def test_step():
+            model.trainable = False
+            results = []
+            ref_target = []
+            eval_results = open(TestResults, 'w+')
+            for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(test_set)):
+                predictions = model(nodes, labels, node1,
+                                    node2, targ=None, mask=None)
+                pred = [(predictions['outputs'].numpy().tolist())]
+                for i in range(len(pred[0])):
+                    sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+                    sentence = sentence.partition("start")[2].partition("end")[0]
+                    eval_results.write(sentence + '\n')
+                    ref_target.append(reference.readline())
+                    results.append(sentence)
+
+            rogue = (rouge_n(results, ref_target))
+            score = 0
+            eval_results.close()
+            model.trainable = True
+
+            return rogue, score
+
 
         train_loss.reset_states()
         train_accuracy.reset_states()
@@ -487,7 +513,7 @@ if __name__ == "__main__":
                         pickle.dump(PARAMS, fp)
 
                 print('Time {} \n'.format(time.time() - start))
-        rogue, score = eval_step()
+        rogue, score = test_step()
         print('\n' + '---------------------------------------------------------------------' + '\n')
         print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
         print('\n' + '---------------------------------------------------------------------' + '\n')
