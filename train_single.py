@@ -29,14 +29,16 @@ if __name__ == "__main__":
     if args.use_colab is None:
         EvalResultsFile = 'eval_results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
-        log_file = 'data/logs/'+args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
+        log_dir = 'data/logs/'
+        log_file = log_dir +args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         EvalResultsFile = OUTPUT_DIR + '/eval_results.txt'
-        log_file = OUTPUT_DIR+'/logs/' + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
+        log_dir = OUTPUT_DIR+'/logs/'
+        log_file = log_dir + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
     if args.enc_type == 'gat' and args.dec_type =='rnn':
@@ -370,7 +372,7 @@ if __name__ == "__main__":
 
         # Save model parameters for future use
         if os.path.isfile(args.lang+'_model_params'):
-            with open(args.lang+'_model_params', 'rb') as fp:
+            with open(log_dir+'/'+args.lang+'_model_params', 'rb') as fp:
                 PARAMS = pickle.load(fp)
                 print('Loaded Parameters..')
         else:
@@ -479,7 +481,7 @@ if __name__ == "__main__":
                 if batch % args.checkpoint == 0:
                     print("Saving checkpoint \n")
                     ckpt_save_path = ckpt_manager.save()
-                    with open(args.lang + '_model_params', 'wb+') as fp:
+                    with open(log_dir+'/'+args.lang + '_model_params', 'wb+') as fp:
                         pickle.dump(PARAMS, fp)
 
                 print('Time {} \n'.format(time.time() - start))
