@@ -513,6 +513,8 @@ if __name__ == "__main__":
                         pickle.dump(PARAMS, fp)
 
                 print('Time {} \n'.format(time.time() - start))
+            else:
+                break
         rogue, score = test_step()
         print('\n' + '---------------------------------------------------------------------' + '\n')
         print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
