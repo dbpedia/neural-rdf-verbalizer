@@ -346,8 +346,10 @@ if __name__ == "__main__":
                     ckpt_save_path = ckpt_manager.save()
                     print("Saving checkpoint \n")
                 print('Time {} \n'.format(time.time() - start))
-            else:
-                exit(0)
+        rogue, score = eval_step()
+        print('\n' + '---------------------------------------------------------------------' + '\n')
+        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+        print('\n' + '---------------------------------------------------------------------' + '\n')
 
     elif ((args.enc_type == "gat")and(args.dec_type == "transformer")):
         OUTPUT_DIR += '/' + args.enc_type+'_'+args.dec_type
@@ -485,8 +487,7 @@ if __name__ == "__main__":
                         pickle.dump(PARAMS, fp)
 
                 print('Time {} \n'.format(time.time() - start))
-            else:
-                rogue, score = eval_step()
-                print('\n' + '---------------------------------------------------------------------' + '\n')
-                print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
-                print('\n' + '---------------------------------------------------------------------' + '\n')
+        rogue, score = eval_step()
+        print('\n' + '---------------------------------------------------------------------' + '\n')
+        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+        print('\n' + '---------------------------------------------------------------------' + '\n')
