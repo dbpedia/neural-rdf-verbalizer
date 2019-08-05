@@ -380,6 +380,7 @@ if __name__ == "__main__":
                 PARAMS = pickle.load(fp)
                 print('Loaded Parameters..')
         else:
+            os.makedirs(log_dir)
             PARAMS = {
                 "args": args,
                 "src_vocab_size": src_vocab_size,
