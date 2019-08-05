@@ -29,7 +29,7 @@ if __name__ == "__main__":
     if args.use_colab is None:
         EvalResultsFile = 'eval_results.txt'
         OUTPUT_DIR = 'ckpts/'+args.lang
-        log_dir = 'data/logs/'
+        log_dir = 'data/logs'
         log_file = log_dir +args.lang+'_'+args.enc_type+'_'+str(args.emb_dim)+'.log'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
     else:
@@ -37,7 +37,7 @@ if __name__ == "__main__":
         drive.mount('/content/gdrive')
         OUTPUT_DIR = '/content/gdrive/My Drive/ckpts/'+args.lang
         EvalResultsFile = OUTPUT_DIR + '/eval_results.txt'
-        log_dir = OUTPUT_DIR+'/logs/'
+        log_dir = OUTPUT_DIR+'/logs'
         log_file = log_dir + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
         if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
 
