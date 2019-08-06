@@ -443,13 +443,7 @@ if __name__ == "__main__":
                     sentence = ""
                     #sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
                     for w in list(pred[0][i]):
-                        if w ==0:
-                            continue
-                        if tgt_vocab.index_word[w] == 'end':
-                            break
-                        else:
-                            sentence += tgt_vocab.index_word[w]
-                    print(sentence)
+                        sentence += tgt_vocab.index_word[w]
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
                     ref_target.append(reference.readline())
@@ -475,12 +469,7 @@ if __name__ == "__main__":
                 for i in range(len(pred[0])):
                     #sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
                     for w in list(pred[0][i]):
-                        if w==0:
-                            continue
-                        if tgt_vocab.index_word[w] == 'end':
-                            break
-                        else:
-                            sentence += tgt_vocab.index_word[w]
+                        sentence += tgt_vocab.index_word[w]
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
                     ref_target.append(reference.readline())
