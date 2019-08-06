@@ -507,7 +507,7 @@ if __name__ == "__main__":
                                  f'Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n')
 
                 if batch % args.eval_steps == 0:
-                    rogue, score = eval_step(20)
+                    rogue, score = eval_step(5)
                     print('\n' + '---------------------------------------------------------------------' + '\n')
                     print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
                     print('\n' + '---------------------------------------------------------------------' + '\n')
