@@ -46,7 +46,6 @@ def LoadMultlingualDataset(args):
         src_vocab.fit_on_texts(dataset[lang+'_train_labels'])
         src_vocab.fit_on_texts(dataset[lang+'_train_node1'])
         src_vocab.fit_on_texts(dataset[lang+'_train_node2'])
-    exit(0)
     # Load the vovab is already exists else train one.
     os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
     sp = spm.SentencePieceProcessor()
@@ -56,7 +55,7 @@ def LoadMultlingualDataset(args):
     else:
         spm.SentencePieceTrainer.Train('--input=' + target_str + ' \
                                                     --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_tgt \
-                                                    --vocab_size='+args.vocab_size+' --character_coverage=1.0 --model_type=bpe')
+                                                    --vocab_size='+str(args.vocab_size)+' --character_coverage=1.0 --model_type=bpe')
         sp.load('vocabs/' + args.model + '/' + args.lang + '/train_tgt.model')
         with open(('vocabs/gat/' + args.lang + '/' + args.opt + '_src_vocab'), 'wb+') as fp:
             pickle.dump(src_vocab, fp)

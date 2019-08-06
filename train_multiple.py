@@ -51,19 +51,13 @@ if __name__ == "__main__":
         OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
         (dataset, src_vocab, src_vocab_size, tgt_vocab,
          tgt_vocab_size, MULTI_BUFFER_SIZE, steps_per_epoch, MaxSeqSize) = ProcessMultilingualDataset(args)
-        models = LoadTeacherModels()
+        #models = LoadTeacherModels()
 
         # Load the eval src and tgt files for evaluation
         ref_source = []
         ref_target = []
         reference = open(args.eval_ref, 'r')
         eval_file = open(args.eval, 'r')
-        for i, (eval_src, eval_tgt) in enumerate(zip(eval_file, reference)):
-            if i < args.num_eval_lines:
-                ref_source.append(eval_src)
-                ref_target.append(eval_tgt)
-        reference.close()
-        eval_file.close()
 
         model = TransGAT(args, src_vocab_size, src_vocab,
                          tgt_vocab_size, tgt_vocab)
