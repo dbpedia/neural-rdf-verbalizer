@@ -380,7 +380,8 @@ if __name__ == "__main__":
                 PARAMS = pickle.load(fp)
                 print('Loaded Parameters..')
         else:
-            os.makedirs(log_dir)
+            if not os.path.isdir(log_dir):
+                os.makedirs(log_dir)
             PARAMS = {
                 "args": args,
                 "src_vocab_size": src_vocab_size,
@@ -439,7 +440,11 @@ if __name__ == "__main__":
                                     node2, targ=None, mask=None)
                 pred = [(predictions['outputs'].numpy().tolist())]
                 for i in range(len(pred[0])):
-                    sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+                    sentence = ""
+                    #sentence = (tgt_vocab.DecodeIds(list(pred[0][i])))
+                    for w in list(pred[0][i]):
+                        sentence += tgt_vocab.index_word[w]
+                    print(sentence)
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
                     ref_target.append(reference.readline())

@@ -9,29 +9,37 @@ import numpy as np
 from src.utils.model_utils import max_length, convert
 import sentencepiece as spm
 
-def LoadDataset(train_path, eval_path, vocab_path, lang, num_examples=None):
+def LoadDataset(train_path, eval_path, test_path,
+                vocab_path, lang, num_examples=None):
     # load the train and eval datasets
     with open(train_path, 'rb') as f:
         train_set = pickle.load(f)
     with open(eval_path, 'rb') as f:
         eval_set = pickle.load(f)
-    # load vocab
-    with open(vocab_path, 'rb') as f:
-        vocab = pickle.load(f)
+    with open(test_path, 'rb') as f:
+        test_set = pickle.load(f)
+    # load the vocab
+    sp = spm.SentencePieceProcessor()
+    sp.load(vocab_path)
 
     train_inp, train_tgt = zip(*train_set)
     eval_inp, eval_tgt = zip(*eval_set)
 
-    input_tensor = vocab.texts_to_sequences(train_inp)
+    input_tensor = [sp.encode_as_ids(w) for w in train_inp]
     input_tensor = tf.keras.preprocessing.sequence.pad_sequences(input_tensor,
                                                                  padding='post')
-    target_tensor = vocab.texts_to_sequences(train_tgt)
+    target_tensor = [sp.encode_as_ids(w) for w in train_tgt]
     target_tensor = tf.keras.preprocessing.sequence.pad_sequences(target_tensor,
                                                                  padding='post')
-    eval_inp = vocab.texts_to_sequences(eval_inp)
+    eval_inp = [sp.encode_as_ids(w) for w in eval_inp]
     eval_inp = tf.keras.preprocessing.sequence.pad_sequences(eval_inp,
                                                                  padding='post')
-
+    test_inp = [sp.encode_as_ids(w) for w in test_set]
+    test_inp = tf.keras.preprocessing.sequence.pad_sequences(test_set,
+                                                             padding='post')
+    print(test_inp[0])
+    print(sp.decode_ids((test_inp[0])))
+    exit(0)
     return input_tensor, target_tensor, \
            eval_inp, vocab
 
@@ -51,8 +59,8 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
         with open(srv_vocab, 'rb') as f:
             src_vocab = pickle.load(f)
         #load the target vocab
-        sp = spm.SentencePieceProcessor()
-        sp.load(tgt_vocab)
+        #sp = spm.SentencePieceProcessor()
+        #sp.load(tgt_vocab)
 
         train_input, train_tgt = zip(*train_set)
         eval_input, eval_tgt = zip(*eval_set)
@@ -88,14 +96,18 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
         eval_node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(eval_node2_tensor, padding='post')
         test_node2_tensor = tf.keras.preprocessing.sequence.pad_sequences(test_node2_tensor, padding='post')
 
-        #train_tgt_tensor = vocab.texts_to_sequences(train_tgt)
-        train_tgt_tensor = [sp.encode_as_ids(w) for w in train_tgt]
+        #######exp######
+        train_tgt_tensor = src_vocab.texts_to_sequences(train_tgt)
         train_tgt_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_tgt_tensor, padding='post')
+
+        #train_tgt_tensor = vocab.texts_to_sequences(train_tgt)
+        #train_tgt_tensor = [sp.encode_as_ids(w) for w in train_tgt]
+        #train_tgt_tensor = tf.keras.preprocessing.sequence.pad_sequences(train_tgt_tensor, padding='post')
 
         return (train_node_tensor, train_label_tensor, train_node1_tensor,
                 train_node2_tensor,train_tgt_tensor, eval_node_tensor, eval_label_tensor,
                 eval_node1_tensor, eval_node2_tensor, test_node_tensor, test_label_tensor,
-                test_node1_tensor, test_node2_tensor, src_vocab, sp, max_length(train_tgt_tensor))
+                test_node1_tensor, test_node2_tensor, src_vocab, src_vocab, max_length(train_tgt_tensor))
 
     else:
         #load the train and eval datasets
@@ -135,7 +147,8 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
 
 def GetDataset(args):
 
-    input_tensor, target_tensor, eval_tensor, lang = LoadDataset(args.train_path, args.eval_path, args.vocab_path, args.lang, args.num_examples)
+    input_tensor, target_tensor, eval_tensor, lang = LoadDataset(args.train_path, args.eval_path, args.test_path,
+                                                                 args.src_vocab, args.lang, args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
@@ -195,7 +208,8 @@ def GetGATDataset(args):
         BATCH_SIZE = args.batch_size
         steps_per_epoch = len(train_tgt_tensor) // BATCH_SIZE
         src_vocab_size = len(src_vocab.word_index) + 1
-        tgt_vocab_size = tgt_vocab.get_piece_size()
+        #tgt_vocab_size = tgt_vocab.get_piece_size()
+        tgt_vocab_size = len(tgt_vocab.word_index) + 1
         dataset_size = train_tgt_tensor.shape[0]
 
         dataset = tf.data.Dataset.from_tensor_slices((node_tensor, label_tensor,

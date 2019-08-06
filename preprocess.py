@@ -37,7 +37,7 @@ parser.add_argument(
 parser.add_argument(
     '--model', type=str, required=True, help='Preprocess for GAT model or seq2seq model')
 parser.add_argument(
-    '--opt', type=str, required=True, help='Role processing or Reification: role, reif ')
+    '--opt', type=str, required=False, help='Role processing or Reification: role, reif ')
 parser.add_argument(
     '--use_colab', type=bool, required=False, help='Use colab or not')
 parser.add_argument(
@@ -129,7 +129,7 @@ if __name__ == '__main__':
 
         elif args.opt == 'reif':
 
-            vocab = TrainVocabs(args)
+            #vocab = TrainVocabs(args)
 
             train_nodes, train_labels, train_node1, train_node2 = PreProcess(args.train_src, args.lang)
             eval_nodes, eval_labels, eval_node1, eval_node2 = PreProcess(args.eval_src, args.lang)
@@ -152,6 +152,10 @@ if __name__ == '__main__':
             vocab.fit_on_texts(eval_labels)
             vocab.fit_on_texts(eval_node1)
             vocab.fit_on_texts(eval_node2)
+
+            vocab.fit_on_texts(train_tgt)
+            vocab.fit_on_texts(eval_tgt)
+
             print('Vocab Size : {}\n'.format(len(vocab.word_index)))
 
             train_input = list(zip(train_nodes, train_labels, train_node1, train_node2))
@@ -194,6 +198,20 @@ if __name__ == '__main__':
             print('Dumped the train, eval and test datasets.')
                 
     else:
+        #Train the vocabs
+        os.makedirs(('vocabs/'+args.model+'/' + args.lang), exist_ok=True) #ready the directories
+
+        spm.SentencePieceTrainer.Train('--input=' + args.train_tgt + ',' + args.eval_tgt + ',' +
+                                       args.train_src + ',' + args.eval_src +' \
+                                        --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_vocab \
+                                        --vocab_size=' + str(args.vocab_size) + ' --character_coverage=1.0 '
+                                        '--model_type=' + args.sentencepiece_model +
+                                        ' --max_sentencepiece_length=' + str( args.max_seq_len))
+
+        sp = spm.SentencePieceProcessor()
+        sp.load('vocabs/' + args.model + '/' + args.lang + '/train_vocab.model')
+        print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
+
         print('Building the dataset...')
 
         train_src = io.open(args.train_src, encoding='UTF-8').read().strip().split('\n')
@@ -207,20 +225,9 @@ if __name__ == '__main__':
         test_src = io.open(args.test_src, encoding='UTF-8').read().strip().split('\n')
         test_src = [PreProcessSentence(w, args.lang) for w in test_src]
 
-        vocab = tf.keras.preprocessing.text.Tokenizer(filters='')        
-        vocab.fit_on_texts(train_src)
-        #vocab.fit_on_texts(eval_src)
-        vocab.fit_on_texts(train_tgt)
-        #vocab.fit_on_texts(eval_tgt)
-        print('Vocab Size : {}\n'.format(len(vocab.word_index)))
-        train_set = zip(train_src, train_tgt) 
-        eval_set = zip(eval_src, eval_tgt) 
-        
-        #save the vocab file
-        os.makedirs(('vocabs/seq2seq/' + args.lang), exist_ok=True)
-        with open(('vocabs/seq2seq/' + args.lang + '/'+'vocab'), 'wb+') as fp:
-            pickle.dump(vocab, fp)
-        print('Vocab file saved !\n')
+        train_set = zip(train_src, train_tgt)
+        eval_set = zip(eval_src, eval_tgt)
+
         if args.use_colab is not None:
                 from google.colab import drive
 
