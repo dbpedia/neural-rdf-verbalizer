@@ -445,7 +445,7 @@ if __name__ == "__main__":
                     for w in list(pred[0][i]):
                         if w ==0:
                             continue
-                        sentence += tgt_vocab.index_word[w]
+                        sentence += tgt_vocab.index_word[w] + ' '
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
                     ref_target.append(reference.readline())
@@ -473,7 +473,7 @@ if __name__ == "__main__":
                     for w in list(pred[0][i]):
                         if w ==0:
                             continue
-                        sentence += tgt_vocab.index_word[w]
+                        sentence += tgt_vocab.index_word[w] +' '
                     sentence = sentence.partition("start")[2].partition("end")[0]
                     eval_results.write(sentence + '\n')
                     ref_target.append(reference.readline())
