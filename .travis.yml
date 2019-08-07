@@ -1,0 +1,11 @@
+language: python
+python:
+    - "3.6"
+    
+install:
+    - pip install -U pip wheel
+    - pip install -r requirements.txt --progress-bar off
+
+script:
+    - export FILES="$(git diff --name-only $TRAVIS_COMMIT_RANGE)"
+    
