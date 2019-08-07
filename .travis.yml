@@ -3,7 +3,7 @@ python:
     - "3.6"
     
 install:
-    - pip3 install -user pip wheel
+    - pip install -user python3-pip
     - pip3 install --user -r requirements.txt --progress-bar off
 
 script:
