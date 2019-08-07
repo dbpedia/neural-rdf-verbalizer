@@ -3,8 +3,7 @@ python:
     - "3.6"
     
 install:
-    - pip install --user python3-pip
-    - pip3 install --user -r requirements.txt --progress-bar off
+    - pip install --user -r requirements.txt --progress-bar off
 
 script:
     - export FILES="$(git diff --name-only $TRAVIS_COMMIT_RANGE)"
