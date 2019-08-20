@@ -93,7 +93,7 @@ We justify the use of Graph Attention Networks by pointing out of the fact that 
 - To run the multilingual model replace train_single.py with train_multiple.py. All languages must be preprocessed to train the multilingual model. The multilingual model preprocesses the data for all languages automatically, no need to change the train_path, eval_path, test_path. the lang, eval and eval_ref parameters must be changed to 'mutli' to save it's checkpoints in a folder of the same name. 
 
 ## Credits : 
-- My idea is an extension and improvement over the paper [Deep Graph Convolutional Encoders for
+- My idea is an extension and a variation of the paper [Deep Graph Convolutional Encoders for
 Structured Data to Text Generation](https://arxiv.org/pdf/1810.09995.pdf) , my input pipeline follows the same principle but is a different implementation as comapred to the [paper's authors](https://github.com/diegma/graph-2-text). 
   
 - My implementation of Transformers is based on the official [Tensorflow's implementation](https://github.com/tensorflow/models/tree/master/official/transformer) 
