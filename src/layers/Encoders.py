@@ -1,29 +1,31 @@
 """ Base and encoder classes """
 
-from __future__ import  division
-from __future__ import print_function
 from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
 
 import tensorflow as tf
-from src.layers.GATLayer import GraphAttentionLayer
+
 from src.layers.AttentionLayer import MultiHeadAttention
-from src.utils.model_utils import point_wise_feed_forward_network
+from src.layers.GATLayer import GraphAttentionLayer
 from src.layers.ffn_layer import FeedForwardNetwork
+from src.utils.model_utils import point_wise_feed_forward_network
+
 
 class GraphEncoder(tf.keras.layers.Layer):
     def __init__(self, num_layers, d_model, num_heads, dff,
                  filter_size, reg_scale=0.001, rate=0.1):
-      
+
         super(GraphEncoder, self).__init__()
         self.d_model = d_model
         self.num_layers = num_layers
 
-        self.node_role_layer = tf.keras.layers.Dense(self.d_model, input_shape=(2*d_model, ))
+        self.node_role_layer = tf.keras.layers.Dense(self.d_model, input_shape=(2 * d_model,))
         self.enc_layers = []
         for _ in range(num_layers):
             gat_layer = GraphAttentionLayer(d_model, dff, num_heads,
-                                               reg_scale=reg_scale, rate=rate)
-            ffn_layer =FeedForwardNetwork(dff, filter_size, rate)
+                                            reg_scale=reg_scale, rate=rate)
+            ffn_layer = FeedForwardNetwork(dff, filter_size, rate)
             self.enc_layers.append([gat_layer, ffn_layer])
 
         self.dropout = tf.keras.layers.Dropout(rate)
@@ -34,13 +36,13 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         edge_tensor = tf.concat([node1_tensor, node2_tensor], 2)
         edge_tensor = tf.cast(self.node_role_layer(edge_tensor), dtype=tf.float32)
-        #node_tensor = tf.add(node_tensor, role_tensor)
+        # node_tensor = tf.add(node_tensor, role_tensor)
         node_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
         edge_tensor *= tf.math.sqrt(tf.cast(self.d_model, tf.float32))
-        #node_tensor += self.node_pos_enc[:, :node_seq_len, :]
+        # node_tensor += self.node_pos_enc[:, :node_seq_len, :]
 
         for i, layer in enumerate(self.enc_layers):
-            if i==0:
+            if i == 0:
                 x = self.enc_layers[i][0](node_tensor, edge_tensor, label_tensor, num_heads, training)
                 x = self.enc_layers[i][1](x, training=self.trainable)
             else:
@@ -51,10 +53,12 @@ class GraphEncoder(tf.keras.layers.Layer):
 
         return self.layernorm(x)  # (batch_size, input_seq_len, d_model)
 
+
 class RNNEncoder(tf.keras.layers.Layer):
     """
     RNN Encoder
     """
+
     def __init__(self, vocab_size, emb_dim, enc_units, batch_size):
         """
 
@@ -70,10 +74,10 @@ class RNNEncoder(tf.keras.layers.Layer):
                                                     return_state=True,
                                                     recurrent_initializer='glorot_uniform')
         self.backward_gru = tf.keras.layers.CuDNNGRU(self.enc_units,
-                                                    return_sequences=True,
-                                                    return_state=True,
-                                                    go_backwards=True,
-                                                    recurrent_initializer='glorot_uniform')
+                                                     return_sequences=True,
+                                                     return_state=True,
+                                                     go_backwards=True,
+                                                     recurrent_initializer='glorot_uniform')
         self.gru = tf.keras.layers.Bidirectional(self.forward_gru, backward_layer=self.backward_gru,
                                                  merge_mode='ave')
 
@@ -85,6 +89,7 @@ class RNNEncoder(tf.keras.layers.Layer):
 
     def initialize_hidden_state(self):
         return tf.zeros((self.batch_size, self.enc_units))
+
 
 class TransformerEncoder(tf.keras.layers.Layer):
     def __init__(self, d_model, num_heads, dff, rate=0.1):

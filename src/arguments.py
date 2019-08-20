@@ -1,5 +1,6 @@
 """ File to hold arguments """
 import argparse
+
 # data arguments
 
 parser = argparse.ArgumentParser(description="Main Arguments")
@@ -12,18 +13,18 @@ parser.add_argument(
     '--dec_type', default='rnn', type=str, required=True,
     help='Type of decoder Transformer | rnn')
 parser.add_argument(
-    '--model', default='gat', type=str, required=True,
-    help='Model type')
+    '--model', default='monolingual', type=str, required=True,
+    help='Model type GAT | Transformer | RNN ')
 parser.add_argument(
     '--opt', type=str, required=False, help='The mode in which GAT model is operated -> \
                                              Use Roles method or Reification (roles, reif)')
 parser.add_argument(
     '--train', type=bool, required=False, help='In training mode or eval mode')
 parser.add_argument(
-    '--distillation', type=bool, required=False, help='To use Knowledge Distilaltion in the'
-                                                      'multilingual model')
+    '--distillation', type=str, required=False, help='To use Knowledge Distilaltion in the'
+                                                     'multilingual model')
 parser.add_argument(
-    '--resume', type=bool, required=True, help='Yes | no, to resume training')
+    '--temp', type=float, required=False, help='Temperature of the logits in Knowledge Distillation ')
 
 # Colab options
 parser.add_argument(
@@ -48,6 +49,10 @@ parser.add_argument(
     '--eval_ref', type=str, required=False, help='Path to Lex file of the Eval set')
 parser.add_argument(
     '--num_eval_lines', type=int, required=False, help='Number of sentences to be used to eval')
+parser.add_argument(
+    '--sentencepiece', type=str, required=False, help='Use sentencepiece or not')
+parser.add_argument(
+    '--sentencepiece_model', type=str, required=False, help='Type of sentencepiece model to use')
 
 # training parameters
 parser.add_argument(
@@ -61,7 +66,7 @@ parser.add_argument(
 
 parser.add_argument(
     '--epochs', type=int, default=None,
-        required=False, help='Number of epochs (deprecated)')
+    required=False, help='Number of epochs (deprecated)')
 parser.add_argument(
     '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
@@ -100,11 +105,11 @@ parser.add_argument(
 parser.add_argument(
     '--optimizer', type=str, required=False, help='Optimizer that will be used')
 parser.add_argument(
-    '--alpha', type=float, required=False, default= 0.2, help='Alpha value for LeakyRELU')
+    '--alpha', type=float, required=False, default=0.2, help='Alpha value for LeakyRELU')
 parser.add_argument(
-    '--beam_size', type=int, required=False, default= 0.2, help='Beam search size ')
+    '--beam_size', type=int, required=False, default=0.2, help='Beam search size ')
 parser.add_argument(
-    '--beam_alpha', type=float, required=False, default= 0.2, help='Alpha value for Beam search')
+    '--beam_alpha', type=float, required=False, default=0.2, help='Alpha value for Beam search')
 parser.add_argument(
     '--loss', type=str, required=False, help='Loss function to calculate loss')
 parser.add_argument(
@@ -118,7 +123,8 @@ parser.add_argument(
 parser.add_argument(
     '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
-#inference parameters
+
+# inference parameters
 
 def get_args():
     args = parser.parse_args()

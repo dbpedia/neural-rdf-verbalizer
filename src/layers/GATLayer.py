@@ -1,14 +1,16 @@
 """ Graph Attention Network layer """
 
-from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
+from __future__ import print_function
 
 import tensorflow as tf
+
 tf.enable_eager_execution()
 
-class GraphAttentionLayer (tf.keras.layers.Layer):
-    def __init__(self, d_model, dff, num_heads, reg_scale =0.001, rate=0.1):
+
+class GraphAttentionLayer(tf.keras.layers.Layer):
+    def __init__(self, d_model, dff, num_heads, reg_scale=0.001, rate=0.1):
         """
         Graph Attention Network Layer, takes input and returns embedded
         node features with self attention applied on the feature matrix
@@ -32,7 +34,7 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
                                      initializer='glorot_uniform',
                                      regularizer=self.reg,
                                      name='kernel_{}'.format(head))
-            bias = self.add_weight(shape=(self.out_dim, ),
+            bias = self.add_weight(shape=(self.out_dim,),
                                    initializer='glorot_uniform',
                                    regularizer=self.reg,
                                    name='bias_{}'.format(head))
@@ -66,8 +68,8 @@ class GraphAttentionLayer (tf.keras.layers.Layer):
             dense = self.lrelu(dense)
 
             # Mask values before activation (Vaswani et al., 2017)
-            #mask_local = -10e9 * (1.0 - adj)
-            #dense += mask_local
+            # mask_local = -10e9 * (1.0 - adj)
+            # dense += mask_local
 
             # Apply softmax to get attention coefficients
             dense = tf.math.softmax(dense)  # (N x N)

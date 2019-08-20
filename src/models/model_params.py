@@ -2,7 +2,6 @@
 
 from collections import defaultdict
 
-
 BASE_PARAMS = defaultdict(
     lambda: None,  # Set default value to None.
 
@@ -13,7 +12,7 @@ BASE_PARAMS = defaultdict(
 
     # Model params
     initializer_gain=1.0,  # Used in trainable variable initialization.
-    vocab_size=35000 , # Number of tokens defined in the vocabulary file.
+    vocab_size=35000,  # Number of tokens defined in the vocabulary file.
     hidden_size=512,  # Model dimension in the hidden layers.
     num_hidden_layers=6,  # Number of layers in the encoder and decoder stacks.
     num_heads=8,  # Number of heads to use in multi-headed attention.

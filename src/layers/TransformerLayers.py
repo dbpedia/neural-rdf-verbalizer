@@ -3,11 +3,13 @@ from __future__ import division
 from __future__ import print_function
 
 import tensorflow as tf
+
+from src.arguments import get_args
 from src.layers import AttentionLayer
 from src.layers import EmbeddingLayer
 from src.layers import ffn_layer
 from src.utils import TransformerUtils
-from src.arguments import get_args
+
 
 class LayerNormalization(tf.keras.layers.Layer):
     """Applies layer normalization."""
@@ -43,6 +45,7 @@ class LayerNormalization(tf.keras.layers.Layer):
 
         return tf.cast(norm_x * self.scale + self.bias, input_dtype)
 
+
 class PrePostProcessingWrapper(tf.keras.layers.Layer):
     """Wrapper class that applies layer pre-processing and post-processing."""
 
@@ -74,6 +77,7 @@ class PrePostProcessingWrapper(tf.keras.layers.Layer):
 
         return x + y
 
+
 class Transformer(tf.keras.Model):
     """Transformer model with Keras.
       Implemented as described in: https://arxiv.org/pdf/1706.03762.pdf
@@ -82,6 +86,7 @@ class Transformer(tf.keras.Model):
       representation, and the decoder uses the encoder output to generate
       probabilities for the output sequence.
     """
+
     def __init__(self, args, vocab_tgt_size, name=None):
         super(Transformer, self).__init__(name=name)
         self.args = args
@@ -93,7 +98,7 @@ class Transformer(tf.keras.Model):
 
     def get_config(self):
         return {
-            "args":self.args,
+            "args": self.args,
         }
 
     def call(self, inputs, targets, training):
@@ -208,6 +213,7 @@ class Transformer(tf.keras.Model):
             logits = self.embedding_softmax_layer(decoder_outputs, mode="linear")
             logits = tf.squeeze(logits, axis=[1])
             return logits, cache
+
         return symbols_to_logits_fn
 
 
@@ -257,6 +263,7 @@ class EncoderStack(tf.keras.layers.Layer):
 
         return self.output_normalization(encoder_inputs)
 
+
 class DecoderStack(tf.keras.layers.Layer):
     def __init__(self, args):
         super(DecoderStack, self).__init__()
@@ -305,6 +312,7 @@ class DecoderStack(tf.keras.layers.Layer):
                         decoder_inputs, training=training)
 
         return self.output_normalization(decoder_inputs)
+
 
 if __name__ == "__main__":
     args = get_args()
