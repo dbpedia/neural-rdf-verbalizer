@@ -2,24 +2,34 @@
 
 ## Abstract : 
 
-This project aims to create a deep-learning based natural language generation framework that verbalizes 
-RDF triples. 
+This project aims to create a deep-learning-based natural language generation framework that verbalizes RDF triples. 
 
-An RDF triple set contains a triple set, each of the form **< subject | predicate | object >** , the model aims to take in a set of such triples and output the information in human-readable form. 
+An RDF triple set contains a triple set, each of the form **< subject | predicate | object>**, the model aims to take in a set of such triples and output the information in human-readable form.
+
+A high-level overview of the dataflow would be like this :
+
+![Image](https://raw.githubusercontent.com/DwaraknathT/GSoC-19/final/assets/rdf2nl.png)
+[Picture courtesy](https://blog.dbpedia.org/2019/08/08/rdf2nl-generating-texts-from-rdf-data)
+
 
 
 For ex : 
 **< Dwarak | birthplace | Chennai >** **< Dwarak | lives in | India >** 
 output: 
 **Dwarak was born in Chennai, and lives in India**
-The model must be capable of doing of in multiple languages. 
+The model must be capable of doing the same in multiple languages. 
 
 ## Model Architecture : 
-We use an attention based encoder-deocder architecture with **Graph Attention Networks** encoder and **Transformer** decoder with **Pure-RNN** model and **Pure-Transformer** model. 
+We use attention based encoder-decoder architecture with **Graph Attention Networks** encoder and **Transformer** decoder along with Pure-RNN model and Pure-Transformer model.
+
+The architecture of our model takes the following form. 
+![Architecture](https://raw.githubusercontent.com/DwaraknathT/GSoC-19/final/assets/architecture.jpg)
+[Picture courtesy](https://arxiv.org/pdf/1804.00823.pdf)
+
 The dataset in use is [**WebNLG** challenge's](http://webnlg.loria.fr/pages/challenge.html) dataset. 
 
 ## Intuition : 
-We justify the use of Graph Attention Networks by pointing out of the fact that in a graph, each node is related to it's first order neighbours. While generating the encoded representation, which is passed to the decoder to generat the probability distribution over vocabulary, we consider each node's individual features and it's neighbour's features and apply attention mechanism over them. The model must be able to culminate these features together and maintain the semantics of triple. By using Graph Networks we inject a sense of structure into the encoders, which is useful when we consider that RDF triples can be maintained and viewed as concepts of a Knowledge Graph. 
+We justify the use of Graph Attention Networks by pointing out of the fact that in a graph, each node is related to its first order neighbours. While generating the encoded representation, which is passed to the decoder to generate the probability distribution over target vocabulary, we consider each node's features and it's neighbour's features and applies attention mechanism over them. The model must be able to culminate these features together and maintain the semantics of triple. By using Graph Networks we inject a sense of structure into the encoders, which is useful when we consider that RDF triples can be maintained and viewed as concepts of a Knowledge Graph.  
 
 ## Usage : 
 
@@ -28,7 +38,7 @@ We justify the use of Graph Attention Networks by pointing out of the fact that 
 ```
         python preprocess.py --path "path_to_triples" --opt adj --train True
  ```
- - To start training with Graph Attention Network encoder and decoder. The preprocessed files are stored in data folder, use the path in the below code snippet. Please use the hyper-parameters as you see fit, and provide the necessary arguments.
+ - To start training with Graph Attention Network encoder and decoder. The preprocessed files are stored in the data folder, use the path in the below code snippet. Please use the hyper-parameters as you see fit, and provide the necessary arguments.
 ```	
    
    	       python train.py 	--src_path    "path_to_source.triples" 	\ 
@@ -52,7 +62,7 @@ We justify the use of Graph Attention Networks by pointing out of the fact that 
    	!git clone https://<github_access_token>@github.com/DwaraknathT/GSoC-19.git
 ```
 
-- You can get your Github access token in developer's settings. 
+- You can get your Github access token from GitHub developer's settings. 
 
 
 - To preprocess the files 
