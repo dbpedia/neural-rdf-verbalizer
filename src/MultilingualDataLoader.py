@@ -6,7 +6,7 @@ import os
 import sentencepiece as spm
 import tensorflow as tf
 
-from src.utils.MultilingualUtils import PreProcess
+from src.utils.PreprocessingUtils import PreProcess
 from src.utils.model_utils import PreProcessSentence, _tensorize, Padding as padding
 
 languages = ['eng', 'ger', 'rus']
@@ -77,7 +77,7 @@ def LoadMultlingualDataset(args):
         spm.SentencePieceTrainer.Train('--input=' + target_str + ',' + spl_sym + '  \
                                                 --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_tgt \
                                                 --vocab_size=' + str(args.vocab_size) + ' --character_coverage=1.0 '
-                                                '--model_type=' + args.sentencepiece_model + ' --hard_vocab_limit=false')
+                                                                                        '--model_type=' + args.sentencepiece_model + ' --hard_vocab_limit=false')
         sp = spm.SentencePieceProcessor()
         sp.load('vocabs/' + args.model + '/' + args.lang + '/train_tgt.model')
 
@@ -167,7 +167,8 @@ def ProcessMultilingualDataset(args, set=None):
                      dataset[lang + '_' + part + '_node1'],
                      dataset[lang + '_' + part + '_node2'],
                      dataset[lang + '_' + part + '_tgt']))
-                multilingual_dataset[lang + '_' + part + '_set'] = multilingual_dataset[lang + '_' + part + '_set'].shuffle(BUFFER_SIZE)
+                multilingual_dataset[lang + '_' + part + '_set'] = multilingual_dataset[
+                    lang + '_' + part + '_set'].shuffle(BUFFER_SIZE)
             else:
                 multilingual_dataset[lang + '_' + part + '_set'] = tf.data.Dataset.from_tensor_slices(
                     (dataset[lang + '_' + part + '_nodes'],
