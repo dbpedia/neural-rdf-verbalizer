@@ -1,3 +1,6 @@
 tensorflow-gpu==1.14.0
-mosestokenizer==1.0.0
 sentencepiece
+pickle
+tqdm 
+networkx 
+

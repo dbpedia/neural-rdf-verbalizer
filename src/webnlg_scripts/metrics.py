@@ -1,4 +1,6 @@
-import os, argparse, sys
+import argparse
+import os
+import sys
 
 
 def prepare_files_ter(inputdir, predsFile, partition):
@@ -9,7 +11,7 @@ def prepare_files_ter(inputdir, predsFile, partition):
     """
     references = []  # each element is a list of references
     pure_references = []
-    initialref = inputdir + partition +'-all-notdelex-reference0.lex'
+    initialref = inputdir + partition + '-all-notdelex-reference0.lex'
     # complete refs with references for all sents
     with open(initialref, 'r') as f:
         for i, line in enumerate(f):
@@ -21,11 +23,10 @@ def prepare_files_ter(inputdir, predsFile, partition):
         for ref in references:
             f.write(''.join(ref))
 
-
     files = [(inputdir, filename) for filename in os.listdir(inputdir)]
     for filepath in files:
-        if partition +'-all-notdelex-reference' in filepath[1] and 'reference0' not in filepath[1]:
-            with open(filepath[0]+filepath[1], 'r') as f:
+        if partition + '-all-notdelex-reference' in filepath[1] and 'reference0' not in filepath[1]:
+            with open(filepath[0] + filepath[1], 'r') as f:
                 for i, line in enumerate(f):
                     if line != '\n':
                         references[i].append(line.strip() + ' (id' + str(i) + ')\n')
@@ -36,11 +37,11 @@ def prepare_files_ter(inputdir, predsFile, partition):
             f.write(''.join(ref))
 
     # prepare generated hypotheses
-    #with open('relexicalised_predictions.txt', 'r') as f:
+    # with open('relexicalised_predictions.txt', 'r') as f:
     with open(predsFile, 'r') as f:
         geners = [line.strip() + ' (id' + str(i) + ')\n' for i, line in enumerate(f)]
-    #with open('relexicalised_predictions-ter.txt', 'w+') as f:
-    with open(predsFile.replace('.txt','-ter.txt'), 'w+') as f:
+    # with open('relexicalised_predictions-ter.txt', 'w+') as f:
+    with open(predsFile.replace('.txt', '-ter.txt'), 'w+') as f:
         f.write(''.join(geners))
 
     # data for meteor
@@ -57,7 +58,6 @@ def prepare_files_ter(inputdir, predsFile, partition):
 
 
 if __name__ == "__main__":
-
     parser = argparse.ArgumentParser(
         description=__doc__,
         formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -68,6 +68,6 @@ if __name__ == "__main__":
 
     args = parser.parse_args(sys.argv[1:])
 
-    #topdir = './'
-    #prepare_files_ter(topdir, args)
+    # topdir = './'
+    # prepare_files_ter(topdir, args)
     prepare_files_ter(args.td, args.pred, args.p)

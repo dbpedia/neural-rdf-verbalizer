@@ -138,8 +138,8 @@ if __name__ == '__main__':
                 spm.SentencePieceTrainer.Train('--input=' + args.train_tgt + ',' + args.eval_tgt + ' \
                                                 --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_vocab \
                                                 --vocab_size=' + str(
-                                                    args.vocab_size) + ' --character_coverage=1.0 '
-                                                '--model_type=' + args.sentencepiece_model +
+                    args.vocab_size) + ' --character_coverage=1.0 '
+                                       '--model_type=' + args.sentencepiece_model +
                                                ' --max_sentencepiece_length=' + str(args.max_seq_len))
                 sp = spm.SentencePieceProcessor()
                 sp.load('vocabs/' + args.model + '/' + args.lang + '/train_vocab.model')

@@ -137,6 +137,7 @@ if __name__ == "__main__":
 
             return rogue
 
+
         # Eval function
         def test_step():
             model.trainable = False

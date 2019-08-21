@@ -42,7 +42,7 @@ class Entry:
 
     def fill_originaltriple(self, xml_t):
         otripleset = Tripleset()
-        self.originaltripleset.append(otripleset)   # multiple originaltriplesets for one entry
+        self.originaltripleset.append(otripleset)  # multiple originaltriplesets for one entry
         otripleset.fill_tripleset(xml_t)
 
     def fill_modifiedtriple(self, xml_t):

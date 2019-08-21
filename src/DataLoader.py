@@ -2,12 +2,15 @@
 as tf.data files
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
-import tensorflow as tf
 
 import pickle
+
 import numpy as np
-from src.utils.model_utils import max_length, _tensorize, Padding as padding
 import sentencepiece as spm
+import tensorflow as tf
+
+from src.utils.model_utils import max_length, _tensorize, Padding as padding
+
 
 def LoadDataset(train_path, eval_path, test_path,
                 vocab_path, sentencepiece, num_examples=None):
@@ -32,10 +35,10 @@ def LoadDataset(train_path, eval_path, test_path,
                                                                      padding='post')
         target_tensor = [sp.encode_as_ids(w) for w in train_tgt]
         target_tensor = tf.keras.preprocessing.sequence.pad_sequences(target_tensor,
-                                                                     padding='post')
+                                                                      padding='post')
         eval_inp = [sp.encode_as_ids(w) for w in eval_inp]
         eval_inp = tf.keras.preprocessing.sequence.pad_sequences(eval_inp,
-                                                                     padding='post')
+                                                                 padding='post')
         test_inp = [sp.encode_as_ids(w) for w in test_set]
         test_inp = tf.keras.preprocessing.sequence.pad_sequences(test_inp,
                                                                  padding='post')
@@ -55,11 +58,12 @@ def LoadDataset(train_path, eval_path, test_path,
         return input_tensor, target_tensor, \
                eval_inp, eval_tgt, test_inp, vocab, max_length(target_tensor)
 
+
 def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
                    tgt_vocab, opt, sentencepiece, lang, num_examples=None):
     dataset = {}
     if opt == 'reif':
-        #load the train and eval datasets
+        # load the train and eval datasets
         with open(train_path, 'rb') as f:
             train_set = pickle.load(f)
         with open(eval_path, 'rb') as f:
@@ -67,7 +71,7 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
         with open(test_path, 'rb') as f:
             test_set = pickle.load(f)
 
-        #load vocab
+        # load vocab
         if sentencepiece == 'True':
             sp = spm.SentencePieceProcessor()
             sp.load(tgt_vocab)
@@ -106,17 +110,17 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
             target_vocab = src_vocab
 
         return (train_node_tensor, train_label_tensor, train_node1_tensor,
-                train_node2_tensor,train_tgt_tensor, eval_node_tensor, eval_label_tensor,
+                train_node2_tensor, train_tgt_tensor, eval_node_tensor, eval_label_tensor,
                 eval_node1_tensor, eval_node2_tensor, test_node_tensor, test_label_tensor,
                 test_node1_tensor, test_node2_tensor, src_vocab, target_vocab, max_length(train_tgt_tensor))
 
     else:
-        #load the train and eval datasets
+        # load the train and eval datasets
         with open(train_path, 'rb') as f:
             train_set = pickle.load(f)
         with open(eval_path, 'rb') as f:
             eval_set = pickle.load(f)
-        #load vocab
+        # load vocab
         with open(srv_vocab, 'rb') as f:
             src_vocab = pickle.load(f)
 
@@ -137,17 +141,18 @@ def LoadGatDataset(train_path, eval_path, test_path, srv_vocab,
         return (train_adj, train_node_tensor, train_role_tensor, train_edges_tensor, train_tgt_tensor, eval_adj,
                 eval_node_tensor, eval_role_tensor, eval_edges_tensor, src_vocab, max_length(train_tgt_tensor))
 
-def GetDataset(args):
 
+def GetDataset(args):
     input_tensor, target_tensor, \
     eval_tensor, eval_tgt, test_inp, lang, max_seq_len = LoadDataset(args.train_path, args.eval_path, args.test_path,
-                                                                 args.src_vocab, args.sentencepiece, args.num_examples)
+                                                                     args.src_vocab, args.sentencepiece,
+                                                                     args.num_examples)
 
     BUFFER_SIZE = len(input_tensor)
     BATCH_SIZE = args.batch_size
     steps_per_epoch = len(input_tensor) // BATCH_SIZE
 
-    if args.sentencepiece=='True':
+    if args.sentencepiece == 'True':
         vocab_size = lang.get_piece_size()
     else:
         vocab_size = len(lang.word_index) + 1
@@ -161,16 +166,18 @@ def GetDataset(args):
     dataset_size = target_tensor.shape[0]
 
     return (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-           vocab_size, lang, dataset_size, max_seq_len)
+            vocab_size, lang, dataset_size, max_seq_len)
+
 
 def GetGATDataset(args, set=None):
     if args.opt == 'reif':
         (train_nodes, train_labels, train_node1, train_node2, train_tgt_tensor,
          eval_nodes, eval_labels, eval_node1, eval_node2, test_nodes, test_labels,
-         test_node1, test_node2, src_vocab, tgt_vocab, max_length_targ) = LoadGatDataset(args.train_path, args.eval_path,
-                                                                args.test_path, args.src_vocab,
-                                                                args.tgt_vocab, args.opt,
-                                                                args.sentencepiece, args.lang)
+         test_node1, test_node2, src_vocab, tgt_vocab, max_length_targ) = LoadGatDataset(args.train_path,
+                                                                                         args.eval_path,
+                                                                                         args.test_path, args.src_vocab,
+                                                                                         args.tgt_vocab, args.opt,
+                                                                                         args.sentencepiece, args.lang)
 
         node_tensor = padding(train_nodes, 16)
         label_tensor = padding(train_labels, 16)
@@ -206,30 +213,32 @@ def GetGATDataset(args, set=None):
         dataset_size = train_tgt_tensor.shape[0]
 
         dataset = tf.data.Dataset.from_tensor_slices((node_tensor, label_tensor,
-                                                        node1_tensor, node2_tensor, train_tgt_tensor)).shuffle(BUFFER_SIZE)
+                                                      node1_tensor, node2_tensor, train_tgt_tensor)).shuffle(
+            BUFFER_SIZE)
         dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
         eval_set = tf.data.Dataset.from_tensor_slices((eval_nodes, eval_labels,
-                                                    eval_node1, eval_node2))
+                                                       eval_node1, eval_node2))
         eval_set = eval_set.batch(BATCH_SIZE, drop_remainder=True)
 
         test_set = tf.data.Dataset.from_tensor_slices((test_nodes, test_labels,
                                                        test_node1, test_node2))
         test_set = test_set.batch(BATCH_SIZE, drop_remainder=True)
 
-        if set==None:
+        if set == None:
             return (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
                     src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab,
                     max_length_targ, dataset_size)
-        elif set=='test':
+        elif set == 'test':
             return (test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
                     src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab)
 
     else:
         (train_adj, train_node_tensor, train_role_tensor,
-        train_edges_tensor, train_tgt_tensor, eval_adj, eval_node_tensor,
-        eval_role_tensor, eval_edges_tensor, src_vocab, max_length) = LoadGatDataset(args.train_path, args.eval_path,
-                                                                                     args.vocab_path, args.opt, args.lang)
+         train_edges_tensor, train_tgt_tensor, eval_adj, eval_node_tensor,
+         eval_role_tensor, eval_edges_tensor, src_vocab, max_length) = LoadGatDataset(args.train_path, args.eval_path,
+                                                                                      args.vocab_path, args.opt,
+                                                                                      args.lang)
 
         node_tensor = padding(train_node_tensor, 16)
         role_tensor = padding(train_role_tensor, 16)
@@ -250,15 +259,15 @@ def GetGATDataset(args, set=None):
         src_vocab_size = len(src_vocab.word_index) + 1
         dataset_size = train_tgt_tensor.shape[0]
 
-        #convert adj list to numpy array
+        # convert adj list to numpy array
         train_adj = np.array(train_adj)
 
         dataset = tf.data.Dataset.from_tensor_slices((train_adj, node_tensor,
-                                                        role_tensor, edge_tensor, train_tgt_tensor)).shuffle(BUFFER_SIZE)
+                                                      role_tensor, edge_tensor, train_tgt_tensor)).shuffle(BUFFER_SIZE)
         dataset = dataset.batch(BATCH_SIZE, drop_remainder=True)
 
         eval_set = tf.data.Dataset.from_tensor_slices((eval_adj, eval_node_tensor,
-                                                        eval_role_tensor, eval_edge_tensor))
+                                                       eval_role_tensor, eval_edge_tensor))
         eval_set = eval_set.batch(BATCH_SIZE, drop_remainder=True)
 
         return (dataset, eval_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,

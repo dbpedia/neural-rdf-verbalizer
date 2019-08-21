@@ -14,7 +14,7 @@ from src.trainers.TransformerTrainer import _train_transformer
 if __name__ == "__main__":
     args = get_args()
     global step
-    
+
     if args.enc_type == 'gat' and args.dec_type == 'rnn':
         _train_gat_rnn(args)
 

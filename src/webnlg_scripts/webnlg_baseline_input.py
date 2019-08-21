@@ -1,14 +1,15 @@
+import getopt
+import json
 import os
 import random
 import re
-import json
 import sys
-import getopt
-from operator import itemgetter
 from collections import defaultdict
+
 from benchmark_reader import Benchmark
 
-#TODO: I comment out the corpus shuffling here, BUT need to refactor better for gcn
+
+# TODO: I comment out the corpus shuffling here, BUT need to refactor better for gcn
 
 def select_files(topdir, category='', size=(1, 8)):
     """
@@ -18,10 +19,10 @@ def select_files(topdir, category='', size=(1, 8)):
     :param size: specify size to retrieve texts of specific size (default: retrieve all)
     :return: list of tuples (full path, filename)
     """
-    if size==0:
+    if size == 0:
         finaldirs = [topdir]
     else:
-        finaldirs = [topdir+'/'+str(item)+'triples' for item in range(size[0], size[1])]
+        finaldirs = [topdir + '/' + str(item) + 'triples' for item in range(size[0], size[1])]
 
     finalfiles = []
     for item in finaldirs:
@@ -31,7 +32,7 @@ def select_files(topdir, category='', size=(1, 8)):
         for item in finaldirs:
             finalfiles += [(item, filename) for filename in os.listdir(item) if category in filename]
     return finalfiles
-    #return sorted(finalfiles,key=itemgetter(1)) TODO: uncoment this after getting BLEU scores
+    # return sorted(finalfiles,key=itemgetter(1)) TODO: uncoment this after getting BLEU scores
 
 
 def delexicalisation(out_src, out_trg, category, properties_objects):
@@ -44,7 +45,7 @@ def delexicalisation(out_src, out_trg, category, properties_objects):
     :return: delexicalised strings of the source and target; dictionary containing mappings of the replacements made
     """
 
-    with open(os.path.dirname(os.path.realpath(sys.argv[0]))+'/delex_dict.json') as data_file:
+    with open(os.path.dirname(os.path.realpath(sys.argv[0])) + '/delex_dict.json') as data_file:
         data = json.load(data_file)
     # replace all occurrences of Alan_Bean to ASTRONAUT in input
     delex_subj = data[category]
@@ -56,7 +57,7 @@ def delexicalisation(out_src, out_trg, category, properties_objects):
         clean_subj = ' '.join(re.split('(\W)', subject.replace('_', ' ')))
         if clean_subj in out_src:
             delex_src = out_src.replace(clean_subj + ' ', category.upper() + ' ')
-            replcments[category.upper()] = ' '.join(clean_subj.split())   # remove redundant spaces
+            replcments[category.upper()] = ' '.join(clean_subj.split())  # remove redundant spaces
         if clean_subj in out_trg:
             delex_trg = out_trg.replace(clean_subj + ' ', category.upper() + ' ')
             replcments[category.upper()] = ' '.join(clean_subj.split())
@@ -66,7 +67,7 @@ def delexicalisation(out_src, out_trg, category, properties_objects):
         obj_clean = ' '.join(re.split('(\W)', obj.replace('_', ' ').replace('"', '')))
         if obj_clean in delex_src:
             delex_src = delex_src.replace(obj_clean + ' ', pro.upper() + ' ')
-            replcments[pro.upper()] = ' '.join(obj_clean.split())   # remove redundant spaces
+            replcments[pro.upper()] = ' '.join(obj_clean.split())  # remove redundant spaces
         if obj_clean in delex_trg:
             delex_trg = delex_trg.replace(obj_clean + ' ', pro.upper() + ' ')
             replcments[pro.upper()] = ' '.join(obj_clean.split())
@@ -77,6 +78,7 @@ def delexicalisation(out_src, out_trg, category, properties_objects):
     # is converted to
     # BUILDING location ISPARTOF City ISPARTOF City isPartOf ISPARTOF
     return delex_src, delex_trg, replcments
+
 
 def create_source_target(b, options, dataset, delex=True):
     """
@@ -97,15 +99,15 @@ def create_source_target(b, options, dataset, delex=True):
         tripleSep = ""
         properties_objects = {}
         for triple in tripleset.triples:
-            triples_str += tripleSep+ triple.s + ' | ' + triple.p + ' | ' + triple.o + ' | '
+            triples_str += tripleSep + triple.s + ' | ' + triple.p + ' | ' + triple.o + ' | '
             triples.append(triples_str)
             tripleSep = "<TSP>"
             properties_objects[triple.p] = triple.o
-        #random.shuffle(triples)
+        # random.shuffle(triples)
 
-        #print(triples)
+        # print(triples)
         triples.reverse()
-        #print(triples)
+        # print(triples)
 
         triples = ' '.join(triples)
         triples = triples.replace('_', ' ').replace('"', '')
@@ -187,21 +189,21 @@ def relexicalise(predfile, rplc_list, fileid, part='dev', lowercased=True):
         relex_predictions = predictions
 
     # with open('relexicalised_predictions_full.txt', 'w+') as f:
-        # f.write(''.join(relex_predictions))
+    # f.write(''.join(relex_predictions))
 
     # create a mapping between not delex triples and relexicalised sents
-    with open(part+'-webnlg-all-notdelex.triple', 'r') as f:
+    with open(part + '-webnlg-all-notdelex.triple', 'r') as f:
         dev_sources = [line.strip() for line in f]
     src_gens = {}
     for src, gen in zip(dev_sources, relex_predictions):
         src_gens[src] = gen  # need only one lex, because they are the same for a given triple
 
     # write generated sents to a file in the same order as triples are written in the source file
-    with open(part+'-all-notdelex-source.triple', 'r') as f:
+    with open(part + '-all-notdelex-source.triple', 'r') as f:
         triples = [line.strip() for line in f]
-    outfileName =   'relexicalised_predictions.txt'
+    outfileName = 'relexicalised_predictions.txt'
     if fileid:
-        outfileName = 'relexicalised_predictions'+str(fileid)+'.txt'
+        outfileName = 'relexicalised_predictions' + str(fileid) + '.txt'
     with open(outfileName, 'w+', encoding='utf8') as f:
         for triple in triples:
             relexoutput = src_gens[triple]
@@ -210,7 +212,6 @@ def relexicalise(predfile, rplc_list, fileid, part='dev', lowercased=True):
             f.write(relexoutput)
 
     return relex_predictions
-
 
 
 def input_files(path, filepath=None, relex=False):
@@ -236,7 +237,7 @@ def input_files(path, filepath=None, relex=False):
                 rplc_list = create_source_target(b, option, part, delex=False)
                 print('Total of {} files processed in {} with {} mode'.format(len(files), part, option))
             if part == 'dev' and option == 'all-delex':
-                rplc_list_dev_delex =rplc_list
+                rplc_list_dev_delex = rplc_list
 
     if relex and rplc_list_dev_delex:
         relexicalise(filepath, rplc_list_dev_delex)
@@ -245,9 +246,9 @@ def input_files(path, filepath=None, relex=False):
 
 def main(argv):
     usage = 'usage:\npython3 webnlg_baseline_input.py -i <data-directory> [-s]' \
-           '\ndata-directory is the directory where you unzipped the archive with data'
+            '\ndata-directory is the directory where you unzipped the archive with data'
     try:
-        opts, args = getopt.getopt(argv, 'i:s', ['inputdir=','shuffle'])
+        opts, args = getopt.getopt(argv, 'i:s', ['inputdir=', 'shuffle'])
     except getopt.GetoptError:
         print(usage)
         sys.exit(2)

@@ -7,7 +7,6 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import os
 import pickle
 
-import networkx as nx
 import sentencepiece as spm
 import tensorflow as tf
 

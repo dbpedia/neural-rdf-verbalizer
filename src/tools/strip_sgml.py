@@ -1,5 +1,5 @@
-import sys
 import re
+import sys
 
 
 def main():
@@ -11,8 +11,7 @@ def main():
         if len(text) == 0:
             continue
         print(text, file=fout)
-                
+
 
 if __name__ == "__main__":
     main()
-
