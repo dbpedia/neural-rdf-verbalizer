@@ -17,7 +17,7 @@ For ex :
 **< Dwarak | birthplace | Chennai >** **< Dwarak | lives in | India >**
 output:
 **Dwarak was born in Chennai, and lives in India**
-The model must be capable of doing the same in multiple languages.
+The model must be capable of doing the same in multiple languages, hence the name multilingual RDF verbalizer.
 
 ## Model Architecture :
 We use attention based encoder-decoder architecture with **Graph Attention Networks** encoder and **Transformer** decoder along with Pure-RNN model and Pure-Transformer model.
@@ -29,7 +29,7 @@ The architecture of our model takes the following form.
 The dataset in use is [**WebNLG** challenge's](http://webnlg.loria.fr/pages/challenge.html) dataset.
 
 ## Intuition :
-We justify the use of Graph Attention Networks by pointing out of the fact that in a graph, each node is related to its first order neighbours. While generating the encoded representation, which is passed to the decoder to generate the probability distribution over target vocabulary, we consider each node's features and it's neighbour's features and applies attention mechanism over them. The model must be able to culminate these features together and maintain the semantics of triple. By using Graph Networks we inject a sense of structure into the encoders, which is useful when we consider that RDF triples can be maintained and viewed as concepts of a Knowledge Graph.
+We justify the use of Graph Attention Networks by pointing out the fact that in a graph, each node is related to its first order neighbours. While generating the encoded representation, which is passed to the decoder to generate the probability distribution over target vocabulary, we consider each node's features and it's neighbour's features and apply mutual and self attention mechanism over them. The model must be able to culminate these features together and maintain the semantics of triple. By using Graph Networks we inject the sense of structure into the encoders, which is useful when we consider that RDF triples can be maintained and viewed as concepts of Knowledge Graphs.
 
 ## Usage :
 
