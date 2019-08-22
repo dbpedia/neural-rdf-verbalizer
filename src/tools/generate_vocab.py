@@ -13,15 +13,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#pylint: disable=invalid-name
+# pylint: disable=invalid-name
 """
 Generate vocabulary for a tokenized text file.
 """
 
-import sys
 import argparse
 import collections
 import logging
+import sys
 
 parser = argparse.ArgumentParser(
     description="Generate vocabulary for a tokenized text file.")
@@ -61,22 +61,22 @@ args = parser.parse_args()
 cnt = collections.Counter()
 
 for line in args.infile:
-  if args.downcase:
-    line = line.lower()
-  if args.delimiter == "":
-    tokens = list(line.strip())
-  else:
-    tokens = line.strip().split(args.delimiter)
-  tokens = [_ for _ in tokens if len(_) > 0]
-  cnt.update(tokens)
+    if args.downcase:
+        line = line.lower()
+    if args.delimiter == "":
+        tokens = list(line.strip())
+    else:
+        tokens = line.strip().split(args.delimiter)
+    tokens = [_ for _ in tokens if len(_) > 0]
+    cnt.update(tokens)
 
 logging.info("Found %d unique tokens in the vocabulary.", len(cnt))
 
 # Filter tokens below the frequency threshold
 if args.min_frequency > 0:
-  filtered_tokens = [(w, c) for w, c in cnt.most_common()
-                     if c > args.min_frequency]
-  cnt = collections.Counter(dict(filtered_tokens))
+    filtered_tokens = [(w, c) for w, c in cnt.most_common()
+                       if c > args.min_frequency]
+    cnt = collections.Counter(dict(filtered_tokens))
 
 logging.info("Found %d unique tokens with frequency > %d.",
              len(cnt), args.min_frequency)
@@ -88,7 +88,7 @@ word_with_counts = sorted(
 
 # Take only max-vocab
 if args.max_vocab_size is not None:
-  word_with_counts = word_with_counts[:args.max_vocab_size]
+    word_with_counts = word_with_counts[:args.max_vocab_size]
 
 for word, count in word_with_counts:
-  print("{}\t{}".format(word, count))
+    print("{}\t{}".format(word, count))

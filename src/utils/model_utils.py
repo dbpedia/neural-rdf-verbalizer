@@ -17,7 +17,7 @@ _NEG_INF = -1e9
 
 
 def _set_up_dirs(args):
-    if args.use_colab == 'True':
+    if args.use_colab is not None :
         EvalResultsFile = 'eval_results.txt'
         TestResults = 'test_results.txt'
         OUTPUT_DIR = 'ckpts/' + args.lang

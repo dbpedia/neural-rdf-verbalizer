@@ -1,19 +1,18 @@
-
-from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import division
+from __future__ import print_function
+
+import time
 
 import tensorflow as tf
-import time
-import os
 from tqdm import tqdm
-import pickle
 
 from src.DataLoader import GetDataset
 from src.models import RNNModel
 from src.utils.model_utils import CustomSchedule, _set_up_dirs
 
-def _train_rnn (args):
+
+def _train_rnn(args):
     # set up dirs
     (OUTPUT_DIR, EvalResultsFile,
      TestResults, log_file, log_dir) = _set_up_dirs(args)
