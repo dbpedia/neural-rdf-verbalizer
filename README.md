@@ -36,22 +36,30 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
  - To preprocess the dataset and save graph nodes, edges and adjacency matrices.
 
 ```
-        python preprocess.py --path "path_to_triples" --opt adj --train True
+        python preprocess.py --train_src 'data/processed_data/eng/train_src' \
+				--train_tgt 'data/processed_data/eng/train_tgt' \
+				--eval_src 'data/processed_data/eng/eval_src' \
+				--eval_tgt 'data/processed_data/eng/eval_tgt' \
+				--test_src 'data/processed_data/eng/test_src' \
+				--spl_sym 'data/processed_data/special_symbols' \
+				--model gat --opt reif --lang eng --use_colab True \
+				--vocab_size 16000  --max_seq_len 100 --sentencepiece_model 'bpe' --sentencepiece False
  ```
  - To start training with Graph Attention Network encoder and decoder. The preprocessed files are stored in the data folder, use the path in the below code snippet. Please use the hyper-parameters as you see fit, and provide the necessary arguments.
 ```
 
-   	       python train.py 	--src_path    "path_to_source.triples" 	\
-				 --tgt_path    "path_to_target.lex"	 	\
-				 --graph_adj   "path_to_adjacency_matrices" 	\
-				 --graph_nodes "path_to_graph_nodes"      	\
-				 --graph_edges "path_to_graph_edges"	 	\
-				 --batch_size --enc_type --dec_type 	 	\
-				 --emb_dim --enc_units --hidden_size 	 	\
-				 --use_bias --num_layers --num_heads 	 	\
-				 --use_edges --steps --eval_steps		\
-				 --learning_rate --use_colab			\
-				 --checkpoint "path_to_checkpoint_dir"
+   	       python3 train_single.py --train_path 'data/processed_graphs/eng/gat/reif_train' \
+					--eval_path 'data/processed_graphs/eng/gat/reif_eval' \
+					--test_path 'data/processed_graphs/eng/gat/reif_test' \
+					--src_vocab 'vocabs/gat/eng/reif_src_vocab' \
+					--tgt_vocab 'vocabs/gat/eng/train_vocab.model' \
+					--batch_size 1 --enc_type gat --dec_type transformer --model gat --vocab_size 16000 \
+					--emb_dim 16 --hidden_size 16  --filter_size 16 --use_bias True --beam_size 5 \
+					--beam_alpha 0.1  --enc_layers 1 --dec_layers 1 --num_heads 1 --use_edges False \
+					--steps 10000 --eval_steps 1000 --checkpoint 1000 --alpha 0.2 --dropout 0.2 \
+					--reg_scale 0.0 --decay True --decay_steps 5000 --lang eng --use_colab True --opt reif \
+					--eval 'data/processed_data/eng/eval_src' --eval_ref 'data/processed_data/eng/eval_tgt'
+
 
 ```
 - If you want to train an RNN or Transformer model, Input of the model is .triple and Target is .lex file.
@@ -84,7 +92,7 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
 				   --eval_path '/content/gdrive/My Drive/data/processed_graphs/eng/gat/reif_eval' \
 				   --test_path '/content/gdrive/My Drive/data/processed_graphs/eng/gat/reif_test' \
 				--src_vocab 'vocabs/gat/eng/reif_src_vocab' \
-				--tgt_vocab 'vocabs/gat/eng/train_tgt.model' \
+				--tgt_vocab 'vocabs/gat/eng/train_vocab.model' \
 				--batch_size 64 --enc_type gat --dec_type transformer \
 				--model gat --vocab_size 16000 \
 				--emb_dim 256 --hidden_size 256 \
