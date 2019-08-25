@@ -73,8 +73,9 @@ def LoadMultlingualDataset(args):
             src_vocab.fit_on_texts(dataset[lang + '_eval_tgt'])
 
     if args.sentencepiece == 'True':
+        print('Tragers : '+ target_str)
         os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-        spm.SentencePieceTrainer.Train('--input=' + target_str + ',' + spl_sym + '  \
+        spm.SentencePieceTrainer.Train('--input=' + target_str + spl_sym + '  \
                                                 --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_tgt \
                                                 --vocab_size=' + str(args.vocab_size) + ' --character_coverage=1.0 '
                                                                                         '--model_type=' + args.sentencepiece_model + ' --hard_vocab_limit=false')
@@ -191,8 +192,13 @@ def ProcessMultilingualDataset(args, set=None):
                     multilingual_dataset['ger_' + opt + '_set'].concatenate(
                         multilingual_dataset['rus_' + opt + '_set']))
 
-        src_vocab_size = len(src_vocab.word_index) + 1
-        tgt_vocab_size = len(src_vocab.word_index) + 1
+        if args.sentencepiece == 'False':
+            src_vocab_size = len(src_vocab.word_index) + 1
+            tgt_vocab_size = args.vocab_size
+        else:
+            src_vocab_size = len(src_vocab.word_index) + 1
+            tgt_vocab_size = tgt_vocab.get_piece_size()
+            
         final_dataset['train_set'] = final_dataset['train_set'].shuffle(MULTI_BUFFER_SIZE)
         final_dataset['train_set'] = final_dataset['train_set'].batch(BATCH_SIZE,
                                                                       drop_remainder=True)
@@ -205,6 +211,8 @@ def ProcessMultilingualDataset(args, set=None):
         steps_per_epoch = int(MULTI_BUFFER_SIZE // BATCH_SIZE)
 
         print('BUFFER SIZE ' + str(MULTI_BUFFER_SIZE))
+        print("Dataset shapes : ")
+        print(tf.data.get_output_shapes(final_dataset['train_set']))
 
         return (final_dataset, src_vocab, src_vocab_size, tgt_vocab,
                 tgt_vocab_size, MULTI_BUFFER_SIZE, steps_per_epoch, MaxSeqSize)

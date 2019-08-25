@@ -17,13 +17,14 @@ _NEG_INF = -1e9
 
 
 def _set_up_dirs(args):
-    if args.use_colab is not None :
+    if args.use_colab is None :
         EvalResultsFile = 'eval_results.txt'
         TestResults = 'test_results.txt'
         OUTPUT_DIR = 'ckpts/' + args.lang
         log_dir = 'data/logs'
         log_file = log_dir + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.log'
-        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+        if not os.path.isdir(OUTPUT_DIR):
+            os.makedirs(OUTPUT_DIR)
     else:
         from google.colab import drive
         drive.mount('/content/gdrive')
@@ -32,7 +33,8 @@ def _set_up_dirs(args):
         TestResults = OUTPUT_DIR + '/test_results.txt'
         log_dir = OUTPUT_DIR + '/logs'
         log_file = log_dir + args.lang + '_' + args.enc_type + '_' + str(args.emb_dim) + '.txt'
-        if not os.path.isdir(OUTPUT_DIR): os.mkdir(OUTPUT_DIR)
+        if not os.path.isdir(OUTPUT_DIR):
+            os.makedirs(OUTPUT_DIR)
 
     return OUTPUT_DIR, EvalResultsFile, TestResults, log_file, log_dir
 
