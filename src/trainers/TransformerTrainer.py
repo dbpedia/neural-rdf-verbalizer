@@ -37,8 +37,8 @@ def _train_transformer(args):
     steps = args.steps
 
   # Save model parameters for future use
-  if os.path.isfile(log_dir + '/' + args.lang + '_model_params'):
-    with open(log_dir + '/' + args.lang + '_model_params', 'rb') as fp:
+  if os.path.isfile(log_dir + '/' + args.lang + '_' + args.model + '_params'):
+    with open(log_dir + '/' + args.lang + '_' + args.model + '_params', 'rb') as fp:
       PARAMS = pickle.load(fp)
       print('Loaded Parameters..')
   else:
@@ -105,13 +105,22 @@ def _train_transformer(args):
     for (batch, (inp, tar)) in tqdm(enumerate(dev_set)):
       predictions = model(inp, targets=None, training=model.trainable)
       pred = [(predictions['outputs'].numpy().tolist())]
-      for i in pred:
-        sentences = vocab.sequences_to_texts(i)
-        sentence = [j.partition("start")[2].partition("end")[0] for j in sentences]
-        for w in sentence:
-          eval_results.write((w + '\n'))
+
+      if args.sentencepiece == 'True':
+        for i in range(len(pred[0])):
+          sentence = (vocab.DecodeIds(list(pred[0][i])))
+          sentence = sentence.partition("<start>")[2].partition("<end>")[0]
+          eval_results.write(sentence + '\n')
           ref_target.append(reference.readline())
-          results.append(w)
+          results.append(sentence)
+      else:
+        for i in pred:
+          sentences = vocab.sequences_to_texts(i)
+          sentence = [j.partition("start")[2].partition("end")[0] for j in sentences]
+          for w in sentence:
+            eval_results.write((w + '\n'))
+            ref_target.append(reference.readline())
+            results.append(w)
 
     rogue = (rouge_n(results, ref_target))
     score = 0
@@ -124,17 +133,26 @@ def _train_transformer(args):
     model.trainable = False
     results = []
     ref_target = []
-    eval_results = open(EvalResultsFile, 'w+')
-    for (batch, (inp, tar)) in tqdm(enumerate(test_set)):
+    eval_results = open(TestResults, 'w+')
+    for (batch, (inp)) in tqdm(enumerate(test_set)):
       predictions = model(inp, targets=None, training=model.trainable)
       pred = [(predictions['outputs'].numpy().tolist())]
-      for i in pred:
-        sentences = vocab.sequences_to_texts(i)
-        sentence = [j.partition("start")[2].partition("end")[0] for j in sentences]
-        for w in sentence:
-          eval_results.write((w + '\n'))
+
+      if args.sentencepiece == 'True':
+        for i in range(len(pred[0])):
+          sentence = (vocab.DecodeIds(list(pred[0][i])))
+          sentence = sentence.partition("<start>")[2].partition("<end>")[0]
+          eval_results.write(sentence + '\n')
           ref_target.append(reference.readline())
-          results.append(w)
+          results.append(sentence)
+      else:
+        for i in pred:
+          sentences = vocab.sequences_to_texts(i)
+          sentence = [j.partition("start")[2].partition("end")[0] for j in sentences]
+          for w in sentence:
+            eval_results.write((w + '\n'))
+            ref_target.append(reference.readline())
+            results.append(w)
 
     rogue = (rouge_n(results, ref_target))
     score = 0
@@ -152,7 +170,7 @@ def _train_transformer(args):
       PARAMS['step'] += 1
 
       if args.decay is not None:
-        optimizer._lr = learning_rate(tf.cast(batch, dtype=tf.float32))
+        optimizer._lr = learning_rate(tf.cast(PARAMS['step'], dtype=tf.float32))
 
       batch_loss, acc, ppl = train_step(inp, tgt)
       if batch % 100 == 0:
@@ -177,7 +195,7 @@ def _train_transformer(args):
       if batch % args.checkpoint == 0:
         print("Saving checkpoint \n")
         ckpt_save_path = ckpt_manager.save()
-        with open(log_dir + '/' + args.lang + '_model_params', 'wb+') as fp:
+        with open(log_dir + '/' + args.lang + '_' + args.model + '_params', 'wb+') as fp:
           pickle.dump(PARAMS, fp)
 
     else:

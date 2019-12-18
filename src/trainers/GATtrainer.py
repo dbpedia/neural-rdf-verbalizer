@@ -13,107 +13,10 @@ import tensorflow as tf
 from tqdm import tqdm
 
 from src.DataLoader import GetGATDataset
-from src.models.GraphAttentionModel import TransGAT, GATModel
+from src.models.GraphAttentionModel import TransGAT
 from src.utils.metrics import LossLayer
 from src.utils.model_utils import CustomSchedule, _set_up_dirs
 from src.utils.rogue import rouge_n
-
-
-def _train_gat_rnn(args):
-  # set up dirs
-  (OUTPUT_DIR, EvalResultsFile,
-   TestResults, log_file, log_dir) = _set_up_dirs(args)
-
-  OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
-
-  (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
-   src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GetGATDataset(args)
-
-  model = GATModel(args, src_vocab_size, tgt_vocab_size, tgt_vocab)
-
-  step = 0
-  if args.decay is not None:
-    learning_rate = CustomSchedule(args.emb_dim, warmup_steps=args.decay_steps)
-    optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate, beta1=0.9, beta2=0.98,
-                                       epsilon=1e-9)
-  else:
-    optimizer = tf.train.AdamOptimizer(beta1=0.9, beta2=0.98,
-                                       epsilon=1e-9)
-
-  loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
-  ckpt = tf.train.Checkpoint(
-    model=model,
-    optimizer=optimizer
-  )
-  train_loss = tf.keras.metrics.Mean(name='train_loss')
-  train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(
-    name='train_accuracy')
-
-  ckpt_manager = tf.train.CheckpointManager(ckpt, OUTPUT_DIR, max_to_keep=5)
-  if ckpt_manager.latest_checkpoint:
-    ckpt.restore(ckpt_manager.latest_checkpoint)
-    print('Latest checkpoint restored!!')
-
-  if args.epochs is not None:
-    steps = args.epochs * steps_per_epoch
-  else:
-    steps = args.steps
-
-  def train_step(adj, nodes, roles, targ):
-    with tf.GradientTape() as tape:
-      predictions, dec_hidden, loss = model(adj, nodes, roles, targ)
-      reg_loss = tf.losses.get_regularization_loss()
-      loss += reg_loss
-    batch_loss = (loss / int(targ.shape[1]))
-    variables = model.trainable_variables
-    gradients = tape.gradient(loss, variables)
-
-    optimizer.apply_gradients(zip(gradients, variables))
-
-    return batch_loss
-
-  # Eval function
-  def eval_step(adj, nodes, roles, targ):
-    model.trainable = False
-    predictions, dec_hidden, loss = model(adj, nodes, roles, targ)
-    eval_loss = (loss / int(targ.shape[1]))
-    model.trainable = True
-    train_loss(eval_loss)
-    eval_loss = train_loss.result()
-
-    return eval_loss
-
-  total_loss = 0
-  for epoch in range(args.epochs):
-    train_loss.reset_states()
-    train_accuracy.reset_states()
-    print('Learning Rate' + str(optimizer._lr) + ' Step ' + str(step))
-    with tqdm(total=(38668 // args.batch_size)) as pbar:
-      for (batch, (adj, nodes, edges, roles, targ)) in tqdm(enumerate(dataset)):
-        start = time.time()
-        step += 1
-        if args.decay is not None:
-          optimizer._lr = learning_rate(tf.cast(step, dtype=tf.float32))
-
-        if batch % args.eval_steps == 0:
-          eval_loss = eval_step(adj, nodes, roles, targ)
-          print('\n' + '---------------------------------------------------------------------' + '\n')
-          print('Epoch {} Batch {} Eval Loss {:.4f} '.format(epoch, batch,
-                                                             eval_loss.numpy()))
-          print('\n' + '---------------------------------------------------------------------' + '\n')
-        else:
-          batch_loss = train_step(adj, nodes, roles, targ)
-          print('Epoch {} Batch {} Batch Loss {:.4f} '.format(epoch, batch,
-                                                              batch_loss.numpy()))
-          # log the training results
-          tf.io.write_file(log_file, "Epoch {}".format(epoch))
-          tf.io.write_file(log_file, "Train Loss: {}".format(batch_loss))
-
-        if batch % args.checkpoint == 0:
-          ckpt_save_path = ckpt_manager.save()
-          print("Saving checkpoint \n")
-        print('Time {} \n'.format(time.time() - start))
-        pbar.update(1)
 
 
 def _train_gat_trans(args):
@@ -121,14 +24,14 @@ def _train_gat_trans(args):
   (OUTPUT_DIR, EvalResultsFile,
    TestResults, log_file, log_dir) = _set_up_dirs(args)
 
+  # Load the eval src and tgt files for evaluation
+  reference = open(args.eval_ref, 'r')
+  eval_file = open(args.eval, 'r')
+
   OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
 
   (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
    src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GetGATDataset(args)
-
-  # Load the eval src and tgt files for evaluation
-  reference = open(args.eval_ref, 'r')
-  eval_file = open(args.eval, 'r')
 
   model = TransGAT(args, src_vocab_size, src_vocab,
                    tgt_vocab_size, max_length_targ, tgt_vocab)
@@ -142,8 +45,8 @@ def _train_gat_trans(args):
                                        epsilon=1e-9)
 
   # Save model parameters for future use
-  if os.path.isfile(log_dir + '/' + args.lang + '_model_params'):
-    with open(log_dir + '/' + args.lang + '_model_params', 'rb') as fp:
+  if os.path.isfile('{}/{}_{}_params'.format(log_dir, args.lang, args.model)):
+    with open('{}/{}_{}_params'.format(log_dir, args.lang, args.model), 'rb') as fp:
       PARAMS = pickle.load(fp)
       print('Loaded Parameters..')
   else:
@@ -204,7 +107,7 @@ def _train_gat_trans(args):
     else:
       dev_set = eval_set.take(steps)
 
-    for (batch, (nodes, labels, node1, node2)) in tqdm(enumerate(dev_set)):
+    for (batch, (nodes, labels, node1, node2, targets)) in tqdm(enumerate(dev_set)):
       predictions = model(nodes, labels, node1,
                           node2, targ=None, mask=None)
       pred = [(predictions['outputs'].numpy().tolist())]
@@ -226,11 +129,10 @@ def _train_gat_trans(args):
             results.append(w)
 
     rogue = (rouge_n(results, ref_target))
-    score = 0
     eval_results.close()
     model.trainable = True
 
-    return rogue, score
+    return rogue
 
   # Eval function
   def test_step():
@@ -292,19 +194,19 @@ def _train_gat_trans(args):
                        f" Loss: {train_loss.result()} Perplexity: {ppl.numpy()} \n")
 
       if batch % args.eval_steps == 0:
-        rogue, score = eval_step(5)
+        metric_dict = eval_step(5)
         print('\n' + '---------------------------------------------------------------------' + '\n')
-        print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))
+        print('ROGUE {:.4f}'.format(metric_dict))
         print('\n' + '---------------------------------------------------------------------' + '\n')
 
       if batch % args.checkpoint == 0:
         print("Saving checkpoint \n")
         ckpt_save_path = ckpt_manager.save()
-        with open(log_dir + '/' + args.lang + '_model_params', 'wb+') as fp:
+        with open(log_dir + '/' + args.lang + '_' + args.model + '_params', 'wb+') as fp:
           pickle.dump(PARAMS, fp)
-
     else:
       break
+
   rogue, score = test_step()
   print('\n' + '---------------------------------------------------------------------' + '\n')
   print('Rogue {:.4f} BLEU {:.4f}'.format(rogue, score))

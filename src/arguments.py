@@ -29,6 +29,8 @@ parser.add_argument(
 # Colab options
 parser.add_argument(
   '--use_colab', type=bool, required=False, help='Use Google Colab or not')
+parser.add_argument(
+  '--debug_mode', type=str, required=True, help='Use debug mode or not')
 
 # preprocess arguments
 parser.add_argument(

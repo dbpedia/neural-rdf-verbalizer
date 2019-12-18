@@ -18,3 +18,5 @@ venv
 data
 assets
 vocabs
+ckpts
+eval_results.txt
