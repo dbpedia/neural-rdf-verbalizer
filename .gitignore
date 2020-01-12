@@ -19,4 +19,5 @@ data
 assets
 vocabs
 ckpts
+commands.sh
 eval_results.txt

@@ -20,6 +20,7 @@ import pickle
 
 import sentencepiece as spm
 import tensorflow as tf
+from loguru import logger
 
 from src.utils.PreprocessingUtils import PreProcess
 from src.utils.model_utils import PreProcessSentence
@@ -81,49 +82,48 @@ if __name__ == '__main__':
     vocab.fit_on_texts(eval_node2)
 
     if args.sentencepiece == 'True':
-      spm.SentencePieceTrainer.Train('--input=' + args.train_tgt + ',' + args.eval_tgt + ' \
-                                                --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_vocab \
-                                                --vocab_size=' + str(
-        args.vocab_size) + ' --character_coverage=1.0 '
-                           '--model_type=' + args.sentencepiece_model +
-                                     ' --max_sentencepiece_length=' + str(args.max_seq_len))
+      spm.SentencePieceTrainer.Train('--input={},{} --model_prefix=vocabs/{}/{}/train_vocab'
+                                     ' --vocab_size={} --character_coverage=1.0 --model_type={}'.format(
+        args.train_tgt, args.eval_tgt, args.model, args.lang,
+        str(args.vocab_size), args.sentencepiece_model))
       sp = spm.SentencePieceProcessor()
-      sp.load('vocabs/' + args.model + '/' + args.lang + '/train_vocab.model')
-      print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
-
+      sp.load('vocabs/{}/{}/train_vocab.model'.format(args.model, args.lang))
+      logger.info('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
       target_vocab = sp
     else:
       vocab.fit_on_texts(train_tgt)
       vocab.fit_on_texts(eval_tgt)
 
-    print('Vocab Size : {}\n'.format(len(vocab.word_index)))
+    logger.info('Vocab Size : {}\n'.format(len(vocab.word_index)))
 
     train_input = list(zip(train_nodes, train_labels, train_node1, train_node2))
     eval_input = list(zip(eval_nodes, eval_labels, eval_node1, eval_node2))
     test_input = list(zip(test_nodes, test_labels, test_node1, test_node2))
     train_set = list(zip(train_input, train_tgt))
     eval_set = list(zip(eval_input, eval_tgt))
-    print('Train and eval dataset size : {} {} '.format(len(train_set), len(eval_set)))
+    logger.info('Train and eval dataset size : {} {} '.format(len(train_set), len(eval_set)))
 
     if args.use_colab is not None:
       from google.colab import drive
 
       drive.mount('/content/gdrive', force_remount=True)
-      OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/' + args.lang + '/' + args.model
+      OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/{}/{}'.format(args.lang,
+                                                                                 args.model)
       if not os.path.isdir(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
       # save the vocab file
-      os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-      with open(('vocabs/gat/' + args.lang + '/'+ '_src_vocab'), 'wb+') as fp:
+      os.makedirs(('vocabs/gat/{}'.format(args.lang)), exist_ok=True)
+      with open(('vocabs/gat/{}/src_vocab'.format(args.lang)), 'wb+') as fp:
         pickle.dump(vocab, fp)
 
     else:
-      OUTPUT_DIR = 'data/processed_graphs/' + args.lang + '/' + args.model
+      OUTPUT_DIR = 'data/processed_graphs/{}/{}'.format(args.lang,
+                                                        args.model)
       if not os.path.isdir(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
       # save the vocab file
-      os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-      with open(('vocabs/gat/' + args.lang + '/' + '_src_vocab'), 'wb+') as fp:
+      os.makedirs(('vocabs/gat/{}'.format(args.lang)), exist_ok=True)
+      with open(('vocabs/gat/{}/src_vocab'.format(args.lang)), 'wb+') as fp:
         pickle.dump(vocab, fp)
 
     print('Vocab file saved !\n')
@@ -139,7 +139,7 @@ if __name__ == '__main__':
 
   else:
     # Train the vocabs
-    os.makedirs(('vocabs/' + args.model + '/' + args.lang), exist_ok=True)  # ready the directories
+    os.makedirs(('vocabs/{}/{}'.format(args.model, args.lang)), exist_ok=True)  # ready the directories
 
     print('Building the dataset...')
 
@@ -155,16 +155,15 @@ if __name__ == '__main__':
     test_src = [PreProcessSentence(w, args.sentencepiece, args.lang) for w in test_src]
 
     if args.sentencepiece == 'True':
-      spm.SentencePieceTrainer.Train('--input=' + args.train_tgt + ',' + args.eval_tgt + ',' +
-                                     args.train_src + ',' + args.eval_src + ' \
-                                            --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_vocab \
-                                            --vocab_size=' + str(args.vocab_size) + ' --character_coverage=1.0 '
-                                                                                    '--model_type=' + args.sentencepiece_model +
-                                     ' --max_sentencepiece_length=' + str(args.max_seq_len))
+      spm.SentencePieceTrainer.Train('--input={},{},{},{} --model_prefix=vocabs/{}/{}/train_vocab'
+                                     ' --vocab_size={} --character_coverage=1.0 --model_type={}'.format(
+        args.train_tgt, args.eval_tgt, args.train_src, args.eval_src,
+        args.model, args.lang, str(args.vocab_size), args.sentencepiece_model
+      ))
 
       sp = spm.SentencePieceProcessor()
-      sp.load('vocabs/' + args.model + '/' + args.lang + '/train_vocab.model')
-      print('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
+      sp.load('vocabs/{}/{}/train_vocab.model'.format(args.model, args.lang))
+      logger.info('Sentencepiece vocab size {}'.format(sp.get_piece_size()))
     else:
       vocab = tf.keras.preprocessing.text.Tokenizer(filters='')
       vocab.fit_on_texts(train_src)
@@ -176,21 +175,22 @@ if __name__ == '__main__':
         from google.colab import drive
 
         drive.mount('/content/gdrive', force_remount=True)
-        OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/' + args.lang + '/' + args.model
+        OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/{}/{}'.format(args.lang,
+                                                                                   args.model)
         if not os.path.isdir(OUTPUT_DIR):
           os.makedirs(OUTPUT_DIR)
         # save the vocab file
-        os.makedirs(('vocabs/' + args.model + '/' + args.lang), exist_ok=True)
-        with open(('vocabs/' + args.model + '/' + args.lang + '/' + 'vocab'), 'wb+') as fp:
+        os.makedirs(('vocabs/{}/{}'.format(args.model, args.lang)), exist_ok=True)
+        with open(('vocabs/{}/{}/vocab'.format(args.model, args.lang)), 'wb+') as fp:
           pickle.dump(vocab, fp)
 
       else:
-        OUTPUT_DIR = 'data/processed_graphs/' + args.lang + '/' + args.model
+        OUTPUT_DIR = 'data/processed_graphs/{}/{}'.format(args.lang, args.model)
         if not os.path.isdir(OUTPUT_DIR):
           os.makedirs(OUTPUT_DIR)
         # save the vocab file
-        os.makedirs(('vocabs/' + args.model + '/' + args.lang), exist_ok=True)
-        with open(('vocabs/' + args.model + '/' + args.lang + '/' + 'vocab'), 'wb+') as fp:
+        os.makedirs(('vocabs/{}/{}'.format(args.model, args.lang)), exist_ok=True)
+        with open(('vocabs/{}/{}/vocab'.format(args.model, args.lang)), 'wb+') as fp:
           pickle.dump(vocab, fp)
 
       print('Vocab file saved !\n')
@@ -202,12 +202,13 @@ if __name__ == '__main__':
       from google.colab import drive
 
       drive.mount('/content/gdrive', force_remount=True)
-      OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/' + args.lang + '/' + args.model
+      OUTPUT_DIR = '/content/gdrive/My Drive/data/processed_graphs/{}/{}'.format(args.lang,
+                                                                                 args.model)
       if not os.path.isdir(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
 
     else:
-      OUTPUT_DIR = 'data/processed_graphs/' + args.lang + '/' + args.model
+      OUTPUT_DIR = 'data/processed_graphs/{}/{}'.format(args.lang, args.model)
       if not os.path.isdir(OUTPUT_DIR):
         os.makedirs(OUTPUT_DIR)
     with open(OUTPUT_DIR + '/' + 'train', 'wb') as fp:
