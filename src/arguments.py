@@ -7,125 +7,127 @@ parser = argparse.ArgumentParser(description="Main Arguments")
 
 # model paramteres
 parser.add_argument(
-    '--enc_type', default='rnn', type=str, required=True,
-    help='Type of encoder Transformer | gat | rnn')
+  '--enc_type', default='rnn', type=str, required=True,
+  help='Type of encoder Transformer | gat | rnn')
 parser.add_argument(
-    '--dec_type', default='rnn', type=str, required=True,
-    help='Type of decoder Transformer | rnn')
+  '--dec_type', default='rnn', type=str, required=True,
+  help='Type of decoder Transformer | rnn')
 parser.add_argument(
-    '--model', default='monolingual', type=str, required=True,
-    help='Model type GAT | Transformer | RNN ')
+  '--model', default='monolingual', type=str, required=True,
+  help='Model type GAT | Transformer | RNN ')
 parser.add_argument(
-    '--opt', type=str, required=False, help='The mode in which GAT model is operated -> \
+  '--opt', type=str, required=False, help='The mode in which GAT model is operated -> \
                                              Use Roles method or Reification (roles, reif)')
 parser.add_argument(
-    '--train', type=bool, required=False, help='In training mode or eval mode')
+  '--train', type=bool, required=False, help='In training mode or eval mode')
 parser.add_argument(
-    '--distillation', type=str, required=False, help='To use Knowledge Distilaltion in the'
-                                                     'multilingual model')
+  '--distillation', type=str, required=False, help='To use Knowledge Distilaltion in the'
+                                                   'multilingual model')
 parser.add_argument(
-    '--temp', type=float, required=False, help='Temperature of the logits in Knowledge Distillation ')
+  '--temp', type=float, required=False, help='Temperature of the logits in Knowledge Distillation ')
 
 # Colab options
 parser.add_argument(
-    '--use_colab', type=bool, required=False, help='Use Google Colab or not')
+  '--use_colab', type=bool, required=False, help='Use Google Colab or not')
+parser.add_argument(
+  '--debug_mode', type=str, required=True, help='Use debug mode or not')
 
 # preprocess arguments
 parser.add_argument(
-    '--train_path', type=str, required=True, help='Path to train dataset')
+  '--train_path', type=str, required=True, help='Path to train dataset')
 parser.add_argument(
-    '--eval_path', type=str, required=True, help='Path to eval dataset')
+  '--eval_path', type=str, required=True, help='Path to eval dataset')
 parser.add_argument(
-    '--test_path', type=str, required=True, help='Path to test dataset')
+  '--test_path', type=str, required=True, help='Path to test dataset')
 parser.add_argument(
-    '--src_vocab', type=str, required=True, help='Path to Vocab of the dataset')
+  '--src_vocab', type=str, required=True, help='Path to Vocab of the dataset')
 parser.add_argument(
-    '--tgt_vocab', type=str, required=True, help='Path to Vocab of the dataset')
+  '--tgt_vocab', type=str, required=True, help='Path to Vocab of the dataset')
 parser.add_argument(
-    '--lang', type=str, required=True, help='Lang of source and target files')
+  '--lang', type=str, required=True, help='Lang of source and target files')
 parser.add_argument(
-    '--eval', type=str, required=False, help='Path to Lex file of the Eval set')
+  '--eval', type=str, required=False, help='Path to Lex file of the Eval set')
 parser.add_argument(
-    '--eval_ref', type=str, required=False, help='Path to Lex file of the Eval set')
+  '--eval_ref', type=str, required=False, help='Path to Lex file of the Eval set')
 parser.add_argument(
-    '--num_eval_lines', type=int, required=False, help='Number of sentences to be used to eval')
+  '--num_eval_lines', type=int, required=False, help='Number of sentences to be used to eval')
 parser.add_argument(
-    '--sentencepiece', type=str, required=False, help='Use sentencepiece or not')
+  '--sentencepiece', type=str, required=False, help='Use sentencepiece or not')
 parser.add_argument(
-    '--sentencepiece_model', type=str, required=False, help='Type of sentencepiece model to use')
+  '--sentencepiece_model', type=str, required=False, help='Type of sentencepiece model to use')
 
 # training parameters
 parser.add_argument(
-    '--steps', type=int, required=False, help='Number of training steps')
+  '--steps', type=int, required=False, help='Number of training steps')
 parser.add_argument(
-    '--eval_steps', type=int, required=False, help='Evaluate every x steps')
+  '--eval_steps', type=int, required=False, help='Evaluate every x steps')
 parser.add_argument(
-    '--checkpoint', type=int, required=False, help='Save checkpoint every these steps')
+  '--checkpoint', type=int, required=False, help='Save checkpoint every these steps')
 parser.add_argument(
-    '--checkpoint_dir', type=str, required=False, help='Path to checkpoints')
+  '--checkpoint_dir', type=str, required=False, help='Path to checkpoints')
 
 parser.add_argument(
-    '--epochs', type=int, default=None,
-    required=False, help='Number of epochs (deprecated)')
+  '--epochs', type=int, default=None,
+  required=False, help='Number of epochs (deprecated)')
 parser.add_argument(
-    '--batch_size', type=int, required=True, help='Batch size')
+  '--batch_size', type=int, required=True, help='Batch size')
 parser.add_argument(
-    '--vocab_size', type=int, required=True, help='Vocab Size for the multilingual model')
+  '--vocab_size', type=int, required=True, help='Vocab Size for the multilingual model')
 parser.add_argument(
-    '--emb_dim', type=int, required=True, help='Embedding dimension')
+  '--emb_dim', type=int, required=True, help='Embedding dimension')
 parser.add_argument(
-    '--hidden_size', type=int, required=True, help='Size of hidden layer output')
+  '--hidden_size', type=int, required=True, help='Size of hidden layer output')
 parser.add_argument(
-    '--filter_size', type=int, required=True, help='Size of FFN Filters ')
+  '--filter_size', type=int, required=True, help='Size of FFN Filters ')
 parser.add_argument(
-    '--enc_layers', type=int, required=True, help='Number of layers in encoder')
+  '--enc_layers', type=int, required=True, help='Number of layers in encoder')
 parser.add_argument(
-    '--dec_layers', type=int, required=True, help='Number of layers in decoder')
+  '--dec_layers', type=int, required=True, help='Number of layers in decoder')
 parser.add_argument(
-    '--num_heads', type=int, required=True, help='Number of heads in self-attention')
+  '--num_heads', type=int, required=True, help='Number of heads in self-attention')
 parser.add_argument(
-    '--use_bias', type=bool, required=False, help='Add bias or not')
+  '--use_bias', type=bool, required=False, help='Add bias or not')
 parser.add_argument(
-    '--use_edges', type=bool, required=False, help='Add edges to embeddings')
+  '--use_edges', type=bool, required=False, help='Add edges to embeddings')
 parser.add_argument(
-    '--dropout', type=float, required=False, help='Dropout rate')
+  '--dropout', type=float, required=False, help='Dropout rate')
 parser.add_argument(
-    '--reg_scale', type=float, required=False, help='L2 Regularizer scale')
+  '--reg_scale', type=float, required=False, help='L2 Regularizer scale')
 parser.add_argument(
-    '--enc_units', type=int, required=False, help='Number of encoder units')
+  '--enc_units', type=int, required=False, help='Number of encoder units')
 parser.add_argument(
-    '--num_examples', default=None, type=int, required=False,
-    help='Number of examples to be processed')
+  '--num_examples', default=None, type=int, required=False,
+  help='Number of examples to be processed')
 parser.add_argument(
-    '--tensorboard', type=bool, required=False, help='Use tensorboard or not')
+  '--tensorboard', type=bool, required=False, help='Use tensorboard or not')
 parser.add_argument(
-    '--colab', type=bool, required=False, help='Use Google-Colab')
+  '--colab', type=bool, required=False, help='Use Google-Colab')
 
 # hyper-parameters
 parser.add_argument(
-    '--optimizer', type=str, required=False, help='Optimizer that will be used')
+  '--optimizer', type=str, required=False, help='Optimizer that will be used')
 parser.add_argument(
-    '--alpha', type=float, required=False, default=0.2, help='Alpha value for LeakyRELU')
+  '--alpha', type=float, required=False, default=0.2, help='Alpha value for LeakyRELU')
 parser.add_argument(
-    '--beam_size', type=int, required=False, default=0.2, help='Beam search size ')
+  '--beam_size', type=int, required=False, default=0.2, help='Beam search size ')
 parser.add_argument(
-    '--beam_alpha', type=float, required=False, default=0.2, help='Alpha value for Beam search')
+  '--beam_alpha', type=float, required=False, default=0.2, help='Alpha value for Beam search')
 parser.add_argument(
-    '--loss', type=str, required=False, help='Loss function to calculate loss')
+  '--loss', type=str, required=False, help='Loss function to calculate loss')
 parser.add_argument(
-    '--learning_rate', type=float, required=False, help='Learning rate')
+  '--learning_rate', type=float, required=False, help='Learning rate')
 parser.add_argument(
-    '--decay', type=bool, required=False, help='Use learning rate decay')
+  '--decay', type=bool, required=False, help='Use learning rate decay')
 parser.add_argument(
-    '--decay_rate', type=float, required=False, help='Decay rate ')
+  '--decay_rate', type=float, required=False, help='Decay rate ')
 parser.add_argument(
-    '--decay_steps', type=int, required=False, help='Decay every this steps ')
+  '--decay_steps', type=int, required=False, help='Decay every this steps ')
 parser.add_argument(
-    '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
+  '--scheduler_step', type=int, required=False, help='Step to start learning rate scheduler')
 
 
 # inference parameters
 
 def get_args():
-    args = parser.parse_args()
-    return args
+  args = parser.parse_args()
+  return args
