@@ -25,7 +25,7 @@ def _train_transformer(args):
   (OUTPUT_DIR, EvalResultsFile,
    TestResults, log_file, log_dir) = _set_up_dirs(args)
 
-  OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
+  OUTPUT_DIR += '/{}_{}'.format(args.enc_type, args.dec_type)
 
   dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, \
   steps_per_epoch, src_vocab_size, vocab, dataset_size, max_seq_len = GetDataset(args)
@@ -37,8 +37,8 @@ def _train_transformer(args):
     steps = args.steps
 
   # Save model parameters for future use
-  if os.path.isfile(log_dir + '/' + args.lang + '_' + args.model + '_params'):
-    with open(log_dir + '/' + args.lang + '_' + args.model + '_params', 'rb') as fp:
+  if os.path.isfile('{}/{}_{}_params'.format(log_dir, args.lang, args.model)):
+    with open('{}/{}_{}_params'.format(log_dir, args.lang, args.model), 'rb') as fp:
       PARAMS = pickle.load(fp)
       print('Loaded Parameters..')
   else:

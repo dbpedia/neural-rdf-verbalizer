@@ -17,7 +17,7 @@ def _train_rnn(args):
   (OUTPUT_DIR, EvalResultsFile,
    TestResults, log_file, log_dir) = _set_up_dirs(args)
 
-  OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
+  OUTPUT_DIR += '/{}_{}'.format(args.enc_type, args.dec_type)
 
   dataset, BUFFER_SIZE, BATCH_SIZE, \
   steps_per_epoch, vocab_inp_size, vocab_tgt_size, target_lang = GetDataset(args)
