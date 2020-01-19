@@ -28,7 +28,7 @@ def _train_gat_trans(args):
   reference = open(args.eval_ref, 'r')
   eval_file = open(args.eval, 'r')
 
-  OUTPUT_DIR += '/' + args.enc_type + '_' + args.dec_type
+  OUTPUT_DIR += '/{}_{}'.format(args.enc_type, args.dec_type)
 
   (dataset, eval_set, test_set, BUFFER_SIZE, BATCH_SIZE, steps_per_epoch,
    src_vocab_size, src_vocab, tgt_vocab_size, tgt_vocab, max_length_targ, dataset_size) = GetGATDataset(args)

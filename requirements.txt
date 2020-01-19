@@ -1,6 +1,6 @@
 tensorflow-gpu==1.15.0
-sentencepiece
+sentencepiece==0.1.85
 pickle
-tqdm 
-networkx 
+tqdm==4.41.0
+networkx==2.4
 
