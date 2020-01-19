@@ -1,4 +1,5 @@
 ﻿# Multilingual RDF verbalizer - GSoC/2019
+ ### Author - [Dwaraknath Gnaneshwar](https://github.com/DwaraknathT)
 
 ## Abstract :
 
@@ -42,8 +43,8 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
 				--eval_tgt 'data/processed_data/eng/eval_tgt' \
 				--test_src 'data/processed_data/eng/test_src' \
 				--spl_sym 'data/processed_data/special_symbols' \
-				--model gat --opt reif --lang eng --use_colab True \
-				--vocab_size 16000  --max_seq_len 100 --sentencepiece_model 'bpe' --sentencepiece False
+				--model gat --lang eng --use_colab True \
+				--vocab_size 16000 --sentencepiece_model 'bpe' --sentencepiece True
  ```
  - To start training with Graph Attention Network encoder and decoder. The preprocessed files are stored in the data folder, use the path in the below code snippet. Please use the hyper-parameters as you see fit, and provide the necessary arguments.
 ```
@@ -53,15 +54,16 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
 					--test_path 'data/processed_graphs/eng/gat/reif_test' \
 					--src_vocab 'vocabs/gat/eng/reif_src_vocab' \
 					--tgt_vocab 'vocabs/gat/eng/train_vocab.model' \
-					--batch_size 1 --enc_type gat --dec_type transformer --model gat --vocab_size 16000 \
-					--emb_dim 16 --hidden_size 16  --filter_size 16 --use_bias True --beam_size 5 \
-					--beam_alpha 0.1  --enc_layers 1 --dec_layers 1 --num_heads 1 --use_edges False \
+					--batch_size 1 --enc_type gat --dec_type transformer \
+					--model gat --vocab_size 16000 --emb_dim 16 \
+					--filter_size 16 --use_bias True --beam_size 5 --hidden_size 16 \
+					--beam_alpha 0.1  --enc_layers 1 --dec_layers 1 --num_heads 1 \
 					--steps 10000 --eval_steps 1000 --checkpoint 1000 --alpha 0.2 --dropout 0.2 \
-					--reg_scale 0.0 --decay True --decay_steps 5000 --lang eng --use_colab True --opt reif \
+					--reg_scale 0.0 --decay True --decay_steps 5000 --lang eng --use_colab True \
 					--eval 'data/processed_data/eng/eval_src' --eval_ref 'data/processed_data/eng/eval_tgt'
 
 
-```
+```Dwaraknath
 - If you want to train an RNN or Transformer model, Input of the model is .triple and Target is .lex file.
 
 ## Use Colab
@@ -81,8 +83,8 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
 	--eval_tgt 'GSoC-19/data/processed_data/eng/eval_tgt' \
 	--test_src 'GSoC-19/data/processed_data/eng/test_src' \
 	--spl_sym 'GSoC-19/data/processed_data/special_symbols' \
-	--model gat --opt reif --lang eng --use_colab True \
-	--vocab_size 16000  --max_seq_len 100 --sentencepiece_model 'bpe' --sentencepiece False
+	--model gat --lang eng --use_colab True \
+	--vocab_size 16000 --sentencepiece_model 'bpe' --sentencepiece True
 ```
 - Replace the 'eng' in each parameter with 'ger', 'rus' to process the German and Russian corpus. You can also set sentencepiece to True, and change sentenpiece to 'unigram', 'word'. The vocab size is usually set to 32000, but can be set to anything.
 
@@ -96,13 +98,13 @@ We justify the use of Graph Attention Networks by pointing out the fact that in 
 				--batch_size 64 --enc_type gat --dec_type transformer \
 				--model gat --vocab_size 16000 \
 				--emb_dim 256 --hidden_size 256 \
-				--filter_size 512 --use_bias True --beam_size 5 \
+				--filter_size 512 --beam_size 5 \
 				--beam_alpha 0.1  --enc_layers 6 --dec_layers 6 \
 				--num_heads 8 --sentencepiece True \
 				--steps 150 --eval_steps 500 --checkpoint 1000 \
 				--alpha 0.2 --dropout 0.2 \
 				--reg_scale 0.0 --learning_rate 0.0001 \
-				--lang eng --use_colab True --opt reif \
+				--lang eng --use_colab True \
 				--eval 'GSoC-19/data/processed_data/eng/eval_src' \
 				--eval_ref 'GSoC-19/data/processed_data/eng/eval_tgt'
 ```
