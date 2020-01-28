@@ -74,13 +74,13 @@ def LoadMultlingualDataset(args):
 
   if args.sentencepiece == 'True':
     print('Tragers : ' + target_str)
-    os.makedirs(('vocabs/gat/' + args.lang), exist_ok=True)
-    spm.SentencePieceTrainer.Train('--input=' + target_str + spl_sym + '  \
-                                                --model_prefix=vocabs/' + args.model + '/' + args.lang + '/train_tgt \
-                                                --vocab_size=' + str(args.vocab_size) + ' --character_coverage=1.0 '
-                                                                                        '--model_type=' + args.sentencepiece_model + ' --hard_vocab_limit=false')
+    os.makedirs(('vocabs/{}/{}'.format(args.model, args.lang)), exist_ok=True)
+    spm.SentencePieceTrainer.Train('--input={} --model_prefix=vocabs/{}/{}/train_vocab'
+                                   ' --vocab_size={} --character_coverage=1.0 --model_type={}'.format(
+      (target_str+spl_sym), args.model, args.lang,
+      str(args.vocab_size), args.sentencepiece_model))
     sp = spm.SentencePieceProcessor()
-    sp.load('vocabs/' + args.model + '/' + args.lang + '/train_tgt.model')
+    sp.load('vocabs/' + args.model + '/' + args.lang + '/train_vocab.model')
 
   if args.sentencepiece == 'True':
     return dataset, src_vocab, sp
@@ -212,7 +212,6 @@ def ProcessMultilingualDataset(args, set=None):
 
     print('BUFFER SIZE ' + str(MULTI_BUFFER_SIZE))
     print("Dataset shapes : ")
-    print(tf.data.get_output_shapes(final_dataset['train_set']))
 
     return (final_dataset, src_vocab, src_vocab_size, tgt_vocab,
             tgt_vocab_size, MULTI_BUFFER_SIZE, steps_per_epoch, MaxSeqSize)
@@ -243,4 +242,4 @@ def ProcessMultilingualDataset(args, set=None):
             multilingual_dataset['rus_' + opt + '_set']))
 
     return (multilingual_dataset, src_vocab, src_vocab_size, tgt_vocab,
-            tgt_vocab_size, steps_per_epoch, MaxSeqSize)
+            tgt_vocab_size, MULTI_BUFFER_SIZE, steps_per_epoch, MaxSeqSize)
