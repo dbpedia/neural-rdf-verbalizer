@@ -9,9 +9,9 @@ python preprocess.py \
   --vocab_size 16000 --sentencepiece_model 'bpe'
 
 python train_single.py \
-  --train_path 'data/processed_graphs/eng/gat/_train' \
-  --eval_path 'data/processed_graphs/eng/gat/_eval' \
-  --test_path 'data/processed_graphs/eng/gat/_test' \
+  --train_path 'data/processed_graphs/eng/gat/train' \
+  --eval_path 'data/processed_graphs/eng/gat/eval' \
+  --test_path 'data/processed_graphs/eng/gat/test' \
   --src_vocab 'vocabs/gat/eng/src_vocab' \
   --tgt_vocab 'vocabs/gat/eng/train_vocab.model' \
   --batch_size 1 --enc_type gat --dec_type transformer --model gat --vocab_size 16000 \
