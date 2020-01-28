@@ -129,11 +129,11 @@ if __name__ == '__main__':
     print('Vocab file saved !\n')
     print('Preparing the Graph Network datasets...')
 
-    with open(OUTPUT_DIR + '/' + '_train', 'wb') as fp:
+    with open(OUTPUT_DIR + '/' + 'train', 'wb') as fp:
       pickle.dump(train_set, fp)
-    with open(OUTPUT_DIR + '/' + '_eval', 'wb') as fp:
+    with open(OUTPUT_DIR + '/' + 'eval', 'wb') as fp:
       pickle.dump(eval_set, fp)
-    with open(OUTPUT_DIR + '/' + '_test', 'wb') as fp:
+    with open(OUTPUT_DIR + '/' + 'test', 'wb') as fp:
       pickle.dump(test_input, fp)
     print('Dumped the train, eval and test datasets.')
 
